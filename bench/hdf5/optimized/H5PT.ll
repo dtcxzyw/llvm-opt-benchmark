@@ -706,7 +706,7 @@ H5PT_set_index.exit:                              ; preds = %10, %6, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PTget_index(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5PTget_index(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @H5PT_ptable_id_type, align 4
   %4 = tail call ptr @H5Iobject_verify(i64 noundef %0, i32 noundef %3) #6
   %5 = icmp eq ptr %4, null
@@ -728,7 +728,7 @@ H5PT_get_index.exit:                              ; preds = %7, %6, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PTget_num_packets(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5PTget_num_packets(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @H5PT_ptable_id_type, align 4
   %4 = tail call ptr @H5Iobject_verify(i64 noundef %0, i32 noundef %3) #6
   %5 = icmp eq ptr %4, null

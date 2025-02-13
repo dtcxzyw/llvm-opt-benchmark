@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [26 x i8] c"USE_ZEND_ALLOC_HUGE_PAGES\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %256
@@ -1145,7 +1145,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %72, %34, %32, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_zend_mm_free(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @_zend_mm_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 2097151
   %5 = icmp eq i64 %4, 0
@@ -2349,7 +2349,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %108, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @_zend_mm_block_size(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i64 @_zend_mm_block_size(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %16, label %4
@@ -6309,7 +6309,7 @@ define void @_efree_huge(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 2097151
   %.not = icmp eq i64 %4, 0

@@ -533,7 +533,7 @@ define hidden noundef i64 @_ZN11MetaspaceGC17capacity_until_GCEv() local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = load volatile i64, ptr @_ZN11MetaspaceGC18_capacity_until_GCE, align 8
   %6 = add i64 %5, %0
   %7 = icmp ult i64 %6, %5

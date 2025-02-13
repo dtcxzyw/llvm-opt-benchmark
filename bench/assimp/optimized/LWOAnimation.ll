@@ -985,7 +985,7 @@ return:                                           ; preds = %if.end67, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolver15DoInterpolationEN9__gnu_cxx17__normal_iteratorIPKNS0_3KeyESt6vectorIS4_SaIS4_EEEEPNS0_8EnvelopeEdRf(ptr nonnull readnone align 8 captures(none) %this, ptr readonly captures(address) %cur.coerce, ptr noundef readonly captures(none) %envl, double noundef %time, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %fill) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp3LWO12AnimResolver15DoInterpolationEN9__gnu_cxx17__normal_iteratorIPKNS0_3KeyESt6vectorIS4_SaIS4_EEEEPNS0_8EnvelopeEdRf(ptr nonnull readnone align 8 captures(none) %this, ptr readonly %cur.coerce, ptr noundef readonly captures(none) %envl, double noundef %time, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %fill) local_unnamed_addr #6 align 2 {
 entry:
   %keys = getelementptr inbounds nuw i8, ptr %envl, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %envl, i64 24

@@ -5350,7 +5350,7 @@ terminate.lpad:                                   ; preds = %lpad20
 declare void @_Z19log_Z3_tactic_applyP11_Z3_contextP10_Z3_tacticP8_Z3_goal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13_tactic_applyP11_Z3_contextP10_Z3_tacticP8_Z3_goal10params_ref(ptr noundef %c, ptr noundef readonly captures(address_is_null) %t, ptr noundef readonly captures(address_is_null) %g, ptr noundef nonnull %p) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL13_tactic_applyP11_Z3_contextP10_Z3_tacticP8_Z3_goal10params_ref(ptr noundef %c, ptr noundef readonly %t, ptr noundef readonly %g, ptr noundef nonnull %p) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %new_goal = alloca %class.ref.73, align 8
   %ref.tmp = alloca %class.ref.73, align 8

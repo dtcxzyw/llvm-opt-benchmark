@@ -1637,7 +1637,7 @@ define dso_local noundef range(i32 -2, 1) i32 @i915_gem_sw_finish_ioctl(ptr noun
 declare dso_local void @i915_gem_object_flush_if_display(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_runtime_suspend(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_runtime_suspend(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

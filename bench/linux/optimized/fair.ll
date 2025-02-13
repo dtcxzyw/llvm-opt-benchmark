@@ -862,7 +862,7 @@ define internal fastcc void @reweight_entity(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @set_task_rq_fair(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 16 {
+define dso_local void @set_task_rq_fair(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load i64, ptr %4, align 64
   %6 = icmp ne i64 %5, 0
@@ -1039,7 +1039,7 @@ define dso_local range(i64 0, 1025) i64 @cpu_util_cfs_boost(i32 noundef %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pick_next_task_fair(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #1 align 16 {
+define dso_local ptr @pick_next_task_fair(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = icmp eq ptr %2, null
@@ -3568,7 +3568,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__sched_group_set_shares(p
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @sched_group_set_idle(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sched_group_set_idle(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, @root_task_group
   %5 = icmp ugt i64 %1, 1
@@ -5241,7 +5241,7 @@ define internal noundef zeroext i1 @yield_to_task_fair(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @check_preempt_wakeup_fair(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 %2) #1 align 16 {
+define internal void @check_preempt_wakeup_fair(ptr noundef %0, ptr noundef readonly %1, i32 %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %5 = load ptr, ptr %4, align 32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128

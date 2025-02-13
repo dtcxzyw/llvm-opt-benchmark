@@ -902,7 +902,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6b2Body13ShouldCollideEPKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef readonly captures(address) %other) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK6b2Body13ShouldCollideEPKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef readonly %other) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.not = icmp eq i32 %0, 2

@@ -508,7 +508,7 @@ define void @copy_encryption_verifier(ptr noundef writeonly captures(none) initi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #2 {
+define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #2 {
   %7 = alloca %struct.ole2_header_tag, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8

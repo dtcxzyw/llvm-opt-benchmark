@@ -1596,7 +1596,7 @@ return:                                           ; preds = %if.then5.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @monitor_parse_command(ptr noundef %hmp_mon, ptr noundef %cmdp_start, ptr noundef nonnull captures(none) %cmdp, ptr noundef readonly captures(ret: address, provenance) %table) unnamed_addr #0 {
+define internal fastcc ptr @monitor_parse_command(ptr noundef %hmp_mon, ptr noundef %cmdp_start, ptr noundef nonnull captures(none) %cmdp, ptr noundef readonly %table) unnamed_addr #0 {
 entry:
   %cmdname = alloca [256 x i8], align 16
   %0 = load ptr, ptr %cmdp, align 8

@@ -250,7 +250,7 @@ define dso_local noundef ptr @decl_new_with_type(ptr noundef %0, i64 %1, i32 nou
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @decl_safe_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @decl_safe_name(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -719,7 +719,7 @@ define dso_local i32 @unaryop_from_token(i32 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @ast_is_not_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @ast_is_not_empty(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr @ast_arena, align 8
   br label %tailrecurse
 
@@ -754,7 +754,7 @@ tailrecurse:                                      ; preds = %9, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 42) i32 @attribute_by_name(ptr noundef readnone captures(address) %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 42) i32 @attribute_by_name(ptr noundef readnone %0) local_unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %1, %6
@@ -1075,7 +1075,7 @@ define dso_local zeroext i1 @decl_needs_prefix(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @decl_find_enum_constant(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 {
+define dso_local noundef ptr @decl_find_enum_constant(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1110,7 +1110,7 @@ define dso_local noundef ptr @decl_find_enum_constant(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #8 {
+define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %8, %2

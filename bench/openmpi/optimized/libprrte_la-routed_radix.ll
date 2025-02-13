@@ -756,7 +756,7 @@ declare i32 @pmix_output_get_verbosity(i32 noundef) local_unnamed_addr #1
 declare ptr @prte_get_job_data_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_rml_get_num_contributors(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define i32 @prte_rml_get_num_contributors(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %.preheader20
 

@@ -931,7 +931,7 @@ _ZN4base12_GLOBAL__N_127PersistentSampleMapIterator16SkipEmptyBucketsEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator3GetEPiS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(address_is_null) %min, ptr noundef writeonly captures(address_is_null) %max, ptr noundef writeonly captures(address_is_null) %count) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator3GetEPiS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly %min, ptr noundef writeonly %max, ptr noundef writeonly %count) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %min, null
   br i1 %tobool.not, label %if.end, label %if.then

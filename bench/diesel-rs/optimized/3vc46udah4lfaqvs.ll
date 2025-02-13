@@ -655,7 +655,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h65020beeb36c6aa2E(ptr 
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h2e2d0176fe535a38E.llvm.8280360579268313866"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h2e2d0176fe535a38E.llvm.8280360579268313866"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 

@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.check_restricted_library_name = private unnamed_addr constant [30 x i8] c"check_restricted_library_name\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @load_external_function(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @load_external_function(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @expand_dynamic_library_name(ptr noundef %0)
   %6 = tail call fastcc ptr @internal_load_library(ptr noundef %5)
   %.not = icmp eq ptr %3, null

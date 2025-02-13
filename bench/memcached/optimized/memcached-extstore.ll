@@ -140,7 +140,7 @@ sw.epilog:                                        ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %fh, ptr noundef readonly captures(none) %cf, ptr noundef writeonly captures(none) %res) local_unnamed_addr #0 {
+define dso_local noundef ptr @extstore_init(ptr noundef %fh, ptr noundef readonly captures(none) %cf, ptr noundef writeonly captures(none) %res) local_unnamed_addr #0 {
 entry:
   %thread = alloca i64, align 8
   %lock = alloca %struct.flock, align 8

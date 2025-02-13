@@ -332,7 +332,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @cursor_ref(ptr noundef returned captures(ret: address, provenance) %c) local_unnamed_addr #4 {
+define dso_local noundef ptr @cursor_ref(ptr noundef returned %c) local_unnamed_addr #4 {
 entry:
   %refcount = getelementptr inbounds nuw i8, ptr %c, i64 12
   %0 = load i32, ptr %refcount, align 4
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @cursor_set_mono(ptr noundef captures(none) %c, i32 noundef %foreground, i32 noundef %background, ptr noundef readonly captures(address) %image, i32 noundef %transparent, ptr noundef readonly captures(address) %mask) local_unnamed_addr #7 {
+define dso_local void @cursor_set_mono(ptr noundef captures(none) %c, i32 noundef %foreground, i32 noundef %background, ptr noundef readonly %image, i32 noundef %transparent, ptr noundef readonly %mask) local_unnamed_addr #7 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %cmp = icmp eq ptr %image, %mask

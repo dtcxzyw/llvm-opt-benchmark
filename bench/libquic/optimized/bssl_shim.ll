@@ -2834,7 +2834,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL26CustomExtensionAddCallbackP6ssl_stjPPKhPmPiPv(ptr noundef %ssl, i32 noundef %extension_value, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %out_len, ptr readnone captures(none) %out_alert_value, ptr noundef readnone captures(address) %add_arg) #8 {
+define internal noundef range(i32 -1, 2) i32 @_ZL26CustomExtensionAddCallbackP6ssl_stjPPKhPmPiPv(ptr noundef %ssl, i32 noundef %extension_value, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %out_len, ptr readnone captures(none) %out_alert_value, ptr noundef readnone %add_arg) #8 {
 entry:
   %cmp = icmp ne i32 %extension_value, 1234
   %cmp1 = icmp ne ptr %add_arg, inttoptr (i64 1234 to ptr)
@@ -2872,7 +2872,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL27CustomExtensionFreeCallbackP6ssl_stjPKhPv(ptr readnone captures(none) %ssl, i32 noundef %extension_value, ptr noundef readnone captures(address) %out, ptr noundef readnone captures(address) %add_arg) #9 {
+define internal void @_ZL27CustomExtensionFreeCallbackP6ssl_stjPKhPv(ptr readnone captures(none) %ssl, i32 noundef %extension_value, ptr noundef readnone %out, ptr noundef readnone %add_arg) #9 {
 entry:
   %cmp = icmp ne i32 %extension_value, 1234
   %cmp1 = icmp ne ptr %add_arg, inttoptr (i64 1234 to ptr)
@@ -2890,7 +2890,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL28CustomExtensionParseCallbackP6ssl_stjPKhmPiPv(ptr readnone captures(none) %ssl, i32 noundef %extension_value, ptr noundef readonly captures(none) %contents, i64 noundef %contents_len, ptr noundef writeonly captures(none) %out_alert_value, ptr noundef readnone captures(address) %parse_arg) #9 {
+define internal noundef range(i32 0, 2) i32 @_ZL28CustomExtensionParseCallbackP6ssl_stjPKhmPiPv(ptr readnone captures(none) %ssl, i32 noundef %extension_value, ptr noundef readonly captures(none) %contents, i64 noundef %contents_len, ptr noundef writeonly captures(none) %out_alert_value, ptr noundef readnone %parse_arg) #9 {
 entry:
   %cmp = icmp ne i32 %extension_value, 1234
   %cmp1 = icmp ne ptr %parse_arg, inttoptr (i64 1235 to ptr)
@@ -4189,7 +4189,7 @@ declare i32 @SSL_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @SSL_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17PskClientCallbackP6ssl_stPKcPcjPhj(ptr noundef %ssl, ptr noundef readonly captures(address_is_null) %hint, ptr noundef %out_identity, i32 noundef %max_identity_len, ptr noundef writeonly captures(none) %out_psk, i32 noundef %max_psk_len) #8 {
+define internal noundef i32 @_ZL17PskClientCallbackP6ssl_stPKcPcjPhj(ptr noundef %ssl, ptr noundef readonly %hint, ptr noundef %out_identity, i32 noundef %max_identity_len, ptr noundef writeonly captures(none) %out_psk, i32 noundef %max_psk_len) #8 {
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)

@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN2tt19print_debug_subtree17hc49d1511bbdf901cE = private unnamed_addr constant [4 x ptr] [ptr @anon.8a34ade40c118f9b2a9b2a634a5af407.13, ptr @anon.8a34ade40c118f9b2a9b2a634a5af407.14, ptr @anon.8a34ade40c118f9b2a9b2a634a5af407.15, ptr @anon.8a34ade40c118f9b2a9b2a634a5af407.16], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(20) ptr @"_ZN2tt13Leaf$LT$S$GT$4span17h31a2afde2bde4f73E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(20) ptr @"_ZN2tt13Leaf$LT$S$GT$4span17h31a2afde2bde4f73E"(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !range !4, !noundef !5
   %switch = icmp eq i32 %2, 1
   %. = select i1 %switch, i64 8, i64 32

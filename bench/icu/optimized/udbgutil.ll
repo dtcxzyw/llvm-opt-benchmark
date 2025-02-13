@@ -1476,7 +1476,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_St3setIS5_St
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11KnownIssues3addEPKcS1_PKDsPaS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ticketStr, ptr noundef %where, ptr noundef %msg, ptr noundef writeonly captures(address_is_null) %firstForTicket, ptr noundef writeonly captures(address_is_null) %firstForWhere) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11KnownIssues3addEPKcS1_PKDsPaS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ticketStr, ptr noundef %where, ptr noundef %msg, ptr noundef writeonly %firstForTicket, ptr noundef writeonly %firstForWhere) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ticket = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::map.3", align 8
@@ -2323,7 +2323,7 @@ declare void @_ZN6icu_754CStrD1Ev(ptr noundef nonnull align 8 dereferenceable(72
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11KnownIssues3addEPKcS1_S1_PaS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ticketStr, ptr noundef %where, ptr noundef %msg, ptr noundef writeonly captures(address_is_null) %firstForTicket, ptr noundef writeonly captures(address_is_null) %firstForWhere) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11KnownIssues3addEPKcS1_S1_PaS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ticketStr, ptr noundef %where, ptr noundef %msg, ptr noundef writeonly %firstForTicket, ptr noundef writeonly %firstForWhere) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ticket = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::map.3", align 8
@@ -2845,7 +2845,7 @@ ehcleanup88:                                      ; preds = %ehcleanup87, %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN11KnownIssues5printEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN11KnownIssues5printEv(ptr noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ticketid = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -3011,7 +3011,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfin
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @udbg_knownIssue_openU(ptr noundef %ptr, ptr noundef %ticket, ptr noundef %where, ptr noundef %msg, ptr noundef captures(address_is_null) %firstForTicket, ptr noundef captures(address_is_null) %firstForWhere) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @udbg_knownIssue_openU(ptr noundef %ptr, ptr noundef %ticket, ptr noundef %where, ptr noundef %msg, ptr noundef %firstForTicket, ptr noundef %firstForWhere) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %ptr, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3040,7 +3040,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @udbg_knownIssue_open(ptr noundef %ptr, ptr noundef %ticket, ptr noundef %where, ptr noundef %msg, ptr noundef captures(address_is_null) %firstForTicket, ptr noundef captures(address_is_null) %firstForWhere) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @udbg_knownIssue_open(ptr noundef %ptr, ptr noundef %ticket, ptr noundef %where, ptr noundef %msg, ptr noundef %firstForTicket, ptr noundef %firstForWhere) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %ptr, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3063,7 +3063,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @udbg_knownIssue_print(ptr noundef captures(address) %ptr) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @udbg_knownIssue_print(ptr noundef %ptr) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ptr, null
   br i1 %cmp, label %return, label %if.else

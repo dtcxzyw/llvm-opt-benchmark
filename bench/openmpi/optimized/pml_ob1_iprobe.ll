@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_message_f_to_c_table = external global %struct.opal_pointer_array_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_pml_ob1_iprobe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @mca_pml_ob1_iprobe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.mca_pml_ob1_recv_request_t, align 8
   %7 = load i32, ptr @opal_class_init_epoch, align 4
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1_recv_request_t_class, i64 32), align 8
@@ -341,7 +341,7 @@ declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_pml_ob1_probe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @mca_pml_ob1_probe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mca_pml_ob1_recv_request_t, align 8
   %6 = load i32, ptr @opal_class_init_epoch, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1_recv_request_t_class, i64 32), align 8
@@ -852,7 +852,7 @@ opal_thread_compare_exchange_strong_ptr.exit13:   ; preds = %53, %46, %.opal_thr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_pml_ob1_improbe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define i32 @mca_pml_ob1_improbe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull @ompi_message_free_list)
   store ptr %7, ptr %4, align 8
   %8 = icmp eq ptr %7, null
@@ -1502,7 +1502,7 @@ opal_free_list_get_st.exit:                       ; preds = %opal_lifo_pop_st.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_pml_ob1_mprobe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @mca_pml_ob1_mprobe(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull @ompi_message_free_list)
   store ptr %7, ptr %3, align 8

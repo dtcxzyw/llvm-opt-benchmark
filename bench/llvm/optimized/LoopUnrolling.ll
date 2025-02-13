@@ -1224,7 +1224,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento14processLoopEndEPKNS_4StmtEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr.749") align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define dso_local void @_ZN5clang4ento14processLoopEndEPKNS_4StmtEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr.749") align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.749", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.749", align 8
   %6 = load ptr, ptr %2, align 8, !tbaa !89
@@ -2659,7 +2659,7 @@ _ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread51: ; preds = %_ZN5clang4ento
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang4entoL13madeNewBranchEPNS0_12ExplodedNodeEPKNS_4StmtE(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN5clang4entoL13madeNewBranchEPNS0_12ExplodedNodeEPKNS_4StmtE(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !tbaa !231
   %5 = icmp ne i64 %4, 0

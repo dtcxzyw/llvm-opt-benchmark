@@ -1687,7 +1687,7 @@ check_keys_unicode.exit.thread:                   ; preds = %2, %check_keys_unic
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @unicodekeys_lookup_unicode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @unicodekeys_lookup_unicode(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1, !tbaa !41
@@ -2774,7 +2774,7 @@ PyDict_Next.exit.thread:                          ; preds = %36, %37, %17, %.cri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyDict_Next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @PyDict_Next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #8 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %5, align 8, !tbaa !25
   %6 = getelementptr i8, ptr %.val.i, i64 168
@@ -4990,7 +4990,7 @@ clear_lock_held.exit:                             ; preds = %1, %5, %35, %53, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_PyDict_Next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @_PyDict_Next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #8 {
   %6 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !25
   %7 = getelementptr i8, ptr %.val, i64 168
@@ -5144,7 +5144,7 @@ define hidden range(i32 0, 2) i32 @_PyDict_Next(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_PyDict_Pop_KnownHash(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_PyDict_Pop_KnownHash(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !43
@@ -5487,7 +5487,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_Pop(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_Pop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !25
   %5 = getelementptr i8, ptr %.val.i, i64 168
@@ -5558,7 +5558,7 @@ pop_lock_held.exit:                               ; preds = %9, %14, %15, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_PopString(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_PopString(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @PyUnicode_FromString(ptr noundef %1) #23
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -5658,13 +5658,13 @@ Py_DECREF.exit:                                   ; preds = %35, %32, %PyDict_Po
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyDict_Pop(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #0 {
+define dso_local ptr @_PyDict_Pop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @dict_pop_default(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dict_pop_default(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) unnamed_addr #0 {
+define internal fastcc ptr @dict_pop_default(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   %5 = getelementptr i8, ptr %0, i64 8
@@ -6230,7 +6230,7 @@ declare i32 @PyObject_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyDict_Keys(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyDict_Keys(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -6425,7 +6425,7 @@ keys_lock_held.exit:                              ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyDict_Values(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyDict_Values(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -6609,7 +6609,7 @@ values_lock_held.exit:                            ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyDict_Items(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyDict_Items(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -8328,7 +8328,7 @@ PyDict_New.exit:                                  ; preds = %193, %190, %188, %P
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PyDict_Size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local i64 @PyDict_Size(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -8356,13 +8356,13 @@ define dso_local i64 @PyDict_Size(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_SetDefaultRef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_SetDefaultRef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @dict_setdefault_ref_lock_held(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @dict_setdefault_ref_lock_held(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @dict_setdefault_ref_lock_held(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
   %7 = getelementptr i8, ptr %0, i64 8
@@ -10006,7 +10006,7 @@ dictkeys_incref.exit:                             ; preds = %8, %12
 declare void @PyObject_GC_Del(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dict_vectorcall(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal ptr @dict_vectorcall(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly %3) #0 {
   %5 = and i64 %2, 9223372036854775807
   %6 = icmp samesign ult i64 %5, 2
   br i1 %6, label %9, label %7
@@ -14110,13 +14110,13 @@ define dso_local i32 @PyObject_VisitManagedDict(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PyObject_SetManagedDict(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyObject_SetManagedDict(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @set_or_clear_managed_dict(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_or_clear_managed_dict(ptr noundef captures(address) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_or_clear_managed_dict(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 168
@@ -14360,7 +14360,7 @@ set_dict_inline_values.exit:                      ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyObject_ClearManagedDict(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @PyObject_ClearManagedDict(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @set_or_clear_managed_dict(ptr noundef %0, ptr noundef null, i1 noundef zeroext true)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %set_dict_inline_values.exit
@@ -14605,7 +14605,7 @@ free_keys_object.exit:                            ; preds = %73, %72, %_PyFreeLi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyDict_DetachFromObject(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyDict_DetachFromObject(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   %5 = getelementptr i8, ptr %1, i64 8

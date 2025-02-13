@@ -16,7 +16,7 @@ define noundef i32 @WebPGetDemuxVersion() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPDemuxInternal(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @WebPDemuxInternal(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %6
@@ -351,7 +351,7 @@ define void @WebPDemuxDelete(ptr noundef %0) local_unnamed_addr #1 {
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @WebPDemuxGetI(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @WebPDemuxGetI(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %23, label %4
 
@@ -401,7 +401,7 @@ define i32 @WebPDemuxGetI(ptr noundef readonly captures(address_is_null) %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %SetFrame.exit, label %5
 
@@ -523,7 +523,7 @@ SetFrame.exit:                                    ; preds = %15, %36, %GetFrameP
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %SetFrame.exit, label %3
 
@@ -643,7 +643,7 @@ SetFrame.exit:                                    ; preds = %15, %36, %GetFrameP
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WebPDemuxPrevFrame(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @WebPDemuxPrevFrame(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %SetFrame.exit, label %3
 
@@ -765,7 +765,7 @@ define void @WebPDemuxReleaseIterator(ptr noundef readnone captures(none) %0) lo
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %9, label %6
 
@@ -782,7 +782,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef captur
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -870,7 +870,7 @@ ChunkCount.exit.thread:                           ; preds = %9, %18, %ChunkCount
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WebPDemuxNextChunk(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @WebPDemuxNextChunk(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -889,7 +889,7 @@ define range(i32 0, 2) i32 @WebPDemuxNextChunk(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WebPDemuxPrevChunk(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @WebPDemuxPrevChunk(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 

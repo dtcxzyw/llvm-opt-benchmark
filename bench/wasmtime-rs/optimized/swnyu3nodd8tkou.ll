@@ -174,7 +174,7 @@ define void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 captures(none) %1, ptr readonly align 1 captures(address_is_null) %2, i64 %3, ptr readonly align 1 captures(none) %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
+define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 captures(none) %1, ptr readonly align 1 %2, i64 %3, ptr readonly align 1 captures(none) %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
   %8 = alloca { { i64, i64 } }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !3
@@ -366,7 +366,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 captures(none) %1, ptr readonly align 1 captures(address_is_null) %2, i64 %3, ptr readonly align 1 captures(none) %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
+define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 captures(none) %1, ptr readonly align 1 %2, i64 %3, ptr readonly align 1 captures(none) %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
   %8 = alloca { { i64, i64 } }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !3

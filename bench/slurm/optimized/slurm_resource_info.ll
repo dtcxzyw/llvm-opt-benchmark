@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [792 x i8] c"Memory bind options:\0A    --mem-bind=         Bind memory to locality domains (ldom)\0A        nosort          avoid sorting pages at startup\0A        sort            sort pages at startup\0A        q[uiet]         quietly bind before task runs (default)\0A        v[erbose]       verbosely report binding before task runs\0A        no[ne]          don't bind tasks to memory (default)\0A        rank            bind by task rank\0A        local           bind to memory local to processor\0A        map_mem:<list>  specify a memory binding for each task\0A                        where <list> is <cpuid1>,<cpuid2>,...<cpuidN>\0A        mask_mem:<list> specify a memory binding mask for each tasks\0A                        where <list> is <mask1>,<mask2>,...<maskN>\0A        help            show this help message\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @slurm_sprint_cpu_bind_type(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @slurm_sprint_cpu_bind_type(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %3
 

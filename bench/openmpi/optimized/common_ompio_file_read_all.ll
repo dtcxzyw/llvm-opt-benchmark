@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_functions = external local_unnamed_addr global %struct.ompi_request_fns_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

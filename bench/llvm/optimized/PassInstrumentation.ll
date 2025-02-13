@@ -39,7 +39,7 @@ $_ZN4llvm3Any6TypeIdIPKNS_4LoopEE2IdE = comdat any
 @_ZN4llvm27PassInstrumentationAnalysis3KeyE = local_unnamed_addr global %"struct.llvm::AnalysisKey" zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28PassInstrumentationCallbacks18addClassToPassNameENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr %1, i64 %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28PassInstrumentationCallbacks18addClassToPassNameENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr %1, i64 %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8

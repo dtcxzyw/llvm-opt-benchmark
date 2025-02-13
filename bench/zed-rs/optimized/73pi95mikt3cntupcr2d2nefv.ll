@@ -3124,7 +3124,7 @@ _ZN4core10intrinsics10typed_swap17h9cf1004e7f935facE.exit.i.i: ; preds = %33
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(264) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h98023af97846dbf4E.llvm.16905819647609042929"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(264) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(264) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h98023af97846dbf4E.llvm.16905819647609042929"(ptr noalias noundef returned align 8 dereferenceable(264) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [256 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !61, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775807
@@ -29728,7 +29728,7 @@ define { i64, i64 } @_ZN8language5proto17deserialize_range17h88253d7685ac6138E(i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8language5proto19deserialize_version17h966751f66a2f0404E(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN8language5proto19deserialize_version17h966751f66a2f0404E(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @_ZN5clock6Global3new17h4c9301eacbbc365eE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4)

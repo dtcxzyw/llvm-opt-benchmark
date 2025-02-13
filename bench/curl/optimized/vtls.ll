@@ -1812,7 +1812,7 @@ define hidden void @Curl_ssl_cleanup() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @Curl_init_sslset_nolock(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @Curl_init_sslset_nolock(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -3341,7 +3341,7 @@ declare void @Curl_shutdown_clear(ptr noundef, i32 noundef) local_unnamed_addr #
 declare zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @Curl_ssl_cf_get_config(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #8 {
+define hidden nonnull ptr @Curl_ssl_cf_get_config(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !tbaa !166
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !194
@@ -3367,7 +3367,7 @@ define hidden nonnull ptr @Curl_ssl_cf_get_primary_config(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #9 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -3422,7 +3422,7 @@ define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr noundef writeonly 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #9 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -3482,7 +3482,7 @@ define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr noundef writeonly 
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @Curl_alpn_contains_proto(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @Curl_alpn_contains_proto(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 
@@ -3773,7 +3773,7 @@ declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @blobcmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #12 {
+define internal fastcc zeroext i1 @blobcmp(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #12 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = or i1 %3, %4

@@ -5485,7 +5485,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114trimSpaceCharsEPKDsRi(ptr noundef readonly captures(ret: address, provenance) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %length) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114trimSpaceCharsEPKDsRi(ptr noundef readonly %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %length) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %length, align 4
   %cmp = icmp slt i32 %0, 1
@@ -6806,7 +6806,7 @@ cleanup:                                          ; preds = %_ZN6icu_756number4i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_756number4impl15LongNameHandler11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(872) %this, i32 %0, i32 noundef %plural) unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZNK6icu_756number4impl15LongNameHandler11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull readnone align 8 dereferenceable(872) %this, i32 %0, i32 noundef %plural) unnamed_addr #9 align 2 {
 entry:
   %fModifiers = getelementptr inbounds nuw i8, ptr %this, i64 16
   %idxprom = zext i32 %plural to i64
@@ -6815,7 +6815,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn8_NK6icu_756number4impl15LongNameHandler11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef readnone captures(ret: address, provenance) %this, i32 %0, i32 noundef %plural) unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZThn8_NK6icu_756number4impl15LongNameHandler11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef readnone %this, i32 %0, i32 noundef %plural) unnamed_addr #9 align 2 {
 entry:
   %fModifiers.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom.i = zext i32 %plural to i64

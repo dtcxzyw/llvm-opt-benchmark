@@ -1055,7 +1055,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filter(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 40)) %1, i32 noundef range(i32 1, 15) %2, i8 noundef zeroext %3, ptr noundef captures(address_is_null) %4, i32 noundef range(i32 1, 0) %5) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filter(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 40)) %1, i32 noundef range(i32 1, 15) %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef range(i32 1, 0) %5) unnamed_addr #3 align 16 {
   %7 = alloca [10 x ptr], align 16
   %8 = alloca %struct.in6_addr, align 8
   %9 = alloca %struct.in6_addr, align 8
@@ -5977,7 +5977,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @dump_ct_seq_adj(ptr noundef
 declare dso_local void @nf_ct_iterate_cleanup_net(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef range(i32 0, 2) i32 @ctnetlink_flush_iterate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #13 align 16 {
+define internal noundef range(i32 0, 2) i32 @ctnetlink_flush_iterate(ptr noundef %0, ptr noundef readonly %1) #13 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %43, label %4
 

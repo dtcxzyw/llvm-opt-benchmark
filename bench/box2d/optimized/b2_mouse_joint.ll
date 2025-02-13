@@ -128,7 +128,7 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK12b2MouseJoint9GetTargetEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(228) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK12b2MouseJoint9GetTargetEv(ptr noundef nonnull readnone align 8 dereferenceable(228) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_targetA = getelementptr inbounds nuw i8, ptr %this, i64 136
   ret ptr %m_targetA

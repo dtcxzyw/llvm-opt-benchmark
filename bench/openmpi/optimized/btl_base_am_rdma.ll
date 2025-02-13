@@ -1220,7 +1220,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @am_rdma_target_put(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #0 {
+define internal fastcc i32 @am_rdma_target_put(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i8, ptr %9, align 8
   %.not = icmp eq i8 %10, 0

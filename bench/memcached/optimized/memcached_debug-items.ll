@@ -2165,7 +2165,7 @@ if.end27:                                         ; preds = %entry, %cond.end, %
 declare void @assoc_delete(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @item_unlink_q(ptr noundef readonly captures(address) %it) unnamed_addr #0 {
+define internal fastcc void @item_unlink_q(ptr noundef readonly %it) unnamed_addr #0 {
 entry:
   %slabs_clsid = getelementptr inbounds nuw i8, ptr %it, i64 40
   %0 = load i8, ptr %slabs_clsid, align 8
@@ -4098,7 +4098,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lru_maintainer_thread(ptr noundef readnone captures(address_is_null) %arg) #0 {
+define internal noundef ptr @lru_maintainer_thread(ptr noundef readnone %arg) #0 {
 entry:
   %todo.i = alloca [256 x i8], align 16
   %size.i = alloca i32, align 4
@@ -4784,7 +4784,7 @@ if.end8:                                          ; preds = %if.then7, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @do_item_unlinktail_q(ptr noundef readonly captures(address) %it) local_unnamed_addr #8 {
+define dso_local void @do_item_unlinktail_q(ptr noundef readonly %it) local_unnamed_addr #8 {
 entry:
   %slabs_clsid = getelementptr inbounds nuw i8, ptr %it, i64 40
   %0 = load i8, ptr %slabs_clsid, align 8

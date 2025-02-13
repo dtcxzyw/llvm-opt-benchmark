@@ -274,7 +274,7 @@ precomp_for_block_count.exit:                     ; preds = %for.body.i.i
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %mac, ptr noundef writeonly captures(address_is_null) %maclen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len_, ptr noundef readonly captures(address_is_null) %ad, i64 noundef %ad_len_, ptr readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %mac, ptr noundef writeonly %maclen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len_, ptr noundef readonly %ad, i64 noundef %ad_len_, ptr readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #2 {
 entry:
   %ts.i380.i = alloca [7 x <2 x i64>], align 16
   %ts.i342.i = alloca [7 x <2 x i64>], align 16
@@ -1443,7 +1443,7 @@ return:                                           ; preds = %aes_gcm_encrypt_gen
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind ssp uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt(ptr noundef nonnull captures(none) %c, ptr noundef writeonly captures(address_is_null) %clen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len, ptr noundef captures(address_is_null) %ad, i64 noundef %ad_len, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt(ptr noundef nonnull captures(none) %c, ptr noundef writeonly %clen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st.i = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   %add.ptr = getelementptr i8, ptr %c, i64 %m_len
@@ -1470,7 +1470,7 @@ if.end3:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached(ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %mac, ptr noundef captures(address_is_null) %maclen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len, ptr noundef captures(address_is_null) %ad, i64 noundef %ad_len, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_detached(ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %mac, ptr noundef %maclen_p, ptr noundef readonly captures(none) %m, i64 noundef %m_len, ptr noundef %ad, i64 noundef %ad_len, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   tail call void @llvm.prefetch.p0(ptr nonnull %c, i32 0, i32 2, i32 1)
@@ -1488,7 +1488,7 @@ declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 imma
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp uwtable
-define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_afternm(ptr noundef nonnull captures(none) %c, ptr noundef writeonly captures(address_is_null) %clen_p, ptr noundef readonly captures(none) %m, i64 noundef %mlen, ptr noundef captures(address_is_null) %ad, i64 noundef %adlen, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @crypto_aead_aes256gcm_encrypt_afternm(ptr noundef nonnull captures(none) %c, ptr noundef writeonly %clen_p, ptr noundef readonly captures(none) %m, i64 noundef %mlen, ptr noundef %ad, i64 noundef %adlen, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #7 {
 entry:
   %add.ptr = getelementptr i8, ptr %c, i64 %mlen
   %call = tail call i32 @crypto_aead_aes256gcm_encrypt_detached_afternm(ptr noundef %c, ptr noundef %add.ptr, ptr noundef null, ptr noundef %m, i64 noundef %mlen, ptr noundef %ad, i64 noundef %adlen, ptr poison, ptr noundef %npub, ptr noundef %st_)
@@ -1505,7 +1505,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef writeonly captures(address_is_null) %m, ptr readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %c, i64 noundef %c_len_, ptr noundef nonnull %mac, ptr noundef readonly captures(address_is_null) %ad, i64 noundef %ad_len_, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #8 {
+define i32 @crypto_aead_aes256gcm_decrypt_detached_afternm(ptr noundef writeonly %m, ptr readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %c, i64 noundef %c_len_, ptr noundef nonnull %mac, ptr noundef readonly %ad, i64 noundef %ad_len_, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #8 {
 entry:
   %ts.i249.i = alloca [7 x <2 x i64>], align 16
   %ts.i188.i = alloca [7 x <2 x i64>], align 16
@@ -2501,7 +2501,7 @@ return:                                           ; preds = %if.end4, %lor.lhs.f
 declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt_afternm(ptr noundef captures(address_is_null) %m, ptr noundef writeonly captures(address_is_null) %mlen_p, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef captures(address_is_null) %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #4 {
+define i32 @crypto_aead_aes256gcm_decrypt_afternm(ptr noundef %m, ptr noundef writeonly %mlen_p, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %st_) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i64 %clen, 15
   br i1 %cmp, label %if.then, label %if.end
@@ -2530,7 +2530,7 @@ if.end8:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt_detached(ptr noundef captures(address_is_null) %m, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %c, i64 noundef %clen, ptr noundef nonnull %mac, ptr noundef captures(address_is_null) %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
+define i32 @crypto_aead_aes256gcm_decrypt_detached(ptr noundef %m, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull readonly captures(none) %c, i64 noundef %clen, ptr noundef nonnull %mac, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   tail call void @llvm.prefetch.p0(ptr %m, i32 0, i32 2, i32 1)
@@ -2542,7 +2542,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_aead_aes256gcm_decrypt(ptr noundef captures(address_is_null) %m, ptr noundef writeonly captures(address_is_null) %mlen_p, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef captures(address_is_null) %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
+define i32 @crypto_aead_aes256gcm_decrypt(ptr noundef %m, ptr noundef writeonly %mlen_p, ptr noundef readnone captures(none) %nsec, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull readonly captures(none) %npub, ptr noundef nonnull readonly captures(none) %k) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.crypto_aead_aes256gcm_state_, align 16
   tail call void @llvm.prefetch.p0(ptr %m, i32 0, i32 2, i32 1)

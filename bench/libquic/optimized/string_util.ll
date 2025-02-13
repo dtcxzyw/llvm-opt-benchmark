@@ -3752,7 +3752,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base25ReplaceStringPlaceholdersERKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEES6_Pm(ptr noalias sret(%"class.std::__cxx11::basic_string.1") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %format_string, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef writeonly captures(address_is_null) %offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base25ReplaceStringPlaceholdersERKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEES6_Pm(ptr noalias sret(%"class.std::__cxx11::basic_string.1") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %format_string, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef writeonly %offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %offsets = alloca %"class.std::vector.19", align 8
   %subst = alloca %"class.std::vector.14", align 8

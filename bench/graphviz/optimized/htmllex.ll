@@ -416,7 +416,7 @@ declare void @XML_SetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @XML_SetElementHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @startElement(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @startElement(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct.textfont_t, align 8
   %5 = alloca %struct.textfont_t, align 8
   %6 = alloca %struct.textfont_t, align 8

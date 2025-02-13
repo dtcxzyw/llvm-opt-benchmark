@@ -1241,7 +1241,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.762 = private unnamed_addr constant [41 x i8] c"Pointer to Ctr (wkssvc_ComputerNamesCtr)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wkssvc_dissect_enum_srvsvc_PlatformId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @wkssvc_dissect_enum_srvsvc_PlatformId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -5257,7 +5257,7 @@ declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 nou
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wkssvc_dissect_enum_NetValidateNameType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @wkssvc_dissect_enum_NetValidateNameType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -5283,7 +5283,7 @@ define hidden i32 @wkssvc_dissect_enum_NetValidateNameType(ptr noundef %0, i32 n
 declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wkssvc_dissect_enum_NetJoinStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @wkssvc_dissect_enum_NetJoinStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -5381,7 +5381,7 @@ define hidden i32 @wkssvc_dissect_bitmap_joinflags(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wkssvc_dissect_enum_ComputerNameType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @wkssvc_dissect_enum_ComputerNameType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null

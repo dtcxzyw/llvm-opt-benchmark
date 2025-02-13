@@ -38,7 +38,7 @@ define dso_local ptr @PyInit__typing() local_unnamed_addr #0 {
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_typing__idfunc(ptr readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) #2 {
+define internal noundef ptr @_typing__idfunc(ptr readnone captures(none) %0, ptr noundef returned %1) #2 {
   %3 = load i32, ptr %1, align 8, !tbaa !4
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5

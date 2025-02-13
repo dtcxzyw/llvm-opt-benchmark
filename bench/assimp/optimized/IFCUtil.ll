@@ -4080,7 +4080,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC12ConvertColorER9aiColor4tIfERKNS_4STEP7EXPRESS8DataTypeERNS0_14ConversionDataEPKS2_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %out, ptr noundef nonnull readonly align 8 dereferenceable(8) %in, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %conv, ptr noundef readonly captures(address_is_null) %base) local_unnamed_addr #6 {
+define hidden void @_ZN6Assimp3IFC12ConvertColorER9aiColor4tIfERKNS_4STEP7EXPRESS8DataTypeERNS0_14ConversionDataEPKS2_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %out, ptr noundef nonnull readonly align 8 dereferenceable(8) %in, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %conv, ptr noundef readonly %base) local_unnamed_addr #6 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %0 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %in, ptr nonnull @_ZTIN6Assimp4STEP7EXPRESS8DataTypeE, ptr nonnull @_ZTIN6Assimp4STEP7EXPRESS17PrimitiveDataTypeIdEE, i64 0) #24

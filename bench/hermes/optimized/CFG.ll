@@ -5410,7 +5410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6hermes13DominanceInfo17properlyDominatesEPKNS_11InstructionES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(address) %A, ptr noundef readonly captures(address) %B) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK6hermes13DominanceInfo17properlyDominatesEPKNS_11InstructionES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly %A, ptr noundef readonly %B) local_unnamed_addr #0 align 2 {
 entry:
   %Parent.i = getelementptr inbounds nuw i8, ptr %A, i64 56
   %0 = load ptr, ptr %Parent.i, align 8

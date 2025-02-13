@@ -1442,7 +1442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_19VectorRep8ContainsEPKc(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef readnone captures(address) %key) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_19VectorRep8ContainsEPKc(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef readnone %key) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rwlock_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %rwlock_)

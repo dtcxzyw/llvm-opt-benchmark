@@ -969,7 +969,7 @@ _ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal18FunctionArrayConstaSERKS1_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal18FunctionArrayConstaSERKS1_(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   %1 = load ptr, ptr %this, align 8

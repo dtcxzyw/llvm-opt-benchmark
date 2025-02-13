@@ -1740,7 +1740,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare hidden noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL11nb_enum_newEP11_typeobjectP7_objectS4_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
+define internal noundef ptr @_ZN8nanobind6detailL11nb_enum_newEP11_typeobjectP7_objectS4_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %36
 

@@ -555,13 +555,13 @@ define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   ret ptr %2
 }

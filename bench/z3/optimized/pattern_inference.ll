@@ -4544,7 +4544,7 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK21pattern_inference_cfg17pattern_weight_ltclEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address) %n1, ptr noundef readonly captures(address) %n2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK21pattern_inference_cfg17pattern_weight_ltclEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %n1, ptr noundef readonly %n2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_hash.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %n1, i64 12
@@ -4746,7 +4746,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN21pattern_inference_cfg10mk_patternEP3app(ptr noundef nonnull align 8 captures(address) dereferenceable(504) %this, ptr noundef %candidate) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN21pattern_inference_cfg10mk_patternEP3app(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr noundef %candidate) local_unnamed_addr #3 align 2 {
 entry:
   %expr.addr.i74 = alloca ptr, align 8
   %expr.addr.i23 = alloca ptr, align 8
@@ -5107,7 +5107,7 @@ return:                                           ; preds = %for.end53, %if.then
 declare noundef ptr @_ZN11ast_manager10mk_patternEjPKP3app(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21pattern_inference_cfg25candidates2unary_patternsERK10ptr_vectorI3appERS2_R10ref_bufferIS1_11ast_managerLj16EE(ptr noundef nonnull align 8 captures(address) dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %candidate_patterns, ptr noundef nonnull align 8 dereferenceable(8) %remaining_candidate_patterns, ptr noundef nonnull align 8 captures(address) dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21pattern_inference_cfg25candidates2unary_patternsERK10ptr_vectorI3appERS2_R10ref_bufferIS1_11ast_managerLj16EE(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %candidate_patterns, ptr noundef nonnull align 8 dereferenceable(8) %remaining_candidate_patterns, ptr noundef nonnull align 8 dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %candidate_patterns, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -5342,7 +5342,7 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21pattern_inference_cfg25candidates2multi_patternsEjRK10ptr_vectorI3appER10ref_bufferIS1_11ast_managerLj16EE(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %max_num_patterns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %candidate_patterns, ptr noundef nonnull align 8 captures(address) dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21pattern_inference_cfg25candidates2multi_patternsEjRK10ptr_vectorI3appER10ref_bufferIS1_11ast_managerLj16EE(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %max_num_patterns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %candidate_patterns, ptr noundef nonnull align 8 dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_pre_patterns = getelementptr inbounds nuw i8, ptr %this, i64 288
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
@@ -6098,7 +6098,7 @@ _ZN6vectorIPN21pattern_inference_cfg11pre_patternELb0EjE5resetEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN21pattern_inference_cfg22has_preferred_patternsER10ptr_vectorI3appER10ref_bufferIS1_11ast_managerLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %candidate_patterns, ptr noundef nonnull align 8 captures(address) dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN21pattern_inference_cfg22has_preferred_patternsER10ptr_vectorI3appER10ref_bufferIS1_11ast_managerLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %candidate_patterns, ptr noundef nonnull align 8 dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %expr.addr.i = alloca ptr, align 8
   %m_preferred = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -6380,7 +6380,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21pattern_inference_cfg11mk_patternsEjP4exprjPKS1_R10ref_bufferI3app11ast_managerLj16EE(ptr noundef nonnull align 8 dereferenceable(504) initializes((96, 112), (212, 216)) %this, i32 noundef %num_bindings, ptr noundef %n, i32 noundef %num_no_patterns, ptr noundef %no_patterns, ptr noundef nonnull align 8 captures(address) dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21pattern_inference_cfg11mk_patternsEjP4exprjPKS1_R10ref_bufferI3app11ast_managerLj16EE(ptr noundef nonnull align 8 dereferenceable(504) initializes((96, 112), (212, 216)) %this, i32 noundef %num_bindings, ptr noundef %n, i32 noundef %num_no_patterns, ptr noundef %no_patterns, ptr noundef nonnull align 8 dereferenceable(152) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_num_bindings = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 %num_bindings, ptr %m_num_bindings, align 8

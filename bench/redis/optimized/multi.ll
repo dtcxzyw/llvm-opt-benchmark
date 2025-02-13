@@ -1004,7 +1004,7 @@ declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @touchWatchedKey(ptr noundef readonly captures(address) %db, ptr noundef %key) local_unnamed_addr #1 {
+define dso_local void @touchWatchedKey(ptr noundef readonly %db, ptr noundef %key) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
   %watched_keys = getelementptr inbounds nuw i8, ptr %db, i64 40

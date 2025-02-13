@@ -62,7 +62,7 @@ _Z18ufmt_digitvalue_75Ds.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z13ufmt_64tou_75PDsPimhai(ptr noundef captures(address) %buffer, ptr noundef captures(none) %len, i64 noundef %value, i8 noundef zeroext %radix, i8 noundef signext %uselower, i32 noundef %minDigits) local_unnamed_addr #1 {
+define void @_Z13ufmt_64tou_75PDsPimhai(ptr noundef %buffer, ptr noundef captures(none) %len, i64 noundef %value, i8 noundef zeroext %radix, i8 noundef signext %uselower, i32 noundef %minDigits) local_unnamed_addr #1 {
 entry:
   %conv = zext i8 %radix to i64
   %tobool.not = icmp eq i8 %uselower, 0
@@ -216,7 +216,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i64 @_Z13ufmt_uto64_75PKDsPia(ptr noundef readonly captures(address) %buffer, ptr noundef captures(none) %len, i8 noundef signext %radix) local_unnamed_addr #1 {
+define noundef i64 @_Z13ufmt_uto64_75PKDsPia(ptr noundef readonly %buffer, ptr noundef captures(none) %len, i8 noundef signext %radix) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %len, align 4
   %idx.ext = sext i32 %0 to i64

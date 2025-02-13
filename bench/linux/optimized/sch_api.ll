@@ -874,7 +874,7 @@ select.unfold:                                    ; preds = %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @qdisc_get_rtab(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
+define dso_local noundef ptr @qdisc_get_rtab(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %21, label %5
 
@@ -1041,7 +1041,7 @@ define internal fastcc noundef zeroext range(i8 1, 3) i8 @__detect_linklayer(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @qdisc_put_rtab(ptr noundef captures(address) %0) #0 align 16 {
+define dso_local void @qdisc_put_rtab(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -1765,7 +1765,7 @@ define dso_local noundef i32 @qdisc_offload_dump_helper(ptr noundef captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @qdisc_offload_graft_helper(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) #0 align 16 {
+define dso_local void @qdisc_offload_graft_helper(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6) #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 562949953421312
@@ -1935,7 +1935,7 @@ declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #2
 declare dso_local void @rtnl_register(i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tc_modify_qdisc(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @tc_modify_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.check_loop_arg, align 8
   %5 = alloca [17 x ptr], align 16
   %6 = alloca i32, align 4
@@ -2552,7 +2552,7 @@ check_loop.exit:                                  ; preds = %127
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tc_get_qdisc(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @tc_get_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [17 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -3073,7 +3073,7 @@ tc_dump_qdisc_root.exit.thread16:                 ; preds = %tc_dump_qdisc_root.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tc_ctl_tclass(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @tc_ctl_tclass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.tc_bind_class_args, align 8
   %5 = alloca %struct.tc_bind_class_args, align 8
   %6 = alloca [17 x ptr], align 16
@@ -3890,7 +3890,7 @@ define internal fastcc void @qdisc_refcount_inc(ptr noundef nonnull %0) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @qdisc_notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 align 16 {
+define internal fastcc void @qdisc_notify(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %12, label %9
 
@@ -4390,7 +4390,7 @@ define internal fastcc ptr @qdisc_create(ptr noundef nonnull %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.tc_root_qopt_offload, align 4
   %10 = alloca ptr, align 8
   store ptr %6, ptr %10, align 8
@@ -5126,7 +5126,7 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
 declare dso_local i32 @gen_replace_estimator(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext range(i16 0, 257) %5, i32 noundef range(i32 36, 38) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext range(i16 0, 257) %5, i32 noundef range(i32 36, 38) %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -5604,7 +5604,7 @@ declare dso_local zeroext i1 @refcount_dec_if_one(ptr noundef) local_unnamed_add
 declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tclass_del_notify(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull %4, i64 noundef range(i64 1, 0) %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tclass_del_notify(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull %4, i64 noundef range(i64 1, 0) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = icmp eq ptr %2, null
   br i1 %8, label %12, label %9
 
@@ -5678,7 +5678,7 @@ define internal fastcc i32 @tclass_del_notify(ptr noundef %0, ptr noundef nonnul
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tclass_get_notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tclass_get_notify(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
 
@@ -5718,7 +5718,7 @@ define internal fastcc i32 @tclass_get_notify(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tclass_notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 align 16 {
+define internal fastcc void @tclass_notify(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
 
@@ -5770,7 +5770,7 @@ define internal fastcc void @tclass_notify(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tc_fill_tclass(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext range(i16 0, 3) %5, i32 noundef range(i32 40, 42) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tc_fill_tclass(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext range(i16 0, 3) %5, i32 noundef range(i32 40, 42) %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.gnet_dump, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8

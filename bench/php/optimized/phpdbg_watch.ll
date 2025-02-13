@@ -1877,7 +1877,7 @@ define hidden noundef ptr @phpdbg_add_ht_watch_element(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @phpdbg_is_recursively_watched(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @phpdbg_is_recursively_watched(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %8, %2
@@ -2258,7 +2258,7 @@ define hidden void @phpdbg_queue_element_for_recreation(ptr noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phpdbg_dissociate_watch_element(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define hidden void @phpdbg_dissociate_watch_element(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 34

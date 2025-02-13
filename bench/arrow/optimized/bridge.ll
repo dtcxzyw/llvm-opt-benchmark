@@ -17486,7 +17486,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaExporterEEvT_S4_(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #1 {
+define internal fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaExporterEEvT_S4_(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #1 {
 entry:
   %cmp.not.i1 = icmp eq ptr %__first, %__last
   br i1 %cmp.not.i1, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_114SchemaExporterEEEvT_S6_.exit, label %for.body.i
@@ -17503,7 +17503,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_114SchemaExporterEEEvT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_114SchemaExporterEEEvT_S6_(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_114SchemaExporterEEEvT_S6_(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #1 align 2 {
 entry:
   %cmp.not3 = icmp eq ptr %__first, %__last
   br i1 %cmp.not3, label %for.end, label %for.body
@@ -19760,7 +19760,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_113ArrayExporterEEvT_S4_(ptr noundef captures(address) %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #1 {
+define internal fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_113ArrayExporterEEvT_S4_(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #1 {
 entry:
   %cmp.not.i1 = icmp eq ptr %__first, %__last
   br i1 %cmp.not.i1, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_113ArrayExporterEEEvT_S6_.exit, label %for.body.i
@@ -19777,7 +19777,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_113ArrayExporterEEEvT_S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_113ArrayExporterEEEvT_S6_(ptr noundef captures(address) %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_113ArrayExporterEEEvT_S6_(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #1 align 2 {
 entry:
   %cmp.not3 = icmp eq ptr %__first, %__last
   br i1 %cmp.not3, label %for.end, label %for.body
@@ -25498,7 +25498,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEvT_S4_(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEvT_S4_(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i4 = icmp eq ptr %__first, %__last
   br i1 %cmp.not.i4, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEEvT_S6_.exit, label %for.body.i
@@ -40731,7 +40731,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_117Imp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_117ImportedArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #18 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_117ImportedArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #18 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -43881,7 +43881,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_114Imp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_114ImportedBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #18 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_114ImportedBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #18 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -46007,7 +46007,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_122Arr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_122ArrayStreamBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #18 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_122ArrayStreamBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #18 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag

@@ -1374,7 +1374,7 @@ define internal fastcc void @add_x_header(ptr noundef %0, ptr noundef %1, i32 no
 declare ptr @smfi_getsymval(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @makesanehdr(ptr noundef captures(address_is_null, ret: address, provenance) %0) unnamed_addr #8 {
+define internal fastcc noundef ptr @makesanehdr(ptr noundef %0) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

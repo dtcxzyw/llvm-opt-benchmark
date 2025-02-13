@@ -99,7 +99,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10DungeonGenC2EPK14NodeDefManagerP16GenerateNotifierP13DungeonParams(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) initializes((0, 24), (28, 38), (40, 44), (52, 78), (80, 92), (98, 122), (124, 130), (140, 152)) %this, ptr noundef %ndef, ptr noundef %gennotify, ptr noundef readonly captures(address_is_null) %dparams) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10DungeonGenC2EPK14NodeDefManagerP16GenerateNotifierP13DungeonParams(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) initializes((0, 24), (28, 38), (40, 44), (52, 78), (80, 92), (98, 122), (124, 130), (140, 152)) %this, ptr noundef %ndef, ptr noundef %gennotify, ptr noundef readonly %dparams) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i92 = alloca i64, align 8
   %__dnew.i.i74 = alloca i64, align 8

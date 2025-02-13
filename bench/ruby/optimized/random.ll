@@ -537,7 +537,7 @@ rand_start.exit:                                  ; preds = %random_seed.exit.i.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, -7) i64 @obj_random_bytes(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, -7) i64 @obj_random_bytes(i64 noundef %0, ptr noundef writeonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = add i64 %2, 4611686018427387904
   %or.cond.i = icmp sgt i64 %5, -1
@@ -1104,7 +1104,7 @@ rand_bytes.exit:                                  ; preds = %try_rand_if.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = and i64 %2, 7
   %6 = sub nsw i64 0, %5
@@ -1306,7 +1306,7 @@ define dso_local i64 @rb_hash_start(i64 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_memhash(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #8 {
+define dso_local i64 @rb_memhash(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = tail call i64 @ruby_sip_hash13(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hash_salt, i64 8), ptr noundef %0, i64 noundef %1)
   ret i64 %3
 }

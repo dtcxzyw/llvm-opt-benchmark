@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_File_set_view_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_set_view_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_file_set_view_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) #0 {
+define void @ompi_file_set_view_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr %0, align 4
   %11 = tail call ptr @PMPI_File_f2c(i32 noundef %10) #5

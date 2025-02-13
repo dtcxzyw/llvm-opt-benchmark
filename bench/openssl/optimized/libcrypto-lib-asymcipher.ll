@@ -1045,7 +1045,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_ASYM_CIPHER_gettable_ctx_params(ptr noundef readonly captures(address_is_null) %cip) local_unnamed_addr #0 {
+define ptr @EVP_ASYM_CIPHER_gettable_ctx_params(ptr noundef readonly %cip) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cip, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1072,7 +1072,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_ASYM_CIPHER_settable_ctx_params(ptr noundef readonly captures(address_is_null) %cip) local_unnamed_addr #0 {
+define ptr @EVP_ASYM_CIPHER_settable_ctx_params(ptr noundef readonly %cip) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cip, null
   br i1 %cmp, label %return, label %lor.lhs.false

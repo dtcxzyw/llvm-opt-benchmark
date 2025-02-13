@@ -8275,7 +8275,7 @@ define internal noundef ptr @pdcp_lte_copy_cb(ptr noundef returned initializes((
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pdcp_lte_update_cb(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 {
+define internal noundef zeroext i1 @pdcp_lte_update_cb(ptr noundef %0, ptr noundef writeonly %1) #1 {
 sub_0:
   %2 = alloca i32, align 4
   %3 = alloca %struct.e_in6_addr, align 1
@@ -9174,7 +9174,7 @@ define internal noundef ptr @pdcp_nr_copy_cb(ptr noundef returned initializes((0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pdcp_nr_update_cb(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 {
+define internal noundef zeroext i1 @pdcp_nr_update_cb(ptr noundef %0, ptr noundef writeonly %1) #1 {
 sub_0:
   %2 = alloca i32, align 4
   %3 = alloca %struct.e_in6_addr, align 1

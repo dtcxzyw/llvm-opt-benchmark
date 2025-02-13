@@ -210,7 +210,7 @@ return:                                           ; preds = %entry, %callReplyPa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @callReplyGetString(ptr noundef %rep, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #0 {
+define dso_local ptr @callReplyGetString(ptr noundef %rep, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
@@ -521,7 +521,7 @@ return:                                           ; preds = %if.end.i3, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @callReplyGetMapElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly captures(address_is_null) %key, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @callReplyGetMapElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %parser.i.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i.i)
@@ -614,7 +614,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @callReplyGetAttributeElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly captures(address_is_null) %key, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @callReplyGetAttributeElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %parser.i.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i.i)
@@ -742,7 +742,7 @@ return:                                           ; preds = %callReplyParse.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @callReplyGetVerbatim(ptr noundef %rep, ptr noundef writeonly captures(none) %len, ptr noundef writeonly captures(address_is_null) %format) local_unnamed_addr #0 {
+define dso_local ptr @callReplyGetVerbatim(ptr noundef %rep, ptr noundef writeonly captures(none) %len, ptr noundef writeonly %format) local_unnamed_addr #0 {
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)

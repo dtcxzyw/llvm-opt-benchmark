@@ -152,7 +152,7 @@ declare i32 @slurm_get_log_level() local_unnamed_addr #1
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_log_env(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @_log_env(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %3 = and i64 %2, 128
   %4 = icmp ne i64 %3, 0

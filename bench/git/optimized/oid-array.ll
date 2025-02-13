@@ -180,7 +180,7 @@ oid_array_sort.exit:                              ; preds = %2, %sane_qsort.exit
 declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @oid_access(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) #4 {
+define internal ptr @oid_access(i64 noundef %0, ptr noundef readnone %1) #4 {
   %3 = getelementptr inbounds nuw %struct.object_id, ptr %1, i64 %0
   ret ptr %3
 }

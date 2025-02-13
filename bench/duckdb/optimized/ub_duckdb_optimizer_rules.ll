@@ -4464,7 +4464,7 @@ _ZN6duckdb10unique_ptrINS_28ConjunctionExpressionMatcherESt14default_deleteIS1_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb29ConjunctionSimplificationRule16RemoveExpressionERNS_26BoundConjunctionExpressionERKNS_10ExpressionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.88") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(104) %conj, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(80) %expr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb29ConjunctionSimplificationRule16RemoveExpressionERNS_26BoundConjunctionExpressionERKNS_10ExpressionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.88") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(104) %conj, ptr noundef nonnull readnone align 8 dereferenceable(80) %expr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children = getelementptr inbounds nuw i8, ptr %conj, i64 80
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %conj, i64 88

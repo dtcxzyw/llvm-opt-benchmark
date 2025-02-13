@@ -1498,7 +1498,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_
 @_ZN5arrow15DictionaryArrayC1ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEES9_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5arrow15DictionaryArrayC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEES9_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow15DictionaryArray7indicesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow15DictionaryArray7indicesEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   %indices_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %indices_
@@ -3114,7 +3114,7 @@ ehcleanup:                                        ; preds = %lpad71, %lpad38, %l
 declare noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow15DictionaryArray10dictionaryEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(72) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow15DictionaryArray10dictionaryEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.0", align 8
   %dictionary_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -3844,7 +3844,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow15DictionaryArray17CanCompareIndicesERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK5arrow15DictionaryArray17CanCompareIndicesERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp44 = alloca %"class.arrow::EqualOptions", align 8
   %indices_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -48170,7 +48170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.4", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -52240,7 +52240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.4", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -55411,7 +55411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.4", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -58558,7 +58558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -62335,7 +62335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -66273,7 +66273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -70213,7 +70213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -73985,7 +73985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -77919,7 +77919,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -81687,7 +81687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -84721,7 +84721,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -89055,7 +89055,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -93081,7 +93081,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i101 = alloca %class.anon.462, align 1
   %ref.tmp2.i.i102 = alloca %class.anon.464, align 1
@@ -99273,7 +99273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i87 = alloca %class.anon.462, align 1
   %ref.tmp2.i.i88 = alloca %class.anon.464, align 1
@@ -102384,7 +102384,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i101 = alloca %class.anon.462, align 1
   %ref.tmp2.i.i102 = alloca %class.anon.464, align 1
@@ -105315,7 +105315,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i87 = alloca %class.anon.462, align 1
   %ref.tmp2.i.i88 = alloca %class.anon.464, align 1
@@ -108274,7 +108274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %class.anon.494, align 1
   %ref.tmp2.i.i99 = alloca %class.anon.496, align 1
@@ -114440,7 +114440,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %class.anon.494, align 1
   %ref.tmp2.i.i99 = alloca %class.anon.496, align 1
@@ -117367,7 +117367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i94 = alloca %class.anon.462, align 1
   %ref.tmp2.i.i95 = alloca %class.anon.464, align 1
@@ -120201,7 +120201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -123231,7 +123231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -126267,7 +126267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -129297,7 +129297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -132327,7 +132327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -135363,7 +135363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -138393,7 +138393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i94 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i72 = alloca %"class.std::__shared_ptr.4", align 8
@@ -142173,7 +142173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i98 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i71 = alloca %"class.std::__shared_ptr.4", align 8
@@ -145209,7 +145209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i94 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i72 = alloca %"class.std::__shared_ptr.4", align 8
@@ -148980,7 +148980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i94 = alloca %class.anon.462, align 1
   %ref.tmp2.i.i95 = alloca %class.anon.464, align 1
@@ -151814,7 +151814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef captures(address_is_null) %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i94 = alloca %class.anon.462, align 1
   %ref.tmp2.i.i95 = alloca %class.anon.464, align 1

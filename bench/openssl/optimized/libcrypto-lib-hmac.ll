@@ -506,7 +506,7 @@ return:                                           ; preds = %err, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @HMAC(ptr noundef %evp_md, ptr noundef %key, i32 noundef %key_len, ptr noundef %data, i64 noundef %data_len, ptr noundef %md, ptr noundef writeonly captures(address_is_null) %md_len) local_unnamed_addr #0 {
+define ptr @HMAC(ptr noundef %evp_md, ptr noundef %key, i32 noundef %key_len, ptr noundef %data, i64 noundef %data_len, ptr noundef %md, ptr noundef writeonly %md_len) local_unnamed_addr #0 {
 entry:
   %temp_md_len = alloca i64, align 8
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %evp_md) #6

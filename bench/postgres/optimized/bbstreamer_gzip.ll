@@ -187,7 +187,7 @@ define internal void @bbstreamer_gzip_decompressor_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @bbstreamer_gzip_writer_new(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @bbstreamer_gzip_writer_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc0(i64 noundef 56) #7
   store ptr @bbstreamer_gzip_writer_ops, ptr %4, align 8
   %5 = tail call ptr @pstrdup(ptr noundef %0) #7

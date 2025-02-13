@@ -199,7 +199,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_locale(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_locale(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -1360,7 +1360,7 @@ declare ptr @u_errorName_70(i32 noundef) local_unnamed_addr #3
 declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @pg_locale_deterministic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
+define dso_local zeroext i1 @pg_locale_deterministic(ptr noundef readonly %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -1700,7 +1700,7 @@ declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare ptr @gnu_get_libc_version() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_strcoll(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i32 @pg_strcoll(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %5
 
@@ -1889,7 +1889,7 @@ pg_strncoll_icu_no_utf8.exit:                     ; preds = %uchar_convert.exit3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_strncoll(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local i32 @pg_strncoll(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1024 x i8], align 16
   %.not = icmp eq ptr %4, null
@@ -1989,7 +1989,7 @@ pg_strncoll_libc.exit19:                          ; preds = %pg_strcoll_libc.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @pg_strxfrm_enabled(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @pg_strxfrm_enabled(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -2018,7 +2018,7 @@ define dso_local noundef zeroext i1 @pg_strxfrm_enabled(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.split, label %5
 
@@ -2138,7 +2138,7 @@ uchar_convert.exit:                               ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.split, label %6
 
@@ -2194,7 +2194,7 @@ define internal fastcc void @pg_strnxfrm_libc(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @pg_strxfrm_prefix_enabled(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @pg_strxfrm_prefix_enabled(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -2223,7 +2223,7 @@ define dso_local noundef zeroext i1 @pg_strxfrm_prefix_enabled(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %8
 
@@ -2384,7 +2384,7 @@ pg_strnxfrm_prefix_icu_no_utf8.exit:              ; preds = %uchar_convert.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %9
 
@@ -2678,7 +2678,7 @@ declare i32 @uloc_countAvailable_70() local_unnamed_addr #3
 declare ptr @uloc_getAvailable_70(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @wchar2char(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i64 @wchar2char(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %16, label %6
 
@@ -2707,7 +2707,7 @@ define dso_local i64 @wchar2char(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 declare i64 @wcstombs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, -1) i64 @char2wchar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i64 0, -1) i64 @char2wchar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %27, label %7
 

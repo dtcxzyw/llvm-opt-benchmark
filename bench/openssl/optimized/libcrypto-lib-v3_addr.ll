@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @X509v3_addr_get_afi(ptr noundef readonly captures(address_is_null) %f) local_unnamed_addr #3 {
+define range(i32 0, 65536) i32 @X509v3_addr_get_afi(ptr noundef readonly %f) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %f, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -252,7 +252,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_addr_add_inherit(ptr noundef %addr, i32 noundef %afi, ptr noundef captures(address_is_null) %safi) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_addr_add_inherit(ptr noundef %addr, i32 noundef %afi, ptr noundef %safi) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %addr, i32 noundef %afi, ptr noundef %safi)
   %cmp = icmp eq ptr %call, null
@@ -306,7 +306,7 @@ return:                                           ; preds = %land.lhs.true19, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_IPAddressFamily(ptr noundef %addr, i32 noundef %afi, ptr noundef readonly captures(address_is_null) %safi) unnamed_addr #1 {
+define internal fastcc ptr @make_IPAddressFamily(ptr noundef %addr, i32 noundef %afi, ptr noundef readonly %safi) unnamed_addr #1 {
 entry:
   %key = alloca [3 x i8], align 1
   %shr = lshr i32 %afi, 8
@@ -407,7 +407,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare ptr @ASN1_NULL_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_addr_add_prefix(ptr noundef %addr, i32 noundef %afi, ptr noundef captures(address_is_null) %safi, ptr noundef %a, i32 noundef %prefixlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_addr_add_prefix(ptr noundef %addr, i32 noundef %afi, ptr noundef %safi, ptr noundef %a, i32 noundef %prefixlen) local_unnamed_addr #1 {
 entry:
   %aor = alloca ptr, align 8
   %call.i = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %addr, i32 noundef %afi, ptr noundef %safi)
@@ -562,7 +562,7 @@ return:                                           ; preds = %entry, %err, %if.en
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_addr_add_range(ptr noundef %addr, i32 noundef %afi, ptr noundef captures(address_is_null) %safi, ptr noundef %min, ptr noundef %max) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_addr_add_range(ptr noundef %addr, i32 noundef %afi, ptr noundef %safi, ptr noundef %min, ptr noundef %max) local_unnamed_addr #1 {
 entry:
   %aor = alloca ptr, align 8
   %call.i = tail call fastcc ptr @make_IPAddressFamily(ptr noundef %addr, i32 noundef %afi, ptr noundef %safi)
@@ -959,7 +959,7 @@ return:                                           ; preds = %if.end7, %entry, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 17) i32 @X509v3_addr_get_range(ptr noundef captures(address_is_null) %aor, i32 noundef %afi, ptr noundef captures(address_is_null) %min, ptr noundef captures(address_is_null) %max, i32 noundef %length) local_unnamed_addr #4 {
+define range(i32 0, 17) i32 @X509v3_addr_get_range(ptr noundef %aor, i32 noundef %afi, ptr noundef %min, ptr noundef %max, i32 noundef %length) local_unnamed_addr #4 {
 entry:
   %switch.selectcmp.i = icmp eq i32 %afi, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 16, i32 0
@@ -993,7 +993,7 @@ return:                                           ; preds = %lor.lhs.false12, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @extract_min_max(ptr noundef readonly captures(address_is_null) %aor, ptr noundef nonnull captures(none) %min, ptr noundef nonnull captures(none) %max, i32 noundef range(i32 0, 17) %length) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @extract_min_max(ptr noundef readonly %aor, ptr noundef nonnull captures(none) %min, ptr noundef nonnull captures(none) %max, i32 noundef range(i32 0, 17) %length) unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %aor, null
   br i1 %cmp, label %return, label %if.end

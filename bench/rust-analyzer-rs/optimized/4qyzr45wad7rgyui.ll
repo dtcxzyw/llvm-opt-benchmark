@@ -1083,7 +1083,7 @@ define noundef zeroext i1 @"_ZN55_$LT$salsa..Cancelled$u20$as$u20$core..fmt..Dis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN5salsa5Cycle3new17h4c5c0937f3bf7579E(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #10 {
+define hidden noundef nonnull ptr @_ZN5salsa5Cycle3new17h4c5c0937f3bf7579E(ptr noundef nonnull readnone returned %0) unnamed_addr #10 {
   ret ptr %0
 }
 

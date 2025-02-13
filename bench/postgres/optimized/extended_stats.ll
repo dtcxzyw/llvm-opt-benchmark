@@ -1299,7 +1299,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare void @pgstat_progress_update_multi_param(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_var_attr_stats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 1, 0) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc ptr @lookup_var_attr_stats(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 1, 0) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call i32 @bms_num_members(ptr noundef %0) #10
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit, label %6
@@ -1966,7 +1966,7 @@ ApplySortComparator.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @build_attnums_array(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @build_attnums_array(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i32 @bms_num_members(ptr noundef %0) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -2220,7 +2220,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @qsort_interruptible(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @has_stats_of_kind(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @has_stats_of_kind(ptr noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
@@ -2254,7 +2254,7 @@ define dso_local noundef zeroext i1 @has_stats_of_kind(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @choose_best_statistics(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local ptr @choose_best_statistics(ptr noundef readonly %0, i8 noundef signext %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge80, label %.lr.ph79
@@ -2959,7 +2959,7 @@ statext_mcv_clauselist_selectivity.exit:          ; preds = %46, %list_length.ex
 declare double @dependencies_clauselist_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @examine_opclause_args(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @examine_opclause_args(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %.val, align 8

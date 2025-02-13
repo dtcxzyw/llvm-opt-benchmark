@@ -301,7 +301,7 @@ define ptr @try_serv_name_lookup(i32 noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_serv_name_lookup(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc ptr @_serv_name_lookup(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #2 {
   %4 = alloca %struct._serv_port_custom_key, align 4
   %5 = load ptr, ptr @serv_port_hashtable, align 8
   %6 = zext i32 %1 to i64
@@ -504,7 +504,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @global_enterprises_lookup(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @enterprises_lookup(i32 noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #2 {
+define nonnull ptr @enterprises_lookup(i32 noundef %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @enterprises_hashtable, align 8
   %4 = zext i32 %0 to i64
   %5 = inttoptr i64 %4 to ptr
@@ -565,13 +565,13 @@ define zeroext i1 @get_hash_ether_used(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @get_hash_ether_hexaddr(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define nonnull ptr @get_hash_ether_hexaddr(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @get_hash_ether_resolved_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define nonnull ptr @get_hash_ether_resolved_name(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   ret ptr %2
 }
@@ -1225,7 +1225,7 @@ define internal void @dnsserverlist_uats_udp_port_tostr_cb(ptr noundef readonly 
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @dns_server_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @dns_server_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8
@@ -3935,7 +3935,7 @@ define zeroext i1 @get_hash_manuf_used(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @get_hash_manuf_resolved_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define nonnull ptr @get_hash_manuf_resolved_name(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 77
   ret ptr %2
 }
@@ -4251,7 +4251,7 @@ define range(i32 0, 2) i32 @get_host_ipaddr(ptr noundef %0, ptr noundef %1) loca
 declare void @ares_gethostbyname(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @c_ares_ghi_cb(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(address_is_null) %3) #12 {
+define internal void @c_ares_ghi_cb(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly %3) #12 {
   %5 = icmp eq i32 %1, 0
   %6 = icmp ne ptr %3, null
   %or.cond = and i1 %5, %6

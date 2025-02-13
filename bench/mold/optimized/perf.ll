@@ -188,7 +188,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local noundef i64 @_ZN4mold7Counter9get_valueEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef i64 @_ZN4mold7Counter9get_valueEv(ptr noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #4 align 2 {
 entry:
   %location.i = alloca %"struct.tbb::detail::d1::ets_element", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i)
@@ -708,7 +708,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold19print_timer_recordsERN3tbb6detail2d117concurrent_vectorISt10unique_ptrINS_11TimerRecordESt14default_deleteIS5_EENS2_23cache_aligned_allocatorIS8_EEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(65) %records) local_unnamed_addr #4 {
+define dso_local void @_ZN4mold19print_timer_recordsERN3tbb6detail2d117concurrent_vectorISt10unique_ptrINS_11TimerRecordESt14default_deleteIS5_EENS2_23cache_aligned_allocatorIS8_EEEE(ptr noundef nonnull readonly align 8 dereferenceable(65) %records) local_unnamed_addr #4 {
 entry:
   %t.i.i = alloca %struct.timespec, align 8
   %ru.i.i = alloca %struct.rusage, align 8
@@ -3899,7 +3899,7 @@ if.end56:                                         ; preds = %if.end.i, %_ZNK3tbb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noundef nonnull captures(none) %__first1, ptr noundef nonnull readonly captures(none) %__last1, ptr noundef nonnull captures(none) %__first2, ptr noundef nonnull readonly captures(none) %__last2, ptr noundef writeonly captures(ret: address, provenance) %__result) unnamed_addr #12 {
+define internal fastcc void @"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noundef nonnull captures(none) %__first1, ptr noundef nonnull readonly captures(none) %__last1, ptr noundef nonnull captures(none) %__first2, ptr noundef nonnull readonly captures(none) %__last2, ptr noundef writeonly %__result) unnamed_addr #12 {
 entry:
   %my_index.i.i = getelementptr inbounds nuw i8, ptr %__first1, i64 8
   %my_index2.i.i = getelementptr inbounds nuw i8, ptr %__last1, i64 8
@@ -4983,7 +4983,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #4 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #4 {
 entry:
   %location.i.i1.i = alloca %"struct.tbb::detail::d1::ets_element", align 8
   %location.i.i.i = alloca %"struct.tbb::detail::d1::ets_element", align 8
@@ -5396,7 +5396,7 @@ return:                                           ; preds = %if.end49, %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_"(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #4 align 2 {
 entry:
   %location.i.i1 = alloca %"struct.tbb::detail::d1::ets_element", align 8
   %location.i.i = alloca %"struct.tbb::detail::d1::ets_element", align 8

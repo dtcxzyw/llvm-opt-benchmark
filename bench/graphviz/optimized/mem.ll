@@ -26,7 +26,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @agrealloc(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noalias noundef ptr @agrealloc(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %agalloc.exit.thread, label %5
 
@@ -74,7 +74,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @agfree(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
+define void @agfree(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

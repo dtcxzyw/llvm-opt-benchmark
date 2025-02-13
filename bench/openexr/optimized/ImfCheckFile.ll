@@ -2224,7 +2224,7 @@ declare i32 @exr_get_tile_sizes(ptr noundef, i32 noundef, i32 noundef, i32 nound
 declare i32 @exr_read_tile_chunk_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZN7Imf_3_212_GLOBAL__N_114memstream_readEPK19_priv_exr_context_tPvS4_mmPFiS3_iPKczE(ptr readnone captures(none) %f, ptr noundef readonly captures(address_is_null) %userdata, ptr noundef writeonly captures(none) %buffer, i64 noundef %sz, i64 noundef %offset, ptr readnone captures(none) %errcb) #14 {
+define internal noundef i64 @_ZN7Imf_3_212_GLOBAL__N_114memstream_readEPK19_priv_exr_context_tPvS4_mmPFiS3_iPKczE(ptr readnone captures(none) %f, ptr noundef readonly %userdata, ptr noundef writeonly captures(none) %buffer, i64 noundef %sz, i64 noundef %offset, ptr readnone captures(none) %errcb) #14 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %if.end13, label %if.then
@@ -2262,7 +2262,7 @@ if.end13:                                         ; preds = %if.then6, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN7Imf_3_212_GLOBAL__N_114memstream_sizeEPK19_priv_exr_context_tPv(ptr readnone captures(none) %ctxt, ptr noundef readonly captures(address_is_null) %userdata) #15 {
+define internal noundef i64 @_ZN7Imf_3_212_GLOBAL__N_114memstream_sizeEPK19_priv_exr_context_tPv(ptr readnone captures(none) %ctxt, ptr noundef readonly %userdata) #15 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %return, label %if.then

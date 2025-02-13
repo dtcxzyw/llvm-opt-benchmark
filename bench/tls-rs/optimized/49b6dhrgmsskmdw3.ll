@@ -1270,7 +1270,7 @@ _ZN4core5slice4sort26insertion_sort_shift_right17h9f39ba1626f28c2dE.exit: ; pred
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort7recurse17h1629b3ea92772b9fE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 4 captures(address) dereferenceable_or_null(8) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort7recurse17h1629b3ea92772b9fE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca [128 x i8], align 1
   %7 = alloca [128 x i8], align 1
   %8 = icmp ult i64 %1, 21
@@ -2156,7 +2156,7 @@ _ZN4core5slice4sort11insert_tail17h73e9b05c147a3c8cE.exit.i: ; preds = %.thread.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort7recurse17h436d847e6c837e4bE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 4 captures(address) dereferenceable_or_null(8) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort7recurse17h436d847e6c837e4bE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca [128 x i8], align 1
   %7 = alloca [128 x i8], align 1
   %8 = icmp ult i64 %1, 21
@@ -3042,7 +3042,7 @@ _ZN4core5slice4sort11insert_tail17h84dc9f78b220b947E.exit.i: ; preds = %.thread.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort7recurse17haedf856a5ef88fdaE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 4 captures(address) dereferenceable_or_null(8) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort7recurse17haedf856a5ef88fdaE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca [128 x i8], align 1
   %7 = alloca [128 x i8], align 1
   %8 = icmp ult i64 %1, 21
@@ -3928,7 +3928,7 @@ _ZN4core5slice4sort11insert_tail17hf8ec5566d0653cf5E.exit.i: ; preds = %.thread.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort7recurse17heba5381e1d7b8513E.llvm.17726792709170085280(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(address) dereferenceable_or_null(16) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort7recurse17heba5381e1d7b8513E.llvm.17726792709170085280(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca { i32, i64 }, align 8
   %7 = alloca { i32, i64 }, align 8
   %8 = alloca { i32, i64 }, align 8

@@ -2356,7 +2356,7 @@ define noundef zeroext i1 @_ZN14proc_macro_api3msg11ExpnGlobals19skip_serializin
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14proc_macro_api7process19ProcMacroProcessSrv3run28_$u7b$$u7b$closure$u7d$$u7d$17hc712c02042743ee3E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, i1 noundef zeroext %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14proc_macro_api7process19ProcMacroProcessSrv3run28_$u7b$$u7b$closure$u7d$$u7d$17hc712c02042743ee3E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.0.val, ptr readonly %.8.val, i1 noundef zeroext %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, align 8
@@ -3261,7 +3261,7 @@ define noundef zeroext i1 @"_ZN66_$LT$proc_macro_api..ServerError$u20$as$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, ptr } @_ZN14proc_macro_api15ProcMacroServer5spawn17ha2e2822521141e13E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define { i64, ptr } @_ZN14proc_macro_api15ProcMacroServer5spawn17ha2e2822521141e13E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8

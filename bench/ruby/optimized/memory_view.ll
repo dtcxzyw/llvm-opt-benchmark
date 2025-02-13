@@ -260,7 +260,7 @@ define dso_local noundef zeroext i1 @rb_memory_view_init_as_byte_array(ptr nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
@@ -579,7 +579,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 1)) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 1)) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef writeonly %6) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   store i32 0, ptr %3, align 4
   store i64 1, ptr %4, align 8
@@ -784,7 +784,7 @@ declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_memory_view_item_size_from_format(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i64 @rb_memory_view_item_size_from_format(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @rb_memory_view_parse_item_format(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1)
   ret i64 %3
 }
@@ -911,7 +911,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1231,7 +1231,7 @@ rb_long2num_inline.exit:                          ; preds = %46, %41, %152, %149
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_memory_view_extract_item_members(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @rb_memory_view_extract_item_members(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1289,7 +1289,7 @@ declare i64 @rb_ary_new() local_unnamed_addr #1
 declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_memory_view_prepare_item_desc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @rb_memory_view_prepare_item_desc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -1322,7 +1322,7 @@ define dso_local void @rb_memory_view_prepare_item_desc(ptr noundef captures(add
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_memory_view_get_item(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

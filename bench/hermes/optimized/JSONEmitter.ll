@@ -377,7 +377,7 @@ if.end:                                           ; preds = %if.then4.i.i11, %if
 declare noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr captures(address) %val.coerce0, i64 %val.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr %val.coerce0, i64 %val.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes11JSONEmitter13willEmitValueEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
   tail call void @_ZN6hermes11JSONEmitter19primitiveEmitStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %val.coerce0, i64 %val.coerce1)
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11JSONEmitter19primitiveEmitStringEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr readonly captures(address) %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11JSONEmitter19primitiveEmitStringEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr readonly %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp132.i.i = alloca %"class.llvh::Twine", align 8
   %ref.tmp133.i.i = alloca %"class.llvh::Twine", align 8
@@ -880,7 +880,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr captures(address) %key.coerce0, i64 %key.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr %key.coerce0, i64 %key.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8

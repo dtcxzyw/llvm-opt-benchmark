@@ -830,7 +830,7 @@ _ZN11QBasicMutex6unlockEv.exit94:                 ; preds = %.critedge51, %169
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @simple_message_box(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @simple_message_box(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca %class.SimpleDialog, align 8

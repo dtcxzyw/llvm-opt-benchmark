@@ -643,7 +643,7 @@ declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, 
 declare void @df_error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @set_tap_dfilter(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @set_tap_dfilter(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -768,7 +768,7 @@ define void @tap_listeners_dfilter_recompile() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @remove_tap_listener(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define void @remove_tap_listener(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @tap_listener_queue, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %23, label %3

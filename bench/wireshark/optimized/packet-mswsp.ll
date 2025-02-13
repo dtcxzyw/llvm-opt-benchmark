@@ -1911,7 +1911,7 @@ find_fid_info.exit.thread:                        ; preds = %36, %9, %12, %21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mswsp_smb2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_mswsp_smb2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3209,7 +3209,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_or_create_message_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext range(i16 200, 209) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @find_or_create_message_data(ptr noundef %0, ptr noundef %1, i16 noundef zeroext range(i16 200, 209) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.message_data, align 8
   %7 = tail call ptr @wmem_file_scope() #10
   %8 = load i32, ptr @proto_mswsp, align 4
@@ -3646,7 +3646,7 @@ declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr readnone captures(none) %6, ...) unnamed_addr #0 {
+define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr readnone captures(none) %6, ...) unnamed_addr #0 {
   %8 = alloca %struct._e_guid_t, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct.CBaseStorageVariant, align 8

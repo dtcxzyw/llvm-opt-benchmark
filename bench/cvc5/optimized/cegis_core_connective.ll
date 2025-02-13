@@ -12945,7 +12945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers19CegisCoreConnective9Component16getSygusSolutionERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(204) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %conjs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers19CegisCoreConnective9Component16getSygusSolutionERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(204) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %conjs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp36 = alloca %"class.cvc5::internal::NodeTemplate", align 8

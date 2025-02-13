@@ -14752,7 +14752,7 @@ _ZN4llvm5APIntD2Ev.exit130:                       ; preds = %_ZN5clang18Optional
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL30interp__builtin_assume_alignedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL30interp__builtin_assume_alignedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
@@ -18895,7 +18895,7 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit.thread:     ; preds = %56, %_ZNK5clang4Typ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL28interp__builtin_operator_newERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL28interp__builtin_operator_newERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.573", align 8
   %6 = alloca %"class.llvm::SmallVector.573", align 8
   %7 = alloca %"class.llvm::APSInt", align 8

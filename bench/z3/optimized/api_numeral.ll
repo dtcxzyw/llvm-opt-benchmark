@@ -65,7 +65,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_Z15is_numeral_sortP11_Z3_contextP8_Z3_sort(ptr noundef readonly captures(none) %c, ptr noundef readonly captures(address_is_null) %ty) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z15is_numeral_sortP11_Z3_contextP8_Z3_sort(ptr noundef readonly captures(none) %c, ptr noundef readonly %ty) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %ty, null
   br i1 %tobool.not, label %return, label %if.end

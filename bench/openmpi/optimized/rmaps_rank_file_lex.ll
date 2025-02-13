@@ -1399,7 +1399,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prte_rmaps_rank_file__init_buffer(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @prte_rmaps_rank_file__init_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @__errno_location() #26
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
@@ -1599,7 +1599,7 @@ define noalias noundef ptr @prte_rmaps_rank_file_alloc(i64 noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @prte_rmaps_rank_file__delete_buffer(ptr noundef captures(address) %0) local_unnamed_addr #6 {
+define void @prte_rmaps_rank_file__delete_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1646,7 +1646,7 @@ define void @prte_rmaps_rank_file_free(ptr noundef captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @prte_rmaps_rank_file__flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #8 {
+define void @prte_rmaps_rank_file__flush_buffer(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

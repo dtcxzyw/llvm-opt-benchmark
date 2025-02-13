@@ -797,7 +797,7 @@ declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @cache_entry_cmp(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(address_is_null) %3) #5 {
+define internal range(i32 0, 2) i32 @cache_entry_cmp(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readnone %2, ptr noundef readnone %3) #5 {
   %.not = icmp ne ptr %3, null
   %5 = icmp ne ptr %1, %2
   %narrow = and i1 %5, %.not
@@ -806,7 +806,7 @@ define internal range(i32 0, 2) i32 @cache_entry_cmp(ptr readnone captures(none)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal range(i32 0, 2) i32 @dir_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #6 {
+define internal range(i32 0, 2) i32 @dir_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #6 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28

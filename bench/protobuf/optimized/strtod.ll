@@ -56,7 +56,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc(ptr noundef %str, ptr noundef writeonly captures(address_is_null) %endptr) local_unnamed_addr #1 {
+define noundef double @_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc(ptr noundef %str, ptr noundef writeonly %endptr) local_unnamed_addr #1 {
 entry:
   %ret = alloca double, align 8
   store double 0.000000e+00, ptr %ret, align 8

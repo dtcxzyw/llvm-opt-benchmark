@@ -899,7 +899,7 @@ hwloc__cpukinds_finalize_ranking.exit:            ; preds = %.lr.ph.i137, %244, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @hwloc_internal_cpukinds_register(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_cpukinds_register(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -1358,7 +1358,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
 declare i32 @hwloc_bitmap_andnot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_cpukinds_register(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_cpukinds_register(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %6
 
@@ -1574,7 +1574,7 @@ define i32 @hwloc_cpukinds_get_nr(ptr noundef readonly captures(none) %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_cpukinds_get_info(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_cpukinds_get_info(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i64 noundef %5) local_unnamed_addr #1 {
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %9, label %7
 

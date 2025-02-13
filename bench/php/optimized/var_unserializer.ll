@@ -476,7 +476,7 @@ define i64 @php_var_unserialize_get_cur_depth(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define void @var_push_dtor(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define void @var_push_dtor(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %5 = load i8, ptr %4, align 1
@@ -562,7 +562,7 @@ var_tmp_var.exit.thread:                          ; preds = %6, %39, %28, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @var_tmp_var(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @var_tmp_var(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %2
 
@@ -632,7 +632,7 @@ define ptr @var_tmp_var(ptr noundef readonly captures(address_is_null) %0) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @var_replace(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #5 {
+define void @var_replace(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %.preheader
@@ -684,7 +684,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
 declare void @_efree_56(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @php_var_unserialize(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @php_var_unserialize(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -732,7 +732,7 @@ define range(i32 0, 2) i32 @php_var_unserialize(ptr noundef %0, ptr noundef capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @php_var_unserialize_internal(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @php_var_unserialize_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -3387,7 +3387,7 @@ declare void @php_store_class_name(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @parse_iv2(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i64 @parse_iv2(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   %.not30.not = icmp eq i8 %3, 45
   %4 = icmp eq i8 %3, 43
@@ -3459,7 +3459,7 @@ define internal fastcc i64 @parse_iv2(ptr noundef %0, ptr noundef writeonly capt
 declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @object_common(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef range(i64 0, 4611686018427387904) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @object_common(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef range(i64 0, 4611686018427387904) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

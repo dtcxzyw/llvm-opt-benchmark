@@ -233,7 +233,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5clearEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory11quantifiers14TermPoolDomain8getTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory11quantifiers14TermPoolDomain8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_terms = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %d_terms
@@ -535,7 +535,7 @@ entry:
 declare void @_ZN4cvc58internal6theory15QuantifiersUtilC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers9TermPools5resetENS1_6Theory6EffortE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %this, i32 %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers9TermPools5resetENS1_6Theory6EffortE(ptr noundef nonnull readonly align 8 dereferenceable(120) %this, i32 %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_left.i.i, align 8

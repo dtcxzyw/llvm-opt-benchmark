@@ -1114,7 +1114,7 @@ define dso_local void @rb_gvar_undef_marker(ptr readnone captures(none) %0) #5 {
 declare void @rb_gc_mark_movable(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @rb_gvar_var_getter(i64 %0, ptr noundef readonly captures(address_is_null) %1) #7 {
+define dso_local i64 @rb_gvar_var_getter(i64 %0, ptr noundef readonly %1) #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -1134,7 +1134,7 @@ define dso_local void @rb_gvar_var_setter(i64 noundef %0, i64 %1, ptr noundef wr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_gvar_var_marker(ptr noundef readonly captures(address_is_null) %0) #0 {
+define dso_local void @rb_gvar_var_marker(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -4758,7 +4758,7 @@ rb_obj_written.exit:                              ; preds = %92, %RTYPEDDATA_GET
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @rb_autoloading_value(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rb_autoloading_value(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @autoloading_const_entry(i64 noundef %0, i64 noundef %1)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %6
@@ -5498,7 +5498,7 @@ get_autoload_data.exit:                           ; preds = %autoload_defined_p.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @check_autoload_required(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc i64 @check_autoload_required(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -8731,7 +8731,7 @@ define internal i32 @each_hash_iv(i64 noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %43, %3

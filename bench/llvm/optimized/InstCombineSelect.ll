@@ -2852,7 +2852,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %.thread, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvm16InstCombinerImpl20replaceInInstructionEPNS_5ValueES2_S2_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvm16InstCombinerImpl20replaceInInstructionEPNS_5ValueES2_S2_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1088) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -11662,7 +11662,7 @@ switch.hole_check:                                ; preds = %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN4llvm16InstCombinerImpl12foldSPFofSPFEPNS_11InstructionENS_19SelectPatternFlavorEPNS_5ValueES5_RS1_S3_S5_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address) %3, ptr noundef readnone captures(address) %4, ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %6, ptr noundef readnone captures(address) %7) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN4llvm16InstCombinerImpl12foldSPFofSPFEPNS_11InstructionENS_19SelectPatternFlavorEPNS_5ValueES5_RS1_S3_S5_(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone %3, ptr noundef readnone %4, ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %6, ptr noundef readnone %7) local_unnamed_addr #0 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18418,7 +18418,7 @@ declare noundef zeroext i1 @_ZN4llvm7CmpInst11isUnorderedENS0_9PredicateE(i32 no
 declare noundef ptr @_ZN4llvm13IRBuilderBase15CreateSelectFMFEPNS_5ValueES2_S2_NS_9FMFSourceERKNS_5TwineEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, ptr noundef, ptr noundef, i64, ptr noundef nonnull align 8 dereferenceable(34), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL29matchFMulByZeroIfResultEqZeroRN4llvm16InstCombinerImplEPNS_5ValueES3_S3_S3_RNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL29matchFMulByZeroIfResultEqZeroRN4llvm16InstCombinerImplEPNS_5ValueES3_S3_S3_RNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.278", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
   store ptr null, ptr %7, align 8
@@ -20591,7 +20591,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, i1 noundef zeroext %3) unnamed_addr #7 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone %2, i1 noundef zeroext %3) unnamed_addr #7 align 2 {
   %5 = alloca %"class.llvm::InsertPosition", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8

@@ -1622,7 +1622,7 @@ define void @lv_obj_allocate_spec_attr(ptr noundef captures(none) %0) local_unna
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_obj_check_type(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
+define zeroext i1 @lv_obj_check_type(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -1637,7 +1637,7 @@ define zeroext i1 @lv_obj_check_type(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_obj_has_class(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
+define zeroext i1 @lv_obj_has_class(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -1659,7 +1659,7 @@ define ptr @lv_obj_get_class(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_obj_is_valid(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_obj_is_valid(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @lv_display_get_next(ptr noundef null) #8
   %.not29.not = icmp eq ptr %2, null
   br i1 %.not29.not, label %.thread, label %.preheader
@@ -1706,7 +1706,7 @@ define noundef zeroext i1 @lv_obj_is_valid(ptr noundef captures(address) %0) loc
 declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @obj_valid_child(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @obj_valid_child(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not = icmp eq ptr %4, null

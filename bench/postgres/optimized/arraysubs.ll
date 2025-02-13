@@ -23,7 +23,7 @@ define dso_local noundef i64 @array_subscript_handler(ptr noundef readnone captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_transform(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3, i1 zeroext %4) #1 {
+define internal void @array_subscript_transform(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, i1 zeroext %4) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 

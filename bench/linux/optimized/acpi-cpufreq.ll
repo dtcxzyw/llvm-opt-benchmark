@@ -1562,7 +1562,7 @@ define internal void @do_drv_read(ptr noundef captures(none) initializes((8, 12)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @boost_set_msr_each(ptr noundef readnone captures(address_is_null) %0) #2 align 16 {
+define internal void @boost_set_msr_each(ptr noundef readnone %0) #2 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %3, label %23 [

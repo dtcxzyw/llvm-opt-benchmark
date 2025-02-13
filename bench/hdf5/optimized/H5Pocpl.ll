@@ -464,7 +464,7 @@ define range(i32 -1, 1) i32 @H5Pset_attr_creation_order(i64 noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
@@ -644,7 +644,7 @@ define range(i32 -1, 1) i32 @H5Pset_obj_track_times(i64 noundef %0, i1 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
@@ -1101,7 +1101,7 @@ define i32 @H5Pget_nfilters(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Pget_filter2(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @H5Pget_filter2(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5O_pline_t, align 8
   %10 = load i8, ptr @H5_libinit_g, align 1
   %11 = trunc i8 %10 to i1
@@ -1220,7 +1220,7 @@ define i32 @H5Pget_filter2(i64 noundef %0, i32 noundef %1, ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5P__get_filter(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noundef i32 @H5P__get_filter(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef writeonly %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %8
 
@@ -1339,7 +1339,7 @@ define noundef i32 @H5P__get_filter(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P_get_filter_by_id(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5P_get_filter_by_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5O_pline_t, align 8
   %10 = call i32 @H5P_peek(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %9) #9
   %11 = icmp slt i32 %10, 0
@@ -1374,7 +1374,7 @@ define range(i32 -1, 1) i32 @H5P_get_filter_by_id(ptr noundef %0, i32 noundef %1
 declare ptr @H5Z_filter_info(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_filter_by_id2(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_filter_by_id2(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5O_pline_t, align 8
   %10 = load i8, ptr @H5_libinit_g, align 1
   %11 = trunc i8 %10 to i1
@@ -1937,7 +1937,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 declare i32 @H5Z_get_filter_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Pget_filter1(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @H5Pget_filter1(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5O_pline_t, align 8
   %9 = load i8, ptr @H5_libinit_g, align 1
   %10 = trunc i8 %9 to i1
@@ -2056,7 +2056,7 @@ define i32 @H5Pget_filter1(i64 noundef %0, i32 noundef %1, ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_filter_by_id1(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_filter_by_id1(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5O_pline_t, align 8
   %9 = load i8, ptr @H5_libinit_g, align 1
   %10 = trunc i8 %9 to i1

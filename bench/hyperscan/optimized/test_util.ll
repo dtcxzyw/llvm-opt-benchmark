@@ -860,7 +860,7 @@ _ZNSt12_Vector_baseI7patternSaIS0_EED2Ev.exit:    ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z7buildDBPKcjjjP16hs_platform_info(ptr noundef readonly captures(address_is_null) %expression, i32 noundef %flags, i32 noundef %id, i32 noundef %mode, ptr noundef %plat) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z7buildDBPKcjjjP16hs_platform_info(ptr noundef readonly %expression, i32 noundef %flags, i32 noundef %id, i32 noundef %mode, ptr noundef %plat) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::vector.18", align 8
@@ -1086,7 +1086,7 @@ ehcleanup21:                                      ; preds = %if.then.i.i52, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z7buildDBPKcjj(ptr noundef readonly captures(address_is_null) %filename, i32 noundef %mode, i32 noundef %extra_flags) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z7buildDBPKcjj(ptr noundef readonly %filename, i32 noundef %mode, i32 noundef %extra_flags) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %patterns = alloca %"class.std::vector.18", align 8
@@ -1531,7 +1531,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z7buildDBPKcjb(ptr noundef readonly captures(address_is_null) %filename, i32 noundef %mode, i1 noundef zeroext %check_ordering) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z7buildDBPKcjb(ptr noundef readonly %filename, i32 noundef %mode, i1 noundef zeroext %check_ordering) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %info.i = alloca ptr, align 8
   %error.i = alloca ptr, align 8
@@ -2049,7 +2049,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z17buildDBAndScratchPKcjjjPP10hs_scratch(ptr noundef captures(address_is_null) %expression, i32 noundef %flags, i32 noundef %id, i32 noundef %mode, ptr noundef %scratch) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z17buildDBAndScratchPKcjjjPP10hs_scratch(ptr noundef %expression, i32 noundef %flags, i32 noundef %id, i32 noundef %mode, ptr noundef %scratch) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::Message", align 8
@@ -2726,7 +2726,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_Z10count_freePv(ptr noundef captures(address_is_null) %p) local_unnamed_addr #9 {
+define hidden void @_Z10count_freePv(ptr noundef %p) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2769,7 +2769,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_Z12count_free_bPv(ptr noundef captures(address_is_null) %p) local_unnamed_addr #9 {
+define hidden void @_Z12count_free_bPv(ptr noundef %p) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %return, label %if.end

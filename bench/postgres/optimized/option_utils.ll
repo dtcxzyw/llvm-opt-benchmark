@@ -95,7 +95,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #3
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @option_parse_int(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @option_parse_int(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call ptr @__errno_location() #8
   store i32 0, ptr %7, align 4

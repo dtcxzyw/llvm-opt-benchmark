@@ -43,7 +43,7 @@ define dso_local void @_ZN23cmCxxModuleUsageEffects13ApplyToTargetEP8cmTarget(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK23cmCxxModuleUsageEffects7GetHashB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK23cmCxxModuleUsageEffects7GetHashB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   ret ptr %0
 }
 

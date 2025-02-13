@@ -807,7 +807,7 @@ declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) unnamed_addr #7 {
+define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) unnamed_addr #7 {
   %4 = icmp eq ptr %1, %0
   br i1 %4, label %.loopexit, label %5
 

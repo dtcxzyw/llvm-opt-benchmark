@@ -5991,7 +5991,7 @@ return:                                           ; preds = %if.end83, %_ZN6herm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm18stringPrototypePadEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm18stringPrototypePadEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %filler = alloca %"class.hermes::vm::MutableHandle", align 8
@@ -8470,7 +8470,7 @@ cleanup:                                          ; preds = %if.else221, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm35stringPrototypeIncludesOrStartsWithEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm35stringPrototypeIncludesOrStartsWithEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %agg.tmp10753 = alloca %"class.hermes::vm::StringView::const_iterator", align 8
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8

@@ -380,7 +380,7 @@ define i32 @dissect_thrift_t_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -504,7 +504,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %39, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @dissect_thrift_t_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @dissect_thrift_t_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %10
 
@@ -558,7 +558,7 @@ dissect_thrift_raw_i8.exit:                       ; preds = %17, %19, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -642,7 +642,7 @@ define i32 @dissect_thrift_t_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -758,7 +758,7 @@ define i32 @dissect_thrift_t_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -874,7 +874,7 @@ define i32 @dissect_thrift_t_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -967,7 +967,7 @@ define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 8, 0) i32 @dissect_thrift_t_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 8, 0) i32 @dissect_thrift_t_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %10
 
@@ -1025,7 +1025,7 @@ dissect_thrift_raw_double.exit:                   ; preds = %17, %19, %22, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 8, 0) i32 @dissect_thrift_raw_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc range(i32 8, 0) i32 @dissect_thrift_raw_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -1137,7 +1137,7 @@ define internal fastcc range(i32 8, 0) i32 @dissect_thrift_raw_double(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 16, 0) i32 @dissect_thrift_t_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 16, 0) i32 @dissect_thrift_t_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %10
 
@@ -1191,7 +1191,7 @@ dissect_thrift_raw_uuid.exit:                     ; preds = %17, %19, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 16, 0) i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc range(i32 16, 0) i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -1275,7 +1275,7 @@ define i32 @dissect_thrift_t_binary(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
@@ -1496,7 +1496,7 @@ define i32 @dissect_thrift_t_string_enc(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissect_thrift_t_raw_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9) local_unnamed_addr #0 {
+define i32 @dissect_thrift_t_raw_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %12
 
@@ -2300,7 +2300,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %37, %40, %
 declare i32 @p_get_proto_depth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 2, 17) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 2, 17) %5, i32 noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct._thrift_field_header_t, align 8
   store i32 %3, ptr %9, align 4
@@ -3417,7 +3417,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull %4, i32 noundef range(i32 3, 11) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull %4, i32 noundef range(i32 3, 11) %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = load i32, ptr %3, align 4
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %10) #7

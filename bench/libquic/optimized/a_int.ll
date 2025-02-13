@@ -46,7 +46,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_null) %a, ptr noundef captures(address_is_null) %pp) local_unnamed_addr #2 {
+define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly %a, ptr noundef %pp) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -228,7 +228,7 @@ return:                                           ; preds = %if.end36.thread88, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @c2i_ASN1_INTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -414,7 +414,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
+define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -635,7 +635,7 @@ return:                                           ; preds = %for.end38, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @ASN1_INTEGER_get(ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #6 {
+define hidden i64 @ASN1_INTEGER_get(ptr noundef readonly %a) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

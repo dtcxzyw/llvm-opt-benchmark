@@ -675,7 +675,7 @@ define hidden void @phpdbg_btree_clean(ptr noundef captures(none) %0) local_unna
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @phpdbg_btree_branch_dump(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #8 {
+define hidden void @phpdbg_btree_branch_dump(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %.loopexit, label %.lr.ph
 

@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qlist_pop(ptr noundef captures(address_is_null) %qlist) local_unnamed_addr #0 {
+define dso_local ptr @qlist_pop(ptr noundef %qlist) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %qlist, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -227,7 +227,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qlist_peek(ptr noundef readonly captures(address_is_null) %qlist) local_unnamed_addr #3 {
+define dso_local ptr @qlist_peek(ptr noundef readonly %qlist) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %qlist, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -280,7 +280,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qlist_is_equal(ptr noundef readonly captures(address_is_null) %x, ptr noundef readonly captures(address_is_null) %y) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qlist_is_equal(ptr noundef readonly %x, ptr noundef readonly %y) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %x, null
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i

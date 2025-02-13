@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [5 x i8] c"%02X\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 7) i32 @MPL_str_get_string_arg(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @MPL_str_get_string_arg(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %3, 1
   %6 = icmp eq ptr %0, null
   %or.cond = or i1 %6, %5
@@ -402,7 +402,7 @@ token_copy.exit:                                  ; preds = %.preheader.i, %99, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -535,7 +535,7 @@ define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 7) i32 @MPL_str_get_binary_arg(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @MPL_str_get_binary_arg(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
   %6 = alloca [3 x i8], align 1
   %7 = alloca i32, align 4
   %8 = icmp slt i32 %3, 1
@@ -888,7 +888,7 @@ first_token.exit.thread:                          ; preds = %.preheader.i, %97, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define range(i32 0, 7) i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
+define range(i32 0, 7) i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca [12 x i8], align 1
   %5 = call i32 @MPL_str_get_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 12)
   %6 = icmp eq i32 %5, 0
@@ -1060,7 +1060,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @MPL_str_get_string(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @MPL_str_get_string(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %token_copy.exit, label %5
 
@@ -1292,7 +1292,7 @@ token_copy.exit:                                  ; preds = %.preheader.i, %43, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %90, label %6
 
@@ -1522,7 +1522,7 @@ quoted_printf.exit78:                             ; preds = %60, %55, %67, %64, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [12 x i8], align 1
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 12, ptr noundef nonnull @.str.5, i32 noundef %3) #8
   %7 = call i32 @MPL_str_add_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
@@ -1530,7 +1530,7 @@ define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %85, label %7
 

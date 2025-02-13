@@ -2196,7 +2196,7 @@ define hidden void @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h4e64e7808a0307caE.llvm.15137815808512737898"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h4e64e7808a0307caE.llvm.15137815808512737898"(ptr noalias noundef returned align 8 dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !494, !noundef !9
   %4 = icmp eq i64 %3, -9223372036854775807
@@ -2235,7 +2235,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h916f340018f57cb6E.llvm.15137815808512737898"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h916f340018f57cb6E.llvm.15137815808512737898"(ptr noalias noundef returned align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.4 = alloca [16 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !494, !noundef !9
   %4 = icmp eq i64 %3, -9223372036854775807
@@ -2279,7 +2279,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc3537eb252445463E.llvm.15137815808512737898"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc3537eb252445463E.llvm.15137815808512737898"(ptr noalias noundef returned align 8 dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [40 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !494, !noundef !9
   %4 = icmp eq i64 %3, -9223372036854775807

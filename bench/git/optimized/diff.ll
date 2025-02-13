@@ -650,7 +650,7 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i64 -1, 32769) i64 @parse_algorithm_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define dso_local range(i64 -1, 32769) i64 @parse_algorithm_value(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -2358,7 +2358,7 @@ diff_filespec_load_driver.exit:                   ; preds = %8, %thread-pre-spli
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @diff_populate_filespec(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @diff_populate_filespec(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.stat, align 8
@@ -2907,7 +2907,7 @@ diff_free_filespec_data.exit:                     ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @diff_free_filespec_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @diff_free_filespec_data(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %2
 
@@ -6579,7 +6579,7 @@ _.exit61:                                         ; preds = %88, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_compact_summary(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @diff_opt_compact_summary(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq ptr %1, null
@@ -6609,7 +6609,7 @@ define internal noundef i32 @diff_opt_compact_summary(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_binary(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @diff_opt_binary(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -6702,7 +6702,7 @@ define internal noundef i32 @diff_opt_line_prefix(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_no_prefix(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @diff_opt_no_prefix(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -6729,7 +6729,7 @@ define internal noundef i32 @diff_opt_no_prefix(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_default_prefix(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @diff_opt_default_prefix(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -6808,7 +6808,7 @@ _.exit:                                           ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @diff_opt_break_rewrites(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_break_rewrites(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -7002,7 +7002,7 @@ _.exit29:                                         ; preds = %71, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @diff_opt_find_renames(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_find_renames(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -7110,7 +7110,7 @@ _.exit:                                           ; preds = %38, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @diff_opt_find_copies(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_find_copies(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -7228,7 +7228,7 @@ _.exit:                                           ; preds = %38, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_follow(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @diff_opt_follow(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq ptr %1, null
@@ -7255,7 +7255,7 @@ define internal noundef i32 @diff_opt_follow(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_diff_algorithm_no_arg(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @diff_opt_diff_algorithm_no_arg(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -7404,7 +7404,7 @@ st_mult.exit:                                     ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @diff_opt_patience(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_patience(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -7486,7 +7486,7 @@ set_diff_algorithm.exit:                          ; preds = %26, %select.unfold.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @diff_opt_diff_algorithm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @diff_opt_diff_algorithm(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq i32 %2, 0
@@ -7875,7 +7875,7 @@ define internal noundef i32 @diff_opt_relative(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @diff_opt_textconv(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @diff_opt_textconv(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !215
   %.not = icmp eq ptr %1, null
@@ -8389,7 +8389,7 @@ st_mult.exit:                                     ; preds = %7
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @diff_queue(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @diff_queue(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #32
   store ptr %1, ptr %4, align 8, !tbaa !168
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -15315,7 +15315,7 @@ diff_queue.exit:                                  ; preds = %._crit_edge.i.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.child_process, align 8
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca i64, align 8
@@ -16372,7 +16372,7 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_line_0(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 -128, 128) %5, ptr noundef captures(none) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @emit_line_0(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 -128, 128) %5, ptr noundef captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -16519,7 +16519,7 @@ diff_line_prefix.exit:                            ; preds = %8, %13
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_line_ws_markup(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 32768) %7, i32 noundef range(i32 0, 65537) %8) unnamed_addr #0 {
+define internal fastcc void @emit_line_ws_markup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 32768) %7, i32 noundef range(i32 0, 65537) %8) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %11 = zext nneg i32 %4 to i64
   %12 = getelementptr inbounds nuw [3 x i8], ptr %10, i64 0, i64 %11
@@ -17739,7 +17739,7 @@ declare i64 @xdiff_hash_string(ptr noundef, i64 noundef, i64 noundef) local_unna
 declare ptr @strmap_get(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_diff_cmd(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
+define internal fastcc void @run_diff_cmd(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca %struct.emit_callback, align 8

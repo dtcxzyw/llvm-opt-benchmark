@@ -799,7 +799,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @bitmap_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define dso_local void @bitmap_free(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

@@ -133,7 +133,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport13exportContextEPNS_7ContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport13exportContextEPNS_7ContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %ctx, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -620,7 +620,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport15writeValueArrayEPNS_13DataArrayListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address_is_null) %al, ptr noundef nonnull align 8 dereferenceable(32) %statement) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport15writeValueArrayEPNS_13DataArrayListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %al, ptr noundef nonnull align 8 dereferenceable(32) %statement) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ne ptr %al, null
   br i1 %cmp, label %if.end, label %return

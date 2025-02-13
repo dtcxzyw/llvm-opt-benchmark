@@ -476,7 +476,7 @@ init_mat_mmap.exit:                               ; preds = %parse_line.exit.i, 
 declare hidden i32 @tm_get_verbose_level() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tm_map_topology(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
+define hidden void @tm_map_topology(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = tail call i32 @tm_get_verbose_level() #17
   %.fr111 = freeze i32 %9

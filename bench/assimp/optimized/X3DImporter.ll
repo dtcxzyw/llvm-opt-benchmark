@@ -3853,7 +3853,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter24FindNodeElement_FromRootERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePP18X3DNodeElementBase(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef writeonly captures(address_is_null) %pElement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter24FindNodeElement_FromRootERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePP18X3DNodeElementBase(ptr noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef writeonly %pElement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %NodeElement_List = getelementptr inbounds nuw i8, ptr %this, i64 72
   %it.sroa.0.012 = load ptr, ptr %NodeElement_List, align 8
@@ -3909,7 +3909,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter24FindNodeElement_FromNodeEP18X3DNodeElementBaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef %pStartNode, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef captures(address_is_null) %pElement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter24FindNodeElement_FromNodeEP18X3DNodeElementBaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef %pStartNode, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef %pElement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Type = getelementptr inbounds nuw i8, ptr %pStartNode, i64 72
   %0 = load i32, ptr %Type, align 8
@@ -3965,7 +3965,7 @@ fne_fn_end:                                       ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter15FindNodeElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePP18X3DNodeElementBase(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef captures(address_is_null) %pElement) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6Assimp11X3DImporter15FindNodeElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11X3DElemTypePP18X3DNodeElementBase(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef %pElement) local_unnamed_addr #0 align 2 {
 entry:
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %tnd.09 = load ptr, ptr %mNodeElementCur, align 8

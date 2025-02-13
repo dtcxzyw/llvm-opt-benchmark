@@ -68,7 +68,7 @@ sk_new.exit:                                      ; preds = %if.end5.i, %err.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @sk_num(ptr noundef readonly captures(address_is_null) %sk) local_unnamed_addr #3 {
+define hidden i64 @sk_num(ptr noundef readonly %sk) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -83,7 +83,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @sk_zero(ptr noundef captures(address_is_null) %sk) local_unnamed_addr #4 {
+define hidden void @sk_zero(ptr noundef %sk) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -108,7 +108,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @sk_value(ptr noundef readonly captures(address_is_null) %sk, i64 noundef %i) local_unnamed_addr #5 {
+define hidden ptr @sk_value(ptr noundef readonly %sk, i64 noundef %i) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %sk, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -131,7 +131,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @sk_set(ptr noundef readonly captures(address_is_null) %sk, i64 noundef %i, ptr noundef %value) local_unnamed_addr #4 {
+define hidden noundef ptr @sk_set(ptr noundef readonly %sk, i64 noundef %i, ptr noundef %value) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %sk, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -154,7 +154,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @sk_free(ptr noundef captures(address_is_null) %sk) local_unnamed_addr #6 {
+define hidden void @sk_free(ptr noundef %sk) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -171,7 +171,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sk_pop_free(ptr noundef captures(address_is_null) %sk, ptr noundef readonly captures(none) %func) local_unnamed_addr #7 {
+define hidden void @sk_pop_free(ptr noundef %sk, ptr noundef readonly captures(none) %func) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -217,7 +217,7 @@ return:                                           ; preds = %entry, %sk_free.exi
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden i64 @sk_insert(ptr noundef captures(address_is_null) %sk, ptr noundef %p, i64 noundef %where) local_unnamed_addr #6 {
+define hidden i64 @sk_insert(ptr noundef %sk, ptr noundef %p, i64 noundef %where) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -312,7 +312,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @sk_delete(ptr noundef captures(address_is_null) %sk, i64 noundef %where) local_unnamed_addr #10 {
+define hidden ptr @sk_delete(ptr noundef %sk, i64 noundef %where) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %sk, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @sk_delete_ptr(ptr noundef captures(address_is_null) %sk, ptr noundef readnone captures(address) %p) local_unnamed_addr #11 {
+define hidden ptr @sk_delete_ptr(ptr noundef %sk, ptr noundef readnone %p) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -406,7 +406,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @sk_find(ptr noundef captures(address_is_null) %sk, ptr noundef writeonly captures(address_is_null) %out_index, ptr noundef %p) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @sk_find(ptr noundef %sk, ptr noundef writeonly %out_index, ptr noundef %p) local_unnamed_addr #7 {
 entry:
   %p.addr = alloca ptr, align 8
   store ptr %p, ptr %p.addr, align 8
@@ -516,7 +516,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @sk_sort(ptr noundef captures(address_is_null) %sk) local_unnamed_addr #12 {
+define hidden void @sk_sort(ptr noundef %sk) local_unnamed_addr #12 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -548,7 +548,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @sk_shift(ptr noundef captures(address_is_null) %sk) local_unnamed_addr #10 {
+define hidden ptr @sk_shift(ptr noundef %sk) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -670,7 +670,7 @@ sk_insert.exit:                                   ; preds = %if.end11.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @sk_pop(ptr noundef captures(address_is_null) %sk) local_unnamed_addr #14 {
+define hidden ptr @sk_pop(ptr noundef %sk) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -695,7 +695,7 @@ return:                                           ; preds = %if.end11.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noalias noundef ptr @sk_dup(ptr noundef readonly captures(address_is_null) %sk) local_unnamed_addr #6 {
+define hidden noalias noundef ptr @sk_dup(ptr noundef readonly %sk) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -761,7 +761,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @sk_is_sorted(ptr noundef readonly captures(address_is_null) %sk) local_unnamed_addr #3 {
+define hidden i32 @sk_is_sorted(ptr noundef readonly %sk) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %sk, null
   br i1 %tobool.not, label %return, label %if.end
@@ -796,7 +796,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @sk_deep_copy(ptr noundef captures(address_is_null) %sk, ptr noundef readonly captures(none) %copy_func, ptr noundef readonly captures(none) %free_func) local_unnamed_addr #7 {
+define hidden noundef ptr @sk_deep_copy(ptr noundef %sk, ptr noundef readonly captures(none) %copy_func, ptr noundef readonly captures(none) %free_func) local_unnamed_addr #7 {
 entry:
   %call = tail call ptr @sk_dup(ptr noundef %sk)
   %cmp = icmp eq ptr %call, null

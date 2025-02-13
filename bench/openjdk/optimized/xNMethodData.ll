@@ -156,12 +156,12 @@ define hidden void @_ZN12XNMethodDataD2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN12XNMethodData4lockEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN12XNMethodData4lockEv(ptr noundef nonnull readnone returned align 8 dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN12XNMethodData7ic_lockEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN12XNMethodData7ic_lockEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }

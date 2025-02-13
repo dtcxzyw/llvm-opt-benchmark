@@ -319,7 +319,7 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @kobject_uevent_env(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define dso_local i32 @kobject_uevent_env(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr [8 x ptr], ptr @kobject_actions, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -1026,7 +1026,7 @@ define internal void @uevent_net_rcv(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @netlink_rcv_skb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uevent_net_rcv_skb(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
+define internal i32 @uevent_net_rcv_skb(ptr noundef %0, ptr noundef readnone %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca [29 x i8], align 16
   %5 = getelementptr i8, ptr %1, i64 16
   %6 = icmp eq ptr %5, null

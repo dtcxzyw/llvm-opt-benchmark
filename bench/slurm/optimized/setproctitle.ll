@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [18 x i8] c"init_setproctitle\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @setproctitle(ptr noundef readonly captures(address_is_null) %0, ...) local_unnamed_addr #0 {
+define void @setproctitle(ptr noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load ptr, ptr @save_argv, align 8
   %4 = icmp eq ptr %3, null

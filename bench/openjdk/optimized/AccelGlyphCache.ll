@@ -300,7 +300,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %116, %96
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @AccelGlyphCache_RemoveCellInfo(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
+define hidden void @AccelGlyphCache_RemoveCellInfo(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -357,7 +357,7 @@ define hidden void @AccelGlyphCache_AddCellInfo(ptr noundef %0, ptr noundef init
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @AccelGlyphCache_Invalidate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @AccelGlyphCache_Invalidate(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -432,7 +432,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %22, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @AccelGlyphCache_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @AccelGlyphCache_Free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %32, label %3
 
@@ -517,7 +517,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %24, %.lr
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @AccelGlyphCache_RemoveAllCellInfos(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @AccelGlyphCache_RemoveAllCellInfos(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -546,7 +546,7 @@ define void @AccelGlyphCache_RemoveAllCellInfos(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @AccelGlyphCache_GetCellInfoForCache(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define hidden noundef ptr @AccelGlyphCache_GetCellInfoForCache(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

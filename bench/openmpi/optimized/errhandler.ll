@@ -1089,7 +1089,7 @@ define void @ompi_errhandler_registration_callback(i32 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_errhandler_callback(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readnone captures(none) %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
+define void @ompi_errhandler_callback(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readnone captures(none) %5, i64 noundef %6, ptr noundef readonly %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = mul i64 %4, 552
   %11 = add i64 %10, 144
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #15

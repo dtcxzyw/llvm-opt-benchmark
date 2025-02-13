@@ -397,7 +397,7 @@ opal_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %opal_o
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @opal_cmd_line_create(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -5, 1) i32 @opal_cmd_line_create(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %opal_cmd_line_add.exit, label %4
 
@@ -467,7 +467,7 @@ opal_cmd_line_add.exit:                           ; preds = %27, %23, %opal_obj_
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @opal_cmd_line_add(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -5, 1) i32 @opal_cmd_line_add(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -2743,7 +2743,7 @@ find_option.exit:                                 ; preds = %28, %55, %34, %4, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @opal_cmd_line_get_argc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
+define i32 @opal_cmd_line_get_argc(ptr noundef readonly %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2758,7 +2758,7 @@ define i32 @opal_cmd_line_get_argc(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @opal_cmd_line_get_argv(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #15 {
+define ptr @opal_cmd_line_get_argv(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 

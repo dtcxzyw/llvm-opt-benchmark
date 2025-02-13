@@ -130,7 +130,7 @@ define dso_local i32 @_archive_set_either_option(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 1) i32 @_archive_set_options(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @_archive_set_options(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef %2, i32 noundef 1, ptr noundef %3) #6
   %.not = icmp eq i32 %6, -30
   br i1 %.not, label %55, label %7

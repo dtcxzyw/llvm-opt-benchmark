@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.50 = private unnamed_addr constant [67 x i8] c"parent is at 0x%lx, id = %u, ref = %u, then = 0x%lx, else = 0x%lx\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
@@ -1081,7 +1081,7 @@ declare ptr @st__init_gen(ptr noundef) local_unnamed_addr #2
 declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @debugFindParent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #4 {
+define internal fastcc void @debugFindParent(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -1175,7 +1175,7 @@ declare void @st__free_gen(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
+define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp sgt i32 %3, 0

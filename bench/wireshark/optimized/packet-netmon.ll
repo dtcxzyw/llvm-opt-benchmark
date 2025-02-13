@@ -1612,7 +1612,7 @@ proto_item_set_generated.exit37:                  ; preds = %37, %34, %25, %prot
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netmon_system_trace(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_netmon_system_trace(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -1784,7 +1784,7 @@ netmon_etl_field.exit90:                          ; preds = %65, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3376,7 +3376,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null

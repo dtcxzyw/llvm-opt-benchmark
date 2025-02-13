@@ -778,7 +778,7 @@ define dso_local i64 @_ZNK4llvm20RISCVGenRegisterInfo37reverseComposeSubRegIndex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %21, label %4
 
@@ -810,7 +810,7 @@ define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo21getSubClassWithSu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %21, label %4
 
@@ -4195,7 +4195,7 @@ define dso_local noundef nonnull ptr @_ZNK4llvm17RISCVRegisterInfo20getCallPrese
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZNK4llvm17RISCVRegisterInfo25getLargestLegalSuperClassEPKNS_19TargetRegisterClassERKNS_15MachineFunctionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address, ret: address, provenance) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm17RISCVRegisterInfo25getLargestLegalSuperClassEPKNS_19TargetRegisterClassERKNS_15MachineFunctionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %1, @_ZN4llvm5RISCV12VMV0RegClassE
   %5 = icmp eq ptr %1, @_ZN4llvm5RISCV14VRNoV0RegClassE
   %or.cond = or i1 %4, %5

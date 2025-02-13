@@ -1617,7 +1617,7 @@ return:                                           ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN6hermes2vm17JSWeakMapImplBase18getValueStorageRefERNS0_7HadesGCE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(61) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8152) %gc) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN6hermes2vm17JSWeakMapImplBase18getValueStorageRefERNS0_7HadesGCE(ptr noundef nonnull readnone align 8 dereferenceable(61) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8152) %gc) local_unnamed_addr #5 align 2 {
 entry:
   %valueStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %valueStorage_

@@ -1310,7 +1310,7 @@ for.end:                                          ; preds = %_ZNK3sat6solver3psm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK3sat6solver3psmERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4408) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZNK3sat6solver3psmERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4408) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #7 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -1351,7 +1351,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3sat6solver10can_deleteERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4408) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK3sat6solver10can_deleteERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4408) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #4 align 2 {
 entry:
   %m_reinit_stack.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %bf.load.i = load i32, ptr %m_reinit_stack.i, align 4

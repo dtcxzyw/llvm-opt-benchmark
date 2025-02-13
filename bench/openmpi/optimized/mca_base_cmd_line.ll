@@ -267,7 +267,7 @@ declare ptr @opal_cmd_line_get_param(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @mca_base_cmd_line_wrap_args(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @mca_base_cmd_line_wrap_args(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph.split

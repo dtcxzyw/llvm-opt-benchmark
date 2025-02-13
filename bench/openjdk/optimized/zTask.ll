@@ -63,7 +63,7 @@ define hidden noundef ptr @_ZNK5ZTask4nameEv(ptr noundef nonnull readonly align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN5ZTask11worker_taskEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN5ZTask11worker_taskEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

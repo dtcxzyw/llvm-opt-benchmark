@@ -445,7 +445,7 @@ declare void @abort() local_unnamed_addr #4
 declare i32 @sdscmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @zslDeleteNode(ptr noundef captures(none) %zsl, ptr noundef readonly captures(address) %x, ptr noundef readonly captures(none) %update) local_unnamed_addr #5 {
+define dso_local void @zslDeleteNode(ptr noundef captures(none) %zsl, ptr noundef readonly %x, ptr noundef readonly captures(none) %update) local_unnamed_addr #5 {
 entry:
   %level = getelementptr inbounds nuw i8, ptr %zsl, i64 24
   %0 = load i32, ptr %level, align 8
@@ -550,7 +550,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %zsl, double noundef %score, ptr noundef %ele, ptr noundef writeonly captures(address_is_null) %node) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @zslDelete(ptr noundef captures(none) %zsl, double noundef %score, ptr noundef %ele, ptr noundef writeonly %node) local_unnamed_addr #0 {
 entry:
   %update = alloca [32 x ptr], align 16
   %0 = load ptr, ptr %zsl, align 8
@@ -1439,7 +1439,7 @@ return:                                           ; preds = %if.end10.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @zslGetElementByRankFromNode(ptr noundef readonly captures(ret: address, provenance) %start_node, i32 noundef %start_level, i64 noundef %rank) local_unnamed_addr #8 {
+define dso_local ptr @zslGetElementByRankFromNode(ptr noundef readonly %start_node, i32 noundef %start_level, i64 noundef %rank) local_unnamed_addr #8 {
 entry:
   %cmp13 = icmp sgt i32 %start_level, -1
   br i1 %cmp13, label %while.cond.preheader.preheader, label %return
@@ -4342,7 +4342,7 @@ return:                                           ; preds = %if.end9, %if.then4,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zzlFind(ptr noundef %lp, ptr noundef %ele, ptr noundef writeonly captures(address_is_null) %score) local_unnamed_addr #0 {
+define dso_local ptr @zzlFind(ptr noundef %lp, ptr noundef %ele, ptr noundef writeonly %score) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [128 x i8], align 16
   %vlen.i = alloca i32, align 4
@@ -4760,7 +4760,7 @@ if.end25:                                         ; preds = %if.end19, %zzlCompa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zzlDeleteRangeByScore(ptr noundef %zl, ptr noundef readonly captures(none) %range, ptr noundef writeonly captures(address_is_null) %deleted) local_unnamed_addr #0 {
+define dso_local ptr @zzlDeleteRangeByScore(ptr noundef %zl, ptr noundef readonly captures(none) %range, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [128 x i8], align 16
   %vlen.i = alloca i32, align 4
@@ -4850,7 +4850,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zzlDeleteRangeByLex(ptr noundef %zl, ptr noundef readonly captures(none) %range, ptr noundef writeonly captures(address_is_null) %deleted) local_unnamed_addr #0 {
+define dso_local ptr @zzlDeleteRangeByLex(ptr noundef %zl, ptr noundef readonly captures(none) %range, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
 entry:
   %eptr = alloca ptr, align 8
   %cmp.not = icmp eq ptr %deleted, null
@@ -4902,7 +4902,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zzlDeleteRangeByRank(ptr noundef %zl, i32 noundef %start, i32 noundef %end, ptr noundef writeonly captures(address_is_null) %deleted) local_unnamed_addr #0 {
+define dso_local ptr @zzlDeleteRangeByRank(ptr noundef %zl, i32 noundef %start, i32 noundef %end, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
 entry:
   %sub = sub i32 %end, %start
   %add = add i32 %sub, 1
@@ -5344,7 +5344,7 @@ if.end5:                                          ; preds = %entry, %zsetConvert
 declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zsetScore(ptr noundef readonly captures(address_is_null) %zobj, ptr noundef %member, ptr noundef captures(address_is_null) %score) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zsetScore(ptr noundef readonly %zobj, ptr noundef %member, ptr noundef %score) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %zobj, null
   %tobool1 = icmp ne ptr %member, null
@@ -5399,7 +5399,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @zsetAdd(ptr noundef %zobj, double noundef %score, ptr noundef %ele, i32 noundef %in_flags, ptr noundef captures(none) initializes((0, 4)) %out_flags, ptr noundef writeonly captures(address_is_null) %newscore) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @zsetAdd(ptr noundef %zobj, double noundef %score, ptr noundef %ele, i32 noundef %in_flags, ptr noundef captures(none) initializes((0, 4)) %out_flags, ptr noundef writeonly %newscore) local_unnamed_addr #0 {
 entry:
   %eptr.addr.i = alloca ptr, align 8
   %curscore = alloca double, align 8
@@ -5869,7 +5869,7 @@ declare i32 @htNeedsResize(ptr noundef) local_unnamed_addr #2
 declare i32 @dictResize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @zsetRank(ptr noundef readonly captures(none) %zobj, ptr noundef %ele, i32 noundef %reverse, ptr noundef writeonly captures(address_is_null) %output_score) local_unnamed_addr #0 {
+define dso_local i64 @zsetRank(ptr noundef readonly captures(none) %zobj, ptr noundef %ele, i32 noundef %reverse, ptr noundef writeonly %output_score) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [128 x i8], align 16
   %vlen.i = alloca i32, align 4
@@ -6360,7 +6360,7 @@ declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @addReplyBulkLongLong(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zsetTypeRandomElement(ptr noundef readonly captures(none) %zsetobj, i64 noundef %zsetsize, ptr noundef %key, ptr noundef writeonly captures(address_is_null) %score) local_unnamed_addr #0 {
+define dso_local void @zsetTypeRandomElement(ptr noundef readonly captures(none) %zsetobj, i64 noundef %zsetsize, ptr noundef %key, ptr noundef writeonly %score) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %val = alloca %struct.listpackEntry, align 8
@@ -8244,7 +8244,7 @@ if.end11:                                         ; preds = %if.end11.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @zuiFind(ptr noundef readonly captures(none) %op, ptr noundef captures(none) %val, ptr noundef captures(address_is_null) %score) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @zuiFind(ptr noundef readonly captures(none) %op, ptr noundef captures(none) %val, ptr noundef %score) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %op, align 8
   %cmp = icmp eq ptr %0, null
@@ -13350,7 +13350,7 @@ declare i32 @parseScanCursorOrReply(ptr noundef, ptr noundef, ptr noundef) local
 declare void @scanGenericCommand(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @genericZpopCommand(ptr noundef %c, ptr noundef readonly captures(none) %keyv, i32 noundef %keyc, i32 noundef %where, i32 noundef %emitkey, i64 noundef %count, i32 noundef %use_nested_array, i32 noundef %reply_nil_when_empty, ptr noundef writeonly captures(address_is_null) %deleted) local_unnamed_addr #0 {
+define dso_local void @genericZpopCommand(ptr noundef %c, ptr noundef readonly captures(none) %keyv, i32 noundef %keyc, i32 noundef %where, i32 noundef %emitkey, i64 noundef %count, i32 noundef %use_nested_array, i32 noundef %reply_nil_when_empty, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [128 x i8], align 16
   %vlen.i = alloca i32, align 4
@@ -14793,7 +14793,7 @@ return:                                           ; preds = %if.end33, %while.co
 declare void @lpRandomPairs(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %c, i32 noundef %count, ptr noundef readonly captures(none) %keys, ptr noundef readonly captures(address_is_null) %vals) unnamed_addr #0 {
+define internal fastcc void @zrandmemberReplyWithListpack(ptr noundef %c, i32 noundef %count, ptr noundef readonly captures(none) %keys, ptr noundef readonly %vals) unnamed_addr #0 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %conv = zext i32 %count to i64

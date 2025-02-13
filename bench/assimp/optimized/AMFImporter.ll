@@ -695,7 +695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp11AMFImporter16Find_NodeElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN18AMFNodeElementBase5ETypeEPPS9_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef writeonly captures(address_is_null) %pNodeElement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK6Assimp11AMFImporter16Find_NodeElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN18AMFNodeElementBase5ETypeEPPS9_(ptr noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, i32 noundef %pType, ptr noundef writeonly %pNodeElement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNodeElement_List = getelementptr inbounds nuw i8, ptr %this, i64 80
   %__begin1.sroa.0.011 = load ptr, ptr %mNodeElement_List, align 8
@@ -749,7 +749,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp11AMFImporter18Find_ConvertedNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIP6aiNodeSaISB_EEPSB_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodeArray, ptr noundef writeonly captures(address_is_null) %pNode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK6Assimp11AMFImporter18Find_ConvertedNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIP6aiNodeSaISB_EEPSB_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodeArray, ptr noundef writeonly %pNode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %node_name = alloca %struct.aiString, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -890,7 +890,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp11AMFImporter22Find_ConvertedMaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_12SPP_MaterialE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, ptr noundef writeonly captures(address_is_null) %pConvertedMaterial) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK6Assimp11AMFImporter22Find_ConvertedMaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_12SPP_MaterialE(ptr noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pID, ptr noundef writeonly %pConvertedMaterial) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mMaterial_Converted = getelementptr inbounds nuw i8, ptr %this, i64 176
   %__begin1.sroa.0.010 = load ptr, ptr %mMaterial_Converted, align 8

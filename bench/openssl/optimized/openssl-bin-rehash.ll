@@ -906,7 +906,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2) %type, i32 noundef %hash, ptr noundef %filename, ptr noundef readonly captures(address_is_null) %digest, i32 noundef range(i32 0, 2) %need_symlink, i16 noundef zeroext %old_id) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2) %type, i32 noundef %hash, ptr noundef %filename, ptr noundef readonly %digest, i32 noundef range(i32 0, 2) %need_symlink, i16 noundef zeroext %old_id) unnamed_addr #0 {
 entry:
   %add = add i32 %hash, %type
   %0 = urem i32 %add, 257

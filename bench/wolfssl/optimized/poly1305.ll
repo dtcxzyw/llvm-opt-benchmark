@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305SetKey(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef readonly captures(address_is_null) %key, i32 noundef %keySz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_Poly1305SetKey(ptr noundef writeonly %ctx, ptr noundef readonly %key, i32 noundef %keySz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -51,7 +51,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_null) %ctx, ptr noundef writeonly captures(address_is_null) %mac) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef %ctx, ptr noundef writeonly %mac) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %mac, null
@@ -220,7 +220,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef captures(address_is_null) %ctx, ptr noundef readonly captures(address_is_null) %m, i32 noundef %bytes) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef %ctx, ptr noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -427,7 +427,7 @@ while.end:                                        ; preds = %while.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef captures(address_is_null) %ctx, i32 noundef %lenToPad) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef %ctx, i32 noundef %lenToPad) local_unnamed_addr #1 {
 entry:
   %padding = alloca [15 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -457,7 +457,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef captures(address_is_null) %ctx, i32 noundef %aadSz, i32 noundef %dataSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef %ctx, i32 noundef %aadSz, i32 noundef %dataSz) local_unnamed_addr #1 {
 entry:
   %little64 = alloca [16 x i8], align 16
   %cmp = icmp eq ptr %ctx, null
@@ -563,7 +563,7 @@ return:                                           ; preds = %for.end57.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef captures(address_is_null) %ctx, i64 noundef %aadSz, i64 noundef %dataSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef %ctx, i64 noundef %aadSz, i64 noundef %dataSz) local_unnamed_addr #1 {
 entry:
   %little64 = alloca [2 x i64], align 16
   %cmp = icmp eq ptr %ctx, null
@@ -667,7 +667,7 @@ return:                                           ; preds = %for.end57.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_null) %ctx, ptr noundef captures(address_is_null) %additional, i32 noundef %addSz, ptr noundef captures(address_is_null) %input, i32 noundef %sz, ptr noundef captures(address_is_null) %tag, i32 noundef %tagSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef %ctx, ptr noundef %additional, i32 noundef %addSz, ptr noundef %input, i32 noundef %sz, ptr noundef %tag, i32 noundef %tagSz) local_unnamed_addr #1 {
 entry:
   %padding.i22 = alloca [15 x i8], align 1
   %padding.i = alloca [15 x i8], align 1

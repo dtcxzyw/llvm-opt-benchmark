@@ -1923,7 +1923,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5regex5regex6string5Regex7find_at17h91e68f13f0d858daE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly captures(address_is_null) %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5regex5regex6string5Regex7find_at17h91e68f13f0d858daE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 ._crit_edge.i:
   %3 = alloca {}, align 1
   %4 = alloca { ptr, [5 x i64] }, align 8
@@ -2242,7 +2242,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %1, %11, %9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb2e3d1dfe11341f4E.llvm.2523804239324124153"(i64 noundef %0, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb2e3d1dfe11341f4E.llvm.2523804239324124153"(i64 noundef %0, ptr noundef nonnull readnone align 8 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = icmp ult i64 %0, %2
   br i1 %5, label %6, label %8, !prof !12
 
@@ -5759,7 +5759,7 @@ define hidden { i64, ptr } @_ZN18tree_sitter_loader6Loader15language_for_id17h52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, ptr } @_ZN18tree_sitter_loader6Loader21load_language_at_path17h2b41c046ff6517aaE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 captures(address) %3, i64 noundef %4, ptr noalias noundef readonly align 8 %5, i64 %6) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { i64, ptr } @_ZN18tree_sitter_loader6Loader21load_language_at_path17h2b41c046ff6517aaE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, ptr noalias noundef readonly align 8 %5, i64 %6) unnamed_addr #1 personality ptr @rust_eh_personality {
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { { { { { { ptr, i64 }, i64, i64, i64 }, ptr } }, i64, i64, i64 }, { i8, i8 }, [6 x i8] }, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -5964,7 +5964,7 @@ _ZN3std2fs4File4open17hbde26b0d6c00cf12E.exit:    ; preds = %_ZN3std2fs11OpenOpt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, ptr } @_ZN18tree_sitter_loader6Loader31load_language_at_path_with_name17h0208a38d8cb127d4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 captures(address) %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias noundef readonly align 8 %7, i64 %8) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { i64, ptr } @_ZN18tree_sitter_loader6Loader31load_language_at_path_with_name17h0208a38d8cb127d4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias noundef readonly align 8 %7, i64 %8) unnamed_addr #1 personality ptr @rust_eh_personality {
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7969,7 +7969,7 @@ _ZN3std2fs11OpenOptions4open17h8b9b1b89fb96bcc7E.exit454: ; preds = %604
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @_ZN18tree_sitter_loader6Loader23compile_parser_to_dylib17he3adfeb9335a1b26E(i8 %.193.val, ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 1 %4, i64 %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %10) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @_ZN18tree_sitter_loader6Loader23compile_parser_to_dylib17he3adfeb9335a1b26E(i8 %.193.val, ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 1 %4, i64 %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %10) unnamed_addr #1 personality ptr @rust_eh_personality {
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8

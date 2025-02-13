@@ -91,7 +91,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mz_zip_get_error_string = private unnamed_addr constant [32 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %68, label %.preheader68
 
@@ -350,13 +350,13 @@ define noundef nonnull ptr @mz_version() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -10000, 1) i32 @mz_deflateInit(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -10000, 1) i32 @mz_deflateInit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = tail call i32 @mz_deflateInit2(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -10000, 1) i32 @mz_deflateInit2(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
+define range(i32 -10000, 1) i32 @mz_deflateInit2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = icmp sgt i32 %1, -1
   %8 = tail call i32 @llvm.umin.i32(i32 %1, i32 10)
   %9 = select i1 %7, i32 %8, i32 6
@@ -669,7 +669,7 @@ define noundef i32 @tdefl_init(ptr noundef initializes((0, 32), (36, 48), (84, 1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mz_deflateEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 -2, 1) i32 @mz_deflateEnd(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -694,7 +694,7 @@ define range(i32 -2, 1) i32 @mz_deflateEnd(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @mz_deflateReset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define range(i32 -2, 1) i32 @mz_deflateReset(ptr noundef %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %52, label %2
 
@@ -801,7 +801,7 @@ tdefl_init.exit:                                  ; preds = %11, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 2) i32 @mz_deflate(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -5, 2) i32 @mz_deflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -1487,7 +1487,7 @@ define range(i64 128, 0) i64 @mz_compressBound(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -10000, 1) i32 @mz_inflateInit2(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -10000, 1) i32 @mz_inflateInit2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %3
 
@@ -1557,7 +1557,7 @@ define range(i32 -10000, 1) i32 @mz_inflateInit2(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 1) i32 @mz_inflateInit(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 -4, 1) i32 @mz_inflateInit(ptr noundef %0) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %mz_inflateInit2.exit, label %2
 
@@ -1621,7 +1621,7 @@ mz_inflateInit2.exit:                             ; preds = %1, %15, %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -5, 2) i32 @mz_inflate(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
+define range(i32 -5, 2) i32 @mz_inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -4387,7 +4387,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mz_inflateEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 -2, 1) i32 @mz_inflateEnd(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -6955,7 +6955,7 @@ tdefl_init.exit:                                  ; preds = %12, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @tdefl_compress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
+define ptr @tdefl_compress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %struct.tdefl_output_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %2, null
@@ -7713,7 +7713,7 @@ define void @tinfl_decompressor_free(ptr noundef captures(none) %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @mz_zip_zero_struct(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @mz_zip_zero_struct(ptr noundef writeonly %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -7726,13 +7726,13 @@ define void @mz_zip_zero_struct(ptr noundef writeonly captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_end(ptr noundef %0) local_unnamed_addr #7 {
   %2 = tail call fastcc i32 @mz_zip_reader_end_internal(ptr noundef %0, i32 noundef 1)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_end_internal(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_end_internal(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %3
 
@@ -8901,13 +8901,13 @@ define internal i64 @mz_zip_mem_read_func(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_init_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_init_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = tail call i32 @mz_zip_reader_init_file_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef 0, i64 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_init_file_v2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_init_file_v2(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -9341,7 +9341,7 @@ mz_zip_reader_end_internal.exit:                  ; preds = %28, %49, %98, %77, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_is_file_encrypted(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @mz_zip_reader_is_file_encrypted(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %3
 
@@ -9388,7 +9388,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_is_file_encrypted(ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_is_file_supported(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @mz_zip_reader_is_file_supported(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %3
 
@@ -9450,7 +9450,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_is_file_supported(ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_is_file_a_directory(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @mz_zip_reader_is_file_a_directory(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %3
 
@@ -9511,7 +9511,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_is_file_a_directory(ptr noundef captur
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @mz_zip_reader_locate_file(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #19 {
+define i32 @mz_zip_reader_locate_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
   %5 = alloca i32, align 4
   %6 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0
@@ -9521,7 +9521,7 @@ define i32 @mz_zip_reader_locate_file(ptr noundef captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #19 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -10081,7 +10081,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef captures(ad
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #7 {
   %8 = alloca %struct.mz_zip_archive_file_stat, align 8
   %9 = alloca [8 x i32], align 16
   %10 = alloca %struct.tinfl_decompressor_tag, align 8
@@ -10412,7 +10412,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %27
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_file_stat(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @mz_zip_reader_file_stat(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %mz_zip_file_stat_internal.exit, label %4
 
@@ -10451,7 +10451,7 @@ mz_zip_file_stat_internal.exit:                   ; preds = %10, %3, %.split17
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem_no_alloc(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem_no_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #7 {
   %8 = alloca i32, align 4
   %9 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %4, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
@@ -10468,13 +10468,13 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem_no_alloc(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = tail call i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef null, i64 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %7 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %4, ptr noundef nonnull %6)
@@ -10493,7 +10493,7 @@ mz_zip_reader_extract_file_to_mem_no_alloc.exit:  ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mz_zip_reader_extract_to_heap(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
+define ptr @mz_zip_reader_extract_to_heap(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %5
 
@@ -10588,7 +10588,7 @@ define ptr @mz_zip_reader_extract_to_heap(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mz_zip_reader_extract_file_to_heap(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
+define ptr @mz_zip_reader_extract_file_to_heap(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca i32, align 4
   %6 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0
@@ -10698,7 +10698,7 @@ mz_zip_reader_extract_to_heap.exit:               ; preds = %54, %53, %49, %45, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_to_callback(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_to_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca %struct.mz_zip_archive_file_stat, align 8
   %7 = alloca [8 x i32], align 16
   %8 = alloca %struct.tinfl_decompressor_tag, align 8
@@ -11107,7 +11107,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca i32, align 4
   %7 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %4, ptr noundef nonnull %6)
   %.not = icmp eq i32 %7, 0
@@ -11124,7 +11124,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef c
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %struct.utimbuf, align 8
   %6 = alloca %struct.mz_zip_archive_file_stat, align 8
   %.not.i = icmp eq ptr %0, null
@@ -11226,7 +11226,7 @@ define internal noundef i64 @mz_zip_file_write_callback(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca i32, align 4
   %6 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0
@@ -11243,7 +11243,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef captu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_to_cfile(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_to_cfile(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %struct.mz_zip_archive_file_stat, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %mz_zip_reader_file_stat.exit.thread, label %6
@@ -11303,7 +11303,7 @@ mz_zip_reader_file_stat.exit.thread:              ; preds = %12, %4, %30, %mz_zi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_cfile(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_cfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %struct.mz_zip_archive_file_stat, align 8
   %6 = alloca i32, align 4
   %7 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6)
@@ -11376,7 +11376,7 @@ mz_zip_reader_extract_to_cfile.exit:              ; preds = %8, %16, %mz_zip_rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca %struct.mz_zip_archive_file_stat, align 8
   %5 = alloca i32, align 4
   %6 = alloca [8 x i32], align 16
@@ -11791,7 +11791,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mz_zip_file_stat_internal(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @mz_zip_file_stat_internal(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #17 {
   %6 = alloca %struct.tm, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -12298,7 +12298,7 @@ mz_crc32.exit:                                    ; preds = %.lr.ph42.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_validate_archive(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_validate_archive(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.mz_zip_archive_file_stat, align 8
   %.not = icmp eq ptr %0, null
@@ -12432,7 +12432,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_validate_mem_archive(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_validate_mem_archive(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #7 {
   %5 = alloca %struct.mz_zip_archive, align 8
   %6 = icmp ne ptr %0, null
   %7 = icmp ne i64 %1, 0
@@ -12632,7 +12632,7 @@ mz_zip_reader_end_internal.exit.thread.thread:    ; preds = %.split, %57, %21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_validate_file_archive(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_validate_file_archive(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = alloca %struct.mz_zip_archive, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %6
@@ -12830,7 +12830,7 @@ mz_zip_reader_end_internal.exit.thread.thread:    ; preds = %.split, %54, %18, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_v2(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_v2(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = lshr i32 %2, 14
   %.lobit = and i32 %4, 1
   %.not = icmp eq ptr %0, null
@@ -12964,7 +12964,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_v2(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %mz_zip_writer_init_v2.exit, label %3
 
@@ -13204,7 +13204,7 @@ define internal noundef i64 @mz_zip_heap_write_func(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_end_internal(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_end_internal(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -13590,7 +13590,7 @@ define internal noundef i64 @mz_zip_file_write_func(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_end(ptr noundef %0) local_unnamed_addr #7 {
   %2 = tail call fastcc i32 @mz_zip_writer_end_internal(ptr noundef %0, i32 noundef 1)
   ret i32 %2
 }
@@ -13639,7 +13639,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_cfile(ptr noundef initializes((80
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_from_reader_v2(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_from_reader_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -13824,7 +13824,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_from_reader_v2(ptr noundef captur
 declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_from_reader(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_from_reader(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = tail call i32 @mz_zip_writer_init_from_reader_v2(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
@@ -13836,13 +13836,13 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_mem(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #7 {
   %10 = tail call i32 @mz_zip_writer_add_mem_ex_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10, i32 noundef %11, ptr noundef readonly captures(none) %12, i32 noundef %13) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, i16 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef readonly %9, ptr noundef %10, i32 noundef %11, ptr noundef readonly captures(none) %12, i32 noundef %13) local_unnamed_addr #7 {
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
   %17 = alloca i16, align 2
@@ -14765,7 +14765,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_write_zeros(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef nonnull initializes((0, 4)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #24 {
+define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef nonnull initializes((0, 4)) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #24 {
   store i8 1, ptr %0, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1
@@ -15429,7 +15429,7 @@ mz_zip_array_ensure_capacity.exit295.thread:      ; preds = %246, %257
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_add_cfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef readonly captures(none) %10, i32 noundef %11) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_add_cfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef readonly captures(none) %10, i32 noundef %11) local_unnamed_addr #7 {
   %13 = alloca i64, align 8
   %14 = alloca i16, align 2
   %15 = alloca i16, align 2
@@ -16237,7 +16237,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %287
 declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
@@ -16287,7 +16287,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_add_from_zip_reader(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_add_from_zip_reader(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca i32, align 4
   %5 = alloca [8 x i32], align 16
   %6 = alloca [46 x i8], align 16
@@ -17597,7 +17597,7 @@ mz_zip_array_ensure_capacity.exit267:             ; preds = %.loopexit.i266
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed_addr #7 {
   %2 = alloca [256 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
@@ -17986,7 +17986,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef captures(
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_finalize_heap_archive(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_finalize_heap_archive(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -18060,13 +18060,13 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_heap_archive(ptr noundef capt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #7 {
   %8 = tail call i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef null)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly %7) local_unnamed_addr #7 {
   %9 = alloca %struct.mz_zip_archive, align 8
   %10 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)
@@ -18448,7 +18448,7 @@ declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captu
 declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define ptr @mz_zip_extract_archive_file_to_heap_v2(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #7 {
+define ptr @mz_zip_extract_archive_file_to_heap_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #7 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.mz_zip_archive, align 8
   %.not = icmp eq ptr %3, null
@@ -18671,13 +18671,13 @@ mz_zip_reader_end_internal.exit:                  ; preds = %76, %77, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mz_zip_extract_archive_file_to_heap(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
+define ptr @mz_zip_extract_archive_file_to_heap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = tail call ptr @mz_zip_extract_archive_file_to_heap_v2(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3, ptr noundef null)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @mz_zip_get_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define i32 @mz_zip_get_mode(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -18692,7 +18692,7 @@ define i32 @mz_zip_get_mode(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @mz_zip_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define i32 @mz_zip_get_type(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -18707,7 +18707,7 @@ define i32 @mz_zip_get_type(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @mz_zip_set_last_error(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
+define i32 @mz_zip_set_last_error(ptr noundef %0, i32 noundef %1) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -18723,7 +18723,7 @@ define i32 @mz_zip_set_last_error(ptr noundef captures(address_is_null) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @mz_zip_peek_last_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define i32 @mz_zip_peek_last_error(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -18738,7 +18738,7 @@ define i32 @mz_zip_peek_last_error(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @mz_zip_clear_last_error(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
+define i32 @mz_zip_clear_last_error(ptr noundef %0) local_unnamed_addr #24 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %mz_zip_set_last_error.exit, label %2
 
@@ -18754,7 +18754,7 @@ mz_zip_set_last_error.exit:                       ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @mz_zip_get_last_error(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
+define i32 @mz_zip_get_last_error(ptr noundef %0) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -18786,7 +18786,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @mz_zip_is_zip64(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #25 {
+define i32 @mz_zip_is_zip64(ptr noundef readonly %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -18807,7 +18807,7 @@ define i32 @mz_zip_is_zip64(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @mz_zip_get_central_dir_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #25 {
+define i64 @mz_zip_get_central_dir_size(ptr noundef readonly %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -18828,7 +18828,7 @@ define i64 @mz_zip_get_central_dir_size(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @mz_zip_reader_get_num_files(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define i32 @mz_zip_reader_get_num_files(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -18843,7 +18843,7 @@ define i32 @mz_zip_reader_get_num_files(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @mz_zip_get_archive_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define i64 @mz_zip_get_archive_size(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -18857,7 +18857,7 @@ define i64 @mz_zip_get_archive_size(ptr noundef readonly captures(address_is_nul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @mz_zip_get_archive_file_start_offset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #25 {
+define i64 @mz_zip_get_archive_file_start_offset(ptr noundef readonly %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -18878,7 +18878,7 @@ define i64 @mz_zip_get_archive_file_start_offset(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @mz_zip_get_cfile(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #25 {
+define ptr @mz_zip_get_cfile(ptr noundef readonly %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -18899,7 +18899,7 @@ define ptr @mz_zip_get_cfile(ptr noundef readonly captures(address_is_null) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @mz_zip_read_archive_data(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
+define i64 @mz_zip_read_archive_data(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %5
 
@@ -18934,7 +18934,7 @@ define i64 @mz_zip_read_archive_data(ptr noundef captures(address_is_null) %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 65537) i32 @mz_zip_reader_get_filename(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #9 {
+define range(i32 0, 65537) i32 @mz_zip_reader_get_filename(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %5
 
@@ -19006,7 +19006,7 @@ define range(i32 0, 65537) i32 @mz_zip_reader_get_filename(ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_end(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %mz_zip_reader_end_internal.exit, label %2
 

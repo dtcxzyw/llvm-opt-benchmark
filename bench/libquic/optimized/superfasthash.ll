@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @SuperFastHash(ptr noundef readonly captures(address_is_null) %data, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @SuperFastHash(ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %len, 1
   %cmp1 = icmp eq ptr %data, null

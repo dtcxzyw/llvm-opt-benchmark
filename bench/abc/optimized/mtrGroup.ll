@@ -417,7 +417,7 @@ define ptr @Mtr_DissolveGroup(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Mtr_DeallocNode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Mtr_FindGroup(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define ptr @Mtr_FindGroup(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = add i32 %2, %1
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.split39, label %tailrecurse

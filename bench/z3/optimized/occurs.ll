@@ -75,7 +75,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z6occursP4exprS0_(ptr noundef readnone captures(address) %n1, ptr noundef %n2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z6occursP4exprS0_(ptr noundef readnone %n1, ptr noundef %n2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i = alloca %class.sbuffer, align 8
   %visited.i = alloca %class.ast_fast_mark.0, align 8
@@ -744,7 +744,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z6occursP9func_declP4expr(ptr noundef readnone captures(address) %d, ptr noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z6occursP9func_declP4expr(ptr noundef readnone %d, ptr noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i = alloca %class.sbuffer, align 8
   %visited.i = alloca %class.ast_fast_mark.0, align 8
@@ -1402,7 +1402,7 @@ eh.resume:                                        ; preds = %lpad.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z6occursP4sortS0_(ptr noundef readnone captures(address) %s1, ptr noundef %s2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z6occursP4sortS0_(ptr noundef readnone %s1, ptr noundef %s2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i = alloca %class.ptr_vector.4, align 8
   %visited.i = alloca %class.ast_mark, align 8

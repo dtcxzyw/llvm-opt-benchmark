@@ -2754,7 +2754,7 @@ declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManStgReadLines(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManStgReadLines(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca [1000 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %5) #16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18

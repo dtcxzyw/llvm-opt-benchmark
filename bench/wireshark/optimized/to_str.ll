@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @low_nibble_of_octet_to_hex.hex_digits = internal unnamed_addr constant [16 x i8] c"0123456789abcdef", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @guint8_to_hex(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 2)) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef ptr @guint8_to_hex(ptr noundef writeonly initializes((0, 2)) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i8 %1 to i32
   %4 = lshr i32 %3, 4
   %5 = zext nneg i32 %4 to i64
@@ -38,7 +38,7 @@ define noundef ptr @guint8_to_hex(ptr noundef writeonly captures(ret: address, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @word_to_hex(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 4)) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef ptr @word_to_hex(ptr noundef writeonly initializes((0, 4)) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i16 %1 to i32
   %4 = lshr i32 %3, 8
   %5 = lshr i32 %3, 12
@@ -70,7 +70,7 @@ define noundef ptr @word_to_hex(ptr noundef writeonly captures(ret: address, pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @word_to_hex_punct(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 5)) %0, i16 noundef zeroext %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define noundef ptr @word_to_hex_punct(ptr noundef writeonly initializes((0, 5)) %0, i16 noundef zeroext %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = zext i16 %1 to i32
   %5 = lshr i32 %4, 8
   %6 = lshr i32 %4, 12
@@ -104,7 +104,7 @@ define noundef ptr @word_to_hex_punct(ptr noundef writeonly captures(ret: addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @word_to_hex_npad(ptr noundef writeonly captures(ret: address, provenance) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef ptr @word_to_hex_npad(ptr noundef writeonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp ugt i16 %1, 4095
   br i1 %3, label %.thread, label %9
 
@@ -159,7 +159,7 @@ define noundef ptr @word_to_hex_npad(ptr noundef writeonly captures(ret: address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @dword_to_hex(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @dword_to_hex(ptr noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = lshr i32 %1, 16
   %4 = lshr i32 %1, 24
   %5 = lshr i32 %1, 28
@@ -218,7 +218,7 @@ define noundef ptr @dword_to_hex(ptr noundef writeonly captures(ret: address, pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @dword_to_hex_punct(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 11)) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define noundef ptr @dword_to_hex_punct(ptr noundef writeonly initializes((0, 11)) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = lshr i32 %1, 16
   %5 = lshr i32 %1, 24
   %6 = lshr i32 %1, 28
@@ -283,7 +283,7 @@ define noundef ptr @dword_to_hex_punct(ptr noundef writeonly captures(ret: addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @qword_to_hex(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @qword_to_hex(ptr noundef writeonly initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = lshr i64 %1, 32
   %4 = lshr i64 %1, 48
   %5 = lshr i64 %1, 56
@@ -382,7 +382,7 @@ define noundef ptr @qword_to_hex(ptr noundef writeonly captures(ret: address, pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @qword_to_hex_punct(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 23)) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define noundef ptr @qword_to_hex_punct(ptr noundef writeonly initializes((0, 23)) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = lshr i64 %1, 32
   %5 = lshr i64 %1, 48
   %6 = lshr i64 %1, 56
@@ -495,7 +495,7 @@ define noundef ptr @qword_to_hex_punct(ptr noundef writeonly captures(ret: addre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @bytes_to_hexstr(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
+define noundef ptr @bytes_to_hexstr(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -527,7 +527,7 @@ define noundef ptr @bytes_to_hexstr(ptr noundef writeonly captures(ret: address,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @bytes_to_hexstr_punct(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i8 noundef signext %3) local_unnamed_addr #1 {
+define noundef ptr @bytes_to_hexstr_punct(ptr noundef writeonly initializes((0, 2)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i8 noundef signext %3) local_unnamed_addr #1 {
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
   %7 = lshr i32 %6, 4
@@ -740,7 +740,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @g_stpcpy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @oct_to_str_back(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef ptr @oct_to_str_back(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not6 = icmp eq i32 %1, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -764,7 +764,7 @@ define noundef ptr @oct_to_str_back(ptr noundef writeonly captures(ret: address,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @oct64_to_str_back(ptr noundef writeonly captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #4 {
+define noundef ptr @oct64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %.not6 = icmp eq i64 %1, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -788,7 +788,7 @@ define noundef ptr @oct64_to_str_back(ptr noundef writeonly captures(ret: addres
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @hex_to_str_back_len(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @hex_to_str_back_len(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %scevgep19 = getelementptr i8, ptr %0, i64 -2
   %4 = add i32 %2, -2
   br label %5
@@ -843,7 +843,7 @@ define noundef ptr @hex_to_str_back_len(ptr noundef writeonly captures(ret: addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @hex64_to_str_back_len(ptr noundef writeonly captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @hex64_to_str_back_len(ptr noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %scevgep19 = getelementptr i8, ptr %0, i64 -2
   %4 = add i32 %2, -2
   br label %5
@@ -897,7 +897,7 @@ define noundef ptr @hex64_to_str_back_len(ptr noundef writeonly captures(ret: ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @uint_to_str_back(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef ptr @uint_to_str_back(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.sink.split, label %4
 
@@ -948,7 +948,7 @@ define noundef ptr @uint_to_str_back(ptr noundef writeonly captures(ret: address
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @uint64_to_str_back(ptr noundef writeonly captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #4 {
+define noundef ptr @uint64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.sink.split, label %4
 
@@ -1145,7 +1145,7 @@ uint64_to_str_back.exit:                          ; preds = %._crit_edge.i, %.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @int_to_str_back(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef ptr @int_to_str_back(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %22
 
@@ -1237,7 +1237,7 @@ uint_to_str_back.exit19:                          ; preds = %uint_to_str_back.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @int64_to_str_back(ptr noundef writeonly captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #4 {
+define noundef ptr @int64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %21
 

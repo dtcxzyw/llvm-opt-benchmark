@@ -4433,7 +4433,7 @@ define internal i64 @memsize_load_arg(ptr noundef readonly captures(none) %0) #9
 declare void @rb_mark_tbl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 37, 36) i64 @r_object_for(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc range(i64 37, 36) i64 @r_object_for(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -7120,7 +7120,7 @@ check_load_arg.exit:                              ; preds = %6, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @r_ivar(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @r_ivar(i64 noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call fastcc i32 @r_byte(ptr noundef %2)
   %sext.i = shl nuw i32 %4, 24
   %5 = ashr exact i32 %sext.i, 24
@@ -7896,7 +7896,7 @@ declare i64 @rb_struct_initialize(i64 noundef, i64 noundef) local_unnamed_addr #
 declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @obj_alloc_by_klass(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc i64 @obj_alloc_by_klass(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = tail call ptr @rb_get_alloc_func(i64 noundef %0) #21
   %6 = load ptr, ptr @compat_allocator_tbl, align 8

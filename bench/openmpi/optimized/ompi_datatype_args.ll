@@ -647,7 +647,7 @@ define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr noundef readonly captu
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 18) i32 @ompi_datatype_get_args(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #4 {
+define range(i32 0, 18) i32 @ompi_datatype_get_args(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly %3, ptr noundef captures(none) %4, ptr noundef writeonly %5, ptr noundef captures(none) %6, ptr noundef writeonly %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #4 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -1916,7 +1916,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #10 {
+define ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 16

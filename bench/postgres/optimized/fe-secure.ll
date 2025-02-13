@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PQsslAttributeNames.result = internal constant [1 x ptr] zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @PQsslInUse(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsslInUse(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

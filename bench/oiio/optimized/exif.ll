@@ -1953,7 +1953,7 @@ if.end16:                                         ; preds = %invoke.cont12, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN18OpenImageIO_v2_6_0L21version4uint8_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %taginfo, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %dir, ptr readonly captures(address) %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 zeroext %0, i32 noundef %offset_adjustment) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN18OpenImageIO_v2_6_0L21version4uint8_handlerERKNS_7TagInfoERK12TIFFDirEntryNS_4spanIKhLln1EEERNS_9ImageSpecEbi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %taginfo, ptr noundef nonnull readonly align 4 dereferenceable(12) %dir, ptr readonly %buf.coerce0, i64 %buf.coerce1, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 zeroext %0, i32 noundef %offset_adjustment) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %val = alloca [4 x i32], align 16
   %agg.tmp11 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -2134,7 +2134,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef readonly captures(address) %dirp, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment, ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %tagmap) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef readonly %dirp, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment, ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %tagmap) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i40 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

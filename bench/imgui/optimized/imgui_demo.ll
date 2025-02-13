@@ -7768,7 +7768,7 @@ declare void @_ZN5ImGui21ShowIDStackToolWindowEPb(ptr noundef) local_unnamed_add
 declare noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui15ShowStyleEditorEP10ImGuiStyle(ptr noundef captures(address_is_null) %ref) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ImGui15ShowStyleEditorEP10ImGuiStyle(ptr noundef %ref) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %border = alloca i8, align 1
   %border22 = alloca i8, align 1

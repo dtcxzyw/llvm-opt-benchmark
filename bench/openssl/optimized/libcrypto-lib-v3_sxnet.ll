@@ -206,7 +206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef captures(address_is_null) %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %zone) #4
   %cmp = icmp eq ptr %call, null
@@ -236,7 +236,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef captures(address_is_null) %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %psx, null
   %cmp1 = icmp eq ptr %zone, null
@@ -375,7 +375,7 @@ return:                                           ; preds = %err, %if.then50, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef captures(address_is_null) %psx, i64 noundef %lzone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef %psx, i64 noundef %lzone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ASN1_INTEGER_new() #4
   %cmp = icmp eq ptr %call, null

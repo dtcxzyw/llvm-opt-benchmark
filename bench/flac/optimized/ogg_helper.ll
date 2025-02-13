@@ -41,7 +41,7 @@ define hidden void @simple_ogg_page__clear(ptr noundef captures(none) initialize
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @simple_ogg_page__get_at(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @simple_ogg_page__get_at(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca i64, align 8
   %8 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
@@ -296,7 +296,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 declare void @ogg_page_checksum_set(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %22, label %8
 

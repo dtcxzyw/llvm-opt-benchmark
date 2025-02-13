@@ -2896,7 +2896,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix12showVersionsERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix12showVersionsERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::set.31", align 8
@@ -5093,7 +5093,7 @@ _ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit:         ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZZN3nix16printClosureDiffENS_3refINS_5StoreEEERKNS_9StorePathES5_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcS8_SaIcEEESB_IS3_NS_4InfoESt4lessIS3_ESaISt4pairIS4_SG_EEESH_ISF_ESaISJ_IKSF_SM_EEE"(ptr readonly captures(none) %.0.val, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @"_ZZN3nix16printClosureDiffENS_3refINS_5StoreEEERKNS_9StorePathES5_St17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcS8_SaIcEEESB_IS3_NS_4InfoESt4lessIS3_ESaISt4pairIS4_SG_EEESH_ISF_ESaISJ_IKSF_SM_EEE"(ptr readonly captures(none) %.0.val, ptr noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.nix::ref.116", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8

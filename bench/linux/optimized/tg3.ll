@@ -7178,7 +7178,7 @@ declare dso_local ptr @ptp_clock_register(ptr noundef, ptr noundef) local_unname
 declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @tg3_bus_string(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) initializes((0, 5)) %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef ptr @tg3_bus_string(ptr noundef %0, ptr noundef returned initializes((0, 5)) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4680
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 17179869184
@@ -11817,7 +11817,7 @@ define internal fastcc void @tg3_abort_hw(ptr noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tg3_eee_pull_config(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @tg3_eee_pull_config(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4908
@@ -19822,7 +19822,7 @@ tg3_tx_skb_unmap.exit:                            ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tg3_rx_prodring_free(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @tg3_rx_prodring_free(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %5, label %10

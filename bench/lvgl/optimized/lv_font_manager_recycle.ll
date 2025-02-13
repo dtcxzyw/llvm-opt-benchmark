@@ -105,7 +105,7 @@ declare zeroext i1 @lv_freetype_info_is_equal(ptr noundef, ptr noundef) local_un
 declare void @lv_ll_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @lv_font_manager_recycle_set_reuse(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 

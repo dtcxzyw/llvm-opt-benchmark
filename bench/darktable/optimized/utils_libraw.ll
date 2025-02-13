@@ -173,7 +173,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6LibRaw20parse_custom_camerasEjP22libraw_custom_camera_tPPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZN6LibRaw20parse_custom_camerasEjP22libraw_custom_camera_tPPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 align 2 {
   %.not = icmp ne ptr %3, null
   %5 = icmp ne i32 %1, 0
   %or.cond112 = and i1 %.not, %5
@@ -504,7 +504,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6LibRaw4freeEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef captures(address) %1) local_unnamed_addr #10 align 2 {
+define void @_ZN6LibRaw4freeEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN13libraw_memmgr4freeEPv.exit, label %.preheader.i.i
 
@@ -783,7 +783,7 @@ define noundef range(i32 0, 8193) i32 @_ZN6LibRaw13sraw_midpointEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN6LibRaw7reallocEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN6LibRaw7reallocEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 767416
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 767424
   %6 = load i32, ptr %5, align 8, !tbaa !13
@@ -2005,7 +2005,7 @@ _ZN6LibRaw6callocEmm.exit:                        ; preds = %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6LibRaw16free_omp_buffersEPPci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define void @_ZN6LibRaw16free_omp_buffersEPPci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 

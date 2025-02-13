@@ -4021,7 +4021,7 @@ lpad:                                             ; preds = %_ZN8QuantLib10DayCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14CommodityCurve9setPricesERSt3mapINS_4DateEdSt4lessIS2_ESaISt4pairIKS2_dEEE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %prices) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14CommodityCurve9setPricesERSt3mapINS_4DateEdSt4lessIS2_ESaISt4pairIKS2_dEEE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %prices) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::ForwardFlatInterpolation", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

@@ -4332,7 +4332,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN1q6ematch10on_bindingEP10quantifierP3appPKPN3euf5enodeEjjj(ptr noundef nonnull align 8 dereferenceable(2672) %this, ptr noundef readonly captures(address) %q, ptr noundef %pat, ptr noundef %_binding, i32 noundef %max_generation, i32 noundef %min_gen, i32 noundef %max_gen) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN1q6ematch10on_bindingEP10quantifierP3appPKPN3euf5enodeEjjj(ptr noundef nonnull align 8 dereferenceable(2672) %this, ptr noundef readonly %q, ptr noundef %pat, ptr noundef %_binding, i32 noundef %max_generation, i32 noundef %min_gen, i32 noundef %max_gen) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_propagation = alloca i8, align 1
   %m_q2clauses = getelementptr inbounds nuw i8, ptr %this, i64 2312

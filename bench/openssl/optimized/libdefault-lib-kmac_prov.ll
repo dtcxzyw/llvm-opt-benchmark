@@ -141,7 +141,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @kmac_init(ptr noundef %vmacctx, ptr noundef captures(address_is_null) %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kmac_init(ptr noundef %vmacctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %cparams = alloca [2 x %struct.ossl_param_st], align 16
   %ctx1 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
@@ -710,7 +710,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %kctx, ptr noundef readonly captures(address_is_null) %key, i64 noundef %keylen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %kctx, ptr noundef readonly %key, i64 noundef %keylen) unnamed_addr #0 {
 entry:
   %tmp.i = alloca [516 x i8], align 16
   %digest1 = getelementptr inbounds nuw i8, ptr %kctx, i64 16

@@ -280,7 +280,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @handshake_req_private(ptr noundef readnone captures(ret: address, provenance) %0) #3 align 16 {
+define dso_local nonnull ptr @handshake_req_private(ptr noundef readnone %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -326,7 +326,7 @@ define dso_local ptr @handshake_req_next(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @handshake_req_submit(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null

@@ -555,7 +555,7 @@ declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_ERR_STATE_save_to_mark(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @quic_new_record_layer(ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq, i32 %vers, i32 %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr noundef %secret, i64 noundef %secretlen, ptr readnone captures(none) %key, i64 %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr readnone captures(none) %mackey, i64 %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr readnone captures(none) %md, ptr readnone captures(none) %comp, ptr noundef %kdfdigest, ptr readnone captures(none) %prev, ptr noundef %transport, ptr readnone captures(none) %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr readnone captures(none) %settings, ptr readnone captures(none) %options, ptr noundef readonly captures(address_is_null) %fns, ptr noundef %cbarg, ptr noundef %rlarg, ptr noundef writeonly captures(none) %retrl) #0 {
+define internal range(i32 0, 2) i32 @quic_new_record_layer(ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq, i32 %vers, i32 %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr noundef %secret, i64 noundef %secretlen, ptr readnone captures(none) %key, i64 %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr readnone captures(none) %mackey, i64 %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr readnone captures(none) %md, ptr readnone captures(none) %comp, ptr noundef %kdfdigest, ptr readnone captures(none) %prev, ptr noundef %transport, ptr readnone captures(none) %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr readnone captures(none) %settings, ptr readnone captures(none) %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr noundef %rlarg, ptr noundef writeonly captures(none) %retrl) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 96, ptr noundef nonnull @.str, i32 noundef 105) #9
   %cmp = icmp eq ptr %call, null
@@ -769,7 +769,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @quic_app_data_pending(ptr noundef captures(address_is_null) %rl) #0 {
+define internal noundef i64 @quic_app_data_pending(ptr noundef %rl) #0 {
 entry:
   %cmp.not = icmp eq ptr %rl, null
   br i1 %cmp.not, label %do.end.critedge, label %if.then
@@ -804,7 +804,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(address_is_null) %rl, ptr noundef %template, i64 noundef %numtempl) #0 {
+define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef %rl, ptr noundef %template, i64 noundef %numtempl) #0 {
 entry:
   %consumed = alloca i64, align 8
   %dummyrec = alloca [5 x i8], align 1
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.end16, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @quic_release_record(ptr noundef captures(address) %rl, ptr noundef readnone captures(address) %rechandle, i64 noundef %length) #0 {
+define internal range(i32 -2, 2) i32 @quic_release_record(ptr noundef %rl, ptr noundef readnone %rechandle, i64 noundef %length) #0 {
 entry:
   %recread = getelementptr inbounds nuw i8, ptr %rl, i64 64
   %0 = load i64, ptr %recread, align 8
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @quic_set_protocol_version(ptr noundef captures(address_is_null) %rl, i32 noundef %version) #0 {
+define internal range(i32 0, 2) i32 @quic_set_protocol_version(ptr noundef %rl, i32 noundef %version) #0 {
 entry:
   %cmp = icmp eq i32 %version, 772
   br i1 %cmp, label %return, label %do.body
@@ -1281,7 +1281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @quic_get_state(ptr noundef readonly captures(none) %rl, ptr noundef writeonly captures(address_is_null) %shortstr, ptr noundef writeonly captures(address_is_null) %longstr) #8 {
+define internal void @quic_get_state(ptr noundef readonly captures(none) %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #8 {
 entry:
   %0 = load ptr, ptr %rl, align 8
   %inerror = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1341,7 +1341,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @quic_get_max_record_overhead(ptr noundef captures(address_is_null) %rl) #0 {
+define internal noundef i64 @quic_get_max_record_overhead(ptr noundef %rl) #0 {
 entry:
   %cmp.not = icmp eq ptr %rl, null
   br i1 %cmp.not, label %do.end.critedge, label %if.then
@@ -1370,7 +1370,7 @@ do.end:                                           ; preds = %do.end.critedge, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @quic_increment_sequence_ctr(ptr noundef captures(address_is_null) %rl) #0 {
+define internal noundef i32 @quic_increment_sequence_ctr(ptr noundef %rl) #0 {
 entry:
   %cmp.not = icmp eq ptr %rl, null
   br i1 %cmp.not, label %do.end.critedge, label %if.then

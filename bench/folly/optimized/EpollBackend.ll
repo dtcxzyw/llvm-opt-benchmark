@@ -433,7 +433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN5folly12EpollBackend12eb_event_addERNS_14EventBaseEventEPK7timeval(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(160) %event, ptr noundef readonly captures(address_is_null) %timeout) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN5folly12EpollBackend12eb_event_addERNS_14EventBaseEventEPK7timeval(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(160) %event, ptr noundef readonly %timeout) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 cleanup.done14:
   %ref.tmp31 = alloca %"class.google::LogMessageFatal", align 8
   %epev = alloca %struct.epoll_event, align 4
@@ -2079,7 +2079,7 @@ if.end:                                           ; preds = %if.then, %while.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EpollBackend17removeSignalEventERNS_14EventBaseEventE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(352) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %event) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EpollBackend17removeSignalEventERNS_14EventBaseEventE(ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %event) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ev_fd = getelementptr inbounds nuw i8, ptr %event, i64 56
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
@@ -3345,7 +3345,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5folly12EpollBackend14processSignalsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(352) %this) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN5folly12EpollBackend14processSignalsEv(ptr noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #1 align 2 {
 entry:
   %processed = alloca %"struct.std::array.89", align 1
   %signals = alloca %"struct.std::array.90", align 1

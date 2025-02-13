@@ -1798,7 +1798,7 @@ declare dso_local i32 @amd_get_subcaches(i32 noundef) local_unnamed_addr #3
 declare dso_local i32 @amd_set_subcaches(i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @cache_private_attrs_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #0 align 16 {
+define internal zeroext i16 @cache_private_attrs_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8

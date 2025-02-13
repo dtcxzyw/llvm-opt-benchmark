@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @RSA_flags(ptr noundef readonly captures(address_is_null) %r) local_unnamed_addr #2 {
+define i32 @RSA_flags(ptr noundef readonly %r) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %r, null
   br i1 %cmp, label %cond.end, label %cond.false

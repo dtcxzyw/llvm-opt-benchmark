@@ -1353,7 +1353,7 @@ _ZN7rocksdb10autovectorIPNS_9lru_cache9LRUHandleELm8EED2Ev.exit42: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_RemoveEPNS0_9LRUHandleE(ptr noundef nonnull align 64 captures(none) dereferenceable(256) %this, ptr noundef captures(address) %e) local_unnamed_addr #10 align 2 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_RemoveEPNS0_9LRUHandleE(ptr noundef nonnull align 64 captures(none) dereferenceable(256) %this, ptr noundef %e) local_unnamed_addr #10 align 2 {
 entry:
   %lru_low_pri_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %lru_low_pri_, align 16
@@ -2241,7 +2241,7 @@ while.end22:                                      ; preds = %while.body13, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard12EvictFromLRUEmPNS_10autovectorIPNS0_9LRUHandleELm8EEE(ptr noundef nonnull align 64 captures(address) dereferenceable(256) %this, i64 noundef %charge, ptr noundef %deleted) local_unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard12EvictFromLRUEmPNS_10autovectorIPNS0_9LRUHandleELm8EEE(ptr noundef nonnull align 64 dereferenceable(256) %this, i64 noundef %charge, ptr noundef %deleted) local_unnamed_addr #0 align 2 {
 entry:
   %old = alloca ptr, align 8
   %lru_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -2518,7 +2518,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard10InsertItemEPNS0_9LRUHandleEPS3_(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef %e, ptr noundef writeonly captures(address_is_null) %handle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard10InsertItemEPNS0_9LRUHandleEPS3_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef %e, ptr noundef writeonly %handle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i.i = alloca ptr, align 8
   %__args.addr4.i.i = alloca i8, align 1
@@ -3726,7 +3726,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard6InsertERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEmPPNS0_9LRUHandleENS6_8PriorityE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %key, i32 noundef %hash, ptr noundef %value, ptr noundef %helper, i64 noundef %charge, ptr noundef captures(address_is_null) %handle, i32 noundef %priority) local_unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard6InsertERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEmPPNS0_9LRUHandleENS6_8PriorityE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %key, i32 noundef %hash, ptr noundef %value, ptr noundef %helper, i64 noundef %charge, ptr noundef %handle, i32 noundef %priority) local_unnamed_addr #0 align 2 {
 entry:
   %size_.i.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   %0 = load i64, ptr %size_.i.i, align 8

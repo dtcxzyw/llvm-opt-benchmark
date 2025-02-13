@@ -2080,7 +2080,7 @@ define void @dt_iop_init_pipe(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_iop_gui_get_previous_visible_module(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define ptr @dt_iop_gui_get_previous_visible_module(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2056
@@ -2122,7 +2122,7 @@ define ptr @dt_iop_gui_get_previous_visible_module(ptr noundef readonly captures
 declare i32 @gtk_widget_is_visible(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_iop_gui_get_next_visible_module(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define ptr @dt_iop_gui_get_next_visible_module(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2056
@@ -2382,7 +2382,7 @@ declare void @dt_dev_add_history_item(ptr noundef, ptr noundef, i32 noundef) loc
 declare ptr @dt_dev_module_duplicate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_iop_is_hidden(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_iop_is_hidden(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %dt_iop_so_is_hidden.exit, label %2
 
@@ -3587,7 +3587,7 @@ define internal noundef i32 @_header_enter_notify_callback(ptr readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dt_iop_show_hide_header_buttons(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @dt_iop_show_hide_header_buttons(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %6 = load ptr, ptr %5, align 16, !tbaa !285
   %7 = tail call i64 @gtk_container_get_type() #26
@@ -4657,7 +4657,7 @@ dt_iop_gui_init.exit:                             ; preds = %49, %63
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_iop_preferences_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal void @_iop_preferences_changed(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -5756,7 +5756,7 @@ dt_iop_is_hidden.exit.thread:                     ; preds = %19, %11, %8, %dt_io
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_iop_has_focus(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_iop_has_focus(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -5806,7 +5806,7 @@ define ptr @dt_iop_gui_get_pluginui(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_iop_connect_accels_multi(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define void @dt_iop_connect_accels_multi(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
   %3 = load i32, ptr %2, align 16, !tbaa !240
   %.not = icmp eq i32 %3, 0
@@ -6728,7 +6728,7 @@ define noundef ptr @dt_iop_gui_header_button(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_gui_multiinstance_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @_gui_multiinstance_callback(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca %struct.dt_iop_gui_multi_show_t, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %5
@@ -7109,7 +7109,7 @@ dt_iop_connect_accels_multi.exit:                 ; preds = %54, %65, %69, %72
 declare ptr @dtgtk_button_new(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_gui_reset_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @_gui_reset_callback(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 676
   %5 = load i32, ptr %4, align 4, !tbaa !88
   %.not = icmp eq i32 %5, 0
@@ -7643,7 +7643,7 @@ define internal range(i32 0, 2) i32 @_iop_plugin_header_button_release(ptr readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_header_motion_notify_show_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noundef i32 @_header_motion_notify_show_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !352
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 588
   store i32 0, ptr %5, align 4, !tbaa !353
@@ -7652,7 +7652,7 @@ define internal noundef i32 @_header_motion_notify_show_callback(ptr readnone ca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_header_motion_notify_hide_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noundef i32 @_header_motion_notify_hide_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call i32 @dt_iop_show_hide_header_buttons(ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef 0)
   ret i32 1
 }
@@ -7743,7 +7743,7 @@ define ptr @dt_iop_gui_get_widget(ptr noundef readonly captures(none) %0) local_
 declare ptr @dtgtk_expander_get_body(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_iop_breakpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_iop_breakpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 16, !tbaa !314
   %.not = icmp eq ptr %1, %4
@@ -7847,7 +7847,7 @@ dt_iop_get_module_from_list.exit:                 ; preds = %.lr.ph.i, %9, %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_iop_get_module_from_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @dt_iop_get_module_from_list(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not12 = icmp eq ptr %0, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -8305,7 +8305,7 @@ define range(i32 0, 2) i32 @dt_iop_is_raster_mask_used(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_iop_get_module_by_op_priority(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @dt_iop_get_module_by_op_priority(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not19 = icmp eq ptr %0, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -8357,7 +8357,7 @@ define ptr @dt_iop_get_module_by_op_priority(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.163) #24
   %3 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.164) #24
   %.fr = freeze i32 %3
@@ -8643,7 +8643,7 @@ dt_iop_connect_accels_multi.exit:                 ; preds = %.lr.ph.split, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_iop_get_module_by_instance_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define ptr @dt_iop_get_module_by_instance_name(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %.thread, label %.lr.ph
 
@@ -8695,7 +8695,7 @@ define ptr @dt_iop_get_module_by_instance_name(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dt_iop_count_instances(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define i32 @dt_iop_count_instances(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2056
   %4 = load ptr, ptr %3, align 8, !tbaa !265
@@ -8733,7 +8733,7 @@ define i32 @dt_iop_count_instances(ptr noundef readnone captures(address) %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_iop_is_first_instance(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_iop_is_first_instance(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
@@ -8768,7 +8768,7 @@ define range(i32 0, 2) i32 @dt_iop_is_first_instance(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @dt_iop_get_instance_name(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #19 {
+define nonnull ptr @dt_iop_get_instance_name(ptr noundef readonly %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %3 = load i32, ptr %2, align 8, !tbaa !43
   %4 = icmp sgt i32 %3, 0
@@ -9122,7 +9122,7 @@ define void @dt_iop_gui_changed(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 declare void @dt_dev_add_history_item_target(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_iop_module_is_skipped(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_iop_module_is_skipped(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8, !tbaa !294
   %.not = icmp eq ptr %4, null

@@ -342,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(address, ret: address, provenance) %cm) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly %cm) local_unnamed_addr #9 align 2 {
 entry:
   %tobool.not = icmp eq ptr %cm, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -389,7 +389,7 @@ cond.end:                                         ; preds = %cond.false, %lor.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(address, ret: address, provenance) %cm) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly %cm) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i64, ptr %cm, align 8, !tbaa !26
   %cmp.i = icmp ult i64 %0, 16
@@ -435,7 +435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull readnone returned align 8 dereferenceable(56) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret ptr %this
 }

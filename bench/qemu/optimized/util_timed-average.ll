@@ -312,7 +312,7 @@ check_expirations.exit:                           ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @timed_average_sum(ptr noundef captures(none) %ta, ptr noundef writeonly captures(address_is_null) %elapsed) local_unnamed_addr #0 {
+define dso_local i64 @timed_average_sum(ptr noundef captures(none) %ta, ptr noundef writeonly %elapsed) local_unnamed_addr #0 {
 entry:
   %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4

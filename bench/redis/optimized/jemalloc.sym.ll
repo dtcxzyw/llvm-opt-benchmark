@@ -8617,7 +8617,7 @@ label_done:                                       ; preds = %arena_get_from_ind.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @arena_choose(ptr noundef %tsd, ptr noundef readnone captures(address_is_null, ret: address, provenance) %arena) unnamed_addr #1 {
+define internal fastcc ptr @arena_choose(ptr noundef %tsd, ptr noundef readnone %arena) unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %arena, null
   br i1 %cmp.not.i, label %if.end.i, label %arena_choose_impl.exit

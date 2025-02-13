@@ -2909,7 +2909,7 @@ _ZN5clang20ExprMutationAnalyzer8Analyzer20findMutationMemoizedEPKNS_4ExprEN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer20findMutationMemoizedEPKNS_4ExprEN4llvm8ArrayRefIMS1_FPKNS_4StmtES4_EEERNS5_8DenseMapIS4_S9_NS5_12DenseMapInfoIS4_vEENS5_6detail12DenseMapPairIS4_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(20) %4) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer20findMutationMemoizedEPKNS_4ExprEN4llvm8ArrayRefIMS1_FPKNS_4StmtES4_EEERNS5_8DenseMapIS4_S9_NS5_12DenseMapInfoIS4_vEENS5_6detail12DenseMapPairIS4_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(20) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::pair", align 8
   store ptr %1, ptr %6, align 8, !tbaa !211
@@ -42504,7 +42504,7 @@ define internal void @_ZN5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0M
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0Matcher7matchesERKNS_10LambdaExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #13 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_hasCaptureInit0Matcher7matchesERKNS_10LambdaExprEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 4
@@ -43166,7 +43166,7 @@ define internal void @_ZN5clang12_GLOBAL__N_18internal39matcher_canResolveToExpr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal39matcher_canResolveToExprPointee0Matcher7matchesERKNS_4StmtEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #14 align 2 {
+define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal39matcher_canResolveToExprPointee0Matcher7matchesERKNS_4StmtEPNS_12ast_matchers8internal14ASTMatchFinderEPNS7_21BoundNodesTreeBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #14 align 2 {
   %5 = alloca %"class.clang::(anonymous namespace)::ExprPointeeResolve", align 8
   %6 = load i16, ptr %1, align 8
   %7 = and i16 %6, 511
@@ -43196,7 +43196,7 @@ define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal39matcher_c
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang12_GLOBAL__N_118ExprPointeeResolve11resolveExprEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1) unnamed_addr #15 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN5clang12_GLOBAL__N_118ExprPointeeResolve11resolveExprEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #15 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread, label %.lr.ph
 

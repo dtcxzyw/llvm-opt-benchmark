@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %dst, ptr noundef readonly captures(address_is_null) %str) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %dst, ptr noundef readonly %str) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %str, null
   br i1 %cmp, label %return, label %if.end
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %str, ptr noundef readonly captures(address_is_null) %_data, i32 noundef %len_in) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %str, ptr noundef readonly %_data, i32 noundef %len_in) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len_in, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -575,7 +575,7 @@ return:                                           ; preds = %if.end24, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ASN1_STRING_dup(ptr noundef readonly captures(address_is_null) %str) local_unnamed_addr #1 {
+define ptr @ASN1_STRING_dup(ptr noundef readonly %str) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %return, label %if.end
@@ -881,7 +881,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef %text, ptr noundef readonly captures(address_is_null) %sep, i64 noundef %max_len) local_unnamed_addr #1 {
+define ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef %text, ptr noundef readonly %sep, i64 noundef %max_len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sep, null
   %spec.store.select = select i1 %cmp, ptr @.str.1, ptr %sep

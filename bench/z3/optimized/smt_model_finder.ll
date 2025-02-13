@@ -816,7 +816,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt2mf14get_auf_arraysEP3appPNS_7contextER10ptr_bufferINS_5enodeELj16EE(ptr noundef readonly captures(none) %auf_arr, ptr noundef %ctx, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %arrays) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt2mf14get_auf_arraysEP3appPNS_7contextER10ptr_bufferINS_5enodeELj16EE(ptr noundef readonly captures(none) %auf_arr, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(144) %arrays) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %nested_arrays = alloca %class.ptr_buffer.294, align 8
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %auf_arr, i64 4
@@ -4020,7 +4020,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef ptr @_ZN3smt12model_finderclEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef readonly captures(address) %q) unnamed_addr #12 align 2 {
+define hidden noundef ptr @_ZN3smt12model_finderclEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef readonly %q) unnamed_addr #12 align 2 {
 entry:
   %m_q2info = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 12
@@ -5213,7 +5213,7 @@ return:                                           ; preds = %for.end.i, %if.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt12model_finder7get_invEP10quantifierjP4exprRj(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %q, i32 noundef %i, ptr noundef readonly captures(address, ret: address, provenance) %val, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %generation) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt12model_finder7get_invEP10quantifierjP4exprRj(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %q, i32 noundef %i, ptr noundef readonly %val, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %generation) local_unnamed_addr #3 align 2 {
 entry:
   %call.i.i = tail call noundef ptr @_ZN3smt12model_finder19get_quantifier_infoEP10quantifier(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %q)
   %m_flat_q.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16

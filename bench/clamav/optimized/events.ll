@@ -84,7 +84,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @cli_events_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define void @cli_events_free(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -99,7 +99,7 @@ define void @cli_events_free(ptr noundef captures(address_is_null) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_error_oom(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @cli_event_error_oom(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -413,7 +413,7 @@ cli_event_error_str.exit:                         ; preds = %143, %142, %135, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_error_str(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @cli_event_error_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %event_string.exit, label %3
 
@@ -484,7 +484,7 @@ event_string.exit:                                ; preds = %29, %28, %21, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_event_get_name(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define ptr @cli_event_get_name(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_event.exit.thread, label %3
 
@@ -570,7 +570,7 @@ get_event.exit.thread:                            ; preds = %32, %31, %24, %10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_int(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define void @cli_event_int(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cli_event_error_str.exit, label %4
 
@@ -785,7 +785,7 @@ cli_event_error_str.exit:                         ; preds = %33, %32, %25, %11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_time_start(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @cli_event_time_start(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   %.not.i = icmp eq ptr %0, null
@@ -955,7 +955,7 @@ cli_event_error_str.exit:                         ; preds = %33, %32, %25, %11, 
 declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_time_nested_start(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @cli_event_time_nested_start(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   %.not.i = icmp eq ptr %0, null
@@ -1206,7 +1206,7 @@ cli_event_error_str.exit:                         ; preds = %72, %71, %64, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_time_stop(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @cli_event_time_stop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   %.not.i = icmp eq ptr %0, null
@@ -1369,7 +1369,7 @@ cli_event_error_str.exit:                         ; preds = %33, %32, %25, %11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_time_nested_stop(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @cli_event_time_nested_stop(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   %.not.i = icmp eq ptr %0, null
@@ -1618,7 +1618,7 @@ cli_event_error_str.exit:                         ; preds = %72, %71, %64, %50, 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_string(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define void @cli_event_string(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cli_event_error_str.exit, label %4
 
@@ -1824,7 +1824,7 @@ cli_event_error_str.exit:                         ; preds = %33, %32, %25, %11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_data(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
+define void @cli_event_data(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cli_event_error_str.exit, label %5
 
@@ -2057,7 +2057,7 @@ declare ptr @cli_safer_realloc_or_free(ptr noundef, i64 noundef) local_unnamed_a
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_fastdata(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define void @cli_event_fastdata(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cli_event_error_str.exit, label %5
 
@@ -2220,13 +2220,13 @@ cli_event_error_str.exit:                         ; preds = %34, %33, %26, %12, 
 declare i32 @CrcUpdate(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_count(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @cli_event_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   tail call void @cli_event_int(ptr noundef %0, i32 noundef %1, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_get(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
+define void @cli_event_get(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_event.exit.thread, label %5
 
@@ -2316,7 +2316,7 @@ get_event.exit.thread:                            ; preds = %34, %33, %26, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_debug(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @cli_event_debug(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_event.exit.thread, label %3
 
@@ -2509,7 +2509,7 @@ define internal fastcc void @ev_debug(i32 noundef range(i32 0, 256) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_event_debug_all(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @cli_event_debug_all(ptr noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %.not7 = icmp eq i32 %3, 0
@@ -2542,7 +2542,7 @@ define void @cli_event_debug_all(ptr noundef captures(address_is_null) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cli_event_diff(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %get_event.exit, label %4
 
@@ -2899,7 +2899,7 @@ define internal fastcc i32 @ev_diff(i32 noundef range(i32 0, 256) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2967,7 +2967,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @cli_event_errors(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
+define i32 @cli_event_errors(ptr noundef readonly %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

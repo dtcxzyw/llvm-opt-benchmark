@@ -12683,7 +12683,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont38, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager29rollbackActionsFromActionRowsERKNSt7__cxx114listI9ActionRowSaIS2_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %rows) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager29rollbackActionsFromActionRowsERKNSt7__cxx114listI9ActionRowSaIS2_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %rows) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %action = alloca %struct.RollbackAction, align 8
   %_M_prev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -14342,7 +14342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager10getSuspectB5cxx11EN3irr4core8vector3dIsEEff(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(264) %this, i48 %p.coerce, float noundef %nearness_shortcut, float noundef %min_nearness) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager10getSuspectB5cxx11EN3irr4core8vector3dIsEEff(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(264) %this, i48 %p.coerce, float noundef %nearness_shortcut, float noundef %min_nearness) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i111 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8

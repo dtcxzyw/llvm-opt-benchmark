@@ -626,7 +626,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @igb_receive_internal(ptr noundef %core, ptr noundef %iov, i32 noundef %iovcnt, i1 noundef zeroext %has_vnet, ptr noundef writeonly captures(address_is_null) %external_tx) unnamed_addr #0 {
+define internal fastcc i64 @igb_receive_internal(ptr noundef %core, ptr noundef %iov, i32 noundef %iovcnt, i1 noundef zeroext %has_vnet, ptr noundef writeonly %external_tx) unnamed_addr #0 {
 entry:
   %_now.i.i.i229 = alloca %struct.timeval, align 8
   %_now.i.i215 = alloca %struct.timeval, align 8

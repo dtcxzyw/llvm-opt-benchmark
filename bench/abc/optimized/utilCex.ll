@@ -97,7 +97,7 @@ define noalias noundef ptr @Abc_CexMakeTriv(i32 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = add nsw i32 %3, 1
   %8 = mul nsw i32 %7, %1
   %9 = add nsw i32 %8, %0
@@ -202,7 +202,7 @@ define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noundef ptr @Abc_CexDup(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef ptr @Abc_CexDup(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %3, label %.loopexit, label %4
 
@@ -967,7 +967,7 @@ define void @Abc_CexFreeP(ptr noundef captures(none) %0) local_unnamed_addr #6 {
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Abc_CexFree(ptr noundef captures(address) %0) local_unnamed_addr #8 {
+define void @Abc_CexFree(ptr noundef %0) local_unnamed_addr #8 {
   %switch = icmp ult ptr %0, inttoptr (i64 2 to ptr)
   br i1 %switch, label %3, label %2
 
@@ -980,7 +980,7 @@ define void @Abc_CexFree(ptr noundef captures(address) %0) local_unnamed_addr #8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Abc_CexTransformPhase(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @Abc_CexTransformPhase(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %7 = icmp eq ptr %0, inttoptr (i64 1 to ptr)

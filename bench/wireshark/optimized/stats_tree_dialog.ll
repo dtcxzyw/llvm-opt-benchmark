@@ -1219,7 +1219,7 @@ define void @_ZN15StatsTreeDialog8resetTapEPv(ptr noundef %0) #0 align 2 {
 declare i32 @stats_tree_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15StatsTreeDialog13drawTreeItemsEPv(ptr noundef readonly captures(address) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15StatsTreeDialog13drawTreeItemsEPv(ptr noundef readonly %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QVariant, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QTreeWidgetItemIterator, align 8

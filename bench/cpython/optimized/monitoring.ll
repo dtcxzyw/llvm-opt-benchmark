@@ -2267,7 +2267,7 @@ define internal noundef nonnull ptr @exit_scope(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 256) i32 @teardown_fire(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @teardown_fire(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = icmp eq i32 %0, -1
   br i1 %4, label %19, label %5
 

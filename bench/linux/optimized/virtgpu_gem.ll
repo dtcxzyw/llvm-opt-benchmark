@@ -146,7 +146,7 @@ declare dso_local i32 @virtio_gpu_translate_format(i32 noundef) local_unnamed_ad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @virtio_gpu_mode_dumb_mmap(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @virtio_gpu_mode_dumb_mmap(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %7, !prof !11
 

@@ -884,7 +884,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1

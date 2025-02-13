@@ -4031,7 +4031,7 @@ _ZN4llvm8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZN4llvm21TargetLibraryInfoImplaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(216) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZN4llvm21TargetLibraryInfoImplaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8, !tbaa !152

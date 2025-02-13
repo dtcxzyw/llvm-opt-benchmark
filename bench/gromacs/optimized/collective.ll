@@ -208,7 +208,7 @@ define noundef ptr @_Z12tMPI_Get_cevP10tmpi_comm_iPi(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone captures(address) %5, i64 noundef %6, ptr noundef writeonly captures(address) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
+define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone %5, i64 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = load ptr, ptr %1, align 8
@@ -300,7 +300,7 @@ declare noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef, i32 noundef) loca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19tMPI_Coll_root_xferP10tmpi_comm_P14tmpi_datatype_S2_mmPvS3_Pi(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(address) %5, ptr noundef writeonly captures(address) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
+define void @_Z19tMPI_Coll_root_xferP10tmpi_comm_P14tmpi_datatype_S2_mmPvS3_Pi(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5, ptr noundef writeonly %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = icmp ult i64 %4, %3
   br i1 %9, label %10, label %12
 

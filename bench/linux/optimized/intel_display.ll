@@ -1835,7 +1835,7 @@ define dso_local i32 @intel_plane_fence_y_offset(ptr noundef %0) local_unnamed_a
 declare dso_local i32 @intel_plane_adjust_aligned_offset(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @intel_has_pending_fb_unpin(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @intel_has_pending_fb_unpin(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, %2
@@ -7745,7 +7745,7 @@ declare dso_local zeroext i1 @intel_color_lut_equal(ptr noundef, ptr noundef, pt
 declare dso_local i32 @intel_hdmi_infoframe_enable(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pipe_config_infoframe_mismatch(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @pipe_config_infoframe_mismatch(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   br i1 %1, label %6, label %25
 
 6:                                                ; preds = %5
@@ -19832,7 +19832,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144

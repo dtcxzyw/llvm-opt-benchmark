@@ -1225,7 +1225,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_options(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc i32 @handle_options(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.string_list, align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !19
   %.pr = load i32, ptr %1, align 4, !tbaa !4

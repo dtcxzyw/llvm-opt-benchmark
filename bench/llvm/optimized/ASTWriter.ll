@@ -15322,7 +15322,7 @@ _ZN4llvm11SmallVectorImLj64EED2Ev.exit:           ; preds = %_ZL12EmitRecordIDjP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11EmitBlockIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef range(i32 8, 20) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL11EmitBlockIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef range(i32 8, 20) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %5, align 8, !tbaa !42
   %6 = zext nneg i32 %0 to i64
@@ -26206,7 +26206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
 declare void @_ZNK5clang12HeaderSearch23collectVFSUsageAndClearEv(ptr dead_on_unwind writable sret(%"class.std::vector.477") align 8, ptr noundef nonnull align 8 dereferenceable(2296)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter17WriteControlBlockERNS_12PreprocessorEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3532) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3288) %1, ptr readonly captures(address_is_null) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter17WriteControlBlockERNS_12PreprocessorEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3532) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3288) %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
 _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit748:
   %4 = alloca %"class.llvm::SmallString", align 8
   %5 = alloca %"struct.std::array", align 1
@@ -38648,7 +38648,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN5clang9ASTWriter
 declare ptr @_ZNK5clang9ModuleMap27getModuleMapFileForUniquingEPKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(1448), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %_ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit.thread, label %6
 
@@ -54128,7 +54128,7 @@ _ZNK5clang9ASTWriter19getAdjustedLocationENS_14SourceLocationE.exit23: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN5clang9ASTWriter28getRawSourceLocationEncodingENS_14SourceLocationEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i32 %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZN5clang9ASTWriter28getRawSourceLocationEncodingENS_14SourceLocationEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i32 %1, ptr noundef readonly %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !429
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -62081,7 +62081,7 @@ _ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj64EEEEEvjRKT_j.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3532) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -72951,7 +72951,7 @@ declare i64 @_ZN5clang11DeclContext13noload_lookupENS_15DeclarationNameE(ptr nou
 declare void @_ZN5clang13serialization18DeclarationNameKeyC1ENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(16), i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_129ASTDeclContextNameLookupTraitILb1EE7getDataIN4llvm11SmallVectorIPN5clang9NamedDeclELj8EEEEESt4pairIjjERKT_(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr readonly captures(address) %.0.val, i32 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_129ASTDeclContextNameLookupTraitILb1EE7getDataIN4llvm11SmallVectorIPN5clang9NamedDeclELj8EEEEESt4pairIjjERKT_(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr readonly %.0.val, i32 %.8.val) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::pair.2631", align 8
   %3 = alloca %"struct.std::pair.2629", align 8
   %4 = alloca %"class.llvm::SmallVector.2587", align 8
@@ -88322,7 +88322,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordWriter13AddAttributesEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordWriter13AddAttributesEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -88893,7 +88893,7 @@ _ZN4llvm9MapVectorIN5clang8SelectorEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriterC2ERN4llvm15BitstreamWriterERNS1_15SmallVectorImplIcEERNS_19InMemoryModuleCacheENS1_8ArrayRefISt10shared_ptrINS_19ModuleFileExtensionEEEEbbb(ptr noundef nonnull align 8 dereferenceable(3532) initializes((0, 120)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr readonly captures(address) %4, i64 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriterC2ERN4llvm15BitstreamWriterERNS1_15SmallVectorImplIcEERNS_19InMemoryModuleCacheENS1_8ArrayRefISt10shared_ptrINS_19ModuleFileExtensionEEEEbbb(ptr noundef nonnull align 8 dereferenceable(3532) initializes((0, 120)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr readonly %4, i64 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.std::unique_ptr.2719", align 8
   %11 = zext i1 %6 to i8
   %12 = zext i1 %7 to i8
@@ -90417,7 +90417,7 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit:                ; preds = %168, %169
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter12WriteASTCoreEPNS_4SemaEN4llvm9StringRefEPNS_6ModuleE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ASTFileSignature") align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(3532) %1, ptr noundef %2, ptr captures(address_is_null) %3, i64 %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter12WriteASTCoreEPNS_4SemaEN4llvm9StringRefEPNS_6ModuleE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ASTFileSignature") align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(3532) %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SmallVector.108", align 8
   %8 = alloca %"class.llvm::SmallVector.108", align 8
   %9 = alloca %"class.llvm::SmallVector.108", align 8
@@ -105378,7 +105378,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit._crit_edge: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordWriter10AddTypeLocENS_7TypeLocEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, ptr %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordWriter10AddTypeLocENS_7TypeLocEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, ptr %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::SourceLocationSequence::State", align 8
   %6 = alloca %"class.(anonymous namespace)::TypeLocWriter", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
@@ -106979,7 +106979,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordWriter24AddTemplateParameterListEPKNS_21TemplateParameterListE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordWriter24AddTemplateParameterListEPKNS_21TemplateParameterListE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -107440,7 +107440,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordWriter20AddCXXBaseSpecifiersEN4llvm8ArrayRefINS_16CXXBaseSpecifierEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordWriter20AddCXXBaseSpecifiersEN4llvm8ArrayRefINS_16CXXBaseSpecifierEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.108", align 8
   %5 = alloca %"class.clang::ASTRecordWriter", align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !55
@@ -107574,7 +107574,7 @@ _ZN5clang15ASTRecordWriter9AddOffsetEm.exit:      ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordWriter22AddCXXCtorInitializersEN4llvm8ArrayRefIPNS_18CXXCtorInitializerEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordWriter22AddCXXCtorInitializersEN4llvm8ArrayRefIPNS_18CXXCtorInitializerEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.108", align 8
   %5 = alloca %"class.clang::ASTRecordWriter", align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !55
@@ -111799,7 +111799,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %26, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordWriter23writeOpenACCIntExprListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordWriter23writeOpenACCIntExprListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -114392,7 +114392,7 @@ _ZN5clang15ASTRecordWriter19writeOpenACCVarListEPKNS_24OpenACCClauseWithVarListE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordWriter22writeOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordWriter22writeOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
   %.not9 = icmp eq i64 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -133493,7 +133493,7 @@ declare noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13get
 declare noundef ptr @_ZNK5clang10ASTContext16getVaListTagDeclEv(ptr noundef nonnull align 8 dereferenceable(23216)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPAbsentClauseEPNS_15OMPAbsentClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPAbsentClauseEPNS_15OMPAbsentClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -133581,7 +133581,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter20VisitOMPAbsentClauseEPN5clang15OMPAbsentClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPAffinityClauseEPNS_17OMPAffinityClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPAffinityClauseEPNS_17OMPAffinityClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5138
@@ -133749,7 +133749,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter19VisitOMPAlignClauseEPN5clang14OMPAlignClause
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE21VisitOMPAlignedClauseEPNS_16OMPAlignedClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE21VisitOMPAlignedClauseEPNS_16OMPAlignedClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5142
@@ -133879,7 +133879,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter21VisitOMPAlignedClauseEPN5clang16OMPAlignedCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPAllocateClauseEPNS_17OMPAllocateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPAllocateClauseEPNS_17OMPAllocateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5144
@@ -134332,7 +134332,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter22VisitOMPCollapseClauseEPN5clang17OMPCollapse
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPContainsClauseEPNS_17OMPContainsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPContainsClauseEPNS_17OMPContainsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -134420,7 +134420,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter22VisitOMPContainsClauseEPN5clang17OMPContains
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPCopyprivateClauseEPNS_20OMPCopyprivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPCopyprivateClauseEPNS_20OMPCopyprivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5167
@@ -134645,7 +134645,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter25VisitOMPCopyprivateClauseEPN5clang20OMPCopyp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPCopyinClauseEPNS_15OMPCopyinClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPCopyinClauseEPNS_15OMPCopyinClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5169
@@ -135385,7 +135385,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter20VisitOMPDetachClauseEPN5clang15OMPDetachClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPDeviceClauseEPNS_15OMPDeviceClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPDeviceClauseEPNS_15OMPDeviceClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -135526,7 +135526,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter20VisitOMPDeviceClauseEPN5clang15OMPDeviceClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE26VisitOMPDistScheduleClauseEPNS_21OMPDistScheduleClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE26VisitOMPDistScheduleClauseEPNS_21OMPDistScheduleClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -135880,7 +135880,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter22VisitOMPDoacrossClauseEPN5clang17OMPDoacross
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPExclusiveClauseEPNS_18OMPExclusiveClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPExclusiveClauseEPNS_18OMPExclusiveClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5211
@@ -136021,7 +136021,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter18VisitOMPFailClauseEPN5clang13OMPFailClauseE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPFilterClauseEPNS_15OMPFilterClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPFilterClauseEPNS_15OMPFilterClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -136124,7 +136124,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter20VisitOMPFilterClauseEPN5clang15OMPFilterClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE19VisitOMPFinalClauseEPNS_14OMPFinalClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE19VisitOMPFinalClauseEPNS_14OMPFinalClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -136227,7 +136227,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter19VisitOMPFinalClauseEPN5clang14OMPFinalClause
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE26VisitOMPFirstprivateClauseEPNS_21OMPFirstprivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE26VisitOMPFirstprivateClauseEPNS_21OMPFirstprivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5219
@@ -136465,7 +136465,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter26VisitOMPFirstprivateClauseEPN5clang21OMPFirs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE19VisitOMPFlushClauseEPNS_14OMPFlushClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE19VisitOMPFlushClauseEPNS_14OMPFlushClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5221
@@ -137131,7 +137131,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter18VisitOMPFromClauseEPN5clang13OMPFromClauseE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPGrainsizeClauseEPNS_18OMPGrainsizeClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPGrainsizeClauseEPNS_18OMPGrainsizeClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -137778,7 +137778,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter19VisitOMPHoldsClauseEPN5clang14OMPHoldsClause
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE16VisitOMPIfClauseEPNS_11OMPIfClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE16VisitOMPIfClauseEPNS_11OMPIfClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -137927,7 +137927,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter16VisitOMPIfClauseEPN5clang11OMPIfClauseE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPInReductionClauseEPNS_20OMPInReductionClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPInReductionClauseEPNS_20OMPInReductionClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5254
@@ -138277,7 +138277,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter25VisitOMPInReductionClauseEPN5clang20OMPInRed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPInclusiveClauseEPNS_18OMPInclusiveClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPInclusiveClauseEPNS_18OMPInclusiveClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5256
@@ -138367,7 +138367,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter23VisitOMPInclusiveClauseEPN5clang18OMPInclusi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE18VisitOMPInitClauseEPNS_13OMPInitClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE18VisitOMPInitClauseEPNS_13OMPInitClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5258
@@ -138947,7 +138947,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter25VisitOMPIsDevicePtrClauseEPN5clang20OMPIsDev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPLastprivateClauseEPNS_20OMPLastprivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPLastprivateClauseEPNS_20OMPLastprivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5269
@@ -139267,7 +139267,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter25VisitOMPLastprivateClauseEPN5clang20OMPLastp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPLinearClauseEPNS_15OMPLinearClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPLinearClauseEPNS_15OMPLinearClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5275
@@ -140387,7 +140387,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter21VisitOMPMessageClauseEPN5clang16OMPMessageCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPNocontextClauseEPNS_18OMPNocontextClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE23VisitOMPNocontextClauseEPNS_18OMPNocontextClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -140672,7 +140672,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter25VisitOMPNontemporalClauseEPN5clang20OMPNonte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE24VisitOMPNovariantsClauseEPNS_19OMPNovariantsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE24VisitOMPNovariantsClauseEPNS_19OMPNovariantsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -140775,7 +140775,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter24VisitOMPNovariantsClauseEPN5clang19OMPNovari
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPNumTasksClauseEPNS_17OMPNumTasksClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPNumTasksClauseEPNS_17OMPNumTasksClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -140916,7 +140916,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter22VisitOMPNumTasksClauseEPN5clang17OMPNumTasks
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPNumTeamsClauseEPNS_17OMPNumTeamsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPNumTeamsClauseEPNS_17OMPNumTeamsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5309
@@ -141065,7 +141065,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter22VisitOMPNumTeamsClauseEPN5clang17OMPNumTeams
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE24VisitOMPNumThreadsClauseEPNS_19OMPNumThreadsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE24VisitOMPNumThreadsClauseEPNS_19OMPNumThreadsClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -141241,7 +141241,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter24VisitOMPXAttributeClauseEPN5clang19OMPXAttri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE27VisitOMPXDynCGroupMemClauseEPNS_22OMPXDynCGroupMemClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE27VisitOMPXDynCGroupMemClauseEPNS_22OMPXDynCGroupMemClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -141629,7 +141629,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter21VisitOMPPartialClauseEPN5clang16OMPPartialCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPPermutationClauseEPNS_20OMPPermutationClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPPermutationClauseEPNS_20OMPPermutationClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !5325
@@ -141719,7 +141719,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter25VisitOMPPermutationClauseEPN5clang20OMPPermu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPPriorityClauseEPNS_17OMPPriorityClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPPriorityClauseEPNS_17OMPPriorityClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -141822,7 +141822,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter22VisitOMPPriorityClauseEPN5clang17OMPPriority
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE21VisitOMPPrivateClauseEPNS_16OMPPrivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE21VisitOMPPrivateClauseEPNS_16OMPPrivateClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5329
@@ -142541,7 +142541,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter21VisitOMPSafelenClauseEPN5clang16OMPSafelenCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPScheduleClauseEPNS_17OMPScheduleClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE22VisitOMPScheduleClauseEPNS_17OMPScheduleClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %spec.select.i = select i1 %3, ptr null, ptr %4
@@ -142817,7 +142817,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter22VisitOMPSeverityClauseEPN5clang17OMPSeverity
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPSharedClauseEPNS_15OMPSharedClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE20VisitOMPSharedClauseEPNS_15OMPSharedClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5350
@@ -142949,7 +142949,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter21VisitOMPSimdlenClauseEPN5clang16OMPSimdlenCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE19VisitOMPSizesClauseEPNS_14OMPSizesClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE19VisitOMPSizesClauseEPNS_14OMPSizesClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !5354
@@ -143039,7 +143039,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter19VisitOMPSizesClauseEPN5clang14OMPSizesClause
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE27VisitOMPTaskReductionClauseEPNS_22OMPTaskReductionClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE27VisitOMPTaskReductionClauseEPNS_22OMPTaskReductionClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5356
@@ -143341,7 +143341,7 @@ _ZN12_GLOBAL__N_115OMPClauseWriter27VisitOMPTaskReductionClauseEPN5clang22OMPTas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPThreadLimitClauseEPNS_20OMPThreadLimitClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_115OMPClauseWriterESt13add_pointer_tvE25VisitOMPThreadLimitClauseEPNS_20OMPThreadLimitClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !5132
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !5358
@@ -146110,7 +146110,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZNK5clang1
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN5clang12FileEntryRefEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorEN4llvm9StringRefEE3$_0EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #26 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN5clang12FileEntryRefEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorEN4llvm9StringRefEE3$_0EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #26 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -161195,7 +161195,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %30, %37
 declare noundef i32 @_ZNK5clang14BuiltinTypeLoc18getWrittenTypeSpecEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionTypeLocEN5clang15FunctionTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(address_is_null) %1, ptr readonly captures(none) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113TypeLocWriter20VisitFunctionTypeLocEN5clang15FunctionTypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly %1, ptr readonly captures(none) %2) unnamed_addr #0 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 4, !tbaa !9
   %.val13 = load ptr, ptr %0, align 8, !tbaa !4325
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

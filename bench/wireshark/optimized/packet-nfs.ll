@@ -3691,7 +3691,7 @@ declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fhandle_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc void @dissect_fhandle_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca %struct.nfs_name_snoop_key, align 8
   %9 = alloca i32, align 4
   %10 = alloca [3 x %struct._wmem_tree_key_t], align 16
@@ -4075,7 +4075,7 @@ nfs_name_snoop_fh.exit:                           ; preds = %108, %proto_item_se
 declare void @tvb_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_fhandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = load i32, ptr @ett_nfs_fhandle, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 32, i32 noundef %8, ptr noundef null, ptr noundef %4) #18
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -4280,7 +4280,7 @@ define internal fastcc noundef i32 @dissect_timeval(ptr noundef %0, i32 noundef 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define hidden i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #18
   %9 = tail call i32 @rpc_roundup(i32 noundef %8) #18
   %10 = add i32 %9, 4
@@ -7074,7 +7074,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull captures(address_is_null) %5, ptr noundef nonnull %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @ett_nfs2_diropargs, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef %4) #18
@@ -9636,7 +9636,7 @@ dissect_pre_op_attr.exit:                         ; preds = %5, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull captures(address_is_null) %5, ptr noundef nonnull %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_diropargs3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @ett_nfs3_diropargs, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef %4) #18
@@ -11367,7 +11367,7 @@ declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_nfs4_stateid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_nfs4_stateid, align 4
   %6 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.549) #18
   %7 = load i32, ptr @ett_nfs4_stateid, align 4
@@ -12713,7 +12713,7 @@ define internal fastcc i32 @dissect_nfs4_fsid(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_nfs4_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_nfs4_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_nfs4_status, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #18

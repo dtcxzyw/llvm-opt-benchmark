@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA384(ptr noundef %data, i64 noundef %len, ptr noundef captures(address_is_null, ret: address, provenance) %out) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @SHA384(ptr noundef %data, i64 noundef %len, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %ctx = alloca %struct.sha512_state_st, align 8
   store i64 -3766243637369397544, ptr %ctx, align 8
@@ -211,7 +211,7 @@ SHA512_Update.exit:                               ; preds = %entry, %if.end34.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SHA384_Final(ptr noundef captures(address_is_null) %md, ptr noundef %sha) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @SHA384_Final(ptr noundef %md, ptr noundef %sha) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @SHA512_Final(ptr noundef %md, ptr noundef %sha)
   ret i32 %call
@@ -220,7 +220,7 @@ entry:
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA512(ptr noundef %data, i64 noundef %len, ptr noundef captures(address_is_null, ret: address, provenance) %out) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @SHA512(ptr noundef %data, i64 noundef %len, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %ctx = alloca %struct.sha512_state_st, align 8
   store i64 7640891576956012808, ptr %ctx, align 8
@@ -368,7 +368,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_is_null) %md, ptr noundef %sha) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly %md, ptr noundef %sha) local_unnamed_addr #1 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %sha, i64 80
   %num = getelementptr inbounds nuw i8, ptr %sha, i64 208

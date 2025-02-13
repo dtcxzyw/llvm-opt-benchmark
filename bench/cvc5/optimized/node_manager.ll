@@ -14664,7 +14664,7 @@ _ZNSt12_Vector_baseIN4cvc58internal5DTypeESaIS2_EED2Ev.exit: ; preds = %invoke.c
 declare void @_ZNK4cvc58internal5DType30collectUnresolvedDatatypeTypesERSt3setINS0_8TypeNodeESt4lessIS3_ESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeManager29mkMutualDatatypeTypesInternalERKSt6vectorINS0_5DTypeESaIS3_EERKSt3setINS0_8TypeNodeESt4lessIS9_ESaIS9_EE(ptr noalias sret(%"class.std::vector.236") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %datatypes, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %unresolvedTypes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11NodeManager29mkMutualDatatypeTypesInternalERKSt6vectorINS0_5DTypeESaIS3_EERKSt3setINS0_8TypeNodeESt4lessIS9_ESaIS9_EE(ptr noalias sret(%"class.std::vector.236") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %datatypes, ptr noundef nonnull readonly align 8 dereferenceable(48) %unresolvedTypes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i182 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %ref.tmp.i.i105 = alloca %"class.cvc5::internal::expr::Attribute.271", align 1
@@ -26068,7 +26068,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode16isDatatypeTesterEv(ptr 
 declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode17isDatatypeUpdaterEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %this, i32 noundef %kind, ptr readonly captures(address) %children.coerce0, i64 %children.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %this, i32 noundef %kind, ptr readonly %children.coerce0, i64 %children.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.280", align 8
   %nb = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -26116,7 +26116,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeManager6mkNodeENS0_12NodeTemplateILb0EEESt16initializer_listIS3_E(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %this, ptr noundef readonly captures(none) %opNode, ptr readonly captures(address) %children.coerce0, i64 %children.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11NodeManager6mkNodeENS0_12NodeTemplateILb0EEESt16initializer_listIS3_E(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %this, ptr noundef readonly captures(none) %opNode, ptr readonly %children.coerce0, i64 %children.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.280", align 8
   %nb = alloca %"class.cvc5::internal::NodeBuilder", align 8

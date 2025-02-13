@@ -8695,7 +8695,7 @@ define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -11485,7 +11485,7 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12588,7 +12588,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12616,7 +12616,7 @@ define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly capture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -12937,7 +12937,7 @@ define internal fastcc zeroext i1 @_equalViewStmt(ptr noundef nonnull readonly c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -13035,7 +13035,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14684,7 +14684,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14712,7 +14712,7 @@ define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalString(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -14740,7 +14740,7 @@ define internal fastcc noundef zeroext i1 @_equalString(ptr readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8

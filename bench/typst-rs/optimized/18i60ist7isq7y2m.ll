@@ -6180,7 +6180,7 @@ switch.lookup:                                    ; preds = %174
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12typst_render12convert_path17he71570ed8c5dc705E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address) %.8.val, i64 %.16.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12typst_render12convert_path17he71570ed8c5dc705E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)

@@ -2026,7 +2026,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare i64 @lower(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = icmp eq i32 %3, 1
   br i1 %7, label %8, label %11
 

@@ -23,7 +23,7 @@ define dso_local noundef i32 @archive_read_disk_entry_setup_acls(ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @archive_read_disk_entry_setup_path(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local ptr @archive_read_disk_entry_setup_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @archive_entry_sourcepath(ptr noundef %1) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.trace_event_get_state_static = private unnamed_addr constant [49 x i8] c"_Bool trace_event_get_state_static(TraceEvent *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @trace_event_set_state_dynamic_init(ptr noundef readonly captures(address_is_null) %ev, i1 noundef zeroext %state) local_unnamed_addr #0 {
+define dso_local void @trace_event_set_state_dynamic_init(ptr noundef readonly %ev, i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %ev, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %trace_event_get_state_static.exit.i
@@ -53,7 +53,7 @@ trace_event_set_state_dynamic.exit:               ; preds = %if.end.i, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @trace_event_set_state_dynamic(ptr noundef readonly captures(address_is_null) %ev, i1 noundef zeroext %state) local_unnamed_addr #0 {
+define dso_local void @trace_event_set_state_dynamic(ptr noundef readonly %ev, i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %ev, null
   br i1 %cmp.not.i, label %if.else.i, label %trace_event_get_state_static.exit

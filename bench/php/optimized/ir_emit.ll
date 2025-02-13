@@ -42525,7 +42525,7 @@ dasm_free.exit42:                                 ; preds = %100, %102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @ir_needs_thunk(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #11 {
+define hidden zeroext i1 @ir_needs_thunk(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 

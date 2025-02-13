@@ -3126,7 +3126,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17hb38554c4e9186b53E(ptr no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h4c019e609df1823fE"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h4c019e609df1823fE"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
@@ -3163,7 +3163,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8f2f378edd061bf7E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8f2f378edd061bf7E"(ptr noundef nonnull writeonly align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #1 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !660)
   %.not.i = icmp eq ptr %1, null
@@ -3731,7 +3731,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function5FnMut8call_mut17h13d7eea8946512b5E.llvm.11107275065492906757(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %1) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function5FnMut8call_mut17h13d7eea8946512b5E.llvm.11107275065492906757(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readnone returned align 8 %1) unnamed_addr #8 {
   ret ptr %1
 }
 
@@ -3811,7 +3811,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @_ZN4core3ops9try_trait17NeverShortCircuit17h4ba0c1f527e21d0dE.llvm.11107275065492906757(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 ptr @_ZN4core3ops9try_trait17NeverShortCircuit17h4ba0c1f527e21d0dE.llvm.11107275065492906757(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -9471,7 +9471,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17he5066f9d5d3b7c4dE(ptr readonly captures(address_is_null) %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17he5066f9d5d3b7c4dE(ptr readonly %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
 ._crit_edge.i:
   %2 = alloca {}, align 1
   %3 = alloca { ptr, [5 x i64] }, align 8

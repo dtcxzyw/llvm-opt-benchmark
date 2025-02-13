@@ -7912,7 +7912,7 @@ _nocheck__trace_nbd_negotiate_new_style_size_flags.exit: ; preds = %entry, %land
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nbd_opt_read_name(ptr noundef captures(none) %client, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %name, ptr noundef writeonly captures(address_is_null) %length, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc i32 @nbd_opt_read_name(ptr noundef captures(none) %client, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %name, ptr noundef writeonly %length, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   store ptr null, ptr %name, align 8

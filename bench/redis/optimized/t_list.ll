@@ -54,14 +54,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [37 x i8] c"o->encoding == OBJ_ENCODING_LISTPACK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversion(ptr noundef captures(none) %o, i32 noundef %lct, ptr noundef captures(address_is_null) %fn, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversion(ptr noundef captures(none) %o, i32 noundef %lct, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %o, i32 noundef %lct, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %fn, ptr noundef %data)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listTypeTryConversionRaw(ptr noundef captures(none) %o, i32 noundef %lct, ptr noundef readonly captures(address_is_null) %argv, i32 noundef %start, i32 noundef %end, ptr noundef readonly captures(address_is_null) %fn, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc void @listTypeTryConversionRaw(ptr noundef captures(none) %o, i32 noundef %lct, ptr noundef readonly %argv, i32 noundef %start, i32 noundef %end, ptr noundef readonly %fn, ptr noundef %data) unnamed_addr #0 {
 entry:
   %sz_limit.i = alloca i64, align 8
   %count_limit.i = alloca i32, align 4
@@ -328,7 +328,7 @@ if.end16:                                         ; preds = %if.end43.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversionAppend(ptr noundef captures(none) %o, ptr noundef captures(address_is_null) %argv, i32 noundef %start, i32 noundef %end, ptr noundef captures(address_is_null) %fn, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversionAppend(ptr noundef captures(none) %o, ptr noundef %argv, i32 noundef %start, i32 noundef %end, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %o, i32 noundef 1, ptr noundef %argv, i32 noundef %start, i32 noundef %end, ptr noundef %fn, ptr noundef %data)
   ret void
@@ -2255,7 +2255,7 @@ if.end19:                                         ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %c, ptr noundef captures(none) %o, ptr noundef %key, i32 noundef %where, i64 noundef %count, i32 noundef %signal, ptr noundef captures(address_is_null) %deleted) local_unnamed_addr #0 {
+define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %c, ptr noundef captures(none) %o, ptr noundef %key, i32 noundef %where, i64 noundef %count, i32 noundef %signal, ptr noundef %deleted) local_unnamed_addr #0 {
 entry:
   %bf.load.i = load i32, ptr %o, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 4
@@ -2413,7 +2413,7 @@ if.end30:                                         ; preds = %if.then26, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listElementsRemoved(ptr noundef %c, ptr noundef %key, i32 noundef %where, ptr noundef captures(none) %o, i64 noundef %count, i32 noundef %signal, ptr noundef writeonly captures(address_is_null) %deleted) local_unnamed_addr #0 {
+define dso_local void @listElementsRemoved(ptr noundef %c, ptr noundef %key, i32 noundef %where, ptr noundef captures(none) %o, i64 noundef %count, i32 noundef %signal, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %where, 0
   %cond = select i1 %cmp, ptr @.str.13, ptr @.str.14
@@ -3798,7 +3798,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lmoveHandlePush(ptr noundef %c, ptr noundef %dstkey, ptr noundef captures(address_is_null) %dstobj, ptr noundef %value, i32 noundef %where) local_unnamed_addr #0 {
+define dso_local void @lmoveHandlePush(ptr noundef %c, ptr noundef %dstkey, ptr noundef %dstobj, ptr noundef %value, i32 noundef %where) local_unnamed_addr #0 {
 entry:
   %value.addr = alloca ptr, align 8
   store ptr %value, ptr %value.addr, align 8

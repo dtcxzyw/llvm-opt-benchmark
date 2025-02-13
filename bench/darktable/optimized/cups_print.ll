@@ -297,7 +297,7 @@ declare void @g_free(ptr noundef) #4
 declare i32 @dt_control_add_job(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @dt_get_paper(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define noundef ptr @dt_get_paper(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %.thread, label %.lr.ph
 
@@ -695,7 +695,7 @@ declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @dt_get_medium(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define noundef ptr @dt_get_medium(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %.thread, label %.lr.ph
 

@@ -1178,7 +1178,7 @@ _ZN12stringStream4growEm.exit:                    ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12stringStream4growEm(ptr noundef nonnull align 8 captures(address) dereferenceable(129) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12stringStream4growEm(ptr noundef nonnull align 8 dereferenceable(129) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 81
@@ -1257,7 +1257,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12stringStream5writeEPKcm(ptr noundef nonnull align 8 captures(address) dereferenceable(129) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12stringStream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(129) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = add i64 %2, -1073741824
   %or.cond = icmp ult i64 %4, -1073741823
   br i1 %or.cond, label %_ZN12outputStream15update_positionEPKcm.exit, label %5
@@ -1445,7 +1445,7 @@ define hidden noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull re
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12stringStreamD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(129) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12stringStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(129) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
@@ -1499,7 +1499,7 @@ define linkonce_odr hidden void @_ZN10nullStreamD2Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z13make_log_namePKcS0_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z13make_log_namePKcS0_(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = call noundef ptr @_ZN2os17local_time_stringEPcm(ptr noundef nonnull %4, i64 noundef 32) #21

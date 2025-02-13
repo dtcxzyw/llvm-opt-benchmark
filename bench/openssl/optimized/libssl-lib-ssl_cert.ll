@@ -657,7 +657,7 @@ return:                                           ; preds = %CRYPTO_DOWN_REF.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ssl_cert_clear_certs(ptr noundef readonly captures(address_is_null) %c) local_unnamed_addr #0 {
+define void @ssl_cert_clear_certs(ptr noundef readonly %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %c, null
   br i1 %cmp, label %for.end, label %for.cond.preheader
@@ -942,7 +942,7 @@ return:                                           ; preds = %for.inc23, %return.
 declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ssl_cert_set_current(ptr noundef captures(address_is_null) %c, i64 noundef %op) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ssl_cert_set_current(ptr noundef %c, i64 noundef %op) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %c, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1278,7 +1278,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X509_NAME_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @SSL_set0_CA_list(ptr noundef captures(address_is_null) %s, ptr noundef %name_list) local_unnamed_addr #0 {
+define void @SSL_set0_CA_list(ptr noundef %s, ptr noundef %name_list) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1327,7 +1327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get0_CA_list(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #6 {
+define ptr @SSL_get0_CA_list(ptr noundef readonly %s) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1383,7 +1383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @SSL_set_client_CA_list(ptr noundef captures(address_is_null) %s, ptr noundef %name_list) local_unnamed_addr #0 {
+define void @SSL_set_client_CA_list(ptr noundef %s, ptr noundef %name_list) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1414,7 +1414,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get0_peer_CA_list(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #6 {
+define ptr @SSL_get0_peer_CA_list(ptr noundef readonly %s) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1444,7 +1444,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get_client_CA_list(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #6 {
+define ptr @SSL_get_client_CA_list(ptr noundef readonly %s) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1493,7 +1493,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_add1_to_CA_list(ptr noundef captures(address_is_null) %ssl, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_add1_to_CA_list(ptr noundef %ssl, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %cond.false
@@ -1589,7 +1589,7 @@ add_ca_name.exit:                                 ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_add_client_CA(ptr noundef captures(address_is_null) %ssl, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_add_client_CA(ptr noundef %ssl, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %cond.false
@@ -2523,7 +2523,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_get_security_level_bits(ptr noundef %s, ptr noundef %ctx, ptr noundef writeonly captures(address_is_null) %levelp) local_unnamed_addr #0 {
+define i32 @ssl_get_security_level_bits(ptr noundef %s, ptr noundef %ctx, ptr noundef writeonly %levelp) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2639,7 +2639,7 @@ return:                                           ; preds = %for.inc11, %return.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ssl_cert_lookup_by_pkey(ptr noundef %pk, ptr noundef writeonly captures(address_is_null) %pidx, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
+define ptr @ssl_cert_lookup_by_pkey(ptr noundef %pk, ptr noundef writeonly %pidx, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   br label %for.body
 

@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Cec_ManTransformPattern(ptr noundef captures(none) initializes((368, 376)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @Cec_ManTransformPattern(ptr noundef captures(none) initializes((368, 376)) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 64
   %.val = load ptr, ptr %4, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %.val, i64 4
@@ -95,7 +95,7 @@ declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cec_ManVerifyOld(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @Cec_ManVerifyOld(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -1053,7 +1053,7 @@ declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #2
 declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec_ManVerify(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @Cec_ManVerify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8

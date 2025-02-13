@@ -88,7 +88,7 @@ _ZN3g2o8internal9normalizeERN5Eigen10QuaternionIdLi0EEE.exit: ; preds = %_ZN5Eig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 16 dereferenceable(32) ptr @_ZN3g2o8internal9normalizeERN5Eigen10QuaternionIdLi0EEE(ptr noundef nonnull returned align 16 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 16 dereferenceable(32) ptr @_ZN3g2o8internal9normalizeERN5Eigen10QuaternionIdLi0EEE(ptr noundef nonnull returned align 16 dereferenceable(32) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = load <2 x double>, ptr %0, align 16
   %3 = fmul <2 x double> %2, %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

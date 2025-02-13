@@ -1515,7 +1515,7 @@ ehcleanup73:                                      ; preds = %lpad.loopexit.i, %l
 declare void @_ZN3ue213assignRegionsERKNS_8NGHolderE(ptr sret(%"class.std::unordered_map") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L25processCyclicStateForwardERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3mapIjNS_12_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjSB_EEERKSt13unordered_mapIS8_jSt4hashIS8_ESt8equal_toIS8_ESaISE_IKS8_jEEERSt3setIjSD_SaIjEE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr readonly captures(address) %cyc.coerce0, i64 %cyc.coerce1, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef nonnull align 8 dereferenceable(56) %region_map, ptr noundef nonnull align 8 dereferenceable(48) %deadRegions) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L25processCyclicStateForwardERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3mapIjNS_12_GLOBAL__N_110RegionInfoESt4lessIjESaISt4pairIKjSB_EEERKSt13unordered_mapIS8_jSt4hashIS8_ESt8equal_toIS8_ESaISE_IKS8_jEEERSt3setIjSD_SaIjEE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr readonly %cyc.coerce0, i64 %cyc.coerce1, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef nonnull align 8 dereferenceable(56) %region_map, ptr noundef nonnull align 8 dereferenceable(48) %deadRegions) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i.i.i.i = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp4.i.i.i.i.i.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -2358,7 +2358,7 @@ return:                                           ; preds = %for.cond, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %g, i32 noundef %region, ptr readonly captures(none) %expected_reports.0.val, i64 %expected_reports.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %region_map) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptERKNS_8NGHolderEjRKNS_8flat_setIjSt4lessIjESaIjEEERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISH_ESt8equal_toISH_ESaISt4pairIKSH_jEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, i32 noundef %region, ptr readonly captures(none) %expected_reports.0.val, i64 %expected_reports.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %region_map) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %g, i64 16
   %__begin1.sroa.0.025 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8

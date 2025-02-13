@@ -1706,7 +1706,7 @@ return:                                           ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt10theory_seq12solution_map4findEP4exprRPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef readonly captures(ret: address, provenance) %e, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %d) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_seq12solution_map4findEP4exprRPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef readonly %e, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %d) local_unnamed_addr #3 align 2 {
 entry:
   %m_map.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %d, align 8
@@ -1785,7 +1785,7 @@ while.end:                                        ; preds = %_ZN25scoped_depende
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3smt10theory_seq12solution_map4findEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef readonly captures(ret: address, provenance) %e) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_seq12solution_map4findEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef readonly %e) local_unnamed_addr #4 align 2 {
 entry:
   %m_map.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_map.i, align 8
@@ -2545,7 +2545,7 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3smt10theory_seq15exclusion_table8containsEP4exprS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(address) %e, ptr noundef readonly captures(address) %r) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt10theory_seq15exclusion_table8containsEP4exprS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly %e, ptr noundef readonly %r) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %e, align 4
   %1 = load i32, ptr %r, align 4
@@ -30255,7 +30255,7 @@ ehcleanup28:                                      ; preds = %ehcleanup27, %lpad
 declare void @_ZN3smt15model_generator16register_factoryEP13value_factory(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3smt10theory_seq13get_ite_valueEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4328) %this, ptr noundef readonly captures(ret: address, provenance) %e) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_seq13get_ite_valueEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4328) %this, ptr noundef readonly %e) local_unnamed_addr #4 align 2 {
 entry:
   %m_kind.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i.i.i.i22 = load i32, ptr %m_kind.i.i.i.i21, align 4

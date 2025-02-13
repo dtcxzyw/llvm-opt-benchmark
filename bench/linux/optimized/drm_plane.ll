@@ -72,7 +72,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_plane_cr
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable___drm_universal_plane_alloc396, ptr @__UNIQUE_ID___addressable___drmm_universal_plane_alloc391, ptr @__UNIQUE_ID___addressable_drm_any_plane_has_format410, ptr @__UNIQUE_ID___addressable_drm_mode_plane_set_obj_prop409, ptr @__UNIQUE_ID___addressable_drm_plane_cleanup404, ptr @__UNIQUE_ID___addressable_drm_plane_create_scaling_filter_property423, ptr @__UNIQUE_ID___addressable_drm_plane_enable_fb_damage_clips418, ptr @__UNIQUE_ID___addressable_drm_plane_force_disable408, ptr @__UNIQUE_ID___addressable_drm_plane_from_index405, ptr @__UNIQUE_ID___addressable_drm_plane_get_damage_clips420, ptr @__UNIQUE_ID___addressable_drm_plane_get_damage_clips_count419, ptr @__UNIQUE_ID___addressable_drm_universal_plane_init386], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_universal_plane_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, ptr noundef %8, ...) #0 align 16 {
+define dso_local i32 @drm_universal_plane_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ...) #0 align 16 {
   %10 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #13
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -105,7 +105,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 16 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 31
@@ -605,7 +605,7 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__drmm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
+define dso_local ptr @__drmm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
   %11 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
   %12 = icmp eq ptr %4, null
@@ -682,7 +682,7 @@ define internal void @drmm_universal_plane_alloc_release(ptr readnone captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__drm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
+define dso_local ptr @__drm_universal_plane_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ...) #0 align 16 {
   %11 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false), !annotation !10
@@ -748,7 +748,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_plane_register_all(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @drm_plane_register_all(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -818,7 +818,7 @@ define dso_local i32 @drm_plane_register_all(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_plane_unregister_all(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_plane_unregister_all(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -937,7 +937,7 @@ define dso_local void @drm_plane_cleanup(ptr noundef %0) #0 align 16 {
 declare dso_local void @drm_mode_object_unregister(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_plane_from_index(ptr noundef readonly captures(address) %0, i32 noundef %1) #4 align 16 {
+define dso_local ptr @drm_plane_from_index(ptr noundef readonly %0, i32 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 712
   br label %4
 
@@ -1061,7 +1061,7 @@ define dso_local i32 @drm_mode_plane_set_obj_prop(ptr noundef %0, ptr noundef %1
 declare dso_local i32 @drm_object_property_set_value(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getplane_res(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getplane_res(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -1431,7 +1431,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_check_pixel_format(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_any_plane_has_format(ptr noundef readonly captures(address) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_any_plane_has_format(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, %4
@@ -2585,7 +2585,7 @@ define dso_local void @drm_plane_enable_fb_damage_clips(ptr noundef %0) #0 align
 declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @drm_plane_get_damage_clips_count(ptr noundef readonly captures(address_is_null) %0) #8 align 16 {
+define dso_local i32 @drm_plane_get_damage_clips_count(ptr noundef readonly %0) #8 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -2608,7 +2608,7 @@ define dso_local i32 @drm_plane_get_damage_clips_count(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @__drm_plane_get_damage_clips(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 align 16 {
+define dso_local ptr @__drm_plane_get_damage_clips(ptr noundef readonly %0) local_unnamed_addr #8 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -2629,7 +2629,7 @@ define dso_local ptr @__drm_plane_get_damage_clips(ptr noundef readonly captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_plane_get_damage_clips(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define dso_local ptr @drm_plane_get_damage_clips(ptr noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88

@@ -272,7 +272,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare ptr @u_locbund_init_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext range(i8 0, 2) i8 @u_feof_75(ptr noundef readonly captures(address_is_null) %f) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @u_feof_75(ptr noundef readonly %f) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %f, null
   br i1 %cmp, label %return, label %if.end

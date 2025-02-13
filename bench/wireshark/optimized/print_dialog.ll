@@ -1627,7 +1627,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @packet_range_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL17print_preamble_pdP12print_streamPcPKc(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL17print_preamble_pdP12print_streamPcPKc(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -1647,7 +1647,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17print_preamble_pdP12print_stre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL13print_line_pdP12print_streamiPKc(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL13print_line_pdP12print_streamiPKc(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -1667,7 +1667,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL13print_line_pdP12print_streamiP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL11new_page_pdP12print_stream(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL11new_page_pdP12print_stream(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

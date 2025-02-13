@@ -251,7 +251,7 @@ return:                                           ; preds = %heap_insert.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_timer_stop(ptr noundef captures(address) %handle) local_unnamed_addr #1 {
+define dso_local noundef i32 @uv_timer_stop(ptr noundef %handle) local_unnamed_addr #1 {
 entry:
   %t.i92.i = alloca %struct.heap_node, align 8
   %t.i.i = alloca %struct.heap_node, align 8
@@ -773,7 +773,7 @@ for.end:                                          ; preds = %uv_timer_again.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @uv__timer_close(ptr noundef captures(address) %handle) local_unnamed_addr #1 {
+define hidden void @uv__timer_close(ptr noundef %handle) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @uv_timer_stop(ptr noundef %handle)
   ret void

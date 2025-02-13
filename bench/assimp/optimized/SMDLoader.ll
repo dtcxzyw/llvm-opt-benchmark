@@ -6540,7 +6540,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_Ri(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(218) %this, ptr noundef %szCurrent, ptr noundef writeonly captures(address_is_null) %szCurrentOut, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %out) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_Ri(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(218) %this, ptr noundef %szCurrent, ptr noundef writeonly %szCurrentOut, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %out) local_unnamed_addr #3 align 2 {
 entry:
   %in.addr.i = alloca ptr, align 8
   br label %while.cond.i.i
@@ -8293,7 +8293,7 @@ return:                                           ; preds = %_ZN6Assimp11SMDImpo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6Assimp11SMDImporter16ParseUnsignedIntEPKcPS2_Rj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(218) %this, ptr noundef %szCurrent, ptr noundef writeonly captures(address_is_null) %szCurrentOut, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %out) local_unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZN6Assimp11SMDImporter16ParseUnsignedIntEPKcPS2_Rj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(218) %this, ptr noundef %szCurrent, ptr noundef writeonly %szCurrentOut, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %out) local_unnamed_addr #15 align 2 {
 entry:
   br label %while.cond.i.i
 

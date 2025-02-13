@@ -100,7 +100,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @cuddLocalCacheQuit(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define void @cuddLocalCacheQuit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

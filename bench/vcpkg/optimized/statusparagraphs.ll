@@ -131,7 +131,7 @@ define dso_local void @_ZN5vcpkg16StatusParagraphsC2EOSt6vectorISt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg16StatusParagraphs8find_allERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7TripletE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr readnone captures(address) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg16StatusParagraphs8find_allERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7TripletE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr readnone %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8

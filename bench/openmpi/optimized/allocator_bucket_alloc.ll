@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [25 x i8] c"aligned buffer too large\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_allocator_bucket_init(ptr noundef captures(ret: address, provenance) initializes((48, 56)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef ptr @mca_allocator_bucket_init(ptr noundef initializes((48, 56)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 1
   %spec.store.select = select i1 %5, i32 30, i32 %1
   %6 = add nsw i32 %spec.store.select, -1

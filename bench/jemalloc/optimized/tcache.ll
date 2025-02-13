@@ -2643,7 +2643,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @tcache_bin_info_settings_parse(ptr noundef %bin_settings_segment_cur, i64 noundef %len_left, ptr noundef %tcache_bin_info, ptr noundef writeonly captures(address_is_null) %bin_info_is_set) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @tcache_bin_info_settings_parse(ptr noundef %bin_settings_segment_cur, i64 noundef %len_left, ptr noundef %tcache_bin_info, ptr noundef writeonly %bin_info_is_set) unnamed_addr #0 {
 entry:
   %bin_settings_segment_cur.addr = alloca ptr, align 8
   %len_left.addr = alloca i64, align 8

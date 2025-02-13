@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare dso_local void @futex_wake_mark(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #1 align 16 {
+define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #1 align 16 {
   %9 = alloca i32, align 4
   %10 = alloca %union.futex_key, align 8
   %11 = alloca %union.futex_key, align 8

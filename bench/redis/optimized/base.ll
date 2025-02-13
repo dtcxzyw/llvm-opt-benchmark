@@ -961,14 +961,14 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @base_ehooks_get_for_metadata(ptr noundef readnone captures(ret: address, provenance) %base) local_unnamed_addr #3 {
+define hidden nonnull ptr @base_ehooks_get_for_metadata(ptr noundef readnone %base) local_unnamed_addr #3 {
 entry:
   %ehooks_base = getelementptr inbounds nuw i8, ptr %base, i64 16
   ret ptr %ehooks_base
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @base_ehooks_get(ptr noundef readnone returned captures(ret: address, provenance) %base) local_unnamed_addr #3 {
+define hidden noundef ptr @base_ehooks_get(ptr noundef readnone returned %base) local_unnamed_addr #3 {
 entry:
   ret ptr %base
 }
@@ -992,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @base_alloc_impl(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment, ptr noundef writeonly captures(address_is_null) %esn) unnamed_addr #1 {
+define internal fastcc noundef ptr @base_alloc_impl(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment, ptr noundef writeonly %esn) unnamed_addr #1 {
 entry:
   %add = add i64 %alignment, 7
   %and = and i64 %add, -8

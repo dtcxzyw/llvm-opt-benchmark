@@ -207,7 +207,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden align 8 ptr @_ZN19pyo3_macros_backend6method5FnArg12from_py_with17h65b18ca9583b0686E(ptr readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN19pyo3_macros_backend6method5FnArg12from_py_with17h65b18ca9583b0686E(ptr readonly align 8 %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, -4
   %.not = icmp eq i64 %3, 40

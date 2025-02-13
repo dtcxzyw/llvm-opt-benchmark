@@ -234,7 +234,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xhci_msi_irq
 @llvm.compiler.used = appending global [45 x ptr] [ptr @__UNIQUE_ID___addressable_xhci_msi_irq1107, ptr @trace_xhci_dbg_cancel_urb.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace419, ptr @trace_xhci_dbg_cancel_urb.__UNIQUE_ID___addressable___SCK__tp_func_xhci_dbg_cancel_urb418, ptr @trace_xhci_dbg_quirks.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace391, ptr @trace_xhci_dbg_quirks.__UNIQUE_ID___addressable___SCK__tp_func_xhci_dbg_quirks390, ptr @trace_xhci_dbg_reset_ep.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace405, ptr @trace_xhci_dbg_reset_ep.__UNIQUE_ID___addressable___SCK__tp_func_xhci_dbg_reset_ep404, ptr @trace_xhci_dbg_ring_expansion.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace447, ptr @trace_xhci_dbg_ring_expansion.__UNIQUE_ID___addressable___SCK__tp_func_xhci_dbg_ring_expansion446, ptr @trace_xhci_handle_cmd_addr_dev.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace825, ptr @trace_xhci_handle_cmd_addr_dev.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_addr_dev824, ptr @trace_xhci_handle_cmd_config_ep.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace727, ptr @trace_xhci_handle_cmd_config_ep.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_config_ep726, ptr @trace_xhci_handle_cmd_disable_slot.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace783, ptr @trace_xhci_handle_cmd_disable_slot.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_disable_slot782, ptr @trace_xhci_handle_cmd_reset_dev.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace839, ptr @trace_xhci_handle_cmd_reset_dev.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_reset_dev838, ptr @trace_xhci_handle_cmd_reset_ep.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace713, ptr @trace_xhci_handle_cmd_reset_ep.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_reset_ep712, ptr @trace_xhci_handle_cmd_set_deq.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace853, ptr @trace_xhci_handle_cmd_set_deq.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_set_deq852, ptr @trace_xhci_handle_cmd_set_deq_ep.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace699, ptr @trace_xhci_handle_cmd_set_deq_ep.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_set_deq_ep698, ptr @trace_xhci_handle_cmd_stop_ep.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace685, ptr @trace_xhci_handle_cmd_stop_ep.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_cmd_stop_ep684, ptr @trace_xhci_handle_command.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace489, ptr @trace_xhci_handle_command.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_command488, ptr @trace_xhci_handle_event.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace475, ptr @trace_xhci_handle_event.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_event474, ptr @trace_xhci_handle_port_status.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace979, ptr @trace_xhci_handle_port_status.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_port_status978, ptr @trace_xhci_handle_transfer.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace503, ptr @trace_xhci_handle_transfer.__UNIQUE_ID___addressable___SCK__tp_func_xhci_handle_transfer502, ptr @trace_xhci_inc_deq.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace965, ptr @trace_xhci_inc_deq.__UNIQUE_ID___addressable___SCK__tp_func_xhci_inc_deq964, ptr @trace_xhci_inc_enq.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace951, ptr @trace_xhci_inc_enq.__UNIQUE_ID___addressable___SCK__tp_func_xhci_inc_enq950, ptr @trace_xhci_queue_trb.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace517, ptr @trace_xhci_queue_trb.__UNIQUE_ID___addressable___SCK__tp_func_xhci_queue_trb516, ptr @trace_xhci_ring_ep_doorbell.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1021, ptr @trace_xhci_ring_ep_doorbell.__UNIQUE_ID___addressable___SCK__tp_func_xhci_ring_ep_doorbell1020, ptr @trace_xhci_ring_host_doorbell.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1035, ptr @trace_xhci_ring_host_doorbell.__UNIQUE_ID___addressable___SCK__tp_func_xhci_ring_host_doorbell1034, ptr @trace_xhci_urb_giveback.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace657, ptr @trace_xhci_urb_giveback.__UNIQUE_ID___addressable___SCK__tp_func_xhci_urb_giveback656], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @xhci_trb_virt_to_dma(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i64 @xhci_trb_virt_to_dma(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -1527,7 +1527,7 @@ xhci_giveback_urb_in_irq.exit26:                  ; preds = %352, %353, %366, %3
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_cleanup_command_queue(ptr noundef captures(address) initializes((312, 320)) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @xhci_cleanup_command_queue(ptr noundef initializes((312, 320)) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -2003,7 +2003,7 @@ define internal fastcc void @xhci_handle_stopped_cmd_ring(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @trb_in_td(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @trb_in_td(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %2, null
   %9 = and i1 %7, %8
@@ -8636,7 +8636,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_handle_halted_endpoi
 declare dso_local ptr @xhci_alloc_command(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull readonly captures(address) %0) unnamed_addr #2 align 16 {
+define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull readonly %0) unnamed_addr #2 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
@@ -9283,7 +9283,7 @@ declare dso_local i32 @__SCT__tp_func_xhci_handle_cmd_stop_ep(ptr noundef, ptr n
 declare dso_local void @xhci_free_command(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_td_cleanup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @xhci_td_cleanup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 80

@@ -1652,7 +1652,7 @@ declare void @_ZN18QAbstractItemModel15beginResetModelEv(ptr noundef nonnull ali
 declare void @dissector_all_tables_foreach_table(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL16gatherTableNamesPKcS0_Pv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL16gatherTableNamesPKcS0_Pv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QString, align 8

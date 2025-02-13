@@ -354,7 +354,7 @@ select.unfold:                                    ; preds = %23, %17, %19, %21
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i32 -1, 2) i32 @git_parse_maybe_bool_text(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 2) i32 @git_parse_maybe_bool_text(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 

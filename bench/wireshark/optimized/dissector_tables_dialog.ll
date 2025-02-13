@@ -61,7 +61,7 @@ $_ZN17QArrayDataPointerI7QStringED2Ev = comdat any
 @_ZN21DissectorTablesDialogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN21DissectorTablesDialogD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21DissectorTablesDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21DissectorTablesDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8

@@ -3415,7 +3415,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %agg.result, i64 %frame_type.coerce0, ptr %frame_type.coerce1, i8 noundef zeroext %flags, ptr readonly captures(address) %known_flags.coerce0, i64 %known_flags.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %agg.result, i64 %frame_type.coerce0, ptr %frame_type.coerce1, i8 noundef zeroext %flags, ptr readonly %known_flags.coerce0, i64 %known_flags.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i = alloca [32 x i8], align 16
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

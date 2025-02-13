@@ -1520,14 +1520,14 @@ entry:
 declare noundef ptr @_ZN4cvc58internal8rewriter8toStringENS1_12DslProofRuleE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal8rewriter16RewriteProofRule14getUserVarListEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal8rewriter16RewriteProofRule14getUserVarListEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_userFvs = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %d_userFvs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal8rewriter16RewriteProofRule10getVarListEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal8rewriter16RewriteProofRule10getVarListEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_fvs = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %d_fvs
@@ -1610,7 +1610,7 @@ _ZNKSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal8rewriter16RewriteProofRule14getListContextENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(320) %this, ptr noundef readonly captures(none) %v) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal8rewriter16RewriteProofRule14getListContextENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(320) %this, ptr noundef readonly captures(none) %v) local_unnamed_addr #8 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -1673,7 +1673,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal8rewriter16RewriteProofRule13getConditionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal8rewriter16RewriteProofRule13getConditionsEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_cond = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_cond

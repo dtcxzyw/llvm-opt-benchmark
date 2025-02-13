@@ -1466,7 +1466,7 @@ return:                                           ; preds = %create_elf_tables.e
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @load_elf_image(ptr noundef %image_name, ptr noundef %src, ptr noundef captures(none) %info, ptr noundef nonnull %ehdr, ptr noundef captures(address_is_null) %pinterp_name) unnamed_addr #1 {
+define internal fastcc void @load_elf_image(ptr noundef %image_name, ptr noundef %src, ptr noundef captures(none) %info, ptr noundef nonnull %ehdr, ptr noundef %pinterp_name) unnamed_addr #1 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8

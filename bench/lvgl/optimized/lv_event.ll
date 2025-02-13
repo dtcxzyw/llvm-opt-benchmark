@@ -258,7 +258,7 @@ declare void @lv_array_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare i32 @lv_array_push_back(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_event_remove_dsc(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
+define noundef zeroext i1 @lv_event_remove_dsc(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -351,7 +351,7 @@ define ptr @lv_event_get_dsc(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_event_dsc_get_cb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_event_dsc_get_cb(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -364,7 +364,7 @@ define ptr @lv_event_dsc_get_cb(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_event_dsc_get_user_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_event_dsc_get_user_data(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -533,7 +533,7 @@ define i32 @lv_event_register_id() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_event_mark_deleted(ptr noundef readnone captures(address) %0) local_unnamed_addr #10 {
+define void @lv_event_mark_deleted(ptr noundef readnone %0) local_unnamed_addr #10 {
   %.08 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 200), align 8, !tbaa !22
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph

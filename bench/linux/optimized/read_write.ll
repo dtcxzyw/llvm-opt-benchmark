@@ -684,7 +684,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_llseek(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rw_verify_area(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #0 align 16 {
+define dso_local i32 @rw_verify_area(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) #0 align 16 {
   %5 = icmp eq i32 %0, 0
   %6 = select i1 %5, i32 4, i32 2
   %7 = icmp slt i64 %3, 0
@@ -736,7 +736,7 @@ define dso_local i32 @rw_verify_area(i32 noundef %0, ptr noundef %1, ptr noundef
 declare dso_local i32 @security_file_permission(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__kernel_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__kernel_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.kvec, align 8
   %6 = alloca %struct.kiocb, align 8
   %7 = alloca %struct.iov_iter, align 8
@@ -959,7 +959,7 @@ define internal fastcc void @warn_unsupported(ptr noundef %0, ptr noundef %1) un
 declare dso_local void @iov_iter_kvec(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 align 16 {
+define dso_local i64 @kernel_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %.thread6, label %6, !prof !8
 
@@ -1274,7 +1274,7 @@ define dso_local i64 @vfs_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__kernel_write_iter(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__kernel_write_iter(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.kiocb, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1456,7 +1456,7 @@ define dso_local i64 @__kernel_write_iter(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__kernel_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 align 16 {
+define dso_local i64 @__kernel_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.kvec, align 8
   %6 = alloca %struct.iov_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
@@ -1474,7 +1474,7 @@ define dso_local i64 @__kernel_write(ptr noundef %0, ptr noundef %1, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 align 16 {
+define dso_local i64 @kernel_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.kvec, align 8
   %6 = alloca %struct.iov_iter, align 8
   %7 = icmp slt i64 %2, 0
@@ -2820,7 +2820,7 @@ define dso_local i64 @vfs_iocb_iter_read(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vfs_iter_read(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
+define dso_local i64 @vfs_iter_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -2952,7 +2952,7 @@ define dso_local i64 @vfs_iter_read(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -528, -529) i64 @do_iter_readv_writev(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -528, -529) i64 @do_iter_readv_writev(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.kiocb, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -3291,7 +3291,7 @@ define dso_local i64 @vfs_iocb_iter_write(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vfs_iter_write(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
+define dso_local i64 @vfs_iter_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 2
@@ -6762,7 +6762,7 @@ define internal fastcc i64 @vfs_writev(ptr noundef %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @do_sendfile(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i64 noundef range(i64 0, 2147483648) %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @do_sendfile(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 0, 2147483648) %4) unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12

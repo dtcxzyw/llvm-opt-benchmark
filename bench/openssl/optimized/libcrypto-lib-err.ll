@@ -648,7 +648,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @get_error_values(i32 noundef range(i32 0, 3) %g, ptr noundef writeonly captures(address_is_null) %file, ptr noundef writeonly captures(address_is_null) %line, ptr noundef writeonly captures(address_is_null) %func, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %flags) unnamed_addr #0 {
+define internal fastcc i64 @get_error_values(i32 noundef range(i32 0, 3) %g, ptr noundef writeonly %file, ptr noundef writeonly %line, ptr noundef writeonly %func, ptr noundef writeonly %data, ptr noundef writeonly %flags) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_err_get_state_int()
   %cmp = icmp eq ptr %call, null
@@ -921,21 +921,21 @@ return:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_get_error_all(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %func, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_get_error_all(ptr noundef %file, ptr noundef %line, ptr noundef %func, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 0, ptr noundef %file, ptr noundef %line, ptr noundef %func, ptr noundef %data, ptr noundef %flags)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_get_error_line(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line) local_unnamed_addr #0 {
+define i64 @ERR_get_error_line(ptr noundef %file, ptr noundef %line) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 0, ptr noundef %file, ptr noundef %line, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_get_error_line_data(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_get_error_line_data(ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 0, ptr noundef %file, ptr noundef %line, ptr noundef null, ptr noundef %data, ptr noundef %flags)
   ret i64 %call
@@ -949,35 +949,35 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_error_line(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line) local_unnamed_addr #0 {
+define i64 @ERR_peek_error_line(ptr noundef %file, ptr noundef %line) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 1, ptr noundef %file, ptr noundef %line, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_error_func(ptr noundef captures(address_is_null) %func) local_unnamed_addr #0 {
+define i64 @ERR_peek_error_func(ptr noundef %func) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %func, ptr noundef null, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_error_data(ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_peek_error_data(ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %data, ptr noundef %flags)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_error_all(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %func, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_peek_error_all(ptr noundef %file, ptr noundef %line, ptr noundef %func, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 1, ptr noundef %file, ptr noundef %line, ptr noundef %func, ptr noundef %data, ptr noundef %flags)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_error_line_data(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_peek_error_line_data(ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 1, ptr noundef %file, ptr noundef %line, ptr noundef null, ptr noundef %data, ptr noundef %flags)
   ret i64 %call
@@ -991,35 +991,35 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_last_error_line(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line) local_unnamed_addr #0 {
+define i64 @ERR_peek_last_error_line(ptr noundef %file, ptr noundef %line) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 2, ptr noundef %file, ptr noundef %line, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_last_error_func(ptr noundef captures(address_is_null) %func) local_unnamed_addr #0 {
+define i64 @ERR_peek_last_error_func(ptr noundef %func) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef %func, ptr noundef null, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_last_error_data(ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_peek_last_error_data(ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %data, ptr noundef %flags)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_last_error_all(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %func, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_peek_last_error_all(ptr noundef %file, ptr noundef %line, ptr noundef %func, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 2, ptr noundef %file, ptr noundef %line, ptr noundef %func, ptr noundef %data, ptr noundef %flags)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ERR_peek_last_error_line_data(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
+define i64 @ERR_peek_last_error_line_data(ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @get_error_values(i32 noundef 2, ptr noundef %file, ptr noundef %line, ptr noundef null, ptr noundef %data, ptr noundef %flags)
   ret i64 %call

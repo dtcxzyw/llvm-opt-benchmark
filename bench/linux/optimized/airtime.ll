@@ -358,7 +358,7 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.ieee80211_rx_status, align 8
   %7 = alloca i32, align 4
   %8 = add i32 %3, 38

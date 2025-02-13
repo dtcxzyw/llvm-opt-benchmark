@@ -3804,7 +3804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13TraceAnalyzer17PrepareProcessingEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13TraceAnalyzer17PrepareProcessingEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.rocksdb::Status", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -12851,7 +12851,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13TraceAnalyzer13EndProcessingEv(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13TraceAnalyzer13EndProcessingEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp11 = alloca %"class.rocksdb::Status", align 8
@@ -14792,7 +14792,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc172
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13TraceAnalyzer17KeyStatsInsertionERKjS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %type, ptr noundef nonnull align 4 dereferenceable(4) %cf_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %value_size, i64 noundef %ts) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13TraceAnalyzer17KeyStatsInsertionERKjS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %type, ptr noundef nonnull align 4 dereferenceable(4) %cf_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %value_size, i64 noundef %ts) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i1046 = alloca %"class.std::tuple.356", align 8
   %ref.tmp10.i1047 = alloca %"class.std::tuple.327", align 1
@@ -19057,7 +19057,7 @@ ehcleanup40:                                      ; preds = %lpad, %lpad.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13TraceAnalyzer6HandleERKNS_21WriteQueryTraceRecordEPSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS5_EE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(112) %record, ptr readnone captures(none) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13TraceAnalyzer6HandleERKNS_21WriteQueryTraceRecordEPSt10unique_ptrINS_17TraceRecordResultESt14default_deleteIS5_EE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(112) %record, ptr readnone captures(none) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %batch = alloca %"class.rocksdb::WriteBatch", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

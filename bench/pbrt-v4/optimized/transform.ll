@@ -6593,7 +6593,7 @@ if.end3995:                                       ; preds = %arrayctor.cont19, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_3RayEPf(ptr noalias writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %r, ptr noundef captures(address_is_null) %tMax) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_3RayEPf(ptr noalias writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %r, ptr noundef %tMax) local_unnamed_addr #4 align 2 {
 entry:
   %o.i86 = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i87 = alloca %"class.pbrt::Point3fi", align 8
@@ -7179,7 +7179,7 @@ return:                                           ; preds = %_ZN4pbrt9TransformC
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_3RayEPf(ptr noalias writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %r, ptr noundef captures(address_is_null) %tMax) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_3RayEPf(ptr noalias writeonly sret(%"class.pbrt::Ray") align 8 captures(none) initializes((0, 28), (32, 40)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %r, ptr noundef %tMax) local_unnamed_addr #4 align 2 {
 entry:
   %o.i86 = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i87 = alloca %"class.pbrt::Point3fi", align 8

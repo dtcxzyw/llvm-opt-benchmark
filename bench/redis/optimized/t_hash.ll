@@ -4119,7 +4119,7 @@ if.end250:                                        ; preds = %if.end34, %while.co
 declare void @lpRandomPairs(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %c, i32 noundef %count, ptr noundef readonly captures(none) %keys, ptr noundef readonly captures(address_is_null) %vals) unnamed_addr #0 {
+define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %c, i32 noundef %count, ptr noundef readonly captures(none) %keys, ptr noundef readonly %vals) unnamed_addr #0 {
 entry:
   %conv = zext i32 %count to i64
   %cmp24.not = icmp eq i32 %count, 0

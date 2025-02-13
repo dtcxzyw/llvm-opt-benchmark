@@ -141,7 +141,7 @@ opal_obj_run_destructors.exit10:                  ; preds = %.lr.ph.i7, %opal_ob
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define range(i32 -5, 1) i32 @opal_ring_buffer_init(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -5, 1) i32 @opal_ring_buffer_init(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 

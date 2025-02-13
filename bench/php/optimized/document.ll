@@ -2694,7 +2694,7 @@ declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeURI(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dom_document_parser(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [4097 x i8], align 16
   %8 = icmp eq ptr %0, null
   br i1 %8, label %13, label %9
@@ -2960,13 +2960,13 @@ declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeParserCtxt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_load(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_load(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_parse_document(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_parse_document(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @dom_parse_document(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3029,7 +3029,7 @@ define internal fastcc void @dom_parse_document(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_loadXML(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_loadXML(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_parse_document(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }

@@ -147,7 +147,7 @@ define internal noundef i32 @mca_osc_monitoring_component_finish() #1 {
 declare i32 @mca_common_monitoring_init() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef ptr @ompi_osc_monitoring_portals4_set_template(ptr noundef returned captures(ret: address, provenance) %0) #4 {
+define internal noundef ptr @ompi_osc_monitoring_portals4_set_template(ptr noundef returned %0) #4 {
   %2 = alloca i32, align 4
   store volatile i32 0, ptr %2, align 4
   %3 = atomicrmw volatile add ptr %2, i32 1 monotonic, align 4
@@ -1242,7 +1242,7 @@ declare i32 @opal_hash_table_get_value_uint64(ptr noundef, i64 noundef, ptr noun
 declare ptr @ompi_proc_for_name(i64) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef ptr @ompi_osc_monitoring_rdma_set_template(ptr noundef returned captures(ret: address, provenance) %0) #4 {
+define internal noundef ptr @ompi_osc_monitoring_rdma_set_template(ptr noundef returned %0) #4 {
   %2 = alloca i32, align 4
   store volatile i32 0, ptr %2, align 4
   %3 = atomicrmw volatile add ptr %2, i32 1 monotonic, align 4
@@ -1259,7 +1259,7 @@ define internal noundef ptr @ompi_osc_monitoring_rdma_set_template(ptr noundef r
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef ptr @ompi_osc_monitoring_ucx_set_template(ptr noundef returned captures(ret: address, provenance) %0) #4 {
+define internal noundef ptr @ompi_osc_monitoring_ucx_set_template(ptr noundef returned %0) #4 {
   %2 = alloca i32, align 4
   store volatile i32 0, ptr %2, align 4
   %3 = atomicrmw volatile add ptr %2, i32 1 monotonic, align 4
@@ -1276,7 +1276,7 @@ define internal noundef ptr @ompi_osc_monitoring_ucx_set_template(ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef ptr @ompi_osc_monitoring_sm_set_template(ptr noundef returned captures(ret: address, provenance) %0) #4 {
+define internal noundef ptr @ompi_osc_monitoring_sm_set_template(ptr noundef returned %0) #4 {
   %2 = alloca i32, align 4
   store volatile i32 0, ptr %2, align 4
   %3 = atomicrmw volatile add ptr %2, i32 1 monotonic, align 4

@@ -1653,7 +1653,7 @@ VE4.exit:                                         ; preds = %79
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Intra16Preds_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #5 {
+define internal void @Intra16Preds_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #5 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %17, label %.preheader43.i
 
@@ -1853,7 +1853,7 @@ TrueMotion.exit:                                  ; preds = %62, %.preheader.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @IntraChromaPreds_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #5 {
+define internal void @IntraChromaPreds_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %18, label %.preheader43.i

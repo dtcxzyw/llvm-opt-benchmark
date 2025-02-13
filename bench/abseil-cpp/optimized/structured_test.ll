@@ -1220,7 +1220,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(p
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt9basic_iosIcSt11char_traitsIcEES3_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef nonnull align 8 dereferenceable(264) ptr @_ZN12_GLOBAL__N_115LoggingDefaultsERSt9basic_iosIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(264) %str) #8 {
+define internal noundef nonnull align 8 dereferenceable(264) ptr @_ZN12_GLOBAL__N_115LoggingDefaultsERSt9basic_iosIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 dereferenceable(264) %str) #8 {
 entry:
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %str, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8

@@ -55,7 +55,7 @@ define hidden i32 @get_io_graph_index(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ugt i32 %2, 2
   br i1 %4, label %5, label %40
 

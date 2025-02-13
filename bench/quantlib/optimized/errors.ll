@@ -82,7 +82,7 @@ $_ZTSN5boost6detail13sp_ms_deleterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS8_S8_ = unnamed_addr alias void (ptr, ptr, i64, ptr, ptr), ptr @_ZN8QuantLib5ErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS8_S8_
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef readonly captures(address_is_null) %expr, ptr noundef readonly captures(address_is_null) %function, ptr noundef readonly captures(address_is_null) %file, i64 %line) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef readonly %expr, ptr noundef readonly %function, ptr noundef readonly %file, i64 %line) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i23 = alloca i64, align 8
   %__dnew.i.i7 = alloca i64, align 8
@@ -601,7 +601,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost20assertion_failed_msgEPKcS1_S1_S1_l(ptr noundef readonly captures(address_is_null) %expr, ptr noundef readonly captures(address_is_null) %msg, ptr noundef readonly captures(address_is_null) %function, ptr noundef readonly captures(address_is_null) %file, i64 noundef %line) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost20assertion_failed_msgEPKcS1_S1_S1_l(ptr noundef readonly %expr, ptr noundef readonly %msg, ptr noundef readonly %function, ptr noundef readonly %file, i64 noundef %line) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i58 = alloca i64, align 8
   %__dnew.i.i26 = alloca i64, align 8

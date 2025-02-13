@@ -997,7 +997,7 @@ _ZNSt12__shared_ptrIN7rocksdb8IOTracerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb18WritableFileWriter6AppendERKNS_5SliceEjNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %data, i32 noundef %crc32c_checksum, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter6AppendERKNS_5SliceEjNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %data, i32 noundef %crc32c_checksum, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %io_options = alloca %"struct.rocksdb::IOOptions", align 8
   %iostats_step_timer_prepare_write_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
@@ -8192,7 +8192,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18WritableFileWriter4SyncEb(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i1 noundef zeroext %use_fsync) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter4SyncEb(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i1 noundef zeroext %use_fsync) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.rocksdb::IOStatus", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8

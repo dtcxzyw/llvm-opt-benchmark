@@ -909,7 +909,7 @@ define void @ts_highlight_buffer_delete(ptr noundef %0) unnamed_addr #1 personal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @ts_highlight_buffer_content(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
+define noundef nonnull ptr @ts_highlight_buffer_content(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -940,7 +940,7 @@ _ZN21tree_sitter_highlight5c_lib10unwrap_ptr17h6617099bebc54fcaE.exit: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @ts_highlight_buffer_line_offsets(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
+define noundef nonnull ptr @ts_highlight_buffer_line_offsets(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -971,7 +971,7 @@ _ZN21tree_sitter_highlight5c_lib10unwrap_ptr17h6617099bebc54fcaE.exit: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @ts_highlight_buffer_len(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
+define noundef i32 @ts_highlight_buffer_len(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -1003,7 +1003,7 @@ _ZN21tree_sitter_highlight5c_lib10unwrap_ptr17h6617099bebc54fcaE.exit: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @ts_highlight_buffer_line_count(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
+define noundef i32 @ts_highlight_buffer_line_count(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)

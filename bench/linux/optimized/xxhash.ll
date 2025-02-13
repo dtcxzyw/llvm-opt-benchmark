@@ -45,7 +45,7 @@ define dso_local void @xxh64_copy_state(ptr noundef writeonly captures(none) ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @xxh32(ptr noundef readonly captures(address) %0, i64 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local i32 @xxh32(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ugt i64 %1, 15
   br i1 %5, label %6, label %50
@@ -159,7 +159,7 @@ define dso_local i32 @xxh32(ptr noundef readonly captures(address) %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @xxh64(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2) #2 align 16 {
+define dso_local i64 @xxh64(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ugt i64 %1, 31
   br i1 %5, label %6, label %74
@@ -524,7 +524,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr noundef capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @xxh32_digest(ptr noundef readonly captures(address) %0) #2 align 16 {
+define dso_local i32 @xxh32_digest(ptr noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4
@@ -773,7 +773,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr noundef capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @xxh64_digest(ptr noundef readonly captures(address) %0) #2 align 16 {
+define dso_local i64 @xxh64_digest(ptr noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8

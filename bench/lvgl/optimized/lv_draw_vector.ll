@@ -929,7 +929,7 @@ define void @lv_vector_dsc_delete(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_vector_for_each_destroy_tasks(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @lv_vector_for_each_destroy_tasks(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call ptr @lv_ll_get_head(ptr noundef %0) #9
   %.not21 = icmp eq ptr %4, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph

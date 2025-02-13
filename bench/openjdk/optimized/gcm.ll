@@ -709,7 +709,7 @@ _ZNK4Node14is_block_startEv.exit11:               ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN8PhaseCFG21is_dominating_controlEP4NodeS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN8PhaseCFG21is_dominating_controlEP4NodeS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   br label %4
 
 4:                                                ; preds = %_ZNK4Node14is_block_startEv.exit, %3
@@ -747,7 +747,7 @@ _ZNK4Node14is_block_startEv.exit:                 ; preds = %9, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5Block7dom_lcaEPS_(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(144) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN5Block7dom_lcaEPS_(ptr noundef nonnull readonly align 8 dereferenceable(144) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %1, %0
   %or.cond = or i1 %3, %4
@@ -1714,7 +1714,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZL18find_deepes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8PhaseCFG34unrelated_load_in_store_null_blockEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8PhaseCFG34unrelated_load_in_store_null_blockEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3366,7 +3366,7 @@ _ZN8PhaseCFG20set_latency_for_nodeEP4Nodei.exit:  ; preds = %120, %._crit_edge.i
 declare noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8PhaseCFG16latency_from_useEP4NodePKS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8PhaseCFG16latency_from_useEP4NodePKS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %3, %1
   br i1 %5, label %.loopexit, label %6
 
@@ -3529,7 +3529,7 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit:   ; preds = %35, %._crit_edge.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PhaseCFG17latency_from_usesEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8PhaseCFG17latency_from_usesEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 15
@@ -3670,7 +3670,7 @@ declare noundef zeroext i1 @_ZN7Compile17randomized_selectEi(ptr noundef nonnull
 declare noundef zeroext i1 @_ZN4Node23is_iteratively_computedEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8PhaseCFG22hoist_to_cheaper_blockEP5BlockS1_P4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8PhaseCFG22hoist_to_cheaper_blockEP5BlockS1_P4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -6378,7 +6378,7 @@ _ZNK5Block8get_nodeEj.exit14:                     ; preds = %_ZNK5Block8get_node
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Block22update_uncommon_branchEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Block22update_uncommon_branchEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -1
@@ -8005,7 +8005,7 @@ _ZNK5Block8get_nodeEj.exit14:                     ; preds = %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN7CFGLoop12in_loop_nestEP5Block(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN7CFGLoop12in_loop_nestEP5Block(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96

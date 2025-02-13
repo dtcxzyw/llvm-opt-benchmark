@@ -4060,7 +4060,7 @@ if.end:                                           ; preds = %if.then, %str_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 6, 9) i32 @singlevaraux(ptr noundef captures(address_is_null) %fs, ptr noundef %n, ptr noundef nonnull captures(none) %var, i32 noundef range(i32 0, 2) %base) unnamed_addr #0 {
+define internal fastcc noundef range(i32 6, 9) i32 @singlevaraux(ptr noundef %fs, ptr noundef %n, ptr noundef nonnull captures(none) %var, i32 noundef range(i32 0, 2) %base) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %fs, null
   br i1 %cmp, label %if.then, label %if.else

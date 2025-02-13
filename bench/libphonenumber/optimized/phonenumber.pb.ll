@@ -2150,7 +2150,7 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %36, label %4
 

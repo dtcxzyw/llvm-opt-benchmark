@@ -3408,14 +3408,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib28HybridHestonHullWhiteProcess13hestonProcessEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib28HybridHestonHullWhiteProcess13hestonProcessEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #14 align 2 {
 entry:
   %hestonProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   ret ptr %hestonProcess_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib28HybridHestonHullWhiteProcess16hullWhiteProcessEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib28HybridHestonHullWhiteProcess16hullWhiteProcessEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #14 align 2 {
 entry:
   %hullWhiteProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %hullWhiteProcess_

@@ -808,7 +808,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$4lift28_$u7b$$u7b$closure$u7d$$u7d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4witx3abi18Generator$LT$B$GT$5lower17he47749bbf1e3a209E"(ptr align 8 %0, ptr align 8 %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #0 {
+define void @"_ZN4witx3abi18Generator$LT$B$GT$5lower17he47749bbf1e3a209E"(ptr align 8 %0, ptr align 8 %1, ptr readonly align 8 %2) unnamed_addr #0 {
   %4 = alloca { i64, [8 x i64] }, align 8
   %5 = alloca { i64, [8 x i64] }, align 8
   %6 = alloca { i64, [8 x i64] }, align 8

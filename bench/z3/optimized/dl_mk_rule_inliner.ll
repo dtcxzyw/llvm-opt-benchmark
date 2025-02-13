@@ -6027,7 +6027,7 @@ ehcleanup40:                                      ; preds = %lpad.loopexit32, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7datalog15mk_rule_inliner7visitorclEP4expr(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(address) %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN7datalog15mk_rule_inliner7visitorclEP4expr(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_unifiers = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_positions = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -6475,7 +6475,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN7datalog15mk_rule_inliner7visitor12del_positionEP4exprj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(address) %e, i32 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN7datalog15mk_rule_inliner7visitor12del_positionEP4exprj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly %e, i32 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %j.addr = alloca i32, align 4
   store i32 %j, ptr %j.addr, align 4

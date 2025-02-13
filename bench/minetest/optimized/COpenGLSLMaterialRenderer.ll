@@ -3192,7 +3192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly %name) unnamed_addr #10 align 2 {
 entry:
   %UniformInfo = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -3231,7 +3231,7 @@ cleanup:                                          ; preds = %for.inc, %cleanup.l
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef readonly captures(none) %this, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #11 align 2 {
+define noundef i32 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef readonly captures(none) %this, ptr noundef readonly %name) unnamed_addr #11 align 2 {
 entry:
   %UniformInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48

@@ -1148,7 +1148,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @eth_pad_short_frame(ptr noundef writeonly captures(none) %padded_pkt, ptr noundef captures(address_is_null) %padded_buflen, ptr noundef readonly captures(none) %pkt, i64 noundef %pkt_size) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @eth_pad_short_frame(ptr noundef writeonly captures(none) %padded_pkt, ptr noundef %padded_buflen, ptr noundef readonly captures(none) %pkt, i64 noundef %pkt_size) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %padded_buflen, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true

@@ -449,7 +449,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points15StringMetaCacheC2ERKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %metadata) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points15StringMetaCacheC2ERKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %metadata) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %_M_single_bucket.i.i, ptr %this, align 8
@@ -475,7 +475,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points15StringMetaCache5resetERKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %metadata) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points15StringMetaCache5resetERKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(56) %metadata) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__endptr.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

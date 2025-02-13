@@ -12,7 +12,7 @@ define hidden noundef nonnull ptr @WebPGetEnabledInputFileFormats() local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 6) i32 @WebPGuessImageType(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 6) i32 @WebPGuessImageType(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ugt i64 %1, 11
   %or.cond = and i1 %3, %4
@@ -120,7 +120,7 @@ define internal noundef i32 @FailReader(ptr readnone captures(none) %0, i64 %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ugt i64 %1, 11
   %or.cond.i = and i1 %3, %4

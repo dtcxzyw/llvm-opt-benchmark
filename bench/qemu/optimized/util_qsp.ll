@@ -1541,7 +1541,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @qsp_callsite_cmp(ptr noundef readonly captures(address) %ap, ptr noundef readonly captures(address) %bp) #5 {
+define internal zeroext i1 @qsp_callsite_cmp(ptr noundef readonly %ap, ptr noundef readonly %bp) #5 {
 entry:
   %cmp = icmp eq ptr %ap, %bp
   br i1 %cmp, label %lor.end13, label %lor.rhs

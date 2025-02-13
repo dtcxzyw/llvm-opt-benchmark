@@ -39,7 +39,7 @@ define noalias noundef ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %0)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @PaUtil_FreeMemory(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @PaUtil_FreeMemory(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -125,7 +125,7 @@ define noundef i32 @PaUtil_StartThreading(ptr noundef %0, ptr noundef %1, ptr no
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PaUtil_CancelThreading(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define noundef i32 @PaUtil_CancelThreading(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -481,7 +481,7 @@ define range(i32 -9999, 1) i32 @PaUnixMutex_Unlock(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef initializes((12, 16)) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef initializes((12, 16)) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5

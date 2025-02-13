@@ -365,7 +365,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 declare ptr @d2i_X509(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_use_PrivateKey(ptr noundef readonly captures(address_is_null) %ssl, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_use_PrivateKey(ptr noundef readonly %ssl, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %cond.false
@@ -463,7 +463,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_use_PrivateKey_file(ptr noundef readonly captures(address_is_null) %ssl, ptr noundef %file, i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_use_PrivateKey_file(ptr noundef readonly %ssl, ptr noundef %file, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #6
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #6
@@ -1180,7 +1180,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %ctx, i32 noundef %version, ptr noundef readonly captures(address_is_null) %serverinfo, i64 noundef %serverinfo_length) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %ctx, i32 noundef %version, ptr noundef readonly %serverinfo, i64 noundef %serverinfo_length) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %serverinfo, null
@@ -1389,7 +1389,7 @@ declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo(ptr noundef %ctx, ptr noundef captures(address_is_null) %serverinfo, i64 noundef %serverinfo_length) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo(ptr noundef %ctx, ptr noundef %serverinfo, i64 noundef %serverinfo_length) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %ctx, i32 noundef 1, ptr noundef %serverinfo, i64 noundef %serverinfo_length)
   ret i32 %call

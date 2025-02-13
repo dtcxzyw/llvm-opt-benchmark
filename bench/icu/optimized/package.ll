@@ -64,7 +64,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_757PackageD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_757PackageD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @getDataInfo(ptr noundef readonly captures(address_is_null, ret: address, provenance) %data, i32 noundef %length, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %infoLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %headerLength, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define ptr @getDataInfo(ptr noundef readonly %data, i32 noundef %length, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %infoLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %headerLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1365,7 +1365,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_757Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237) %this, ptr noundef %filename, i8 noundef signext %outType, ptr noundef readonly captures(address_is_null) %comment) local_unnamed_addr #12 align 2 {
+define void @_ZN6icu_757Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237) %this, ptr noundef %filename, i8 noundef signext %outType, ptr noundef readonly %comment) local_unnamed_addr #12 align 2 {
 entry:
   %errorCode.i = alloca i32, align 4
   %prefix = alloca [68 x i8], align 16
@@ -1963,7 +1963,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN6icu_757Package11allocStringEai(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(201237) %this, i8 noundef signext %in, i32 noundef %length) local_unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZN6icu_757Package11allocStringEai(ptr noundef nonnull align 8 dereferenceable(201237) %this, i8 noundef signext %in, i32 noundef %length) local_unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp eq i8 %in, 0
   %inStringTop = getelementptr inbounds nuw i8, ptr %this, i64 1192

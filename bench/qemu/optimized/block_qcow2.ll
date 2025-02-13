@@ -1087,7 +1087,7 @@ declare i32 @bdrv_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32
 declare void @qemu_vfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define dso_local i64 @qcow2_refcount_metadata_size(i64 noundef %clusters, i64 noundef %cluster_size, i32 noundef %refcount_order, i1 noundef zeroext %generous_increase, ptr noundef writeonly captures(address_is_null) %refblock_count) local_unnamed_addr #7 {
+define dso_local i64 @qcow2_refcount_metadata_size(i64 noundef %clusters, i64 noundef %cluster_size, i32 noundef %refcount_order, i1 noundef zeroext %generous_increase, ptr noundef writeonly %refblock_count) local_unnamed_addr #7 {
 entry:
   %div18 = lshr i64 %cluster_size, 3
   %mul = shl i64 %cluster_size, 3
@@ -6986,7 +6986,7 @@ glib_autoptr_cleanup_GraphLockable.exit:
 declare zeroext i1 @aio_poll(ptr noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned captures(ret: address, provenance) %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #23
   ret ptr %x
@@ -8004,7 +8004,7 @@ entry:
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 4) i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %start_offset, i64 noundef %end_offset, ptr noundef writeonly captures(address_is_null) %p_feature_table, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %need_update_header, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 4) i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %start_offset, i64 noundef %end_offset, ptr noundef writeonly %p_feature_table, i32 noundef %flags, ptr noundef writeonly %need_update_header, ptr noundef %errp) #0 {
 entry:
   %qiov.i129 = alloca %struct.QEMUIOVector, align 8
   %qiov.i124 = alloca %struct.QEMUIOVector, align 8
@@ -10535,7 +10535,7 @@ declare i64 @qemu_iovec_to_buf(ptr noundef, i64 noundef, ptr noundef, i64 nounde
 declare i32 @qcow2_co_encrypt(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @handle_alloc_space(ptr noundef %bs, ptr noundef captures(address_is_null) %l2meta) #0 {
+define internal range(i32 -2147483648, 1) i32 @handle_alloc_space(ptr noundef %bs, ptr noundef %l2meta) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24

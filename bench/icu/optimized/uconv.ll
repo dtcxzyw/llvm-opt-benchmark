@@ -1824,7 +1824,7 @@ declare void @ucnv_close_75(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef range(i32 0, 5) i32 @main(i32 noundef %argc, ptr noundef captures(address) %argv) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 5) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %status.i = alloca i32, align 4
   %len.i = alloca i32, align 4

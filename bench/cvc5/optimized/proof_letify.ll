@@ -409,7 +409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof11ProofLetify22convertProofCountToLetERKSt6vectorIPKNS0_9ProofNodeESaIS6_EERKSt3mapIS6_mSt4lessIS6_ESaISt4pairIKS6_mEEERS8_RSI_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %visitList, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %pcount, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %pletList, ptr noundef nonnull align 8 dereferenceable(48) %pletMap, i64 noundef %thresh) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof11ProofLetify22convertProofCountToLetERKSt6vectorIPKNS0_9ProofNodeESaIS6_EERKSt3mapIS6_mSt4lessIS6_ESaISt4pairIKS6_mEEERS8_RSI_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %visitList, ptr noundef nonnull readonly align 8 dereferenceable(48) %pcount, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %pletList, ptr noundef nonnull align 8 dereferenceable(48) %pletMap, i64 noundef %thresh) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pn = alloca ptr, align 8
   %cmp = icmp eq i64 %thresh, 0

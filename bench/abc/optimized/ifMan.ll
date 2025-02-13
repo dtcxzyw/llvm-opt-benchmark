@@ -3358,7 +3358,7 @@ define void @If_ManDerefNodeCutSet(ptr noundef captures(none) %0, ptr noundef ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @If_ManDerefChoiceCutSet(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #8 {
+define void @If_ManDerefChoiceCutSet(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 

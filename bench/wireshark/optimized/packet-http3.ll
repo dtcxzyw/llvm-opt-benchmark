@@ -1698,7 +1698,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @http3_conn_info_hash(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal i32 @http3_conn_info_hash(ptr noundef readonly %0) #0 {
   %2 = alloca [20 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3

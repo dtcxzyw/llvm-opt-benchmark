@@ -4239,7 +4239,7 @@ declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 declare void @plpgsql_push_back_token(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_sql_construct(i32 noundef range(i32 44, 385) %0, i32 noundef range(i32 0, 382) %1, i32 noundef range(i32 0, 382) %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) unnamed_addr #0 {
+define internal fastcc ptr @read_sql_construct(i32 noundef range(i32 44, 385) %0, i32 noundef range(i32 0, 382) %1, i32 noundef range(i32 0, 382) %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca %struct.sql_error_callback_arg, align 4
   %12 = alloca %struct.ErrorContextCallback, align 8
   %13 = alloca %struct.StringInfoData, align 8
@@ -6064,7 +6064,7 @@ check_sql_expr.exit:                              ; preds = %.critedge, %110
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_into_target(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @read_into_target(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly %1) unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.sink.split, label %3

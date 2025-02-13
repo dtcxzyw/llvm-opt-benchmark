@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.OCSP_check_validity = private unnamed_addr constant [20 x i8] c"OCSP_check_validity\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OCSP_request_add0_id(ptr noundef readonly captures(address_is_null) %req, ptr noundef %cid) local_unnamed_addr #0 {
+define ptr @OCSP_request_add0_id(ptr noundef readonly %req, ptr noundef %cid) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OCSP_ONEREQ_new() #7
   %cmp = icmp eq ptr %call, null
@@ -307,20 +307,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_resp_get0_tbs_sigalg(ptr noundef readnone captures(ret: address, provenance) %bs) local_unnamed_addr #3 {
+define nonnull ptr @OCSP_resp_get0_tbs_sigalg(ptr noundef readnone %bs) local_unnamed_addr #3 {
 entry:
   %signatureAlgorithm = getelementptr inbounds nuw i8, ptr %bs, i64 48
   ret ptr %signatureAlgorithm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @OCSP_resp_get0_respdata(ptr noundef readnone returned captures(ret: address, provenance) %bs) local_unnamed_addr #3 {
+define noundef ptr @OCSP_resp_get0_respdata(ptr noundef readnone returned %bs) local_unnamed_addr #3 {
 entry:
   ret ptr %bs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_resp_count(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #0 {
+define i32 @OCSP_resp_count(ptr noundef readonly %bs) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bs, null
   br i1 %cmp, label %return, label %if.end
@@ -339,7 +339,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OCSP_resp_get0(ptr noundef readonly captures(address_is_null) %bs, i32 noundef %idx) local_unnamed_addr #0 {
+define ptr @OCSP_resp_get0(ptr noundef readonly %bs, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bs, null
   br i1 %cmp, label %return, label %if.end
@@ -443,7 +443,7 @@ declare ptr @X509_NAME_dup(ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_OCTET_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2147483647) i32 @OCSP_resp_find(ptr noundef readonly captures(address_is_null) %bs, ptr noundef %id, i32 noundef %last) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @OCSP_resp_find(ptr noundef readonly %bs, ptr noundef %id, i32 noundef %last) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bs, null
   br i1 %cmp, label %return, label %if.end
@@ -476,7 +476,7 @@ return:                                           ; preds = %for.cond, %for.body
 declare i32 @OCSP_id_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_single_get0_status(ptr noundef readonly captures(address_is_null) %single, ptr noundef writeonly captures(address_is_null) %reason, ptr noundef writeonly captures(address_is_null) %revtime, ptr noundef writeonly captures(address_is_null) %thisupd, ptr noundef writeonly captures(address_is_null) %nextupd) local_unnamed_addr #0 {
+define i32 @OCSP_single_get0_status(ptr noundef readonly %single, ptr noundef writeonly %reason, ptr noundef writeonly %revtime, ptr noundef writeonly %thisupd, ptr noundef writeonly %nextupd) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %single, null
   br i1 %cmp, label %return, label %if.end
@@ -545,7 +545,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_resp_find_status(ptr noundef readonly captures(address_is_null) %bs, ptr noundef %id, ptr noundef writeonly captures(address_is_null) %status, ptr noundef writeonly captures(address_is_null) %reason, ptr noundef writeonly captures(address_is_null) %revtime, ptr noundef writeonly captures(address_is_null) %thisupd, ptr noundef writeonly captures(address_is_null) %nextupd) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_resp_find_status(ptr noundef readonly %bs, ptr noundef %id, ptr noundef writeonly %status, ptr noundef writeonly %reason, ptr noundef writeonly %revtime, ptr noundef writeonly %thisupd, ptr noundef writeonly %nextupd) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %bs, null
   br i1 %cmp.i, label %return, label %if.end.i

@@ -89,7 +89,7 @@ define internal ptr @default_bzalloc(ptr readnone captures(none) %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @default_bzfree(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #2 {
+define internal void @default_bzfree(ptr readnone captures(none) %0, ptr noundef %1) #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -105,7 +105,7 @@ define internal void @default_bzfree(ptr readnone captures(none) %0, ptr noundef
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 5) i32 @nsis_BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -4, 5) i32 @nsis_BZ2_bzDecompress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [6 x i8], align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %unRLE_obuf_to_output_SMALL.exit.thread, label %4
@@ -4032,7 +4032,7 @@ unRLE_obuf_to_output_SMALL.exit.thread:           ; preds = %43, %BZ2_decompress
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @nsis_BZ2_bzDecompressEnd(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @nsis_BZ2_bzDecompressEnd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
 

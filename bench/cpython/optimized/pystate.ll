@@ -2573,7 +2573,7 @@ define dso_local void @_PyErr_SetInterpreterAlreadyRunning() local_unnamed_addr 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PyInterpreterState_SetRunningMain(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyInterpreterState_SetRunningMain(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7352
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %.not = icmp eq i64 %3, 0
@@ -2632,7 +2632,7 @@ define dso_local range(i32 0, 2) i32 @_PyInterpreterState_IsRunningMain(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_PyThreadState_IsRunningMain(ptr noundef readonly captures(address) %0) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @_PyThreadState_IsRunningMain(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !221
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7352
@@ -2644,7 +2644,7 @@ define hidden range(i32 0, 2) i32 @_PyThreadState_IsRunningMain(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyInterpreterState_ReinitRunningMain(ptr noundef readonly captures(address) %0) local_unnamed_addr #9 {
+define hidden void @_PyInterpreterState_ReinitRunningMain(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !221
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7352
@@ -2786,7 +2786,7 @@ declare i64 @PyLong_AsLongLong(ptr noundef) local_unnamed_addr #5
 declare ptr @PyErr_Occurred() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PyInterpreterState_GetID(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local i64 @PyInterpreterState_GetID(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -3723,7 +3723,7 @@ Py_DECREF.exit136:                                ; preds = %147, %144, %142, %P
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_PyInterpreterState_GetConfig(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #12 {
+define hidden nonnull ptr @_PyInterpreterState_GetConfig(ptr noundef readnone %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7992
   ret ptr %2
 }
@@ -5047,7 +5047,7 @@ define hidden void @_PyGILState_Init(ptr dead_on_unwind noalias writable writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyGILState_Fini(ptr noundef readonly captures(address) %0) local_unnamed_addr #13 {
+define hidden void @_PyGILState_Fini(ptr noundef readonly %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !300
   %.not = icmp eq ptr %0, %2
   br i1 %.not, label %3, label %7
@@ -5479,7 +5479,7 @@ define dso_local void @_PyThreadState_PopFrame(ptr noundef captures(none) %0, pt
 declare void @_PyObject_VirtualFree(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyThreadState_MustExit(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyThreadState_MustExit(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 688) monotonic, align 8
   %3 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 680) monotonic, align 8
   %4 = icmp eq i64 %3, 0

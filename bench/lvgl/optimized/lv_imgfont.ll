@@ -138,7 +138,7 @@ define internal ptr @imgfont_get_glyph_bitmap(ptr noundef readonly captures(none
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_imgfont_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_imgfont_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

@@ -129,7 +129,7 @@ define range(i32 -1, 1) i32 @H5B2__locate_record(ptr noundef readonly captures(n
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__split1(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__split1(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
@@ -2233,7 +2233,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__merge2(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__merge2(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = zext i16 %1 to i32
   %9 = icmp ugt i16 %1, 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -2545,7 +2545,7 @@ H5B2__update_child_flush_depends.exit.thread:     ; preds = %131, %120, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__merge3(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__merge3(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = zext i16 %1 to i32
   %9 = icmp ugt i16 %1, 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -3438,7 +3438,7 @@ declare i32 @H5AC_unpin_entry(ptr noundef) local_unnamed_addr #1
 declare ptr @H5FL_fac_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq i16 %1, 0
   br i1 %.not, label %32, label %7
 

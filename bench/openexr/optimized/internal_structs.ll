@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [13 x i8] c"<ERROR>: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_add_part(ptr noundef %f, ptr noundef writeonly captures(address_is_null) %outpart, ptr noundef writeonly captures(address_is_null) %new_index) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_add_part(ptr noundef %f, ptr noundef writeonly %outpart, ptr noundef writeonly %new_index) local_unnamed_addr #0 {
 entry:
   %num_parts = getelementptr inbounds nuw i8, ptr %f, i64 196
   %0 = load i32, ptr %num_parts, align 4

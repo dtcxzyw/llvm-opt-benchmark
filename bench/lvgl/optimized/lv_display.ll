@@ -629,7 +629,7 @@ lv_display_send_event.exit:                       ; preds = %._crit_edge, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_display_set_physical_resolution(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_display_set_physical_resolution(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %.thread
 
@@ -654,7 +654,7 @@ define void @lv_display_set_physical_resolution(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_display_set_offset(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_display_set_offset(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %.thread
 
@@ -679,7 +679,7 @@ define void @lv_display_set_offset(ptr noundef captures(address_is_null) %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_display_set_dpi(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @lv_display_set_dpi(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.thread
 
@@ -699,7 +699,7 @@ define void @lv_display_set_dpi(ptr noundef writeonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_horizontal_resolution(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_horizontal_resolution(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -733,7 +733,7 @@ define i32 @lv_display_get_horizontal_resolution(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_vertical_resolution(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_vertical_resolution(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -767,7 +767,7 @@ define i32 @lv_display_get_vertical_resolution(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_physical_horizontal_resolution(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_physical_horizontal_resolution(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -813,7 +813,7 @@ define i32 @lv_display_get_physical_horizontal_resolution(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_physical_vertical_resolution(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_physical_vertical_resolution(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -859,7 +859,7 @@ define i32 @lv_display_get_physical_vertical_resolution(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_offset_x(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_offset_x(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -930,7 +930,7 @@ lv_display_get_physical_horizontal_resolution.exit14: ; preds = %.thread.i11, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_offset_y(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_offset_y(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -1001,7 +1001,7 @@ lv_display_get_physical_vertical_resolution.exit14: ; preds = %.thread.i11, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_dpi(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_dpi(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -1022,7 +1022,7 @@ define i32 @lv_display_get_dpi(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_display_set_draw_buffers(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define void @lv_display_set_draw_buffers(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %.thread
 
@@ -1176,7 +1176,7 @@ lv_display_set_render_mode.exit:                  ; preds = %38, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_display_get_color_format(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @lv_display_get_color_format(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -1203,7 +1203,7 @@ declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed
 declare i32 @lv_draw_buf_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_display_set_render_mode(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @lv_display_set_render_mode(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.thread
 
@@ -1333,7 +1333,7 @@ lv_display_set_render_mode.exit:                  ; preds = %30, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_display_set_flush_cb(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @lv_display_set_flush_cb(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.thread
 
@@ -1353,7 +1353,7 @@ define void @lv_display_set_flush_cb(ptr noundef writeonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_display_set_flush_wait_cb(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @lv_display_set_flush_wait_cb(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.thread
 
@@ -1450,7 +1450,7 @@ lv_display_send_event.exit:                       ; preds = %31, %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_display_set_tile_cnt(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @lv_display_set_tile_cnt(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ult i32 %1, 256
   br i1 %3, label %4, label %.preheader
 
@@ -1482,7 +1482,7 @@ define void @lv_display_set_tile_cnt(ptr noundef captures(address_is_null) %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 256) i32 @lv_display_get_tile_cnt(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 256) i32 @lv_display_get_tile_cnt(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -1506,7 +1506,7 @@ define range(i32 0, 256) i32 @lv_display_get_tile_cnt(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_display_set_antialiasing(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #8 {
+define void @lv_display_set_antialiasing(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.thread
 
@@ -1530,7 +1530,7 @@ define void @lv_display_set_antialiasing(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_display_get_antialiasing(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define zeroext i1 @lv_display_get_antialiasing(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -1576,7 +1576,7 @@ define zeroext i1 @lv_display_is_double_buffered(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_screen_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_screen_active(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -1597,7 +1597,7 @@ define ptr @lv_display_get_screen_active(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_screen_prev(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_screen_prev(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -1618,7 +1618,7 @@ define ptr @lv_display_get_screen_prev(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_layer_top(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_layer_top(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -1639,7 +1639,7 @@ define ptr @lv_display_get_layer_top(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_layer_sys(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_layer_sys(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -1660,7 +1660,7 @@ define ptr @lv_display_get_layer_sys(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_layer_bottom(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_layer_bottom(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2357,7 +2357,7 @@ define zeroext i1 @lv_display_delete_event(ptr noundef %0, i32 noundef %1) local
 declare zeroext i1 @lv_event_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_display_remove_event_cb_with_user_data(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define i32 @lv_display_remove_event_cb_with_user_data(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_display_get_event_count.exit
 
@@ -2452,7 +2452,7 @@ define void @lv_display_set_rotation(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 8) i32 @lv_display_get_rotation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 8) i32 @lv_display_get_rotation(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread
 
@@ -2475,7 +2475,7 @@ define range(i32 0, 8) i32 @lv_display_get_rotation(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_display_set_theme(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_display_set_theme(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.thread
 
@@ -2532,7 +2532,7 @@ declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #2
 declare void @lv_theme_apply(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_theme(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_theme(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8
   %spec.select = select i1 %2, ptr %3, ptr %0
@@ -2542,7 +2542,7 @@ define ptr @lv_display_get_theme(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_display_get_inactive_time(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @lv_display_get_inactive_time(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2576,7 +2576,7 @@ lv_display_get_next.exit:                         ; preds = %6, %lv_display_get_
 declare i32 @lv_tick_elaps(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_display_trigger_activity(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_display_trigger_activity(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2597,7 +2597,7 @@ define void @lv_display_trigger_activity(ptr noundef writeonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_display_enable_invalidation(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #8 {
+define void @lv_display_enable_invalidation(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.thread
 
@@ -2620,7 +2620,7 @@ define void @lv_display_enable_invalidation(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_display_is_invalidation_enabled(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define zeroext i1 @lv_display_is_invalidation_enabled(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2642,7 +2642,7 @@ define zeroext i1 @lv_display_is_invalidation_enabled(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_refr_timer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_refr_timer(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2663,7 +2663,7 @@ define ptr @lv_display_get_refr_timer(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_display_delete_refr_timer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_display_delete_refr_timer(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2689,7 +2689,7 @@ define void @lv_display_delete_refr_timer(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_display_set_user_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @lv_display_set_user_data(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.thread
 
@@ -2709,7 +2709,7 @@ define void @lv_display_set_user_data(ptr noundef writeonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_display_set_driver_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @lv_display_set_driver_data(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.thread
 
@@ -2729,7 +2729,7 @@ define void @lv_display_set_driver_data(ptr noundef writeonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_user_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_user_data(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2750,7 +2750,7 @@ define ptr @lv_display_get_user_data(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_driver_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_driver_data(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2771,7 +2771,7 @@ define ptr @lv_display_get_driver_data(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_display_get_buf_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @lv_display_get_buf_active(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread
 
@@ -2792,7 +2792,7 @@ define ptr @lv_display_get_buf_active(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_display_rotate_area(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_display_rotate_area(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %lv_display_get_rotation.exit
 
@@ -2987,7 +2987,7 @@ lv_display_get_dpi.exit5:                         ; preds = %lv_display_get_dpi.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -13421772, 13421773) i32 @lv_display_dpx(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 -13421772, 13421773) i32 @lv_display_dpx(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %21, label %4
 

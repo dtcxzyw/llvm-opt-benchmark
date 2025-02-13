@@ -5279,14 +5279,14 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(200) ptr @_ZN7datalog11rel_context12get_rmanagerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(432) %this) unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(200) ptr @_ZN7datalog11rel_context12get_rmanagerEv(ptr noundef nonnull readnone align 8 dereferenceable(432) %this) unnamed_addr #10 align 2 {
 entry:
   %m_rmanager = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %m_rmanager
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(200) ptr @_ZNK7datalog11rel_context12get_rmanagerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(432) %this) unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(200) ptr @_ZNK7datalog11rel_context12get_rmanagerEv(ptr noundef nonnull readnone align 8 dereferenceable(432) %this) unnamed_addr #10 align 2 {
 entry:
   %m_rmanager = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %m_rmanager

@@ -966,7 +966,7 @@ define dso_local noundef ptr @kwsprep(ptr noundef %0) local_unnamed_addr #0 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @enqueue(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #6 {
+define internal fastcc void @enqueue(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret8, label %3
 
@@ -989,7 +989,7 @@ common.ret8:                                      ; preds = %2, %3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @treedelta(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #6 {
+define internal fastcc void @treedelta(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %4
 
@@ -1018,7 +1018,7 @@ define internal fastcc void @treedelta(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @treefails(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 {
+define internal fastcc void @treefails(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %4
 
@@ -1085,7 +1085,7 @@ define internal fastcc void @treefails(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @hasevery(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @hasevery(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 
@@ -1130,7 +1130,7 @@ define internal fastcc range(i32 0, 2) i32 @hasevery(ptr noundef readonly %0, pt
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @treenext(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #6 {
+define internal fastcc void @treenext(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret8, label %3
 
@@ -1157,7 +1157,7 @@ common.ret8:                                      ; preds = %2, %3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @kwsexec(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
+define dso_local i64 @kwsexec(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = icmp eq i32 %6, 1

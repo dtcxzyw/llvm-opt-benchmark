@@ -2121,7 +2121,7 @@ if.end165:                                        ; preds = %for.inc147, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wavelet(ptr noundef captures(address) %buf, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 256) %level) unnamed_addr #4 {
+define internal fastcc void @wavelet(ptr noundef %buf, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 256) %level) unnamed_addr #4 {
 entry:
   %mul = mul i32 %height, %width
   %idx.ext = sext i32 %mul to i64

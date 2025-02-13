@@ -9948,7 +9948,7 @@ if.end:                                           ; preds = %if.then13.i.i169, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl13MonomialCheck9cmp_holdsENS0_12NodeTemplateILb1EEES6_RSt3mapIS6_S7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES9_SaISA_ISB_SE_EEERSt6vectorIS6_SaIS6_EERS7_IS6_bS9_SaISA_ISB_bEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %this, ptr noundef %x, ptr noundef readonly captures(none) %y, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %cmp_infers, ptr noundef nonnull align 8 dereferenceable(24) %exp, ptr noundef nonnull align 8 dereferenceable(48) %visited) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl13MonomialCheck9cmp_holdsENS0_12NodeTemplateILb1EEES6_RSt3mapIS6_S7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES9_SaISA_ISB_SE_EEERSt6vectorIS6_SaIS6_EERS7_IS6_bS9_SaISA_ISB_bEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %this, ptr noundef %x, ptr noundef readonly captures(none) %y, ptr noundef nonnull align 8 dereferenceable(48) %cmp_infers, ptr noundef nonnull align 8 dereferenceable(24) %exp, ptr noundef nonnull align 8 dereferenceable(48) %visited) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.527", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.530", align 1

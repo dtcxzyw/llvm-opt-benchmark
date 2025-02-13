@@ -9573,7 +9573,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus18sygusToBuiltin
 declare void @_ZN4cvc58internal13SkolemManager13mkDummySkolemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8TypeNodeES9_i(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers16SygusRepairConst23getFitToLogicExcludeVarERKNS0_9LogicInfoENS0_12NodeTemplateILb1EEERS8_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(88) %logic, ptr noundef readonly captures(none) %n, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %exvar) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers16SygusRepairConst23getFitToLogicExcludeVarERKNS0_9LogicInfoENS0_12NodeTemplateILb1EEERS8_(ptr noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(88) %logic, ptr noundef readonly captures(none) %n, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %exvar) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.750", align 8
   %visited = alloca %"class.std::unordered_set.532", align 8

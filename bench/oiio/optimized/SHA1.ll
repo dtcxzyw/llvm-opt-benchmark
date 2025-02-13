@@ -39,7 +39,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA1C2EPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef captures(address_is_null) %data, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_04SHA1C2EPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #18
   %m_workspace.i = getelementptr inbounds nuw i8, ptr %call, i64 128
@@ -71,7 +71,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA16appendEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef readonly captures(address_is_null) %data, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_04SHA16appendEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef readonly %data, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %m_final = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %m_final, align 8
@@ -403,7 +403,7 @@ for.end26:                                        ; preds = %for.body12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA17GetHashEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef writeonly captures(address_is_null) %pbDest20) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_05CSHA17GetHashEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef writeonly %pbDest20) local_unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ne ptr %pbDest20, null
   br i1 %cmp, label %if.end, label %return
@@ -2212,7 +2212,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_05CSHA18HashFileEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(address_is_null) %tszFileName) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_05CSHA18HashFileEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %tszFileName) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %tszFileName, null
   br i1 %cmp, label %return, label %if.end

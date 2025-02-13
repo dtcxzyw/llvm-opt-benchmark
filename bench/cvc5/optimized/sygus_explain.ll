@@ -2087,7 +2087,7 @@ ehcleanup7:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusExplain25getExplanationForEqualityENS0_12NodeTemplateILb1EEES5_RSt6vectorIS5_SaIS5_EERSt3mapIjbSt4lessIjESaISt4pairIKjbEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %n, ptr noundef %vn, ptr noundef nonnull align 8 dereferenceable(24) %exp, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %cexc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusExplain25getExplanationForEqualityENS0_12NodeTemplateILb1EEES5_RSt6vectorIS5_SaIS5_EERSt3mapIjbSt4lessIjESaISt4pairIKjbEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %n, ptr noundef %vn, ptr noundef nonnull align 8 dereferenceable(24) %exp, ptr noundef nonnull readonly align 8 dereferenceable(48) %cexc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tn = alloca %"class.cvc5::internal::TypeNode", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -2993,7 +2993,7 @@ ehcleanup7:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusExplain25getExplanationForEqualityENS0_12NodeTemplateILb1EEES5_RSt3mapIjbSt4lessIjESaISt4pairIKjbEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %vn, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %cexc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusExplain25getExplanationForEqualityENS0_12NodeTemplateILb1EEES5_RSt3mapIjbSt4lessIjESaISt4pairIKjbEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %vn, ptr noundef nonnull align 8 dereferenceable(48) %cexc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.406", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8

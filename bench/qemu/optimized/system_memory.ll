@@ -425,7 +425,7 @@ memory_region_unref.exit16:                       ; preds = %for.end, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @flatview_for_each_range(ptr noundef readonly captures(address_is_null) %fv, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @flatview_for_each_range(ptr noundef readonly %fv, ptr noundef readonly %cb, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %fv, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -2921,7 +2921,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_ref(ptr noundef readonly captures(address_is_null) %mr) local_unnamed_addr #0 {
+define dso_local void @memory_region_ref(ptr noundef readonly %mr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %mr, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -2943,7 +2943,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare ptr @object_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_unref(ptr noundef readonly captures(address_is_null) %mr) local_unnamed_addr #0 {
+define dso_local void @memory_region_unref(ptr noundef readonly %mr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %mr, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -3884,7 +3884,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @memory_get_xlat_addr(ptr noundef readonly captures(none) %iotlb, ptr noundef writeonly captures(address_is_null) %vaddr, ptr noundef writeonly captures(address_is_null) %ram_addr, ptr noundef writeonly captures(address_is_null) %read_only, ptr noundef writeonly captures(address_is_null) %mr_has_discard_manager) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @memory_get_xlat_addr(ptr noundef readonly captures(none) %iotlb, ptr noundef writeonly %vaddr, ptr noundef writeonly %ram_addr, ptr noundef writeonly %read_only, ptr noundef writeonly %mr_has_discard_manager) local_unnamed_addr #0 {
 entry:
   %xlat = alloca i64, align 8
   %len = alloca i64, align 8
@@ -4557,7 +4557,7 @@ cpu_physical_memory_set_dirty_range.exit:         ; preds = %memory_region_get_d
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_clear_dirty_bitmap(ptr noundef readnone captures(address) %mr, i64 noundef %start, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @memory_region_clear_dirty_bitmap(ptr noundef readnone %mr, i64 noundef %start, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %mrs = alloca %struct.MemoryRegionSection, align 16
   %listener.028 = load ptr, ptr @memory_listeners, align 8
@@ -4731,7 +4731,7 @@ memory_global_after_dirty_log_sync.exit:          ; preds = %for.inc.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @memory_region_sync_dirty_bitmap(ptr noundef readonly captures(address) %mr, i1 noundef zeroext %last_stage) unnamed_addr #0 {
+define internal fastcc void @memory_region_sync_dirty_bitmap(ptr noundef readonly %mr, i1 noundef zeroext %last_stage) unnamed_addr #0 {
 entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -5315,7 +5315,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_set_coalescing(ptr noundef captures(address) %mr) local_unnamed_addr #0 {
+define dso_local void @memory_region_set_coalescing(ptr noundef %mr) local_unnamed_addr #0 {
 entry:
   tail call void @memory_region_clear_coalescing(ptr noundef %mr)
   %size = getelementptr inbounds nuw i8, ptr %mr, i64 112
@@ -5334,7 +5334,7 @@ int128_get64.exit:                                ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_clear_coalescing(ptr noundef captures(address) %mr) local_unnamed_addr #0 {
+define dso_local void @memory_region_clear_coalescing(ptr noundef %mr) local_unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %coalesced = getelementptr inbounds nuw i8, ptr %mr, i64 216
@@ -5561,7 +5561,7 @@ while.end:                                        ; preds = %memory_region_updat
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_add_coalescing(ptr noundef captures(address) %mr, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @memory_region_add_coalescing(ptr noundef %mr, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #23
   %start.sroa.0.0.insert.ext.i = zext i64 %offset to i128
@@ -5906,7 +5906,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_del_eventfd(ptr noundef captures(none) %mr, i64 noundef %addr, i32 noundef %size, i1 noundef zeroext %match_data, i64 noundef %data, ptr noundef readnone captures(address) %e) local_unnamed_addr #0 {
+define dso_local void @memory_region_del_eventfd(ptr noundef captures(none) %mr, i64 noundef %addr, i32 noundef %size, i1 noundef zeroext %match_data, i64 noundef %data, ptr noundef readnone %e) local_unnamed_addr #0 {
 entry:
   %coerce.sroa.0.0.insert.ext = zext i64 %addr to i128
   %coerce4.sroa.0.0.insert.ext = zext i32 %size to i128
@@ -6255,7 +6255,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_del_subregion(ptr noundef captures(address) %mr, ptr noundef captures(none) %subregion) local_unnamed_addr #0 {
+define dso_local void @memory_region_del_subregion(ptr noundef %mr, ptr noundef captures(none) %subregion) local_unnamed_addr #0 {
 entry:
   tail call void @qemu_flush_coalesced_mmio_buffer() #19
   %0 = load i32, ptr @memory_region_transaction_depth, align 4
@@ -6542,7 +6542,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_find(ptr noalias sret(%struct.MemoryRegionSection) align 16 captures(none) initializes((0, 64)) %agg.result, ptr noundef captures(address) %mr, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @memory_region_find(ptr noalias sret(%struct.MemoryRegionSection) align 16 captures(none) initializes((0, 64)) %agg.result, ptr noundef %mr, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.MemoryRegionSection, align 16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #19
@@ -6615,7 +6615,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @memory_region_find_rcu(ptr noalias nonnull writeonly align 16 captures(none) initializes((0, 64)) %agg.result, ptr noundef readonly captures(address) %mr, i64 noundef %addr, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @memory_region_find_rcu(ptr noalias nonnull writeonly align 16 captures(none) initializes((0, 64)) %agg.result, ptr noundef readonly %mr, i64 noundef %addr, i64 noundef %size) unnamed_addr #0 {
 entry:
   %range27 = alloca %struct.AddrRange, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false)
@@ -6906,7 +6906,7 @@ if.end5:                                          ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @memory_region_present(ptr noundef captures(address) %container, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local zeroext i1 @memory_region_present(ptr noundef %container, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.MemoryRegionSection, align 16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #19

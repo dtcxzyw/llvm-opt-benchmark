@@ -3459,7 +3459,7 @@ define hidden void @"_ZN6diesel13query_builder16update_statement28UpdateStatemen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3new17hf90c831c58d7d613E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel13query_builder16update_statement28UpdateStatement$LT$T$C$U$GT$3new17hf90c831c58d7d613E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   ret ptr %0
 }
 

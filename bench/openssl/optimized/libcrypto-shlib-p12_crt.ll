@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.PKCS12_create_ex2 = private unnamed_addr constant [18 x i8] c"PKCS12_create_ex2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_create_ex2(ptr noundef %pass, ptr noundef %name, ptr noundef %pkey, ptr noundef %cert, ptr noundef %ca, i32 noundef %nid_key, i32 noundef %nid_cert, i32 noundef %iter, i32 noundef %mac_iter, i32 noundef %keytype, ptr noundef %ctx, ptr noundef %propq, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define ptr @PKCS12_create_ex2(ptr noundef %pass, ptr noundef %name, ptr noundef %pkey, ptr noundef %cert, ptr noundef %ca, i32 noundef %nid_key, i32 noundef %nid_cert, i32 noundef %iter, i32 noundef %mac_iter, i32 noundef %keytype, ptr noundef %ctx, ptr noundef %propq, ptr noundef readonly %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %namelen.i = alloca i32, align 4
   %keyidlen.i = alloca i32, align 4
@@ -407,7 +407,7 @@ declare ptr @X509_alias_get0(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @X509_keyid_get0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pkcs12_add_cert_bag(ptr noundef captures(address_is_null) %pbags, ptr noundef %cert, ptr noundef %name, i32 noundef %namelen, ptr noundef %keyid, i32 noundef %keyidlen) unnamed_addr #0 {
+define internal fastcc ptr @pkcs12_add_cert_bag(ptr noundef %pbags, ptr noundef %cert, ptr noundef %name, i32 noundef %namelen, ptr noundef %keyid, i32 noundef %keyidlen) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS12_SAFEBAG_create_cert(ptr noundef %cert) #3
   %cmp = icmp eq ptr %call, null
@@ -493,7 +493,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_cert(ptr noundef captures(address_is_null) %pbags, ptr noundef %cert) local_unnamed_addr #0 {
+define ptr @PKCS12_add_cert(ptr noundef %pbags, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %namelen = alloca i32, align 4
   %keyidlen = alloca i32, align 4
@@ -570,7 +570,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @PKCS12_SAFEBAG_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_key_ex(ptr noundef captures(address_is_null) %pbags, ptr noundef %key, i32 noundef %key_usage, i32 noundef %iter, i32 noundef %nid_key, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @PKCS12_add_key_ex(ptr noundef %pbags, ptr noundef %key, i32 noundef %key_usage, i32 noundef %iter, i32 noundef %nid_key, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_PKEY2PKCS8(ptr noundef %key) #3
   %cmp = icmp eq ptr %call, null
@@ -709,14 +709,14 @@ declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
 declare ptr @PKCS12_SAFEBAG_create0_p8inf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_key(ptr noundef captures(address_is_null) %pbags, ptr noundef %key, i32 noundef %key_usage, i32 noundef %iter, i32 noundef %nid_key, ptr noundef %pass) local_unnamed_addr #0 {
+define ptr @PKCS12_add_key(ptr noundef %pbags, ptr noundef %key, i32 noundef %key_usage, i32 noundef %iter, i32 noundef %nid_key, ptr noundef %pass) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS12_add_key_ex(ptr noundef %pbags, ptr noundef %key, i32 noundef %key_usage, i32 noundef %iter, i32 noundef %nid_key, ptr noundef %pass, ptr noundef null, ptr noundef null)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS12_add_secret(ptr noundef captures(address_is_null) %pbags, i32 noundef %nid_type, ptr noundef %value, i32 noundef %len) local_unnamed_addr #0 {
+define ptr @PKCS12_add_secret(ptr noundef %pbags, i32 noundef %nid_type, ptr noundef %value, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS12_SAFEBAG_create_secret(i32 noundef %nid_type, i32 noundef 4, ptr noundef %value, i32 noundef %len) #3
   %cmp = icmp eq ptr %call, null

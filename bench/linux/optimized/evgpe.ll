@@ -259,7 +259,7 @@ define dso_local i32 @acpi_ev_remove_gpe_reference(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @acpi_ev_low_get_gpe_info(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 16 {
+define dso_local ptr @acpi_ev_low_get_gpe_info(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %20, label %4
 
@@ -375,7 +375,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
 declare dso_local ptr @acpi_ns_get_attached_object(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %66, label %3
 

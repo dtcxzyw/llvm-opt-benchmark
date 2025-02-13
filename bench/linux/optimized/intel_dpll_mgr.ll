@@ -196,7 +196,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_get_shared_dpll_by_id(ptr noundef readonly captures(address, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @intel_get_shared_dpll_by_id(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4520
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1567,7 +1567,7 @@ define dso_local void @intel_dpll_dump_hw_state(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_shared_dpll_state_verify(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_shared_dpll_state_verify(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1723,7 +1723,7 @@ define dso_local void @intel_shared_dpll_state_verify(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @verify_single_dpll_state(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @verify_single_dpll_state(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.intel_dpll_hw_state, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #13
   %6 = icmp eq ptr %0, null
@@ -3103,7 +3103,7 @@ ehl_combo_pll_div_frac_wa_needed.exit15:          ; preds = %259, %263
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 132
@@ -3394,7 +3394,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @icl_put_dplls(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @icl_put_dplls(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3499,7 +3499,7 @@ define internal void @icl_update_dpll_ref_clks(ptr noundef captures(none) initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @icl_dump_hw_state(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @icl_dump_hw_state(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -4996,7 +4996,7 @@ declare dso_local zeroext i1 @intel_phy_is_tc(ptr noundef, i32 noundef) local_un
 declare dso_local i32 @intel_hti_dpll_mask(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_find_shared_dpll(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 0, -9223372036854775807) %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 0, -9223372036854775807) %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   store i64 %3, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
@@ -5232,7 +5232,7 @@ define internal fastcc ptr @intel_find_shared_dpll(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef captures(ret: address, provenance) %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_atomic_get_shared_dpll_state(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 400
@@ -5691,7 +5691,7 @@ define internal noundef range(i32 -22, 1) i32 @bxt_compute_dpll(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bxt_get_dpll(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
+define internal noundef i32 @bxt_get_dpll(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -5788,7 +5788,7 @@ define internal noundef i32 @bxt_get_dpll(ptr noundef captures(none) %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_put_dpll(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @intel_put_dpll(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -5828,7 +5828,7 @@ define internal void @bxt_update_dpll_ref_clks(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bxt_dump_hw_state(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @bxt_dump_hw_state(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -7146,7 +7146,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @skl_get_dpll(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @skl_get_dpll(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -7204,7 +7204,7 @@ define internal void @skl_update_dpll_ref_clks(ptr noundef captures(none) initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_dump_hw_state(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @skl_dump_hw_state(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -7327,7 +7327,7 @@ define internal noundef zeroext i1 @skl_ddi_dpll0_get_hw_state(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 858993460) i32 @skl_ddi_pll_get_freq(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
+define internal range(i32 0, 858993460) i32 @skl_ddi_pll_get_freq(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 32
@@ -7395,7 +7395,7 @@ define internal range(i32 0, 858993460) i32 @skl_ddi_pll_get_freq(ptr noundef ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 858993460) i32 @skl_ddi_wrpll_get_freq(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 858993460) i32 @skl_ddi_wrpll_get_freq(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5976
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7998,7 +7998,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_compute_dpll(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -8148,7 +8148,7 @@ define internal void @hsw_update_dpll_ref_clks(ptr noundef initializes((5980, 59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_dump_hw_state(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @hsw_dump_hw_state(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -8508,7 +8508,7 @@ define internal noundef i32 @ibx_compute_dpll(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ibx_get_dpll(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ibx_get_dpll(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -8628,7 +8628,7 @@ define internal noundef range(i32 -22, 1) i32 @ibx_get_dpll(ptr noundef captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ibx_dump_hw_state(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @ibx_dump_hw_state(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 

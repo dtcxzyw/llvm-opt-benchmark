@@ -1546,7 +1546,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @epl_profile_object_lookup_or_add(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
+define hidden ptr @epl_profile_object_lookup_or_add(ptr noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.object_lookup.exit.thread_crit_edge, label %object_lookup.exit
 
@@ -1581,7 +1581,7 @@ object_lookup.exit.thread:                        ; preds = %.object_lookup.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @epl_profile_object_mapping_add(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, i8 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @epl_profile_object_mapping_add(ptr noundef %0, i16 noundef zeroext %1, i8 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr @use_xdc_mappings, align 4
   %.not = icmp eq i32 %6, 0
@@ -1618,7 +1618,7 @@ define hidden range(i32 0, 2) i32 @epl_profile_object_mapping_add(ptr noundef ca
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_object_mapping(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #2 {
+define internal fastcc noundef i32 @dissect_object_mapping(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #2 {
   %9 = alloca %struct.object_mapping, align 8
   %10 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false)
@@ -2207,7 +2207,7 @@ declare void @prefs_register_filename_preference(ptr noundef, ptr noundef, ptr n
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @device_profile_uat_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @device_profile_uat_copy_cb(ptr noundef returned writeonly initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #18
   store ptr %5, ptr %0, align 8
@@ -2346,7 +2346,7 @@ define internal void @device_profile_parse_uat() #2 {
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @nodeid_profile_uat_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 8), (16, 17), (40, 48)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @nodeid_profile_uat_copy_cb(ptr noundef returned initializes((0, 8), (16, 17), (40, 48)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #18
   store ptr %5, ptr %0, align 8
@@ -3522,7 +3522,7 @@ define internal fastcc i32 @dissect_epl_ainv(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i8 noundef zeroext %6) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5, i8 noundef zeroext %6) unnamed_addr #2 {
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
@@ -7457,7 +7457,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #3
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @drop_profiles(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2) #2 {
+define internal void @drop_profiles(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #2 {
   %.not4 = icmp eq ptr %1, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 

@@ -104,7 +104,7 @@ mca_base_component_unload.exit:                   ; preds = %19, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_framework_components_close(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define noundef i32 @mca_base_framework_components_close(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -197,7 +197,7 @@ mca_base_components_close.exit:                   ; preds = %43, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_components_close(i32 noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define noundef i32 @mca_base_components_close(i32 noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load volatile ptr, ptr %5, align 8

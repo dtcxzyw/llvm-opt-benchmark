@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [23 x i8] c"Error: couldn't load '\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @stb_include_load_file(ptr noundef readonly captures(none) %filename, ptr noundef writeonly captures(address_is_null) %plen) local_unnamed_addr #0 {
+define noalias noundef ptr @stb_include_load_file(ptr noundef readonly captures(none) %filename, ptr noundef writeonly %plen) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call, null
@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_string(ptr noundef %str, ptr noundef captures(address_is_null) %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef readonly captures(address_is_null) %filename, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_string(ptr noundef %str, ptr noundef %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef readonly %filename, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %len.i = alloca i64, align 8
   %temp = alloca [4096 x i8], align 16
@@ -612,7 +612,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_file(ptr noundef captures(address_is_null) %filename, ptr noundef captures(address_is_null) %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_file(ptr noundef %filename, ptr noundef %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %len = alloca i64, align 8
   %call = call ptr @stb_include_load_file(ptr noundef %filename, ptr noundef nonnull %len)
@@ -638,7 +638,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(none) %strs, i32 noundef %count, ptr noundef captures(address_is_null) %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef captures(address_is_null) %filename, ptr noundef %error) local_unnamed_addr #5 {
+define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(none) %strs, i32 noundef %count, ptr noundef %inject, ptr noundef readonly captures(none) %path_to_includes, ptr noundef %filename, ptr noundef %error) local_unnamed_addr #5 {
 entry:
   %cmp15 = icmp sgt i32 %count, 0
   br i1 %cmp15, label %for.body.preheader, label %for.end.thread

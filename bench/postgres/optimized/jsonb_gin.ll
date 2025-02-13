@@ -1503,7 +1503,7 @@ make_text_key.exit:                               ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none) %0, ptr readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #0 {
+define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none) %0, ptr readonly %1, ptr noundef readonly %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %48, label %.preheader
 

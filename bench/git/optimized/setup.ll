@@ -1355,7 +1355,7 @@ strbuf_setlen.exit:                               ; preds = %31, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @read_gitfile_gently(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @read_gitfile_gently(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #25
   %4 = call i32 @stat64(ptr noundef %0, ptr noundef nonnull %3) #25
@@ -2254,7 +2254,7 @@ define dso_local void @die_upon_dubious_ownership(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ensure_valid_ownership(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ensure_valid_ownership(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
@@ -3312,7 +3312,7 @@ define dso_local void @set_git_work_tree(ptr noundef %0) local_unnamed_addr #0 {
 declare void @repo_set_worktree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @setup_git_directory_gently(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @setup_git_directory_gently(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
   %3 = alloca %struct.strbuf, align 8
   %4 = alloca %struct.strbuf, align 8
@@ -3979,7 +3979,7 @@ setup_original_cwd.exit:                          ; preds = %234, %241, %267, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setup_explicit_git_dir(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @setup_explicit_git_dir(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.strbuf, align 8
@@ -4488,7 +4488,7 @@ xstrdup_or_null.exit:                             ; preds = %1, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @check_repository_format_gently(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_repository_format_gently(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -4612,7 +4612,7 @@ define dso_local ptr @setup_git_directory() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @resolve_gitdir_gently(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @resolve_gitdir_gently(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @is_git_directory(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
@@ -4722,7 +4722,7 @@ declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare i32 @setsid() local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_template_dir(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local ptr @get_template_dir(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %.thread12
 

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Session_get_pset_info_f08 = weak alias void (ptr, ptr, ptr, ptr, i32), ptr @ompi_session_get_pset_info_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_session_get_pset_info_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) #0 {
+define void @ompi_session_get_pset_info_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8

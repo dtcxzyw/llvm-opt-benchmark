@@ -708,7 +708,7 @@ define void @frame_data_init(ptr noundef captures(none) initializes((0, 4), (16,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @frame_data_set_before_dissect(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @frame_data_set_before_dissect(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2

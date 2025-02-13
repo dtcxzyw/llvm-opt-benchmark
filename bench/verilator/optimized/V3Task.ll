@@ -4041,7 +4041,7 @@ define linkonce_odr dso_local void @_Z8cvtToHexIP6AstArgENSt9enable_ifIXsr3std10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6V3Task15taskConnectWrapEP15AstNodeFTaskRefRKSt6vectorISt4pairIP6AstVarP6AstArgESaIS8_EEP18V3TaskConnectStateRKSt3setIPKS4_St4lessISH_ESaISH_EE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef initializes((24, 25)) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6V3Task15taskConnectWrapEP15AstNodeFTaskRefRKSt6vectorISt4pairIP6AstVarP6AstArgESaIS8_EEP18V3TaskConnectStateRKSt3setIPKS4_St4lessISH_ESaISH_EE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef initializes((24, 25)) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4347,7 +4347,7 @@ define linkonce_odr dso_local void @_Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt1
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN6V3Task18taskConnectWrapNewEP12AstNodeFTaskRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIP6AstVarP6AstArgESaISG_EERKSt3setIPKSC_St4lessISN_ESaISN_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6V3Task18taskConnectWrapNewEP12AstNodeFTaskRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIP6AstVarP6AstArgESaISG_EERKSt3setIPKSC_St4lessISN_ESaISN_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<const AstVar *, std::pair<const AstVar *const, AstVar *>, std::_Select1st<std::pair<const AstVar *const, AstVar *>>, std::less<const AstVar *>>::_Alloc_node", align 8
   %6 = alloca %"class.std::map.54", align 8
   %7 = alloca ptr, align 8

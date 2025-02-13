@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [31 x i8] c"Internal error in deflateInit2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Open_Generic(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Open_Generic(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %6
 
@@ -76,7 +76,7 @@ define hidden noundef ptr @ZIP_Open_Generic(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Get_From_Cache(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Get_From_Cache(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = tail call ptr @__errno_location() #22
   store i32 0, ptr %5, align 4
@@ -166,7 +166,7 @@ InitializeZip.exit:                               ; preds = %11, %6, %16, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Put_In_Cache(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Put_In_Cache(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @ZIP_Put_In_Cache0(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext 1)
   ret ptr %5
 }
@@ -187,7 +187,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @JVM_RawMonitorExit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ZIP_Put_In_Cache0(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden noundef ptr @ZIP_Put_In_Cache0(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = tail call noalias dereferenceable_or_null(192) ptr @calloc(i64 noundef 1, i64 noundef 192) #24
   %.not.i = icmp eq ptr %7, null
@@ -1562,7 +1562,7 @@ freeCEN.exit200:                                  ; preds = %._crit_edge.i.i194,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ZIP_Open(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @ZIP_Open(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.thread.i, label %4
 
@@ -1592,7 +1592,7 @@ ZIP_Open_Generic.exit:                            ; preds = %.thread.i, %4, %7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ZIP_Close(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define void @ZIP_Close(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @zfiles_lock, align 8
   %3 = tail call i32 @JVM_RawMonitorEnter(ptr noundef %2) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2568,7 +2568,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ZIP_Read(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden i32 @ZIP_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %readFullyAt.exit, label %7
 
@@ -2671,7 +2671,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i, %readFu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2826,7 +2826,7 @@ define ptr @ZIP_FindEntry(ptr noundef captures(none) %0, ptr noundef captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @ZIP_ReadEntry(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @ZIP_ReadEntry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1024 x i8], align 16
   %7 = icmp eq ptr %1, null

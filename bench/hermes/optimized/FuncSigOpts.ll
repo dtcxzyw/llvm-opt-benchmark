@@ -55,7 +55,7 @@ $_ZN4llvh8DenseMapIPN6hermes8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInf
 @.str.1 = private unnamed_addr constant [12 x i8] c"FuncSigOpts\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes11FuncSigOpts11runOnModuleEPNS_6ModuleE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %M) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes11FuncSigOpts11runOnModuleEPNS_6ModuleE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %M) unnamed_addr #0 align 2 {
 entry:
   %builder.i = alloca %"class.hermes::IRBuilder", align 8
   %callsites.i = alloca %"class.llvh::SmallVector.87", align 8

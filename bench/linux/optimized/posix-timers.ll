@@ -920,7 +920,7 @@ __lock_timer.exit.thread:                         ; preds = %1, %__lock_timer.ex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @common_timer_set(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @common_timer_set(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %3, null
@@ -3180,7 +3180,7 @@ declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, 
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %.thread18, label %9

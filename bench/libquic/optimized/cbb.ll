@@ -114,7 +114,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_finish(ptr noundef captures(none) %cbb, ptr noundef writeonly captures(address_is_null) %out_data, ptr noundef writeonly captures(address_is_null) %out_len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_finish(ptr noundef captures(none) %cbb, ptr noundef writeonly %out_data, ptr noundef writeonly %out_len) local_unnamed_addr #7 {
 entry:
   %is_top_level = getelementptr inbounds nuw i8, ptr %cbb, i64 26
   %0 = load i8, ptr %is_top_level, align 2
@@ -356,7 +356,7 @@ return:                                           ; preds = %for.end, %if.then56
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 0, 2) i32 @cbb_buffer_add(ptr noundef captures(address_is_null) %base, ptr noundef writeonly captures(address_is_null) %out, i64 noundef %len) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @cbb_buffer_add(ptr noundef %base, ptr noundef writeonly %out, i64 noundef %len) unnamed_addr #6 {
 entry:
   %cmp.i = icmp eq ptr %base, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -962,7 +962,7 @@ return:                                           ; preds = %if.end10.i.i, %if.t
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_space(ptr noundef captures(none) %cbb, ptr noundef writeonly captures(address_is_null) %out_data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_space(ptr noundef captures(none) %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
@@ -1032,7 +1032,7 @@ return:                                           ; preds = %cbb_buffer_add.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_reserve(ptr noundef captures(none) %cbb, ptr noundef writeonly captures(address_is_null) %out_data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_reserve(ptr noundef captures(none) %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0

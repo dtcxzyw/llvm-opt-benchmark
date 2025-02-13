@@ -5027,7 +5027,7 @@ declare void @_ZN8QCPGraph7setDataERK5QListIdES3_b(ptr noundef nonnull align 8 d
 declare void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog10mouseMovedEP11QMouseEvent(ptr noundef nonnull align 8 captures(none) dereferenceable(268) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17LteRlcGraphDialog10mouseMovedEP11QMouseEvent(ptr noundef nonnull align 8 captures(none) dereferenceable(268) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QRect, align 8
   %5 = alloca %class.QPoint, align 8

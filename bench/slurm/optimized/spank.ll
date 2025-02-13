@@ -892,7 +892,7 @@ define i32 @spank_job_epilog(i32 noundef %0, i32 noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3006) i32 @spank_option_register(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 3006) i32 @spank_option_register(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -1738,7 +1738,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare i32 @job_options_append(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3010) i32 @spank_option_getopt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 3010) i32 @spank_option_getopt(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = icmp ne ptr %2, null
   br i1 %5, label %6, label %7
@@ -2046,7 +2046,7 @@ define range(i32 -1, 2) i32 @spank_symbol_supported(ptr noundef %0) local_unname
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @spank_remote(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @spank_remote(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -2087,7 +2087,7 @@ switch.lookup:                                    ; preds = %3, %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3010) i32 @spank_get_item(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ...) local_unnamed_addr #0 {
+define range(i32 0, 3010) i32 @spank_get_item(ptr noundef readonly %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = icmp eq ptr %0, null
   br i1 %4, label %_check_spank_item_validity.exit.thread, label %5
@@ -3727,7 +3727,7 @@ declare i32 @getuid() local_unnamed_addr #9
 declare i32 @getgid() local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #10 {
   store i32 -1, ptr %2, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
@@ -3776,7 +3776,7 @@ define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 3007) i32 @spank_env_access_check(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define range(i32 0, 3007) i32 @spank_env_access_check(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -3805,7 +3805,7 @@ define range(i32 0, 3007) i32 @spank_env_access_check(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3007) i32 @spank_getenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3007) i32 @spank_getenv(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %spank_env_access_check.exit.thread, label %6
 
@@ -3854,7 +3854,7 @@ declare ptr @getenvp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3007) i32 @spank_setenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3007) i32 @spank_setenv(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %spank_env_access_check.exit.thread, label %6
 
@@ -3905,7 +3905,7 @@ spank_env_access_check.exit.thread:               ; preds = %12, %8, %4, %6, %24
 declare i32 @setenvf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3007) i32 @spank_unsetenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3007) i32 @spank_unsetenv(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %spank_env_access_check.exit.thread, label %4
 
@@ -3990,7 +3990,7 @@ define i32 @dyn_spank_unset_job_env(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3011) i32 @spank_job_control_getenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3011) i32 @spank_job_control_getenv(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %spank_job_control_access_check.exit.thread, label %6
 
@@ -4047,7 +4047,7 @@ spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3011) i32 @spank_job_control_setenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3011) i32 @spank_job_control_setenv(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %spank_job_control_access_check.exit.thread, label %6
 
@@ -4099,7 +4099,7 @@ spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3011) i32 @spank_job_control_unsetenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3011) i32 @spank_job_control_unsetenv(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %spank_job_control_access_check.exit.thread, label %4
 
@@ -4149,7 +4149,7 @@ spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %4
 

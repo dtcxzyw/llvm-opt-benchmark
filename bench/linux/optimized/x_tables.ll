@@ -1348,7 +1348,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @textify_hooks(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 1)) %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #7 align 16 {
+define internal fastcc noundef ptr @textify_hooks(ptr noundef returned writeonly initializes((0, 1)) %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #7 align 16 {
   %4 = icmp eq i8 %2, 3
   %5 = select i1 %4, ptr @textify_hooks.arp_names, ptr @textify_hooks.inetbr_names
   store i8 0, ptr %0, align 1
@@ -3169,7 +3169,7 @@ define internal void @xt_mttg_seq_stop(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xt_match_seq_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define internal ptr @xt_match_seq_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 112
@@ -3214,7 +3214,7 @@ define internal noundef i32 @xt_match_seq_show(ptr noundef %0, ptr readnone capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr captures(ret: address, provenance) %.112.val, ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr %.112.val, ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = ptrtoint ptr %.104.val.168.val.592.val to i64
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
@@ -3389,7 +3389,7 @@ xt_mttg_seq_next.exit.thread:                     ; preds = %14, %43, %xt_mttg_s
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xt_target_seq_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define internal ptr @xt_target_seq_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 112

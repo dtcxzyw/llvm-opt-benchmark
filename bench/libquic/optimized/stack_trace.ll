@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK4base5debug10StackTrace9AddressesEPm(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(504) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %count) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4base5debug10StackTrace9AddressesEPm(ptr noundef nonnull readonly align 8 dereferenceable(504) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %count) local_unnamed_addr #1 align 2 {
 entry:
   %count_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   %0 = load i64, ptr %count_, align 8

@@ -11176,7 +11176,7 @@ define internal fastcc noundef zeroext i1 @_ZN23pulldown_cmark_to_cmark25cmark_r
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN3dot11render_opts17h270cdc5a181d28abE(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 captures(address) %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN3dot11render_opts17h270cdc5a181d28abE(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -13476,7 +13476,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit313: ; preds = %646
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @_ZN3dot11render_opts7writeln17h376fb6cb854854f8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @_ZN3dot11render_opts7writeln17h376fb6cb854854f8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -33345,7 +33345,7 @@ define hidden void @_ZN3ide9runnables11runnable_fn17h0b4e529ec3e39e26E(ptr noali
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3ide9runnables11runnable_fn28_$u7b$$u7b$closure$u7d$$u7d$17he7d9f4d97a84acb2E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly captures(address_is_null) %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3ide9runnables11runnable_fn28_$u7b$$u7b$closure$u7d$$u7d$17he7d9f4d97a84acb2E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i8, [23 x i8] } }, align 8
   %3 = alloca { { i8, [23 x i8] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -37624,12 +37624,12 @@ define void @_ZN3ide12AnalysisHost20request_cancellation17h1e664a2727bf8668E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 ptr @_ZN3ide12AnalysisHost12raw_database17hf434dce1e595ada1E(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #17 {
+define noundef nonnull align 8 ptr @_ZN3ide12AnalysisHost12raw_database17hf434dce1e595ada1E(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #17 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN3ide12AnalysisHost16raw_database_mut17h7c79b6cad2defeccE(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN3ide12AnalysisHost16raw_database_mut17h7c79b6cad2defeccE(ptr noalias noundef readnone returned align 8 dereferenceable(64) %0) unnamed_addr #17 {
   ret ptr %0
 }
 

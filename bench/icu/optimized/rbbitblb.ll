@@ -395,7 +395,7 @@ declare void @_ZN6icu_758RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN6icu_758RBBINode11flattenSetsEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7516RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef captures(address_is_null) %n) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %n) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %n, null
   br i1 %cmp, label %if.end47, label %if.end
@@ -643,7 +643,7 @@ if.end49:                                         ; preds = %if.end12, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilder13calcFollowPosEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef readonly captures(address_is_null) %n) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516RBBITableBuilder13calcFollowPosEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef readonly %n) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %n, null
   br i1 %cmp, label %if.end34, label %lor.lhs.false

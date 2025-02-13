@@ -13140,7 +13140,7 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal5proof17LfscNodeConverter10typeAsNodeENS0_8TypeNodeE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(760) %this, ptr noundef readonly captures(none) %tni) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal5proof17LfscNodeConverter10typeAsNodeENS0_8TypeNodeE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(760) %this, ptr noundef readonly captures(none) %tni) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scope.i.i = alloca %"class.cvc5::internal::options::ioutils::Scope", align 8
   %ref.tmp8 = alloca %"class.cvc5::internal::FatalStream", align 1
@@ -30366,7 +30366,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector8isBitSetEj(ptr noundef 
 declare void @_ZN4cvc58internal4expr17getNullTerminatorENS0_4kind6Kind_tENS0_8TypeNodeE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal5proof17LfscNodeConverter31getBuiltinKindForInternalSymbolENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(760) %this, ptr noundef readonly captures(none) %op) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal5proof17LfscNodeConverter31getBuiltinKindForInternalSymbolENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(760) %this, ptr noundef readonly captures(none) %op) local_unnamed_addr #6 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -30432,14 +30432,14 @@ declare noundef nonnull align 8 dereferenceable(57) ptr @_ZNK4cvc58internal16DTy
 declare void @_ZNK4cvc58internal13DTypeSelector11getSelectorEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal5proof17LfscNodeConverter18getDeclaredSymbolsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(760) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal5proof17LfscNodeConverter18getDeclaredSymbolsEv(ptr noundef nonnull readnone align 8 dereferenceable(760) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_declVars = getelementptr inbounds nuw i8, ptr %this, i64 648
   ret ptr %d_declVars
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal5proof17LfscNodeConverter16getDeclaredTypesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(760) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal5proof17LfscNodeConverter16getDeclaredTypesEv(ptr noundef nonnull readnone align 8 dereferenceable(760) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_declTypes = getelementptr inbounds nuw i8, ptr %this, i64 704
   ret ptr %d_declTypes

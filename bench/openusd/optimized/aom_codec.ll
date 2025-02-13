@@ -48,7 +48,7 @@ define hidden noundef nonnull ptr @aom_codec_version_extra_str() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @aom_codec_iface_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden ptr @aom_codec_iface_name(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -78,7 +78,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @aom_codec_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @aom_codec_error(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %aom_codec_err_to_string.exit, label %2
 
@@ -100,7 +100,7 @@ aom_codec_err_to_string.exit:                     ; preds = %2, %switch.lookup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @aom_codec_error_detail(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden ptr @aom_codec_error_detail(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -125,7 +125,7 @@ define hidden ptr @aom_codec_error_detail(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 9) i32 @aom_codec_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 9) i32 @aom_codec_destroy(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -160,7 +160,7 @@ define hidden range(i32 0, 9) i32 @aom_codec_destroy(ptr noundef captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @aom_codec_get_caps(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden i64 @aom_codec_get_caps(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -175,7 +175,7 @@ define hidden i64 @aom_codec_get_caps(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_codec_control(ptr noundef captures(address_is_null) %0, i32 noundef %1, ...) local_unnamed_addr #3 {
+define hidden i32 @aom_codec_control(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %4
@@ -261,7 +261,7 @@ declare void @llvm.va_start.p0(ptr) #4
 declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_codec_set_option(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden i32 @aom_codec_set_option(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %4
 
@@ -299,7 +299,7 @@ define hidden i32 @aom_codec_set_option(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_internal_error(ptr noundef initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) local_unnamed_addr #3 {
+define hidden void @aom_internal_error(ptr noundef initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly %2, ...) local_unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

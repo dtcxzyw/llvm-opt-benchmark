@@ -146,7 +146,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.466185439
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hca6423c71b0e300aE.llvm.4661854399685404667"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 128 captures(address) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hca6423c71b0e300aE.llvm.4661854399685404667"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 128 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = tail call noundef align 8 ptr %3(ptr noalias noundef align 8 dereferenceable_or_null(16) null)
   %5 = icmp eq ptr %4, null
@@ -5487,7 +5487,7 @@ define void @"_ZN74_$LT$rayon_core..registry..Terminator$u20$as$u20$core..ops..d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN76_$LT$rayon_core..registry..WorkerThread$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc4d97ef5c1c84445E"(ptr noalias noundef readnone align 128 captures(address) dereferenceable(384) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN76_$LT$rayon_core..registry..WorkerThread$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc4d97ef5c1c84445E"(ptr noalias noundef readnone align 128 dereferenceable(384) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr @_ZN10rayon_core8registry19WORKER_THREAD_STATE7__getit3VAL17h9453257021be81b2E, align 8, !noalias !1492, !noundef !4
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hca6423c71b0e300aE.llvm.4661854399685404667.exit", label %4

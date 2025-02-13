@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [18 x i8] c"not enough memory\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @luaS_eqlngstr(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaS_eqlngstr(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i64, ptr %u, align 8
@@ -561,7 +561,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaS_remove(ptr noundef readonly captures(none) %L, ptr noundef readonly captures(address) %ts) local_unnamed_addr #6 {
+define hidden void @luaS_remove(ptr noundef readonly captures(none) %L, ptr noundef readonly %ts) local_unnamed_addr #6 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G, align 8

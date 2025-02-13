@@ -699,7 +699,7 @@ curl_dump_info.exit:                              ; preds = %redact_sensitive_in
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @http_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local void @http_init(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.strbuf, align 8
@@ -3969,13 +3969,13 @@ write_accept_language.exit._crit_edge:            ; preds = %write_accept_langua
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @http_get_strbuf(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @http_get_strbuf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc i32 @http_request_reauth(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #3 {
   %5 = load i32, ptr @http_proactive_auth, align 4, !tbaa !38
   %6 = icmp ult i32 %5, 2
   br i1 %6, label %9, label %7
@@ -4150,7 +4150,7 @@ strbuf_setlen.exit:                               ; preds = %70, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @http_get_file(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @http_get_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fetch_pack_index.buf, i64 24, i1 false)
@@ -6058,7 +6058,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare void @strbuf_remove(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @http_request(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 7) i32 @http_request(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly %3) unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.strbuf, align 8

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @bindings = internal unnamed_addr constant [57 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @PN_Next_Page }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @PN_Previous_Page }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @PN_First_Page }, { i32, [4 x i8], ptr } { i32 515, [4 x i8] zeroinitializer, ptr @PN_Last_Page }, { i32, [4 x i8], ptr } { i32 66052, [4 x i8] zeroinitializer, ptr @FN_Next_Field }, { i32, [4 x i8], ptr } { i32 66053, [4 x i8] zeroinitializer, ptr @FN_Previous_Field }, { i32, [4 x i8], ptr } { i32 66054, [4 x i8] zeroinitializer, ptr @FN_First_Field }, { i32, [4 x i8], ptr } { i32 66055, [4 x i8] zeroinitializer, ptr @FN_Last_Field }, { i32, [4 x i8], ptr } { i32 66056, [4 x i8] zeroinitializer, ptr @FN_Sorted_Next_Field }, { i32, [4 x i8], ptr } { i32 66057, [4 x i8] zeroinitializer, ptr @FN_Sorted_Previous_Field }, { i32, [4 x i8], ptr } { i32 66058, [4 x i8] zeroinitializer, ptr @FN_Sorted_First_Field }, { i32, [4 x i8], ptr } { i32 66059, [4 x i8] zeroinitializer, ptr @FN_Sorted_Last_Field }, { i32, [4 x i8], ptr } { i32 66060, [4 x i8] zeroinitializer, ptr @FN_Left_Field }, { i32, [4 x i8], ptr } { i32 66061, [4 x i8] zeroinitializer, ptr @FN_Right_Field }, { i32, [4 x i8], ptr } { i32 66062, [4 x i8] zeroinitializer, ptr @FN_Up_Field }, { i32, [4 x i8], ptr } { i32 66063, [4 x i8] zeroinitializer, ptr @FN_Down_Field }, { i32, [4 x i8], ptr } { i32 131600, [4 x i8] zeroinitializer, ptr @IFN_Next_Character }, { i32, [4 x i8], ptr } { i32 131601, [4 x i8] zeroinitializer, ptr @IFN_Previous_Character }, { i32, [4 x i8], ptr } { i32 131602, [4 x i8] zeroinitializer, ptr @IFN_Next_Line }, { i32, [4 x i8], ptr } { i32 131603, [4 x i8] zeroinitializer, ptr @IFN_Previous_Line }, { i32, [4 x i8], ptr } { i32 131604, [4 x i8] zeroinitializer, ptr @IFN_Next_Word }, { i32, [4 x i8], ptr } { i32 131605, [4 x i8] zeroinitializer, ptr @IFN_Previous_Word }, { i32, [4 x i8], ptr } { i32 131606, [4 x i8] zeroinitializer, ptr @IFN_Beginning_Of_Field }, { i32, [4 x i8], ptr } { i32 131607, [4 x i8] zeroinitializer, ptr @IFN_End_Of_Field }, { i32, [4 x i8], ptr } { i32 131608, [4 x i8] zeroinitializer, ptr @IFN_Beginning_Of_Line }, { i32, [4 x i8], ptr } { i32 131609, [4 x i8] zeroinitializer, ptr @IFN_End_Of_Line }, { i32, [4 x i8], ptr } { i32 131610, [4 x i8] zeroinitializer, ptr @IFN_Left_Character }, { i32, [4 x i8], ptr } { i32 131611, [4 x i8] zeroinitializer, ptr @IFN_Right_Character }, { i32, [4 x i8], ptr } { i32 131612, [4 x i8] zeroinitializer, ptr @IFN_Up_Character }, { i32, [4 x i8], ptr } { i32 131613, [4 x i8] zeroinitializer, ptr @IFN_Down_Character }, { i32, [4 x i8], ptr } { i32 328222, [4 x i8] zeroinitializer, ptr @FE_New_Line }, { i32, [4 x i8], ptr } { i32 328223, [4 x i8] zeroinitializer, ptr @FE_Insert_Character }, { i32, [4 x i8], ptr } { i32 328224, [4 x i8] zeroinitializer, ptr @FE_Insert_Line }, { i32, [4 x i8], ptr } { i32 328225, [4 x i8] zeroinitializer, ptr @FE_Delete_Character }, { i32, [4 x i8], ptr } { i32 328226, [4 x i8] zeroinitializer, ptr @FE_Delete_Previous }, { i32, [4 x i8], ptr } { i32 328227, [4 x i8] zeroinitializer, ptr @FE_Delete_Line }, { i32, [4 x i8], ptr } { i32 328228, [4 x i8] zeroinitializer, ptr @FE_Delete_Word }, { i32, [4 x i8], ptr } { i32 328229, [4 x i8] zeroinitializer, ptr @FE_Clear_To_End_Of_Line }, { i32, [4 x i8], ptr } { i32 328230, [4 x i8] zeroinitializer, ptr @FE_Clear_To_End_Of_Form }, { i32, [4 x i8], ptr } { i32 328231, [4 x i8] zeroinitializer, ptr @FE_Clear_Field }, { i32, [4 x i8], ptr } { i32 393768, [4 x i8] zeroinitializer, ptr @EM_Overlay_Mode }, { i32, [4 x i8], ptr } { i32 393769, [4 x i8] zeroinitializer, ptr @EM_Insert_Mode }, { i32, [4 x i8], ptr } { i32 197162, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Line_Forward }, { i32, [4 x i8], ptr } { i32 197163, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Line_Backward }, { i32, [4 x i8], ptr } { i32 197164, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Page_Forward }, { i32, [4 x i8], ptr } { i32 197165, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Page_Backward }, { i32, [4 x i8], ptr } { i32 197166, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Half_Page_Forward }, { i32, [4 x i8], ptr } { i32 197167, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Half_Page_Backward }, { i32, [4 x i8], ptr } { i32 262704, [4 x i8] zeroinitializer, ptr @HSC_Scroll_Char_Forward }, { i32, [4 x i8], ptr } { i32 262705, [4 x i8] zeroinitializer, ptr @HSC_Scroll_Char_Backward }, { i32, [4 x i8], ptr } { i32 262706, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Line_Forward }, { i32, [4 x i8], ptr } { i32 262707, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Line_Backward }, { i32, [4 x i8], ptr } { i32 262708, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Half_Line_Forward }, { i32, [4 x i8], ptr } { i32 262709, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Half_Line_Backward }, { i32, [4 x i8], ptr } { i32 459318, [4 x i8] zeroinitializer, ptr @FV_Validation }, { i32, [4 x i8], ptr } { i32 524855, [4 x i8] zeroinitializer, ptr @CR_Next_Choice }, { i32, [4 x i8], ptr } { i32 524856, [4 x i8] zeroinitializer, ptr @CR_Previous_Choice }], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %2
 
@@ -111,7 +111,7 @@ declare i32 @wmove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @wcursyncup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -423,7 +423,7 @@ declare void @wsyncup(ptr noundef) local_unnamed_addr #1
 declare i32 @wtouchln(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %2
 
@@ -792,7 +792,7 @@ After_End_Of_Data.exit:                           ; preds = %14, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %98, label %3
 
@@ -967,7 +967,7 @@ Buffer_To_Window.exit:                            ; preds = %92, %.thread.i, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -14, 1) i32 @_nc_Synchronize_Options(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -14, 1) i32 @_nc_Synchronize_Options(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %107, label %3
 
@@ -1177,7 +1177,7 @@ define dso_local range(i32 -14, 1) i32 @_nc_Synchronize_Options(ptr noundef capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1690,7 +1690,7 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %16, %6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @Check_Field(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @Check_Field(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not35 = icmp eq ptr %0, null
   br i1 %.not35, label %.loopexit29, label %.lr.ph
 
@@ -1856,7 +1856,7 @@ Next_Field_On_Page.exit:                          ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i16, ptr %4, align 4, !tbaa !47
   %6 = sext i16 %5 to i32
@@ -1975,7 +1975,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2507,7 +2507,7 @@ define internal i32 @Horizontal_Scrolling(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Field_Editing(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
+define internal i32 @Field_Editing(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, @FE_Delete_Previous
   br i1 %3, label %4, label %18
 
@@ -2594,7 +2594,7 @@ define internal i32 @Field_Editing(ptr noundef readonly captures(address) %0, pt
 declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @Check_Char(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 -291055, -291056) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @Check_Char(ptr noundef readonly %0, i32 noundef range(i32 -291055, -291056) %1, ptr noundef %2) unnamed_addr #0 {
   %.not24 = icmp eq ptr %0, null
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
@@ -2870,7 +2870,7 @@ IFN_Next_Character.exit:                          ; preds = %65, %54, %62, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond.not108 = or i1 %4, %5
@@ -3096,7 +3096,7 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %114, %.p
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(address) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -3449,7 +3449,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Win
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -3559,7 +3559,7 @@ define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @field_buffer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local ptr @field_buffer(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp sgt i32 %1, -1
   %or.cond = and i1 %3, %4
@@ -3596,7 +3596,7 @@ declare i32 @waddnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @winnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @PN_Next_Page(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @PN_Next_Page(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 26
   %.val = load i16, ptr %2, align 2, !tbaa !108
   %3 = getelementptr i8, ptr %0, i64 28
@@ -3610,7 +3610,7 @@ define internal range(i32 -11, 1) i32 @PN_Next_Page(ptr noundef captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @PN_Previous_Page(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @PN_Previous_Page(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i16, ptr %2, align 4, !tbaa !47
   %.not.i = icmp eq i16 %3, 0
@@ -3630,13 +3630,13 @@ Previous_Page_Number.exit:                        ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @PN_First_Page(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @PN_First_Page(ptr noundef %0) #0 {
   %2 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef 0, ptr noundef null)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @PN_Last_Page(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @PN_Last_Page(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %3 = load i16, ptr %2, align 2, !tbaa !108
   %4 = sext i16 %3 to i32
@@ -3646,7 +3646,7 @@ define internal range(i32 -11, 1) i32 @PN_Last_Page(ptr noundef captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Next_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Next_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3692,7 +3692,7 @@ Next_Field_On_Page.exit:                          ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Previous_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Previous_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3738,7 +3738,7 @@ Previous_Field_On_Page.exit:                      ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3794,7 +3794,7 @@ Previous_Field_On_Page.exit:                      ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Sorted_Next_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_Next_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   br label %4
@@ -3817,7 +3817,7 @@ Sorted_Next_Field.exit:                           ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Sorted_Previous_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_Previous_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   br label %4
@@ -3840,7 +3840,7 @@ Sorted_Previous_Field.exit:                       ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3873,7 +3873,7 @@ Sorted_Next_Field.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Sorted_Last_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Sorted_Last_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3906,7 +3906,7 @@ Sorted_Previous_Field.exit:                       ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Left_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Left_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -3941,7 +3941,7 @@ Left_Neighbour_Field.exit:                        ; preds = %Sorted_Previous_Fie
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Right_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Right_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -3976,7 +3976,7 @@ Right_Neighbour_Field.exit:                       ; preds = %Sorted_Next_Field.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Up_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Up_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -4057,7 +4057,7 @@ Upper_Neighbour_Field.exit:                       ; preds = %19, %.lr.ph.i, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -11, 1) i32 @FN_Down_Field(ptr noundef captures(address) %0) #0 {
+define internal range(i32 -11, 1) i32 @FN_Down_Field(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -6722,7 +6722,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 declare i32 @wclrtobot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @Next_Choice(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @Next_Choice(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not20 = icmp eq ptr %0, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
@@ -6767,7 +6767,7 @@ tailrecurse:                                      ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @Previous_Choice(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @Previous_Choice(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not20 = icmp eq ptr %0, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 

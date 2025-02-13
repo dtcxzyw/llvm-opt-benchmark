@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4goalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(124) %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4goalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %this, ptr noundef nonnull align 8 dereferenceable(124) %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
@@ -802,7 +802,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4goal7copy_toERS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(124) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(124) %target) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK4goal7copy_toERS_(ptr noundef nonnull readonly align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(124) %target) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %target
   br i1 %cmp, label %return, label %if.end
@@ -6581,7 +6581,7 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK4goal7get_idxEP4expr(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef readnone captures(address) %f) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK4goal7get_idxEP4expr(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef readnone %f) local_unnamed_addr #4 align 2 {
 entry:
   %m_forms.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_forms.i, align 8
@@ -6718,7 +6718,7 @@ return:                                           ; preds = %for.inc, %return.lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK4goal11get_not_idxEP4expr(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef readnone captures(address) %f) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK4goal11get_not_idxEP4expr(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef readnone %f) local_unnamed_addr #4 align 2 {
 entry:
   %m_forms.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_forms.i, align 8
@@ -10631,7 +10631,7 @@ return:                                           ; preds = %_ZNK11ast_manager6i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4goal10is_literalEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(124) %this, ptr noundef readonly captures(address) %f) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK4goal10is_literalEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(124) %this, ptr noundef readonly %f) local_unnamed_addr #4 align 2 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4

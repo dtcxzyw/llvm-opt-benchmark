@@ -1642,7 +1642,7 @@ define i32 @H5Gget_comment(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Giterate(i64 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define i32 @H5Giterate(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.H5VL_optional_args_t, align 8
   %7 = alloca %union.H5VL_native_group_optional_args_t, align 8
   %8 = alloca i64, align 8
@@ -1798,7 +1798,7 @@ define i32 @H5Giterate(i64 noundef %0, ptr noundef %1, ptr noundef captures(addr
 declare i32 @H5VL_group_optional(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Gget_num_objs(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5Gget_num_objs(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.H5VL_group_get_args_t, align 8
   %5 = alloca %struct.H5G_info_t, align 8
@@ -2129,7 +2129,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @H5G_traverse(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #1 {
+define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #1 {
   %7 = alloca %struct.H5O_info2_t, align 8
   %8 = alloca %struct.H5O_native_info_t, align 8
   %9 = alloca i64, align 8

@@ -797,7 +797,7 @@ define void @bp_bundle_ident_free(ptr noundef %0, ptr noundef %1) local_unnamed_
 declare void @wmem_destroy_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @bp_bundle_ident_new(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define noalias noundef ptr @bp_bundle_ident_new(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %7
 
@@ -993,7 +993,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @proto_tree_add_cbor_eid(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
+define noundef ptr @proto_tree_add_cbor_eid(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
   %8 = tail call ptr @wmem_file_scope() #16
   %9 = load i32, ptr %5, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %4, i32 noundef %9, i32 noundef -1, i32 noundef 0) #16
@@ -3786,7 +3786,7 @@ define internal i32 @dissect_block_hop_count(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
+define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.bp_creation_ts_t, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -4257,7 +4257,7 @@ declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @wmem_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @block_dissect_sort(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal i32 @block_dissect_sort(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4440,7 +4440,7 @@ declare ptr @proto_tree_add_cbor_bitmask(ptr noundef, i32 noundef, i32 noundef, 
 declare ptr @val64_to_str(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cbor_timestamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
+define internal fastcc void @dissect_cbor_timestamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = alloca %struct.bp_dtn_time_t, align 8
   %8 = load i32, ptr %4, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %8, i32 noundef -1, i32 noundef 0) #16
@@ -4497,7 +4497,7 @@ declare void @nstime_sum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @wscbor_require_bstr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #1 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne ptr %4, null
   %or.cond = and i1 %6, %7
@@ -4710,7 +4710,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @fragment_bundle_ident_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #7 {
+define internal noundef ptr @fragment_bundle_ident_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #7 {
   ret ptr %2
 }
 

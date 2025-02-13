@@ -536,7 +536,7 @@ define internal noundef i32 @php_sockop_flush(ptr readnone captures(none) %0) #1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_sockop_cast(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #2 {
+define internal range(i32 -1, 1) i32 @php_sockop_cast(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

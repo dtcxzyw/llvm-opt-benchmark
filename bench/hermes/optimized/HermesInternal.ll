@@ -1011,7 +1011,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare { ptr, i64 } @_ZN6hermes2vm14createASCIIRefEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @_ZN6hermes2vmL27getCJSModuleModeDescriptionERNS0_7RuntimeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(9832) %runtime) unnamed_addr #4 {
+define internal fastcc noundef nonnull ptr @_ZN6hermes2vmL27getCJSModuleModeDescriptionERNS0_7RuntimeE(ptr noundef nonnull readonly align 8 dereferenceable(9832) %runtime) unnamed_addr #4 {
 entry:
   %runtimeModuleList_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9416
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9424

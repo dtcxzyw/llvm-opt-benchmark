@@ -327,7 +327,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl17BadStatusOrAccess6statusEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl17BadStatusOrAccess6statusEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %status_

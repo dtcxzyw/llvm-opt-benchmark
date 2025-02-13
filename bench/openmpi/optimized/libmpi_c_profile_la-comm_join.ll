@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Comm_join = weak alias i32 (i32, ptr), ptr @PMPI_Comm_join
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Comm_join(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
+define i32 @PMPI_Comm_join(i32 noundef %0, ptr noundef writeonly %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.opal_process_name_t, align 4

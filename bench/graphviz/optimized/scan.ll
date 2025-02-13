@@ -2902,7 +2902,7 @@ define noalias noundef ptr @aagalloc(i64 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @aag_delete_buffer(ptr noundef captures(address) %0) local_unnamed_addr #8 {
+define void @aag_delete_buffer(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -2949,7 +2949,7 @@ define void @aagfree(ptr noundef captures(none) %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @aag_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #10 {
+define void @aag_flush_buffer(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

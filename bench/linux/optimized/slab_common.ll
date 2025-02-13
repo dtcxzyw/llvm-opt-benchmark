@@ -2331,7 +2331,7 @@ define dso_local range(i32 0, 2) i32 @slab_unmergeable(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone captures(address_is_null) %4) local_unnamed_addr #1 align 16 {
+define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone %4) local_unnamed_addr #1 align 16 {
   %6 = load i1, ptr @slab_nomerge, align 1
   %7 = icmp ne ptr %4, null
   %8 = or i1 %7, %6

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [21 x i8] c"env var[%d]: %s=[%s]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @jvmLauncherCreateJvmlLauncherData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @jvmLauncherCreateJvmlLauncherData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %4
 

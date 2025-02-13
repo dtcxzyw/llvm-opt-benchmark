@@ -29901,7 +29901,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21FindForeignKeyIndexesERKNS_10ColumnListERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERNS3_INS_13PhysicalIndexELb1EEE(ptr noundef nonnull align 8 dereferenceable(105) %columns, ptr %names.0.val, ptr readnone captures(address) %names.8.val, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %indexes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21FindForeignKeyIndexesERKNS_10ColumnListERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERNS3_INS_13PhysicalIndexELb1EEE(ptr noundef nonnull align 8 dereferenceable(105) %columns, ptr %names.0.val, ptr readnone %names.8.val, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %indexes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator.9", align 1
@@ -30257,7 +30257,7 @@ unreachable:                                      ; preds = %invoke.cont29, %inv
 declare noundef zeroext i1 @_ZN6duckdb10StringUtil8CIEqualsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL29FindMatchingPrimaryKeyColumnsERKNS_10ColumnListERKNS_6vectorINS_10unique_ptrINS_10ConstraintESt14default_deleteIS5_ELb1EEELb1EEERNS_20ForeignKeyConstraintE(ptr noundef nonnull align 8 dereferenceable(105) %columns, ptr readonly captures(address) %constraints.0.val, ptr readnone captures(address) %constraints.8.val, ptr noundef nonnull align 8 dereferenceable(184) %fk) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL29FindMatchingPrimaryKeyColumnsERKNS_10ColumnListERKNS_6vectorINS_10unique_ptrINS_10ConstraintESt14default_deleteIS5_ELb1EEELb1EEERNS_20ForeignKeyConstraintE(ptr noundef nonnull align 8 dereferenceable(105) %columns, ptr readonly %constraints.0.val, ptr readnone %constraints.8.val, ptr noundef nonnull align 8 dereferenceable(184) %fk) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i61 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i.i.i62 = alloca %"class.std::allocator.9", align 1

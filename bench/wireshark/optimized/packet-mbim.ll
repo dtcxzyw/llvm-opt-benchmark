@@ -4374,7 +4374,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mbim_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_mbim_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -10085,7 +10085,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mbim_decode_as(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_mbim_decode_as(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %5
 
@@ -10229,7 +10229,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %16, %19
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_mbim_bulk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mbim_bulk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %11, label %6
 
@@ -10320,7 +10320,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef writeonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct._e_guid_t, align 4
   %9 = alloca [4 x i32], align 16
   %.not = icmp eq i32 %6, 0

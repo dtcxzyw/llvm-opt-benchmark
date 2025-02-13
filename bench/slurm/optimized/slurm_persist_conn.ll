@@ -1594,7 +1594,7 @@ define void @slurm_persist_free_rc_msg(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_persist_conn_close(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @slurm_persist_conn_close(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_close_fd.exit, label %2
 
@@ -1614,7 +1614,7 @@ _close_fd.exit:                                   ; preds = %5, %2, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_persist_conn_reopen(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define i32 @slurm_persist_conn_reopen(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %slurm_persist_conn_close.exit, label %3
 
@@ -1883,7 +1883,7 @@ define ptr @slurm_persist_make_rc_msg(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @slurm_persist_conn_writeable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @slurm_persist_conn_writeable(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.pollfd, align 4
   %4 = alloca %struct.timeval, align 8
@@ -2139,7 +2139,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2003) i32 @slurm_persist_send_msg(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2003) i32 @slurm_persist_send_msg(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4

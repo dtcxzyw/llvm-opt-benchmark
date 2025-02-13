@@ -490,7 +490,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @auth_index(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define i32 @auth_index(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -727,7 +727,7 @@ define i32 @auth_g_get_uid(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @auth_g_get_host(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define ptr @auth_g_get_host(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.sockaddr_storage, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %3

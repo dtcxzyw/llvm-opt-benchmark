@@ -758,7 +758,7 @@ declare ptr @H5PL__get_path(i32 noundef) local_unnamed_addr #1
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PLsize(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5PLsize(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5_libinit_g, align 1
   %3 = trunc i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1

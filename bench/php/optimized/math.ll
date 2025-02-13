@@ -3198,7 +3198,7 @@ define ptr @_php_math_number_format(double noundef %0, i32 noundef %1, i8 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #0 {
+define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = fcmp olt double %0, 0.000000e+00
   %8 = fneg double %0
   %.0201 = select i1 %7, double %8, double %0
@@ -3444,7 +3444,7 @@ declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #0 {
+define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
   %.lobit = lshr i64 %0, 63
   %.0180 = trunc nuw nsw i64 %.lobit to i32
   %.0177 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)

@@ -1182,7 +1182,7 @@ define internal noundef i32 @offset_readdir(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @simple_recursive_removal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
+define dso_local void @simple_recursive_removal(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -3043,7 +3043,7 @@ simple_attr_write_xsigned.exit:                   ; preds = %4, %14, %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 1, 256) i32 @generic_encode_ino32_fh(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #7 align 16 {
+define dso_local noundef range(i32 1, 256) i32 @generic_encode_ino32_fh(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly %3) #7 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp ne ptr %3, null
   %7 = icmp slt i32 %5, 4

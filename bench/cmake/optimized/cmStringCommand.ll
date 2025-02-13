@@ -13668,7 +13668,7 @@ _ZNSt10unique_ptrIN4Json10CharReaderESt14default_deleteIS1_EED2Ev.exit39: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GLOBAL__N_111ResolvePathERN4Json5ValueENS_4ArgsE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr readnone captures(address) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GLOBAL__N_111ResolvePathERN4Json5ValueENS_4ArgsE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr readnone %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::Args", align 8
   %5 = alloca %"class.std::optional.186", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

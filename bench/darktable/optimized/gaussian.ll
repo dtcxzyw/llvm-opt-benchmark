@@ -1279,7 +1279,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @dt_gaussian_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @dt_gaussian_free(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

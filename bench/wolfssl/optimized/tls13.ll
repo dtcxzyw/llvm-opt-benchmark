@@ -104,7 +104,7 @@ declare i32 @wc_Sha384GetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @DeriveEarlySecret(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #0 {
+define i32 @DeriveEarlySecret(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @DeriveHandshakeSecret(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #0 {
+define i32 @DeriveHandshakeSecret(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %key = alloca [64 x i8], align 16
   %cmp = icmp eq ptr %ssl, null
@@ -268,7 +268,7 @@ return:                                           ; preds = %sw.bb, %sw.bb6, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @DeriveMasterSecret(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #0 {
+define i32 @DeriveMasterSecret(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %key = alloca [64 x i8], align 16
   %cmp = icmp eq ptr %ssl, null
@@ -1227,7 +1227,7 @@ declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @wc_AesGcmDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BuildTls13Message(ptr noundef initializes((1029, 1030)) %ssl, ptr noundef %output, i32 noundef %outSz, ptr noundef readonly captures(address) %input, i32 noundef %inSz, i32 noundef %type, i32 noundef %hashOutput, i32 noundef %sizeOnly, i32 %asyncOkay) local_unnamed_addr #0 {
+define i32 @BuildTls13Message(ptr noundef initializes((1029, 1030)) %ssl, ptr noundef %output, i32 noundef %outSz, ptr noundef readonly %input, i32 noundef %inSz, i32 noundef %type, i32 noundef %hashOutput, i32 noundef %sizeOnly, i32 %asyncOkay) local_unnamed_addr #0 {
 sw.bb:
   %poly.i.i = alloca [32 x i8], align 16
   %buildMsgState = getelementptr inbounds nuw i8, ptr %ssl, i64 1029
@@ -2018,7 +2018,7 @@ return:                                           ; preds = %if.end172, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @GetTls13SessionId(ptr noundef nonnull readonly captures(none) %ssl, ptr noundef writeonly captures(address_is_null) %output, ptr noundef nonnull captures(none) %idx) unnamed_addr #6 {
+define internal fastcc void @GetTls13SessionId(ptr noundef nonnull readonly captures(none) %ssl, ptr noundef writeonly %output, ptr noundef nonnull captures(none) %idx) unnamed_addr #6 {
 entry:
   %session = getelementptr inbounds nuw i8, ptr %ssl, i64 608
   %0 = load ptr, ptr %session, align 16
@@ -3554,7 +3554,7 @@ return:                                           ; preds = %if.end143, %if.end1
 declare void @DoCertFatalAlert(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @BuildTls13HandshakeHmac(ptr noundef readonly captures(address_is_null) %ssl, ptr noundef %key, ptr noundef %hash, ptr noundef writeonly captures(address_is_null) %pHashSz) unnamed_addr #0 {
+define internal fastcc i32 @BuildTls13HandshakeHmac(ptr noundef readonly %ssl, ptr noundef %key, ptr noundef %hash, ptr noundef writeonly %pHashSz) unnamed_addr #0 {
 entry:
   %verifyHmac = alloca [1 x %struct.Hmac], align 16
   %cmp = icmp eq ptr %ssl, null
@@ -6481,7 +6481,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 declare i32 @TLSX_KeyShare_Empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -344, 1) i32 @wolfSSL_CTX_no_ticket_TLSv13(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
+define range(i32 -344, 1) i32 @wolfSSL_CTX_no_ticket_TLSv13(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6507,7 +6507,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -344, 1) i32 @wolfSSL_no_ticket_TLSv13(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #0 {
+define range(i32 -344, 1) i32 @wolfSSL_no_ticket_TLSv13(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6533,7 +6533,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6552,7 +6552,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_no_dhe_psk(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_no_dhe_psk(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6571,7 +6571,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6590,7 +6590,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_only_dhe_psk(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_only_dhe_psk(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6735,7 +6735,7 @@ Tls13UpdateKeys.exit.thread:                      ; preds = %Tls13UpdateKeys.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wolfSSL_key_update_response(ptr noundef readonly captures(address_is_null) %ssl, ptr noundef writeonly captures(address_is_null) %required) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_key_update_response(ptr noundef readonly %ssl, ptr noundef writeonly %required) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %required, null
   %cmp1 = icmp eq ptr %ssl, null
@@ -6800,7 +6800,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 declare i32 @TLSX_SupportedCurve_Preferred(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_set_groups(ptr noundef %ctx, ptr noundef readonly captures(address_is_null) %groups, i32 noundef %count) local_unnamed_addr #0 {
+define i32 @wolfSSL_CTX_set_groups(ptr noundef %ctx, ptr noundef readonly %groups, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %groups, null
@@ -6869,7 +6869,7 @@ declare void @TLSX_Remove(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i32 @wolfSSL_CTX_UseSupportedCurve(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_set_groups(ptr noundef %ssl, ptr noundef readonly captures(address_is_null) %groups, i32 noundef %count) local_unnamed_addr #0 {
+define i32 @wolfSSL_set_groups(ptr noundef %ssl, ptr noundef readonly %groups, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   %cmp1 = icmp eq ptr %groups, null

@@ -114,7 +114,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPieceLiteES1_(ptr %haystack.coerce0, ptr %haystack.coerce1, ptr readonly captures(address) %needles.coerce0, ptr readnone captures(address) %needles.coerce1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPieceLiteES1_(ptr %haystack.coerce0, ptr %haystack.coerce1, ptr readonly %needles.coerce0, ptr readnone %needles.coerce1) local_unnamed_addr #0 {
 entry:
   %s = alloca %"class.folly::SparseByteSet", align 2
   call void @llvm.lifetime.start.p0(i64 514, ptr nonnull %s) #4

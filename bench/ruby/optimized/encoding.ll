@@ -161,7 +161,7 @@ define hidden range(i32 0, 2) i32 @rb_data_is_encoding(i64 noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enc_from_encoding(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_enc_from_encoding(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %rb_enc_from_encoding_index.exit, label %2
 
@@ -189,7 +189,7 @@ rb_enc_from_encoding_index.exit:                  ; preds = %7, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 16777216) i32 @rb_enc_to_index(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 16777216) i32 @rb_enc_to_index(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -774,7 +774,7 @@ enc_from_index.exit:                              ; preds = %1, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_register(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @rb_enc_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -920,7 +920,7 @@ rb_vm_lock_leave.exit:                            ; preds = %56, %58
 declare i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @enc_register_at(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @enc_register_at(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %4
   %.not = icmp eq ptr %1, null
@@ -1008,7 +1008,7 @@ enc_list_update.exit:                             ; preds = %33, %30, %23, %13, 
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @set_encoding_const(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @set_encoding_const(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %rb_enc_from_encoding.exit, label %3
 
@@ -2862,7 +2862,7 @@ rb_enc_from_index.exit:                           ; preds = %rb_enc_asciicompat.
 declare void @rb_str_change_terminator_length(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 1, -7) i64 @rb_enc_associate(i64 noundef returned %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i64 1, -7) i64 @rb_enc_associate(i64 noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %rb_enc_to_index.exit, label %3
 
@@ -3367,7 +3367,7 @@ define dso_local i32 @rb_enc_precise_mbclen(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 256) i32 @rb_enc_ascget(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @rb_enc_ascget(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %5, label %32
 
@@ -3432,7 +3432,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %5, %rb_enc_asciicom
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_enc_codepoint_len(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @rb_enc_codepoint_len(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %rb_enc_precise_mbclen.exit, label %5
 
@@ -3836,7 +3836,7 @@ define dso_local void @rb_enc_set_default_external(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @enc_set_default_encoding(ptr noundef captures(address) initializes((8, 16)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @enc_set_default_encoding(ptr noundef initializes((8, 16)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8

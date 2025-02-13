@@ -890,7 +890,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17he538d8a21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h0af1324084cf6289E.llvm.228285666965895176"(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h0af1324084cf6289E.llvm.228285666965895176"(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -924,7 +924,7 @@ define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176"(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h1283f5910a89fa9bE.llvm.228285666965895176"(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -958,7 +958,7 @@ define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176"(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_$u7b$$u7b$closure$u7d$$u7d$17h213104abc130da3aE.llvm.228285666965895176"(ptr noundef readnone returned %0) unnamed_addr #0 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

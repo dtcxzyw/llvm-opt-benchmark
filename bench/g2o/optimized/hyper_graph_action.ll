@@ -2193,7 +2193,7 @@ _ZN3g2o23HyperGraphActionLibrary12actionByNameERKNSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o10DrawAction9drawCacheEPNS_14CacheContainerEPNS_23HyperGraphElementAction10ParametersE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10DrawAction9drawCacheEPNS_14CacheContainerEPNS_23HyperGraphElementAction10ParametersE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -2250,7 +2250,7 @@ define void @_ZN3g2o10DrawAction12drawUserDataEPNS_10HyperGraph4DataEPNS_23Hyper
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementActionEPNS2_10ParametersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementActionEPNS2_10ParametersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.020.025 = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.sroa.020.025, null

@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene15CEmptySceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(248) %this) unnamed_addr #2 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene15CEmptySceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %this) unnamed_addr #2 align 2 {
 entry:
   %Box = getelementptr inbounds nuw i8, ptr %this, i64 224
   ret ptr %Box

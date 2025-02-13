@@ -631,7 +631,7 @@ declare void @_ZN10Dictionary9add_klassEP10JavaThreadP6SymbolP13InstanceKlass(pt
 declare void @_ZN13InstanceKlass16add_to_hierarchyEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext range(i8 0, 15) i8 @_ZN9vmClasses14box_klass_typeEP5Klass(ptr noundef readnone captures(address) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext range(i8 0, 15) i8 @_ZN9vmClasses14box_klass_typeEP5Klass(ptr noundef readnone %0) local_unnamed_addr #3 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %8

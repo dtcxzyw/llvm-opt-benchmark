@@ -253,7 +253,7 @@ declare i32 @H5I_clear_type(i32 noundef, i1 noundef zeroext, i1 noundef zeroext)
 declare i32 @H5I_dec_type_ref(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5FDregister(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5FDregister(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5_libinit_g, align 1
   %3 = trunc i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1

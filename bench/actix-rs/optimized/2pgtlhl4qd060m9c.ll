@@ -8529,7 +8529,7 @@ define void @"_ZN91_$LT$actix_web..redirect..Redirect$u20$as$u20$actix_web..resp
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E(ptr readonly %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca i64, align 8
   %2 = alloca i128, align 16
   %3 = alloca i64, align 8

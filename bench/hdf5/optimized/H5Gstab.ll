@@ -1271,7 +1271,7 @@ define internal range(i32 -1, 1) i32 @H5G__stab_lookup_by_idx_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__stab_valid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__stab_valid(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_stab_t, align 8
   %4 = alloca i64, align 8
   store i64 -1, ptr %4, align 8

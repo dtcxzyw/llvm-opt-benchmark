@@ -1234,7 +1234,7 @@ define i32 @Cudd_ReadSlots(ptr noundef readonly captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) local_unnamed_addr #9 {
+define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp sgt i32 %3, 0
@@ -2580,7 +2580,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_RemoveHook(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_RemoveHook(ptr noundef captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
 
@@ -2629,7 +2629,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_IsInHook(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Cudd_IsInHook(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
 

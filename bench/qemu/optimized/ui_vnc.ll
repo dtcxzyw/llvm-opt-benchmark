@@ -1623,7 +1623,7 @@ return:                                           ; preds = %entry, %qmp_query_a
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @vnc_display_reload_certs(ptr noundef readonly captures(address_is_null) %id, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @vnc_display_reload_certs(ptr noundef readonly %id, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %id, null
   %0 = load ptr, ptr @vnc_displays, align 8
@@ -5060,7 +5060,7 @@ if.end:                                           ; preds = %vnc_flush.exit, %la
 declare void @qemu_add_mouse_mode_change_notifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vnc_display_init(ptr noundef readonly captures(address_is_null) %id, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @vnc_display_init(ptr noundef readonly %id, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp.i = icmp eq ptr %id, null
@@ -5192,7 +5192,7 @@ declare void @register_displaychangelistener(ptr noundef) local_unnamed_addr #2
 declare ptr @qkbd_state_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @vnc_display_password(ptr noundef readonly captures(address_is_null) %id, ptr noundef %password) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @vnc_display_password(ptr noundef readonly %id, ptr noundef %password) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %id, null
   %0 = load ptr, ptr @vnc_displays, align 8
@@ -5246,7 +5246,7 @@ return:                                           ; preds = %for.inc.i, %for.con
 declare i32 @error_printf_unless_qmp(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -22, 1) i32 @vnc_display_pw_expire(ptr noundef readonly captures(address_is_null) %id, i64 noundef %expires) local_unnamed_addr #12 {
+define dso_local range(i32 -22, 1) i32 @vnc_display_pw_expire(ptr noundef readonly %id, i64 noundef %expires) local_unnamed_addr #12 {
 entry:
   %cmp.i = icmp eq ptr %id, null
   %0 = load ptr, ptr @vnc_displays, align 8
@@ -5352,7 +5352,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare void @qio_net_listener_disconnect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_listen(ptr noundef nonnull %vd, ptr noundef readonly captures(address_is_null) %saddr_list, ptr noundef readonly captures(address_is_null) %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_listen(ptr noundef nonnull %vd, ptr noundef readonly %saddr_list, ptr noundef readonly %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %saddr_list, null
   br i1 %tobool.not, label %if.end7, label %if.then
@@ -6269,7 +6269,7 @@ declare void @unregister_displaychangelistener(ptr noundef) local_unnamed_addr #
 declare void @qkbd_state_set_delay(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @vnc_display_connect(ptr noundef nonnull %vd, ptr noundef nonnull readonly captures(none) %saddr_list, ptr noundef readnone captures(address_is_null) %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @vnc_display_connect(ptr noundef nonnull %vd, ptr noundef nonnull readonly captures(none) %saddr_list, ptr noundef readnone %wsaddr_list, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %wsaddr_list, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -6318,7 +6318,7 @@ return:                                           ; preds = %if.end10, %if.then9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_display_print_local_addr(ptr readonly captures(address_is_null) %vd.40.val) unnamed_addr #0 {
+define internal fastcc void @vnc_display_print_local_addr(ptr readonly %vd.40.val) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %vd.40.val, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -6359,7 +6359,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vnc_display_add_client(ptr noundef readonly captures(address_is_null) %id, i32 noundef %csock, i1 noundef zeroext %skipauth) local_unnamed_addr #0 {
+define dso_local void @vnc_display_add_client(ptr noundef readonly %id, i32 noundef %csock, i1 noundef zeroext %skipauth) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %id, null
   %0 = load ptr, ptr @vnc_displays, align 8
@@ -12533,7 +12533,7 @@ declare i32 @qio_net_listener_open_sync(ptr noundef, ptr noundef, i32 noundef, p
 declare void @qio_net_listener_set_client_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_listen_io(ptr noundef readnone captures(address) %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
+define internal void @vnc_listen_io(ptr noundef readnone %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
 entry:
   %wslistener = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %0 = load ptr, ptr %wslistener, align 8

@@ -980,13 +980,13 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #4
 declare void @release_revisions(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @write_shallow_commits(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i32 @write_shallow_commits(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @write_shallow_commits_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_shallow_commits_1(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 8) %3) unnamed_addr #0 {
+define internal fastcc i32 @write_shallow_commits_1(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, 8) %3) unnamed_addr #0 {
   %5 = alloca %struct.write_shallow_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   store ptr %0, ptr %5, align 8, !tbaa !80
@@ -1070,7 +1070,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @setup_temporary_shallow(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @setup_temporary_shallow(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.prune_shallow.sb, i64 24, i1 false)
@@ -1142,7 +1142,7 @@ declare ptr @get_tempfile_path(ptr noundef) local_unnamed_addr #4
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setup_alternate_shallow(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @setup_alternate_shallow(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.prune_shallow.sb, i64 24, i1 false)
@@ -1615,7 +1615,7 @@ define dso_local void @remove_nonexistent_theirs_shallow(ptr noundef captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_shallow_commits_to_refs(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @assign_shallow_commits_to_refs(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.commit_array, align 8
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !106

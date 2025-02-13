@@ -2331,7 +2331,7 @@ define void @Extra_TruthChangePhase(ptr noundef captures(none) %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 33) i32 @Extra_TruthMinCofSuppOverlap(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define range(i32 0, 33) i32 @Extra_TruthMinCofSuppOverlap(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %Extra_TruthSupport.exit51._crit_edge
 

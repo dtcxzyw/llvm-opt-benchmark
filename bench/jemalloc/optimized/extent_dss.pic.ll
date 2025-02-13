@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @extent_alloc_dss(ptr noundef %tsdn, ptr noundef %arena, ptr noundef readnone captures(address) %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef readonly captures(none) %zero, ptr noundef captures(none) %commit) local_unnamed_addr #1 {
+define hidden ptr @extent_alloc_dss(ptr noundef %tsdn, ptr noundef %arena, ptr noundef readnone %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef readonly captures(none) %zero, ptr noundef captures(none) %commit) local_unnamed_addr #1 {
 entry:
   %i.i.i = alloca i32, align 4
   %edata = alloca %struct.edata_s, align 8
@@ -279,7 +279,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare zeroext i1 @extent_purge_forced_wrapper(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @extent_in_dss(ptr noundef readnone captures(address) %addr) local_unnamed_addr #0 {
+define hidden zeroext i1 @extent_in_dss(ptr noundef readnone %addr) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @dss_max.0 acquire, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @extent_dss_mergeable(ptr noundef readnone captures(address) %addr_a, ptr noundef readnone captures(address) %addr_b) local_unnamed_addr #0 {
+define hidden zeroext i1 @extent_dss_mergeable(ptr noundef readnone %addr_a, ptr noundef readnone %addr_b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @dss_base, align 8
   %cmp = icmp ult ptr %addr_a, %0

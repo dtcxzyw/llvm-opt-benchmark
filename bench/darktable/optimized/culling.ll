@@ -893,7 +893,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #3
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_mouse_over_image_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal void @_dt_mouse_over_image_callback(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -937,7 +937,7 @@ define internal void @_dt_mouse_over_image_callback(ptr readnone captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_profile_change_callback(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @_dt_profile_change_callback(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -3970,7 +3970,7 @@ define void @dt_culling_zoom_fit(ptr noundef captures(none) initializes((72, 76)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_culling_set_overlays_mode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @dt_culling_set_overlays_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %47, label %3
 
@@ -4083,7 +4083,7 @@ declare void @dt_gui_remove_class(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @dt_thumbnail_set_overlay(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @dt_culling_force_overlay(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @dt_culling_force_overlay(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %3
 

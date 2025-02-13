@@ -177,7 +177,7 @@ if.end8:                                          ; preds = %if.then5, %do.end
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @evtag_decode_tag(ptr noundef writeonly captures(address_is_null) %ptag, ptr noundef %evbuf) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @evtag_decode_tag(ptr noundef writeonly %ptag, ptr noundef %evbuf) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 5)
@@ -987,7 +987,7 @@ if.end:                                           ; preds = %if.end16.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @evtag_peek(ptr noundef %evbuf, ptr noundef writeonly captures(address_is_null) %ptag) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @evtag_peek(ptr noundef %evbuf, ptr noundef writeonly %ptag) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 5)
@@ -1246,7 +1246,7 @@ return:                                           ; preds = %while.cond.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evtag_unmarshal_header(ptr noundef %evbuf, ptr noundef writeonly captures(address_is_null) %ptag) local_unnamed_addr #1 {
+define i32 @evtag_unmarshal_header(ptr noundef %evbuf, ptr noundef writeonly %ptag) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
@@ -1331,7 +1331,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evtag_unmarshal(ptr noundef %src, ptr noundef captures(address_is_null) %ptag, ptr noundef %dst) local_unnamed_addr #1 {
+define i32 @evtag_unmarshal(ptr noundef %src, ptr noundef %ptag, ptr noundef %dst) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @evtag_unmarshal_header(ptr noundef %src, ptr noundef %ptag)
   %cmp = icmp eq i32 %call, -1

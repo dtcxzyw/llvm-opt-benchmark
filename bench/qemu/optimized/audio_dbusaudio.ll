@@ -800,7 +800,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @dbus_put_buffer_out(ptr noundef %hw, ptr noundef readnone captures(address) %buf, i64 noundef returned %size) #0 {
+define internal noundef i64 @dbus_put_buffer_out(ptr noundef %hw, ptr noundef readnone %buf, i64 noundef returned %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iter = alloca %struct._GHashTableIter, align 8

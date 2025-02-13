@@ -445,7 +445,7 @@ define dso_local void @tcp_unregister_congestion_control(ptr noundef captures(no
 declare dso_local void @synchronize_rcu() local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5

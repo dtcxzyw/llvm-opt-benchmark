@@ -310,7 +310,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 10485761) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 10485761) %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #1 align 16 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(448) ptr @kmalloc_node_trace(ptr noundef %6, i32 noundef 3520, i32 noundef %1, i64 noundef 448) #14
   %8 = icmp eq ptr %7, null
@@ -765,7 +765,7 @@ free_desc.exit:                                   ; preds = %19, %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address) %5) #1 section ".ref.text" align 16 {
+define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #1 section ".ref.text" align 16 {
   %7 = alloca %struct.ma_state, align 8
   %8 = alloca %struct.ma_state, align 8
   %9 = alloca %struct.ma_state, align 8
@@ -1176,7 +1176,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_set_percpu_devid(i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @irq_get_percpu_devid_partition(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_get_percpu_devid_partition(i32 noundef %0, ptr noundef writeonly %1) #1 align 16 {
   %3 = zext i32 %0 to i64
   %4 = tail call ptr @mtree_load(ptr noundef nonnull @sparse_irqs, i64 noundef %3) #11
   %5 = icmp eq ptr %4, null

@@ -6626,7 +6626,7 @@ define noundef zeroext i1 @_ZTv0_n56_N3nix11RemoteStore19isValidPathUncachedERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
@@ -6874,7 +6874,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n64_N3nix11RemoteStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZTv0_n64_N3nix11RemoteStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -64
   %7 = load i64, ptr %6, align 8
@@ -6990,7 +6990,7 @@ _ZN3nix11RemoteStore18queryAllValidPathsEv.exit:  ; preds = %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
@@ -7256,7 +7256,7 @@ _ZN3nix11WorkerProto9SerialiseISt3setINS_9StorePathESt4lessIS3_ESaIS3_EEE4readER
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n160_N3nix11RemoteStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define void @_ZTv0_n160_N3nix11RemoteStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.148") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -160
   %6 = load i64, ptr %5, align 8
@@ -7266,7 +7266,7 @@ define void @_ZTv0_n160_N3nix11RemoteStore23querySubstitutablePathsERKSt3setINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore27querySubstitutablePathInfosERKSt3mapINS_9StorePathESt8optionalINS_14ContentAddressEESt4lessIS2_ESaISt4pairIKS2_S5_EEERS1_IS2_NS_21SubstitutablePathInfoES7_SaIS8_IS9_SF_EEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore27querySubstitutablePathInfosERKSt3mapINS_9StorePathESt8optionalINS_14ContentAddressEESt4lessIS2_ESaISt4pairIKS2_S5_EEERS1_IS2_NS_21SubstitutablePathInfoES7_SaIS8_IS9_SF_EEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
@@ -8665,7 +8665,7 @@ _ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit:    ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n168_N3nix11RemoteStore27querySubstitutablePathInfosERKSt3mapINS_9StorePathESt8optionalINS_14ContentAddressEESt4lessIS2_ESaISt4pairIKS2_S5_EEERS1_IS2_NS_21SubstitutablePathInfoES7_SaIS8_IS9_SF_EEE(ptr noundef %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define void @_ZTv0_n168_N3nix11RemoteStore27querySubstitutablePathInfosERKSt3mapINS_9StorePathESt8optionalINS_14ContentAddressEESt4lessIS2_ESaISt4pairIKS2_S5_EEERS1_IS2_NS_21SubstitutablePathInfoES7_SaIS8_IS9_SF_EEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -168
   %6 = load i64, ptr %5, align 8
@@ -11051,7 +11051,7 @@ define void @_ZTv0_n152_N3nix11RemoteStore21queryPathFromHashPartERKNSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore12addCAToStoreERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISA_ESaISA_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.227") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i16 %5, i8 noundef signext %6, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %7, i1 noundef zeroext %8) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore12addCAToStoreERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISA_ESaISA_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.227") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i16 %5, i8 noundef signext %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i1 noundef zeroext %8) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca [8 x i8], align 1
   %11 = alloca [8 x i8], align 1
   %12 = alloca [8 x i8], align 1
@@ -12914,7 +12914,7 @@ _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9Sto
 declare void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind writable sret(%"class.nix::ref.227") align 8, ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.nix::ContentAddressMethod", align 2
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator", align 1
@@ -13253,7 +13253,7 @@ _ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev.exit: ; preds = %1, %20, %33, %_ZN
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n208_N3nix11RemoteStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #4 align 2 {
+define void @_ZTv0_n208_N3nix11RemoteStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #4 align 2 {
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -208
   %13 = load i64, ptr %12, align 8
@@ -18980,7 +18980,7 @@ define void @_ZTv0_n40_N3nix11RemoteStore9findRootsB5cxx11Eb(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore14collectGarbageERKNS_9GCOptionsERNS_9GCResultsE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore14collectGarbageERKNS_9GCOptionsERNS_9GCResultsE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 8
@@ -19400,7 +19400,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix11RemoteStore14collectGarbageERKNS_9GCOptionsERNS_9GCResultsE(ptr noundef %0, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #4 align 2 {
+define void @_ZTv0_n48_N3nix11RemoteStore14collectGarbageERKNS_9GCOptionsERNS_9GCResultsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -48
   %6 = load i64, ptr %5, align 8

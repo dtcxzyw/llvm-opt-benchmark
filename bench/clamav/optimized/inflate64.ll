@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @inflate_table.dext = internal unnamed_addr constant [32 x i16] [i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 18, i16 18, i16 19, i16 19, i16 20, i16 20, i16 21, i16 21, i16 22, i16 22, i16 23, i16 23, i16 24, i16 24, i16 25, i16 25, i16 26, i16 26, i16 27, i16 27, i16 28, i16 28, i16 29, i16 29, i16 30, i16 30], align 16
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define range(i32 -4, 1) i32 @inflate64Init2(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @inflate64Init2(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %25, label %4
 
@@ -81,7 +81,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 3) i32 @inflate64(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -5, 3) i32 @inflate64(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit840, label %4
 
@@ -2450,7 +2450,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %sel
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -2, 1) i32 @inflate64End(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define range(i32 -2, 1) i32 @inflate64End(ptr noundef %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

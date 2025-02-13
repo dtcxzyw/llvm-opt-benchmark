@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512ChoiceFormat10setChoicesEPKdPKaPKNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef readonly captures(address_is_null) %limits, ptr noundef readonly captures(address_is_null) %closures, ptr noundef readonly captures(address_is_null) %formats, i32 noundef %count, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512ChoiceFormat10setChoicesEPKdPKaPKNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef readonly %limits, ptr noundef readonly %closures, ptr noundef readonly %formats, i32 noundef %count, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i61 = alloca i16, align 2
   %srcChar.addr.i58 = alloca i16, align 2

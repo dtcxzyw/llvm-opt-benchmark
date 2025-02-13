@@ -385,7 +385,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sta_info_get(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @sta_info_get(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #18
@@ -418,7 +418,7 @@ define dso_local ptr @sta_info_get(ptr noundef readonly captures(address) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sta_info_get_bss(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @sta_info_get_bss(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #18
@@ -473,7 +473,7 @@ define dso_local ptr @link_sta_info_hash_lookup(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @link_sta_info_get_bss(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @link_sta_info_get_bss(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #18
@@ -523,7 +523,7 @@ define dso_local ptr @link_sta_info_get_bss(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ieee80211_find_sta_by_link_addrs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
+define dso_local ptr @ieee80211_find_sta_by_link_addrs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %6 = tail call fastcc ptr @rhltable_lookup(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull byval(%struct.rhashtable_params) align 8 @link_sta_rht_params)
   %7 = icmp eq ptr %6, null
@@ -640,7 +640,7 @@ define dso_local ptr @sta_info_get_by_addrs(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @sta_info_get_by_idx(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local ptr @sta_info_get_by_idx(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1560
@@ -2748,7 +2748,7 @@ define internal fastcc void @__sta_info_destroy_part2(ptr noundef %0, i1 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2, 1) i32 @sta_info_destroy_addr(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @sta_info_destroy_addr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #18
@@ -2791,7 +2791,7 @@ define dso_local range(i32 -2, 1) i32 @sta_info_destroy_addr(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2, 1) i32 @sta_info_destroy_addr_bss(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @sta_info_destroy_addr_bss(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #18
@@ -3389,7 +3389,7 @@ define internal fastcc void @ieee80211_recalc_p2p_go_ps_allowed(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_sta_expire(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_sta_expire(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1560
@@ -3550,7 +3550,7 @@ define dso_local i64 @ieee80211_sta_last_active(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ieee80211_find_sta_by_ifaddr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define dso_local ptr @ieee80211_find_sta_by_ifaddr(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %5 = tail call fastcc ptr @rhltable_lookup(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull byval(%struct.rhashtable_params) align 8 @sta_rht_params)
   %6 = icmp eq ptr %5, null
@@ -3602,7 +3602,7 @@ define dso_local ptr @ieee80211_find_sta_by_ifaddr(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ieee80211_find_sta(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 align 16 {
+define dso_local ptr @ieee80211_find_sta(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %38, label %4
 

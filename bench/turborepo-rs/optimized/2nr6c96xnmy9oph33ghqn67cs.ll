@@ -10439,12 +10439,12 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @_RNvXs15_NtCs68wO5nsWeTG_5alloc2rcINtB6_5RcBoxNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorENtB6_10RcInnerPtr10strong_refCseG2FYMysgNb_3wax.llvm.4870895441494037529(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #10 {
+define hidden noundef nonnull align 8 ptr @_RNvXs15_NtCs68wO5nsWeTG_5alloc2rcINtB6_5RcBoxNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorENtB6_10RcInnerPtr10strong_refCseG2FYMysgNb_3wax.llvm.4870895441494037529(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #10 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @_RNvXs15_NtCs68wO5nsWeTG_5alloc2rcINtB6_5RcBoxNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorENtB6_10RcInnerPtr8weak_refCseG2FYMysgNb_3wax.llvm.4870895441494037529(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #10 {
+define hidden noundef nonnull align 8 ptr @_RNvXs15_NtCs68wO5nsWeTG_5alloc2rcINtB6_5RcBoxNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorENtB6_10RcInnerPtr8weak_refCseG2FYMysgNb_3wax.llvm.4870895441494037529(ptr noundef nonnull readnone align 8 %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

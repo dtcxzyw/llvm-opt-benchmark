@@ -738,7 +738,7 @@ define noundef double @"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseG
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6statrs12distribution11multinomial11Multinomial3new17h717f46255afe59faE(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define void @_ZN6statrs12distribution11multinomial11Multinomial3new17h717f46255afe59faE(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds double, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0

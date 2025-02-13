@@ -4144,7 +4144,7 @@ define void @Kit_TruthMuxVarPhase(ptr noundef writeonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_TruthVarsSymm(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Kit_TruthVarsSymm(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = icmp eq ptr %4, null
   %spec.store.select = select i1 %7, ptr @Kit_TruthVarsSymm.uTemp0, ptr %4
   %8 = icmp eq ptr %5, null
@@ -4217,7 +4217,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i30, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_TruthVarsAntiSymm(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Kit_TruthVarsAntiSymm(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = icmp eq ptr %4, null
   %spec.store.select = select i1 %7, ptr @Kit_TruthVarsAntiSymm.uTemp0, ptr %4
   %8 = icmp eq ptr %5, null
@@ -4456,7 +4456,7 @@ define void @Kit_TruthChangePhase(ptr noundef captures(none) %0, i32 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 33) i32 @Kit_TruthMinCofSuppOverlap(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 0, 33) i32 @Kit_TruthMinCofSuppOverlap(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %Kit_TruthSupport.exit51._crit_edge
 
@@ -6735,7 +6735,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i110,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Kit_TruthCountMinterms(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define i32 @Kit_TruthCountMinterms(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
   %6 = shl nsw i64 %5, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %6, i1 false)
@@ -7035,7 +7035,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_TruthPrintProfile_int(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Kit_TruthPrintProfile_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = alloca [20 x i32], align 16
   %4 = alloca [20 x i32], align 16
   %5 = alloca [20 x i32], align 16
@@ -8306,7 +8306,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_TruthPrintProfile(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Kit_TruthPrintProfile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = alloca [2 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %4 = icmp sgt i32 %1, 5

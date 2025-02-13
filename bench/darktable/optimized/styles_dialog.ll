@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.49 = private unnamed_addr constant [38 x i8] c"style named '%s' successfully created\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @_gui_styles_get_active_items(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @_gui_styles_get_active_items(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

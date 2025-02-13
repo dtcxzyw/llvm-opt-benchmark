@@ -570,7 +570,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9CDSConfig12num_archivesEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN9CDSConfig12num_archivesEPKc(ptr noundef readonly %0) local_unnamed_addr #2 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

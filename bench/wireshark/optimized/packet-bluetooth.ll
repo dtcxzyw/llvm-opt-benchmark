@@ -4624,7 +4624,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_bd_addr(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #1 {
+define hidden noundef i32 @dissect_bd_addr(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8) local_unnamed_addr #1 {
   %10 = alloca [6 x i8], align 1
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 5
@@ -4719,7 +4719,7 @@ define hidden void @bluetooth_unit_0p125_ms(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 {
+define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #1 {
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5652,7 +5652,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #0
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
+define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
   store ptr %5, ptr %0, align 8

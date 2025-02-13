@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.h5tools_str_sprint.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.46, ptr @.str.47, ptr @.str.48], align 8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @h5tools_str_close(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @h5tools_str_close(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -2631,7 +2631,7 @@ declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #13
 declare i32 @H5Tenum_nameof(i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(ret: address, provenance) %0) unnamed_addr #15 {
+define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull %0) unnamed_addr #15 {
   %2 = alloca [8 x i8], align 1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %.not43 = icmp eq i64 %3, 0
@@ -2894,7 +2894,7 @@ declare i64 @H5Rget_obj_name(ptr noundef, i64 noundef, ptr noundef, i64 noundef)
 declare i64 @H5Rget_attr_name(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

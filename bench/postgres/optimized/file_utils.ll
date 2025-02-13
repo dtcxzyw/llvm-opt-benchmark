@@ -604,7 +604,7 @@ define dso_local range(i32 0, 5) i32 @get_dirent_type(ptr noundef %0, ptr nounde
 declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @compute_remaining_iovec(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
+define dso_local i32 @compute_remaining_iovec(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
   br label %5
 
 5:                                                ; preds = %8, %4

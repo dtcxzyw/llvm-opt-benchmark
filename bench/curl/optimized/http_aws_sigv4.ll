@@ -1273,7 +1273,7 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @canon_string(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc i32 @canon_string(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca [3 x i8], align 1
   %.not76 = icmp eq i64 %1, 0

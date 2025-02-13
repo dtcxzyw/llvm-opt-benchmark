@@ -850,7 +850,7 @@ FindHostApi.exit.thread:                          ; preds = %12, %.preheader.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Pa_IsFormatSupported(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, double noundef %2) local_unnamed_addr #3 {
+define i32 @Pa_IsFormatSupported(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -933,7 +933,7 @@ define i32 @Pa_IsFormatSupported(ptr noundef captures(address_is_null) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #6 {
+define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly %0, ptr noundef readonly %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #6 {
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
   %or.cond = and i1 %10, %11
@@ -1262,7 +1262,7 @@ FindHostApi.exit.thread:                          ; preds = %51, %109, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -1534,7 +1534,7 @@ Pa_GetDefaultInputDevice.exit.thread:             ; preds = %54, %52, %14, %12, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @initializationCount_, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %3
@@ -1852,7 +1852,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Pa_GetStreamInfo(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #9 {
+define ptr @Pa_GetStreamInfo(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @initializationCount_, align 4
   %.not.i = icmp eq i32 %2, 0
   %3 = icmp eq ptr %0, null

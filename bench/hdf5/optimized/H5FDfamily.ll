@@ -347,7 +347,7 @@ declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #1
 declare i32 @H5E_dump_api_stack() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_fapl_family(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_fapl_family(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1
@@ -1339,7 +1339,7 @@ define internal i32 @H5FD__family_cmp(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FD__family_query(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) #6 {
+define internal noundef i32 @H5FD__family_query(ptr noundef readonly %0, ptr noundef writeonly %1) #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %3
 

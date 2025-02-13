@@ -7643,7 +7643,7 @@ define hidden noundef zeroext i1 @_ZNK10ciTypeFlow5Block22is_in_irreducible_loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10ciTypeFlow5Block16is_clonable_exitEPNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10ciTypeFlow5Block16is_clonable_exitEPNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.ciTypeFlow::SuccIter", align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7798,7 +7798,7 @@ _ZNK10ciTypeFlow4Loop8containsEPS0_.exit32.thread: ; preds = %37, %41, %_ZNK10ci
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK10ciTypeFlow4Loop8containsEPS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(60) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK10ciTypeFlow4Loop8containsEPS0_(ptr noundef nonnull readonly align 8 dereferenceable(60) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %18, label %4
 
@@ -7853,7 +7853,7 @@ _ZNK10ciTypeFlow4Loop5depthEv.exit20:             ; preds = %_ZNK10ciTypeFlow4Lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.ciTypeFlow::SuccIter", align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

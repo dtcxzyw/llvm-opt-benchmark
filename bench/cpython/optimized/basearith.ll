@@ -492,7 +492,7 @@ define hidden i64 @_mpd_shortdiv(ptr noundef writeonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr noundef writeonly captures(none) %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [64 x i64], align 16
   %8 = alloca [64 x i64], align 16
   %9 = alloca [2 x i64], align 16

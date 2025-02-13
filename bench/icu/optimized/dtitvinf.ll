@@ -1301,7 +1301,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516DateIntervalInfo10deleteHashEPNS_9HashtableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef readonly captures(address_is_null) %hTable) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516DateIntervalInfo10deleteHashEPNS_9HashtableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef readonly %hTable) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i32, align 4
   %cmp = icmp eq ptr %hTable, null
@@ -1379,7 +1379,7 @@ delete.end8:                                      ; preds = %entry, %_ZN6icu_759
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516DateIntervalInfo8copyHashEPKNS_9HashtableEPS1_R10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %source, ptr noundef readonly captures(none) %target, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516DateIntervalInfo8copyHashEPKNS_9HashtableEPS1_R10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %source, ptr noundef readonly captures(none) %target, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i32, align 4
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8

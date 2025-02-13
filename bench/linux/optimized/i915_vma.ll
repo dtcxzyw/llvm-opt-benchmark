@@ -4056,7 +4056,7 @@ define dso_local i32 @i915_vma_unbind_unlocked(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @i915_vma_make_unshrinkable(ptr noundef readonly returned captures(ret: address, provenance) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @i915_vma_make_unshrinkable(ptr noundef readonly returned %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   tail call void @i915_gem_object_make_unshrinkable(ptr noundef %3) #17
@@ -4123,7 +4123,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @__i915_active_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2, 1) i32 @__i915_vma_active(ptr noundef readonly captures(address) %0) #0 align 16 {
+define internal range(i32 -2, 1) i32 @__i915_vma_active(ptr noundef readonly %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -88
   %3 = load ptr, ptr %2, align 8
   %4 = load volatile i32, ptr %3, align 4

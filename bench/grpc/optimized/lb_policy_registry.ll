@@ -461,7 +461,7 @@ _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core26
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK9grpc_core27LoadBalancingPolicyRegistry29GetLoadBalancingPolicyFactoryESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK9grpc_core27LoadBalancingPolicyRegistry29GetLoadBalancingPolicyFactoryESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -543,7 +543,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core27LoadBalancingPolicyRegistry25CreateLoadBalancingPolicyESt17basic_string_viewIcSt11char_traitsIcEENS_19LoadBalancingPolicy4ArgsE(ptr noalias sret(%"class.std::unique_ptr.7") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core27LoadBalancingPolicyRegistry25CreateLoadBalancingPolicyESt17basic_string_viewIcSt11char_traitsIcEENS_19LoadBalancingPolicy4ArgsE(ptr noalias sret(%"class.std::unique_ptr.7") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2 = alloca %"struct.grpc_core::LoadBalancingPolicy::Args", align 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -845,7 +845,7 @@ _ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit: ; preds = %_ZNSt10uniq
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK9grpc_core27LoadBalancingPolicyRegistry25LoadBalancingPolicyExistsESt17basic_string_viewIcSt11char_traitsIcEEPb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef writeonly captures(address_is_null) %requires_config) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK9grpc_core27LoadBalancingPolicyRegistry25LoadBalancingPolicyExistsESt17basic_string_viewIcSt11char_traitsIcEEPb(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef writeonly %requires_config) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon, align 1
   %config = alloca %"class.absl::lts_20230802::StatusOr", align 8
@@ -1088,7 +1088,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core27LoadBalancingPolicyRegistry30ParseLoadBalancingConfigHelperB5cxx11ERKNS_12experimental4JsonE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.48") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %lb_config_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core27LoadBalancingPolicyRegistry30ParseLoadBalancingConfigHelperB5cxx11ERKNS_12experimental4JsonE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.48") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %lb_config_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp14 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1764,7 +1764,7 @@ declare void @_ZN4absl12lts_2023080223FailedPreconditionErrorESt17basic_string_v
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core27LoadBalancingPolicyRegistry24ParseLoadBalancingConfigERKNS_12experimental4JsonE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %json) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core27LoadBalancingPolicyRegistry24ParseLoadBalancingConfigERKNS_12experimental4JsonE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %json) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %policy = alloca %"class.absl::lts_20230802::StatusOr.48", align 8

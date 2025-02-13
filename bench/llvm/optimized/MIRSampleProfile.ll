@@ -1352,7 +1352,7 @@ define dso_local void @_ZN4llvm27SampleProfileLoaderBaseImplINS_15MachineFunctio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MIRProfileLoader14setBranchProbsERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1256) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1065) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16MIRProfileLoader14setBranchProbsERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1256) %0, ptr noundef nonnull readonly align 8 dereferenceable(1065) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::BranchProbability", align 4

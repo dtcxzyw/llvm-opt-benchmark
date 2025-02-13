@@ -922,7 +922,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @proxy_name_to_path(ptr readnone captures(none) %ctx, ptr noundef readonly captures(address_is_null) %dir_path, ptr noundef %name, ptr noundef %target) #0 {
+define internal noundef i32 @proxy_name_to_path(ptr readnone captures(none) %ctx, ptr noundef readonly %dir_path, ptr noundef %name, ptr noundef %target) #0 {
 entry:
   %tobool.not = icmp eq ptr %dir_path, null
   br i1 %tobool.not, label %if.else, label %if.then

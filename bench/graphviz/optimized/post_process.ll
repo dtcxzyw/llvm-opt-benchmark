@@ -934,7 +934,7 @@ declare double @distance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) loc
 declare ptr @SparseMatrix_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @StressMajorizationSmoother_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @StressMajorizationSmoother_delete(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %2
 
@@ -1277,7 +1277,7 @@ StressMajorizationSmoother_delete.exit166:        ; preds = %._crit_edge197
 declare double @drand() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @SparseStressMajorizationSmoother_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @SparseStressMajorizationSmoother_delete(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %StressMajorizationSmoother_delete.exit, label %2
 
@@ -2393,7 +2393,7 @@ declare ptr @call_tri(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @call_tri2(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @TriangleSmoother_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @TriangleSmoother_delete(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %StressMajorizationSmoother_delete.exit, label %2
 
@@ -2852,7 +2852,7 @@ SpringSmoother_delete.exit:                       ; preds = %._crit_edge245, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define void @SpringSmoother_delete(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @SpringSmoother_delete(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

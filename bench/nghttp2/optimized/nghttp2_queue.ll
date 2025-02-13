@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_queue_free(ptr noundef readonly captures(address_is_null) %queue) local_unnamed_addr #1 {
+define hidden void @nghttp2_queue_free(ptr noundef readonly %queue) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %queue, null
   br i1 %tobool.not, label %if.end, label %if.else

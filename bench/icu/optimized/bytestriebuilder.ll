@@ -744,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(56) %this, ptr %s.coerce0, i32 %s.coerce1, i32 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(56) %this, ptr %s.coerce0, i32 %s.coerce1, i32 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1221,7 +1221,7 @@ declare noundef signext i8 @_ZN6icu_75eqERKNS_11StringPieceES2_(ptr noundef nonn
 declare void @_ZN6icu_7517StringTrieBuilder5buildE22UStringTrieBuildOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder5clearEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(56) initializes((36, 40), (52, 56)) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(56) initializes((36, 40), (52, 56)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %strings = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %strings, align 8

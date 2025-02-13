@@ -74,7 +74,7 @@ return:                                           ; preds = %if.else, %land.rhs,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Appendable12appendStringEPKDsi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef readonly captures(address) %s, i32 noundef %length) unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Appendable12appendStringEPKDsi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef readonly %s, i32 noundef %length) unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp slt i32 %length, 0
   br i1 %cmp, label %while.cond, label %if.else
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_ZN6icu_7510Appendable15getAppendBufferEiiPDsiPi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %minCapacity, i32 %0, ptr noundef readnone captures(ret: address, provenance) %scratch, i32 noundef %scratchCapacity, ptr noundef writeonly captures(none) initializes((0, 4)) %resultCapacity) unnamed_addr #6 align 2 {
+define noundef ptr @_ZN6icu_7510Appendable15getAppendBufferEiiPDsiPi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %minCapacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratchCapacity, ptr noundef writeonly captures(none) initializes((0, 4)) %resultCapacity) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp slt i32 %minCapacity, 1
   %cmp2 = icmp slt i32 %scratchCapacity, %minCapacity

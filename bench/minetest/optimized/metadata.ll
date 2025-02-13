@@ -539,7 +539,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9IMetadata13resolveStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_tb(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(32) %str, ptr noundef %place, i16 noundef zeroext %recursion, i1 noundef zeroext %deprecated) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9IMetadata13resolveStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_tb(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %str, ptr noundef %place, i16 noundef zeroext %recursion, i1 noundef zeroext %deprecated) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -972,14 +972,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZNK14SimpleMetadata10getStringsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this, ptr readnone captures(none) %0) unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZNK14SimpleMetadata10getStringsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull readnone align 8 dereferenceable(72) %this, ptr readnone captures(none) %0) unnamed_addr #11 align 2 {
 entry:
   %m_stringvars = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %m_stringvars
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZTv0_n56_NK14SimpleMetadata10getStringsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef readonly captures(ret: address, provenance) %this, ptr noundef readnone captures(none) %0) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull ptr @_ZTv0_n56_NK14SimpleMetadata10getStringsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef readonly %this, ptr noundef readnone captures(none) %0) unnamed_addr #12 align 2 {
 entry:
   %1 = load ptr, ptr %this, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 -56

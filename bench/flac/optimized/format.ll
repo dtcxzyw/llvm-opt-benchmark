@@ -339,7 +339,7 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %.preheader, label %9
 
@@ -579,7 +579,7 @@ define internal fastcc range(i32 0, 7) i32 @utf8len_(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %.not36 = icmp eq i32 %1, 0
@@ -633,7 +633,7 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %12, label %4
 
@@ -885,7 +885,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load i8, ptr %4, align 1, !tbaa !22

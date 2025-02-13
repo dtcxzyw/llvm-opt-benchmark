@@ -2432,7 +2432,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit15:            ; preds = %22, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(412456) %0, i16 %1, ptr %2, i32 %3, i8 %4, i16 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(412456) %0, i16 %1, ptr %2, i32 %3, i8 %4, i16 noundef zeroext %5, ptr noundef writeonly %6) unnamed_addr #0 align 2 {
   %8 = alloca %"struct.llvm::EVT", align 8
   store i16 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2487,7 +2487,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm17X86TargetLowering18allowsMemoryAccessERNS_11LLVMContextERKNS_10DataLayoutENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(412456) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, i16 %3, ptr %4, i32 %5, i8 %6, i16 noundef zeroext %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm17X86TargetLowering18allowsMemoryAccessERNS_11LLVMContextERKNS_10DataLayoutENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(412456) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, i16 %3, ptr %4, i32 %5, i8 %6, i16 noundef zeroext %7, ptr noundef writeonly %8) unnamed_addr #0 align 2 {
   %10 = alloca %"struct.llvm::EVT", align 8
   %11 = alloca %"struct.llvm::EVT", align 8
   %12 = alloca %"class.llvm::TypeSize", align 8
@@ -5509,7 +5509,7 @@ _ZNK4llvm3EVT9isIntegerEv.exit:                   ; preds = %_ZNK4llvm3EVT8isVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm17X86TargetLowering15LowerCallResultENS_7SDValueES1_jbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EEPj(ptr noundef nonnull align 8 dereferenceable(412456) %0, ptr %1, i32 %2, ptr %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(952) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef captures(address_is_null) %11) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm17X86TargetLowering15LowerCallResultENS_7SDValueES1_jbRKNS_15SmallVectorImplINS_3ISD8InputArgEEERKNS_5SDLocERNS_12SelectionDAGERNS2_IS1_EEPj(ptr noundef nonnull align 8 dereferenceable(412456) %0, ptr %1, i32 %2, ptr %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(952) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11) local_unnamed_addr #0 align 2 {
   %13 = alloca %"class.llvm::SDValue", align 8
   %14 = alloca %"class.llvm::SDValue", align 8
   %15 = alloca %"struct.llvm::EVT", align 8
@@ -6128,7 +6128,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
 declare void @_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E(ptr noundef nonnull align 8 dereferenceable(420), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @_ZL16getv64i1ArgumentRN4llvm11CCValAssignES1_RNS_7SDValueERNS_12SelectionDAGERKNS_5SDLocERKNS_12X86SubtargetEPS2_(i32 %.0.val, i8 %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(952) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc { ptr, i32 } @_ZL16getv64i1ArgumentRN4llvm11CCValAssignES1_RNS_7SDValueERNS_12SelectionDAGERKNS_5SDLocERKNS_12X86SubtargetEPS2_(i32 %.0.val, i8 %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(952) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca [3 x %"class.llvm::SDValue"], align 16
   %8 = alloca %"class.llvm::ArrayRef.687", align 8

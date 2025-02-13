@@ -255,7 +255,7 @@ return:                                           ; preds = %if.end7.i, %if.end.
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly captures(address, ret: address, provenance) %str, ptr noundef nonnull writeonly captures(none) %v) unnamed_addr #2 {
+define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly %str, ptr noundef nonnull writeonly captures(none) %v) unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %str, align 1
   %1 = add i8 %0, -58

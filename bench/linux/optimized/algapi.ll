@@ -105,7 +105,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [38 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_alg_extsize552, ptr @__UNIQUE_ID___addressable_crypto_alg_tested513, ptr @__UNIQUE_ID___addressable_crypto_algapi_init555, ptr @__UNIQUE_ID___addressable_crypto_attr_alg_name545, ptr @__UNIQUE_ID___addressable_crypto_check_attr_type544, ptr @__UNIQUE_ID___addressable_crypto_dequeue_request550, ptr @__UNIQUE_ID___addressable_crypto_drop_spawn538, ptr @__UNIQUE_ID___addressable_crypto_enqueue_request548, ptr @__UNIQUE_ID___addressable_crypto_enqueue_request_head549, ptr @__UNIQUE_ID___addressable_crypto_get_attr_type543, ptr @__UNIQUE_ID___addressable_crypto_grab_spawn537, ptr @__UNIQUE_ID___addressable_crypto_inc551, ptr @__UNIQUE_ID___addressable_crypto_init_queue547, ptr @__UNIQUE_ID___addressable_crypto_inst_setname546, ptr @__UNIQUE_ID___addressable_crypto_lookup_template532, ptr @__UNIQUE_ID___addressable_crypto_register_alg515, ptr @__UNIQUE_ID___addressable_crypto_register_algs523, ptr @__UNIQUE_ID___addressable_crypto_register_instance533, ptr @__UNIQUE_ID___addressable_crypto_register_notifier541, ptr @__UNIQUE_ID___addressable_crypto_register_template525, ptr @__UNIQUE_ID___addressable_crypto_register_templates526, ptr @__UNIQUE_ID___addressable_crypto_remove_final514, ptr @__UNIQUE_ID___addressable_crypto_remove_spawns512, ptr @__UNIQUE_ID___addressable_crypto_spawn_tfm2540, ptr @__UNIQUE_ID___addressable_crypto_spawn_tfm539, ptr @__UNIQUE_ID___addressable_crypto_type_has_alg553, ptr @__UNIQUE_ID___addressable_crypto_unregister_alg522, ptr @__UNIQUE_ID___addressable_crypto_unregister_algs524, ptr @__UNIQUE_ID___addressable_crypto_unregister_instance534, ptr @__UNIQUE_ID___addressable_crypto_unregister_notifier542, ptr @__UNIQUE_ID___addressable_crypto_unregister_template530, ptr @__UNIQUE_ID___addressable_crypto_unregister_templates531, ptr @__UNIQUE_ID_description558, ptr @__UNIQUE_ID_file556, ptr @__UNIQUE_ID_license557, ptr @__UNIQUE_ID_softdep559, ptr @__exitcall_crypto_algapi_exit, ptr @crypto_algapi_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @crypto_remove_spawns(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) #0 align 16 {
+define dso_local void @crypto_remove_spawns(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.list_head, align 8
   %6 = alloca %struct.list_head, align 8
@@ -652,7 +652,7 @@ declare dso_local void @complete_all(ptr noundef) local_unnamed_addr #2
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @crypto_remove_final(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local void @crypto_remove_final(ptr noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit, label %.preheader
@@ -1762,7 +1762,7 @@ define dso_local void @crypto_unregister_instance(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8, !prof !10
 
@@ -2099,7 +2099,7 @@ define dso_local i32 @crypto_check_attr_type(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef ptr @crypto_attr_alg_name(ptr noundef captures(address_is_null, ret: address, provenance) %0) #7 align 16 {
+define dso_local noundef ptr @crypto_attr_alg_name(ptr noundef %0) #7 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -2239,7 +2239,7 @@ define dso_local void @crypto_enqueue_request_head(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef ptr @crypto_dequeue_request(ptr noundef captures(address) %0) #11 align 16 {
+define dso_local noundef ptr @crypto_dequeue_request(ptr noundef %0) #11 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0

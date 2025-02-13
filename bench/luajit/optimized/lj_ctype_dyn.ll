@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end, %entry, %re
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %ct, ptr noundef captures(address) %name, ptr noundef captures(none) %ofs, ptr noundef captures(address_is_null) %qual) local_unnamed_addr #5 {
+define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %ct, ptr noundef %name, ptr noundef captures(none) %ofs, ptr noundef %qual) local_unnamed_addr #5 {
 entry:
   %sib33 = getelementptr inbounds nuw i8, ptr %ct, i64 8
   %0 = load i16, ptr %sib33, align 8
@@ -731,7 +731,7 @@ declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #
 declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_ctype_repr(ptr noundef %L, i32 noundef %id, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 {
+define hidden ptr @lj_ctype_repr(ptr noundef %L, i32 noundef %id, ptr noundef readonly %name) local_unnamed_addr #0 {
 entry:
   %buf.i501.i = alloca [10 x i8], align 1
   %ctr = alloca %struct.CTRepr, align 8
@@ -2514,7 +2514,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare hidden void @lj_ccallback_mcode_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ctype_preptype(ptr noundef nonnull captures(address) %ctr, ptr noundef %ct, i32 noundef %qual, ptr noundef readonly captures(none) %t) unnamed_addr #9 {
+define internal fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef %ct, i32 noundef %qual, ptr noundef readonly captures(none) %t) unnamed_addr #9 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %ct, i64 16
   %0 = load i64, ptr %name, align 8

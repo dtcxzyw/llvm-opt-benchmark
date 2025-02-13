@@ -100,7 +100,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_pair_write(ptr noundef %bio, ptr noundef captures(address_is_null) %buf, i32 noundef %sz_) #1 {
+define internal noundef i32 @dgram_pair_write(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
 entry:
   %cmp = icmp slt i32 %sz_, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -158,7 +158,7 @@ return:                                           ; preds = %if.end10, %if.then2
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_pair_read(ptr noundef %bio, ptr noundef captures(address) %buf, i32 noundef %sz_) #1 {
+define internal noundef i32 @dgram_pair_read(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %bio, i64 64
   %0 = load ptr, ptr %ptr, align 8
@@ -512,7 +512,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_pair_free(ptr noundef captures(address) %bio) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_free(ptr noundef %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end
@@ -750,7 +750,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %bio, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %sz, ptr noundef readonly captures(address_is_null) %local, ptr noundef readonly captures(address_is_null) %peer, i32 noundef range(i32 0, 2) %is_multi) unnamed_addr #1 {
+define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %bio, ptr noundef readonly %buf, i64 noundef %sz, ptr noundef readonly %local, ptr noundef readonly %peer, i32 noundef range(i32 0, 2) %is_multi) unnamed_addr #1 {
 entry:
   %hdr = alloca %struct.dgram_hdr, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %bio, i64 64
@@ -1073,7 +1073,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @dgram_pair_read_actual(ptr noundef %bio, ptr noundef captures(address) %buf, i64 noundef %sz, ptr noundef writeonly captures(address_is_null) %local, ptr noundef writeonly captures(address_is_null) %peer, i32 noundef range(i32 0, 2) %is_multi) unnamed_addr #1 {
+define internal fastcc noundef i64 @dgram_pair_read_actual(ptr noundef %bio, ptr noundef %buf, i64 noundef %sz, ptr noundef writeonly %local, ptr noundef writeonly %peer, i32 noundef range(i32 0, 2) %is_multi) unnamed_addr #1 {
 entry:
   %hdr = alloca %struct.dgram_hdr, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %bio, i64 64
@@ -1255,7 +1255,7 @@ return:                                           ; preds = %if.end17, %if.end12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @dgram_pair_read_inner(ptr noundef captures(none) %b, ptr noundef writeonly captures(address) %buf, i64 noundef %sz) unnamed_addr #5 {
+define internal fastcc i64 @dgram_pair_read_inner(ptr noundef captures(none) %b, ptr noundef writeonly %buf, i64 noundef %sz) unnamed_addr #5 {
 entry:
   %rbuf = getelementptr inbounds nuw i8, ptr %b, i64 8
   %len1.i = getelementptr inbounds nuw i8, ptr %b, i64 16
@@ -1724,7 +1724,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_mem_read(ptr noundef %bio, ptr noundef captures(address) %buf, i32 noundef %sz_) #1 {
+define internal noundef i32 @dgram_mem_read(ptr noundef %bio, ptr noundef %buf, i32 noundef %sz_) #1 {
 entry:
   %cmp = icmp slt i32 %sz_, 0
   br i1 %cmp, label %if.then, label %if.end

@@ -142,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E = external local_unnamed_addr global { i64 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt17h898a2b8ded935826E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt17h898a2b8ded935826E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -1034,7 +1034,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing17h19baae3ebeb26cd2E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing17h19baae3ebeb26cd2E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -1926,7 +1926,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit17h81090678d0a87c10E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit17h81090678d0a87c10E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -2818,7 +2818,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt17h522d4d5feab8ccc7E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt17h522d4d5feab8ccc7E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -3710,7 +3710,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing17ha4df58b52c675ea1E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing17ha4df58b52c675ea1E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -4602,7 +4602,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution17h3343866d914d601eE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution17h3343866d914d601eE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -5494,7 +5494,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit17h0dbdd219f0c3bef7E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit17h0dbdd219f0c3bef7E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -6386,7 +6386,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing17h662b03fe74fa8f10E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing17h662b03fe74fa8f10E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -7278,7 +7278,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit17haa2577d178f5ec5dE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit17haa2577d178f5ec5dE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -8170,7 +8170,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion17he57d464516f15a8eE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion17he57d464516f15a8eE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -9062,7 +9062,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop17h3ad6070746e8643cE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop17h3ad6070746e8643cE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -9954,7 +9954,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization17ha97d949c3dd9551bE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization17ha97d949c3dd9551bE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -10846,7 +10846,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization17h682c3e048434a175E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization17h682c3e048434a175E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -11738,7 +11738,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization17h2c205531c56d5fd3E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization17h2c205531c56d5fd3E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -12630,7 +12630,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization17h692c4bd6a9bbede4E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization17h692c4bd6a9bbede4E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -13522,7 +13522,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization17h8d1929399eab2bb4E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization17h8d1929399eab2bb4E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -14414,7 +14414,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization17hc5232c5030f2b17bE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization17hc5232c5030f2b17bE"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -15306,7 +15306,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit217
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion17hee9a846955c12db6E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion17hee9a846955c12db6E"(ptr noalias noundef writeonly sret({ [40 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noalias noundef align 8 dereferenceable(1064) %3, ptr noalias noundef readonly align 8 dereferenceable(368) %4, ptr noalias noundef align 8 dereferenceable(80) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, { ptr, i64 } }, align 8
   %8 = alloca { i64, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, i64 }, align 8
@@ -16205,7 +16205,7 @@ define hidden { ptr, ptr } @"_ZN18aws_smithy_runtime6client12interceptors21Inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E"(ptr %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5
@@ -16237,7 +16237,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE"(ptr %.16.val, ptr captures(address_is_null) %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h576b235490222f5fE"(ptr %.16.val, ptr %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.24.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.24.val, align 8, !invariant.load !5, !nonnull !5
@@ -16274,7 +16274,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #3 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7aad922b0a5543c0E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #3 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null

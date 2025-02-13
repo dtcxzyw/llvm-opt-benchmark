@@ -4557,7 +4557,7 @@ define hidden void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$$LP
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hd2a33522a356f129E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hd2a33522a356f129E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5
@@ -6341,7 +6341,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$17hd4fc973af7c4b139E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$17hd4fc973af7c4b139E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5
@@ -8584,7 +8584,7 @@ define internal fastcc noundef range(i64 3, 26) i64 @_ZN5prost8encoding7message1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h217277396529c092E(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h217277396529c092E(ptr readnone %.8.val, i64 %.16.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
@@ -8905,7 +8905,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h22
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h263e2f382dfc3f8aE(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h263e2f382dfc3f8aE(ptr readonly %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.16.val, 0
@@ -12392,7 +12392,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h50538a8dd39e83bcE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h50538a8dd39e83bcE(ptr readnone %.8.val, i64 %.16.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
@@ -12664,7 +12664,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h57
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5bf725d57d3eb508E(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5bf725d57d3eb508E(ptr readonly %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.16.val, 0
@@ -14790,7 +14790,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6d4d2099b7bb95b3E(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6d4d2099b7bb95b3E(ptr readnone %.8.val, i64 %.16.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
@@ -19215,7 +19215,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb5
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb5c4b09953be253cE(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb5c4b09953be253cE(ptr readonly %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.16.val, 0
@@ -21311,7 +21311,7 @@ define internal fastcc noundef range(i64 3, 29) i64 @_ZN5prost8encoding7message1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd10bbb421972c808E(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd10bbb421972c808E(ptr readnone %.8.val, i64 %.16.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
@@ -22209,7 +22209,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hda
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdcd6859c32f8227dE(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdcd6859c32f8227dE(ptr readonly %.8.val, i64 %.16.val) unnamed_addr #12 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.16.val, 0
@@ -24034,7 +24034,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfa
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfb7e721e5f8bf8ceE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfb7e721e5f8bf8ceE(ptr readnone %.8.val, i64 %.16.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
@@ -26037,7 +26037,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit55: ; preds = %280
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @"_ZN6client6Client14set_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2454c845735c5f1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(32) %2) unnamed_addr #16 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @"_ZN6client6Client14set_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2454c845735c5f1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #16 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8

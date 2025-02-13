@@ -48,7 +48,7 @@ define internal noundef i32 @posix_register() #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @posix_runtime_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(address_is_null) %2) #2 {
+define internal noundef i32 @posix_runtime_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) #2 {
   %4 = alloca [16 x i8], align 16
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8

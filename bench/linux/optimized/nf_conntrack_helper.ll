@@ -514,7 +514,7 @@ define dso_local ptr @nf_ct_helper_ext_add(ptr noundef %0, i32 noundef %1) #3 al
 declare dso_local ptr @nf_ct_ext_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @__nf_ct_try_assign_helper(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__nf_ct_try_assign_helper(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 8192
@@ -757,7 +757,7 @@ define dso_local ptr @nf_ct_helper_expectfn_find_by_name(ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @nf_ct_helper_expectfn_find_by_symbol(ptr noundef readnone captures(address) %0) #7 align 16 {
+define dso_local ptr @nf_ct_helper_expectfn_find_by_symbol(ptr noundef readnone %0) #7 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1089,7 +1089,7 @@ declare dso_local void @synchronize_rcu() local_unnamed_addr #4
 declare dso_local void @nf_ct_expect_iterate_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @expect_iter_me(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #3 align 16 {
+define internal zeroext i1 @expect_iter_me(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -1138,7 +1138,7 @@ define internal zeroext i1 @expect_iter_me(ptr noundef readonly captures(none) %
 declare dso_local void @nf_ct_iterate_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unhelp(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #3 align 16 {
+define internal noundef i32 @unhelp(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

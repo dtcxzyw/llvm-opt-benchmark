@@ -885,7 +885,7 @@ declare noundef i32 @_ZN5QDrag4execE6QFlagsIN2Qt10DropActionEE(ptr noundef nonnu
 declare void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15DragDropToolBar14dragEnterEventEP15QDragEnterEvent(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN15DragDropToolBar14dragEnterEventEP15QDragEnterEvent(ptr noundef nonnull readnone align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %3
 

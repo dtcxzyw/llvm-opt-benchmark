@@ -34,7 +34,7 @@ define hidden void @_ZN5ceres12CostFunctionC2EOS0_(ptr noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN5ceres12CostFunctionaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(36) initializes((16, 36)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN5ceres12CostFunctionaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(36) initializes((16, 36)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8

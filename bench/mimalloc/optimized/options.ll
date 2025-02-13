@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_verbose_message(ptr noundef readonly captures(address_is_null) %fmt, ...) local_unnamed_addr #1 {
+define hidden void @_mi_verbose_message(ptr noundef readonly %fmt, ...) local_unnamed_addr #1 {
 entry:
   %buf.i = alloca [512 x i8], align 16
   %args = alloca [1 x %struct.__va_list_tag], align 16
@@ -686,7 +686,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_fputs(ptr noundef readonly captures(address) %out, ptr noundef %arg, ptr noundef %prefix, ptr noundef %message) local_unnamed_addr #1 {
+define hidden void @_mi_fputs(ptr noundef readonly %out, ptr noundef %arg, ptr noundef %prefix, ptr noundef %message) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %out, null
   %0 = load ptr, ptr @stdout, align 8
@@ -739,7 +739,7 @@ if.end12:                                         ; preds = %if.then, %if.end11,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_fprintf(ptr noundef readonly captures(address) %out, ptr noundef %arg, ptr noundef readonly captures(address_is_null) %fmt, ...) local_unnamed_addr #1 {
+define hidden void @_mi_fprintf(ptr noundef readonly %out, ptr noundef %arg, ptr noundef readonly %fmt, ...) local_unnamed_addr #1 {
 entry:
   %buf.i = alloca [512 x i8], align 16
   %args = alloca [1 x %struct.__va_list_tag], align 16
@@ -789,7 +789,7 @@ mi_vfprintf.exit:                                 ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_trace_message(ptr noundef captures(address_is_null) %fmt, ...) local_unnamed_addr #1 {
+define hidden void @_mi_trace_message(ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call i64 @mi_option_get(i32 noundef 2) #18
@@ -807,7 +807,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_vfprintf_thread(ptr noundef %prefix, ptr noundef readonly captures(address_is_null) %fmt, ptr noundef nonnull %args) unnamed_addr #1 {
+define internal fastcc void @mi_vfprintf_thread(ptr noundef %prefix, ptr noundef readonly %fmt, ptr noundef nonnull %args) unnamed_addr #1 {
 entry:
   %buf.i9 = alloca [512 x i8], align 16
   %buf.i = alloca [512 x i8], align 16
@@ -903,7 +903,7 @@ if.end:                                           ; preds = %mi_vfprintf.exit19,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_warning_message(ptr noundef captures(address_is_null) %fmt, ...) local_unnamed_addr #1 {
+define hidden void @_mi_warning_message(ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %call.i = tail call i64 @mi_option_get(i32 noundef 2) #18
@@ -946,7 +946,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_error_message(i32 noundef %err, ptr noundef captures(address_is_null) %fmt, ...) local_unnamed_addr #1 {
+define hidden void @_mi_error_message(i32 noundef %err, ptr noundef %fmt, ...) local_unnamed_addr #1 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -1070,7 +1070,7 @@ return:                                           ; preds = %cond.false, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_strlcpy(ptr noundef writeonly captures(address_is_null) %dest, ptr noundef readonly captures(address_is_null) %src, i64 noundef %dest_size) local_unnamed_addr #6 {
+define hidden void @_mi_strlcpy(ptr noundef writeonly %dest, ptr noundef readonly %src, i64 noundef %dest_size) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -1111,7 +1111,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %dest, ptr noundef readonly captures(address_is_null) %src, i64 noundef %dest_size) local_unnamed_addr #6 {
+define hidden void @_mi_strlcat(ptr noundef %dest, ptr noundef readonly %src, i64 noundef %dest_size) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -1172,7 +1172,7 @@ return:                                           ; preds = %while.end.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_mi_strlen(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #5 {
+define hidden i64 @_mi_strlen(ptr noundef readonly %s) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %while.cond
@@ -1191,7 +1191,7 @@ return:                                           ; preds = %while.cond, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_mi_strnlen(ptr noundef readonly captures(address_is_null) %s, i64 noundef %max_len) local_unnamed_addr #5 {
+define hidden i64 @_mi_strnlen(ptr noundef readonly %s, i64 noundef %max_len) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %while.cond
@@ -1264,7 +1264,7 @@ mi_out_buf.exit:                                  ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @mi_out_buf(ptr noundef readonly captures(address_is_null) %msg, ptr readnone captures(none) %arg) unnamed_addr #8 {
+define internal void @mi_out_buf(ptr noundef readonly %msg, ptr readnone captures(none) %arg) unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %msg, null
   br i1 %cmp, label %return, label %if.end

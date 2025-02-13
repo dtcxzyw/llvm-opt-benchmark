@@ -927,7 +927,7 @@ hwloc_get_nbobjs_by_type.exit.thread48:           ; preds = %9, %hwloc_get_nbobj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef %2) #9
   %switch = icmp ugt i32 %7, -3
   br i1 %switch, label %hwloc_get_next_obj_by_depth.exit.thread, label %8

@@ -485,7 +485,7 @@ return:                                           ; preds = %if.end, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ecx_get_priv_key(ptr noundef readonly captures(none) %pkey, ptr noundef writeonly captures(address_is_null) %priv, ptr noundef captures(none) %len) #3 {
+define internal range(i32 0, 2) i32 @ecx_get_priv_key(ptr noundef readonly captures(none) %pkey, ptr noundef writeonly %priv, ptr noundef captures(none) %len) #3 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -565,7 +565,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ecx_get_pub_key(ptr noundef readonly captures(none) %pkey, ptr noundef writeonly captures(address_is_null) %pub, ptr noundef captures(none) %len) #3 {
+define internal range(i32 0, 2) i32 @ecx_get_pub_key(ptr noundef readonly captures(none) %pkey, ptr noundef writeonly %pub, ptr noundef captures(none) %len) #3 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -1282,7 +1282,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare i32 @ossl_x448(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @pkey_ecd_ctrl(ptr readnone captures(none) %ctx, i32 noundef %type, i32 %p1, ptr noundef readnone captures(address) %p2) #0 {
+define internal range(i32 -2, 2) i32 @pkey_ecd_ctrl(ptr readnone captures(none) %ctx, i32 noundef %type, i32 %p1, ptr noundef readnone %p2) #0 {
 entry:
   switch i32 %type, label %sw.epilog [
     i32 1, label %sw.bb

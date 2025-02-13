@@ -3346,7 +3346,7 @@ _job_def_name.exit:                               ; preds = %.lr.ph, %8, %9
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @job_defaults_pack(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @job_defaults_pack(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -4758,7 +4758,7 @@ slurm_conf_unlock.exit:                           ; preds = %106
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_push_to_hashtbls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @_push_to_hashtbls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef readonly %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = zext i1 %7 to i8
   %11 = zext i1 %8 to i8
   %12 = icmp eq ptr %0, null
@@ -5174,7 +5174,7 @@ declare void @slurm_set_addr(ptr noundef, i16 noundef zeroext, ptr noundef) loca
 declare zeroext i1 @slurm_addr_is_unspec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_conf_check_addr(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_conf_check_addr(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @conf_lock) #18
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %6, label %4
@@ -9949,7 +9949,7 @@ declare i32 @find_conf_by_name(ptr noundef, ptr noundef) #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @add_remote_nodes_to_conf_tbls(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @add_remote_nodes_to_conf_tbls(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @hostlist_create(ptr noundef %0) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7

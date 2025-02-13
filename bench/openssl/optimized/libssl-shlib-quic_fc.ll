@@ -673,7 +673,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_rxfc_get_final_size(ptr noundef readonly captures(none) %rxfc, ptr noundef writeonly captures(address_is_null) %final_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rxfc_get_final_size(ptr noundef readonly captures(none) %rxfc, ptr noundef writeonly %final_size) local_unnamed_addr #0 {
 entry:
   %is_fin = getelementptr inbounds nuw i8, ptr %rxfc, i64 90
   %0 = load i8, ptr %is_fin, align 2

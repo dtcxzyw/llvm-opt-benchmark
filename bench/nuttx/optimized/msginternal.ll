@@ -126,7 +126,7 @@ nxmsg_alloc_internal.exit.thread:                 ; preds = %1, %21, %nxmsg_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nxmsg_free(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
+define void @nxmsg_free(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %24, label %3
 

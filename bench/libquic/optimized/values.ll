@@ -301,7 +301,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4base5ValueaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(12) initializes((8, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %that) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4base5ValueaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(12) initializes((8, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %that) local_unnamed_addr #7 align 2 {
 entry:
   %type_ = getelementptr inbounds nuw i8, ptr %that, i64 8
   %0 = load i32, ptr %type_, align 8
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base16FundamentalValue12GetAsBooleanEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base16FundamentalValue12GetAsBooleanEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly %out_value) unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp ne ptr %out_value, null
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -386,7 +386,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base16FundamentalValue12GetAsIntegerEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base16FundamentalValue12GetAsIntegerEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly %out_value) unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp ne ptr %out_value, null
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -409,7 +409,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base16FundamentalValue11GetAsDoubleEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base16FundamentalValue11GetAsDoubleEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly %out_value) unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end6, label %land.lhs.true
@@ -649,14 +649,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN4base11StringValue9GetStringB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN4base11StringValue9GetStringB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %value_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4base11StringValue9GetStringB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4base11StringValue9GetStringB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %value_
@@ -713,7 +713,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base11StringValue11GetAsStringEPPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base11StringValue11GetAsStringEPPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly %out_value) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -932,7 +932,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base11BinaryValue11GetAsBinaryEPPKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base11BinaryValue11GetAsBinaryEPPKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly %out_value) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1155,7 +1155,7 @@ _ZN4base15DictionaryValueD2Ev.exit:               ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue15GetAsDictionaryEPPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue15GetAsDictionaryEPPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef writeonly %out_value) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1169,7 +1169,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue15GetAsDictionaryEPPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue15GetAsDictionaryEPPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef writeonly %out_value) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1494,7 +1494,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -2445,7 +2445,7 @@ lpad:                                             ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef %out_value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca ptr, align 8
   %current_path = alloca %"class.base::BasicStringPiece", align 8
@@ -2551,7 +2551,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad
 declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findEcm(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef signext, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value = alloca ptr, align 8
   %call = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef nonnull %value)
@@ -2580,7 +2580,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 declare { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2658,7 +2658,7 @@ return:                                           ; preds = %if.then7, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef %out_value)
   ret i1 %call
@@ -2826,7 +2826,7 @@ declare noundef zeroext i1 @_ZN4base13IsStringASCIIERKNS_16BasicStringPieceINSt7
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_11BinaryValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_11BinaryValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value = alloca ptr, align 8
   %call = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef nonnull %value)
@@ -2853,7 +2853,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_11BinaryValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_11BinaryValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -2882,7 +2882,7 @@ _ZNK4base15DictionaryValue9GetBinaryENS_16BasicStringPieceINSt7__cxx1112basic_st
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value = alloca ptr, align 8
   %call = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef nonnull %value)
@@ -2909,7 +2909,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value = alloca ptr, align 8
   %call = call noundef zeroext i1 @_ZNK4base15DictionaryValue3GetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef nonnull %value)
@@ -2936,7 +2936,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %path.coerce0, i64 %path.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -2965,7 +2965,7 @@ _ZNK4base15DictionaryValue7GetListENS_16BasicStringPieceINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef %out_value)
   ret i1 %call
@@ -3072,7 +3072,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -3101,7 +3101,7 @@ _ZNK4base15DictionaryValue33GetDictionaryWithoutPathExpansionENS_16BasicStringPi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value = alloca ptr, align 8
   %call = call noundef zeroext i1 @_ZNK4base15DictionaryValue23GetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef nonnull %value)
@@ -3128,7 +3128,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue27GetListWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPNS_9ListValueE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %out_value) local_unnamed_addr #3 align 2 {
 entry:
   %value.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -3254,7 +3254,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfin
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue26RemoveWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPSt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef captures(address_is_null) %out_value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base15DictionaryValue26RemoveWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPSt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %key.coerce0, i64 %key.coerce1, ptr noundef %out_value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3437,7 +3437,7 @@ return:                                           ; preds = %_ZN4base15Dictionar
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base15DictionaryValue28DeepCopyWithoutEmptyChildrenEv(ptr noalias sret(%"class.std::unique_ptr.25") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base15DictionaryValue28DeepCopyWithoutEmptyChildrenEv(ptr noalias sret(%"class.std::unique_ptr.25") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call fastcc void @_ZN4base12_GLOBAL__N_134CopyDictionaryWithoutEmptyChildrenERKNS_15DictionaryValueE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this)
   %0 = load ptr, ptr %agg.result, align 8
@@ -3476,7 +3476,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %_ZNSt10uniq
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4base12_GLOBAL__N_134CopyDictionaryWithoutEmptyChildrenERKNS_15DictionaryValueE(ptr noalias align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %dict) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4base12_GLOBAL__N_134CopyDictionaryWithoutEmptyChildrenERKNS_15DictionaryValueE(ptr noalias align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(64) %dict) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3658,7 +3658,7 @@ _ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base15DictionaryValue15MergeDictionaryEPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef readonly captures(address) %dictionary) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15DictionaryValue15MergeDictionaryEPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef readonly %dictionary) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i.i = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3917,7 +3917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZNK4base15DictionaryValue8DeepCopyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZNK4base15DictionaryValue8DeepCopyEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4034,7 +4034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue6EqualsEPKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef readonly captures(address) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4base15DictionaryValue6EqualsEPKNS_5ValueE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef readonly %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type_.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i32, ptr %type_.i, align 8
@@ -4715,7 +4715,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9ListValue3GetEmPPKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9ListValue3GetEmPPKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4741,7 +4741,7 @@ return:                                           ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base9ListValue3GetEmPPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base9ListValue3GetEmPPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4907,7 +4907,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9ListValue9GetBinaryEmPPKNS_11BinaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9ListValue9GetBinaryEmPPKNS_11BinaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4942,7 +4942,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base9ListValue9GetBinaryEmPPNS_11BinaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base9ListValue9GetBinaryEmPPNS_11BinaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4977,7 +4977,7 @@ _ZNK4base9ListValue9GetBinaryEmPPKNS_11BinaryValueE.exit: ; preds = %entry, %lor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9ListValue13GetDictionaryEmPPKNS_15DictionaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9ListValue13GetDictionaryEmPPKNS_15DictionaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5012,7 +5012,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base9ListValue13GetDictionaryEmPPNS_15DictionaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base9ListValue13GetDictionaryEmPPNS_15DictionaryValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5047,7 +5047,7 @@ _ZNK4base9ListValue13GetDictionaryEmPPKNS_15DictionaryValueE.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9ListValue7GetListEmPPKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9ListValue7GetListEmPPKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5082,7 +5082,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base9ListValue7GetListEmPPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly captures(address_is_null) %out_value) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base9ListValue7GetListEmPPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef writeonly %out_value) local_unnamed_addr #15 align 2 {
 entry:
   %list_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5117,7 +5117,7 @@ _ZNK4base9ListValue7GetListEmPPKS0_.exit:         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base9ListValue6RemoveEmPSt10unique_ptrINS_5ValueESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef captures(address_is_null) %out_value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base9ListValue6RemoveEmPSt10unique_ptrINS_5ValueESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i64 noundef %index, ptr noundef %out_value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %list_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5219,7 +5219,7 @@ return:                                           ; preds = %entry, %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base9ListValue6RemoveERKNS_5ValueEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(12) %value, ptr noundef writeonly captures(address_is_null) %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base9ListValue6RemoveERKNS_5ValueEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(12) %value, ptr noundef writeonly %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %list_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %list_, align 8
@@ -5322,7 +5322,7 @@ return:                                           ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @_ZN4base9ListValue5EraseEN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrINS_5ValueESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr %iter.coerce, ptr noundef captures(address_is_null) %out_value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local ptr @_ZN4base9ListValue5EraseEN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrINS_5ValueESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr %iter.coerce, ptr noundef %out_value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -6020,7 +6020,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN4base9ListValue9GetAsListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base9ListValue9GetAsListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef writeonly %out_value) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -6034,7 +6034,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base9ListValue9GetAsListEPPKS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef writeonly captures(address_is_null) %out_value) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base9ListValue9GetAsListEPPKS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef writeonly %out_value) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %out_value, null
   br i1 %tobool.not, label %if.end, label %if.then

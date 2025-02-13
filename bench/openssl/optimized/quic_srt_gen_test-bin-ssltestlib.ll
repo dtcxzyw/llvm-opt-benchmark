@@ -1674,7 +1674,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %libctx, ptr noundef %sm, ptr noundef %cm, i32 noundef %min_proto_version, i32 noundef %max_proto_version, ptr noundef captures(address_is_null) %sctx, ptr noundef captures(address_is_null) %cctx, ptr noundef %certfile, ptr noundef %privkeyfile) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %libctx, ptr noundef %sm, ptr noundef %cm, i32 noundef %min_proto_version, i32 noundef %max_proto_version, ptr noundef %sctx, ptr noundef %cctx, ptr noundef %certfile, ptr noundef %privkeyfile) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %sctx, null
   br i1 %cmp.not, label %if.end10, label %if.then

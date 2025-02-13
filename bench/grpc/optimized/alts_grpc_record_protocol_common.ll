@@ -27,7 +27,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef captures(address_is_null) %rp, ptr noundef readonly captures(address_is_null) %sb) local_unnamed_addr #3 {
+define void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef %rp, ptr noundef readonly %sb) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %rp, null
   %cmp1 = icmp eq ptr %sb, null
@@ -124,7 +124,7 @@ for.end:                                          ; preds = %cond.end23, %_ZL21e
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #3 {
+define void @_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dst, null
@@ -185,7 +185,7 @@ for.end:                                          ; preds = %cond.end22, %for.co
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_Z42alts_grpc_record_protocol_get_header_iovecP25alts_grpc_record_protocol(ptr noundef readonly captures(address_is_null) %rp) local_unnamed_addr #3 {
+define { ptr, i64 } @_Z42alts_grpc_record_protocol_get_header_iovecP25alts_grpc_record_protocol(ptr noundef readonly %rp) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %rp, null
   br i1 %cmp, label %return, label %if.end
@@ -442,7 +442,7 @@ declare void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protoco
 declare void @grpc_slice_buffer_destroy(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z51alts_grpc_record_protocol_max_unprotected_data_sizePK25alts_grpc_record_protocolm(ptr noundef readonly captures(address_is_null) %self, i64 noundef %max_protected_frame_size) local_unnamed_addr #3 {
+define noundef i64 @_Z51alts_grpc_record_protocol_max_unprotected_data_sizePK25alts_grpc_record_protocolm(ptr noundef readonly %self, i64 noundef %max_protected_frame_size) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   br i1 %cmp, label %return, label %if.end

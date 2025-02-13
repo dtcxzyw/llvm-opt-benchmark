@@ -300,7 +300,7 @@ define void @onig_st_free_table(ptr noundef captures(none) %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @onig_st_lookup(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @onig_st_lookup(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -773,7 +773,7 @@ define noalias noundef ptr @onig_st_copy(ptr noundef readonly captures(none) %0)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @onig_st_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @onig_st_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -901,7 +901,7 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @onig_st_delete_safe(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @onig_st_delete_safe(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8

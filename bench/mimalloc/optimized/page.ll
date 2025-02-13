@@ -135,7 +135,7 @@ return:                                           ; preds = %if.else.i5, %if.the
 declare i64 @_mi_os_page_size() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_page_queue_append(ptr noundef %heap, ptr noundef captures(address) %pq, ptr noundef readonly captures(none) %append) local_unnamed_addr #1 {
+define hidden i64 @_mi_page_queue_append(ptr noundef %heap, ptr noundef %pq, ptr noundef readonly captures(none) %append) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %append, align 8
   %cmp = icmp eq ptr %0, null
@@ -286,7 +286,7 @@ while.end:                                        ; preds = %if.else.i, %lor.rhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @mi_heap_queue_first_update(ptr noundef captures(address) %heap, ptr noundef readonly captures(address) %pq) unnamed_addr #3 {
+define internal fastcc void @mi_heap_queue_first_update(ptr noundef %heap, ptr noundef readonly %pq) unnamed_addr #3 {
 entry:
   %block_size = getelementptr inbounds nuw i8, ptr %pq, i64 16
   %0 = load i64, ptr %block_size, align 8
@@ -567,7 +567,7 @@ if.end26:                                         ; preds = %if.end26.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_reclaim(ptr noundef captures(address) %heap, ptr noundef %page) local_unnamed_addr #1 {
+define hidden void @_mi_page_reclaim(ptr noundef %heap, ptr noundef %page) local_unnamed_addr #1 {
 entry:
   %psize.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i)
@@ -936,7 +936,7 @@ return:                                           ; preds = %entry, %mi_page_que
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_abandon(ptr noundef %page, ptr noundef captures(address) %pq) local_unnamed_addr #1 {
+define hidden void @_mi_page_abandon(ptr noundef %page, ptr noundef %pq) local_unnamed_addr #1 {
 entry:
   %xheap.i = getelementptr inbounds nuw i8, ptr %page, i64 48
   %0 = load atomic i64, ptr %xheap.i monotonic, align 8
@@ -1007,7 +1007,7 @@ mi_page_queue_remove.exit:                        ; preds = %if.end14.i, %if.the
 declare void @_mi_segment_page_abandon(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_free(ptr noundef %page, ptr noundef captures(address) %pq, i1 noundef zeroext %force) local_unnamed_addr #1 {
+define hidden void @_mi_page_free(ptr noundef %page, ptr noundef %pq, i1 noundef zeroext %force) local_unnamed_addr #1 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %page, i64 14
   %bf.load.i = load i8, ptr %flags.i, align 2
@@ -1275,7 +1275,7 @@ return:                                           ; preds = %if.end, %if.then23,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %heap, i1 noundef zeroext %force) local_unnamed_addr #1 {
+define hidden void @_mi_heap_collect_retired(ptr noundef %heap, i1 noundef zeroext %force) local_unnamed_addr #1 {
 entry:
   %page_retired_min = getelementptr inbounds nuw i8, ptr %heap, i64 3032
   %0 = load i64, ptr %page_retired_min, align 8
@@ -2151,7 +2151,7 @@ declare ptr @_mi_segment_page_start(ptr noundef, ptr noundef, ptr noundef) local
 declare i64 @_mi_os_good_alloc_size(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %heap, ptr noundef captures(address) %pq, i64 noundef %block_size, i64 noundef %page_alignment) unnamed_addr #1 {
+define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %heap, ptr noundef %pq, i64 noundef %block_size, i64 noundef %page_alignment) unnamed_addr #1 {
 entry:
   %page_size.i = alloca i64, align 8
   %psize.i = alloca i64, align 8

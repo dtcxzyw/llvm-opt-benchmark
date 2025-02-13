@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.RehashCatCache = private unnamed_addr constant [15 x i8] c"RehashCatCache\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @CatCacheInvalidate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -400,7 +400,7 @@ define dso_local void @ResetCatalogCaches() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ResetCatalogCache(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @ResetCatalogCache(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
@@ -1346,7 +1346,7 @@ define dso_local void @ReleaseCatCache(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 -64
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load i32, ptr %4, align 8

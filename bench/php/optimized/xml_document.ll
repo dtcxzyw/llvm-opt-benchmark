@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [300 x i8] c"contains invalid flags (allowed flags: LIBXML_RECOVER, LIBXML_NOENT, LIBXML_DTDLOAD, LIBXML_DTDATTR, LIBXML_DTDVALID, LIBXML_NOERROR, LIBXML_NOWARNING, LIBXML_NOBLANKS, LIBXML_XINCLUDE, LIBXML_NSCLEAN, LIBXML_NOCDATA, LIBXML_NONET, LIBXML_PEDANTIC, LIBXML_COMPACT, LIBXML_PARSEHUGE, LIBXML_BIGLINES)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not31 = icmp eq ptr %0, null
   br i1 %.not31, label %.loopexit, label %.lr.ph
 

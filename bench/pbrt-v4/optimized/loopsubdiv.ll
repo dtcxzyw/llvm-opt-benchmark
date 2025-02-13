@@ -4315,7 +4315,7 @@ return:                                           ; preds = %_ZN4pbrt6SDFace8nex
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt8SDVertex7oneRingEPNS_6Point3IfEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(34) %this, ptr noundef writeonly captures(none) %p) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4pbrt8SDVertex7oneRingEPNS_6Point3IfEE(ptr noundef nonnull readonly align 8 dereferenceable(34) %this, ptr noundef writeonly captures(none) %p) local_unnamed_addr #2 align 2 {
 entry:
   %boundary = getelementptr inbounds nuw i8, ptr %this, i64 33
   %0 = load i8, ptr %boundary, align 1

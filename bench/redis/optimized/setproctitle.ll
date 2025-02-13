@@ -243,7 +243,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @setproctitle(ptr noundef readonly captures(address_is_null) %fmt, ...) local_unnamed_addr #5 {
+define dso_local void @setproctitle(ptr noundef readonly %fmt, ...) local_unnamed_addr #5 {
 entry:
   %buf = alloca [256 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16

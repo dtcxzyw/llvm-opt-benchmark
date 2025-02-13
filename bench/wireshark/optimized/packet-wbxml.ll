@@ -2461,7 +2461,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2796,7 +2796,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -3587,7 +3587,7 @@ define internal noalias ptr @sic10_opaque_binary_attr(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @sic10_opaque_literal_attr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal noalias ptr @sic10_opaque_literal_attr(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %8
@@ -3756,7 +3756,7 @@ define internal noalias ptr @emnc10_opaque_binary_attr(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @emnc10_opaque_literal_attr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal noalias ptr @emnc10_opaque_literal_attr(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %8
@@ -3876,7 +3876,7 @@ define internal ptr @wv_csp10_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wv_csp10_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal ptr @wv_csp10_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge.thread, label %8
@@ -4197,7 +4197,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wv_csp11_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal ptr @wv_csp11_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge.thread, label %8
@@ -4429,7 +4429,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wv_csp12_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal ptr @wv_csp12_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge.thread, label %8
@@ -4720,7 +4720,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wv_csp13_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal ptr @wv_csp13_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge.thread, label %8
@@ -4990,7 +4990,7 @@ declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef readonly %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call i32 @tvb_reported_length(ptr noundef %1) #4

@@ -2316,7 +2316,7 @@ define internal fastcc void @cycles_append(ptr noundef nonnull captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(address) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0

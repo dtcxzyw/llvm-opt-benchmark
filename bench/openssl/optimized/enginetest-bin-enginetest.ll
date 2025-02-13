@@ -992,7 +992,7 @@ declare ptr @EVP_PKEY_meth_new(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none) %e, ptr noundef writeonly captures(address_is_null) %pmeth, ptr noundef writeonly captures(none) %pnids, i32 noundef %nid) #6 {
+define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none) %e, ptr noundef writeonly %pmeth, ptr noundef writeonly captures(none) %pnids, i32 noundef %nid) #6 {
 entry:
   %cmp = icmp eq ptr %pmeth, null
   br i1 %cmp, label %if.then, label %if.end

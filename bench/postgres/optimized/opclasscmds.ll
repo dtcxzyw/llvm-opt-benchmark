@@ -1613,7 +1613,7 @@ declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @storeOperators(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @storeOperators(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [9 x i64], align 16
   %7 = alloca [9 x i8], align 1
   %8 = alloca %struct.ObjectAddress, align 4
@@ -1782,7 +1782,7 @@ define internal fastcc void @storeOperators(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @storeProcedures(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @storeProcedures(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [6 x i64], align 16
   %6 = alloca [6 x i8], align 1
   %7 = alloca %struct.ObjectAddress, align 4

@@ -4727,7 +4727,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib17CreditDefaultSwap7couponsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib17CreditDefaultSwap7couponsEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
 entry:
   %leg_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %leg_
@@ -11731,7 +11731,7 @@ unreachable:                                      ; preds = %invoke.cont58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QuantLib17CreditDefaultSwap19protectionStartDateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QuantLib17CreditDefaultSwap19protectionStartDateEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
 entry:
   %protectionStart_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   ret ptr %protectionStart_
@@ -11864,21 +11864,21 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib17CreditDefaultSwap14upfrontPaymentEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib17CreditDefaultSwap14upfrontPaymentEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
 entry:
   %upfrontPayment_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   ret ptr %upfrontPayment_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib17CreditDefaultSwap13accrualRebateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib17CreditDefaultSwap13accrualRebateEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
 entry:
   %accrualRebate_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   ret ptr %accrualRebate_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QuantLib17CreditDefaultSwap9tradeDateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QuantLib17CreditDefaultSwap9tradeDateEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) local_unnamed_addr #14 align 2 {
 entry:
   %tradeDate_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   ret ptr %tradeDate_

@@ -2082,7 +2082,7 @@ define void @zend_multibyte_yyinput_again(ptr noundef readnone captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 407) i32 @lex_scan(ptr noundef initializes((8, 12)) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -128, 407) i32 @lex_scan(ptr noundef initializes((8, 12)) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca %struct._zend_nest_location, align 4
   %5 = alloca %struct._zend_nest_location, align 4

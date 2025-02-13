@@ -661,7 +661,7 @@ return:                                           ; preds = %for.end20.i31, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_net_queue_purge(ptr noundef captures(none) %queue, ptr noundef readnone captures(address) %from) local_unnamed_addr #0 {
+define dso_local void @qemu_net_queue_purge(ptr noundef captures(none) %queue, ptr noundef readnone %from) local_unnamed_addr #0 {
 entry:
   %packets = getelementptr inbounds nuw i8, ptr %queue, i64 24
   %0 = load ptr, ptr %packets, align 8

@@ -6052,7 +6052,7 @@ cleanup:                                          ; preds = %if.end90, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21ClientMediaDownloader26startConventionalTransfersEP6Client(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(256) %this, ptr noundef %client) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21ClientMediaDownloader26startConventionalTransfersEP6Client(ptr noundef nonnull readonly align 8 dereferenceable(256) %this, ptr noundef %client) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %file_requests = alloca %"class.std::vector.82", align 8
@@ -6524,7 +6524,7 @@ declare noundef i64 @_Z22httpfetch_caller_allocv() local_unnamed_addr #0
 declare noundef i32 @_ZNK8Settings6getS32ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21ClientMediaDownloader24serializeRequiredHashSetB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(256) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21ClientMediaDownloader24serializeRequiredHashSetB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i24 = alloca [2 x i8], align 2
   %buf.i = alloca [4 x i8], align 4
@@ -8968,7 +8968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21SingleMediaDownloaderD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21SingleMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21SingleMediaDownloader, i64 16), ptr %this, align 8, !tbaa !37
   %m_httpfetch_caller = getelementptr inbounds nuw i8, ptr %this, i64 152

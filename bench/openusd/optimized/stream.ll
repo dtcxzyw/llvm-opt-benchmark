@@ -1007,7 +1007,7 @@ avifROStreamReadBits.exit51:                      ; preds = %152
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @avifROStreamReadString(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @avifROStreamReadString(ptr noundef captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1230,7 +1230,7 @@ define hidden range(i32 0, 2) i32 @avifROStreamReadBoxHeader(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @avifROStreamReadVersionAndFlags(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @avifROStreamReadVersionAndFlags(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -1458,7 +1458,7 @@ avifRWStreamWrite.exit:                           ; preds = %3, %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @avifRWStreamWriteFullBox(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 {
+define hidden i32 @avifRWStreamWriteFullBox(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #4 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %7
 
@@ -1558,7 +1558,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @avifHTONL(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @avifRWStreamWriteBox(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
+define hidden i32 @avifRWStreamWriteBox(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %3, null
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 8
   %.val43.i.pre = load i64, ptr %.phi.trans.insert, align 8

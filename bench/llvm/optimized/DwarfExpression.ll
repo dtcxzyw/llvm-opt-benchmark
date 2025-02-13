@@ -3441,7 +3441,7 @@ _ZN4llvm15DwarfExpression10addOpPieceEjj.exit:    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DwarfExpression17addFragmentOffsetEPKNS_12DIExpressionE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15DwarfExpression17addFragmentOffsetEPKNS_12DIExpressionE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::optional.142", align 8
   %4 = alloca %"class.std::optional.142", align 8
   %.not = icmp eq ptr %1, null

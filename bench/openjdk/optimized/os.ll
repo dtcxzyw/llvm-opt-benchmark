@@ -859,7 +859,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef ptr @_ZN2os14path_separatorEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN2os10split_pathEPKcPmm(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN2os10split_pathEPKcPmm(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   store i64 0, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %45, label %5
@@ -2200,7 +2200,7 @@ declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef ptr @_ZN2os14file_separatorEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 align 2 {
   %8 = alloca %union.anon.8, align 8
   %9 = alloca %class.stringStream, align 8
   %10 = ptrtoint ptr %1 to i64
@@ -2457,7 +2457,7 @@ define hidden void @_ZN2os18print_instructionsEP12outputStreamPhi(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os27print_environment_variablesEP12outputStreamPPKc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2os27print_environment_variablesEP12outputStreamPPKc(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -3432,7 +3432,7 @@ declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) loc
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os28stack_shadow_pages_availableEP6ThreadRK12methodHandlePh(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN2os28stack_shadow_pages_availableEP6ThreadRK12methodHandlePh(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readnone %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8

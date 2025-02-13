@@ -141,7 +141,7 @@ define internal void @clf_destructor(ptr noundef captures(none) initializes((40,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_component_repository_add(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define noundef i32 @mca_base_component_repository_add(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %28, label %4

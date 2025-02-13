@@ -5565,7 +5565,7 @@ entry:
 declare void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_116WriteToErrorFileEPKc(ptr noundef captures(address_is_null) %msg) #3 {
+define internal void @_ZN12_GLOBAL__N_116WriteToErrorFileEPKc(ptr noundef %msg) #3 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %do.body9, label %do.body

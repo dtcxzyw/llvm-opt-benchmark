@@ -5803,7 +5803,7 @@ dlmemalign.exit:                                  ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dlindependent_calloc(i64 noundef %0, i64 noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #0 {
+define hidden ptr @dlindependent_calloc(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store i64 %1, ptr %4, align 8, !tbaa !36
@@ -5813,7 +5813,7 @@ define hidden ptr @dlindependent_calloc(i64 noundef %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ialloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 4) %3, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %4) unnamed_addr #0 {
+define internal fastcc ptr @ialloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 4) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = load i64, ptr @mparams, align 8, !tbaa !3
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %7, label %8
@@ -6055,19 +6055,19 @@ spin_acquire_lock.exit:                           ; preds = %66, %59, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dlindependent_comalloc(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #0 {
+define hidden ptr @dlindependent_comalloc(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @ialloc(ptr noundef nonnull @_gm_, i64 noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i64 @dlbulk_free(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noundef i64 @dlbulk_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   tail call fastcc void @internal_bulk_free(ptr noundef nonnull @_gm_, ptr noundef %0, i64 noundef %1)
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @internal_bulk_free(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @internal_bulk_free(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %5 = load i32, ptr %4, align 8, !tbaa !9
   %6 = and i32 %5, 2
@@ -6344,7 +6344,7 @@ change_mparam.exit:                               ; preds = %5, %7, %8, %12, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @dlmalloc_usable_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
+define hidden i64 @dlmalloc_usable_size(ptr noundef readonly %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -6934,7 +6934,7 @@ define hidden ptr @mspace_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mspace_independent_calloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #0 {
+define hidden ptr @mspace_independent_calloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store i64 %2, ptr %5, align 8, !tbaa !36
@@ -6944,13 +6944,13 @@ define hidden ptr @mspace_independent_calloc(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mspace_independent_comalloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #0 {
+define hidden ptr @mspace_independent_comalloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @ialloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i64 @mspace_bulk_free(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden noundef i64 @mspace_bulk_free(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @internal_bulk_free(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret i64 0
 }
@@ -7053,7 +7053,7 @@ define hidden i64 @mspace_set_footprint_limit(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mspace_usable_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
+define hidden i64 @mspace_usable_size(ptr noundef readonly %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

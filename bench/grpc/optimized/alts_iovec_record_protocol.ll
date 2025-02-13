@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef readonly captures(address_is_null) %rp) local_unnamed_addr #1 {
+define noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef readonly %rp) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %rp, null
   br i1 %cmp.not, label %return, label %if.then
@@ -51,7 +51,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef readonly captures(address_is_null) %rp, i64 noundef %max_protected_frame_size) local_unnamed_addr #1 {
+define noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef readonly %rp, i64 noundef %max_protected_frame_size) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %rp, null
   br i1 %cmp, label %return, label %if.end
@@ -69,7 +69,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr writeonly captures(address_is_null) %header.coerce0, i64 %header.coerce1, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %tag, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr writeonly %header.coerce0, i64 %header.coerce1, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %tag, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %bytes_written = alloca i64, align 8
   %cmp = icmp eq ptr %rp, null
@@ -254,7 +254,7 @@ return:                                           ; preds = %if.then.i22.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) unnamed_addr #2 {
+define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #2 {
 entry:
   %cmp = icmp ne ptr %dst, null
   %cmp1 = icmp ne ptr %src, null
@@ -318,7 +318,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %rp, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr readonly captures(address_is_null) %header.coerce0, i64 %header.coerce1, ptr noundef byval(%struct.iovec) align 8 %tag, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %rp, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr readonly %header.coerce0, i64 %header.coerce1, ptr noundef byval(%struct.iovec) align 8 %tag, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %bytes_written = alloca i64, align 8
   %agg.tmp18 = alloca %struct.iovec, align 8
@@ -511,7 +511,7 @@ return:                                           ; preds = %if.then.i14.i49, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %data_length, ptr noundef readonly captures(address_is_null) %header, ptr noundef writeonly captures(address_is_null) %error_details) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %data_length, ptr noundef readonly %header, ptr noundef writeonly %error_details) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %header, null
   br i1 %cmp, label %if.then, label %if.end
@@ -570,7 +570,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %appendix, ptr noundef captures(address_is_null) %dst) unnamed_addr #6 {
+define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly %appendix, ptr noundef %dst) unnamed_addr #6 {
 entry:
   %cmp = icmp ne ptr %dst, null
   %cmp1 = icmp ne ptr %appendix, null
@@ -598,7 +598,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly captures(address_is_null) %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr %protected_frame.coerce0, i64 %protected_frame.coerce1, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr %protected_frame.coerce0, i64 %protected_frame.coerce1, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %bytes_written = alloca i64, align 8
   %agg.tmp = alloca %struct.iovec, align 8
@@ -759,7 +759,7 @@ return:                                           ; preds = %if.then.i55, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly captures(address_is_null) %rp, ptr captures(address_is_null) %header.coerce0, i64 %header.coerce1, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %unprotected_data, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly %rp, ptr %header.coerce0, i64 %header.coerce1, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %unprotected_data, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %bytes_written = alloca i64, align 8
   %cmp = icmp eq ptr %rp, null
@@ -920,7 +920,7 @@ return:                                           ; preds = %if.then.i63, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, ptr noundef writeonly captures(address_is_null) %rp, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, ptr noundef writeonly %rp, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %counter_length = alloca i64, align 8
   %frombool1 = zext i1 %is_integrity_only to i8

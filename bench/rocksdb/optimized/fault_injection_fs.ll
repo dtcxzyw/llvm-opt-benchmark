@@ -4512,7 +4512,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20FaultInjectionTestFS29InjectThreadSpecificReadErrorENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(none) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(371) %this, i8 noundef signext %op, ptr noundef captures(none) %result, i1 noundef zeroext %direct_io, ptr noundef readnone captures(address) %scratch, i1 noundef zeroext %need_count_increase, ptr noundef writeonly captures(address_is_null) %fault_injected) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20FaultInjectionTestFS29InjectThreadSpecificReadErrorENS0_14ErrorOperationEPNS_5SliceEbPcbPb(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(none) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(371) %this, i8 noundef signext %op, ptr noundef captures(none) %result, i1 noundef zeroext %direct_io, ptr noundef readnone %scratch, i1 noundef zeroext %need_count_increase, ptr noundef writeonly %fault_injected) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %fault_injected, null
   br i1 %tobool.not, label %entry.cont, label %entry.else
@@ -4801,7 +4801,7 @@ return:                                           ; preds = %if.end84, %if.then8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22TestFSRandomAccessFile9ReadAsyncERNS_13FSReadRequestERKNS_9IOOptionsESt8functionIFvRKS1_PvEES9_PS9_PS6_IFvS9_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(96) %req, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %cb, ptr noundef %cb_arg, ptr noundef %io_handle, ptr noundef %del_fn, ptr readnone captures(none) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22TestFSRandomAccessFile9ReadAsyncERNS_13FSReadRequestERKNS_9IOOptionsESt8functionIFvRKS1_PvEES9_PS9_PS6_IFvS9_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(96) %req, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %cb, ptr noundef %cb_arg, ptr noundef %io_handle, ptr noundef %del_fn, ptr readnone captures(none) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %ref.tmp.i121 = alloca %"class.std::unique_ptr", align 8
   %__args.addr.i.i.i = alloca ptr, align 8
@@ -5726,7 +5726,7 @@ return:                                           ; preds = %_ZN7rocksdb20FaultI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20TestFSSequentialFile4ReadEmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20TestFSSequentialFile4ReadEmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %s = alloca %"class.rocksdb::IOStatus", align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5867,7 +5867,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit10:                  ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20TestFSSequentialFile14PositionedReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20TestFSSequentialFile14PositionedReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %s = alloca %"class.rocksdb::IOStatus", align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6008,7 +6008,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit10:                  ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20FaultInjectionTestFS12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(371) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20FaultInjectionTestFS12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(371) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %"class.std::unique_ptr.38", align 8
   %io_s = alloca %"class.rocksdb::IOStatus", align 8

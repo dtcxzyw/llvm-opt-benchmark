@@ -353,7 +353,7 @@ define range(i32 0, 2) i32 @check_flevel() local_unnamed_addr #1 {
 declare i32 @cl_retflevel() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @filelist(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define ptr @filelist(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @filelist.cnt, align 4, !tbaa !21
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %32

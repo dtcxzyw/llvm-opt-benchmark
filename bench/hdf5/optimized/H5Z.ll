@@ -585,7 +585,7 @@ define range(i32 0, 2) i32 @H5Z_term_package() local_unnamed_addr #0 {
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Zregister(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Zregister(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.H5Z_class2_t, align 8
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
@@ -2277,7 +2277,7 @@ H5Z__find_idx.exit.thread:                        ; preds = %8, %1, %H5Z__find_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Z_pipeline(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr readonly captures(address_is_null) %4, ptr %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Z_pipeline(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr readonly %4, ptr %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %union.H5PL_key_t, align 8
   %.not = icmp eq ptr %0, null
   %11 = and i32 %1, 256
@@ -2929,7 +2929,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Zget_filter_info(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Zget_filter_info(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1
@@ -3036,7 +3036,7 @@ H5Z__find_idx.exit.i.i:                           ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Z_get_filter_info(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Z_get_filter_info(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @H5Z_table_used_g, align 8
   %.not.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i

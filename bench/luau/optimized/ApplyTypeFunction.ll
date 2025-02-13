@@ -1322,7 +1322,7 @@ _ZNKSt13unordered_mapIPKN4Luau11TypePackVarES3_St4hashIS3_ESt8equal_toIS3_ESaISt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau17ApplyTypeFunction14ignoreChildrenEPKNS_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau17ApplyTypeFunction14ignoreChildrenEPKNS_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1) unnamed_addr #3 align 2 {
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit, label %3
 
@@ -1338,7 +1338,7 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau17ApplyTypeFunction14ignoreChildrenEPKNS_11TypePackVarE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau17ApplyTypeFunction14ignoreChildrenEPKNS_11TypePackVarE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1) unnamed_addr #3 align 2 {
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit, label %3
 

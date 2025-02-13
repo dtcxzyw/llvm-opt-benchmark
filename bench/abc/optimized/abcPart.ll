@@ -468,7 +468,7 @@ Vec_PtrFillExtra.exit:                            ; preds = %3, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Supp_ManMergeEntry(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @Supp_ManMergeEntry(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4585,7 +4585,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_NtkPartStitchFindRepr_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #9 {
+define ptr @Abc_NtkPartStitchFindRepr_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !15
   br label %tailrecurse

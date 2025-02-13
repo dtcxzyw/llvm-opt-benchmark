@@ -1604,7 +1604,7 @@ declare i32 @git_color_config(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @git_default_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ignore_removal_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @ignore_removal_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 

@@ -1082,7 +1082,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit8:                   ; preds = %131, %134
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx11PullElement8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx11PullElement8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -1123,7 +1123,7 @@ define void @_ZThn8_N3gmx11PullElement22restoreCheckpointStateESt8optionalINS_14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn8_N3gmx11PullElement8clientIDB5cxx11Ev(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZThn8_N3gmx11PullElement8clientIDB5cxx11Ev(ptr noundef readnone %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

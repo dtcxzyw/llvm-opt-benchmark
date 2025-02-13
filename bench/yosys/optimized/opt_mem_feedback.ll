@@ -26898,7 +26898,7 @@ _ZNSt15__new_allocatorIN12_GLOBAL__N_112FeedbackPathEE7destroyIS1_EEvPT_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_112FeedbackPathEEvT_S3_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_112FeedbackPathEEvT_S3_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_112FeedbackPathEEEvT_S5_.exit, label %.lr.ph.i
 

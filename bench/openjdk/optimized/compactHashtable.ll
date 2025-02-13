@@ -1441,7 +1441,7 @@ define linkonce_odr hidden void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483648, 2147483600) i32 @_ZN17HashtableTextDump8unescapeEPKcS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483600) i32 @_ZN17HashtableTextDump8unescapeEPKcS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [100 x i8], align 16
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
@@ -1758,7 +1758,7 @@ _ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %103, %105, %.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = icmp sgt i32 %2, 0

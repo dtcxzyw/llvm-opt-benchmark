@@ -1628,7 +1628,7 @@ define range(i32 -1, 1) i32 @H5Aread(i64 noundef %0, i64 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5A__read_api_common(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5A__read_api_common(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %6 = tail call i32 @H5I_get_type(i64 noundef %1) #4
   %.not16 = icmp eq i32 %6, 3

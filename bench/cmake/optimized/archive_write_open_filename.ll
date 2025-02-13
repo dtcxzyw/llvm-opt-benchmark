@@ -308,7 +308,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @file_write(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @file_close(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal range(i32 -30, 1) i32 @file_close(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 

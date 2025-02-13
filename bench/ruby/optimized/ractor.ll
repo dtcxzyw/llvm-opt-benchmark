@@ -1054,7 +1054,7 @@ RARRAY_AREF.exit:                                 ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @ractor_send(ptr readonly captures(address_is_null) %.48.val, ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @ractor_send(ptr readonly %.48.val, ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %.not.i = icmp eq ptr %.48.val, null
@@ -2903,7 +2903,7 @@ rb_obj_write.exit:                                ; preds = %19, %rb_current_rac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden nonnull ptr @rb_ractor_hooks(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #9 {
+define hidden nonnull ptr @rb_ractor_hooks(ptr noundef readnone %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -7410,7 +7410,7 @@ define internal noundef i32 @ractor_selector_release_i(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %4) #20

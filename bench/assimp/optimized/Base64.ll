@@ -66,7 +66,7 @@ $_ZTV17DeadlyImportError = comdat any
 @.str.3 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp6Base646EncodeEPKhmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(address_is_null) %in, i64 noundef %inLength, ptr noundef nonnull align 8 dereferenceable(32) %out) local_unnamed_addr #0 {
+define void @_ZN6Assimp6Base646EncodeEPKhmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %in, i64 noundef %inLength, ptr noundef nonnull align 8 dereferenceable(32) %out) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
   %cmp1 = icmp eq i64 %inLength, 0

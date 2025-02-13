@@ -231,7 +231,7 @@ if.end:                                           ; preds = %for.end.i, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(9) ptr @_ZN4base18StatisticsRecorder17HistogramIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(9) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(9) ptr @_ZN4base18StatisticsRecorder17HistogramIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(9) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN4base18StatisticsRecorder11histograms_E, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8

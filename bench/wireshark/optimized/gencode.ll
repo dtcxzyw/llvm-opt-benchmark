@@ -1420,7 +1420,7 @@ gen_arithmetic.exit:                              ; preds = %292, %297
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fixup_jumps(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal void @fixup_jumps(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1) #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 

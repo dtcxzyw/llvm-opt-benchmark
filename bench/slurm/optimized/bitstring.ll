@@ -1317,7 +1317,7 @@ define void @bit_rotate(ptr noundef captures(none) %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bit_fmt(ptr noundef returned captures(ret: address, provenance) initializes((0, 1)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   store i8 0, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %invariant.gep43 = getelementptr i8, ptr %2, i64 16
@@ -1688,7 +1688,7 @@ define ptr @bit_fmt_hexmask_trim(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1898,7 +1898,7 @@ define ptr @bit_fmt_binmask(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define void @bit_unfmt_binmask(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) #5 {
+define void @bit_unfmt_binmask(ptr noundef captures(none) %0, ptr noundef readonly %1) #5 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
@@ -3258,7 +3258,7 @@ declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define ptr @inx2bitfmt(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @inx2bitfmt(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -3295,7 +3295,7 @@ define ptr @inx2bitfmt(ptr noundef readonly captures(address_is_null) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 

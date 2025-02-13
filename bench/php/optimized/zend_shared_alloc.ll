@@ -1219,7 +1219,7 @@ define hidden void @zend_accel_shared_protect(i1 noundef zeroext %0) local_unnam
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @zend_accel_in_shm(ptr noundef readnone captures(address) %0) local_unnamed_addr #17 {
+define hidden noundef zeroext i1 @zend_accel_in_shm(ptr noundef readnone %0) local_unnamed_addr #17 {
   %2 = load ptr, ptr @smm_shared_globals, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader

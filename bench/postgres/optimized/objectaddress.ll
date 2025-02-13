@@ -1667,7 +1667,7 @@ declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i3
 declare void @LockDatabaseObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %7
 
@@ -7808,7 +7808,7 @@ define dso_local ptr @getObjectIdentityParts(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strlist_to_textarray(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @strlist_to_textarray(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [1 x i32], align 4
   store i32 0, ptr %2, align 4
@@ -7887,7 +7887,7 @@ declare ptr @construct_empty_array(i32 noundef) local_unnamed_addr #1
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getRelationIdentity(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @getRelationIdentity(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #9
   %.not = icmp eq ptr %6, null
@@ -7958,7 +7958,7 @@ declare void @format_operator_parts(i32 noundef, ptr noundef, ptr noundef, i1 no
 declare ptr @list_make3_impl(i32 noundef, ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getOpFamilyIdentity(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @getOpFamilyIdentity(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %5) #9
   %.not = icmp eq ptr %6, null

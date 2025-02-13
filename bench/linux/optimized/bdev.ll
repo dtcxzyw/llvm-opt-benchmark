@@ -92,7 +92,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_bdev_mark_de
 @llvm.compiler.used = appending global [19 x ptr] [ptr @__UNIQUE_ID___addressable_I_BDEV459, ptr @__UNIQUE_ID___addressable_bd_abort_claiming477, ptr @__UNIQUE_ID___addressable_bd_prepare_to_claim474, ptr @__UNIQUE_ID___addressable_bdev_freeze467, ptr @__UNIQUE_ID___addressable_bdev_mark_dead492, ptr @__UNIQUE_ID___addressable_bdev_open_by_dev488, ptr @__UNIQUE_ID___addressable_bdev_open_by_path489, ptr @__UNIQUE_ID___addressable_bdev_release490, ptr @__UNIQUE_ID___addressable_bdev_thaw468, ptr @__UNIQUE_ID___addressable_blockdev_superblock469, ptr @__UNIQUE_ID___addressable_invalidate_bdev460, ptr @__UNIQUE_ID___addressable_lookup_bdev491, ptr @__UNIQUE_ID___addressable_sb_min_blocksize463, ptr @__UNIQUE_ID___addressable_sb_set_blocksize462, ptr @__UNIQUE_ID___addressable_set_blocksize461, ptr @__UNIQUE_ID___addressable_sync_blockdev465, ptr @__UNIQUE_ID___addressable_sync_blockdev_nowait464, ptr @__UNIQUE_ID___addressable_sync_blockdev_range466, ptr @__setup_setup_bdev_allow_write_mounted], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef ptr @I_BDEV(ptr noundef readnone captures(ret: address, provenance) %0) #0 align 16 {
+define dso_local noundef ptr @I_BDEV(ptr noundef readnone %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -928
   ret ptr %2
 }
@@ -134,7 +134,7 @@ declare dso_local i64 @invalidate_mapping_pages(ptr noundef, i64 noundef, i64 no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @truncate_bdev_range(ptr noundef captures(address) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local i32 @truncate_bdev_range(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = and i32 %1, 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %24
@@ -191,7 +191,7 @@ define dso_local i32 @truncate_bdev_range(ptr noundef captures(address) %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @bd_prepare_to_claim(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bd_prepare_to_claim(ptr noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) #1 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = icmp eq ptr %1, null
@@ -292,7 +292,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bd_prepare_to_claim(ptr noundef 
 declare dso_local void @truncate_inode_pages_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bd_abort_claiming(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #1 align 16 {
+define dso_local void @bd_abort_claiming(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @bdev_lock) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -319,7 +319,7 @@ define dso_local void @bd_abort_claiming(ptr noundef readonly captures(none) %0,
 declare dso_local i32 @invalidate_inode_pages2_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @set_blocksize(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @set_blocksize(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = add i32 %1, -512
   %4 = icmp ult i32 %3, 3585
   %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !17
@@ -412,7 +412,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_blocksize(ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sync_blockdev(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local i32 @sync_blockdev(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -515,7 +515,7 @@ define dso_local noundef i32 @sb_min_blocksize(ptr noundef captures(none) %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sync_blockdev_nowait(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local i32 @sync_blockdev_nowait(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -880,7 +880,7 @@ define dso_local i64 @nr_blockdev_pages() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @bd_may_claim(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) #1 align 16 {
+define internal noundef zeroext i1 @bd_may_claim(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64

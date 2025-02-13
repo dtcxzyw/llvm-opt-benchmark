@@ -807,7 +807,7 @@ define dso_local range(i32 0, 812974081) i32 @nlmsvc_lock(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @nlmsvc_lookup_block(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @nlmsvc_lookup_block(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @nlm_blocked_lock) #9
   %3 = load ptr, ptr @nlm_blocked, align 8
   %4 = icmp eq ptr %3, @nlm_blocked

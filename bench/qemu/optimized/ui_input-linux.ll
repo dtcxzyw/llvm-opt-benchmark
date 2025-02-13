@@ -944,7 +944,7 @@ for.end:                                          ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @input_linux_toggle_grab(ptr noundef captures(address) %il) unnamed_addr #0 {
+define internal fastcc void @input_linux_toggle_grab(ptr noundef %il) unnamed_addr #0 {
 entry:
   %grab_active = getelementptr inbounds nuw i8, ptr %il, i64 54
   %0 = load i8, ptr %grab_active, align 2

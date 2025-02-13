@@ -2803,7 +2803,7 @@ define dso_local noundef zeroext i1 @nfs4_refresh_delegation_stateid(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #12
   %5 = getelementptr i8, ptr %0, i64 -72
   %6 = load volatile ptr, ptr %5, align 8

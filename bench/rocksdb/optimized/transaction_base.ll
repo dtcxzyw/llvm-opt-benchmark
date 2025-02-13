@@ -286,7 +286,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11Transaction26CommitAndTryCreateSnapshotESt10shared_ptrINS_19TransactionNotifierEEmPS1_IKNS_8SnapshotEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef readonly captures(none) %notifier, i64 noundef %ts, ptr noundef captures(address_is_null) %snapshot) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11Transaction26CommitAndTryCreateSnapshotESt10shared_ptrINS_19TransactionNotifierEEmPS1_IKNS_8SnapshotEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef readonly captures(none) %notifier, i64 noundef %ts, ptr noundef %snapshot) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp5 = alloca %"class.rocksdb::Slice", align 8
@@ -6632,7 +6632,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %entry, %_ZNKSt14def
 declare void @_ZN7rocksdb19WriteBatchWithIndex10PutLogDataERKNS_5SliceE(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN7rocksdb19TransactionBaseImpl13GetWriteBatchEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb19TransactionBaseImpl13GetWriteBatchEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) unnamed_addr #12 align 2 {
 entry:
   %write_batch_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %write_batch_
@@ -6913,7 +6913,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN7rocksdb19TransactionBaseImpl23GetCommitTimeWriteBatchEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %this) unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb19TransactionBaseImpl23GetCommitTimeWriteBatchEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %this) unnamed_addr #12 align 2 {
 entry:
   %commit_time_batch_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   ret ptr %commit_time_batch_

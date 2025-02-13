@@ -650,7 +650,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Map13dispatchEventERK12MapEditEvent(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(41) %event) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3Map13dispatchEventERK12MapEditEvent(ptr noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(41) %event) local_unnamed_addr #3 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !29
@@ -1210,7 +1210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, i48 %p.coerce, ptr noundef writeonly captures(address_is_null) %is_valid_position) local_unnamed_addr #3 align 2 {
+define dso_local i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, i48 %p.coerce, ptr noundef writeonly %is_valid_position) local_unnamed_addr #3 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i48 %p.coerce to i16
   %p.sroa.2.0.extract.shift = lshr i48 %p.coerce, 16
@@ -3229,7 +3229,7 @@ _ZN12MapEditEventD2Ev.exit33:                     ; preds = %if.then.i.i.i.i32, 
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN3Map11timerUpdateEffiPSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, float noundef %dtime, float noundef %unload_timeout, i32 noundef %max_loaded_blocks, ptr noundef captures(address_is_null) %unloaded_blocks) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3Map11timerUpdateEffiPSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, float noundef %dtime, float noundef %unload_timeout, i32 noundef %max_loaded_blocks, ptr noundef %unloaded_blocks) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ts.i570 = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8
@@ -5314,7 +5314,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Map24unloadUnreferencedBlocksEPSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef captures(address_is_null) %unloaded_blocks) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3Map24unloadUnreferencedBlocksEPSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %unloaded_blocks) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3Map11timerUpdateEffiPSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, float noundef 0.000000e+00, float noundef -1.000000e+00, i32 noundef 0, ptr noundef %unloaded_blocks)
   ret void

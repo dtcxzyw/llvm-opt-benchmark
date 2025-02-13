@@ -965,7 +965,7 @@ define internal ptr @ellipsis_repr(ptr readnone captures(none) %0) #0 {
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ellipsis_new(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal noundef ptr @ellipsis_new(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8, !tbaa !4
   %.not = icmp eq i64 %.val, 0
@@ -2292,7 +2292,7 @@ define internal i32 @slice_traverse(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @slice_richcompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #0 {
+define internal ptr @slice_richcompare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !110
   %.not = icmp eq ptr %.val, @PySlice_Type

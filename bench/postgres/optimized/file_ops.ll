@@ -490,7 +490,7 @@ define dso_local void @sync_target_dir() local_unnamed_addr #0 {
 declare void @sync_pgdata(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @slurpFile(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @slurpFile(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca [1024 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %1) #11

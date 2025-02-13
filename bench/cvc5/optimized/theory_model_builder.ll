@@ -2838,7 +2838,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal6theory11TheoryModel7isValueENS0_1
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq15EqClassIteratorppEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16isAssignerActiveEPNS1_11TheoryModelERNS2_8AssignerE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %this, ptr noundef %tm, ptr noundef nonnull align 8 captures(none) dereferenceable(33) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16isAssignerActiveEPNS1_11TheoryModelERNS2_8AssignerE(ptr noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef %tm, ptr noundef nonnull align 8 captures(none) dereferenceable(33) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %er = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.274", align 8
@@ -3762,7 +3762,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad
 declare void @_ZN4cvc58internal6theory6RepSet24setTermForRepresentativeENS0_12NodeTemplateILb1EEES4_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder18isExcludedCdtValueENS0_12NodeTemplateILb1EEEPSt3setIS4_St4lessIS4_ESaIS4_EERSt3mapIS4_S4_S7_SaISt4pairIKS4_S4_EEES4_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %val, ptr noundef readonly captures(address) %repSet, ptr noundef nonnull align 8 dereferenceable(48) %assertedReps, ptr readonly captures(none) %eqc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder18isExcludedCdtValueENS0_12NodeTemplateILb1EEEPSt3setIS4_St4lessIS4_ESaIS4_EERSt3mapIS4_S4_S7_SaISt4pairIKS4_S4_EEES4_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %val, ptr noundef readonly %repSet, ptr noundef nonnull align 8 dereferenceable(48) %assertedReps, ptr readonly captures(none) %eqc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %ref.tmp9.i = alloca %"class.std::tuple.790", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.780", align 1

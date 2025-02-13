@@ -379,7 +379,7 @@ arj_read_main_header.exit:                        ; preds = %135, %136
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 27) i32 @cli_unarj_prepare_file(ptr noundef readnone captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_unarj_prepare_file(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
   %4 = alloca %struct.arj_file_hdr_tag, align 1
   %5 = alloca %struct.text_norm_state, align 8
@@ -766,7 +766,7 @@ arj_read_file_header.exit:                        ; preds = %is_arj_archive.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.arj_decode_tag, align 8
   %4 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #12

@@ -679,7 +679,7 @@ define dso_local noundef ptr @_ZNK5clang7CodeGen17TargetCodeGenInfo14getNullPoin
 declare noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK5clang7CodeGen17TargetCodeGenInfo24getGlobalVarAddressSpaceERNS0_13CodeGenModuleEPKNS_7VarDeclE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK5clang7CodeGen17TargetCodeGenInfo24getGlobalVarAddressSpaceERNS0_13CodeGenModuleEPKNS_7VarDeclE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readonly %2) unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZNK5clang8QualType15getAddressSpaceEv.exit, label %4
 

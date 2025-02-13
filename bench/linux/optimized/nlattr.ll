@@ -284,7 +284,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__nla_validate(ptr noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef range(i32 0, 11) %7) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef range(i32 0, 11) %7) unnamed_addr #0 align 16 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -1538,13 +1538,13 @@ define dso_local i32 @nla_policy_len(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @__nla_parse(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__nla_parse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #0 align 16 {
   %8 = tail call fastcc i32 @__nla_validate_parse(ptr noundef %2, i32 noundef %3, i32 noundef %1, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %0, i32 noundef 0)
   ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @nla_find(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   %4 = icmp sgt i32 %1, 3
   br i1 %4, label %.lr.ph, label %.critedge
 

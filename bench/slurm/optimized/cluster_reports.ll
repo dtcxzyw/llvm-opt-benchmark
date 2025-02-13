@@ -603,7 +603,7 @@ declare void @destroy_print_field(ptr noundef) #1
 declare void @slurmdb_init_cluster_cond(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_assoc_cond(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_assoc_cond(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4
@@ -2263,7 +2263,7 @@ _cluster_user_by_wckey_tres_report.exit:          ; preds = %176, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4

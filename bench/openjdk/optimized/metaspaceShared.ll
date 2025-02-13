@@ -3094,7 +3094,7 @@ define hidden void @_ZN15MetaspaceShared26set_shared_metaspace_rangeEPvS0_S0_(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN15MetaspaceShared17is_shared_dynamicEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN15MetaspaceShared17is_shared_dynamicEPv(ptr noundef readnone %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
   %3 = icmp ult ptr %0, %2
   %4 = load ptr, ptr @_ZN15MetaspaceShared28_shared_metaspace_static_topE, align 8
@@ -3104,7 +3104,7 @@ define hidden noundef zeroext i1 @_ZN15MetaspaceShared17is_shared_dynamicEPv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN15MetaspaceShared16is_shared_staticEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN15MetaspaceShared16is_shared_staticEPv(ptr noundef readnone %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
   %3 = icmp ult ptr %0, %2
   %4 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8

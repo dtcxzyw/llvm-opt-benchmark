@@ -550,7 +550,7 @@ declare void @aom_vertical_band_2_1_scale_c(ptr noundef, i32 noundef, ptr nounde
 declare void @aom_vertical_band_2_1_scale_i_c(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @scale1d_2t1_ps(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly captures(address) %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
+define internal void @scale1d_2t1_ps(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
@@ -578,7 +578,7 @@ define internal void @scale1d_2t1_ps(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @scale1d_2t1_i(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly captures(address) initializes((0, 1)) %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
+define internal void @scale1d_2t1_i(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly initializes((0, 1)) %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10

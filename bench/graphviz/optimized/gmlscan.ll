@@ -2147,7 +2147,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gml_init_buffer(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @gml_init_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call ptr @__errno_location() #32
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
@@ -2347,7 +2347,7 @@ define dso_local noalias noundef ptr @gmlalloc(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @gml_delete_buffer(ptr noundef captures(address) %0) local_unnamed_addr #6 {
+define dso_local void @gml_delete_buffer(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -2394,7 +2394,7 @@ define dso_local void @gmlfree(ptr noundef captures(none) %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @gml_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #8 {
+define dso_local void @gml_flush_buffer(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

@@ -17,7 +17,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zipmapSet(ptr noundef %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen, ptr noundef readonly captures(none) %val, i32 noundef %vlen, ptr noundef writeonly captures(address_is_null) %update) local_unnamed_addr #0 {
+define dso_local ptr @zipmapSet(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr noundef readonly captures(none) %val, i32 noundef %vlen, ptr noundef writeonly %update) local_unnamed_addr #0 {
 entry:
   %add.i = add i32 %vlen, %klen
   %cmp.i = icmp ugt i32 %klen, 253
@@ -370,7 +370,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zipmapDel(ptr noundef %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen, ptr noundef writeonly captures(address_is_null) %deleted) local_unnamed_addr #0 {
+define dso_local noundef ptr @zipmapDel(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
 entry:
   %cmp3.not.i = icmp eq ptr %key, null
   br i1 %cmp3.not.i, label %if.else, label %entry.split.i
@@ -548,14 +548,14 @@ if.end16:                                         ; preds = %if.end16.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @zipmapRewind(ptr noundef readnone captures(ret: address, provenance) %zm) local_unnamed_addr #3 {
+define dso_local nonnull ptr @zipmapRewind(ptr noundef readnone %zm) local_unnamed_addr #3 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 1
   ret ptr %add.ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @zipmapNext(ptr noundef %zm, ptr noundef captures(address_is_null) %key, ptr noundef writeonly captures(none) %klen, ptr noundef captures(address_is_null) %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #4 {
+define dso_local ptr @zipmapNext(ptr noundef %zm, ptr noundef %key, ptr noundef writeonly captures(none) %klen, ptr noundef %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %zm, align 1
   %cmp = icmp eq i8 %0, -1
@@ -675,7 +675,7 @@ return:                                           ; preds = %entry, %zipmapRawVa
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #5 {
 entry:
   %cmp3.not.i = icmp eq ptr %key, null
   br i1 %cmp3.not.i, label %return, label %entry.split.i
@@ -795,7 +795,7 @@ return:                                           ; preds = %while.cond.us40.i, 
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures(none) %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures(none) %zm, ptr noundef readonly %key, i32 noundef %klen) local_unnamed_addr #6 {
 entry:
   %cmp3.not.i = icmp eq ptr %key, null
   br i1 %cmp3.not.i, label %zipmapLookupRaw.exit, label %entry.split.i
@@ -1020,7 +1020,7 @@ zipmapLookupRaw.exit:                             ; preds = %while.cond.us.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapValidateIntegrity(ptr noundef readonly captures(address) %zm, i64 noundef %size, i32 noundef %deep) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @zipmapValidateIntegrity(ptr noundef readonly %zm, i64 noundef %size, i32 noundef %deep) local_unnamed_addr #8 {
 entry:
   %cmp = icmp ult i64 %size, 2
   br i1 %cmp, label %return, label %if.end

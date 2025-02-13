@@ -55,7 +55,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @throttle_reopen_prepare(ptr noundef captures(address_is_null) %reopen_state, ptr readnone captures(none) %queue, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @throttle_reopen_prepare(ptr noundef %reopen_state, ptr readnone captures(none) %queue, ptr noundef %errp) #0 {
 entry:
   %group = alloca ptr, align 8
   store ptr null, ptr %group, align 8

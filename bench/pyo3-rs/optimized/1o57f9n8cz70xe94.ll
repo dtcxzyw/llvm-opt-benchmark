@@ -2037,7 +2037,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$6map_or17ha2586f2b799797f0E"(ptr s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h07277c113b0a5708E"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h07277c113b0a5708E"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2051,7 +2051,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h07277c113b0a5708
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h191fea600e9eb976E"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h191fea600e9eb976E"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2065,7 +2065,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h191fea600e9eb976
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1fcd589f848a000cE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1fcd589f848a000cE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2079,7 +2079,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1fcd589f848a000c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h238eb433cf303aa6E"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h238eb433cf303aa6E"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2093,7 +2093,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h238eb433cf303aa6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2aefed16860adcacE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2aefed16860adcacE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2125,7 +2125,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$7or_else17h2d9ceef4ab74c69dE"(ptr 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h37b71f206b2c29e3E"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h37b71f206b2c29e3E"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2139,7 +2139,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h37b71f206b2c29e3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h45a800ffbd362faaE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h45a800ffbd362faaE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2153,7 +2153,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h45a800ffbd362faa
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h46c818cf24fab3eaE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h46c818cf24fab3eaE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2167,7 +2167,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h46c818cf24fab3ea
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h511b1e78f8b22021E"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h511b1e78f8b22021E"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2218,7 +2218,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$7or_else17h5456579a737a6992E"(ptr 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5c426a10ab22c22fE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5c426a10ab22c22fE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2232,7 +2232,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5c426a10ab22c22f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h751fdf1f1830751dE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h751fdf1f1830751dE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2246,7 +2246,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h751fdf1f1830751d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7df7a658cb152d47E"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7df7a658cb152d47E"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2260,7 +2260,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7df7a658cb152d47
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h873953163f4b1a7dE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h873953163f4b1a7dE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2311,7 +2311,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$7or_else17h8825252e7869bec6E"(ptr 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h97c9e04223d20f1eE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h97c9e04223d20f1eE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2325,7 +2325,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h97c9e04223d20f1e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha5e73bc14a484a4dE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha5e73bc14a484a4dE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2357,7 +2357,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$7or_else17had34cc256dd6d85dE"(ptr 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc28dbfb245c5983cE"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc28dbfb245c5983cE"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2371,7 +2371,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc28dbfb245c5983c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17heec4049cdb113a79E"(ptr readnone align 8 captures(address_is_null, ret: address, provenance) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17heec4049cdb113a79E"(ptr readnone align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 

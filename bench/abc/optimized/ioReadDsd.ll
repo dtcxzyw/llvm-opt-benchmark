@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.4 = private unnamed_addr constant [48 x i8] c"Cannot find the end of hexadecimal truth table.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef ptr @Io_ReadDsdFindEnd(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @Io_ReadDsdFindEnd(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %10, %1

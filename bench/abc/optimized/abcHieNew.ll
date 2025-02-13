@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.5 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @Au_NtkAlloc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @Au_NtkAlloc(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 1, i64 noundef 256) #28
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %Vec_PtrGrow.exit, label %4
@@ -635,7 +635,7 @@ define i32 @Au_NtkNodeNumFunc(ptr noundef readonly captures(none) %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @Au_ManAlloc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define noalias noundef ptr @Au_ManAlloc(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #28
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Vec_PtrPush.exit, label %3
@@ -978,7 +978,7 @@ Au_ManMemUsage.exit45:                            ; preds = %Au_ManMemUsage.exit
 declare i32 @Abc_NamObjNumMax(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Au_ManReorderModels_rec(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define void @Au_ManReorderModels_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8, !tbaa !54
   %.not = icmp eq i32 %4, 0
@@ -1121,7 +1121,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Au_ManReorderModels(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #3 {
+define void @Au_ManReorderModels(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 12
   %.val102 = load i32, ptr %3, align 4, !tbaa !17
   %4 = icmp sgt i32 %.val102, 1
@@ -7803,7 +7803,7 @@ declare ptr @Abc_NtkCollectHie(ptr noundef) local_unnamed_addr #10
 declare ptr @Abc_NtkDfsBoxes(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkHieCecTest2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
+define ptr @Abc_NtkHieCecTest2(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

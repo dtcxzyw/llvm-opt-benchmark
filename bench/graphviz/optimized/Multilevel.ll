@@ -20,7 +20,7 @@ define void @Multilevel_control_new(ptr dead_on_unwind noalias writable writeonl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Multilevel_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @Multilevel_delete(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret12, label %2
 
@@ -637,7 +637,7 @@ declare zeroext i1 @SparseMatrix_is_symmetric(ptr noundef, i1 noundef zeroext) l
 declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Multilevel_get_coarsest(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define ptr @Multilevel_get_coarsest(ptr noundef readonly %0) local_unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %2, %1

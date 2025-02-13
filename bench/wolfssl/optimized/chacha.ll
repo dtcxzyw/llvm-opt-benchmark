@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [56 x i8] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Chacha_SetIV(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef readonly captures(address_is_null) %inIv, i32 noundef %counter) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_Chacha_SetIV(ptr noundef writeonly %ctx, ptr noundef readonly %inIv, i32 noundef %counter) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %inIv, null
@@ -40,7 +40,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Chacha_SetKey(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef readonly captures(address_is_null) %key, i32 noundef %keySz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_Chacha_SetKey(ptr noundef writeonly %ctx, ptr noundef readonly %key, i32 noundef %keySz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %key, null
@@ -106,7 +106,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -173, 1) i32 @wc_Chacha_Process(ptr noundef captures(address_is_null) %ctx, ptr noundef %output, ptr noundef %input, i32 noundef %msglen) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Chacha_Process(ptr noundef %ctx, ptr noundef %output, ptr noundef %input, i32 noundef %msglen) local_unnamed_addr #2 {
 entry:
   %tmp.i = alloca %union.anon, align 8
   %cmp = icmp eq ptr %ctx, null
@@ -472,7 +472,7 @@ return:                                           ; preds = %entry, %wc_Chacha_e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @wc_Chacha_purge_current_block(ptr noundef captures(address_is_null) %ctx) local_unnamed_addr #2 {
+define void @wc_Chacha_purge_current_block(ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
   %scratch = alloca [64 x i8], align 16
   %left = getelementptr inbounds nuw i8, ptr %ctx, i64 64

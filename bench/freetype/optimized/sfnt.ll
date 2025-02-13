@@ -167,7 +167,7 @@ define internal range(i32 0, 256) i32 @tt_cmap0_char_next(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tt_cmap0_validate(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
+define internal noundef i32 @tt_cmap0_validate(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = load volatile ptr, ptr %4, align 8, !tbaa !19
@@ -528,7 +528,7 @@ tt_cmap2_get_subheader.exit.thread:               ; preds = %73, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
+define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = load volatile ptr, ptr %4, align 8, !tbaa !19
@@ -1402,7 +1402,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap6_char_next(ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tt_cmap6_validate(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
+define internal noundef i32 @tt_cmap6_validate(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = load volatile ptr, ptr %4, align 8, !tbaa !19
@@ -5283,7 +5283,7 @@ define internal i32 @tt_cmap_unicode_char_next(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tt_face_goto_table(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal i32 @tt_face_goto_table(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = getelementptr i8, ptr %0, i64 288
   %.val = load i16, ptr %5, align 8, !tbaa !146
   %6 = getelementptr i8, ptr %0, i64 296
@@ -8616,7 +8616,7 @@ tt_face_free_bdf_props.exit:                      ; preds = %25, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tt_face_load_any(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal i32 @tt_face_load_any(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %22, label %6
 
@@ -13098,7 +13098,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint_layers(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @tt_face_get_colorline_stops(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal zeroext range(i8 0, 2) i8 @tt_face_get_colorline_stops(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [2 x i32], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %6 = load ptr, ptr %5, align 8, !tbaa !300
@@ -20059,7 +20059,7 @@ declare i32 @FT_Bitmap_Done(ptr noundef, ptr noundef) local_unnamed_addr #10
 declare hidden void @ft_glyphslot_set_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 7) i32 @tt_sbit_decoder_load_metrics(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone captures(address) %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #18 {
+define internal fastcc range(i32 0, 7) i32 @tt_sbit_decoder_load_metrics(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #18 {
   %5 = load ptr, ptr %1, align 8, !tbaa !198
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !434
@@ -20327,7 +20327,7 @@ tt_sbit_decoder_load_metrics.exit.thread63:       ; preds = %25, %28, %94, %81, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4, i32 %5) unnamed_addr #6 {
+define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) unnamed_addr #6 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !433
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -20626,7 +20626,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_bit_aligned(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4, i32 %5) unnamed_addr #6 {
+define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_bit_aligned(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) unnamed_addr #6 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !433
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -20990,7 +20990,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_bit_aligned(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tt_sbit_decoder_load_compound(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal i32 @tt_sbit_decoder_load_compound(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !434
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -22362,7 +22362,7 @@ define internal ptr @tt_name_ascii_from_other(ptr noundef readonly captures(none
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sfnt_load_table(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal i32 @sfnt_load_table(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %22, label %6
 
@@ -22434,7 +22434,7 @@ tt_face_load_any.exit:                            ; preds = %16, %6, %30, %.crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @get_sfnt_table(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) #22 {
+define internal ptr @get_sfnt_table(ptr noundef readonly %0, i32 noundef %1) #22 {
   switch i32 %1, label %25 [
     i32 0, label %3
     i32 3, label %5
@@ -22489,7 +22489,7 @@ define internal ptr @get_sfnt_table(ptr noundef readonly captures(ret: address, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 143) i32 @sfnt_table_info(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) #4 {
+define internal range(i32 0, 143) i32 @sfnt_table_info(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #4 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne ptr %4, null
   %or.cond = and i1 %6, %7
@@ -24228,7 +24228,7 @@ define internal range(i32 0, 9) i32 @sfnt_get_charset_id(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @tt_face_find_bdf_prop(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
+define internal range(i32 0, 9) i32 @tt_face_find_bdf_prop(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8, !tbaa !643
@@ -24587,7 +24587,7 @@ define internal i32 @tt_get_cmap_info(ptr noundef %0, ptr noundef %1) #0 {
 declare hidden void @ft_validator_error(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr readonly captures(none) %.0.val, ptr readonly captures(address) %.24.val, ptr noundef captures(none) %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #16 {
+define internal fastcc range(i32 0, 65536) i32 @tt_cmap4_char_map_linear(ptr readonly captures(none) %.0.val, ptr readonly %.24.val, ptr noundef captures(none) %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 816
   %4 = load ptr, ptr %3, align 8, !tbaa !683
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 824

@@ -647,7 +647,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
+define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca [256 x i8], align 16
   %11 = alloca [768 x i8], align 16
@@ -1034,7 +1034,7 @@ create_ntlmssp_v2_key.exit:                       ; preds = %83, %84, %87, %90, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((0, 16)) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((0, 16)) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [16 x i8], align 16
   %11 = alloca [24 x i8], align 16
   %12 = alloca [21 x i8], align 16
@@ -2697,7 +2697,7 @@ define internal i32 @dissect_ntlmssp_payload(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ntlmssp_payload_only(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_ntlmssp_payload_only(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

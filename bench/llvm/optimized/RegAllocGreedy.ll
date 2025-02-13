@@ -5669,7 +5669,7 @@ declare void @_ZN4llvm14SpillPlacement14addConstraintsENS_8ArrayRefINS0_15BlockC
 declare noundef zeroext i1 @_ZN4llvm14SpillPlacement17scanActiveBundlesEv(ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvm8RAGreedy21addThroughConstraintsENS_17InterferenceCache6CursorENS_8ArrayRefIjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29026) %0, ptr noundef captures(none) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvm8RAGreedy21addThroughConstraintsENS_17InterferenceCache6CursorENS_8ArrayRefIjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29026) %0, ptr noundef captures(none) %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [8 x %"struct.llvm::SpillPlacement::BlockConstraint"], align 16
   %6 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #23
@@ -7233,7 +7233,7 @@ _ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit59: ; preds = %137, %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm8RAGreedy17splitAroundRegionERNS_13LiveRangeEditENS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(29026) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4llvm8RAGreedy17splitAroundRegionERNS_13LiveRangeEditENS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(29026) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::BitVector", align 8
   %6 = alloca %"class.llvm::SmallVector.447", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12456,7 +12456,7 @@ _ZN4llvm10TimeRegionD2Ev.exit28:                  ; preds = %61, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvm8RAGreedy26mayRecolorAllInterferencesENS_10MCRegisterERKNS_12LiveIntervalERNS_14SmallSetVectorIPS3_Lj4EEERKNS_8SmallSetINS_8RegisterELj16ESt4lessISA_EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(29026) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %4) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvm8RAGreedy26mayRecolorAllInterferencesENS_10MCRegisterERKNS_12LiveIntervalERNS_14SmallSetVectorIPS3_Lj4EEERKNS_8SmallSetINS_8RegisterELj16ESt4lessISA_EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(29026) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull readonly align 8 dereferenceable(128) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !278
@@ -17663,7 +17663,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr readonly captures(address) %.0.val, i32 %.8.val, ptr nonnull readonly captures(none) %0) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPKNS_17MachineMemOperandELj2EEEZNS_8RAGreedy12computeStatsERNS_17MachineBasicBlockEE3$_0EEbOT_T0_"(ptr readonly %.0.val, i32 %.8.val, ptr nonnull readonly captures(none) %0) unnamed_addr #9 {
   %2 = zext i32 %.8.val to i64
   %.idx1 = shl nuw nsw i64 %2, 3
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1

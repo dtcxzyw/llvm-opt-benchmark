@@ -1857,7 +1857,7 @@ define internal fastcc ptr @xlate_dir(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readnone captures(address) %2) unnamed_addr #13 align 16 {
+define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readnone %2) unnamed_addr #13 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0

@@ -12381,7 +12381,7 @@ _ZNK4llvm12DenormalMode5printERNS_11raw_ostreamE.exit: ; preds = %_ZN4llvm11raw_
 declare ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS_9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7codegen21setFunctionAttributesENS_9StringRefES1_RNS_6ModuleE(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm7codegen21setFunctionAttributesENS_9StringRefES1_RNS_6ModuleE(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull readonly align 8 dereferenceable(841) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.010.013 = load ptr, ptr %6, align 8, !tbaa !407

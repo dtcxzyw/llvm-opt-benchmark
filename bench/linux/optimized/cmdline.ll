@@ -16,7 +16,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_next_arg: ; 
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_get_option3, ptr @__UNIQUE_ID___addressable_get_options4, ptr @__UNIQUE_ID___addressable_memparse5, ptr @__UNIQUE_ID___addressable_next_arg6], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4) i32 @get_option(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
+define dso_local noundef range(i32 0, 4) i32 @get_option(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %28, label %5
@@ -85,7 +85,7 @@ declare dso_local i64 @simple_strtoull(ptr noundef, ptr noundef, i32 noundef) lo
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef captures(address) %2) #0 align 16 {
+define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   %5 = icmp eq i32 %1, 0
@@ -207,7 +207,7 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @memparse(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
+define dso_local i64 @memparse(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   store ptr null, ptr %3, align 8, !annotation !8

@@ -111,7 +111,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parser_errposition(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @parser_errposition(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3

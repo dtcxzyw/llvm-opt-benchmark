@@ -194,7 +194,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb3log6WriterD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6WriterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   %0 = load ptr, ptr %this, align 8
@@ -392,7 +392,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 declare void @_ZN7rocksdb18WritableFileWriter5FlushENS_3Env10IOPriorityE(ptr sret(%"class.rocksdb::IOStatus") align 8, ptr noundef nonnull align 8 dereferenceable(218), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb3log6Writer5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6Writer5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   store i8 0, ptr %agg.result, align 8
@@ -481,7 +481,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 declare void @_ZN7rocksdb18WritableFileWriter5CloseEv(ptr sret(%"class.rocksdb::IOStatus") align 8, ptr noundef nonnull align 8 dereferenceable(218)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb3log6Writer9AddRecordERKNS_5SliceENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %slice, i32 noundef %rate_limiter_priority) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6Writer9AddRecordERKNS_5SliceENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %slice, i32 noundef %rate_limiter_priority) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %left = alloca i64, align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8

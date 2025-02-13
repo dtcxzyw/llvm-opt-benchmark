@@ -2669,7 +2669,7 @@ return:                                           ; preds = %if.then207, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_(ptr noundef readonly captures(none) %prev, ptr noundef readonly captures(address) %next, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %t) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_(ptr noundef readonly captures(none) %prev, ptr noundef readonly %next, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %s, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %t) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %prev, align 8
   %cmp = icmp eq ptr %0, %next
@@ -2934,7 +2934,7 @@ if.end28:                                         ; preds = %if.end25, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN20btConvexHullInternal24findEdgeForCoplanarFacesEPNS_6VertexES1_RPNS_4EdgeES4_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef readonly captures(none) %c0, ptr noundef readonly captures(none) %c1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e1, ptr noundef readnone captures(address) %stop0, ptr noundef readnone captures(address) %stop1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20btConvexHullInternal24findEdgeForCoplanarFacesEPNS_6VertexES1_RPNS_4EdgeES4_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef readonly captures(none) %c0, ptr noundef readonly captures(none) %c1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e1, ptr noundef readnone %stop0, ptr noundef readnone %stop1) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp106 = alloca %"class.btConvexHullInternal::Rational64", align 8
   %ref.tmp107 = alloca %"class.btConvexHullInternal::Rational64", align 8

@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @pci_bridge_get_sec_bus(ptr noundef readnone captures(ret: address, provenance) %br) local_unnamed_addr #3 {
+define dso_local nonnull ptr @pci_bridge_get_sec_bus(ptr noundef readnone %br) local_unnamed_addr #3 {
 entry:
   %sec_bus = getelementptr inbounds nuw i8, ptr %br, i64 2608
   ret ptr %sec_bus

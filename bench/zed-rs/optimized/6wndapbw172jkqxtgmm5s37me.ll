@@ -9811,7 +9811,7 @@ define hidden noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e
 }
 
 ; Function Attrs: cold inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17hd7e8e467a5510264E.llvm.11385237746541577265(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #20 {
+define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17hd7e8e467a5510264E.llvm.11385237746541577265(ptr noundef nonnull readnone returned %0) unnamed_addr #20 {
   ret ptr %0
 }
 
@@ -12820,13 +12820,13 @@ define noundef range(i8 0, 3) i8 @_ZN4call4room4Room6status17h40a4b2bc60236319E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4call4room4Room17local_participant17ha24c42559a2a41e0E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4call4room4Room17local_participant17ha24c42559a2a41e0E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4call4room4Room19remote_participants17h98d8c30ed834dfcaE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4call4room4Room19remote_participants17h98d8c30ed834dfcaE(ptr noundef nonnull readnone align 8 %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
   ret ptr %2
 }

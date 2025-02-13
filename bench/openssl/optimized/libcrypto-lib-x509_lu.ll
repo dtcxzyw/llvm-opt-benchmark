@@ -1186,7 +1186,7 @@ declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_OBJECT_get0_X509(ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #3 {
+define ptr @X509_OBJECT_get0_X509(ptr noundef readonly %a) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1207,7 +1207,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_OBJECT_get0_X509_CRL(ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #3 {
+define ptr @X509_OBJECT_get0_X509_CRL(ptr noundef readonly %a) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1235,7 +1235,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_OBJECT_set1_X509(ptr noundef captures(address_is_null) %a, ptr noundef %obj) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_OBJECT_set1_X509(ptr noundef %a, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1276,7 +1276,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_OBJECT_set1_X509_CRL(ptr noundef captures(address_is_null) %a, ptr noundef %obj) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %a, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1418,7 +1418,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_STORE_get1_all_certs(ptr noundef readonly captures(address_is_null) %store) local_unnamed_addr #0 {
+define ptr @X509_STORE_get1_all_certs(ptr noundef readonly %store) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %store, null
   br i1 %cmp, label %if.then, label %if.end

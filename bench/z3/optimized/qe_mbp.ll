@@ -28918,7 +28918,7 @@ if.end58:                                         ; preds = %_ZN6vectorIN13rewri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 6) i32 @_ZN12_GLOBAL__N_119rd_over_wr_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr readonly captures(address_is_null) %f.24.val, ptr noundef readonly captures(none) %args, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 6) i32 @_ZN12_GLOBAL__N_119rd_over_wr_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr readonly %f.24.val, ptr noundef readonly captures(none) %args, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ind1 = alloca %class.obj_ref, align 8
   %ind2 = alloca %class.obj_ref, align 8

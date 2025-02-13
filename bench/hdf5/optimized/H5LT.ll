@@ -659,7 +659,7 @@ define internal ptr @image_malloc(i64 noundef %0, i32 noundef %1, ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @image_memcpy(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #4 {
+define internal noundef ptr @image_memcpy(ptr noundef readnone %0, ptr noundef readnone %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 2
@@ -767,7 +767,7 @@ define internal noundef ptr @image_memcpy(ptr noundef readnone captures(address,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef ptr @image_realloc(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #5 {
+define internal noundef ptr @image_realloc(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 6
@@ -821,7 +821,7 @@ define internal noundef ptr @image_realloc(ptr noundef captures(address) %0, i64
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 -1, 1) i32 @image_free(ptr noundef readnone captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) #6 {
+define internal range(i32 -1, 1) i32 @image_free(ptr noundef readnone %0, i32 noundef %1, ptr noundef captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2
@@ -922,7 +922,7 @@ udata_free.exit:                                  ; preds = %36, %.thread, %3, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @udata_copy(ptr noundef captures(ret: address, provenance) %0) #3 {
+define internal noundef ptr @udata_copy(ptr noundef %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
@@ -1349,7 +1349,7 @@ declare i64 @H5Dget_space(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Sget_simple_extent_ndims(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5LTget_dataset_info(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5LTget_dataset_info(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %union.anon.3, align 8
   %8 = alloca ptr, align 8
@@ -1464,7 +1464,7 @@ define i32 @H5LTfind_dataset(i64 noundef %0, ptr noundef %1) local_unnamed_addr 
 declare i32 @H5Literate2(i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @find_dataset(i64 %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #10 {
+define internal range(i32 0, 2) i32 @find_dataset(i64 %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #10 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %10, label %6
 
@@ -1887,7 +1887,7 @@ define range(i32 -1, 1) i32 @H5LTget_attribute_info(i64 noundef %0, ptr noundef 
 declare i64 @H5Aget_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5LTtext_to_dtype(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5LTtext_to_dtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %or.cond = icmp ugt i32 %1, 2
   %or.cond11 = or i1 %3, %or.cond
@@ -1931,7 +1931,7 @@ declare i64 @H5LTyyparse() local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5LTdtype_to_text(i64 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5LTdtype_to_text(i64 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 1024, ptr %5, align 8
   %or.cond = icmp ugt i32 %2, 2
@@ -3574,7 +3574,7 @@ realloc_and_append.exit.thread:                   ; preds = %703, %700, %665, %i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #6 {
+define internal fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #6 {
   br i1 %0, label %5, label %28
 
 5:                                                ; preds = %4

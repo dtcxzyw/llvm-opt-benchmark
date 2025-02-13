@@ -4175,7 +4175,7 @@ hwloc_get_next_obj_by_depth.exit.thread:          ; preds = %62, %hwloc_get_next
 declare i32 @hwloc_bitmap_isincluded(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_info_recurse_descendants(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @hwloc_info_recurse_descendants(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef %5) unnamed_addr #2 {
   %7 = alloca [128 x i8], align 16
   %8 = alloca [32 x i8], align 16
   %.b24 = load i1, ptr @show_first_only, align 4

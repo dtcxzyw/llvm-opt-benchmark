@@ -1660,7 +1660,7 @@ return:                                           ; preds = %if.end, %do.end, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_client_co_pwritev(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef captures(address_is_null) %qiov, i32 noundef %flags) #0 {
+define internal i32 @nbd_client_co_pwritev(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %request = alloca %struct.NBDRequest, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -2335,7 +2335,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_co_send_request(ptr noundef readonly captures(none) %bs, ptr noundef %request, ptr noundef readonly captures(address_is_null) %qiov) #0 {
+define internal i32 @nbd_co_send_request(ptr noundef readonly captures(none) %bs, ptr noundef %request, ptr noundef readonly %qiov) #0 {
 entry:
   %.compoundliteral = alloca %struct.QemuLockable, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -3105,7 +3105,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef %iter, i64 noundef %cookie, ptr noundef %qiov, ptr noundef captures(address_is_null) %reply, ptr noundef captures(address_is_null) %payload) #0 {
+define internal noundef zeroext i1 @nbd_reply_chunk_iter_receive(ptr noundef %s, ptr noundef %iter, i64 noundef %cookie, ptr noundef %qiov, ptr noundef %reply, ptr noundef %payload) #0 {
 entry:
   %request_ret = alloca i32, align 4
   %local_reply = alloca %union.NBDReply, align 8
@@ -3277,7 +3277,7 @@ declare ptr @nbd_reply_type_lookup(i16 noundef zeroext) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef writeonly captures(none) initializes((0, 4)) %request_ret, ptr noundef %qiov, ptr noundef writeonly captures(none) initializes((0, 32)) %reply, ptr noundef captures(address_is_null) %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef writeonly captures(none) initializes((0, 4)) %request_ret, ptr noundef %qiov, ptr noundef writeonly captures(none) initializes((0, 32)) %reply, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %call = tail call i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp)
   %cmp = icmp slt i32 %call, 0
@@ -3363,7 +3363,7 @@ nbd_recv_coroutines_wake.exit:                    ; preds = %for.cond.i, %nbd_re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef writeonly captures(none) initializes((0, 4)) %request_ret, ptr noundef %qiov, ptr noundef captures(address_is_null) %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef writeonly captures(none) initializes((0, 4)) %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %local_payload = alloca ptr, align 8
   store ptr null, ptr %local_payload, align 8
@@ -3920,7 +3920,7 @@ return:                                           ; preds = %nbd_read64.exit.thr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @nbd_co_receive_structured_payload(ptr noundef readonly captures(none) %s, ptr noundef captures(address_is_null) %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_receive_structured_payload(ptr noundef readonly captures(none) %s, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %reply = getelementptr inbounds nuw i8, ptr %s, i64 664
@@ -4077,7 +4077,7 @@ declare i32 @llvm.bswap.i32(i32) #12
 declare i16 @llvm.bswap.i16(i16) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_co_request(ptr noundef readonly captures(none) %bs, ptr noundef %request, ptr noundef captures(address_is_null) %write_qiov) #0 {
+define internal i32 @nbd_co_request(ptr noundef readonly captures(none) %bs, ptr noundef %request, ptr noundef %write_qiov) #0 {
 entry:
   %request_ret.i = alloca i32, align 4
   %local_err.i = alloca ptr, align 8

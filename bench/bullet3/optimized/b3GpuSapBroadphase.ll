@@ -8742,21 +8742,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN18b3GpuSapBroadphase22getOverlappingPairsGPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2040) %this) unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN18b3GpuSapBroadphase22getOverlappingPairsGPUEv(ptr noundef nonnull readnone align 8 dereferenceable(2040) %this) unnamed_addr #14 align 2 {
 entry:
   %m_overlappingPairs = getelementptr inbounds nuw i8, ptr %this, i64 1864
   ret ptr %m_overlappingPairs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN18b3GpuSapBroadphase22getSmallAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2040) %this) unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN18b3GpuSapBroadphase22getSmallAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 dereferenceable(2040) %this) unnamed_addr #14 align 2 {
 entry:
   %m_smallAabbsMappingGPU = getelementptr inbounds nuw i8, ptr %this, i64 1688
   ret ptr %m_smallAabbsMappingGPU
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN18b3GpuSapBroadphase22getLargeAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2040) %this) unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN18b3GpuSapBroadphase22getLargeAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 dereferenceable(2040) %this) unnamed_addr #14 align 2 {
 entry:
   %m_largeAabbsMappingGPU = getelementptr inbounds nuw i8, ptr %this, i64 1776
   ret ptr %m_largeAabbsMappingGPU

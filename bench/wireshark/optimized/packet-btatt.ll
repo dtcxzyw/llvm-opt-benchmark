@@ -7627,7 +7627,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #1 {
   %9 = alloca i32, align 4
   %10 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %11 = alloca i32, align 4

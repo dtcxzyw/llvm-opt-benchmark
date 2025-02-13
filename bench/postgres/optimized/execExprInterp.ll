@@ -5386,7 +5386,7 @@ heap_getattr.exit:                                ; preds = %139, %162, %165, %1
 declare ptr @DatumGetEOHP(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_cached_rowtype(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc ptr @get_cached_rowtype(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %.not = icmp eq i32 %0, 2249
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, null

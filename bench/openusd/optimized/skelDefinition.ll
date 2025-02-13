@@ -1862,23 +1862,23 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeleton21GetRestTr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4dEEERNS_7VtArrayIT_EEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4dEEERNS_7VtArrayIT_EEv(ptr noundef nonnull readnone returned align 8 dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4dEEERKNS_7VtArrayIT_EEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4dEEERKNS_7VtArrayIT_EEv(ptr noundef nonnull readnone returned align 8 dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4fEEERNS_7VtArrayIT_EEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4fEEERNS_7VtArrayIT_EEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4fEEERKNS_7VtArrayIT_EEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition12_XformHolder3GetINS_10GfMatrix4fEEERKNS_7VtArrayIT_EEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }

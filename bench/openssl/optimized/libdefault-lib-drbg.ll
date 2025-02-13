@@ -1142,7 +1142,7 @@ return:                                           ; preds = %if.then, %ossl_drbg
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef captures(address_is_null) %vctx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef %vctx) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %vctx, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -1185,7 +1185,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_rand_drbg_new(ptr noundef %provctx, ptr noundef %parent, ptr noundef readonly captures(address_is_null) %p_dispatch, ptr noundef readonly captures(none) %dnew, ptr noundef %instantiate, ptr noundef %uninstantiate, ptr noundef %reseed, ptr noundef %generate) local_unnamed_addr #1 {
+define ptr @ossl_rand_drbg_new(ptr noundef %provctx, ptr noundef %parent, ptr noundef readonly %p_dispatch, ptr noundef readonly captures(none) %dnew, ptr noundef %instantiate, ptr noundef %uninstantiate, ptr noundef %reseed, ptr noundef %generate) local_unnamed_addr #1 {
 entry:
   %p_str = alloca i32, align 4
   %call = tail call i32 @ossl_prov_is_running() #8

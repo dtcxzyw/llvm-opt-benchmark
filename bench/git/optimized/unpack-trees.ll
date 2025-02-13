@@ -4827,7 +4827,7 @@ reject_merge.exit:                                ; preds = %verify_absent.exit,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @same(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @same(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #8 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = xor i1 %3, %4

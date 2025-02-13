@@ -1410,7 +1410,7 @@ return:                                           ; preds = %if.then.i.i.i22, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofERSt6vectorISt10shared_ptrINS0_9ProofNodeEESaIS5_EERKNS0_6detail13TreeProofNodeE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef nonnull align 8 dereferenceable(96) %pn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofERSt6vectorISt10shared_ptrINS0_9ProofNodeEESaIS5_EERKNS0_6detail13TreeProofNodeE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef nonnull align 8 dereferenceable(96) %pn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children = alloca %"class.std::vector.272", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 8

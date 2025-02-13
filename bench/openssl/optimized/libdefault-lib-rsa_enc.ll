@@ -57,7 +57,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_encrypt_init(ptr noundef captures(address_is_null) %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_encrypt_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 512)
   ret i32 %call
@@ -175,7 +175,7 @@ return:                                           ; preds = %if.end44, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_decrypt_init(ptr noundef captures(address_is_null) %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_decrypt_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 1024)
   ret i32 %call
@@ -453,7 +453,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly captures(address_is_null) %vprsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly %vprsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vprsactx, null
   br i1 %cmp, label %return, label %if.end
@@ -628,7 +628,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef captures(address_is_null) %vprsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef %vprsactx, ptr noundef %params) #0 {
 entry:
   %mdname = alloca [50 x i8], align 16
   %mdprops = alloca [256 x i8], align 16
@@ -892,7 +892,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef captures(address_is_null) %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef range(i32 512, 1025) %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef range(i32 512, 1025) %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0

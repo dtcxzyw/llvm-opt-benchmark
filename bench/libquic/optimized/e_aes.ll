@@ -810,7 +810,7 @@ return:                                           ; preds = %if.then52, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @aes_gcm_cleanup(ptr noundef readonly captures(address) %c) #2 {
+define internal void @aes_gcm_cleanup(ptr noundef readonly %c) #2 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load ptr, ptr %cipher_data, align 8

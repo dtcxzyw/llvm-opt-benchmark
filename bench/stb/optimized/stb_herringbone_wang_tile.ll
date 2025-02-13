@@ -229,7 +229,7 @@ for.end38:                                        ; preds = %for.cond1.for.inc36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbhw__get_template_info(ptr noundef readonly captures(none) %c, ptr noundef writeonly captures(address_is_null) %w, ptr noundef writeonly captures(address_is_null) %h, ptr noundef writeonly captures(address_is_null) %h_count, ptr noundef writeonly captures(address_is_null) %v_count) local_unnamed_addr #2 {
+define void @stbhw__get_template_info(ptr noundef readonly captures(none) %c, ptr noundef writeonly %w, ptr noundef writeonly %h, ptr noundef writeonly %h_count, ptr noundef writeonly %v_count) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %c, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -356,7 +356,7 @@ if.end136:                                        ; preds = %if.then135, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbhw_get_template_size(ptr noundef readonly captures(none) %c, ptr noundef captures(address_is_null) %w, ptr noundef captures(address_is_null) %h) local_unnamed_addr #3 {
+define void @stbhw_get_template_size(ptr noundef readonly captures(none) %c, ptr noundef %w, ptr noundef %h) local_unnamed_addr #3 {
 entry:
   tail call void @stbhw__get_template_info(ptr noundef %c, ptr noundef %w, ptr noundef %h, ptr noundef null, ptr noundef null)
   ret void
@@ -1460,7 +1460,7 @@ for.end21:                                        ; preds = %for.inc19.us, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %list, i32 noundef %numlist, ptr noundef captures(none) %a, ptr noundef captures(none) %b, ptr noundef captures(none) %c, ptr noundef captures(none) %d, ptr noundef captures(none) %e, ptr noundef captures(none) %f, ptr noundef readonly captures(address_is_null) %weighting) local_unnamed_addr #1 {
+define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %list, i32 noundef %numlist, ptr noundef captures(none) %a, ptr noundef captures(none) %b, ptr noundef captures(none) %c, ptr noundef captures(none) %d, ptr noundef captures(none) %e, ptr noundef captures(none) %f, ptr noundef readonly %weighting) local_unnamed_addr #1 {
 entry:
   %cmp235 = icmp sgt i32 %numlist, 0
   %tobool.not = icmp eq ptr %weighting, null
@@ -1767,7 +1767,7 @@ for.end10:                                        ; preds = %for.inc8, %for.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbhw__change_color(i32 noundef %old_color, i32 noundef %num_options, ptr noundef readonly captures(address_is_null) %weights) local_unnamed_addr #1 {
+define i32 @stbhw__change_color(i32 noundef %old_color, i32 noundef %num_options, ptr noundef readonly %weights) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %weights, null
   br i1 %tobool.not, label %if.else, label %for.cond.preheader
@@ -1850,7 +1850,7 @@ return:                                           ; preds = %for.inc15, %return.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(none) %ts, ptr noundef captures(address_is_null) %weighting, ptr noundef writeonly captures(none) %output, i32 noundef %stride, i32 noundef %w, i32 noundef %h) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(none) %ts, ptr noundef %weighting, ptr noundef writeonly captures(none) %output, i32 noundef %stride, i32 noundef %w, i32 noundef %h) local_unnamed_addr #1 {
 entry:
   %short_side_len = getelementptr inbounds nuw i8, ptr %ts, i64 28
   %0 = load i32, ptr %short_side_len, align 4

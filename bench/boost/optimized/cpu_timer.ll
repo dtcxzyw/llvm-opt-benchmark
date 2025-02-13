@@ -769,7 +769,7 @@ _ZNK5boost5timer9cpu_timer7elapsedEv.exit:        ; preds = %7, %_ZN12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost5timer14auto_cpu_timerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost5timer14auto_cpu_timerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !45, !range !55, !noundef !56
   %4 = trunc nuw i8 %3 to i1

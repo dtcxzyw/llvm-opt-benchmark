@@ -407,7 +407,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq ptr %3, null
@@ -431,7 +431,7 @@ define internal i32 @dissect_acdr_event(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_tpncp_by_tracepoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_tpncp_by_tracepoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %13, label %6
 
@@ -1414,7 +1414,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tpncp_data(i32 noundef range(i32 0, 5000) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly captures(address) %5, i32 noundef %6, i32 noundef range(i32 -2147483648, 1) %7) unnamed_addr #0 {
+define internal fastcc void @dissect_tpncp_data(i32 noundef range(i32 0, 5000) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef range(i32 -2147483648, 1) %7) unnamed_addr #0 {
   %9 = icmp eq i32 %7, -2147483648
   %10 = select i1 %9, i32 7, i32 0
   %11 = zext nneg i32 %0 to i64

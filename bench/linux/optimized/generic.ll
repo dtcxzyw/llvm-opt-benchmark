@@ -90,7 +90,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mtrr_state: 
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_mtrr_state336, ptr @__setup_mtrr_param_setup, ptr @generic_get_mtrr.__UNIQUE_ID___addressable___SCK__preempt_schedule347], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @mtrr_param_setup(ptr noundef readonly captures(address_is_null) %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @mtrr_param_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

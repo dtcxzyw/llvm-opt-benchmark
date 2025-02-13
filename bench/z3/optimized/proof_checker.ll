@@ -11588,7 +11588,7 @@ _ZN3mapIjb6u_hash4u_eqED2Ev.exit:                 ; preds = %entry, %for.cond.pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK13proof_checker9match_appEPK4exprRP9func_declR10ptr_vectorIS0_E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(156) %this, ptr noundef readonly captures(address) %e, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %d, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK13proof_checker9match_appEPK4exprRP9func_declR10ptr_vectorIS0_E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(156) %this, ptr noundef readonly %e, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %d, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
 entry:
   %m_kind.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i = load i32, ptr %m_kind.i, align 4
@@ -11703,7 +11703,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK13proof_checker9match_andEPK4exprR10ptr_vectorIS0_E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(156) %this, ptr noundef readonly captures(address) %e, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK13proof_checker9match_andEPK4exprR10ptr_vectorIS0_E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(156) %this, ptr noundef readonly %e, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
 entry:
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
@@ -11832,7 +11832,7 @@ _ZNK13proof_checker8match_opEPK4expriRPS0_.exit:  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK13proof_checker8match_orEPK4exprR10ptr_vectorIS0_E(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %e, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK13proof_checker8match_orEPK4exprR10ptr_vectorIS0_E(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %e, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
 entry:
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
@@ -11916,7 +11916,7 @@ _ZNK13proof_checker8match_opEPK4expriR10ptr_vectorIS0_E.exit: ; preds = %_ZN6vec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK13proof_checker13match_negatedEPK4exprPS0_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK13proof_checker13match_negatedEPK4exprPS0_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #11 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -16204,7 +16204,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK13proof_checker8match_opEPK4expriR10ptr_vectorIS0_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this, ptr noundef readonly captures(address) %e, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK13proof_checker8match_opEPK4expriR10ptr_vectorIS0_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this, ptr noundef readonly %e, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %terms) local_unnamed_addr #4 align 2 {
 entry:
   %m_kind.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i = load i32, ptr %m_kind.i, align 4

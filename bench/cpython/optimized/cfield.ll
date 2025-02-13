@@ -1064,7 +1064,7 @@ Py_DECREF.exit14:                                 ; preds = %17, %14, %12, %Py_D
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCField_get(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @PyCField_get(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %10
 

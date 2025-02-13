@@ -387,7 +387,7 @@ OSQPVectorf_from_raw.exit:                        ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @OSQPVectorf_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @OSQPVectorf_free(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -402,7 +402,7 @@ define void @OSQPVectorf_free(ptr noundef captures(address_is_null) %0) local_un
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @OSQPVectori_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @OSQPVectori_free(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -833,7 +833,7 @@ define void @OSQPVectorf_mult_scalar(ptr noundef readonly captures(none) %0, dou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @OSQPVectorf_plus(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
+define void @OSQPVectorf_plus(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -879,7 +879,7 @@ define void @OSQPVectorf_plus(ptr noundef readonly captures(address) %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @OSQPVectorf_minus(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
+define void @OSQPVectorf_minus(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -925,7 +925,7 @@ define void @OSQPVectorf_minus(ptr noundef readonly captures(address) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @OSQPVectorf_add_scaled(ptr noundef readonly captures(address) %0, double noundef %1, ptr noundef readonly captures(address) %2, double noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #7 {
+define void @OSQPVectorf_add_scaled(ptr noundef readonly %0, double noundef %1, ptr noundef readonly %2, double noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
@@ -974,7 +974,7 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly captures(address) %0, d
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @OSQPVectorf_add_scaled3(ptr noundef readonly captures(address) %0, double noundef %1, ptr noundef readonly captures(address) %2, double noundef %3, ptr noundef readonly captures(none) %4, double noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #7 {
+define void @OSQPVectorf_add_scaled3(ptr noundef readonly %0, double noundef %1, ptr noundef readonly %2, double noundef %3, ptr noundef readonly captures(none) %4, double noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #7 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
@@ -1212,7 +1212,7 @@ OSQPVectorf_dot_prod.exit:                        ; preds = %.lr.ph, %.lr.ph39, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @OSQPVectorf_ew_prod(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
+define void @OSQPVectorf_ew_prod(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8

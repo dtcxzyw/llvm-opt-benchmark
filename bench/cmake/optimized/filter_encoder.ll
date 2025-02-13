@@ -170,7 +170,7 @@ declare void @lzma_end(ptr noundef) local_unnamed_addr #7
 declare i64 @lzma_raw_coder_memusage(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local i64 @lzma_mt_block_size(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %.preheader40
 

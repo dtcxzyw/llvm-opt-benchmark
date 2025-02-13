@@ -4946,28 +4946,28 @@ _ZNK5boost10shared_ptrIN8QuantLib29LfmCovarianceParameterizationEEptEv.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess11fixingTimesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess11fixingTimesEv(ptr noundef nonnull readnone align 8 dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
 entry:
   %fixingTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   ret ptr %fixingTimes_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess11fixingDatesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess11fixingDatesEv(ptr noundef nonnull readnone align 8 dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
 entry:
   %fixingDates_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   ret ptr %fixingDates_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess17accrualStartTimesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess17accrualStartTimesEv(ptr noundef nonnull readnone align 8 dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
 entry:
   %accrualStartTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   ret ptr %accrualStartTimes_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess15accrualEndTimesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib24LiborForwardModelProcess15accrualEndTimesEv(ptr noundef nonnull readnone align 8 dereferenceable(336) %this) local_unnamed_addr #18 align 2 {
 entry:
   %accrualEndTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   ret ptr %accrualEndTimes_

@@ -3381,7 +3381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BufferedFileReaderC2ERNS_10FileSystemEPKcNS_12FileLockTypeENS_12optional_ptrINS_10FileOpenerEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48), (56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr noundef readonly captures(address_is_null) %path, i8 noundef zeroext %lock_type, ptr %opener.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18BufferedFileReaderC2ERNS_10FileSystemEPKcNS_12FileLockTypeENS_12optional_ptrINS_10FileOpenerEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48), (56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr noundef readonly %path, i8 noundef zeroext %lock_type, ptr %opener.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.38", align 8

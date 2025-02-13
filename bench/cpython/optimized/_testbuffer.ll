@@ -3149,7 +3149,7 @@ declare ptr @PyObject_CallObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(none) %9) unnamed_addr #3 {
+define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9) unnamed_addr #3 {
   %11 = icmp eq i64 %1, 1
   br i1 %11, label %57, label %.preheader95
 
@@ -3795,7 +3795,7 @@ _Py_NewRef.exit:                                  ; preds = %.thread78, %119
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ndarray_releasebuf(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) #0 {
+define internal void @ndarray_releasebuf(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4063,7 +4063,7 @@ ndarray_as_list.exit:                             ; preds = %14, %strides_from_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ndarray_push(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @ndarray_push(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4153,7 +4153,7 @@ define internal ptr @ndarray_push(ptr noundef captures(address) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ndarray_pop(ptr noundef captures(address) %0, ptr readnone captures(none) %1) #0 {
+define internal noundef ptr @ndarray_pop(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4277,7 +4277,7 @@ define internal noundef ptr @ndarray_add_suboffsets(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ndarray_memoryview_from_buffer(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @ndarray_memoryview_from_buffer(ptr noundef readonly %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -4417,7 +4417,7 @@ define internal ptr @ndarray_memoryview_from_buffer(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unpack_rec(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(address_is_null) %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc ptr @unpack_rec(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = icmp eq i64 %7, 0
   br i1 %10, label %11, label %28
 
@@ -4551,7 +4551,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #2
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ndarray_push_base(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, i64 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ndarray_push_base(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr i8, ptr %2, i64 8
   %.val86.i = load ptr, ptr %8, align 8, !tbaa !3
   %9 = getelementptr i8, ptr %.val86.i, i64 168
@@ -6199,7 +6199,7 @@ declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #2
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @fmtcmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @fmtcmp(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   br i1 %3, label %5, label %10
@@ -6244,7 +6244,7 @@ sub_112:                                          ; preds = %sub_011
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arraycmp(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @arraycmp(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #9 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 

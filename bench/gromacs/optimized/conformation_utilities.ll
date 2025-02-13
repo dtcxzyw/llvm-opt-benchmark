@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 {
+define void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 {
   %.not = icmp ne ptr %1, null
   %7 = icmp sgt i32 %0, 0
   %or.cond = and i1 %7, %.not

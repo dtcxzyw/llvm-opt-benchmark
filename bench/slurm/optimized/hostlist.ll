@@ -121,7 +121,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_hostset_nth = alias ptr (ptr, i32), ptr @hostset_nth
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @hostlist_create_dims(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 {
+define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %.not = icmp eq i32 %1, 0
@@ -328,7 +328,7 @@ _hostlist_create.exit:                            ; preds = %8, %15, %_next_tok.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @hostlist_create(ptr noundef captures(address_is_null) %0) #0 {
+define noundef ptr @hostlist_create(ptr noundef %0) #0 {
   %2 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %3 = zext i16 %2 to i32
   %4 = tail call ptr @hostlist_create_dims(ptr noundef %0, i32 noundef %3)
@@ -488,7 +488,7 @@ define i32 @hostlist_count(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hostlist_delete(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define i32 @hostlist_delete(ptr noundef %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -1314,7 +1314,7 @@ hostrange_destroy.exit:                           ; preds = %30, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hostlist_push(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define i32 @hostlist_push(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -3437,7 +3437,7 @@ hostlist_count.exit:                              ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @hostset_create(ptr noundef captures(address_is_null) %0) #0 {
+define ptr @hostset_create(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 3172, ptr noundef nonnull @__func__.hostset_create) #22
   store ptr %3, ptr %2, align 8
@@ -3462,7 +3462,7 @@ define ptr @hostset_create(ptr noundef captures(address_is_null) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hostset_delete(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define i32 @hostset_delete(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @hostlist_delete(ptr noundef %3, ptr noundef %1)
   ret i32 %4
@@ -3493,7 +3493,7 @@ define i32 @hostset_find(ptr noundef readonly captures(none) %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hostset_insert(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define i32 @hostset_insert(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %4 = zext i16 %3 to i32
   %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %4)
@@ -3903,7 +3903,7 @@ define noalias ptr @hostset_shift(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @hostset_within(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define range(i32 0, 2) i32 @hostset_within(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %4 = zext i16 %3 to i32
   %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %4)
@@ -3970,7 +3970,7 @@ define noalias ptr @hostset_nth(ptr noundef readonly captures(none) %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hostrange_cmp(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i32 @hostrange_cmp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %hostrange_prefix_cmp.exit.thread, label %4
 
@@ -6362,7 +6362,7 @@ declare void @llvm.stackrestore.p0(ptr) #14
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @hostset_intersects(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @hostset_intersects(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %4 = zext i16 %3 to i32
   %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %4)
@@ -7446,7 +7446,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @_xstrncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hostrange_join(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i32 @hostrange_join(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

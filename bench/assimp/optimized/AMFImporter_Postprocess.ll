@@ -177,7 +177,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden { <2 x float>, <2 x float> } @_ZNK6Assimp11AMFImporter12SPP_Material8GetColorEfff(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden { <2 x float>, <2 x float> } @_ZNK6Assimp11AMFImporter12SPP_Material8GetColorEfff(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Composition = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %Composition, align 8
@@ -291,7 +291,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11AMFImporter37PostprocessHelper_CreateMeshDataArrayERK7AMFMeshRSt6vectorI10aiVector3tIfESaIS6_EERS4_IP8AMFColorSaISB_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %nodeElement, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %vertexCoordinateArray, ptr noundef nonnull align 8 dereferenceable(24) %pVertexColorArray) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11AMFImporter37PostprocessHelper_CreateMeshDataArrayERK7AMFMeshRSt6vectorI10aiVector3tIfESaIS6_EERS4_IP8AMFColorSaISB_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %nodeElement, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %vertexCoordinateArray, ptr noundef nonnull align 8 dereferenceable(24) %pVertexColorArray) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Child = getelementptr inbounds nuw i8, ptr %nodeElement, i64 56
   %__begin1.sroa.0.043 = load ptr, ptr %Child, align 8
@@ -1416,7 +1416,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %pInputList, ptr noundef nonnull align 8 dereferenceable(24) %pOutputList_Separated) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11AMFImporter39PostprocessHelper_SplitFacesByTextureIDERNSt7__cxx114listINS0_12SComplexFaceESaIS3_EEERNS2_IS5_SaIS5_EEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(24) %pInputList, ptr noundef nonnull align 8 dereferenceable(24) %pOutputList_Separated) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %face_list_cur = alloca %"class.std::__cxx11::list.52", align 8
   %0 = load ptr, ptr %pOutputList_Separated, align 8
@@ -2122,7 +2122,7 @@ declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNode(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %pNodeElement, ptr noundef nonnull align 8 dereferenceable(24) %pVertexCoordinateArray, ptr noundef nonnull align 8 dereferenceable(24) %pVertexColorArray, ptr noundef %pObjectColor, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %pMeshList, ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %pSceneNode) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNode(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %pNodeElement, ptr noundef nonnull align 8 dereferenceable(24) %pVertexCoordinateArray, ptr noundef nonnull align 8 dereferenceable(24) %pVertexColorArray, ptr noundef %pObjectColor, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %pMeshList, ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %pSceneNode) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pObjectColor.addr = alloca ptr, align 8
   %mesh_idx = alloca %"class.std::__cxx11::list.69", align 8

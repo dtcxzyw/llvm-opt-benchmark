@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [3 x i8] c", \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @iteratePCMDevices(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca [16 x i8], align 16

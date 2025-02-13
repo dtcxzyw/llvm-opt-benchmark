@@ -746,7 +746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7525RelativeDateTimeCacheData21getAbsoluteUnitStringEi17UDateAbsoluteUnit14UDateDirection(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(23152) %this, i32 noundef %fStyle, i32 noundef %unit, i32 noundef %direction) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7525RelativeDateTimeCacheData21getAbsoluteUnitStringEi17UDateAbsoluteUnit14UDateDirection(ptr noundef nonnull readonly align 8 dereferenceable(23152) %this, i32 noundef %fStyle, i32 noundef %unit, i32 noundef %direction) local_unnamed_addr #8 align 2 {
 entry:
   %absoluteUnits = getelementptr inbounds nuw i8, ptr %this, i64 24
   %idxprom2 = zext i32 %unit to i64
@@ -1591,7 +1591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_7525FormattedRelativeDateTimeaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) initializes((16, 20)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_7525FormattedRelativeDateTimeaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((16, 20)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
 entry:
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
@@ -3845,7 +3845,7 @@ return:                                           ; preds = %new.notnull, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ureldatefmt_resultAsValue_75(ptr noundef readonly captures(address_is_null, ret: address, provenance) %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
+define ptr @ureldatefmt_resultAsValue_75(ptr noundef readonly %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -4067,7 +4067,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @ureldatefmt_formatNumericToResult_75(ptr noundef readonly captures(none) %reldatefmt, double noundef %offset, i32 noundef %unit, ptr noundef captures(address_is_null) %result, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ureldatefmt_formatNumericToResult_75(ptr noundef readonly captures(none) %reldatefmt, double noundef %offset, i32 noundef %unit, ptr noundef %result, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::FormattedRelativeDateTime", align 8
   %0 = load i32, ptr %status, align 4
@@ -4284,7 +4284,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ureldatefmt_formatToResult_75(ptr noundef readonly captures(none) %reldatefmt, double noundef %offset, i32 noundef %unit, ptr noundef captures(address_is_null) %result, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ureldatefmt_formatToResult_75(ptr noundef readonly captures(none) %reldatefmt, double noundef %offset, i32 noundef %unit, ptr noundef %result, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::FormattedRelativeDateTime", align 8
   %0 = load i32, ptr %status, align 4

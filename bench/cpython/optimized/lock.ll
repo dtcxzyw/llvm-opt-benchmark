@@ -294,7 +294,7 @@ _Py_atomic_compare_exchange_uint8.exit.thread:    ; preds = %_Py_atomic_compare_
 declare void @_PyParkingLot_Unpark(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @mutex_unpark(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal void @mutex_unpark(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %5

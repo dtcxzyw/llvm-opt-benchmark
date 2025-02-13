@@ -368,7 +368,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 {
+define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 {
   %5 = alloca %"struct.boost::urls::encoding_opts", align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #12
   call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %5, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #12
@@ -637,7 +637,7 @@ _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail26segments_encoded_iter_base12measure_implERmNS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
+define void @_ZN5boost4urls6detail26segments_encoded_iter_base12measure_implERmNS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE = select i1 %3, ptr @_ZN5boost4urls6detailL14nocolon_pcharsE, ptr @_ZN5boost4urlsL6pcharsE
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not15.i = icmp samesign eq i64 %2, 0
@@ -680,7 +680,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost4urls6detail26segments_encoded_iter_base9copy_implERPcPKcNS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1, ptr readonly captures(address) %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls6detail26segments_encoded_iter_base9copy_implERPcPKcNS_4core17basic_string_viewIcEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1, ptr readonly %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %_ZN5boost4urls6detailL14nocolon_pcharsE._ZN5boost4urlsL6pcharsE = select i1 %4, ptr @_ZN5boost4urls6detailL14nocolon_pcharsE, ptr @_ZN5boost4urlsL6pcharsE
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %3

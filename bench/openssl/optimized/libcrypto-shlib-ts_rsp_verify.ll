@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [14 x i8] c"systemFailure\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %certs, ptr noundef %store, ptr noundef writeonly captures(address_is_null) %signer_out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %certs, ptr noundef %store, ptr noundef writeonly %signer_out) local_unnamed_addr #0 {
 entry:
   %chain = alloca ptr, align 8
   %buf = alloca [4096 x i8], align 16
@@ -734,7 +734,7 @@ declare ptr @d2i_ESS_SIGNING_CERT_V2(ptr noundef, ptr noundef, i64 noundef) loca
 declare i64 @TS_TST_INFO_get_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ts_check_imprints(ptr noundef readonly captures(address_is_null) %algor_a, ptr noundef readonly captures(none) %imprint_a, i32 noundef %len_a, ptr readonly captures(none) %tst_info.16.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_check_imprints(ptr noundef readonly %algor_a, ptr noundef readonly captures(none) %imprint_a, i32 noundef %len_a, ptr readonly captures(none) %tst_info.16.val) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tst_info.16.val, align 8
   %tobool.not = icmp eq ptr %algor_a, null

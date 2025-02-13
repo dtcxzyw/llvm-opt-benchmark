@@ -153,7 +153,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ifn_NtkPrint(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define void @Ifn_NtkPrint(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.critedge
 
@@ -3944,7 +3944,7 @@ declare void @Gia_ManHashStop(ptr noundef) local_unnamed_addr #9
 declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define nonnull ptr @Ifn_NtkDeriveTruth(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define nonnull ptr @Ifn_NtkDeriveTruth(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !13
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph159, label %.preheader
@@ -5778,7 +5778,7 @@ define void @Ifn_NtkMatchPrintPerm(i64 noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ifn_NtkMatch(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Ifn_NtkMatch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8

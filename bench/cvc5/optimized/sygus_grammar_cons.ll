@@ -2733,7 +2733,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons17addDefaultRulesToERKNS0_3EnvERNS0_12SygusGrammarERKNS0_12NodeTemplateILb1EEERKSt3mapINS0_8TypeNodeESt6vectorISA_SaISA_EESt4lessISE_ESaISt4pairIKSE_SH_EEEm(ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull align 8 dereferenceable(8) %ntSym, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %typeToNtSym, i64 noundef %stage) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons17addDefaultRulesToERKNS0_3EnvERNS0_12SygusGrammarERKNS0_12NodeTemplateILb1EEERKSt3mapINS0_8TypeNodeESt6vectorISA_SaISA_EESt4lessISE_ESaISt4pairIKSE_SH_EEEm(ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull align 8 dereferenceable(8) %ntSym, ptr noundef nonnull align 8 dereferenceable(48) %typeToNtSym, i64 noundef %stage) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.387", align 8
   %nb.i2468 = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -7105,7 +7105,7 @@ ehcleanup1196:                                    ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons26addDefaultPredicateRulesToERKNS0_3EnvERNS0_12SygusGrammarERKNS0_12NodeTemplateILb1EEESC_RKSt3mapINS0_8TypeNodeESt6vectorISA_SaISA_EESt4lessISE_ESaISt4pairIKSE_SH_EEE(ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull align 8 dereferenceable(8) %ntSym, ptr noundef nonnull align 8 dereferenceable(8) %ntSymBool, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %typeToNtSym) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons26addDefaultPredicateRulesToERKNS0_3EnvERNS0_12SygusGrammarERKNS0_12NodeTemplateILb1EEESC_RKSt3mapINS0_8TypeNodeESt6vectorISA_SaISA_EESt4lessISE_ESaISt4pairIKSE_SH_EEE(ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull align 8 dereferenceable(8) %ntSym, ptr noundef nonnull align 8 dereferenceable(8) %ntSymBool, ptr noundef nonnull align 8 dereferenceable(48) %typeToNtSym) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %nb.i136 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i137 = alloca %"class.cvc5::internal::NodeTemplate.387", align 8
@@ -10479,7 +10479,7 @@ _ZNSt12_Vector_baseIN4cvc58internal4kind6Kind_tESaIS3_EED2Ev.exit: ; preds = %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons9addRuleToERNS0_12SygusGrammarERKSt3mapINS0_8TypeNodeESt6vectorINS0_12NodeTemplateILb1EEESaISA_EESt4lessIS7_ESaISt4pairIKS7_SC_EEENS0_4kind6Kind_tERKS8_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %typeToNtSym, i32 noundef %k, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons9addRuleToERNS0_12SygusGrammarERKSt3mapINS0_8TypeNodeESt6vectorINS0_12NodeTemplateILb1EEESaISA_EESt4lessIS7_ESaISt4pairIKS7_SC_EEENS0_4kind6Kind_tERKS8_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull align 8 dereferenceable(48) %typeToNtSym, i32 noundef %k, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %op = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -10830,7 +10830,7 @@ declare noundef nonnull align 8 dereferenceable(57) ptr @_ZNK4cvc58internal16DTy
 declare void @_ZNK4cvc58internal13DTypeSelector11getSelectorEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons9addRuleToERNS0_12SygusGrammarERKSt3mapINS0_8TypeNodeESt6vectorINS0_12NodeTemplateILb1EEESaISA_EESt4lessIS7_ESaISt4pairIKS7_SC_EEENS0_4kind6Kind_tERKSA_RKS8_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %typeToNtSym, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %op, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons9addRuleToERNS0_12SygusGrammarERKSt3mapINS0_8TypeNodeESt6vectorINS0_12NodeTemplateILb1EEESaISA_EESt4lessIS7_ESaISt4pairIKS7_SC_EEENS0_4kind6Kind_tERKSA_RKS8_IS7_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(112) %g, ptr noundef nonnull readonly align 8 dereferenceable(48) %typeToNtSym, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %op, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.387", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8

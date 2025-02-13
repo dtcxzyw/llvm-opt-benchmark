@@ -287,7 +287,7 @@ graphic_hw_update.exit:                           ; preds = %entry, %if.then3.i,
 declare void @qemu_co_queue_wait_impl(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @graphic_hw_gl_block(ptr noundef captures(address_is_null) %con, i1 noundef zeroext %block) local_unnamed_addr #0 {
+define dso_local void @graphic_hw_gl_block(ptr noundef %con, i1 noundef zeroext %block) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %con, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @graphic_hw_invalidate(ptr noundef readonly captures(address) %con) local_unnamed_addr #0 {
+define dso_local void @graphic_hw_invalidate(ptr noundef readonly %con) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -403,7 +403,7 @@ if.end6:                                          ; preds = %if.then3, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @graphic_hw_text_update(ptr noundef readonly captures(address) %con, ptr noundef %chardata) local_unnamed_addr #0 {
+define dso_local void @graphic_hw_text_update(ptr noundef readonly %con, ptr noundef %chardata) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -550,7 +550,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @displaychangelistener_display_console(ptr noundef %dcl, ptr noundef readonly captures(address_is_null) %con, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @displaychangelistener_display_console(ptr noundef %dcl, ptr noundef readonly %con, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %con, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -1301,7 +1301,7 @@ declare void @qemu_input_queue_mtt_abs(ptr noundef, i32 noundef, i32 noundef, i3
 declare void @qemu_input_event_sync() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_console_set_display_gl_ctx(ptr noundef captures(address_is_null) %con, ptr noundef %gl) local_unnamed_addr #0 {
+define dso_local void @qemu_console_set_display_gl_ctx(ptr noundef %con, ptr noundef %gl) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %con, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1652,7 +1652,7 @@ if.end9:                                          ; preds = %do.body, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @dpy_ui_info_supported(ptr noundef readonly captures(address) %con) local_unnamed_addr #10 {
+define dso_local zeroext i1 @dpy_ui_info_supported(ptr noundef readonly %con) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -1674,7 +1674,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @dpy_get_ui_info(ptr noundef readonly captures(address, ret: address, provenance) %con) local_unnamed_addr #0 {
+define dso_local nonnull ptr @dpy_get_ui_info(ptr noundef readonly %con) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -1700,7 +1700,7 @@ if.end:                                           ; preds = %dpy_ui_info_support
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @dpy_set_ui_info(ptr noundef captures(address) %con, ptr noundef readonly captures(none) %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @dpy_set_ui_info(ptr noundef %con, ptr noundef readonly captures(none) %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -1741,7 +1741,7 @@ return:                                           ; preds = %entry, %if.end2, %d
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gfx_update(ptr noundef readonly captures(address) %con, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
+define dso_local void @dpy_gfx_update(ptr noundef readonly %con, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -1887,7 +1887,7 @@ for.end:                                          ; preds = %for.inc, %dpy_gfx_u
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_console_get_width(ptr noundef readonly captures(address) %con, i32 noundef %fallback) local_unnamed_addr #0 {
+define dso_local i32 @qemu_console_get_width(ptr noundef readonly %con, i32 noundef %fallback) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -1929,7 +1929,7 @@ return:                                           ; preds = %if.end3, %entry, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_console_get_height(ptr noundef readonly captures(address) %con, i32 noundef %fallback) local_unnamed_addr #0 {
+define dso_local i32 @qemu_console_get_height(ptr noundef readonly %con, i32 noundef %fallback) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -1971,7 +1971,7 @@ return:                                           ; preds = %if.end3, %entry, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qemu_console_is_visible(ptr noundef readonly captures(address) %con) local_unnamed_addr #10 {
+define dso_local zeroext i1 @qemu_console_is_visible(ptr noundef readonly %con) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr @active_console, align 8
   %cmp = icmp eq ptr %con, %0
@@ -1989,7 +1989,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gfx_update_full(ptr noundef captures(address) %con) local_unnamed_addr #0 {
+define dso_local void @dpy_gfx_update_full(ptr noundef %con) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -2066,7 +2066,7 @@ qemu_console_get_height.exit:                     ; preds = %entry, %qemu_consol
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gfx_replace_surface(ptr noundef captures(address) %con, ptr noundef %surface) local_unnamed_addr #0 {
+define dso_local void @dpy_gfx_replace_surface(ptr noundef %con, ptr noundef %surface) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2230,7 +2230,7 @@ dpy_gfx_destroy_texture.exit:                     ; preds = %for.end, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @dpy_gfx_check_format(ptr noundef readonly captures(address) %con, i32 noundef %format) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @dpy_gfx_check_format(ptr noundef readonly %con, i32 noundef %format) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2279,7 +2279,7 @@ return:                                           ; preds = %if.then5, %if.else,
 declare i32 @qemu_default_pixman_format(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_text_cursor(ptr noundef readonly captures(address) %con, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
+define dso_local void @dpy_text_cursor(ptr noundef readonly %con, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2334,7 +2334,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_text_update(ptr noundef readonly captures(address) %con, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
+define dso_local void @dpy_text_update(ptr noundef readonly %con, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2389,7 +2389,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_text_resize(ptr noundef readonly captures(address) %con, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
+define dso_local void @dpy_text_resize(ptr noundef readonly %con, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2657,7 +2657,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_scanout_disable(ptr noundef captures(address) %con) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_scanout_disable(ptr noundef %con) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2715,7 +2715,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_scanout_texture(ptr noundef captures(address) initializes((64, 68), (72, 77), (80, 112)) %con, i32 noundef %backing_id, i1 noundef zeroext %backing_y_0_top, i32 noundef %backing_width, i32 noundef %backing_height, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %height, ptr noundef %d3d_tex2d) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_scanout_texture(ptr noundef initializes((64, 68), (72, 77), (80, 112)) %con, i32 noundef %backing_id, i1 noundef zeroext %backing_y_0_top, i32 noundef %backing_width, i32 noundef %backing_height, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %height, ptr noundef %d3d_tex2d) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %backing_y_0_top to i8
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
@@ -2784,7 +2784,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_scanout_dmabuf(ptr noundef captures(address) initializes((64, 68), (72, 80)) %con, ptr noundef %dmabuf) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_scanout_dmabuf(ptr noundef initializes((64, 68), (72, 80)) %con, ptr noundef %dmabuf) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2836,7 +2836,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_cursor_dmabuf(ptr noundef readonly captures(address) %con, ptr noundef %dmabuf, i1 noundef zeroext %have_hot, i32 noundef %hot_x, i32 noundef %hot_y) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_cursor_dmabuf(ptr noundef readonly %con, ptr noundef %dmabuf, i1 noundef zeroext %have_hot, i32 noundef %hot_x, i32 noundef %hot_y) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2884,7 +2884,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_cursor_position(ptr noundef readonly captures(address) %con, i32 noundef %pos_x, i32 noundef %pos_y) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_cursor_position(ptr noundef readonly %con, i32 noundef %pos_x, i32 noundef %pos_y) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2932,7 +2932,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_release_dmabuf(ptr noundef readonly captures(address) %con, ptr noundef %dmabuf) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_release_dmabuf(ptr noundef readonly %con, ptr noundef %dmabuf) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2980,7 +2980,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_update(ptr noundef captures(address) %con, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_update(ptr noundef %con, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
   %gl = getelementptr inbounds nuw i8, ptr %con, i64 120
   %0 = load ptr, ptr %gl, align 8
@@ -3527,7 +3527,7 @@ if.end:                                           ; preds = %for.inc.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qemu_console_lookup_by_device(ptr noundef readnone captures(address) %dev, i32 noundef %head) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_console_lookup_by_device(ptr noundef readnone %dev, i32 noundef %head) local_unnamed_addr #0 {
 entry:
   %con.05 = load ptr, ptr @consoles, align 8
   %tobool.not6 = icmp eq ptr %con.05, null
@@ -3677,7 +3677,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_console_is_gl_blocked(ptr noundef readonly captures(address_is_null) %con) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qemu_console_is_gl_blocked(ptr noundef readonly %con) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %con, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -3814,7 +3814,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_text_console_get_label(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @qemu_console_get_index(ptr noundef readonly captures(address) %con) local_unnamed_addr #10 {
+define dso_local i32 @qemu_console_get_index(ptr noundef readonly %con) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8

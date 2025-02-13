@@ -58,7 +58,7 @@ define hidden ptr @BusmasterParserAlloc(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BusmasterParserFinalize(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @BusmasterParserFinalize(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %0, align 8
   %3 = icmp ugt ptr %.promoted, %2
@@ -108,7 +108,7 @@ BusmasterParserFinalize.exit:                     ; preds = %4, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BusmasterParser(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, ptr noundef readonly byval(%struct.token_t) align 8 captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @BusmasterParser(ptr noundef initializes((16, 24)) %0, i32 noundef %1, ptr noundef readonly byval(%struct.token_t) align 8 captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %union.YYMINORTYPE, align 8
   %.sroa.48.i = alloca %struct.msg_data_t, align 8
   %.sroa.4.i = alloca %struct.msg_data_t, align 8

@@ -39926,7 +39926,7 @@ eh.resume:                                        ; preds = %eh.resume.i.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl8StatusOrIN12_GLOBAL__N_113InPlaceHelperEE7emplaceIiJSt10unique_ptrIiSt14default_deleteIiEEETnNSt9enable_ifIXsr3std16is_constructibleIS2_RSt16initializer_listIT_EDpOT0_EE5valueEiE4typeELi0EEERS2_SC_SG_(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(40) initializes((16, 32)) %this, ptr nonnull readonly captures(none) %ilist.coerce0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl8StatusOrIN12_GLOBAL__N_113InPlaceHelperEE7emplaceIiJSt10unique_ptrIiSt14default_deleteIiEEETnNSt9enable_ifIXsr3std16is_constructibleIS2_RSt16initializer_listIT_EDpOT0_EE5valueEiE4typeELi0EEERS2_SC_SG_(ptr noundef nonnull align 8 dereferenceable(40) initializes((16, 32)) %this, ptr nonnull readonly captures(none) %ilist.coerce0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::Status", align 8
   %this.val = load i64, ptr %this, align 8
@@ -81055,7 +81055,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKSt10unique_ptrIN12_GLOBAL__N_15Base1ESt14default_deleteIS4_EEE16GetDescriberImplINSA_11ValuePolicyINS0_9NeMatcherIDnEELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSA_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %m) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKSt10unique_ptrIN12_GLOBAL__N_15Base1ESt14default_deleteIS4_EEE16GetDescriberImplINSA_11ValuePolicyINS0_9NeMatcherIDnEELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSA_(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %m) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret ptr %m
 }
@@ -87654,7 +87654,7 @@ ehcleanup201:                                     ; preds = %ehcleanup200, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl8StatusOrINS0_IN12_GLOBAL__N_112CopyDetectorEEEEaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl8StatusOrINS0_IN12_GLOBAL__N_112CopyDetectorEEEEaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i.i = alloca %"class.absl::Status", align 8
@@ -87833,7 +87833,7 @@ _ZN4absl17internal_statusor12StatusOrDataINS_8StatusOrIN12_GLOBAL__N_112CopyDete
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl8StatusOrINS0_IN12_GLOBAL__N_112CopyDetectorEEEEaSEOS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl8StatusOrINS0_IN12_GLOBAL__N_112CopyDetectorEEEEaSEOS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i.i = alloca %"class.absl::Status", align 8
@@ -87999,7 +87999,7 @@ _ZN4absl17internal_statusor12StatusOrDataINS_8StatusOrIN12_GLOBAL__N_112CopyDete
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEaSERKS3_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEaSERKS3_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i5.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i.i = alloca %"class.absl::Status", align 8
@@ -88117,7 +88117,7 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_112CopyDetectorEEaSERKS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEaSEOS3_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEaSEOS3_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i.i = alloca %"class.absl::Status", align 8
@@ -112057,7 +112057,7 @@ _ZN4absl6StatusD2Ev.exit:                         ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIPN12_GLOBAL__N_15Base2EEaSEOS4_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl8StatusOrIPN12_GLOBAL__N_15Base2EEaSEOS4_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i.i = alloca %"class.absl::Status", align 8
@@ -121168,7 +121168,7 @@ eh.resume:                                        ; preds = %lpad92, %lpad99, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(9) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_16MyTypeEEaSEOS3_(ptr noundef nonnull returned align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(9) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(9) ptr @_ZN4absl8StatusOrIN12_GLOBAL__N_16MyTypeEEaSEOS3_(ptr noundef nonnull returned align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4.i = alloca %"class.absl::Status", align 8
   %ref.tmp.i.i = alloca %"class.absl::Status", align 8

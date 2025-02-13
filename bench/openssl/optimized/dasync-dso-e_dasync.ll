@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly captures(address_is_null) %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -748,7 +748,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @dasync_pkey(ptr readnone captures(none) %e, ptr noundef writeonly captures(address_is_null) %pmeth, ptr noundef writeonly captures(none) %pnids, i32 noundef %nid) #4 {
+define internal range(i32 0, 2) i32 @dasync_pkey(ptr readnone captures(none) %e, ptr noundef writeonly %pmeth, ptr noundef writeonly captures(none) %pnids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %pmeth, null
   br i1 %cmp, label %if.then, label %if.end
@@ -778,7 +778,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 declare i32 @ENGINE_set_digests(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dasync_digests(ptr readnone captures(none) %e, ptr noundef writeonly captures(address_is_null) %digest, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
+define internal i32 @dasync_digests(ptr readnone captures(none) %e, ptr noundef writeonly %digest, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %digest, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -839,7 +839,7 @@ return:                                           ; preds = %if.end, %dasync_dig
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @dasync_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly captures(address_is_null) %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #4 {
+define internal range(i32 0, 4) i32 @dasync_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #4 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %if.then, label %if.end

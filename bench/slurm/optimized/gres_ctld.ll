@@ -119,7 +119,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._step_test = private unnamed_addr constant [11 x i8] c"_step_test\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @gres_ctld_job_select_whole_node(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @gres_ctld_job_select_whole_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.gres_search_key, align 4
   %6 = icmp eq ptr %0, null
   br i1 %6, label %117, label %7

@@ -231,7 +231,7 @@ evp_md_ctx_reset_ex.exit:                         ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_md_ctx_new_ex(ptr noundef %pkey, ptr noundef readonly captures(address_is_null) %id, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @evp_md_ctx_new_ex(ptr noundef %pkey, ptr noundef readonly %id, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #7
   %cmp = icmp eq ptr %call.i, null
@@ -1089,7 +1089,7 @@ declare i32 @EVP_DigestSignUpdate(ptr noundef, ptr noundef, i64 noundef) local_u
 declare i32 @EVP_DigestVerifyUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DigestFinal(ptr noundef %ctx, ptr noundef %md, ptr noundef captures(address_is_null) %size) local_unnamed_addr #0 {
+define i32 @EVP_DigestFinal(ptr noundef %ctx, ptr noundef %md, ptr noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_DigestFinal_ex(ptr noundef %ctx, ptr noundef %md, ptr noundef %size)
   %cmp.i.i = icmp eq ptr %ctx, null
@@ -1117,7 +1117,7 @@ EVP_MD_CTX_reset.exit:                            ; preds = %entry, %if.end3.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DigestFinal_ex(ptr noundef %ctx, ptr noundef %md, ptr noundef writeonly captures(address_is_null) %isize) local_unnamed_addr #0 {
+define i32 @EVP_DigestFinal_ex(ptr noundef %ctx, ptr noundef %md, ptr noundef writeonly %isize) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   %mdsize = alloca i64, align 8
@@ -2133,7 +2133,7 @@ declare i32 @ENGINE_init(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %md, ptr noundef captures(address_is_null) %size, ptr noundef %type, ptr noundef %impl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %md, ptr noundef %size, ptr noundef %type, ptr noundef %impl) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #7
   %cmp = icmp eq ptr %call.i, null
@@ -2181,7 +2181,7 @@ return:                                           ; preds = %entry, %EVP_MD_CTX_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_Q_digest(ptr noundef %libctx, ptr noundef %name, ptr noundef %propq, ptr noundef %data, i64 noundef %datalen, ptr noundef %md, ptr noundef writeonly captures(address_is_null) %mdlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_Q_digest(ptr noundef %libctx, ptr noundef %name, ptr noundef %propq, ptr noundef %data, i64 noundef %datalen, ptr noundef %md, ptr noundef writeonly %mdlen) local_unnamed_addr #0 {
 entry:
   %temp = alloca i32, align 4
   %call.i = tail call ptr @evp_generic_fetch(ptr noundef %libctx, i32 noundef 1, ptr noundef %name, ptr noundef %propq, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #7
@@ -2237,7 +2237,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_get_params(ptr noundef readonly captures(address_is_null) %digest, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_MD_get_params(ptr noundef readonly %digest, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %digest, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -2309,7 +2309,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_CTX_settable_params(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
+define ptr @EVP_MD_CTX_settable_params(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -2398,7 +2398,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_CTX_gettable_params(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
+define ptr @EVP_MD_CTX_gettable_params(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end

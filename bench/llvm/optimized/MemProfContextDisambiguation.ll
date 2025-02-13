@@ -40714,7 +40714,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_120CallsiteC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE11ContextEdgeESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE11ContextEdgeESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %7, label %5
@@ -45506,7 +45506,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE15CallContextInfoESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_16updateStackNodesEvEUlRKSA_SJ_E_EEEvT_SM_T0_(ptr %0, ptr readnone captures(address) %1, ptr %2) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE15CallContextInfoESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS9_16updateStackNodesEvEUlRKSA_SJ_E_EEEvT_SM_T0_(ptr %0, ptr readnone %1, ptr %2) unnamed_addr #1 {
   %4 = alloca %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::ModuleCallsiteContextGraph, llvm::Function, llvm::Instruction *>::CallContextInfo", align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.preheader
@@ -51615,7 +51615,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE19removeEdgeFromGraphEPNS6_11ContextEdgeEPN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIS7_ESt6vectorISC_SaISC_EEEEb(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE19removeEdgeFromGraphEPNS6_11ContextEdgeEPN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIS7_ESt6vectorISC_SaISC_EEEEb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !823
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !796
@@ -53899,7 +53899,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126ModuleCallsiteContextGraph34findProfiledCalleeThroughTailCallsEPKN4llvm8FunctionEPNS1_5ValueEjRSt6vectorISt4pairIPNS1_11InstructionEPS2_ESaISC_EERb(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %4) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126ModuleCallsiteContextGraph34findProfiledCalleeThroughTailCallsEPKN4llvm8FunctionEPNS1_5ValueEjRSt6vectorISt4pairIPNS1_11InstructionEPS2_ESaISC_EERb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %4) unnamed_addr #1 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19TailCallSearchDepth, i64 120), align 8, !tbaa !66
   %7 = icmp ugt i32 %2, %6
   br i1 %7, label %116, label %8
@@ -64666,7 +64666,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_120CallsiteC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextEdgeESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextEdgeESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %7, label %5
@@ -66746,7 +66746,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %61, %59, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef readonly captures(address) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -69777,7 +69777,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE15CallContextInfoESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS8_16updateStackNodesEvEUlRKS9_SI_E_EEEvT_SL_T0_(ptr %0, ptr readnone captures(address) %1, ptr %2) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE15CallContextInfoESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS8_16updateStackNodesEvEUlRKS9_SI_E_EEEvT_SL_T0_(ptr %0, ptr readnone %1, ptr %2) unnamed_addr #1 {
   %4 = alloca %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::IndexCallsiteContextGraph, llvm::FunctionSummary, (anonymous namespace)::IndexCall>::CallContextInfo", align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.preheader
@@ -75728,7 +75728,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteCon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE19removeEdgeFromGraphEPNS5_11ContextEdgeEPN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIS6_ESt6vectorISB_SaISB_EEEEb(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE19removeEdgeFromGraphEPNS5_11ContextEdgeEPN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIS6_ESt6vectorISB_SaISB_EEEEb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !1192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !1173
@@ -93419,7 +93419,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS6_11InstructionEE11ContextEdgeEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNSA_14identifyClonesEPNSA_11ContextNodeERNS6_8DenseSetIPKSK_NS6_12DenseMapInfoISO_vEEEERKNSM_IjNSP_IjvEEEEEUlRKSC_SY_E_EEEvT_S11_T0_(ptr %0, ptr readnone captures(address) %1, ptr readonly captures(none) %2) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS6_11InstructionEE11ContextEdgeEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNSA_14identifyClonesEPNSA_11ContextNodeERNS6_8DenseSetIPKSK_NS6_12DenseMapInfoISO_vEEEERKNSM_IjNSP_IjvEEEEEUlRKSC_SY_E_EEEvT_S11_T0_(ptr %0, ptr readnone %1, ptr readonly captures(none) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -96157,7 +96157,7 @@ _ZSt21__move_merge_adaptiveIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGrap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS6_11InstructionEE11ContextEdgeEESt6vectorISC_SaISC_EEEESD_NS0_5__ops15_Iter_comp_iterIZNSA_14identifyClonesEPNSA_11ContextNodeERNS6_8DenseSetIPKSK_NS6_12DenseMapInfoISO_vEEEERKNSM_IjNSP_IjvEEEEEUlRKSC_SY_E_EEET0_T_S12_S12_S12_S11_T1_(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef captures(ret: address, provenance) %4, ptr readonly captures(none) %5) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS6_11InstructionEE11ContextEdgeEESt6vectorISC_SaISC_EEEESD_NS0_5__ops15_Iter_comp_iterIZNSA_14identifyClonesEPNSA_11ContextNodeERNS6_8DenseSetIPKSK_NS6_12DenseMapInfoISO_vEEEERKNSM_IjNSP_IjvEEEEEUlRKSC_SY_E_EEET0_T_S12_S12_S12_S11_T1_(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef %4, ptr readonly captures(none) %5) unnamed_addr #1 {
   %7 = icmp ne ptr %0, %1
   %8 = icmp ne ptr %2, %3
   %or.cond39 = select i1 %7, i1 %8, i1 false
@@ -98920,7 +98920,7 @@ _ZSt4copyIPPPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoESt4pairIKS8_St3mapINS7_8CallInfoESC_St4lessISC_ESaIS9_IKSC_SC_EEEESt10_Select1stISJ_ESD_IS8_ESaISJ_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISJ_ERSA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr readnone captures(address) %.0.val, i32 %.8.val) unnamed_addr #22 align 2 {
+define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoESt4pairIKS8_St3mapINS7_8CallInfoESC_St4lessISC_ESaIS9_IKSC_SC_EEEESt10_Select1stISJ_ESD_IS8_ESaISJ_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISJ_ERSA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr readnone %.0.val, i32 %.8.val) unnamed_addr #22 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %5, label %33
@@ -111998,7 +111998,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS3_9IndexCallEE11ContextEdgeEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS9_14identifyClonesEPNS9_11ContextNodeERNS6_8DenseSetIPKSJ_NS6_12DenseMapInfoISN_vEEEERKNSL_IjNSO_IjvEEEEEUlRKSB_SX_E_EEEvT_S10_T0_(ptr %0, ptr readnone captures(address) %1, ptr readonly captures(none) %2) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS3_9IndexCallEE11ContextEdgeEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS9_14identifyClonesEPNS9_11ContextNodeERNS6_8DenseSetIPKSJ_NS6_12DenseMapInfoISN_vEEEERKNSL_IjNSO_IjvEEEEEUlRKSB_SX_E_EEEvT_S10_T0_(ptr %0, ptr readnone %1, ptr readonly captures(none) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -114736,7 +114736,7 @@ _ZSt21__move_merge_adaptiveIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGrap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS3_9IndexCallEE11ContextEdgeEESt6vectorISB_SaISB_EEEESC_NS0_5__ops15_Iter_comp_iterIZNS9_14identifyClonesEPNS9_11ContextNodeERNS6_8DenseSetIPKSJ_NS6_12DenseMapInfoISN_vEEEERKNSL_IjNSO_IjvEEEEEUlRKSB_SX_E_EEET0_T_S11_S11_S11_S10_T1_(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef captures(ret: address, provenance) %4, ptr readonly captures(none) %5) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS3_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS3_9IndexCallEE11ContextEdgeEESt6vectorISB_SaISB_EEEESC_NS0_5__ops15_Iter_comp_iterIZNS9_14identifyClonesEPNS9_11ContextNodeERNS6_8DenseSetIPKSJ_NS6_12DenseMapInfoISN_vEEEERKNSL_IjNSO_IjvEEEEEUlRKSB_SX_E_EEET0_T_S11_S11_S11_S10_T1_(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef %4, ptr readonly captures(none) %5) unnamed_addr #1 {
   %7 = icmp ne ptr %0, %1
   %8 = icmp ne ptr %2, %3
   %or.cond39 = select i1 %7, i1 %8, i1 false
@@ -117267,7 +117267,7 @@ _ZSt4copyIPPPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGra
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoESt4pairIKS7_St3mapINS6_8CallInfoESB_St4lessISB_ESaIS8_IKSB_SB_EEEESt10_Select1stISI_ESC_IS7_ESaISI_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISI_ERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr readnone captures(address) %.0.val, i32 %.8.val) unnamed_addr #22 align 2 {
+define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoESt4pairIKS7_St3mapINS6_8CallInfoESB_St4lessISB_ESaIS8_IKSB_SB_EEEESt10_Select1stISI_ESC_IS7_ESaISI_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISI_ERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr readnone %.0.val, i32 %.8.val) unnamed_addr #22 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %5, label %33

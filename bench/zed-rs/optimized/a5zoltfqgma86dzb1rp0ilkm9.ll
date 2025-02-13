@@ -1034,7 +1034,7 @@ define internal { i64, i64 } @_ZN4core5error5Error7type_id17hfcca258a83ae74d1E(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17hdbeb9765127df15dE.llvm.11807424318162992724"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(3928) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17hdbeb9765127df15dE.llvm.11807424318162992724"(ptr noalias noundef readonly align 8 dereferenceable_or_null(3928) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -4302,7 +4302,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error12object_boxed17hc734a5b2d38261acE.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h19ccfb85cfe27016E.llvm.11807424318162992724(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h19ccfb85cfe27016E.llvm.11807424318162992724(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = icmp eq i64 %1, -5076933981314334344
   %5 = icmp eq i64 %2, 7199936582794304877
   %or.cond = and i1 %4, %5
@@ -4312,7 +4312,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h19ccfb85cfe27016E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h2f372dcea6e0425aE.llvm.11807424318162992724(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h2f372dcea6e0425aE.llvm.11807424318162992724(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = icmp eq i64 %1, -8405317911976676685
   %5 = icmp eq i64 %2, -1836438133920434110
   %or.cond = and i1 %4, %5
@@ -4322,7 +4322,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h2f372dcea6e0425aE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb3ae61648642eef0E.llvm.11807424318162992724(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb3ae61648642eef0E.llvm.11807424318162992724(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = icmp eq i64 %1, 3419990959903056772
   %5 = icmp eq i64 %2, 1871997861980073009
   %or.cond = and i1 %4, %5
@@ -4332,7 +4332,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb3ae61648642eef0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error16context_downcast17ha391818ac5596ef7E.llvm.11807424318162992724(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error16context_downcast17ha391818ac5596ef7E.llvm.11807424318162992724(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   switch i64 %1, label %.thread [
     i64 -5076933981314334344, label %4
     i64 3423439618163795641, label %7
@@ -4356,7 +4356,7 @@ define hidden noundef ptr @_ZN6anyhow5error16context_downcast17ha391818ac5596ef7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error16context_downcast17hb4abecfdb3249082E.llvm.11807424318162992724(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error16context_downcast17hb4abecfdb3249082E.llvm.11807424318162992724(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   switch i64 %1, label %.thread [
     i64 -5076933981314334344, label %4
     i64 -2454506581885218606, label %7
@@ -4380,7 +4380,7 @@ define hidden noundef ptr @_ZN6anyhow5error16context_downcast17hb4abecfdb3249082
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error16context_downcast17hb81b21c1afd60e6eE.llvm.11807424318162992724(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error16context_downcast17hb81b21c1afd60e6eE.llvm.11807424318162992724(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   switch i64 %1, label %.thread [
     i64 -5076933981314334344, label %4
     i64 -8405317911976676685, label %7
@@ -4708,7 +4708,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17h5fbf31b370b80e5fE.llvm
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6anyhow5error22context_chain_downcast17h006345d3e68546ffE.llvm.11807424318162992724(ptr noundef nonnull readonly captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef ptr @_ZN6anyhow5error22context_chain_downcast17h006345d3e68546ffE.llvm.11807424318162992724(ptr noundef nonnull readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 3419990959903056772
   %5 = icmp eq i64 %2, 1871997861980073009
   %or.cond = and i1 %4, %5
@@ -4733,7 +4733,7 @@ define hidden noundef ptr @_ZN6anyhow5error22context_chain_downcast17h006345d3e6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6anyhow5error22context_chain_downcast17h86a4dbf073067591E.llvm.11807424318162992724(ptr noundef nonnull readonly captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef ptr @_ZN6anyhow5error22context_chain_downcast17h86a4dbf073067591E.llvm.11807424318162992724(ptr noundef nonnull readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, -5076933981314334344
   %5 = icmp eq i64 %2, 7199936582794304877
   %or.cond = and i1 %4, %5
@@ -6323,7 +6323,7 @@ define hidden noundef zeroext i1 @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$7get_m
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(568) ptr @"_ZN80_$LT$gpui..elements..canvas..Canvas$LT$T$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h61c297a22c12543bE.llvm.11807424318162992724"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(600) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(568) ptr @"_ZN80_$LT$gpui..elements..canvas..Canvas$LT$T$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h61c297a22c12543bE.llvm.11807424318162992724"(ptr noalias noundef readnone returned align 8 dereferenceable(600) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

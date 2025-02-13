@@ -13729,7 +13729,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt10theory_str13get_eqc_valueEP4exprRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly captures(ret: address, provenance) %n, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %hasEqcValue) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_str13get_eqc_valueEP4exprRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly %n, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %hasEqcValue) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
@@ -38212,7 +38212,7 @@ return:                                           ; preds = %_ZNK8seq_util3str9i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt10theory_str12get_eqc_nextEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly captures(ret: address, provenance) %n) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_str12get_eqc_nextEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly %n) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -39722,7 +39722,7 @@ ehcleanup76:                                      ; preds = %lpad2.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt10theory_str11eval_concatEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef %n1, ptr noundef readonly captures(ret: address, provenance) %n2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN3smt10theory_str11eval_concatEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef %n1, ptr noundef readonly %n2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n1_str = alloca %class.zstring, align 8
   %n2_str = alloca %class.zstring, align 8
@@ -74170,7 +74170,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt10theory_str20z3str2_get_eqc_valueEP4exprRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly captures(ret: address, provenance) %n, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %hasEqcValue) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_str20z3str2_get_eqc_valueEP4exprRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly %n, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %hasEqcValue) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -100937,7 +100937,7 @@ ehcleanup102:                                     ; preds = %lpad2, %lpad.i, %eh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt10theory_str23check_eqc_concat_concatERSt3setIP4exprSt4lessIS3_ESaIS3_EES8_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %eqc_concat_lhs, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %eqc_concat_rhs) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt10theory_str23check_eqc_concat_concatERSt3setIP4exprSt4lessIS3_ESaIS3_EES8_(ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %eqc_concat_lhs, ptr noundef nonnull readonly align 8 dereferenceable(48) %eqc_concat_rhs) local_unnamed_addr #3 align 2 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %eqc_concat_lhs, i64 40
   %0 = load i64, ptr %_M_node_count.i.i, align 8
@@ -129581,7 +129581,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3smt10theory_str15refine_functionEP4expr(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1800) %this, ptr noundef readnone returned captures(ret: address, provenance) %f) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_str15refine_functionEP4expr(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1800) %this, ptr noundef readnone returned %f) local_unnamed_addr #13 align 2 {
 entry:
   ret ptr %f
 }

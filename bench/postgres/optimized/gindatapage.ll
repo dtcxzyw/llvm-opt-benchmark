@@ -795,7 +795,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @computeLeafRecompressWALData(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2999,7 +2999,7 @@ dataBeginPlaceToPageInternal.exit:                ; preds = %dataSplitPageIntern
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dataExecPlaceToPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(address) %5) #0 {
+define internal void @dataExecPlaceToPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly %5) #0 {
   %7 = icmp slt i32 %1, 0
   br i1 %7, label %BufferGetPage.exit, label %BufferGetPage.exit.thread
 

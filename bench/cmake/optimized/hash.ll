@@ -375,7 +375,7 @@ Curl_hash_clean_with_criterium.exit:              ; preds = %._crit_edge.split.u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -467,7 +467,7 @@ define dso_local i64 @Curl_hash_count(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i64 0, -1) i64 @Curl_hash_str(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2) #4 {
+define dso_local range(i64 0, -1) i64 @Curl_hash_str(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

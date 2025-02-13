@@ -699,7 +699,7 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core3ops8function6FnOnce9call_once17h691fea9a3c790588E.llvm.15487262557860838494(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core3ops8function6FnOnce9call_once17h691fea9a3c790588E.llvm.15487262557860838494(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -775,7 +775,7 @@ define internal noundef i128 @_ZN4core5error5Error7type_id17ha3e193673c38cc0fE(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core6option6Option4Some17h81063d431034de26E.llvm.15487262557860838494(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core6option6Option4Some17h81063d431034de26E.llvm.15487262557860838494(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

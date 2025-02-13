@@ -1181,7 +1181,7 @@ define double @zend_ini_double(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
 declare double @zend_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_ini_string_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define ptr @zend_ini_string_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %6 = tail call ptr @zend_hash_str_find(ptr noundef %5, ptr noundef %0, i64 noundef %1) #20
   %.not = icmp eq ptr %6, null
@@ -1274,7 +1274,7 @@ zend_ini_string_ex.exit:                          ; preds = %zend_ini_string_ex.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_ini_str_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define ptr @zend_ini_str_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %6 = tail call ptr @zend_hash_str_find(ptr noundef %5, ptr noundef %0, i64 noundef %1) #20
   %.not = icmp eq ptr %6, null
@@ -2825,7 +2825,7 @@ declare void @smart_str_append_escaped(ptr noundef, ptr noundef, i64 noundef) lo
 declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @zend_ini_consume_quantity_prefix(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) unnamed_addr #16 {
+define internal fastcc ptr @zend_ini_consume_quantity_prefix(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #16 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph.preheader, label %.critedgethread-pre-split
 

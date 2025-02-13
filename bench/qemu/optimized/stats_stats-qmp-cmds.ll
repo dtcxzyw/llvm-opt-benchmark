@@ -342,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @apply_str_list_filter(ptr noundef %string, ptr noundef readonly captures(address_is_null) %list) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @apply_str_list_filter(ptr noundef %string, ptr noundef readonly %list) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %return, label %for.body

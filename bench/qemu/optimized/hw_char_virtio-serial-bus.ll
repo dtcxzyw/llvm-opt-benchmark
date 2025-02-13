@@ -230,7 +230,7 @@ discard_vq_data.exit:                             ; preds = %discard_throttle_da
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @virtio_serial_write(ptr noundef readonly captures(address_is_null) %port, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local i64 @virtio_serial_write(ptr noundef readonly %port, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %port, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -350,7 +350,7 @@ declare i32 @virtio_queue_empty(ptr noundef) local_unnamed_addr #1
 declare void @virtqueue_get_avail_bytes(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_serial_throttle_port(ptr noundef captures(address_is_null) %port, i1 noundef zeroext %throttle) local_unnamed_addr #0 {
+define dso_local void @virtio_serial_throttle_port(ptr noundef %port, i1 noundef zeroext %throttle) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tobool.not = icmp eq ptr %port, null
@@ -1918,7 +1918,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_input(ptr noundef %vdev, ptr noundef readnone captures(address) %vq) #0 {
+define internal void @handle_input(ptr noundef %vdev, ptr noundef readnone %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
   %ports.i = getelementptr inbounds nuw i8, ptr %call.i, i64 688

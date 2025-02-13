@@ -4305,7 +4305,7 @@ define internal fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyPtiii(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z17rcMergePolyMeshesP9rcContextPP10rcPolyMeshiRS1_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(96) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z17rcMergePolyMeshesP9rcContextPP10rcPolyMeshiRS1_(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(96) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %6 = icmp eq ptr %5, null
   %7 = icmp ne ptr %0, null

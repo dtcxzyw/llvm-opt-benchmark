@@ -396,7 +396,7 @@ return:                                           ; preds = %iotlb_fail, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @flatview_do_translate(ptr noalias nonnull writeonly align 16 captures(none) %agg.result, ptr captures(none) %fv.40.val, i64 noundef %addr, ptr noundef captures(none) %xlat, ptr noundef captures(address_is_null) %plen_out, ptr noundef writeonly captures(address_is_null) %page_mask_out, i1 noundef zeroext %is_write, i1 noundef zeroext %is_mmio, ptr noundef nonnull writeonly captures(none) %target_as, i32 %attrs.coerce) unnamed_addr #0 {
+define internal fastcc void @flatview_do_translate(ptr noalias nonnull writeonly align 16 captures(none) %agg.result, ptr captures(none) %fv.40.val, i64 noundef %addr, ptr noundef captures(none) %xlat, ptr noundef %plen_out, ptr noundef writeonly %page_mask_out, i1 noundef zeroext %is_write, i1 noundef zeroext %is_mmio, ptr noundef nonnull writeonly captures(none) %target_as, i32 %attrs.coerce) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.IOMMUTLBEntry, align 8
   %plen = alloca i64, align 8
@@ -541,7 +541,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @flatview_translate(ptr noundef readonly captures(none) %fv, i64 noundef %addr, ptr noundef captures(none) %xlat, ptr noundef captures(address_is_null) %plen, i1 noundef zeroext %is_write, i32 %attrs.coerce) local_unnamed_addr #0 {
+define dso_local ptr @flatview_translate(ptr noundef readonly captures(none) %fv, i64 noundef %addr, ptr noundef captures(none) %xlat, ptr noundef %plen, i1 noundef zeroext %is_write, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
   %as = alloca ptr, align 8
   %tmp = alloca %struct.MemoryRegionSection, align 16
@@ -2395,7 +2395,7 @@ if.end5:                                          ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_ram_get_idstr(ptr noundef readnone captures(ret: address, provenance) %rb) local_unnamed_addr #9 {
+define dso_local nonnull ptr @qemu_ram_get_idstr(ptr noundef readnone %rb) local_unnamed_addr #9 {
 entry:
   %idstr = getelementptr inbounds nuw i8, ptr %rb, i64 76
   ret ptr %idstr
@@ -2656,7 +2656,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_ram_unset_idstr(ptr noundef writeonly captures(address_is_null) %block) local_unnamed_addr #15 {
+define dso_local void @qemu_ram_unset_idstr(ptr noundef writeonly %block) local_unnamed_addr #15 {
 entry:
   %tobool.not = icmp eq ptr %block, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4509,7 +4509,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_map_ram_ptr(ptr noundef readonly captures(address_is_null) %ram_block, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local ptr @qemu_map_ram_ptr(ptr noundef readonly %ram_block, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ram_block, null
   br i1 %cmp, label %if.then, label %land.lhs.true.i.i
@@ -5336,7 +5336,7 @@ for.end:                                          ; preds = %if.end22
 declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qemu_ram_ptr_length(ptr noundef readonly captures(address_is_null) %ram_block, i64 noundef %addr, ptr noundef captures(none) %size) unnamed_addr #0 {
+define internal fastcc ptr @qemu_ram_ptr_length(ptr noundef readonly %ram_block, i64 noundef %addr, ptr noundef captures(none) %size) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
@@ -6000,7 +6000,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #3
 declare void @finalize_target_page_bits() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_unregister_map_client(ptr noundef readnone captures(address) %bh) local_unnamed_addr #0 {
+define dso_local void @cpu_unregister_map_client(ptr noundef readnone %bh) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -6563,14 +6563,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @address_space_ldl(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i32 @address_space_ldl(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @address_space_ldl_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @address_space_ldl_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc i32 @address_space_ldl_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -6732,28 +6732,28 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @address_space_ldl_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i32 @address_space_ldl_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @address_space_ldl_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @address_space_ldl_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i32 @address_space_ldl_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @address_space_ldl_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @address_space_ldq(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i64 @address_space_ldq(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @address_space_ldq_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @address_space_ldq_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc i64 @address_space_ldq_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -6911,21 +6911,21 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @address_space_ldq_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i64 @address_space_ldq_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @address_space_ldq_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @address_space_ldq_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i64 @address_space_ldq_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @address_space_ldq_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @address_space_ldub(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i8 @address_space_ldub(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7063,14 +7063,14 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @address_space_lduw(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i16 @address_space_lduw(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i16 @address_space_lduw_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @address_space_lduw_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc zeroext i16 @address_space_lduw_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7232,21 +7232,21 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @address_space_lduw_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i16 @address_space_lduw_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i16 @address_space_lduw_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @address_space_lduw_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i16 @address_space_lduw_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i16 @address_space_lduw_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl_notdirty(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl_notdirty(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7394,14 +7394,14 @@ declare i32 @memory_region_dispatch_write(ptr noundef, i64 noundef, i64 noundef,
 declare zeroext i8 @memory_region_get_dirty_log_mask(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stl_internal(ptr noundef %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stl_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stl_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7546,21 +7546,21 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stl_internal(ptr noundef %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stl_internal(ptr noundef %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stb(ptr noundef readonly captures(none) %as, i64 noundef %addr, i8 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stb(ptr noundef readonly captures(none) %as, i64 noundef %addr, i8 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7695,14 +7695,14 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stw(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stw(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stw_internal(ptr noundef %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stw_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stw_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7847,28 +7847,28 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stw_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stw_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stw_internal(ptr noundef %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stw_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stw_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stw_internal(ptr noundef %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stq(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stq(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stq_internal(ptr noundef %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stq_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stq_internal(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -8012,14 +8012,14 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stq_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stq_le(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stq_internal(ptr noundef %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stq_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stq_be(ptr noundef readonly captures(none) %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stq_internal(ptr noundef %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret void
@@ -8564,14 +8564,14 @@ for.end:                                          ; preds = %if.end23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @address_space_ldl_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i32 @address_space_ldl_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @address_space_ldl_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @address_space_ldl_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc i32 @address_space_ldl_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %l = alloca i64, align 8
@@ -8671,28 +8671,28 @@ if.end23:                                         ; preds = %if.then22, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @address_space_ldl_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i32 @address_space_ldl_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @address_space_ldl_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @address_space_ldl_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i32 @address_space_ldl_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @address_space_ldl_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @address_space_ldq_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i64 @address_space_ldq_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @address_space_ldq_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @address_space_ldq_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc i64 @address_space_ldq_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %l = alloca i64, align 8
@@ -8788,21 +8788,21 @@ if.end20:                                         ; preds = %if.then19, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @address_space_ldq_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i64 @address_space_ldq_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @address_space_ldq_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @address_space_ldq_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local i64 @address_space_ldq_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @address_space_ldq_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @address_space_ldub_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i8 @address_space_ldub_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %l = alloca i64, align 8
@@ -8878,14 +8878,14 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @address_space_lduw_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i16 @address_space_lduw_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i16 @address_space_lduw_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @address_space_lduw_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc zeroext i16 @address_space_lduw_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %l = alloca i64, align 8
@@ -8985,21 +8985,21 @@ if.end23:                                         ; preds = %if.then22, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i16 @address_space_lduw_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @address_space_lduw_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local zeroext i16 @address_space_lduw_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i16 @address_space_lduw_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl_notdirty_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl_notdirty_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
@@ -9081,14 +9081,14 @@ if.end19:                                         ; preds = %if.then18, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stl_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stl_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stl_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
@@ -9171,21 +9171,21 @@ if.end18:                                         ; preds = %if.then17, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stl_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stl_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stl_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stl_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stb_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i8 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stb_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i8 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
@@ -9258,14 +9258,14 @@ if.end15:                                         ; preds = %if.then14, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stw_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stw_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stw_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stw_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stw_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
@@ -9348,28 +9348,28 @@ if.end18:                                         ; preds = %if.then17, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stw_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stw_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stw_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stw_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stw_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stw_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stq_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stq_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stq_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stq_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stq_internal_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
@@ -9451,14 +9451,14 @@ if.end17:                                         ; preds = %if.then16, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stq_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stq_le_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stq_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_stq_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef captures(address_is_null) %result) local_unnamed_addr #0 {
+define dso_local void @address_space_stq_be_cached_slow(ptr noundef readonly captures(none) %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @address_space_stq_internal_cached_slow(ptr noundef %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef %result, i32 noundef 1)
   ret void
@@ -9910,7 +9910,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @mtree_print_dispatch(ptr noundef readonly captures(none) %d, ptr noundef readnone captures(address) %root) local_unnamed_addr #0 {
+define dso_local void @mtree_print_dispatch(ptr noundef readonly captures(none) %d, ptr noundef readnone %root) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.62) #28
   %call1 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.63) #28

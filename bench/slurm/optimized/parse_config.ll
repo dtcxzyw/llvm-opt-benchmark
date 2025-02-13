@@ -439,7 +439,7 @@ _line_is_space.exit.thread:                       ; preds = %39, %33, %30, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1042,7 +1042,7 @@ _strip_cr_nl.exit:                                ; preds = %.lr.ph.i57, %249, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_parse_pair(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define range(i32 0, 2) i32 @s_p_parse_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %4
 }
@@ -1142,7 +1142,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @s_p_hashtbl_merge(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #0 {
+define void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.s_p_values, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -1293,7 +1293,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_string(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_string(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1374,7 +1374,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_long(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_long(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1455,7 +1455,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_uint16(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_uint16(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1536,7 +1536,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_uint32(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_uint32(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1617,7 +1617,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_uint64(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_uint64(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1698,7 +1698,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_float(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_float(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1779,7 +1779,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1860,7 +1860,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_long_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_long_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -1941,7 +1941,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_pointer(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_pointer(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -2021,7 +2021,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_array(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define range(i32 0, 2) i32 @s_p_get_array(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_get_check.exit.thread, label %5
 
@@ -2103,7 +2103,7 @@ _get_check.exit.thread:                           ; preds = %28, %4, %26, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_boolean(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define range(i32 0, 2) i32 @s_p_get_boolean(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_get_check.exit.thread, label %4
 
@@ -2185,7 +2185,7 @@ _get_check.exit.thread:                           ; preds = %27, %3, %25, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define void @s_p_dump_values(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 {
+define void @s_p_dump_values(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
@@ -2593,7 +2593,7 @@ define void @transfer_s_p_options(ptr noundef %0, ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @s_p_hashtbl_create_cnt(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @s_p_hashtbl_create_cnt(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1448, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.s_p_hashtbl_create_cnt) #14
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
@@ -3371,7 +3371,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @s_p_hashtbl_merge_override(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.s_p_values, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -3512,7 +3512,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @s_p_hashtbl_merge_keys(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @s_p_hashtbl_merge_keys(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -4161,7 +4161,7 @@ define internal fastcc void @_hashtbl_plain_to_string(ptr noundef readonly captu
 declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
@@ -4366,7 +4366,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_operator(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_get_operator(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %4
 
@@ -4430,7 +4430,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_line(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_get_line(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_get_check.exit.thread, label %5
 
@@ -4514,7 +4514,7 @@ _get_check.exit.thread:                           ; preds = %28, %4, %26, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @s_p_get_expline(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @s_p_get_expline(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_get_check.exit.thread, label %5
 
@@ -4598,7 +4598,7 @@ _get_check.exit.thread:                           ; preds = %28, %4, %26, %.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @s_p_pack_hashtbl(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @s_p_pack_hashtbl(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @init_buf(i32 noundef 0) #14
   tail call void @pack32(i32 noundef %2, ptr noundef %4) #14
   %.not73 = icmp eq i32 %2, 0

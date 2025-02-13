@@ -52,7 +52,7 @@ $_ZN6hermes17CallGraphProviderD2Ev = comdat any
 @.str = private unnamed_addr constant [14 x i8] c"TypeInference\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes13TypeInference11runOnModuleEPNS_6ModuleE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %M) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes13TypeInference11runOnModuleEPNS_6ModuleE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %M) unnamed_addr #0 align 2 {
 entry:
   %visited.i.i.i.i = alloca %"class.llvh::SmallPtrSet", align 8
   %values.i.i.i.i = alloca %"class.llvh::SmallPtrSet", align 8

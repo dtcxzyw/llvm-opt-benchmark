@@ -86,7 +86,7 @@ loc_push_restore.exit:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @loc_pop(ptr noundef returned captures(address, ret: address, provenance) %loc) local_unnamed_addr #0 {
+define dso_local noundef ptr @loc_pop(ptr noundef returned %loc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @cur_loc, align 8
   %cmp = icmp eq ptr %0, %loc
@@ -109,7 +109,7 @@ if.end:                                           ; preds = %land.lhs.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @loc_save(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 24)) %loc) local_unnamed_addr #4 {
+define dso_local noundef ptr @loc_save(ptr noundef returned writeonly initializes((0, 24)) %loc) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @cur_loc, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 16, i1 false)
@@ -386,7 +386,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @error_report_once_cond(ptr noundef captures(address_is_null) %printed, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @error_report_once_cond(ptr noundef %printed, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %printed, null
@@ -414,7 +414,7 @@ return:                                           ; preds = %if.end, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @warn_report_once_cond(ptr noundef captures(address_is_null) %printed, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @warn_report_once_cond(ptr noundef %printed, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %printed, null

@@ -1924,7 +1924,7 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EED2Ev.exit: ; preds = %cleanup, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node22SocketAddressBlockList9ListRulesEPNS_11EnvironmentEPSt6vectorIN2v85LocalINS4_5ValueEEESaIS7_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %this, ptr noundef readonly captures(none) %env, ptr noundef captures(none) %rules) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node22SocketAddressBlockList9ListRulesEPNS_11EnvironmentEPSt6vectorIN2v85LocalINS4_5ValueEEESaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef readonly captures(none) %env, ptr noundef captures(none) %rules) local_unnamed_addr #3 align 2 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %parent_ = getelementptr inbounds nuw i8, ptr %this, i64 8

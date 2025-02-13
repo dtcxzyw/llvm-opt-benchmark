@@ -779,7 +779,7 @@ _ZN4llvm19SmallPtrSetImplBase10moveHelperEPPKvjS3_OS0_.exit: ; preds = %15, %18,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm19SmallPtrSetImplBase4swapEPPKvS3_RS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(21) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 captures(address) dereferenceable(21) %3) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm19SmallPtrSetImplBase4swapEPPKvS3_RS0_(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(21) %3) local_unnamed_addr #6 align 2 {
   %5 = icmp eq ptr %0, %3
   br i1 %5, label %100, label %6
 

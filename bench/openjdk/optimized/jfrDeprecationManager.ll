@@ -345,7 +345,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17JfrDeprecatedEdge10stacktraceEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(82) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17JfrDeprecatedEdge10stacktraceEv(ptr noundef nonnull readnone align 8 dereferenceable(82) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -359,7 +359,7 @@ define hidden noundef zeroext i1 @_ZNK17JfrDeprecatedEdge12has_type_setEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17JfrDeprecatedEdge8type_setEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(82) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17JfrDeprecatedEdge8type_setEv(ptr noundef nonnull readnone align 8 dereferenceable(82) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -996,7 +996,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE64ELS1_0ELS
 declare void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17is_not_jdk_modulePK11ModuleEntryP10JavaThread(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL17is_not_jdk_modulePK11ModuleEntryP10JavaThread(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit, label %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i
 

@@ -1509,7 +1509,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
+define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
   %7 = alloca [8 x i8], align 2
@@ -2963,7 +2963,7 @@ define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #2 {
+define internal fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly %6) unnamed_addr #2 {
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2
@@ -3091,7 +3091,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #2 {
+define internal fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -6, 2147483642) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly %6) unnamed_addr #2 {
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2

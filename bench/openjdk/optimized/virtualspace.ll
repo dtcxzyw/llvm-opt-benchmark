@@ -1086,7 +1086,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_27ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readnone captures(address) %4, ptr noundef readnone captures(address) %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readnone %4, ptr noundef readnone %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #1 align 2 {
   %10 = ptrtoint ptr %1 to i64
   %11 = icmp eq ptr %1, %2
   br i1 %11, label %24, label %12
@@ -2165,7 +2165,7 @@ define hidden noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK12VirtualSpace8containsEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK12VirtualSpace8containsEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp ule ptr %4, %1

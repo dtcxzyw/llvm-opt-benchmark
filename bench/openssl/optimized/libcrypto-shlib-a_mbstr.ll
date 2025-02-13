@@ -9,14 +9,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [12 x i8] c"maxsize=%ld\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 31) i32 @ASN1_mbstring_copy(ptr noundef captures(address_is_null) %out, ptr noundef %in, i32 noundef %len, i32 noundef %inform, i64 noundef %mask) local_unnamed_addr #0 {
+define range(i32 -1, 31) i32 @ASN1_mbstring_copy(ptr noundef %out, ptr noundef %in, i32 noundef %len, i32 noundef %inform, i64 noundef %mask) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ASN1_mbstring_ncopy(ptr noundef %out, ptr noundef %in, i32 noundef %len, i32 noundef %inform, i64 noundef %mask, i64 noundef 0, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_is_null) %out, ptr noundef %in, i32 noundef %len, i32 noundef %inform, i64 noundef %mask, i64 noundef %minsize, i64 noundef %maxsize) local_unnamed_addr #0 {
+define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef %out, ptr noundef %in, i32 noundef %len, i32 noundef %inform, i64 noundef %mask, i64 noundef %minsize, i64 noundef %maxsize) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i64, align 8
   %mask.addr = alloca i64, align 8
@@ -319,7 +319,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr noundef %p, i32 noundef range(i32 0, -2147483648) %len, i32 noundef %inform, ptr noundef readonly captures(address_is_null) %rfunc, ptr noundef nonnull %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr noundef %p, i32 noundef range(i32 0, -2147483648) %len, i32 noundef %inform, ptr noundef readonly %rfunc, ptr noundef nonnull %arg) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %tobool.not21 = icmp eq i32 %len, 0

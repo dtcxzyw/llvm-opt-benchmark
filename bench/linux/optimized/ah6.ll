@@ -194,7 +194,7 @@ declare dso_local void @__xfrm_state_destroy(ptr noundef, i1 noundef zeroext) lo
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ah6_init_state(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ah6_init_state(ptr noundef captures(none) %0, ptr noundef writeonly %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -989,7 +989,7 @@ declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc noundef range(i32 -22, 1) i32 @ipv6_clear_mutable_options(ptr noundef captures(address) %0, i32 noundef range(i32 -65535, 65536) %1) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ipv6_clear_mutable_options(ptr noundef %0, i32 noundef range(i32 -65535, 65536) %1) unnamed_addr #10 align 16 {
   %3 = alloca [4 x i32], align 4
   %4 = sext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4

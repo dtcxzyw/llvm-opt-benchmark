@@ -316,7 +316,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZN8nanobind12python_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef readnone %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %7
 
@@ -983,7 +983,7 @@ define noundef nonnull ptr @_ZN8nanobind6detail7getattrEP7_objectS2_(ptr noundef
 declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = invoke ptr @PyObject_GetAttrString(ptr noundef %0, ptr noundef %1)
           to label %5 unwind label %11
 
@@ -1018,7 +1018,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %8, %7, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail7getattrEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = invoke ptr @PyObject_GetAttr(ptr noundef %0, ptr noundef %1)
           to label %5 unwind label %11
 
@@ -3413,7 +3413,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail14incref_checkedEP7_object(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail14incref_checkedEP7_object(ptr noundef %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

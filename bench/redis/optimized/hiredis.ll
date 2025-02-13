@@ -96,7 +96,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @redisvFormatCommand(ptr noundef writeonly captures(address_is_null) %target, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #0 {
+define i32 @redisvFormatCommand(ptr noundef writeonly %target, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %_format = alloca [16 x i8], align 16
   %_cpy = alloca [1 x %struct.__va_list_tag], align 16
@@ -1017,7 +1017,7 @@ declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef captures(address_is_null) %target, ptr noundef %format, ...) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef %target, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -1031,7 +1031,7 @@ entry:
 declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly captures(address_is_null) %target, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly captures(address_is_null) %argvlen) local_unnamed_addr #0 {
+define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly %target, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly %argvlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %target, null
   br i1 %cmp, label %return, label %if.end
@@ -1265,7 +1265,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @redisFormatCommandArgv(ptr noundef writeonly captures(address_is_null) %target, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly captures(address_is_null) %argvlen) local_unnamed_addr #0 {
+define i64 @redisFormatCommandArgv(ptr noundef writeonly %target, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly %argvlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %target, null
   br i1 %cmp, label %return, label %if.end
@@ -1510,7 +1510,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @__redisSetError(ptr noundef initializes((8, 12)) %c, i32 noundef %type, ptr noundef readonly captures(address_is_null) %str) local_unnamed_addr #0 {
+define void @__redisSetError(ptr noundef initializes((8, 12)) %c, i32 noundef %type, ptr noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %err = getelementptr inbounds nuw i8, ptr %c, i64 8
   store i32 %type, ptr %err, align 8
@@ -2284,7 +2284,7 @@ return:                                           ; preds = %if.end3, %land.lhs.
 declare i32 @redisReaderFeed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisBufferWrite(ptr noundef %c, ptr noundef writeonly captures(address_is_null) %done) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisBufferWrite(ptr noundef %c, ptr noundef writeonly %done) local_unnamed_addr #0 {
 entry:
   %err = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i32, ptr %err, align 8
@@ -2509,7 +2509,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @redisReaderGetReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisGetReply(ptr noundef %c, ptr noundef writeonly captures(address_is_null) %reply) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisGetReply(ptr noundef %c, ptr noundef writeonly %reply) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [16384 x i8], align 16
   %wdone = alloca i32, align 4
@@ -2874,7 +2874,7 @@ redisvAppendCommand.exit:                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %c, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef captures(address_is_null) %argvlen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %c, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %call = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %cmd, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen)
@@ -3016,7 +3016,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisCommandArgv(ptr noundef %c, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef captures(address_is_null) %argvlen) local_unnamed_addr #0 {
+define ptr @redisCommandArgv(ptr noundef %c, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
 entry:
   %reply.i = alloca ptr, align 8
   %cmd.i = alloca ptr, align 8

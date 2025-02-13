@@ -242,7 +242,7 @@ declare void @g_slist_free_1(ptr noundef) local_unnamed_addr #1
 declare void @bdrv_graph_wrunlock_ctx(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @block_job_has_bdrv(ptr noundef readonly captures(none) %job, ptr noundef readnone captures(address) %bs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @block_job_has_bdrv(ptr noundef readonly captures(none) %job, ptr noundef readnone %bs) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else

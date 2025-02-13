@@ -1016,7 +1016,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit14:              ; preds = %_ZNSt13unordered_se
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator11FormChecker8validateEN5cxx204spanIKNS_3AST11InstructionELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr %2, i64 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 {
+define void @_ZN8WasmEdge9Validator11FormChecker8validateEN5cxx204spanIKNS_3AST11InstructionELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr %2, i64 %3, ptr readonly %4, i64 %5) local_unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %4, i64 %5
   %.not13 = icmp eq i64 %5, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -13453,7 +13453,7 @@ _ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit:      ; preds = %_ZNSt6vectorIN8Wasm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator11FormChecker8popTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator11FormChecker8popTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.119", align 4
   %6 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %2, i64 %3
   br label %7
@@ -13769,7 +13769,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %1, i64 %2
   %.not10 = icmp eq i64 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -14593,7 +14593,7 @@ _ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EEC2EmRKS4_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKSt8optionalINS_7ValTypeEELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
+define void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKSt8optionalINS_7ValTypeEELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds %"class.std::optional.66", ptr %1, i64 %2
   %.not14 = icmp eq i64 %2, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -14891,7 +14891,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly captures(address) %2, i64 %3, ptr captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(360) %1, ptr readonly %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.119", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %8 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %2, i64 %3
@@ -15407,7 +15407,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker11StackPopAnyEv(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef range(i32 8, 129) %2, ptr captures(address) %3, i64 %4, ptr captures(address) %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef range(i32 8, 129) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.119", align 4
   %8 = alloca %"struct.spdlog::source_loc", align 8
   %9 = alloca %"struct.spdlog::source_loc", align 8
@@ -15624,7 +15624,7 @@ _ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm1844
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i32 %.8.val.0.val, ptr readonly captures(address) %1, i64 %2, ptr captures(address) %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i32 %.8.val.0.val, ptr readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cxx20::expected.119", align 4
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8
@@ -15699,7 +15699,7 @@ _ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm1844
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i8 %.8.val.12.val, i32 noundef range(i32 1, 17) %1, ptr readonly captures(address) %2, i64 %3, ptr captures(address) %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) %0, ptr captures(none) %.0.val, i8 %.8.val.12.val, i32 noundef range(i32 1, 17) %1, ptr readonly %2, i64 %3, ptr %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.119", align 4
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8

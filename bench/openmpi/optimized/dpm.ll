@@ -3802,7 +3802,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %57, %5
 declare i32 @PMIx_Fence(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_dpm_spawn(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @ompi_dpm_spawn(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca [2 x i32], align 4
@@ -12236,7 +12236,7 @@ disconnect_waitall.exit:                          ; preds = %85, %97, %._crit_ed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ompi_dpm_mark_dyncomm(ptr noundef captures(address) %0) local_unnamed_addr #16 {
+define void @ompi_dpm_mark_dyncomm(ptr noundef %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, @ompi_mpi_comm_null
   br i1 %2, label %ompi_dpm_group_is_dyn.exit.thread29, label %3
 

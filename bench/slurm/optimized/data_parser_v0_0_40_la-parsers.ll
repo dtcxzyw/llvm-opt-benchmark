@@ -6459,7 +6459,7 @@ _v40_parse_disabled.exit:                         ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v40_dump_JOB_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #3 {
+define internal i32 @_v40_dump_JOB_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #18
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6
@@ -6916,7 +6916,7 @@ _v40_parse_disabled.exit:                         ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v40_dump_ROLLUP_STATS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #3 {
+define internal i32 @_v40_dump_ROLLUP_STATS(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #18
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %.preheader
@@ -9939,7 +9939,7 @@ _v40_parse_disabled.exit:                         ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_dump_NODES(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #3 {
+define internal noundef i32 @_v40_dump_NODES(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #18
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %6
@@ -10295,7 +10295,7 @@ define internal void @_v40_openapi_spec_JOB_RES_NODES(ptr readnone captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v40_dump_STEP_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #3 {
+define internal i32 @_v40_dump_STEP_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #18
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6
@@ -10382,7 +10382,7 @@ _v40_parse_disabled.exit:                         ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v40_dump_PARTITION_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #3 {
+define internal i32 @_v40_dump_PARTITION_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #18
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6

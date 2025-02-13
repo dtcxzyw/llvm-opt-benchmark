@@ -519,7 +519,7 @@ _ZN13CompileBroker8compilerEi.exit:               ; preds = %5, %7
 declare noundef ptr @_ZN15DirectivesStack20getMatchingDirectiveERK12methodHandleP16AbstractCompiler(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11CompileTask22select_for_compilationEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11CompileTask22select_for_compilationEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

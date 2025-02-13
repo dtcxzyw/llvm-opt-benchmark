@@ -776,7 +776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514MessagePattern8preParseERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef writeonly captures(address_is_null) %parseError, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 {
+define void @_ZN6icu_7514MessagePattern8preParseERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef writeonly %parseError, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3498,7 +3498,7 @@ return:                                           ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7514MessagePattern4ParteqERKS1_(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(16) %other) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7514MessagePattern4ParteqERKS1_(ptr noundef nonnull readonly align 4 dereferenceable(16) %this, ptr noundef nonnull readonly align 4 dereferenceable(16) %other) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end

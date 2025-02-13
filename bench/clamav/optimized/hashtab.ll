@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.5 = private unnamed_addr constant [20 x i8] c"\09{DELETED_KEY,0,0},\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_hashtab_init(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_hashtab_init(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %.preheader
 
@@ -80,7 +80,7 @@ nearest_power.exit:                               ; preds = %.preheader, %4
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_htu32_init(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_htu32_init(ptr noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %.preheader
 
@@ -120,7 +120,7 @@ nearest_power.exit:                               ; preds = %.preheader, %5
 declare ptr @mpool_calloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @cli_hashtab_find(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @cli_hashtab_find(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -211,7 +211,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @cli_htu32_find(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef ptr @cli_htu32_find(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -261,7 +261,7 @@ define noundef ptr @cli_htu32_find(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @cli_htu32_next(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define noundef ptr @cli_htu32_next(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -909,7 +909,7 @@ nearest_power.exit:                               ; preds = %6, %8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @cli_hashtab_delete(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @cli_hashtab_delete(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cli_hashtab_find.exit.thread, label %4
 
@@ -998,7 +998,7 @@ cli_hashtab_find.exit.thread:                     ; preds = %26, %38, %3, %cli_h
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cli_htu32_delete(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @cli_htu32_delete(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cli_htu32_find.exit.thread, label %3
 
@@ -1185,7 +1185,7 @@ define void @cli_htu32_free(ptr noundef captures(none) initializes((8, 16)) %0, 
 declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @cli_htu32_numitems(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
+define i64 @cli_htu32_numitems(ptr noundef readonly %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2060,7 +2060,7 @@ cli_hashset_search.exit:                          ; preds = %cli_hashset_search.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 
@@ -2253,7 +2253,7 @@ cli_hashtab_init.exit:                            ; preds = %.preheader.i, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_map_addkey(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_map_addkey(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !45
   %.not = icmp eq i32 %5, %2
@@ -2403,7 +2403,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @cli_map_removekey(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @cli_map_removekey(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !45
   %.not = icmp eq i32 %5, %2
@@ -2665,7 +2665,7 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 17) i32 @cli_map_find(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #16 {
+define range(i32 0, 17) i32 @cli_map_find(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !45
   %.not = icmp eq i32 %5, %2

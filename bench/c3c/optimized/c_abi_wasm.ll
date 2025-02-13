@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @type_void = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @wasm_create_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @wasm_create_params(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

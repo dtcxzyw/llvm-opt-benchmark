@@ -779,7 +779,7 @@ declare void @exinit() local_unnamed_addr #2
 declare ptr @exopen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compile(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 259, 265) %6) unnamed_addr #0 {
+define internal fastcc ptr @compile(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef range(i32 259, 265) %6) unnamed_addr #0 {
   %8 = alloca %struct.agxbuf, align 8
   %9 = tail call noalias ptr @tmpfile()
   %.not = icmp eq ptr %2, null
@@ -928,7 +928,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 declare void @setErrorLine(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @freeCompileProg(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @freeCompileProg(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -1348,7 +1348,7 @@ agxbfree.exit:                                    ; preds = %24, %19, %tvtypeToS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #0 {
   %5 = load i32, ptr %0, align 8
   %6 = icmp sgt i32 %5, 258
   br i1 %6, label %83, label %7
@@ -1563,7 +1563,7 @@ define internal ptr @typeName(i32 noundef %0) #6 {
 declare void @errorf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @keyval(ptr readonly captures(ret: address, provenance) %0, i32 noundef %1) #5 {
+define internal ptr @keyval(ptr readonly %0, i32 noundef %1) #5 {
   %3 = icmp slt i32 %1, 31
   br i1 %3, label %4, label %8
 
@@ -1579,7 +1579,7 @@ define internal ptr @keyval(ptr readonly captures(ret: address, provenance) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
+define internal ptr @getval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = alloca %struct.agxbuf, align 8
   %9 = alloca %struct.agxbuf, align 8
   %10 = alloca %union.EX_STYPE, align 8
@@ -4206,7 +4206,7 @@ agxbfree.exit757:                                 ; preds = %deparse.exit756, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @refval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal ptr @refval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.agxbuf, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
@@ -4396,7 +4396,7 @@ agxbfree.exit:                                    ; preds = %67, %deparse.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @setval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4, ptr %5) #0 {
+define internal i32 @setval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr %5) #0 {
   %7 = alloca %struct.agxbuf, align 8
   %8 = alloca %struct.agxbuf, align 8
   %.not = icmp eq ptr %3, null
@@ -5964,7 +5964,7 @@ declare i32 @match(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @findBinding(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @deref(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @deref(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.agxbuf, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %agxbfree.exit, label %.lr.ph

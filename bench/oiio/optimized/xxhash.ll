@@ -18,7 +18,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN18OpenImageIO_v2_6_06xxhash5XXH32EPKvmj(ptr noundef readonly captures(address) %input, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #3 {
+define noundef i32 @_ZN18OpenImageIO_v2_6_06xxhash5XXH32EPKvmj(ptr noundef readonly %input, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #3 {
 entry:
   %add.ptr.i15 = getelementptr inbounds i8, ptr %input, i64 %len
   %cmp.i16 = icmp ugt i64 %len, 15
@@ -141,7 +141,7 @@ return:                                           ; preds = %while.body62.i36, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN18OpenImageIO_v2_6_06xxhash5XXH64EPKvmy(ptr noundef readonly captures(address) %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #3 {
+define noundef i64 @_ZN18OpenImageIO_v2_6_06xxhash5XXH64EPKvmy(ptr noundef readonly %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #3 {
 entry:
   %add.ptr.i16 = getelementptr inbounds i8, ptr %input, i64 %len
   %cmp.i17 = icmp ugt i64 %len, 31

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.prepare_from_text = private unnamed_addr constant [18 x i8] c"prepare_from_text\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_allocate_from_text(ptr noundef writeonly captures(address_is_null) %to, ptr noundef %paramdefs, ptr noundef %key, ptr noundef %value, i64 noundef %value_n, ptr noundef writeonly captures(address_is_null) %found) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_allocate_from_text(ptr noundef writeonly %to, ptr noundef %paramdefs, ptr noundef %key, ptr noundef %value, i64 noundef %value_n, ptr noundef writeonly %found) local_unnamed_addr #0 {
 entry:
   %l.i = alloca i64, align 8
   %tmpbn = alloca ptr, align 8

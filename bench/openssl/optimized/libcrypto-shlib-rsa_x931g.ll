@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @RSA_X931_derive_ex(ptr noundef captures(address_is_null) %rsa, ptr noundef %p1, ptr noundef %p2, ptr noundef %q1, ptr noundef %q2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %Xq1, ptr noundef %Xq2, ptr noundef %Xq, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @RSA_X931_derive_ex(ptr noundef %rsa, ptr noundef %p1, ptr noundef %p2, ptr noundef %q1, ptr noundef %q2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %Xq1, ptr noundef %Xq2, ptr noundef %Xq, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rsa, null
   br i1 %cmp, label %err, label %if.end
@@ -240,7 +240,7 @@ declare ptr @BN_CTX_new() local_unnamed_addr #1
 declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_X931_generate_key_ex(ptr noundef captures(address_is_null) %rsa, i32 noundef %bits, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_X931_generate_key_ex(ptr noundef %rsa, i32 noundef %bits, ptr noundef %e, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %libctx = getelementptr inbounds nuw i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %libctx, align 8

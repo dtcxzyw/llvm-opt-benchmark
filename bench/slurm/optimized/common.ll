@@ -356,7 +356,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.35 = private unnamed_addr constant [34 x i8] c"  LimitFactor              = NONE\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @parse_option_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local i32 @parse_option_end(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %.preheader
 
@@ -405,7 +405,7 @@ define dso_local i32 @parse_option_end(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strip_quotes(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local ptr @strip_quotes(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %66, label %4
 
@@ -2479,7 +2479,7 @@ define dso_local ptr @sacctmgr_find_wckey_from_list(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @get_uint(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_uint(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2527,7 +2527,7 @@ define dso_local range(i32 -1, 1) i32 @get_uint(ptr noundef captures(address_is_
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @get_uint16(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_uint16(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2572,7 +2572,7 @@ define dso_local range(i32 -1, 1) i32 @get_uint16(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @get_uint64(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_uint64(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2618,7 +2618,7 @@ define dso_local range(i32 -1, 1) i32 @get_uint64(ptr noundef captures(address_i
 declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @get_double(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_double(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -2717,7 +2717,7 @@ define internal range(i32 -1, 2) i32 @_addto_action_char_list_internal(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sacctmgr_print_coord_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define dso_local void @sacctmgr_print_coord_list(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
@@ -2863,7 +2863,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sacctmgr_print_tres(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define dso_local void @sacctmgr_print_tres(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #1 {
   %4 = alloca %struct.slurmdb_tres_cond_t, align 8
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %0, align 8
@@ -2977,7 +2977,7 @@ define dso_local void @sacctmgr_initialize_g_tres_list() local_unnamed_addr #1 {
 declare ptr @slurmdb_make_tres_string_from_simple(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sacctmgr_print_assoc_limits(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local void @sacctmgr_print_assoc_limits(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.slurmdb_tres_cond_t, align 8
   %3 = alloca %struct.slurmdb_tres_cond_t, align 8
   %4 = alloca %struct.slurmdb_tres_cond_t, align 8
@@ -3486,7 +3486,7 @@ declare ptr @get_qos_complete_str(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @slurmdb_qos_str(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sacctmgr_print_cluster(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local void @sacctmgr_print_cluster(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
 
@@ -3585,7 +3585,7 @@ define internal noundef i32 @_print_cluster_features(ptr noundef %0, ptr readnon
 declare ptr @slurmdb_cluster_fed_states_str(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sacctmgr_print_federation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local void @sacctmgr_print_federation(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %3
@@ -3673,7 +3673,7 @@ define dso_local void @sacctmgr_print_federation(ptr noundef readonly captures(a
 declare ptr @slurmdb_federation_flags_str(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sacctmgr_print_qos_limits(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local void @sacctmgr_print_qos_limits(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.slurmdb_tres_cond_t, align 8
   %3 = alloca %struct.slurmdb_tres_cond_t, align 8
   %4 = alloca %struct.slurmdb_tres_cond_t, align 8

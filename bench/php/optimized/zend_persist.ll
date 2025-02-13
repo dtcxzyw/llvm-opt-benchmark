@@ -6212,7 +6212,7 @@ define internal fastcc void @zend_persist_op_array(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_op_array_ex(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @zend_persist_op_array_ex(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct._zend_execute_data, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -7552,7 +7552,7 @@ define internal fastcc ptr @zend_persist_ast(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_type(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @zend_persist_type(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 4194304

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_gbl_resource_struct_sizes = external dso_local local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ugt ptr %4, %0
   br i1 %5, label %.preheader, label %.loopexit

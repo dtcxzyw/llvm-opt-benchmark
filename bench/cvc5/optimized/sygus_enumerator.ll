@@ -7038,7 +7038,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIN4cvc58internal8TypeNodeESaIS5_EEESt10_Selec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache37getLastConstructorClassIndexForWeightEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(317) %this, i32 noundef %w) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache37getLastConstructorClassIndexForWeightEj(ptr noundef nonnull readonly align 8 dereferenceable(317) %this, i32 noundef %w) local_unnamed_addr #8 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -7086,7 +7086,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache19getConstructorClassEjRSt6vectorIjSaIjEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(317) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(24) %cclass) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache19getConstructorClassEjRSt6vectorIjSaIjEE(ptr noundef nonnull readonly align 8 dereferenceable(317) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(24) %cclass) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -7136,7 +7136,7 @@ _ZNKSt3mapIjN4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache16Cons
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache27getTypesForConstructorClassEjRSt6vectorINS0_8TypeNodeESaIS6_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(317) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(24) %types) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache27getTypesForConstructorClassEjRSt6vectorINS0_8TypeNodeESaIS6_EE(ptr noundef nonnull readonly align 8 dereferenceable(317) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(24) %types) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -7186,7 +7186,7 @@ _ZNKSt3mapIjN4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache16Cons
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache28getWeightForConstructorClassEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(317) %this, i32 noundef %i) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache28getWeightForConstructorClassEj(ptr noundef nonnull readonly align 8 dereferenceable(317) %this, i32 noundef %i) local_unnamed_addr #8 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -7388,7 +7388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache15getIndexForSizeEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(317) %this, i32 noundef %s) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache15getIndexForSizeEj(ptr noundef nonnull readonly align 8 dereferenceable(317) %this, i32 noundef %s) local_unnamed_addr #8 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8

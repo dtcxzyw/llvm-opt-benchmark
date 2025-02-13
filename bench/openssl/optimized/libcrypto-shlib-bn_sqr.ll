@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_sqr(ptr noundef %r, ptr noundef captures(address) %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_sqr(ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %ctx)
   tail call void @bn_correct_top(ptr noundef %r) #3
@@ -12,7 +12,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef readonly captures(address) %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %t = alloca [32 x i64], align 16
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8

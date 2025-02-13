@@ -212,7 +212,7 @@ define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @heapam_tuple_tid_valid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #3 {
+define internal zeroext i1 @heapam_tuple_tid_valid(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #3 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %ItemPointerIsValid.exit.thread, label %ItemPointerIsValid.exit
 

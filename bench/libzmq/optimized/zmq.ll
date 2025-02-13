@@ -968,7 +968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, -2147483648) i32 @zmq_sendiov(ptr noundef %s_, ptr noundef readonly captures(address_is_null) %a_, i64 noundef %count_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_sendiov(ptr noundef %s_, ptr noundef readonly %a_, i64 noundef %count_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %tobool.not.i = icmp eq ptr %s_, null
@@ -1236,7 +1236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_recviov(ptr noundef %s_, ptr noundef captures(address_is_null) %a_, ptr noundef captures(address_is_null) %count_, i32 noundef %flags_) local_unnamed_addr #1 {
+define i32 @zmq_recviov(ptr noundef %s_, ptr noundef %a_, ptr noundef %count_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %tobool.not.i = icmp eq ptr %s_, null
@@ -2459,7 +2459,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 declare noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z21zmq_poll_check_items_P14zmq_pollitem_til(ptr noundef readnone captures(address_is_null) %items_, i32 noundef %nitems_, i64 noundef %timeout_) local_unnamed_addr #1 {
+define noundef i32 @_Z21zmq_poll_check_items_P14zmq_pollitem_til(ptr noundef readnone %items_, i32 noundef %nitems_, i64 noundef %timeout_) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %nitems_, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2654,7 +2654,7 @@ return:                                           ; preds = %zmq_getsockopt.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR7timeval(i64 noundef %timeout_, i1 noundef zeroext %first_pass, i64 noundef %now, i64 noundef %end, ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(16) %timeout) local_unnamed_addr #0 {
+define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR7timeval(i64 noundef %timeout_, i1 noundef zeroext %first_pass, i64 noundef %now, i64 noundef %end, ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout) local_unnamed_addr #0 {
 entry:
   br i1 %first_pass, label %if.then, label %if.else
 
@@ -2682,7 +2682,7 @@ if.end6:                                          ; preds = %if.else, %if.else2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR8timespec(i64 noundef %timeout_, i1 noundef zeroext %first_pass, i64 noundef %now, i64 noundef %end, ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(16) %timeout) local_unnamed_addr #0 {
+define noundef ptr @_Z28zmq_poll_select_set_timeout_lbmmR8timespec(i64 noundef %timeout_, i1 noundef zeroext %first_pass, i64 noundef %now, i64 noundef %end, ptr noundef nonnull writeonly align 8 dereferenceable(16) %timeout) local_unnamed_addr #0 {
 entry:
   br i1 %first_pass, label %if.then, label %if.else
 
@@ -2904,7 +2904,7 @@ return:                                           ; preds = %if.end14, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_ppoll(ptr noundef captures(address_is_null) %items_, i32 noundef %nitems_, i64 noundef %timeout_, ptr noundef %sigmask_) local_unnamed_addr #1 {
+define i32 @zmq_ppoll(ptr noundef %items_, i32 noundef %nitems_, i64 noundef %timeout_, ptr noundef %sigmask_) local_unnamed_addr #1 {
 entry:
   %rc = alloca i32, align 4
   %clock = alloca %"class.zmq::clock_t", align 8
@@ -3118,7 +3118,7 @@ if.end:                                           ; preds = %new.notnull, %if.th
 declare void @_ZN3zmq15socket_poller_tC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef captures(address_is_null) %poller_p_) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef %poller_p_) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %poller_p_, null
   br i1 %tobool.not, label %if.end3, label %if.then

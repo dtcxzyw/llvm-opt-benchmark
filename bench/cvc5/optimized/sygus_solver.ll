@@ -8967,7 +8967,7 @@ declare void @_ZN4cvc58internal11SynthResultC1ENS1_6StatusENS_18UnknownExplanati
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt11SygusSolver18checkSynthSolutionERNS1_10AssertionsERKSt3mapINS0_12NodeTemplateILb1EEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr noundef nonnull align 8 dereferenceable(272) %as, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %sol_map) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt11SygusSolver18checkSynthSolutionERNS1_10AssertionsERKSt3mapINS0_12NodeTemplateILb1EEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr noundef nonnull align 8 dereferenceable(272) %as, ptr noundef nonnull readonly align 8 dereferenceable(48) %sol_map) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cache.i = alloca %"class.std::unordered_map.834", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8

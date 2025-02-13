@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [8 x i8] c"geocent\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_geocent(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pj_geocent(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -52,7 +52,7 @@ define hidden noundef ptr @pj_geocent(ptr noundef writeonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z36pj_projection_specific_setup_geocentP8PJconsts(ptr noundef returned writeonly captures(ret: address, provenance) initializes((104, 120), (356, 360), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z36pj_projection_specific_setup_geocentP8PJconsts(ptr noundef returned writeonly initializes((104, 120), (356, 360), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456

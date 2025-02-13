@@ -1204,7 +1204,7 @@ define dso_local void @TupleDescInitEntryCollation(ptr noundef writeonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @BuildDescFromLists(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @BuildDescFromLists(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit, label %5
 

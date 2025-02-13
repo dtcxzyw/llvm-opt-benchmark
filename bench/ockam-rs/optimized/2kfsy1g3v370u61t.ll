@@ -7680,12 +7680,12 @@ define void @_ZN10ockam_abac4abac8incoming12IncomingAbac18is_authorized_impl17h9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ockam_abac4abac8incoming12IncomingAbac10expression17hc8cd0c989d5996b1E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ockam_abac4abac8incoming12IncomingAbac10expression17hc8cd0c989d5996b1E(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #11 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN10ockam_abac4abac8incoming12IncomingAbac4abac17h1fd2725e9a44a1edE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN10ockam_abac4abac8incoming12IncomingAbac4abac17h1fd2725e9a44a1edE(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }

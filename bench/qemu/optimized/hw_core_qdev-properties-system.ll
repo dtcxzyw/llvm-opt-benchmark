@@ -699,7 +699,7 @@ qdev_prop_set_drive_err.exit:                     ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_prop_set_chr(ptr noundef %dev, ptr noundef %name, ptr noundef readonly captures(address_is_null) %value) local_unnamed_addr #0 {
+define dso_local void @qdev_prop_set_chr(ptr noundef %dev, ptr noundef %name, ptr noundef readonly %value) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %cond.end, label %lor.lhs.false
@@ -724,7 +724,7 @@ cond.end:                                         ; preds = %lor.lhs.false, %ent
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_prop_set_netdev(ptr noundef %dev, ptr noundef %name, ptr noundef readonly captures(address_is_null) %value) local_unnamed_addr #0 {
+define dso_local void @qdev_prop_set_netdev(ptr noundef %dev, ptr noundef %name, ptr noundef readonly %value) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %cond.end, label %lor.lhs.false

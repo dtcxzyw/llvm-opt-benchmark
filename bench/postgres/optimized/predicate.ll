@@ -4782,7 +4782,7 @@ pg_lfind32.exit:                                  ; preds = %.lr.ph.i, %.lr.ph45
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
@@ -5158,7 +5158,7 @@ SetRWConflict.exit:                               ; preds = %dlist_push_tail.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckForSerializableConflictIn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @CheckForSerializableConflictIn(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %5 = load ptr, ptr @MySerializableXact, align 8
   %6 = icmp eq ptr %5, null

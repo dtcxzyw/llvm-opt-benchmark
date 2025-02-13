@@ -1059,7 +1059,7 @@ mbedtls_asn1_write_raw_buffer.exit.thread:        ; preds = %19, %4, %15, %mbedt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mbedtls_asn1_store_named_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #3 {
+define hidden ptr @mbedtls_asn1_store_named_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = load ptr, ptr %0, align 8
   %.not8.i = icmp eq ptr %6, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i

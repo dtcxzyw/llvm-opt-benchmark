@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @X509V3_conf_free(ptr noundef captures(address_is_null) %conf) #3 {
+define hidden void @X509V3_conf_free(ptr noundef %conf) #3 {
 entry:
   %tobool.not = icmp eq ptr %conf, null
   br i1 %tobool.not, label %return, label %if.end
@@ -918,7 +918,7 @@ return:                                           ; preds = %err, %if.end53
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @hex_to_string(ptr noundef readonly captures(address_is_null) %buffer, i64 noundef %len) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @hex_to_string(ptr noundef readonly %buffer, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %buffer, null
   %tobool1 = icmp ne i64 %len, 0
@@ -979,7 +979,7 @@ return:                                           ; preds = %entry, %for.end, %i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @string_to_hex(ptr noundef readonly captures(address_is_null) %str, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #0 {
+define hidden noundef ptr @string_to_hex(ptr noundef readonly %str, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1385,7 +1385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_check_host(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, ptr noundef captures(address_is_null) %peername) local_unnamed_addr #0 {
+define hidden i32 @X509_check_host(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, ptr noundef %peername) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %chk, null
   br i1 %cmp, label %return, label %if.end
@@ -1408,7 +1408,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef range(i32 1, 8) %check_type, ptr noundef captures(address_is_null) %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef range(i32 1, 8) %check_type, ptr noundef %peername) unnamed_addr #0 {
 entry:
   %astr.i = alloca ptr, align 8
   %and = and i32 %flags, -32769
@@ -2668,7 +2668,7 @@ return:                                           ; preds = %skip_prefix.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef range(i32 -1, 23) %cmp_type, ptr noundef readonly captures(none) %equal, i32 noundef %flags, ptr noundef nonnull %b, i64 noundef %blen, ptr noundef writeonly captures(address_is_null) %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef range(i32 -1, 23) %cmp_type, ptr noundef readonly captures(none) %equal, i32 noundef %flags, ptr noundef nonnull %b, i64 noundef %blen, ptr noundef writeonly %peername) unnamed_addr #0 {
 entry:
   %astr = alloca ptr, align 8
   %data = getelementptr inbounds nuw i8, ptr %a, i64 8

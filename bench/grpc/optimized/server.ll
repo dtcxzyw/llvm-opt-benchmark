@@ -2806,7 +2806,7 @@ declare void @_Z28grpc_pollset_set_add_pollsetP16grpc_pollset_setP12grpc_pollset
 declare void @_ZN4absl12lts_202308027CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6Server14SetupTransportEPNS_9TransportEP12grpc_pollsetRKNS_11ChannelArgsERKNS_13RefCountedPtrINS_8channelz10SocketNodeEEE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef %transport, ptr noundef readnone captures(address) %accepting_pollset, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %socket_node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6Server14SetupTransportEPNS_9TransportEP12grpc_pollsetRKNS_11ChannelArgsERKNS_13RefCountedPtrINS_8channelz10SocketNodeEEE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef %transport, ptr noundef readnone %accepting_pollset, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %socket_node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %channel = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %agg.tmp = alloca %"class.grpc_core::ChannelArgs", align 8
@@ -4798,7 +4798,7 @@ _ZN9grpc_core20InternallyRefCountedINS_6ServerENS_11UnrefDeleteEE5UnrefEv.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core6Server17GetChannelsLockedEv(ptr noalias sret(%"class.std::vector.159") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(592) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core6Server17GetChannelsLockedEv(ptr noalias sret(%"class.std::vector.159") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(592) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %channels_ = getelementptr inbounds nuw i8, ptr %this, i64 520
@@ -6064,7 +6064,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_7ChannelEEESaIS3_EE5clearEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcasterD2Ev(ptr %this.0.val, ptr readnone captures(address) %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcasterD2Ev(ptr %this.0.val, ptr readnone %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not3.i.i.i.i = icmp eq ptr %this.0.val, %this.8.val
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -6496,7 +6496,7 @@ _ZN9grpc_core20InternallyRefCountedINS_6ServerENS_11UnrefDeleteEE5UnrefEv.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 16) i32 @_ZN9grpc_core6Server21ValidateServerRequestEP21grpc_completion_queuePvPP16grpc_byte_bufferPNS0_16RegisteredMethodE(ptr noundef %cq_for_notification, ptr noundef %tag, ptr noundef readnone captures(address_is_null) %optional_payload, ptr noundef readonly captures(address_is_null) %rm) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 16) i32 @_ZN9grpc_core6Server21ValidateServerRequestEP21grpc_completion_queuePvPP16grpc_byte_bufferPNS0_16RegisteredMethodE(ptr noundef %cq_for_notification, ptr noundef %tag, ptr noundef readnone %optional_payload, ptr noundef readonly %rm) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %rm, null
   %cmp1 = icmp ne ptr %optional_payload, null
@@ -6525,7 +6525,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 16) i32 @_ZN9grpc_core6Server26ValidateServerRequestAndCqEPmP21grpc_completion_queuePvPP16grpc_byte_bufferPNS0_16RegisteredMethodE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(592) %this, ptr noundef writeonly captures(none) %cq_idx, ptr noundef %cq_for_notification, ptr noundef %tag, ptr noundef readnone captures(address_is_null) %optional_payload, ptr noundef readonly captures(address_is_null) %rm) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 16) i32 @_ZN9grpc_core6Server26ValidateServerRequestAndCqEPmP21grpc_completion_queuePvPP16grpc_byte_bufferPNS0_16RegisteredMethodE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(592) %this, ptr noundef writeonly captures(none) %cq_idx, ptr noundef %cq_for_notification, ptr noundef %tag, ptr noundef readnone %optional_payload, ptr noundef readonly %rm) local_unnamed_addr #3 align 2 {
 entry:
   %cqs_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56

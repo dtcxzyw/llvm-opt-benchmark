@@ -330,7 +330,7 @@ init.end:                                         ; preds = %init.check, %entry
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN9grpc_core12_GLOBAL__N_130XdsChannelStackModifierArgCopyEPv(ptr noundef returned captures(ret: address, provenance) %p) #8 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN9grpc_core12_GLOBAL__N_130XdsChannelStackModifierArgCopyEPv(ptr noundef returned %p) #8 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrINS_23XdsChannelStackModifierEED2Ev.exit:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !9
@@ -357,7 +357,7 @@ _ZNK9grpc_core10RefCountedINS_23XdsChannelStackModifierENS_19PolymorphicRefCount
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_129XdsChannelStackModifierArgCmpEPvS1_(ptr noundef readnone captures(address) %p, ptr noundef readnone captures(address) %q) #5 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_129XdsChannelStackModifierArgCmpEPvS1_(ptr noundef readnone %p, ptr noundef readnone %q) #5 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

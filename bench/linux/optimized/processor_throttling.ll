@@ -1407,7 +1407,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_processor_get_throttling_fadt(ptr noundef captures(address_is_null) %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_processor_get_throttling_fadt(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %37, label %3
 
@@ -1465,7 +1465,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_get_throttling_fad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fadt(ptr noundef captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_fadt(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %6 = or i1 %4, %5
@@ -1694,7 +1694,7 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc(ptr noundef captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %6 = or i1 %4, %5

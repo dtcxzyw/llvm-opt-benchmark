@@ -1195,7 +1195,7 @@ declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #1
 declare void @Abc_NtkCleanCopy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkCheckObj(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkCheckObj(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !40
   %.not = icmp eq ptr %3, %0
   br i1 %.not, label %4, label %.loopexit90.sink.split

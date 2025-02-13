@@ -1154,7 +1154,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CopyArrayEls(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local void @CopyArrayEls(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
@@ -3787,7 +3787,7 @@ array_get_element_expanded.exit:                  ; preds = %121, %116, %113, %1
 declare i32 @ArrayGetOffset(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @array_seek(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5) unnamed_addr #6 {
+define internal fastcc ptr @array_seek(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5) unnamed_addr #6 {
   %7 = icmp slt i32 %4, 1
   %8 = icmp ne ptr %2, null
   %or.cond = or i1 %8, %7
@@ -4554,7 +4554,7 @@ array_extract_slice.exit:                         ; preds = %array_bitmap_copy.e
 declare void @mda_get_range(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @array_slice_size(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 1, 7) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i8 noundef signext %8) unnamed_addr #0 {
+define internal fastcc i32 @array_slice_size(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 1, 7) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i8 noundef signext %8) unnamed_addr #0 {
   %10 = alloca [6 x i32], align 16
   %11 = alloca [6 x i32], align 16
   %12 = alloca [6 x i32], align 16
@@ -6006,7 +6006,7 @@ array_bitmap_copy.exit:                           ; preds = %558, %577, %515, %a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @construct_md_array(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i8 noundef signext %8) local_unnamed_addr #0 {
+define dso_local noundef ptr @construct_md_array(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i8 noundef signext %8) local_unnamed_addr #0 {
   %10 = icmp slt i32 %2, 0
   br i1 %10, label %11, label %15
 
@@ -6370,7 +6370,7 @@ define dso_local noundef ptr @construct_md_array(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @array_bitmap_copy(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define dso_local void @array_bitmap_copy(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = icmp slt i32 %4, 1
   br i1 %6, label %._crit_edge95.thread, label %7
 
@@ -8146,7 +8146,7 @@ array_bitmap_copy.exit392:                        ; preds = %788, %807, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @deconstruct_array(ptr noundef %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef signext %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) local_unnamed_addr #0 {
+define dso_local void @deconstruct_array(ptr noundef %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef signext %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %0, i64 16
@@ -9193,7 +9193,7 @@ declare i64 @expand_array(i64 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @DatumGetEOHP(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @deconstruct_array_builtin(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local void @deconstruct_array_builtin(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   switch i32 %1, label %12 [
     i32 18, label %15
     i32 2275, label %6
@@ -11331,7 +11331,7 @@ define dso_local range(i64 0, 2) i64 @arraycontained(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @array_create_iterator(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @array_create_iterator(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc0(i64 noundef 80) #17
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %10, label %6
@@ -11983,7 +11983,7 @@ define dso_local noundef ptr @initArrayResultWithSize(i32 noundef %0, ptr nounde
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @accumArrayResult(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @accumArrayResult(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %23
 
@@ -12231,7 +12231,7 @@ declare i32 @get_element_type(i32 noundef) local_unnamed_addr #1
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @accumArrayResultArr(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @accumArrayResultArr(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   br i1 %2, label %6, label %10
 
 6:                                                ; preds = %5
@@ -12952,7 +12952,7 @@ initArrayResult.exit:                             ; preds = %7, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @accumArrayResultAny(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @accumArrayResultAny(ptr noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %9
 

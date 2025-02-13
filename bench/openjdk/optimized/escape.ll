@@ -4003,7 +4003,7 @@ _ZN15ConnectionGraph16find_field_valueEP9FieldNode.exit: ; preds = %78, %._crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ConnectionGraph31adjust_scalar_replaceable_stateEP14JavaObjectNodeR16Unique_Node_List(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ConnectionGraph31adjust_scalar_replaceable_stateEP14JavaObjectNodeR16Unique_Node_List(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(68) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Unique_Node_List, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -9633,7 +9633,7 @@ define hidden noundef ptr @_ZNK15ConnectionGraph18unique_java_objectEP4Node(ptr 
 declare noundef zeroext i1 @_ZN16PhaseMacroExpand24can_eliminate_allocationEP12PhaseIterGVNP12AllocateNodeP13GrowableArrayIP13SafePointNodeE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK15ConnectionGraph14can_reduce_cmpEP4NodeS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ConnectionGraph14can_reduce_cmpEP4NodeS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9671,7 +9671,7 @@ define hidden noundef zeroext i1 @_ZNK15ConnectionGraph14can_reduce_cmpEP4NodeS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK15ConnectionGraph16has_been_reducedEP7PhiNodeP13SafePointNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ConnectionGraph16has_been_reducedEP7PhiNodeP13SafePointNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
@@ -10188,7 +10188,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %32, %51, %49, %15, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15ConnectionGraph14specialize_cmpEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15ConnectionGraph14specialize_cmpEP4NodeS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -11374,7 +11374,7 @@ declare noundef ptr @_ZN4Node13find_out_withEi(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ConnectionGraph24updates_after_load_splitEP4NodeS1_R13GrowableArrayIS1_E(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ConnectionGraph24updates_after_load_splitEP4NodeS1_R13GrowableArrayIS1_E(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %6
 
@@ -13460,7 +13460,7 @@ _ZN12PointsToNode8add_edgeEPS_.exit:              ; preds = %19, %47, %_ZN26Grow
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ConnectionGraph26reduce_phi_on_field_accessEP4NodeR13GrowableArrayIS1_E(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ConnectionGraph26reduce_phi_on_field_accessEP4NodeR13GrowableArrayIS1_E(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %.017 = add i32 %5, -1
@@ -18161,7 +18161,7 @@ _ZN15ConnectionGraph15add_to_worklistEP12PointsToNode.exit: ; preds = %_ZN9Vecto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ConnectionGraph22add_fields_to_worklistEP9FieldNodeP12PointsToNode(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ConnectionGraph22add_fields_to_worklistEP9FieldNodeP12PointsToNode(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -18544,7 +18544,7 @@ _ZN15ConnectionGraph17not_global_escapeEP4Node.exit.thread: ; preds = %33, %19, 
 declare noundef ptr @_ZN10MemBarNode4makeEP7CompileiiP4Node(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK12PointsToNode9points_toEP14JavaObjectNode(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK12PointsToNode9points_toEP14JavaObjectNode(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 1
@@ -18583,7 +18583,7 @@ define hidden noundef zeroext i1 @_ZNK12PointsToNode9points_toEP14JavaObjectNode
 declare noundef ptr @_ZNK4Node12get_ptr_typeEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN12PointsToNode4meetEPS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN12PointsToNode4meetEPS_(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK12PointsToNode9points_toEP14JavaObjectNode.exit, label %4
 
@@ -19019,7 +19019,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN15ConnectionGrap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN15ConnectionGraph16find_second_addpEP4NodeS1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN15ConnectionGraph16find_second_addpEP4NodeS1_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

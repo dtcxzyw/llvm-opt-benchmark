@@ -3570,7 +3570,7 @@ define internal ptr @nfs_volume_list_next(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs_volume_list_show(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal noundef i32 @nfs_volume_list_show(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = alloca [13 x i8], align 1
   %4 = alloca [34 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %3) #13

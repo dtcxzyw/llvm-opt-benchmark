@@ -232,7 +232,7 @@ define hidden i32 @FLAC__ogg_decoder_aspect_get_decode_chained_stream(ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @FLAC__ogg_decoder_aspect_get_target_link(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #8 {
+define hidden noundef ptr @FLAC__ogg_decoder_aspect_get_target_link(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 644
   %4 = load i32, ptr %3, align 4, !tbaa !37
   %.not = icmp eq i32 %4, 0
@@ -288,7 +288,7 @@ define hidden noundef ptr @FLAC__ogg_decoder_aspect_get_target_link(ptr noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__ogg_decoder_aspect_set_seek_parameters(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden void @FLAC__ogg_decoder_aspect_set_seek_parameters(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %15, label %4
 
@@ -319,7 +319,7 @@ define hidden void @FLAC__ogg_decoder_aspect_set_seek_parameters(ptr noundef %0,
 declare i32 @ogg_stream_reset_serialno(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = load i64, ptr %2, align 8, !tbaa !52
@@ -696,7 +696,7 @@ declare i32 @ogg_stream_packetout(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @ogg_sync_pageout(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load i32, ptr %6, align 8, !tbaa !23
@@ -885,7 +885,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8

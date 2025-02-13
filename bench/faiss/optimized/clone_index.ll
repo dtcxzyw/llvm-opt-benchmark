@@ -7902,7 +7902,7 @@ define void @_ZN5faiss28reset_AdditiveQuantizerIndexEPNS_5IndexE(ptr noundef %0)
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5faiss28reset_AdditiveQuantizerIndexEPNS_5IndexEENK3$_0clERSt6vectorIPNS_17AdditiveQuantizerESaIS5_EE"(ptr captures(address) %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5faiss28reset_AdditiveQuantizerIndexEPNS_5IndexEENK3$_0clERSt6vectorIPNS_17AdditiveQuantizerESaIS5_EE"(ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 align 2 {
   %.not4 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 

@@ -1873,7 +1873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25RandomTransactionInserter5DBGetEPNS_2DBEPNS_11TransactionERNS_11ReadOptionsEtmbPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef %db, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i16 noundef zeroext %set_i, i64 noundef %ikey, i1 noundef zeroext %get_for_update, ptr noundef writeonly captures(none) %int_value, ptr noundef %full_key, ptr noundef writeonly captures(none) %unexpected_error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25RandomTransactionInserter5DBGetEPNS_2DBEPNS_11TransactionERNS_11ReadOptionsEtmbPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef %db, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i16 noundef zeroext %set_i, i64 noundef %ikey, i1 noundef zeroext %get_for_update, ptr noundef writeonly captures(none) %int_value, ptr noundef %full_key, ptr noundef writeonly captures(none) %unexpected_error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__endptr.i.i = alloca ptr, align 8
   %prefix_buf = alloca [6 x i8], align 1

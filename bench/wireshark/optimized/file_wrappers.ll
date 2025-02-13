@@ -1084,7 +1084,7 @@ define hidden i64 @file_tell_raw(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 -1, 1) i32 @file_fstat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #11 {
+define hidden range(i32 -1, 1) i32 @file_fstat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #11 {
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @fstat(i32 noundef %4, ptr noundef %1) #19
   %6 = icmp eq i32 %5, -1
@@ -1113,7 +1113,7 @@ define i32 @file_iscompressed(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @file_read(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @file_read(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %gz_skip.exit, label %5
 
@@ -2662,7 +2662,7 @@ define range(i32 -1, 256) i32 @file_getc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @file_getsp(ptr noundef writeonly captures(address, ret: address, provenance) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @file_getsp(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 1
   %or.cond = or i1 %4, %5
@@ -2824,7 +2824,7 @@ gz_skip.exit:                                     ; preds = %40, %33, %53, %51, 
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @file_gets(ptr noundef captures(address, ret: address, provenance) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @file_gets(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @file_getsp(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   %. = select i1 %.not, ptr null, ptr %0
@@ -2857,7 +2857,7 @@ define range(i32 0, 2) i32 @file_eof(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @file_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @file_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = icmp ne i32 %4, 0

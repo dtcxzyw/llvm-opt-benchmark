@@ -1807,7 +1807,7 @@ return:                                           ; preds = %if.end, %while.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @tls_release_record(ptr noundef captures(address) %rl, ptr noundef readnone captures(address) %rechandle, i64 noundef %length) #0 {
+define range(i32 -2, 2) i32 @tls_release_record(ptr noundef %rl, ptr noundef readnone %rechandle, i64 noundef %length) #0 {
 entry:
   %rrec = getelementptr inbounds nuw i8, ptr %rl, i64 1744
   %num_released = getelementptr inbounds nuw i8, ptr %rl, i64 4064
@@ -1990,7 +1990,7 @@ declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr readnone captures(none) %key, i64 %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr readnone captures(none) %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr noundef %md, ptr readnone captures(none) %comp, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr noundef %settings, ptr noundef %options, ptr noundef readonly captures(address_is_null) %fns, ptr noundef %cbarg, ptr noundef writeonly captures(none) initializes((0, 8)) %retrl) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr readnone captures(none) %key, i64 %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr readnone captures(none) %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr noundef %md, ptr readnone captures(none) %comp, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr noundef %settings, ptr noundef %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr noundef writeonly captures(none) initializes((0, 8)) %retrl) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4432, ptr noundef nonnull @.str, i32 noundef 1235) #12
   store ptr null, ptr %retrl, align 8
@@ -3517,7 +3517,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @tls_get_state(ptr noundef readonly captures(none) %rl, ptr noundef writeonly captures(address_is_null) %shortstr, ptr noundef writeonly captures(address_is_null) %longstr) #2 {
+define void @tls_get_state(ptr noundef readonly captures(none) %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #2 {
 entry:
   %rstate = getelementptr inbounds nuw i8, ptr %rl, i64 4072
   %0 = load i32, ptr %rstate, align 8
@@ -3764,7 +3764,7 @@ return:                                           ; preds = %if.end11, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr readnone captures(none) %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr readnone captures(none) %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr noundef %settings, ptr noundef %options, ptr noundef captures(address_is_null) %fns, ptr noundef %cbarg, ptr readnone captures(none) %rlarg, ptr noundef captures(none) initializes((0, 8)) %retrl) #0 {
+define internal i32 @tls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr readnone captures(none) %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr readnone captures(none) %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr readnone captures(none) %local, ptr readnone captures(none) %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr readnone captures(none) %rlarg, ptr noundef captures(none) initializes((0, 8)) %retrl) #0 {
 entry:
   %call = tail call i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr poison, i64 poison, ptr poison, i64 poison, ptr poison, i64 poison, ptr noundef %ciph, i64 noundef %taglen, i32 poison, ptr noundef %md, ptr poison, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr poison, ptr poison, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr noundef %retrl)
   %cmp.not = icmp eq i32 %call, 1

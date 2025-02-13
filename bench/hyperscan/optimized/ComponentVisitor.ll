@@ -56,7 +56,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_19AsciiComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_19AsciiComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAlternationE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAlternationE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18ComponentAssertionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18ComponentAssertionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -92,7 +92,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAtomicGroupE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_20ComponentAtomicGroupE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentBackReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentBackReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -128,7 +128,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_13ComponentByteE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_13ComponentByteE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentCondReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_22ComponentCondReferenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_14ComponentEmptyE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_14ComponentEmptyE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_12ComponentEUSE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_12ComponentEUSE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_15ComponentRepeatE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_15ComponentRepeatE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentSequenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_17ComponentSequenceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_21ComponentWordBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_21ComponentWordBoundaryE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }
@@ -212,7 +212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18UTF8ComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %c) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN3ue223DefaultComponentVisitor5visitEPNS_18UTF8ComponentClassE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %c) unnamed_addr #0 align 2 {
 entry:
   ret ptr %c
 }

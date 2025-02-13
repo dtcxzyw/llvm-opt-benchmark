@@ -234,7 +234,7 @@ _ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i.exit: ; preds = %entry, %for.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i(ptr noalias writeonly sret(%"class.net::uint128") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %data1, i32 noundef %len1, ptr noundef readonly captures(address_is_null) %data2, i32 noundef %len2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i(ptr noalias writeonly sret(%"class.net::uint128") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %data1, i32 noundef %len1, ptr noundef readonly %data2, i32 noundef %len2) local_unnamed_addr #2 align 2 {
 entry:
   %conv = sext i32 %len1 to i64
   %cmp1.not.i.i = icmp eq i32 %len1, 0
@@ -304,7 +304,7 @@ return:                                           ; preds = %for.end.loopexit.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net9QuicUtils13FindMutualTagERKSt6vectorIjSaIjEEPKjmNS0_8PriorityEPjPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %our_tags_vector, ptr noundef readonly captures(none) %their_tags, i64 noundef %num_their_tags, i32 noundef %priority, ptr noundef writeonly captures(none) %out_result, ptr noundef writeonly captures(address_is_null) %out_index) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net9QuicUtils13FindMutualTagERKSt6vectorIjSaIjEEPKjmNS0_8PriorityEPjPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %our_tags_vector, ptr noundef readonly captures(none) %their_tags, i64 noundef %num_their_tags, i32 noundef %priority, ptr noundef writeonly captures(none) %out_result, ptr noundef writeonly %out_index) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %our_tags_vector, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %our_tags_vector, i64 8

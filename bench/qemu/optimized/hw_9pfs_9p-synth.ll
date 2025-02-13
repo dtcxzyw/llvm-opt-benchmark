@@ -996,7 +996,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @synth_name_to_path(ptr readnone captures(none) %ctx, ptr noundef readonly captures(address_is_null) %dir_path, ptr noundef readonly captures(none) %name, ptr noundef captures(none) %target) #0 {
+define internal range(i32 -1, 1) i32 @synth_name_to_path(ptr readnone captures(none) %ctx, ptr noundef readonly %dir_path, ptr noundef readonly captures(none) %name, ptr noundef captures(none) %target) #0 {
 entry:
   %node = alloca ptr, align 8
   %0 = load i8, ptr %name, align 1

@@ -427,7 +427,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #10 {
+define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef readnone %3) unnamed_addr #10 {
   %5 = alloca %struct.agxbuf, align 8
   %6 = load i32, ptr %2, align 8
   %7 = add nsw i32 %6, 1

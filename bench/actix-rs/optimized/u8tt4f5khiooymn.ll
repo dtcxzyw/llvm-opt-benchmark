@@ -9111,7 +9111,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17haacef8a3281800b3E.llvm.13158767072824543338"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17haacef8a3281800b3E.llvm.13158767072824543338"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
   ret ptr %0
 }
 
@@ -12155,7 +12155,7 @@ define void @"_ZN90_$LT$actix_http..h1..client.._..InternalBitFlags$u20$as$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN94_$LT$actix_http..h1..client.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17hbf176654b5156e17E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #7 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN94_$LT$actix_http..h1..client.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17hbf176654b5156e17E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #7 {
   ret ptr %0
 }
 
@@ -12392,7 +12392,7 @@ define void @"_ZN87_$LT$actix_http..message.._..InternalBitFlags$u20$as$u20$core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN91_$LT$actix_http..message.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17hee1b04868a40d054E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #7 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN91_$LT$actix_http..message.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17hee1b04868a40d054E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #7 {
   ret ptr %0
 }
 

@@ -191,7 +191,7 @@ _ZN20btAlignedObjectArrayIP11btMultiBodyE9push_backERKS1_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorld15removeMultiBodyEP11btMultiBody(ptr noundef nonnull align 8 captures(none) dereferenceable(848) %this, ptr noundef readnone captures(address) %body) unnamed_addr #1 align 2 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorld15removeMultiBodyEP11btMultiBody(ptr noundef nonnull align 8 captures(none) dereferenceable(848) %this, ptr noundef readnone %body) unnamed_addr #1 align 2 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 516
   %0 = load i32, ptr %m_size.i.i.i, align 4
@@ -5020,7 +5020,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9push_backERKS1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorld25removeMultiBodyConstraintEP21btMultiBodyConstraint(ptr noundef nonnull align 8 captures(none) dereferenceable(848) %this, ptr noundef readnone captures(address) %constraint) unnamed_addr #1 align 2 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorld25removeMultiBodyConstraintEP21btMultiBodyConstraint(ptr noundef nonnull align 8 captures(none) dereferenceable(848) %this, ptr noundef readnone %constraint) unnamed_addr #1 align 2 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 548
   %0 = load i32, ptr %m_size.i.i.i, align 4

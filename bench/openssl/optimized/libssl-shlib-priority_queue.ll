@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_pqueue_reserve = private unnamed_addr constant [20 x i8] c"ossl_pqueue_reserve\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_null) %pq, ptr noundef %data, ptr noundef writeonly captures(address_is_null) %elem) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef %pq, ptr noundef %data, ptr noundef writeonly %elem) local_unnamed_addr #0 {
 entry:
   %t_h.i.i = alloca %struct.pq_heap_st, align 8
   %call = tail call i32 @ossl_pqueue_reserve(ptr noundef %pq, i64 noundef 1)
@@ -94,7 +94,7 @@ return:                                           ; preds = %pqueue_move_down.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pqueue_reserve(ptr noundef captures(address_is_null) %pq, i64 noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pqueue_reserve(ptr noundef %pq, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pq, null
   br i1 %cmp, label %return, label %if.end
@@ -204,7 +204,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_pqueue_pop(ptr noundef captures(address_is_null) %pq) local_unnamed_addr #0 {
+define ptr @ossl_pqueue_pop(ptr noundef %pq) local_unnamed_addr #0 {
 entry:
   %t_h.i.i = alloca %struct.pq_heap_st, align 8
   %cmp = icmp eq ptr %pq, null
@@ -330,7 +330,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_pqueue_remove(ptr noundef captures(address_is_null) %pq, i64 noundef %elem) local_unnamed_addr #0 {
+define ptr @ossl_pqueue_remove(ptr noundef %pq, i64 noundef %elem) local_unnamed_addr #0 {
 entry:
   %t_h.i.i = alloca %struct.pq_heap_st, align 8
   %cmp = icmp eq ptr %pq, null
@@ -533,7 +533,7 @@ if.end:                                           ; preds = %ossl_pqueue_free.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_pqueue_num(ptr noundef readonly captures(address_is_null) %pq) local_unnamed_addr #3 {
+define i64 @ossl_pqueue_num(ptr noundef readonly %pq) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %pq, null
   br i1 %cmp.not, label %cond.end, label %cond.true

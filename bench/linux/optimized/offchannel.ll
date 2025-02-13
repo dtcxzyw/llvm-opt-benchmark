@@ -1756,7 +1756,7 @@ define dso_local void @ieee80211_roc_setup(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_hw_roc_start(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal void @ieee80211_hw_roc_start(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -1891,7 +1891,7 @@ define internal void @ieee80211_roc_work(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_roc_purge(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_roc_purge(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3

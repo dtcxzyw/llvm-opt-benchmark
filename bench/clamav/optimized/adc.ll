@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [51 x i8] c"adc_decompress: stream ended mid-phrase, state %u\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -3, 1) i32 @adc_decompressInit(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @adc_decompressInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -48,7 +48,7 @@ define range(i32 -3, 1) i32 @adc_decompressInit(ptr noundef captures(address_is_
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 2) i32 @adc_decompress(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define range(i32 -3, 2) i32 @adc_decompress(ptr noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -409,7 +409,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #3
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -3, 1) i32 @adc_decompressEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @adc_decompressEnd(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

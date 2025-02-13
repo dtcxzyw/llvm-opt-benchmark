@@ -67,7 +67,7 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -286,7 +286,7 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @makeJsonLexContextCstringLen(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local noundef ptr @makeJsonLexContextCstringLen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %12
 

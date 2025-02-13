@@ -2823,7 +2823,7 @@ define dso_local i32 @xhci_last_valid_endpoint(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @xhci_drop_endpoint(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @xhci_drop_endpoint(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -4440,7 +4440,7 @@ declare dso_local void @xhci_debugfs_create_endpoint(ptr noundef, ptr noundef, i
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_reset_bandwidth(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define dso_local void @xhci_reset_bandwidth(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -5226,7 +5226,7 @@ declare dso_local i32 @xhci_alloc_tt_info(ptr noundef, ptr noundef, ptr noundef,
 declare dso_local void @xhci_slot_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xhci_gen_setup(ptr noundef initializes((36, 40)) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
+define dso_local i32 @xhci_gen_setup(ptr noundef initializes((36, 40)) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -5601,7 +5601,7 @@ define internal fastcc zeroext i1 @xhci_hcd_is_usb3(ptr noundef %0) unnamed_addr
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_init_driver(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
+define dso_local void @xhci_init_driver(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5, !prof !68
 
@@ -5933,7 +5933,7 @@ define internal void @trace_xhci_dbg_context_change(ptr noundef %0) #3 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc void @xhci_drop_ep_from_interval_table(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #15 align 16 {
+define internal fastcc void @xhci_drop_ep_from_interval_table(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #15 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -1
@@ -6123,7 +6123,7 @@ define internal fastcc void @xhci_drop_ep_from_interval_table(ptr noundef readon
 declare dso_local void @xhci_update_bw_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc void @xhci_add_ep_to_interval_table(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #15 align 16 {
+define internal fastcc void @xhci_add_ep_to_interval_table(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #15 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -1
@@ -7437,7 +7437,7 @@ define internal void @xhci_endpoint_disable(ptr noundef %0, ptr noundef captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xhci_endpoint_reset(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal void @xhci_endpoint_reset(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %0) #21
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
@@ -7823,7 +7823,7 @@ define internal void @xhci_clear_tt_buffer_complete(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %0) #21
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
@@ -8003,7 +8003,7 @@ define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1, 0) i32 @xhci_alloc_streams(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal range(i32 1, 0) i32 @xhci_alloc_streams(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = icmp eq ptr %2, null
   br i1 %7, label %396, label %8
 

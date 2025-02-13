@@ -32,13 +32,13 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_comm_select(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @mca_topo_base_comm_select(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.opal_list_t, align 8
   %8 = tail call i32 @mca_topo_base_lazy_init() #6
@@ -484,7 +484,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i87, %opal_o
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_group_select(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @mca_topo_base_group_select(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @_mca_topo_base_select(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }

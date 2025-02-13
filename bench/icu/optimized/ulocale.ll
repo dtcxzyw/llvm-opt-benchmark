@@ -640,7 +640,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ulocale_getLanguage_75(ptr noundef readnone captures(address_is_null, ret: address, provenance) %locale) local_unnamed_addr #8 {
+define ptr @ulocale_getLanguage_75(ptr noundef readnone %locale) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %locale, null
   %language.i = getelementptr inbounds nuw i8, ptr %locale, i64 8
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ulocale_getScript_75(ptr noundef readnone captures(address_is_null, ret: address, provenance) %locale) local_unnamed_addr #8 {
+define ptr @ulocale_getScript_75(ptr noundef readnone %locale) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %locale, null
   %script.i = getelementptr inbounds nuw i8, ptr %locale, i64 20
@@ -658,7 +658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ulocale_getRegion_75(ptr noundef readnone captures(address_is_null, ret: address, provenance) %locale) local_unnamed_addr #8 {
+define ptr @ulocale_getRegion_75(ptr noundef readnone %locale) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %locale, null
   %country.i = getelementptr inbounds nuw i8, ptr %locale, i64 26
@@ -667,7 +667,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ulocale_getVariant_75(ptr noundef readonly captures(address_is_null) %locale) local_unnamed_addr #9 {
+define ptr @ulocale_getVariant_75(ptr noundef readonly %locale) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %locale, null
   br i1 %cmp, label %return, label %if.end
@@ -687,7 +687,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ulocale_getLocaleID_75(ptr noundef readonly captures(address_is_null) %locale) local_unnamed_addr #9 {
+define ptr @ulocale_getLocaleID_75(ptr noundef readonly %locale) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %locale, null
   br i1 %cmp, label %return, label %if.end
@@ -947,7 +947,7 @@ return:                                           ; preds = %entry, %if.end2, %i
 declare noundef ptr @_ZNK6icu_756Locale21createUnicodeKeywordsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ulocale_isBogus_75(ptr noundef readonly captures(address_is_null) %locale) local_unnamed_addr #9 {
+define zeroext i1 @ulocale_isBogus_75(ptr noundef readonly %locale) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %locale, null
   br i1 %cmp, label %return, label %if.end

@@ -314,7 +314,7 @@ define void @epsf_free(ptr noundef readonly captures(none) %0) local_unnamed_add
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @cat_libfile(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [8192 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.preheader44

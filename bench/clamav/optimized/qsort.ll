@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = sub i64 0, %2
   %6 = icmp ne i64 %2, 8
   %7 = zext i1 %6 to i32
@@ -1186,7 +1186,7 @@ swapfunc.exit452:                                 ; preds = %.preheader492, %492
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = sub i64 0, %2
   %7 = icmp ne i64 %2, 8
   %8 = zext i1 %7 to i32

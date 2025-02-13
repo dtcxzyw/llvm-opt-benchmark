@@ -2972,7 +2972,7 @@ _ZN5vcpkg9ExpectedTINS_12FileContentsENS_15LocalizedStringEED2Ev.exit: ; preds =
 declare void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkg17is_git_commit_shaENS_10StringViewE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @_ZN5vcpkg17is_git_commit_shaENS_10StringViewE(ptr readonly %0, i64 %1) local_unnamed_addr #8 {
   %3 = icmp eq i64 %1, 40
   br i1 %3, label %.lr.ph.preheader.i.i.i.i, label %31
 

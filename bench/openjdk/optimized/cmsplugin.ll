@@ -99,7 +99,7 @@ define hidden void @_cmsAdjustEndianess64(ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsReadUInt8Number(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsReadUInt8Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -122,7 +122,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt8Number(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsReadUInt16Number(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsReadUInt16Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -146,7 +146,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt16Number(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsReadUInt16Array(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsReadUInt16Array(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %.not20 = icmp eq i32 %1, 0
@@ -203,7 +203,7 @@ _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsReadUInt32Number(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsReadUInt32Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -227,7 +227,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt32Number(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsReadFloat32Number(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsReadFloat32Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca %union.typeConverter, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -272,7 +272,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadFloat32Number(ptr noundef %0, ptr nou
 declare float @llvm.fabs.f32(float) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsReadUInt64Number(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsReadUInt64Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -323,7 +323,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt64Number(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRead15Fixed16Number(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsRead15Fixed16Number(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -356,7 +356,7 @@ define hidden noundef double @_cms15Fixed16toDouble(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsReadXYZNumber(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsReadXYZNumber(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca %struct.cmsEncodedXYZNumber, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -874,7 +874,7 @@ _cmsGetContext.exit.thread:                       ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsGetContext(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
+define hidden ptr @_cmsGetContext(ptr noundef readnone %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1618,7 +1618,7 @@ declare void @_cmsSubAllocDestroy(ptr noundef) local_unnamed_addr #7
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsGetContextUserData(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
+define hidden ptr @cmsGetContextUserData(ptr noundef readnone %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_cmsGetContext.exit.i, label %3
 

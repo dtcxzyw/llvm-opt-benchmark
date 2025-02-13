@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.973bff44f652048320a93abad9ffb527.82 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"wsl2" }>, align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer..Eager$GT$8set_data17h4e0641091cef39acE.llvm.5874913677940797345"(ptr noalias noundef align 1 captures(none) dereferenceable(137) %0, ptr noalias noundef nonnull align 1 captures(address) %1, i64 noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer..Eager$GT$8set_data17h4e0641091cef39acE.llvm.5874913677940797345"(ptr noalias noundef align 1 captures(none) dereferenceable(137) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { { { ptr, ptr } }, i64 }, align 8
   %7 = alloca ptr, align 8
@@ -155,7 +155,7 @@ define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer..Eager$GT$8set_data17h95bc5029d0466b4cE.llvm.5874913677940797345"(ptr noalias noundef align 1 captures(none) dereferenceable(169) %0, ptr noalias noundef nonnull align 1 captures(address) %1, i64 noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer..Eager$GT$8set_data17h95bc5029d0466b4cE.llvm.5874913677940797345"(ptr noalias noundef align 1 captures(none) dereferenceable(169) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { { { ptr, ptr } }, i64 }, align 8
   %7 = alloca ptr, align 8
@@ -1043,7 +1043,7 @@ define hidden void @"_ZN59_$LT$sha3..Shake256Core$u20$as$u20$crypto_common..Rese
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6digest21ExtendableOutputReset23finalize_xof_reset_into17h77dec6b8c4bd39b1E(ptr noalias noundef align 8 dereferenceable(352) %0, ptr noalias noundef nonnull align 1 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN6digest21ExtendableOutputReset23finalize_xof_reset_into17h77dec6b8c4bd39b1E(ptr noalias noundef align 8 dereferenceable(352) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca ptr, align 8
   %6 = alloca { { { ptr, ptr } }, i64 }, align 8
@@ -1149,7 +1149,7 @@ define hidden void @_ZN6digest21ExtendableOutputReset23finalize_xof_reset_into17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6digest21ExtendableOutputReset23finalize_xof_reset_into17h7e66362deed4858eE(ptr noalias noundef align 8 dereferenceable(384) %0, ptr noalias noundef nonnull align 1 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN6digest21ExtendableOutputReset23finalize_xof_reset_into17h7e66362deed4858eE(ptr noalias noundef align 8 dereferenceable(384) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca ptr, align 8
   %6 = alloca { { { ptr, ptr } }, i64 }, align 8
@@ -1533,7 +1533,7 @@ define hidden void @"_ZN97_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read17h89867f44979e5b78E.llvm.5874913677940797345"(ptr noalias noundef align 8 dereferenceable(384) %0, ptr noalias noundef nonnull align 1 captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read17h89867f44979e5b78E.llvm.5874913677940797345"(ptr noalias noundef align 8 dereferenceable(384) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
@@ -1544,7 +1544,7 @@ define hidden void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrappe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read17hb395134a0b37ebadE.llvm.5874913677940797345"(ptr noalias noundef align 8 dereferenceable(352) %0, ptr noalias noundef nonnull align 1 captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read17hb395134a0b37ebadE.llvm.5874913677940797345"(ptr noalias noundef align 8 dereferenceable(352) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
@@ -1555,7 +1555,7 @@ define hidden void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrappe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read28_$u7b$$u7b$closure$u7d$$u7d$17h489b885fbdd7ab5bE"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull writeonly align 1 captures(address) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read28_$u7b$$u7b$closure$u7d$$u7d$17h489b885fbdd7ab5bE"(ptr readonly %.0.val, ptr noalias noundef nonnull writeonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i64, { i64, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, i64, {} }, align 8
@@ -1664,7 +1664,7 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read28_$u7b$$u7b$closure$u7d$$u7d$17hb0d48172d07c4c0bE"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull writeonly align 1 captures(address) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderCoreWrapper$LT$T$GT$$u20$as$u20$digest..XofReader$GT$4read28_$u7b$$u7b$closure$u7d$$u7d$17hb0d48172d07c4c0bE"(ptr readonly %.0.val, ptr noalias noundef nonnull writeonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i64, { i64, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, i64, {} }, align 8

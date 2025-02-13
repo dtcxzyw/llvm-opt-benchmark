@@ -72,7 +72,7 @@ fdt_create_with_flags.exit:                       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures(address) %fdt, ptr noundef captures(address) %buf, i32 noundef %bufsize) local_unnamed_addr #2 {
+define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly %fdt, ptr noundef %buf, i32 noundef %bufsize) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i = zext i8 %0 to i32
@@ -472,7 +472,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef captures(address) %fdt, ptr noundef readonly captures(none) %name) local_unnamed_addr #4 {
+define dso_local range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef %fdt, ptr noundef readonly captures(none) %name) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -655,7 +655,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -9, 1) i32 @fdt_end_node(ptr noundef captures(address) %fdt) local_unnamed_addr #2 {
+define dso_local range(i32 -9, 1) i32 @fdt_end_node(ptr noundef %fdt) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32

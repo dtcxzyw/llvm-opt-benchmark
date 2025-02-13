@@ -535,7 +535,7 @@ return:                                           ; preds = %for.end56, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @event_base_gettimeofday_cached(ptr noundef readonly captures(address_is_null) %base, ptr noundef captures(none) %tv) local_unnamed_addr #0 {
+define dso_local noundef i32 @event_base_gettimeofday_cached(ptr noundef readonly %base, ptr noundef captures(none) %tv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %base, null
   br i1 %tobool.not, label %if.then, label %do.body4
@@ -729,7 +729,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @event_base_new_with_config(ptr noundef readonly captures(address_is_null) %cfg) local_unnamed_addr #0 {
+define dso_local ptr @event_base_new_with_config(ptr noundef readonly %cfg) local_unnamed_addr #0 {
 entry:
   %environment.i = alloca [64 x i8], align 16
   %tv.i = alloca %struct.timeval, align 8
@@ -3705,7 +3705,7 @@ declare i32 @evmap_reinit_(ptr noundef) local_unnamed_addr #6
 declare i32 @evsig_init_(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @event_add_nolock_(ptr noundef %ev, ptr noundef readonly captures(address_is_null) %tv, i32 noundef %tv_is_absolute) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @event_add_nolock_(ptr noundef %ev, ptr noundef readonly %tv, i32 noundef %tv_is_absolute) local_unnamed_addr #0 {
 entry:
   %timeout.i = alloca %struct.timeval, align 8
   %tv.i = alloca %struct.timeval, align 8
@@ -4855,7 +4855,7 @@ return:                                           ; preds = %event_mm_calloc_.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @event_config_set_flag(ptr noundef captures(address_is_null) %cfg, i32 noundef %flag) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 1) i32 @event_config_set_flag(ptr noundef %cfg, i32 noundef %flag) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %cfg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4873,7 +4873,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @event_config_avoid_method(ptr noundef captures(none) %cfg, ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @event_config_avoid_method(ptr noundef captures(none) %cfg, ptr noundef readonly %method) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @mm_malloc_fn_, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -4962,7 +4962,7 @@ return:                                           ; preds = %if.else.i16, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @event_mm_strdup_(ptr noundef readonly captures(address_is_null) %str) local_unnamed_addr #0 {
+define dso_local ptr @event_mm_strdup_(ptr noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -5007,7 +5007,7 @@ return:                                           ; preds = %error, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 1) i32 @event_config_require_features(ptr noundef writeonly captures(address_is_null) %cfg, i32 noundef %features) local_unnamed_addr #10 {
+define dso_local range(i32 -1, 1) i32 @event_config_require_features(ptr noundef writeonly %cfg, i32 noundef %features) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %cfg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -5023,7 +5023,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 1) i32 @event_config_set_num_cpus_hint(ptr noundef writeonly captures(address_is_null) %cfg, i32 noundef %cpus) local_unnamed_addr #10 {
+define dso_local range(i32 -1, 1) i32 @event_config_set_num_cpus_hint(ptr noundef writeonly %cfg, i32 noundef %cpus) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %cfg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -5039,7 +5039,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @event_config_set_max_dispatch_interval(ptr noundef writeonly captures(none) initializes((24, 32), (40, 48)) %cfg, ptr noundef readonly captures(address_is_null) %max_interval, i32 noundef %max_callbacks, i32 noundef %min_priority) local_unnamed_addr #9 {
+define dso_local noundef i32 @event_config_set_max_dispatch_interval(ptr noundef writeonly captures(none) initializes((24, 32), (40, 48)) %cfg, ptr noundef readonly %max_interval, i32 noundef %max_callbacks, i32 noundef %min_priority) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %max_interval, null
   %max_dispatch_interval1 = getelementptr inbounds nuw i8, ptr %cfg, i64 24
@@ -5073,7 +5073,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @event_base_get_npriorities(ptr noundef readonly captures(address_is_null) %base) local_unnamed_addr #0 {
+define dso_local i32 @event_base_get_npriorities(ptr noundef readonly %base) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %base, null
   %0 = load ptr, ptr @event_global_current_base_, align 8
@@ -6920,7 +6920,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @event_loopexit(ptr noundef captures(address_is_null) %tv) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @event_loopexit(ptr noundef %tv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @event_global_current_base_, align 8
   %call.i = tail call range(i32 2, 1) i32 @event_base_once(ptr noundef %0, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @event_loopexit_cb, ptr noundef %0, ptr noundef %tv)
@@ -6928,7 +6928,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @event_once(i32 noundef %fd, i16 noundef signext %events, ptr noundef %callback, ptr noundef %arg, ptr noundef captures(address_is_null) %tv) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @event_once(i32 noundef %fd, i16 noundef signext %events, ptr noundef %callback, ptr noundef %arg, ptr noundef %tv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @event_global_current_base_, align 8
   %call = tail call i32 @event_base_once(ptr noundef %0, i32 noundef %fd, i16 noundef signext %events, ptr noundef %callback, ptr noundef %arg, ptr noundef %tv)
@@ -6944,14 +6944,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @event_base_loopexit(ptr noundef %event_base, ptr noundef captures(address_is_null) %tv) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @event_base_loopexit(ptr noundef %event_base, ptr noundef %tv) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @event_base_once(ptr noundef %event_base, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @event_loopexit_cb, ptr noundef %event_base, ptr noundef %tv)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @event_base_once(ptr noundef %base, i32 noundef %fd, i16 noundef signext %events, ptr noundef %callback, ptr noundef %arg, ptr noundef captures(address_is_null) %tv) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @event_base_once(ptr noundef %base, i32 noundef %fd, i16 noundef signext %events, ptr noundef %callback, ptr noundef %arg, ptr noundef %tv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp ne ptr %base, null
   %0 = and i16 %events, 24
@@ -8471,7 +8471,7 @@ do.end30:                                         ; preds = %if.then25, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 144) i32 @event_pending(ptr noundef %ev, i16 noundef signext %event, ptr noundef writeonly captures(address_is_null) %tv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 144) i32 @event_pending(ptr noundef %ev, i16 noundef signext %event, ptr noundef writeonly %tv) local_unnamed_addr #0 {
 entry:
   %ev_base = getelementptr inbounds nuw i8, ptr %ev, i64 64
   %0 = load ptr, ptr %ev_base, align 8
@@ -8649,7 +8649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @event_get_assignment(ptr noundef %event, ptr noundef writeonly captures(address_is_null) %base_out, ptr noundef writeonly captures(address_is_null) %fd_out, ptr noundef writeonly captures(address_is_null) %events_out, ptr noundef writeonly captures(address_is_null) %callback_out, ptr noundef writeonly captures(address_is_null) %arg_out) local_unnamed_addr #0 {
+define dso_local void @event_get_assignment(ptr noundef %event, ptr noundef writeonly %base_out, ptr noundef writeonly %fd_out, ptr noundef writeonly %events_out, ptr noundef writeonly %callback_out, ptr noundef writeonly %arg_out) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @event_debug_mode_on_, align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -9208,7 +9208,7 @@ event_debug_assert_is_setup_.exit:                ; preds = %entry, %do.body9.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @event_add(ptr noundef %ev, ptr noundef captures(address_is_null) %tv) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @event_add(ptr noundef %ev, ptr noundef %tv) local_unnamed_addr #0 {
 entry:
   %ev_base = getelementptr inbounds nuw i8, ptr %ev, i64 64
   %0 = load ptr, ptr %ev_base, align 8
@@ -10162,7 +10162,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @event_deferred_cb_cancel_(ptr noundef captures(address_is_null) %base, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local void @event_deferred_cb_cancel_(ptr noundef %base, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %base, null
   %0 = load ptr, ptr @event_global_current_base_, align 8
@@ -11325,7 +11325,7 @@ declare void @evmap_io_clear_(ptr noundef) local_unnamed_addr #6
 declare void @evmap_signal_clear_(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @event_process_active_single_queue(ptr noundef %base, ptr noundef readonly captures(none) %activeq, i32 noundef %max_to_process, ptr noundef readonly captures(address_is_null) %endtime) unnamed_addr #0 {
+define internal fastcc i32 @event_process_active_single_queue(ptr noundef %base, ptr noundef readonly captures(none) %activeq, i32 noundef %max_to_process, ptr noundef readonly %endtime) unnamed_addr #0 {
 entry:
   %tv.i = alloca %struct.timeval, align 8
   %tv.i.i112 = alloca %struct.timeval, align 8

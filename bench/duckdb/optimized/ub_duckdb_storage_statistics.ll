@@ -12652,7 +12652,7 @@ _ZN6duckdb10unique_ptrINS_18DistinctStatisticsESt14default_deleteIS1_ELb1EE13Ass
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(88) ptr @_ZN6duckdb16ColumnStatistics10StatisticsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(88) ptr @_ZN6duckdb16ColumnStatistics10StatisticsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(96) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
@@ -14705,14 +14705,14 @@ declare void @_ZN6duckdb5Value12MaximumValueERKNS_11LogicalTypeE(ptr dead_on_unw
 declare void @_ZN6duckdb5Value12MinimumValueERKNS_11LogicalTypeE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6duckdb12NumericStats13GetDataUnsafeERNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6duckdb12NumericStats13GetDataUnsafeERNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
 entry:
   %stats_union = getelementptr inbounds nuw i8, ptr %stats, i64 40
   ret ptr %stats_union
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6duckdb12NumericStats13GetDataUnsafeERKNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6duckdb12NumericStats13GetDataUnsafeERKNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
 entry:
   %stats_union = getelementptr inbounds nuw i8, ptr %stats, i64 40
   ret ptr %stats_union
@@ -24195,73 +24195,73 @@ unreachable:                                      ; preds = %invoke.cont61, %inv
 declare void @_ZNK6duckdb11LogicalType8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIbEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIbEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIaEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIaEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIsEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 2 dereferenceable(2) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIsEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIiEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIiEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIlEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIlEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeINS_9hugeint_tEEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeINS_9hugeint_tEEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIhEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIhEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeItEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 2 dereferenceable(2) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeItEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIjEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIjEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeImEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeImEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIfEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIfEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIdEERT_v(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb17NumericValueUnion18GetReferenceUnsafeIdEERT_v(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }
@@ -24330,14 +24330,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZN6duckdb11StringStats13GetDataUnsafeERNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZN6duckdb11StringStats13GetDataUnsafeERNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
 entry:
   %stats_union = getelementptr inbounds nuw i8, ptr %stats, i64 40
   ret ptr %stats_union
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZN6duckdb11StringStats13GetDataUnsafeERKNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZN6duckdb11StringStats13GetDataUnsafeERKNS_14BaseStatisticsE(ptr noundef nonnull readnone align 8 dereferenceable(88) %stats) local_unnamed_addr #16 align 2 {
 entry:
   %stats_union = getelementptr inbounds nuw i8, ptr %stats, i64 40
   ret ptr %stats_union

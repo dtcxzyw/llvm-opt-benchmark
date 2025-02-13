@@ -1097,7 +1097,7 @@ define dso_local void @_ZN4llvm9StackMapsC2ERNS_10AsmPrinterE(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm9StackMaps12parseOperandEPKNS_14MachineOperandES3_RNS_11SmallVectorINS0_8LocationELj8EEERNS4_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"struct.std::pair.434", align 8
   %7 = alloca %"struct.std::pair.422", align 8
   %8 = alloca %"class.std::tuple.440", align 8
@@ -3534,7 +3534,7 @@ _ZL14getDwarfRegNumjPKN4llvm18TargetRegisterInfoE.exit: ; preds = %.lr.ph.i, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9StackMaps20parseStatepointOpersERKNS_12MachineInstrEPKNS_14MachineOperandES6_RNS_11SmallVectorINS0_8LocationELj8EEERNS7_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef captures(none) %2, ptr readnone captures(none) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9StackMaps20parseStatepointOpersERKNS_12MachineInstrEPKNS_14MachineOperandES6_RNS_11SmallVectorINS0_8LocationELj8EEERNS7_INS0_10LiveOutRegELj8EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(64) %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::StatepointOpers", align 8
   %8 = alloca %"class.llvm::SmallVector.252", align 8
   %9 = alloca %"class.llvm::SmallVector.257", align 8
@@ -3866,7 +3866,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9StackMaps19recordStackMapOpersERKNS_8MCSymbolERKNS_12MachineInstrEmPKNS_14MachineOperandES9_b(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, i64 noundef %3, ptr noundef captures(address) %4, ptr noundef readnone captures(address) %5, i1 noundef zeroext %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9StackMaps19recordStackMapOpersERKNS_8MCSymbolERKNS_12MachineInstrEmPKNS_14MachineOperandES9_b(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, i64 noundef %3, ptr noundef %4, ptr noundef readnone %5, i1 noundef zeroext %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"struct.std::pair.445", align 8
   %9 = alloca %"struct.std::pair.426", align 8
   %10 = alloca %"class.std::tuple.451", align 8

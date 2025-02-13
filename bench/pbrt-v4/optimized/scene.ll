@@ -4574,7 +4574,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17BasicSceneBuilder9AttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 captures(none) dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %target, ptr noundef readonly captures(address) %attrib, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17BasicSceneBuilder9AttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 captures(none) dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %target, ptr noundef readonly %attrib, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %target, ptr noundef nonnull @.str.31) #29

@@ -8138,7 +8138,7 @@ define hidden noundef zeroext i1 @_ZN7slotmap3Key7is_null17h3a2278e684207da3E(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(568) ptr @"_ZN80_$LT$gpui..elements..canvas..Canvas$LT$T$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h503ec153de09d8f0E.llvm.12158567587560463101"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(600) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(568) ptr @"_ZN80_$LT$gpui..elements..canvas..Canvas$LT$T$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h503ec153de09d8f0E.llvm.12158567587560463101"(ptr noalias noundef readnone returned align 8 dereferenceable(600) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

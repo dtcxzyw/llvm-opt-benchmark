@@ -17745,7 +17745,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.12
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hde7d3be94c00874eE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hde7d3be94c00874eE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5
@@ -43101,42 +43101,42 @@ define hidden noundef zeroext i1 @"_ZN8wasmtime7runtime5store9func_refs8FuncRefs
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN96_$LT$wasmtime..runtime..func..FuncData$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17h629219042d3e1e69E.llvm.12393783928750787229"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN96_$LT$wasmtime..runtime..func..FuncData$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17h629219042d3e1e69E.llvm.12393783928750787229"(ptr noalias noundef readnone returned align 8 dereferenceable(176) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN100_$LT$wasmtime_runtime..export..ExportTable$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17h0330883439a158bbE.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN100_$LT$wasmtime_runtime..export..ExportTable$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17h0330883439a158bbE.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 dereferenceable(176) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN101_$LT$wasmtime_runtime..export..ExportGlobal$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17hf9eb29e2c3d50540E.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN101_$LT$wasmtime_runtime..export..ExportGlobal$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17hf9eb29e2c3d50540E.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 dereferenceable(176) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN104_$LT$wasmtime..runtime..instance..InstanceData$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$4list17hfc73c108d8ad9bc6E.llvm.12393783928750787229"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN104_$LT$wasmtime..runtime..instance..InstanceData$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$4list17hfc73c108d8ad9bc6E.llvm.12393783928750787229"(ptr noalias noundef readonly align 8 dereferenceable(176) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN104_$LT$wasmtime..runtime..instance..InstanceData$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17hadd54ff4abd8c29aE.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN104_$LT$wasmtime..runtime..instance..InstanceData$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17hadd54ff4abd8c29aE.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 dereferenceable(176) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN101_$LT$wasmtime_runtime..export..ExportMemory$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17h3f52f0116e6bd785E.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN101_$LT$wasmtime_runtime..export..ExportMemory$u20$as$u20$wasmtime..runtime..store..data..StoredData$GT$8list_mut17h3f52f0116e6bd785E.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 dereferenceable(176) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8wasmtime7runtime9component5store117_$LT$impl$u20$wasmtime..runtime..store..data..StoredData$u20$for$u20$wasmtime..runtime..component..func..FuncData$GT$8list_mut17h83da5115679c553bE.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8wasmtime7runtime9component5store117_$LT$impl$u20$wasmtime..runtime..store..data..StoredData$u20$for$u20$wasmtime..runtime..component..func..FuncData$GT$8list_mut17h83da5115679c553bE.llvm.12393783928750787229"(ptr noalias noundef readnone align 8 dereferenceable(176) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }

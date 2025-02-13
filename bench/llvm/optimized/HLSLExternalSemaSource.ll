@@ -2892,7 +2892,7 @@ _ZN5clang12LookupResultD2Ev.exit:                 ; preds = %112, %115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder23addSimpleTemplateParamsEN4llvm8ArrayRefINS1_9StringRefEEEPN5clang11ConceptDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_122BuiltinTypeDeclBuilder23addSimpleTemplateParamsEN4llvm8ArrayRefINS1_9StringRefEEEPN5clang11ConceptDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.(anonymous namespace)::TemplateParameterListBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56

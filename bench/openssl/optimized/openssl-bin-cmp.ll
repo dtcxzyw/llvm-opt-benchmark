@@ -2618,7 +2618,7 @@ declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @prev_item(ptr noundef readnone captures(address) %opt, ptr noundef %end) unnamed_addr #0 {
+define internal fastcc noundef ptr @prev_item(ptr noundef readnone %opt, ptr noundef %end) unnamed_addr #0 {
 entry:
   %end24 = ptrtoint ptr %end to i64
   %opt23 = ptrtoint ptr %opt to i64
@@ -7136,7 +7136,7 @@ declare i32 @X509_VERIFY_PARAM_clear_flags(ptr noundef, i64 noundef) local_unnam
 declare i32 @OSSL_CMP_CTX_set_certConf_cb_arg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @write_PKIMESSAGE(ptr noundef %msg, ptr noundef captures(address_is_null) %filenames) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_PKIMESSAGE(ptr noundef %msg, ptr noundef %filenames) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %filenames, null
@@ -7191,7 +7191,7 @@ return:                                           ; preds = %if.end11, %cond.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_PKIMESSAGE(ptr noundef %desc, ptr noundef captures(address_is_null) %filenames) unnamed_addr #0 {
+define internal fastcc ptr @read_PKIMESSAGE(ptr noundef %desc, ptr noundef %filenames) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %filenames, null
   %cmp1 = icmp eq ptr %desc, null

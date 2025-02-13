@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [69 x i8] c"cli_bcomp_compare_check: unable to reallocate memory for hex buffer\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [4 x ptr], align 16
   %8 = alloca ptr, align 8
@@ -777,7 +777,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @cli_bcomp_freemeta(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @cli_bcomp_freemeta(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -871,7 +871,7 @@ declare ptr @mpool_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcomp_scanbuf(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @cli_bcomp_scanbuf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = alloca [3 x i8], align 1
@@ -1036,7 +1036,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_bcomp_compare_check(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_bcomp_compare_check(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store ptr null, ptr %5, align 8, !tbaa !3
@@ -1480,7 +1480,7 @@ cli_bcomp_chk_hex.exit:                           ; preds = %.tail27.thread.i, %
 declare i32 @cli_append_virus(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_bcomp_normalize_buffer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define ptr @cli_bcomp_normalize_buffer(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7
 
@@ -1743,7 +1743,7 @@ cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i16 @cli_bcomp_chk_hex(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define noundef zeroext i16 @cli_bcomp_chk_hex(ptr noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ult i32 %2, 3
   %or.cond = or i1 %5, %6

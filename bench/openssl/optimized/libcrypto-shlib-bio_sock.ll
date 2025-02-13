@@ -295,7 +295,7 @@ declare i32 @BIO_closesocket(i32 noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_accept(i32 noundef %sock, ptr noundef captures(address_is_null) %ip_port) local_unnamed_addr #0 {
+define i32 @BIO_accept(i32 noundef %sock, ptr noundef %ip_port) local_unnamed_addr #0 {
 entry:
   %res = alloca %union.bio_addr_st, align 4
   %call = call i32 @BIO_accept_ex(i32 noundef %sock, ptr noundef nonnull %res, i32 noundef 0) #8

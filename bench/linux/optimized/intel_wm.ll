@@ -243,7 +243,7 @@ define dso_local zeroext i1 @intel_wm_plane_visible(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_print_wm_latency(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_print_wm_latency(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7024
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 0

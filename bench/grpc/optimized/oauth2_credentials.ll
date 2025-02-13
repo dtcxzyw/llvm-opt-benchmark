@@ -488,7 +488,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z32grpc_auth_refresh_token_is_validPK23grpc_auth_refresh_token(ptr noundef readonly captures(address_is_null) %refresh_token) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z32grpc_auth_refresh_token_is_validPK23grpc_auth_refresh_token(ptr noundef readonly %refresh_token) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %refresh_token, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -815,7 +815,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare noundef zeroext i1 @_Z30grpc_copy_json_string_propertyRKN9grpc_core12experimental4JsonEPKcPPc(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z32grpc_auth_refresh_token_destructP23grpc_auth_refresh_token(ptr noundef captures(address_is_null) %refresh_token) local_unnamed_addr #5 {
+define void @_Z32grpc_auth_refresh_token_destructP23grpc_auth_refresh_token(ptr noundef %refresh_token) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %refresh_token, null
   br i1 %cmp, label %if.end16, label %if.end
@@ -1302,7 +1302,7 @@ entry:
 declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z59grpc_oauth2_token_fetcher_credentials_parse_server_responsePK18grpc_http_responsePSt8optionalIN9grpc_core5SliceEEPNS3_8DurationE(ptr noundef readonly captures(address_is_null) %response, ptr noundef captures(none) %token_value, ptr noundef writeonly captures(none) %token_lifetime) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z59grpc_oauth2_token_fetcher_credentials_parse_server_responsePK18grpc_http_responsePSt8optionalIN9grpc_core5SliceEEPNS3_8DurationE(ptr noundef readonly %response, ptr noundef captures(none) %token_value, ptr noundef writeonly captures(none) %token_lifetime) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.215, align 1
   %ref.tmp.i.i.i.i.i = alloca %struct.grpc_slice, align 8
@@ -5538,7 +5538,7 @@ declare void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_view
 declare void @_ZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @grpc_sts_credentials_create(ptr noundef readonly captures(none) %options, ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_sts_credentials_create(ptr noundef readonly captures(none) %options, ptr noundef readnone %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::URI", align 8
   %sts_url = alloca %"class.absl::lts_20230802::StatusOr.129", align 8

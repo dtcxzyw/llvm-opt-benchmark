@@ -320,7 +320,7 @@ declare i32 @H5G__stab_count(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @H5G__has_links_test(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5G__has_links_test(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @H5VL_object_verify(i64 noundef %0, i32 noundef 2) #4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9

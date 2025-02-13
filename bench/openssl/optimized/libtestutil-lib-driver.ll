@@ -174,7 +174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @set_test_title(ptr noundef readonly captures(address_is_null) %title) local_unnamed_addr #5 {
+define void @set_test_title(ptr noundef readonly %title) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr @test_title, align 8
   tail call void @free(ptr noundef %0) #13
@@ -806,7 +806,7 @@ if.end14:                                         ; preds = %if.then12, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @glue_strings(ptr noundef readonly captures(none) %list, ptr noundef writeonly captures(address_is_null) %out_len) local_unnamed_addr #1 {
+define noundef ptr @glue_strings(ptr noundef readonly captures(none) %list, ptr noundef writeonly %out_len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %list, align 8
   %cmp.not14 = icmp eq ptr %0, null

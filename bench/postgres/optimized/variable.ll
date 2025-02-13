@@ -216,7 +216,7 @@ find_simple.exit58.thread61:                      ; preds = %.lr.ph.i53, %find_s
 declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull captures(address) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1
   store i8 0, ptr %1, align 1
   %5 = tail call ptr @find_variable(ptr noundef %0)
@@ -623,7 +623,7 @@ define dso_local void @add_variable_to_tail(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @remove_variable_from_list(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define dso_local void @remove_variable_from_list(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %.01215 = load ptr, ptr %0, align 8
   %.not.not16 = icmp eq ptr %.01215, null
   br i1 %.not.not16, label %.critedge, label %.lr.ph.preheader
@@ -667,7 +667,7 @@ define dso_local void @remove_variable_from_list(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dump_variables(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @dump_variables(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %24, label %4
 
@@ -1043,7 +1043,7 @@ sub_0:                                            ; preds = %83
 declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_struct_member(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @find_struct_member(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %4

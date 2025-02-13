@@ -117,7 +117,7 @@ while.end23:                                      ; preds = %if.end22, %while.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uprv_sortArray_75(ptr noundef %array, i32 noundef %length, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, i8 noundef signext %sortStable, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @uprv_sortArray_75(ptr noundef %array, i32 noundef %length, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, i8 noundef signext %sortStable, ptr noundef %pErrorCode) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %xw.i = alloca %"class.icu_75::MaybeStackArray.0", align 16
   %v.i = alloca %"class.icu_75::MaybeStackArray", align 16

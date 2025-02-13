@@ -566,7 +566,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare ptr @Curl_hash_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @Curl_ipv6works(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden zeroext i1 @Curl_ipv6works(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
 

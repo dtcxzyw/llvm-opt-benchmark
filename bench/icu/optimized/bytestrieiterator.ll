@@ -725,7 +725,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_759BytesTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(56) initializes((8, 16), (24, 28)) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_759BytesTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 dereferenceable(56) initializes((8, 16), (24, 28)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %initialPos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %initialPos_, align 8

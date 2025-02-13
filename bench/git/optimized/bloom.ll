@@ -624,7 +624,7 @@ define dso_local noundef ptr @get_bloom_filter(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.diff_options, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.hashmap, align 8

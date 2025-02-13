@@ -789,7 +789,7 @@ _curses_panel_panel_below_impl.exit:              ; preds = %2, %16, %find_po.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_bottom(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @_curses_panel_panel_bottom(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -837,7 +837,7 @@ define internal nonnull ptr @_curses_panel_panel_hidden(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_hide(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @_curses_panel_panel_hide(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -1151,7 +1151,7 @@ _curses_panel_panel_set_userptr_impl.exit:        ; preds = %PyCursesCheckERR.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_show(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @_curses_panel_panel_show(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -1189,7 +1189,7 @@ _curses_panel_panel_show_impl.exit:               ; preds = %16, %11, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_top(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @_curses_panel_panel_top(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -1227,7 +1227,7 @@ _curses_panel_panel_top_impl.exit:                ; preds = %16, %11, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_panel_panel_userptr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_curses_panel_panel_userptr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

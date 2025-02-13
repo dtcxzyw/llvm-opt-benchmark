@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_OP_lengths_8 = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
+define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.pcre2_callout_block_8, align 8
   %11 = alloca %struct.dfa_match_block_8, align 8
   %12 = alloca [7680 x i32], align 16

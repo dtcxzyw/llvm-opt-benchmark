@@ -303,7 +303,7 @@ declare void @_ZN5faiss8IndexIVF10merge_fromERNS_5IndexEl(ptr noundef nonnull al
 declare void @_ZNK5faiss8IndexIVF26check_compatible_for_mergeERKNS_5IndexE(ptr noundef nonnull align 8 dereferenceable(257), ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss10IndexIVFPQ8add_coreElPKfPKlS4_Pv(ptr noundef nonnull align 8 dereferenceable(528) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) unnamed_addr #2 align 2 {
+define void @_ZN5faiss10IndexIVFPQ8add_coreElPKfPKlS4_Pv(ptr noundef nonnull align 8 dereferenceable(528) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #2 align 2 {
   tail call void @_ZN5faiss10IndexIVFPQ10add_core_oElPKfPKlPfS4_Pv(ptr noundef nonnull align 8 dereferenceable(528) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef %5)
   ret void
 }
@@ -1346,7 +1346,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %44, %42
 declare void @_ZNK5faiss16ProductQuantizer6decodeEPKhPfm(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef, ptr noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss10IndexIVFPQ10add_core_oElPKfPKlPfS4_Pv(ptr noundef nonnull align 8 dereferenceable(528) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss10IndexIVFPQ10add_core_oElPKfPKlPfS4_Pv(ptr noundef nonnull align 8 dereferenceable(528) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca [100 x i8], align 16
   %10 = load i32, ptr @_ZN5faiss25index_ivfpq_add_core_o_bsE, align 4

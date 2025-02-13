@@ -100,7 +100,7 @@ aom_malloc.exit.thread:                           ; preds = %6, %2, %15, %aom_ma
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @aom_free(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define hidden void @aom_free(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -119,7 +119,7 @@ define hidden void @aom_free(ptr noundef readonly captures(address_is_null) %0) 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden noundef ptr @aom_memset16(ptr noundef returned writeonly captures(ret: address, provenance) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden noundef ptr @aom_memset16(ptr noundef returned writeonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

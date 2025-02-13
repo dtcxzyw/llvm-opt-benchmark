@@ -681,7 +681,7 @@ define internal fastcc void @i915_request_put(ptr noundef nonnull %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_request_retire_upto(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @i915_request_retire_upto(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88

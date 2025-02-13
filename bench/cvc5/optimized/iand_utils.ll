@@ -1177,7 +1177,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl9IAndUtils18createITEFromTableENS0_12NodeTemplateILb1EEES6_jRKSt3mapISt4pairIllEmSt4lessIS9_ESaIS8_IKS9_mEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %y, i32 noundef %granularity, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %table) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl9IAndUtils18createITEFromTableENS0_12NodeTemplateILb1EEES6_jRKSt3mapISt4pairIllEmSt4lessIS9_ESaIS8_IKS9_mEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %y, i32 noundef %granularity, ptr noundef nonnull readonly align 8 dereferenceable(48) %table) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i180 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i181 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8

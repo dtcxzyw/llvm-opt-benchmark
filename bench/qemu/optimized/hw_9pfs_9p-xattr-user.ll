@@ -33,7 +33,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @mp_user_listxattr(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, ptr noundef readonly captures(none) %name, ptr noundef writeonly captures(address_is_null) %value, i64 noundef %size) #1 {
+define internal range(i64 -2147483648, 2147483648) i64 @mp_user_listxattr(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, ptr noundef readonly captures(none) %name, ptr noundef writeonly %value, i64 noundef %size) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #6
   %conv = add i64 %call, 1

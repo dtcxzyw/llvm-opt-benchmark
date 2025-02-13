@@ -1416,7 +1416,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @qcow2_cluster_discard(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_goto(ptr noundef %bs, ptr noundef readonly captures(address_is_null) %snapshot_id) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_goto(ptr noundef %bs, ptr noundef readonly %snapshot_id) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1636,7 +1636,7 @@ declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #9
 declare i32 @bdrv_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_delete(ptr noundef %bs, ptr noundef captures(address_is_null) %snapshot_id, ptr noundef captures(address_is_null) %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_delete(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1733,7 +1733,7 @@ return:                                           ; preds = %if.end31, %if.end3,
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @find_snapshot_by_id_and_name(ptr readonly captures(none) %bs.24.val, ptr noundef readonly captures(address_is_null) %id, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #10 {
+define internal fastcc i32 @find_snapshot_by_id_and_name(ptr readonly captures(none) %bs.24.val, ptr noundef readonly %id, ptr noundef readonly %name) unnamed_addr #10 {
 entry:
   %tobool = icmp ne ptr %id, null
   %tobool1 = icmp ne ptr %name, null
@@ -1925,7 +1925,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_load_tmp(ptr noundef %bs, ptr noundef captures(address_is_null) %snapshot_id, ptr noundef captures(address_is_null) %name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_snapshot_load_tmp(ptr noundef %bs, ptr noundef %snapshot_id, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

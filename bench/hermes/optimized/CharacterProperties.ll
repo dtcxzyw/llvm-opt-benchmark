@@ -210,7 +210,7 @@ lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes25makeCanonicallyEquivalentERKNS_12CodePointSetEb(ptr noalias sret(%"class.hermes::CodePointSet") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %set, i1 noundef zeroext %unicode) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes25makeCanonicallyEquivalentERKNS_12CodePointSetEb(ptr noalias sret(%"class.hermes::CodePointSet") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %set, i1 noundef zeroext %unicode) local_unnamed_addr #1 {
 entry:
   %r.i.i.i40 = alloca %"struct.hermes::CodePointRange", align 8
   %r.i.i.i = alloca %"struct.hermes::CodePointRange", align 8

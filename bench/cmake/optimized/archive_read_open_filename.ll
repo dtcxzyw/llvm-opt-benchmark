@@ -50,7 +50,7 @@ define dso_local i32 @archive_read_open_filename(ptr noundef %0, ptr noundef %1,
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_open_filenames(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @archive_read_open_filenames(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 

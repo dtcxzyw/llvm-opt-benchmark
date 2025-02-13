@@ -3391,7 +3391,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN17ScriptApiSecurity9checkPathEP9lua_StatePKcbPb(ptr noundef %L, ptr noundef readonly captures(address_is_null) %path, i1 noundef zeroext %write_required, ptr noundef writeonly captures(address_is_null) %write_allowed) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN17ScriptApiSecurity9checkPathEP9lua_StatePKcbPb(ptr noundef %L, ptr noundef readonly %path, i1 noundef zeroext %write_required, ptr noundef writeonly %write_allowed) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i99 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8

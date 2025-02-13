@@ -1686,7 +1686,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib3SVD1UEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(73) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib3SVD1UEv(ptr noundef nonnull readonly align 8 dereferenceable(73) %this) local_unnamed_addr #3 align 2 {
 entry:
   %transpose_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i8, ptr %transpose_, align 8, !tbaa !25, !range !75, !noundef !76
@@ -1697,7 +1697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib3SVD1VEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(73) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib3SVD1VEv(ptr noundef nonnull readonly align 8 dereferenceable(73) %this) local_unnamed_addr #3 align 2 {
 entry:
   %transpose_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i8, ptr %transpose_, align 8, !tbaa !25, !range !75, !noundef !76
@@ -1708,7 +1708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib3SVD14singularValuesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(73) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib3SVD14singularValuesEv(ptr noundef nonnull readnone align 8 dereferenceable(73) %this) local_unnamed_addr #4 align 2 {
 entry:
   %s_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %s_

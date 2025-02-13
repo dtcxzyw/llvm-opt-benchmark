@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_stream_encoder_mt(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @lzma_stream_encoder_mt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @lzma_strm_init(ptr noundef %0) #12
   %.not.not = icmp eq i32 %3, 0
   br i1 %.not.not, label %4, label %17
@@ -65,7 +65,7 @@ declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stream_encoder_mt_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal i32 @stream_encoder_mt_init(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct.lzma_options_easy, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !16
@@ -367,7 +367,7 @@ get_options.exit.thread:                          ; preds = %30, %28, %19, %10, 
 declare void @lzma_end(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i64 @lzma_stream_encoder_mt_memusage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define dso_local i64 @lzma_stream_encoder_mt_memusage(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = alloca %struct.lzma_options_easy, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #12
   %3 = icmp eq ptr %0, null

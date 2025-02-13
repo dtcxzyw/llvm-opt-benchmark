@@ -111,7 +111,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11ArenaBitMap10reallocateEPmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11ArenaBitMap10reallocateEPmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8
   %6 = shl i64 %3, 3
@@ -245,7 +245,7 @@ define hidden noundef ptr @_ZNK14ResourceBitMap8allocateEm(ptr noundef nonnull r
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14ResourceBitMap10reallocateEPmmm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14ResourceBitMap10reallocateEPmmm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %3, 3
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %5, i32 noundef 0) #10
   %.not.i = icmp eq ptr %1, null

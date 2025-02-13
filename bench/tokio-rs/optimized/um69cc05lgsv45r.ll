@@ -6658,7 +6658,7 @@ common.resume:                                    ; preds = %7, %12, %55, %44
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$8schedule28_$u7b$$u7b$closure$u7d$$u7d$17h844412fd900b5e5eE.llvm.9340333246167201960"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef align 8 captures(address_is_null) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$8schedule28_$u7b$$u7b$closure$u7d$$u7d$17h844412fd900b5e5eE.llvm.9340333246167201960"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca { ptr, ptr }, align 8
   store ptr %0, ptr %5, align 8
@@ -7075,12 +7075,12 @@ common.resume:                                    ; preds = %.body, %75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5tokio7runtime9scheduler6inject15rt_multi_thread186_$LT$impl$u20$tokio..runtime..scheduler..lock..Lock$LT$tokio..runtime..scheduler..inject..synced..Synced$GT$$u20$for$u20$$RF$mut$u20$tokio..runtime..scheduler..inject..synced..Synced$GT$4lock17he050391b2cca4c8fE"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5tokio7runtime9scheduler6inject15rt_multi_thread186_$LT$impl$u20$tokio..runtime..scheduler..lock..Lock$LT$tokio..runtime..scheduler..inject..synced..Synced$GT$$u20$for$u20$$RF$mut$u20$tokio..runtime..scheduler..inject..synced..Synced$GT$4lock17he050391b2cca4c8fE"(ptr noalias noundef readnone returned align 8 dereferenceable(24) %0) unnamed_addr #11 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5tokio7runtime9scheduler6inject15rt_multi_thread157_$LT$impl$u20$core..convert..AsMut$LT$tokio..runtime..scheduler..inject..synced..Synced$GT$$u20$for$u20$tokio..runtime..scheduler..inject..synced..Synced$GT$6as_mut17h242f1f8e4a4a6e43E"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5tokio7runtime9scheduler6inject15rt_multi_thread157_$LT$impl$u20$core..convert..AsMut$LT$tokio..runtime..scheduler..inject..synced..Synced$GT$$u20$for$u20$tokio..runtime..scheduler..inject..synced..Synced$GT$6as_mut17h242f1f8e4a4a6e43E"(ptr noalias noundef readnone returned align 8 dereferenceable(24) %0) unnamed_addr #11 {
   ret ptr %0
 }
 
@@ -7231,7 +7231,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats19incr_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN112_$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place..Reset$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h93b2fd18406af0baE.llvm.9340333246167201960"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1, ptr noundef align 8 captures(address_is_null) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN112_$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place..Reset$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h93b2fd18406af0baE.llvm.9340333246167201960"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1, ptr noundef align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i8, i8 }, align 1
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
@@ -7341,7 +7341,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$13schedule_task28_$u7b$$u7b$closure$u7d$$u7d$17h5e966f40408b6f7fE.llvm.9340333246167201960"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef align 8 captures(address_is_null) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$13schedule_task28_$u7b$$u7b$closure$u7d$$u7d$17h5e966f40408b6f7fE.llvm.9340333246167201960"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   %.pre = load ptr, ptr %0, align 8
@@ -8239,7 +8239,7 @@ define noundef nonnull align 8 ptr @"_ZN5tokio7runtime9scheduler12multi_thread6w
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6fb9668b46ee7c6aE.llvm.9340333246167201960"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1, ptr noundef align 8 captures(address_is_null) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6fb9668b46ee7c6aE.llvm.9340333246167201960"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(2) %1, ptr noundef align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i8, i8 }, align 1
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %39, label %5
@@ -8334,7 +8334,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_curr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8efadf6ae26a9389E.llvm.9340333246167201960"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef align 8 captures(address_is_null) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8efadf6ae26a9389E.llvm.9340333246167201960"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr, ptr }, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
@@ -8389,7 +8389,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_curr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN5tokio7runtime9scheduler12multi_thread6worker13taskdump_mock73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$10trace_core17h72e47feed9b792beE"(ptr noundef nonnull readnone align 8 captures(none) %0, ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %1) unnamed_addr #11 {
+define hidden noundef nonnull align 8 ptr @"_ZN5tokio7runtime9scheduler12multi_thread6worker13taskdump_mock73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$10trace_core17h72e47feed9b792beE"(ptr noundef nonnull readnone align 8 captures(none) %0, ptr noalias noundef nonnull readnone returned align 8 %1) unnamed_addr #11 {
   ret ptr %1
 }
 

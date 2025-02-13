@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_irq_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_set_irq(ptr noundef readonly captures(address_is_null) %irq, i32 noundef %level) local_unnamed_addr #0 {
+define dso_local void @qemu_set_irq(ptr noundef readonly %irq, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %irq, null
   br i1 %tobool.not, label %return, label %if.end

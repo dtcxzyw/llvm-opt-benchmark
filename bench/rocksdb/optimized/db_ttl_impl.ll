@@ -4279,7 +4279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13DBWithTTLImpl5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13DBWithTTLImpl5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %default_options = alloca %"struct.rocksdb::Options", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8

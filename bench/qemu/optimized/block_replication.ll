@@ -1019,7 +1019,7 @@ declare ptr @bdrv_lookup_bs(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare zeroext i1 @bdrv_is_root_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @check_top_bs(ptr noundef readonly captures(address) %top_bs, ptr noundef captures(address) %bs) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @check_top_bs(ptr noundef readonly %top_bs, ptr noundef %bs) unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %top_bs, %bs
   br i1 %cmp, label %return, label %if.end

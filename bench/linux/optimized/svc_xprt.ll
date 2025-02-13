@@ -961,7 +961,7 @@ define dso_local void @svc_xprt_copy_addrs(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef ptr @svc_print_addr(ptr noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, i64 noundef %2) #9 align 16 {
+define dso_local noundef ptr @svc_print_addr(ptr noundef %0, ptr noundef returned writeonly %1, i64 noundef %2) #9 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i16, ptr %4, align 2
   switch i16 %5, label %20 [
@@ -2555,7 +2555,7 @@ define internal fastcc void @svc_delete_xprt(ptr noundef %0) unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @svc_xprt_destroy_all(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
+define dso_local void @svc_xprt_destroy_all(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2716,7 +2716,7 @@ define dso_local void @svc_xprt_destroy_all(ptr noundef %0, ptr noundef readnone
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address) %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #0 align 16 {
+define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #0 align 16 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %8 = or i1 %6, %7

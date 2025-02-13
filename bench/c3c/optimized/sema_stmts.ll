@@ -7526,7 +7526,7 @@ declare void @expr_insert_addr(ptr noundef) local_unnamed_addr #1
 declare ptr @decl_new_generated_var(ptr noundef, i32 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_(ptr noundef captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 

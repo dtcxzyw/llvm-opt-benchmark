@@ -236,7 +236,7 @@ entry:
 declare i32 @socketpair(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %family, i32 noundef %type, i32 noundef %protocol, ptr noundef writeonly captures(address_is_null) %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %family, i32 noundef %type, i32 noundef %protocol, ptr noundef writeonly %fd) local_unnamed_addr #0 {
 entry:
   %listen_addr = alloca %struct.sockaddr_in, align 4
   %connect_addr = alloca %struct.sockaddr_in, align 4
@@ -874,7 +874,7 @@ if.end12:                                         ; preds = %entry, %if.then11, 
 declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @evutil_addrinfo_append_(ptr noundef captures(address_is_null, ret: address, provenance) %first, ptr noundef %append) local_unnamed_addr #13 {
+define dso_local noundef ptr @evutil_addrinfo_append_(ptr noundef %first, ptr noundef %append) local_unnamed_addr #13 {
 entry:
   %tobool.not = icmp eq ptr %first, null
   br i1 %tobool.not, label %return, label %while.cond
@@ -1801,7 +1801,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_getaddrinfo(ptr noundef %nodename, ptr noundef %servname, ptr noundef readonly captures(address_is_null) %hints_in, ptr noundef %res) local_unnamed_addr #0 {
+define dso_local i32 @evutil_getaddrinfo(ptr noundef %nodename, ptr noundef %servname, ptr noundef readonly %hints_in, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %hints = alloca %struct.addrinfo, align 8
@@ -2868,7 +2868,7 @@ return:                                           ; preds = %if.else50.thread, %
 declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @evutil_format_sockaddr_port_(ptr noundef readonly captures(none) %sa, ptr noundef returned captures(ret: address, provenance) %out, i64 noundef %outlen) local_unnamed_addr #0 {
+define dso_local noundef ptr @evutil_format_sockaddr_port_(ptr noundef readonly captures(none) %sa, ptr noundef returned %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %b = alloca [128 x i8], align 16
   %0 = load i16, ptr %sa, align 2
@@ -3180,7 +3180,7 @@ return:                                           ; preds = %while.cond, %if.els
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local void @evutil_rtrim_lws_(ptr noundef captures(address) %str) local_unnamed_addr #21 {
+define dso_local void @evutil_rtrim_lws_(ptr noundef %str) local_unnamed_addr #21 {
 entry:
   %cmp = icmp eq ptr %str, null
   br i1 %cmp, label %while.end, label %if.end

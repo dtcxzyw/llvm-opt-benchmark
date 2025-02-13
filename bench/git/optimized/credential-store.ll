@@ -443,7 +443,7 @@ declare void @credential_clear(ptr noundef) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.credential, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13

@@ -263,7 +263,7 @@ _ZN10StringList9GetStringEPPw.exit:               ; preds = %3, %8
 declare noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN10StringList9GetStringEPPw(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN10StringList9GetStringEPPw(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, ptr noundef writeonly %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

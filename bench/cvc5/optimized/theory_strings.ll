@@ -2845,14 +2845,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7strings13TheoryStrings17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(5832) %this) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7strings13TheoryStrings17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(5832) %this) unnamed_addr #8 align 2 {
 entry:
   %d_rewriter = getelementptr inbounds nuw i8, ptr %this, i64 1904
   ret ptr %d_rewriter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7strings13TheoryStrings15getProofCheckerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(5832) %this) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7strings13TheoryStrings15getProofCheckerEv(ptr noundef nonnull readnone align 8 dereferenceable(5832) %this) unnamed_addr #8 align 2 {
 entry:
   %d_checker = getelementptr inbounds nuw i8, ptr %this, i64 3040
   ret ptr %d_checker
@@ -4174,7 +4174,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings20collectModelInfoTypeENS0_8TypeNodeERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EERKSt3mapIS4_S5_INS0_12NodeTemplateILb1EEES6_ISF_ES8_ISF_ESaISF_EESt4lessIS4_ESaISt4pairIKS4_SJ_EEEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(5832) %this, ptr noundef %tn, ptr noundef nonnull align 8 dereferenceable(56) %toProcess, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %repSet, ptr noundef %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings20collectModelInfoTypeENS0_8TypeNodeERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EERKSt3mapIS4_S5_INS0_12NodeTemplateILb1EEES6_ISF_ES8_ISF_ESaISF_EESt4lessIS4_ESaISt4pairIKS4_SJ_EEEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(5832) %this, ptr noundef %tn, ptr noundef nonnull align 8 dereferenceable(56) %toProcess, ptr noundef nonnull align 8 dereferenceable(48) %repSet, ptr noundef %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i5756 = alloca %"class.std::tuple.1254", align 8
   %ref.tmp10.i5757 = alloca %"class.std::tuple.1250", align 1

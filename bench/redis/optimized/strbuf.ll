@@ -157,7 +157,7 @@ if.end5:                                          ; preds = %if.then4, %if.end
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strbuf_free_to_string(ptr noundef %s, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #4 {
+define dso_local ptr @strbuf_free_to_string(ptr noundef %s, ptr noundef writeonly %len) local_unnamed_addr #4 {
 entry:
   %debug.i = getelementptr inbounds nuw i8, ptr %s, i64 32
   %0 = load i32, ptr %debug.i, align 8, !tbaa !15

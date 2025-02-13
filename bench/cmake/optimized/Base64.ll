@@ -307,7 +307,7 @@ define dso_local range(i32 0, 4) i32 @cmsysBase64_Decode3(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @cmsysBase64_Decode(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define dso_local i64 @cmsysBase64_Decode(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %51, label %.lr.ph.preheader
 

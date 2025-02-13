@@ -23,7 +23,7 @@ define dso_local signext i8 @Curl_raw_tolower(i8 noundef signext %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @curl_strequal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @curl_strequal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -80,7 +80,7 @@ casecompare.exit:                                 ; preds = %9, %.critedge.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -213,7 +213,7 @@ define dso_local void @Curl_strntolower(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @Curl_safecmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local zeroext i1 @Curl_safecmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -238,7 +238,7 @@ define dso_local zeroext i1 @Curl_safecmp(ptr noundef readonly captures(address_
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @Curl_timestrcmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local i32 @Curl_timestrcmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

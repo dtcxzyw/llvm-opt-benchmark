@@ -1649,7 +1649,7 @@ Vec_PtrFree.exit:                                 ; preds = %Vec_PtrFree.exit.si
 declare void @Ivy_ObjDisconnect(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ivy_ManLatchIsSelfFeed_rec(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Ivy_ManLatchIsSelfFeed_rec(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #9 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %7, %2
@@ -1680,7 +1680,7 @@ tailrecurse:                                      ; preds = %7, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ivy_ManLatchIsSelfFeed(ptr noundef readonly captures(address) %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Ivy_ManLatchIsSelfFeed(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val3 = load i32, ptr %2, align 8
   %3 = and i32 %.val3, 15
@@ -1856,7 +1856,7 @@ declare i32 @Ivy_ManLevels(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_ManMakeSeq(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @Ivy_ManMakeSeq(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %131, label %5
 

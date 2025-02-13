@@ -4723,7 +4723,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.end, %_ZNSt11uni
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN13TextureSource10getTextureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef writeonly captures(address_is_null) %id) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN13TextureSource10getTextureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef writeonly %id) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !4
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
@@ -25522,7 +25522,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZL24createInventoryCubeImagePN3irr5video6IImageES2_S2_ENK3$_2clES2_fssssssSt16initializer_listINS_4core8vector2dIsEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, ptr noundef nonnull %image, float noundef %shade_factor, i16 noundef signext range(i16 -4, 1) %xv, i16 noundef signext range(i16 0, 257) %x1, i16 noundef signext range(i16 -2, 3) %yu, i16 noundef signext range(i16 2, 6) %yv, i16 noundef signext range(i16 0, 255) %y1, ptr nonnull readonly captures(address) %offsets.0.val, i64 range(i64 16, 21) %offsets.8.val) unnamed_addr #13 align 2 {
+define internal fastcc void @"_ZZL24createInventoryCubeImagePN3irr5video6IImageES2_S2_ENK3$_2clES2_fssssssSt16initializer_listINS_4core8vector2dIsEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, ptr noundef nonnull %image, float noundef %shade_factor, i16 noundef signext range(i16 -4, 1) %xv, i16 noundef signext range(i16 0, 257) %x1, i16 noundef signext range(i16 -2, 3) %yu, i16 noundef signext range(i16 2, 6) %yv, i16 noundef signext range(i16 0, 255) %y1, ptr nonnull readonly %offsets.0.val, i64 range(i64 16, 21) %offsets.8.val) unnamed_addr #13 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.irr::core::dimension2d", align 4
   %mul = fmul nsz float %shade_factor, 2.560000e+02

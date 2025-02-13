@@ -27796,7 +27796,7 @@ define internal fastcc noundef ptr @makeStringConstCast(ptr noundef %0, i32 noun
 declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
 
@@ -28180,7 +28180,7 @@ define internal fastcc ptr @mergeTableFuncParameters(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @TableFuncTypeName(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc ptr @TableFuncTypeName(ptr noundef readonly %0) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
@@ -28214,7 +28214,7 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extractArgTypes(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc ptr @extractArgTypes(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -28260,7 +28260,7 @@ define internal fastcc ptr @extractArgTypes(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @check_func_name(ptr noundef readonly returned captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @check_func_name(ptr noundef readonly returned %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -28359,7 +28359,7 @@ list_length.exit18:                               ; preds = %.list_length.exit18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extractAggrArgTypes(ptr readonly captures(address_is_null) %.16.val.0.val) unnamed_addr #0 {
+define internal fastcc ptr @extractAggrArgTypes(ptr readonly %.16.val.0.val) unnamed_addr #0 {
   %1 = getelementptr inbounds nuw i8, ptr %.16.val.0.val, i64 4
   %.not.i = icmp eq ptr %.16.val.0.val, null
   br i1 %.not.i, label %extractArgTypes.exit, label %.lr.ph.i
@@ -28405,7 +28405,7 @@ extractArgTypes.exit:                             ; preds = %15, %0, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -28757,7 +28757,7 @@ declare ptr @makeVacuumRelation(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare ptr @makeAlias(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @check_indirection(ptr noundef readonly returned captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @check_indirection(ptr noundef readonly returned %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -28804,7 +28804,7 @@ define internal fastcc noundef ptr @check_indirection(ptr noundef readonly retur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %7
 

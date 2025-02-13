@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @slist_wc_append(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @slist_wc_append(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @curl_slist_append(ptr noundef null, ptr noundef %1) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
@@ -49,7 +49,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slist_wc_free_all(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @slist_wc_free_all(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

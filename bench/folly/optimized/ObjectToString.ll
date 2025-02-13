@@ -25,7 +25,7 @@ $_ZN5folly13to_ascii_withILm10ENS_17to_ascii_alphabetILb0EEELm20EEEmRAT1__cm = c
 @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging6detail19appendRawObjectInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt9type_infoPKhm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef readonly captures(address_is_null) %type, ptr noundef readonly captures(none) %data, i64 noundef %length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging6detail19appendRawObjectInfoERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt9type_infoPKhm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef readonly %type, ptr noundef readonly captures(none) %data, i64 noundef %length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca [20 x i8], align 16
   %ref.tmp = alloca %"class.folly::basic_fbstring", align 8

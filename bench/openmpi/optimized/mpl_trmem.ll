@@ -1301,7 +1301,7 @@ define i32 @MPL_trvalid(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @MPL_trdump(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @MPL_trdump(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8

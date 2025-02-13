@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @wc_off_on_addr = local_unnamed_addr constant [2 x i64] [i64 0, i64 -1], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @mp_reverse(ptr noundef captures(address_is_null) %s, i32 noundef %len) local_unnamed_addr #0 {
+define void @mp_reverse(ptr noundef %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %s, null
   %cmp112 = icmp sgt i32 %len, 1
@@ -37,7 +37,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @get_digit_count(ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #1 {
+define i32 @get_digit_count(ptr noundef readonly %a) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -52,7 +52,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @get_digit(ptr noundef readonly captures(address_is_null) %a, i32 noundef %n) local_unnamed_addr #1 {
+define i64 @get_digit(ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp slt i32 %n, 0
@@ -77,7 +77,7 @@ return:                                           ; preds = %cond.false, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mp_cond_copy(ptr noundef readonly captures(address_is_null) %a, i32 noundef %copy, ptr noundef %b) local_unnamed_addr #2 {
+define i32 @mp_cond_copy(ptr noundef readonly %a, i32 noundef %copy, ptr noundef %b) local_unnamed_addr #2 {
 entry:
   %conv = sext i32 %copy to i64
   %sub = sub nsw i64 0, %conv
@@ -270,7 +270,7 @@ if.end27:                                         ; preds = %land.rhs, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_export_int(ptr noundef %mp, ptr noundef %buf, ptr noundef captures(address_is_null) %len, i32 noundef %keySz, i32 noundef %encType) local_unnamed_addr #2 {
+define i32 @wc_export_int(ptr noundef %mp, ptr noundef %buf, ptr noundef %len, i32 noundef %keySz, i32 noundef %encType) local_unnamed_addr #2 {
 entry:
   %size = alloca i32, align 4
   %cmp = icmp eq ptr %mp, null

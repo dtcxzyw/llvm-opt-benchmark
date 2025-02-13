@@ -836,7 +836,7 @@ return:                                           ; preds = %if.else.i.i.i.i.i.i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6parser18OverloadedTypeTrie23getOverloadedFunctionAtEPKNS2_11TypeArgTrieEb(ptr noalias writeonly sret(%"class.cvc5::Term") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %this, ptr noundef readonly captures(address) %tat, i1 noundef zeroext %reqUnique) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6parser18OverloadedTypeTrie23getOverloadedFunctionAtEPKNS2_11TypeArgTrieEb(ptr noalias writeonly sret(%"class.cvc5::Term") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %this, ptr noundef readonly %tat, i1 noundef zeroext %reqUnique) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retExpr = alloca %"class.cvc5::Term", align 8
   %expr = alloca %"class.cvc5::Term", align 8

@@ -3527,7 +3527,7 @@ define noundef i32 @_ZNK2cv11_InputArray4colsEi(ptr noundef nonnull readonly ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK2cv11_InputArray6sizendEPii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK2cv11_InputArray6sizendEPii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

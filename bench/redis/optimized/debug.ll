@@ -3904,7 +3904,7 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #11
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @_serverAssertWithInfo(ptr noundef readonly captures(address_is_null) %c, ptr noundef readonly captures(address_is_null) %o, ptr noundef %estr, ptr noundef %file, i32 noundef %line) local_unnamed_addr #4 {
+define dso_local void @_serverAssertWithInfo(ptr noundef readonly %c, ptr noundef readonly %o, ptr noundef %estr, ptr noundef %file, i32 noundef %line) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %c, null
   br i1 %tobool.not, label %if.end, label %if.then

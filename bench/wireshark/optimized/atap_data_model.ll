@@ -545,7 +545,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %14, %_ZN17QArrayDat
 declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN13ATapDataModel4hashEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN13ATapDataModel4hashEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
@@ -815,7 +815,7 @@ _ZN7QStringD2Ev.exit37:                           ; preds = %_ZN10QByteArrayD2Ev
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13ATapDataModel8tapResetEPv(ptr noundef readonly captures(address_is_null) %0) #0 align 2 {
+define void @_ZN13ATapDataModel8tapResetEPv(ptr noundef readonly %0) #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13ATapDataModel9resetDataEv.exit, label %2
 
@@ -860,7 +860,7 @@ _ZN13ATapDataModel9resetDataEv.exit:              ; preds = %17, %2, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13ATapDataModel7tapDrawEPv(ptr noundef readonly captures(address_is_null) %0) #0 align 2 {
+define void @_ZN13ATapDataModel7tapDrawEPv(ptr noundef readonly %0) #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13ATapDataModel10updateDataEP7_GArray.exit, label %2
 

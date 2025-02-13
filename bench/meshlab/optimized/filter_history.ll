@@ -387,7 +387,7 @@ define ptr @_ZN13FilterHistory5beginEv(ptr noundef nonnull readonly align 8 capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN13FilterHistory3endEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZN13FilterHistory3endEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
   ret ptr %0
 }
 
@@ -398,7 +398,7 @@ define ptr @_ZNK13FilterHistory5beginEv(ptr noundef nonnull readonly align 8 cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK13FilterHistory3endEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZNK13FilterHistory3endEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
   ret ptr %0
 }
 

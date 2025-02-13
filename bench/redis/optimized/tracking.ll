@@ -1536,7 +1536,7 @@ declare i32 @raxRandomWalk(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @raxEOF(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(address) %c, ptr noundef %keys) local_unnamed_addr #0 {
+define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone %c, ptr noundef %keys) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %buf = alloca [32 x i8], align 16

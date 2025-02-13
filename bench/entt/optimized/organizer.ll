@@ -1500,7 +1500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Z17to_args_integrityN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERmRS9_(ptr readonly captures(address_is_null) %view.coerce, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %value, ptr noundef nonnull readnone align 1 captures(none) %0) local_unnamed_addr #4 {
+define hidden void @_Z17to_args_integrityN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERmRS9_(ptr readonly %view.coerce, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %value, ptr noundef nonnull readnone align 1 captures(none) %0) local_unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %view.coerce, null
   br i1 %tobool.not.i, label %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvE4sizeEv.exit, label %cond.true.i

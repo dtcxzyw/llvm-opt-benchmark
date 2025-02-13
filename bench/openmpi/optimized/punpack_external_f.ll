@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Unpack_external_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_unpack_external_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_unpack_external_f(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) #0 {
+define void @ompi_unpack_external_f(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly %7, i32 noundef %8) #0 {
   %10 = alloca ptr, align 8
   %11 = load i32, ptr %6, align 4
   %12 = tail call ptr @PMPI_Type_f2c(i32 noundef %11) #5

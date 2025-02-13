@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @BN_free(ptr noundef captures(address_is_null) %bn) local_unnamed_addr #5 {
+define hidden void @BN_free(ptr noundef %bn) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %bn, null
   br i1 %cmp, label %if.end8, label %if.end
@@ -132,7 +132,7 @@ if.end16:                                         ; preds = %entry, %if.then15, 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @BN_dup(ptr noundef readonly captures(address) %src) local_unnamed_addr #0 {
+define hidden noundef ptr @BN_dup(ptr noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %return, label %if.end
@@ -208,7 +208,7 @@ return:                                           ; preds = %if.end3, %if.end4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @BN_copy(ptr noundef captures(address, ret: address, provenance) %dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 {
+define hidden noundef ptr @BN_copy(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, %dest
   br i1 %cmp, label %return, label %if.end
@@ -243,7 +243,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @bn_wexpand(ptr noundef captures(ret: address, provenance) %bn, i64 noundef %words) local_unnamed_addr #0 {
+define hidden noundef ptr @bn_wexpand(ptr noundef %bn, i64 noundef %words) local_unnamed_addr #0 {
 entry:
   %dmax = getelementptr inbounds nuw i8, ptr %bn, i64 12
   %0 = load i32, ptr %dmax, align 4
@@ -812,7 +812,7 @@ return:                                           ; preds = %if.then10.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @bn_set_words(ptr noundef captures(address) %bn, ptr noundef readonly captures(none) %words, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @bn_set_words(ptr noundef %bn, ptr noundef readonly captures(none) %words, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @bn_wexpand(ptr noundef %bn, i64 noundef %num)
   %cmp = icmp eq ptr %call, null
@@ -933,7 +933,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @bn_expand(ptr noundef captures(ret: address, provenance) %bn, i64 noundef %bits) local_unnamed_addr #0 {
+define hidden noundef ptr @bn_expand(ptr noundef %bn, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %bits, -64
   br i1 %cmp, label %if.then, label %if.end

@@ -766,7 +766,7 @@ define range(i32 -1, 1) i32 @H5Pget_virtual_printf_gap(i64 noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pset_append_flush(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pset_append_flush(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5D_append_flush_t, align 8
   %7 = load i8, ptr @H5_libinit_g, align 1
   %8 = trunc i8 %7 to i1
@@ -915,7 +915,7 @@ define range(i32 -1, 1) i32 @H5Pset_append_flush(i64 noundef %0, i32 noundef %1,
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_append_flush(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_append_flush(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5D_append_flush_t, align 8
   %7 = load i8, ptr @H5_libinit_g, align 1
   %8 = trunc i8 %7 to i1

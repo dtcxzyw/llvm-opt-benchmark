@@ -102,7 +102,7 @@ define void @dfilter_vfail(ptr noundef captures(none) %0, i32 noundef %1, i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @df_error_new_vprintf(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @df_error_new_vprintf(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #17
   store i32 %0, ptr %5, align 8
   %6 = tail call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef %3) #18
@@ -485,7 +485,7 @@ define ptr @dfilter_expand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 declare ptr @dfilter_macro_apply(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -829,7 +829,7 @@ compile_failure.exit:                             ; preds = %149, %148, %24, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @df_error_new_printf(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @df_error_new_printf(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #17
@@ -992,7 +992,7 @@ declare i32 @proto_registrar_is_protocol(i32 noundef) local_unnamed_addr #4
 declare i32 @proto_registrar_get_parent(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @dfilter_requires_columns(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @dfilter_requires_columns(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %dfilter_interested_in_proto.exit, label %3
 
@@ -1364,7 +1364,7 @@ define hidden void @reference_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @fvalue_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @df_error_new(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @df_error_new(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #17
   store i32 %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.find_lateral_references.5 = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 poison, i32 0, i32 0, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_base_rels_to_query(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @add_base_rels_to_query(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread, label %.lr.ph
 
@@ -193,7 +193,7 @@ define dso_local void @build_base_rel_tlists(ptr noundef %0, ptr noundef %1) loc
 declare ptr @pull_var_clause(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_vars_to_targetlist(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @add_vars_to_targetlist(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3485,7 +3485,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef captures(address_is_null) %12) unnamed_addr #0 {
+define internal fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12) unnamed_addr #0 {
   %14 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

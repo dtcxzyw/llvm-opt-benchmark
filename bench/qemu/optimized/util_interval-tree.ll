@@ -407,7 +407,7 @@ rb_insert_augmented_cached.exit:                  ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @interval_tree_remove(ptr noundef readonly captures(address) %node, ptr noundef captures(none) %root) local_unnamed_addr #1 {
+define dso_local void @interval_tree_remove(ptr noundef readonly %node, ptr noundef captures(none) %root) local_unnamed_addr #1 {
 entry:
   %rb_leftmost.i = getelementptr inbounds nuw i8, ptr %root, i64 8
   %0 = load ptr, ptr %rb_leftmost.i, align 8
@@ -1281,7 +1281,7 @@ rb_erase_augmented_cached.exit:                   ; preds = %if.else.i125.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @interval_tree_iter_first(ptr noundef readonly captures(address_is_null) %root, i64 noundef %start, i64 noundef %last) local_unnamed_addr #1 {
+define dso_local ptr @interval_tree_iter_first(ptr noundef readonly %root, i64 noundef %start, i64 noundef %last) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %root, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1354,7 +1354,7 @@ return:                                           ; preds = %if.then23.i, %while
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(address) %node, i64 noundef %start, i64 noundef %last) local_unnamed_addr #1 {
+define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %node, i64 noundef %start, i64 noundef %last) local_unnamed_addr #1 {
 entry:
   %rb_right = getelementptr inbounds nuw i8, ptr %node, i64 8
   %0 = load atomic i64, ptr %rb_right monotonic, align 8

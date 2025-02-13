@@ -438,7 +438,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA1Type_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @SHA1Type_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

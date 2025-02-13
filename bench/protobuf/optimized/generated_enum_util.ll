@@ -36,7 +36,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal15LookUpEnumValueEPKNS1_9EnumEntryEmSt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noundef readonly captures(address) %enums, i64 noundef %size, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef writeonly captures(none) %value) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal15LookUpEnumValueEPKNS1_9EnumEntryEmSt17basic_string_viewIcSt11char_traitsIcEEPi(ptr noundef readonly %enums, i64 noundef %size, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef writeonly captures(none) %value) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %enums, i64 %size
   %cmp11.i.i = icmp sgt i64 %size, 0
@@ -288,7 +288,7 @@ _ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit: ; preds = %while.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal16GenerateEnumDataEN4absl12lts_202308024SpanIKiEE(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr readonly captures(address) %values.coerce0, i64 %values.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal16GenerateEnumDataEN4absl12lts_202308024SpanIKiEE(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr readonly %values.coerce0, i64 %values.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp141 = alloca %"struct.google::protobuf::internal::EytzingerLayoutSorter", align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %values.coerce0, i64 %values.coerce1

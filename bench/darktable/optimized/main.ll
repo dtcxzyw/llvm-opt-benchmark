@@ -3388,7 +3388,7 @@ declare i32 @gtk_widget_get_allocated_height(ptr noundef) local_unnamed_addr #3
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @collect_source_patches_foreach(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal void @collect_source_patches_foreach(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [4 x float], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 360
@@ -3423,7 +3423,7 @@ find_patch.exit:                                  ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_xyz_sample_from_image(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 12)) %3) unnamed_addr #18 {
+define internal fastcc void @get_xyz_sample_from_image(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef readonly %2, ptr noundef nonnull writeonly captures(none) initializes((0, 12)) %3) unnamed_addr #18 {
   %5 = alloca [4 x %struct.point_t], align 16
   %6 = alloca [9 x float], align 16
   %7 = alloca [4 x %struct.point_t], align 16
@@ -5264,7 +5264,7 @@ declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @gtk_spin_button_get_value_as_int(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_export_filename(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc ptr @get_export_filename(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) unnamed_addr #0 {
   %9 = load ptr, ptr %0, align 8, !tbaa !35
   %10 = tail call i64 @gtk_window_get_type() #28
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #24

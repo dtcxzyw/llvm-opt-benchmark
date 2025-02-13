@@ -77,7 +77,7 @@ _RINvXs1_CseBw3mChBYfU_3hexINtCshTjWJoR5NBV_13generic_array12GenericArrayhINtNtC
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef writeonly captures(none) %3, ptr noalias noundef nonnull readnone align 1 captures(none) %4) unnamed_addr #0 {
+define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE10merge_downNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) %3, ptr noalias noundef nonnull readnone align 1 captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %6, align 8
@@ -120,7 +120,7 @@ define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10Me
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE8merge_upNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #0 {
+define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10MergeStateNtNtCs68wO5nsWeTG_5alloc6string6StringE8merge_upNvYB1a_NtNtBb_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !21
   %.promoted = load ptr, ptr %0, align 8
@@ -168,7 +168,7 @@ define void @_RINvMNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5mergeINtB3_10Me
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYBX_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef nonnull readnone align 1 captures(none) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYBX_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef nonnull readnone align 1 captures(none) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = icmp eq i64 %4, 0
   %8 = icmp uge i64 %4, %1
   %or.cond = or i1 %7, %8

@@ -1627,7 +1627,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 1, 4294967297) i64 @_ZN4LIEF5MachO12BinaryParser16do_chained_fixupERNS0_14SegmentCommandEjRKNS0_7details30dyld_chained_starts_in_segmentERKNS4_23dyld_chained_ptr_arm64eE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(22) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 1, 4294967297) i64 @_ZN4LIEF5MachO12BinaryParser16do_chained_fixupERNS0_14SegmentCommandEjRKNS0_7details30dyld_chained_starts_in_segmentERKNS4_23dyld_chained_ptr_arm64eE(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(22) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8
@@ -2773,7 +2773,7 @@ declare noundef i64 @_ZNK4LIEF5MachO7details23dyld_chained_ptr_arm64e13unpack_ta
 declare void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details30dyld_chained_ptr_arm64e_rebaseE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 1, 4294967297) i64 @_ZN4LIEF5MachO12BinaryParser16do_chained_fixupERNS0_14SegmentCommandEjRKNS0_7details30dyld_chained_starts_in_segmentERKNS4_26dyld_chained_ptr_generic64E(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(22) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 1, 4294967297) i64 @_ZN4LIEF5MachO12BinaryParser16do_chained_fixupERNS0_14SegmentCommandEjRKNS0_7details30dyld_chained_starts_in_segmentERKNS4_26dyld_chained_ptr_generic64E(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(22) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8
@@ -3337,7 +3337,7 @@ declare noundef i64 @_ZNK4LIEF5MachO7details26dyld_chained_ptr_generic6413unpack
 declare void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details26dyld_chained_ptr_64_rebaseE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 1, 4294967297) i64 @_ZN4LIEF5MachO12BinaryParser16do_chained_fixupERNS0_14SegmentCommandEjRKNS0_7details30dyld_chained_starts_in_segmentERKNS4_26dyld_chained_ptr_generic32E(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(22) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 1, 4294967297) i64 @_ZN4LIEF5MachO12BinaryParser16do_chained_fixupERNS0_14SegmentCommandEjRKNS0_7details30dyld_chained_starts_in_segmentERKNS4_26dyld_chained_ptr_generic32E(ptr noundef nonnull readonly align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(22) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8

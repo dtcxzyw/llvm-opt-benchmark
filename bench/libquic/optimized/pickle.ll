@@ -1205,7 +1205,7 @@ _ZN4base6PickleD2Ev.exit:                         ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4base6PickleaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %other) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4base6PickleaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end

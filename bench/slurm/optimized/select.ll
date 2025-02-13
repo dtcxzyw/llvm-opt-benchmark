@@ -911,7 +911,7 @@ define i32 @select_g_step_finish(ptr noundef %0, i1 noundef zeroext %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @select_g_select_nodeinfo_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @select_g_select_nodeinfo_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -1238,7 +1238,7 @@ define i32 @select_g_select_nodeinfo_set(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @select_g_select_nodeinfo_get(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @select_g_select_nodeinfo_get(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 
@@ -1307,7 +1307,7 @@ define i32 @select_g_select_jobinfo_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @select_g_select_jobinfo_set(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @select_g_select_jobinfo_set(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -1329,7 +1329,7 @@ define i32 @select_g_select_jobinfo_set(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @select_g_select_jobinfo_get(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @select_g_select_jobinfo_get(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -1351,7 +1351,7 @@ define i32 @select_g_select_jobinfo_get(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @select_g_select_jobinfo_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @select_g_select_jobinfo_copy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.38, i32 noundef 839, ptr noundef nonnull @__func__.select_g_select_jobinfo_copy) #15
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
@@ -1381,7 +1381,7 @@ define ptr @select_g_select_jobinfo_copy(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @select_g_select_jobinfo_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @select_g_select_jobinfo_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 

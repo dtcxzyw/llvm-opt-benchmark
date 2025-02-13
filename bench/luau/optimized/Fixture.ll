@@ -2402,7 +2402,7 @@ define dso_local void @_ZN4Luau16TestFileResolver10readSourceERKNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau16TestFileResolver13resolveModuleEPKNS_10ModuleInfoEPNS_7AstExprE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau16TestFileResolver13resolveModuleEPKNS_10ModuleInfoEPNS_7AstExprE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"struct.Luau::ModuleInfo", align 8
   %7 = alloca %"class.std::allocator.1", align 1
@@ -8529,7 +8529,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRSt10shar
 declare noundef zeroext i1 @_ZNK4Luau6Module14hasModuleScopeEv(ptr noundef nonnull align 8 dereferenceable(952)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i8 } @_ZN4Luau22linearSearchForBindingEPNS_5ScopeEPKc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i8 } @_ZN4Luau22linearSearchForBindingEPNS_5ScopeEPKc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %.not20 = icmp eq ptr %0, null
   br i1 %.not20, label %.loopexit, label %.lr.ph23
 
@@ -12828,7 +12828,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau9isInArenaEPKNS_4TypeERKNS_9TypeArenaE(ptr noundef readnone captures(address) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #16 {
+define dso_local noundef zeroext i1 @_ZN4Luau9isInArenaEPKNS_4TypeERKNS_9TypeArenaE(ptr noundef readnone %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16

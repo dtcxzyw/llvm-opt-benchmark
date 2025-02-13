@@ -230,7 +230,7 @@ declare ptr @qemu_console_lookup_by_device_name(ptr noundef, i32 noundef, ptr no
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_input_send_event(ptr noundef %device, i1 noundef zeroext %has_head, i64 noundef %head, ptr noundef readonly captures(address_is_null) %events, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_input_send_event(ptr noundef %device, i1 noundef zeroext %has_head, i64 noundef %head, ptr noundef readonly %events, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -1471,7 +1471,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qemu_input_is_absolute(ptr noundef readnone captures(address) %con) local_unnamed_addr #4 {
+define dso_local zeroext i1 @qemu_input_is_absolute(ptr noundef readnone %con) local_unnamed_addr #4 {
 entry:
   %s.014.i = load ptr, ptr @handlers, align 8
   %tobool.not15.i = icmp eq ptr %s.014.i, null

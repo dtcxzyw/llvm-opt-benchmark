@@ -999,7 +999,7 @@ declare dso_local zeroext i1 @rng_is_initialized() local_unnamed_addr #1
 declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drbg_hmac_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #7 align 16 {
+define internal i32 @drbg_hmac_update(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #7 align 16 {
   %4 = alloca %struct.drbg_string, align 8
   %5 = alloca %struct.drbg_string, align 8
   %6 = alloca %struct.drbg_string, align 8
@@ -1300,7 +1300,7 @@ define internal i32 @drbg_hmac_update(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drbg_hmac_generate(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) #7 align 16 {
+define internal i32 @drbg_hmac_generate(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) #7 align 16 {
   %5 = alloca %struct.drbg_string, align 8
   %6 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
@@ -1499,7 +1499,7 @@ define internal i32 @drbg_hmac_generate(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drbg_init_hash_kernel(ptr noundef captures(address_is_null) %0) #7 align 16 {
+define internal i32 @drbg_init_hash_kernel(ptr noundef %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 134

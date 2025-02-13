@@ -3380,7 +3380,7 @@ _ZNSt12__shared_ptrIN4pkpy10CodeObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZZN4pkpy11PyDequeIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr readnone captures(none) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) #7 align 2 {
+define internal noundef ptr @"_ZZN4pkpy11PyDequeIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr readnone captures(none) %0, ptr noundef readnone returned %1) #7 align 2 {
   ret ptr %1
 }
 

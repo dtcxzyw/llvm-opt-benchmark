@@ -3284,7 +3284,7 @@ declare noundef zeroext i1 @_ZN7Decoder8demangleEPKcPci(ptr noundef, ptr noundef
 declare noundef zeroext i1 @_ZN7Decoder6decodeEPhPciPiPKcb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os27dll_address_to_library_nameEPhPciPi(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN2os27dll_address_to_library_nameEPhPciPi(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %struct.Dl_info, align 8
   %6 = call i32 @dladdr(ptr noundef %0, ptr noundef nonnull %5) #26
   %.not = icmp ne i32 %6, 0
@@ -4024,7 +4024,7 @@ define hidden void @_ZN2os14print_dll_infoEP12outputStream(ptr noundef nonnull %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17_print_ascii_filePKcP12outputStreamPjS0_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17_print_ascii_filePKcP12outputStreamPjS0_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [33 x i8], align 16
   %6 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #26
   %7 = icmp ne i32 %6, -1
@@ -10334,7 +10334,7 @@ define hidden noundef i32 @_ZN2os5Linux11malloc_infoEP8_IO_FILE(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os16trim_native_heapEPNS_13size_change_tE(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN2os16trim_native_heapEPNS_13size_change_tE(ptr noundef writeonly %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.os::Linux::meminfo_t", align 8
   %3 = alloca %"struct.os::Linux::meminfo_t", align 8
   %.not = icmp eq ptr %0, null

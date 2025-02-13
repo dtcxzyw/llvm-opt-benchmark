@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_op_max = external global %struct.ompi_predefined_op_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_fcoll_vulcan_file_write_all(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define noundef i32 @mca_fcoll_vulcan_file_write_all(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8

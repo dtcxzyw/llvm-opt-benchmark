@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL11kDigitTable = internal unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef captures(ret: address, provenance) %0, double noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca [40 x i8], align 16
   %4 = bitcast double %1 to i64
   %5 = lshr i64 %4, 63

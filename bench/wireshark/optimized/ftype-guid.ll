@@ -26,7 +26,7 @@ define hidden void @ftype_register_guid() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @guid_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @guid_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca %struct._e_guid_t, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
@@ -146,7 +146,7 @@ define internal void @guid_fvalue_set_guid(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @value_get(ptr noundef readnone captures(ret: address, provenance) %0) #2 {
+define internal nonnull ptr @value_get(ptr noundef readnone %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

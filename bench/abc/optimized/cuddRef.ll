@@ -385,7 +385,7 @@ define void @Cudd_Deref(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Cudd_CheckZeroRef(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define i32 @Cudd_CheckZeroRef(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load i32, ptr %2, align 8, !tbaa !47
   %4 = icmp sgt i32 %3, 0
@@ -1178,7 +1178,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8, !tbaa !47
   %5 = icmp sgt i32 %4, 0
@@ -1212,7 +1212,7 @@ define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @cuddTimesInDeathRow(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
+define i32 @cuddTimesInDeathRow(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8, !tbaa !47
   %5 = icmp sgt i32 %4, 0

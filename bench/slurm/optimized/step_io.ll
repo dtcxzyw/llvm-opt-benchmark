@@ -2804,7 +2804,7 @@ define void @client_io_handler_abort(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.io_hdr_t, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #10

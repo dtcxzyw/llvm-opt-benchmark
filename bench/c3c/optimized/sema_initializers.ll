@@ -347,7 +347,7 @@ declare { i64, i64 } @i128_lshr64(i64, i64, i64 noundef) local_unnamed_addr #1
 declare void @int_and(ptr dead_on_unwind writable sret(%struct.Int) align 8, ptr noundef byval(%struct.Int) align 8, ptr noundef byval(%struct.Int) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_merge_bitstruct_const_initializers(ptr noundef captures(ret: address, provenance) %0, ptr noundef captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @sema_merge_bitstruct_const_initializers(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Int, align 8
   %5 = alloca %struct.Int, align 8
   %6 = alloca %struct.Int, align 8
@@ -3561,7 +3561,7 @@ declare ptr @type_get_indexed_type(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @expr_is_constant_eval(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_resolve_element_for_name(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
+define internal fastcc ptr @sema_resolve_element_for_name(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = load i32, ptr %3, align 4
   %7 = zext i32 %6 to i64
@@ -3751,7 +3751,7 @@ declare ptr @type_get_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_update_const_initializer_with_designator(ptr noundef captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @sema_update_const_initializer_with_designator(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32

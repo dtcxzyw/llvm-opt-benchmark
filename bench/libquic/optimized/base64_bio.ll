@@ -200,7 +200,7 @@ return:                                           ; preds = %while.end103, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @b64_read(ptr noundef %b, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %outl) #1 {
+define internal i32 @b64_read(ptr noundef %b, ptr noundef writeonly %out, i32 noundef %outl) #1 {
 entry:
   %num = alloca i32, align 4
   %cmp = icmp eq ptr %out, null
@@ -872,7 +872,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 0, 2) i32 @b64_free(ptr noundef captures(address_is_null) %bio) #3 {
+define internal range(i32 0, 2) i32 @b64_free(ptr noundef %bio) #3 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

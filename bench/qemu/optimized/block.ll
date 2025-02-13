@@ -579,7 +579,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [61 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.294, ptr @.str.295, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.296, ptr @.str.295, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_unref, ptr @.str.294, ptr @.str.297, i32 7245, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open_child, ptr @.str.294, ptr @.str.297, i32 3774, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrunlock, ptr @.str.294, ptr @.str.298, i32 130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open_driver, ptr @.str.294, ptr @.str.297, i32 1625, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_change_backing_file, ptr @.str.13, ptr @.str.297, i32 5773, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_co_reschedule_self, ptr @.str.13, ptr @.str.299, i32 645, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @create_file_fallback_zero_first_sector, ptr @.str.13, ptr @.str.297, i32 604, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create, ptr @.str.13, ptr @.str.297, i32 534, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_check, ptr @.str.13, ptr @.str.297, i32 5748, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @create_file_fallback_truncate, ptr @.str.13, ptr @.str.297, i32 563, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.13, ptr @.str.297, i32 6721, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_enter, ptr @.str.13, ptr @.str.297, i32 7561, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrunlock_ctx, ptr @.str.294, ptr @.str.298, i32 140, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_get_info, ptr @.str.13, ptr @.str.297, i32 6662, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_is_inserted, ptr @.str.294, ptr @.str.295, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_is_inserted, ptr @.str.296, ptr @.str.295, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_opts_simple, ptr @.str.13, ptr @.str.297, i32 631, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_new_open, ptr @.str.13, ptr @.str.300, i32 40, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_refresh_total_sectors, ptr @.str.294, ptr @.str.301, i32 131, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_refresh_total_sectors, ptr @.str.296, ptr @.str.301, i32 131, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_is_inserted, ptr @.str.13, ptr @.str.297, i32 7184, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_delete_file_noerr, ptr @.str.13, ptr @.str.297, i32 770, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_has_zero_init, ptr @.str.296, ptr @.str.297, i32 6618, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_eject, ptr @.str.13, ptr @.str.297, i32 7208, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_activate, ptr @.str.294, ptr @.str.297, i32 6937, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrlock, ptr @.str.294, ptr @.str.298, i32 120, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.294, ptr @.str.302, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.296, ptr @.str.302, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open_blockdev_ref, ptr @.str.294, ptr @.str.297, i32 3835, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_lock, ptr @.str.13, ptr @.str.297, i32 7586, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open, ptr @.str.294, ptr @.str.297, i32 4267, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_file, ptr @.str.13, ptr @.str.297, i32 693, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_invalidate_cache, ptr @.str.294, ptr @.str.302, i32 370, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_invalidate_cache, ptr @.str.296, ptr @.str.302, i32 370, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open_inherit, ptr @.str.294, ptr @.str.297, i32 3962, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.13, ptr @.str.303, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_unref, ptr @.str.13, ptr @.str.300, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_getlength, ptr @.str.13, ptr @.str.295, i32 80, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_nb_sectors, ptr @.str.13, ptr @.str.297, i32 6160, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_unlock, ptr @.str.13, ptr @.str.297, i32 7603, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_get_allocated_file_size, ptr @.str.13, ptr @.str.297, i32 6092, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_refresh_total_sectors, ptr @.str.13, ptr @.str.297, i32 1051, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_change_backing_file, ptr @.str.294, ptr @.str.302, i32 218, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwrite_zeroes, ptr @.str.13, ptr @.str.295, i32 190, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_invalidate_cache, ptr @.str.13, ptr @.str.297, i32 7012, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.13, ptr @.str.297, i32 6204, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_nb_sectors, ptr @.str.296, ptr @.str.297, i32 6182, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_pread, ptr @.str.294, ptr @.str.295, i32 138, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_pread, ptr @.str.296, ptr @.str.295, i32 138, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_create, ptr @.str.294, ptr @.str.304, i32 65, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.294, ptr @.str.302, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.296, ptr @.str.302, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_delete_file, ptr @.str.13, ptr @.str.297, i32 742, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_leave, ptr @.str.13, ptr @.str.297, i32 7579, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.13, ptr @.str.303, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_sum_allocated_file_size, ptr @.str.13, ptr @.str.297, i32 6068, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_truncate, ptr @.str.13, ptr @.str.295, i32 226, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_lock_medium, ptr @.str.13, ptr @.str.297, i32 7223, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.294, ptr @.str.300, i32 46, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @bdrv_opt_mem_align(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #0 {
+define dso_local i64 @bdrv_opt_mem_align(ptr noundef readonly %bs) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %bs, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -607,7 +607,7 @@ return:                                           ; preds = %do.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @bdrv_min_mem_align(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #0 {
+define dso_local i64 @bdrv_min_mem_align(ptr noundef readonly %bs) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %bs, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -2228,7 +2228,7 @@ bdrv_get_aio_context.exit:                        ; preds = %cond.true.i, %cond.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_get_aio_context(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_get_aio_context(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bs, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -2775,7 +2775,7 @@ if.end87:                                         ; preds = %for.inc.i71.i, %do.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_child_cb_detach(ptr noundef captures(address) %child) #4 {
+define internal void @bdrv_child_cb_detach(ptr noundef %child) #4 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %child, i64 32
   %0 = load ptr, ptr %opaque, align 8
@@ -4268,7 +4268,7 @@ bdrv_child_perm.exit:                             ; preds = %do.end.i7, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_default_perms(ptr noundef readonly captures(address) %bs, ptr noundef readnone captures(none) %c, i32 noundef %role, ptr noundef readonly captures(address_is_null) %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef writeonly captures(none) %nperm, ptr noundef writeonly captures(none) %nshared) local_unnamed_addr #4 {
+define dso_local void @bdrv_default_perms(ptr noundef readonly %bs, ptr noundef readnone captures(none) %c, i32 noundef %role, ptr noundef readonly %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef writeonly captures(none) %nperm, ptr noundef writeonly captures(none) %nshared) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -5189,7 +5189,7 @@ return:                                           ; preds = %if.end24, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_unref_child(ptr noundef captures(address) %parent, ptr noundef %child) local_unnamed_addr #4 {
+define dso_local void @bdrv_unref_child(ptr noundef %parent, ptr noundef %child) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -5212,7 +5212,7 @@ return:                                           ; preds = %do.end, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bdrv_unset_inherits_from(ptr noundef captures(address) %root, ptr noundef nonnull readonly captures(address) %child, ptr noundef %tran) unnamed_addr #4 {
+define internal fastcc void @bdrv_unset_inherits_from(ptr noundef %root, ptr noundef nonnull readonly %child, ptr noundef %tran) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %child, align 8
   %inherits_from = getelementptr inbounds nuw i8, ptr %0, i64 16816
@@ -5838,7 +5838,7 @@ declare i32 @qdict_haskey(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i64 @qdict_size(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @bdrv_open_inherit(ptr noundef %filename, ptr noundef %reference, ptr noundef %options, i32 noundef %flags, ptr noundef %parent, ptr noundef readonly captures(address_is_null) %child_class, i32 noundef %child_role, ptr noundef %errp) #4 {
+define internal ptr @bdrv_open_inherit(ptr noundef %filename, ptr noundef %reference, ptr noundef %options, i32 noundef %flags, ptr noundef %parent, ptr noundef readonly %child_class, i32 noundef %child_role, ptr noundef %errp) #4 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %local_err.i155 = alloca ptr, align 8
@@ -9448,7 +9448,7 @@ declare i32 @bdrv_flush(ptr noundef) #5
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @bdrv_list_refresh_perms(ptr noundef readonly captures(address_is_null) %list, ptr noundef %q, ptr noundef %tran, ptr noundef %errp) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483648, 1) i32 @bdrv_list_refresh_perms(ptr noundef readonly %list, ptr noundef %q, ptr noundef %tran, ptr noundef %errp) unnamed_addr #4 {
 entry:
   %call = tail call ptr @g_hash_table_new(ptr noundef null, ptr noundef null) #31
   %tobool.not6 = icmp eq ptr %list, null
@@ -10469,7 +10469,7 @@ return:                                           ; preds = %if.end12, %if.end15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_find_overlay(ptr noundef captures(address, ret: address, provenance) %active, ptr noundef readonly captures(address) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_find_overlay(ptr noundef %active, ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -10644,7 +10644,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_skip_filters(ptr noundef readonly captures(address_is_null, ret: address, provenance) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_skip_filters(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %bs, null
   br i1 %tobool.not.i, label %bdrv_do_skip_filters.exit, label %lor.lhs.false.i.i
@@ -10724,7 +10724,7 @@ bdrv_do_skip_filters.exit:                        ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_backing_chain_next(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_backing_chain_next(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %tobool.not.i.i = icmp eq ptr %bs, null
   br i1 %tobool.not.i.i, label %bdrv_skip_filters.exit40, label %lor.lhs.false.i.i.i
@@ -10900,7 +10900,7 @@ bdrv_skip_filters.exit40:                         ; preds = %lor.lhs.false.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_find_base(ptr noundef captures(address, ret: address, provenance) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_find_base(ptr noundef %bs) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -10915,7 +10915,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @bdrv_freeze_backing_chain(ptr noundef %bs, ptr noundef readnone captures(address) %base, ptr noundef %errp) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @bdrv_freeze_backing_chain(ptr noundef %bs, ptr noundef readnone %base, ptr noundef %errp) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -11014,7 +11014,7 @@ return:                                           ; preds = %for.inc18, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_filter_or_cow_child(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_filter_or_cow_child(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %bs, null
   br i1 %tobool.not.i, label %if.end, label %lor.lhs.false.i
@@ -11100,7 +11100,7 @@ if.end:                                           ; preds = %lor.lhs.false.i, %c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_unfreeze_backing_chain(ptr noundef captures(address) %bs, ptr noundef readnone captures(address) %base) local_unnamed_addr #4 {
+define dso_local void @bdrv_unfreeze_backing_chain(ptr noundef %bs, ptr noundef readnone %base) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %for.cond.preheader, label %if.else
@@ -11324,7 +11324,7 @@ glib_autoptr_cleanup_GSList.exit:                 ; preds = %exit, %if.then.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @bdrv_chain_contains(ptr noundef captures(address) %top, ptr noundef readnone captures(address) %base) local_unnamed_addr #4 {
+define dso_local zeroext i1 @bdrv_chain_contains(ptr noundef %top, ptr noundef readnone %base) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %while.cond.preheader, label %if.else
@@ -11358,7 +11358,7 @@ while.end:                                        ; preds = %while.body, %bdrv_f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_skip_implicit_filters(ptr noundef readonly captures(address_is_null, ret: address, provenance) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_skip_implicit_filters(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -12031,7 +12031,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_find_node(ptr noundef readonly captures(address_is_null) %node_name) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_find_node(ptr noundef readonly %node_name) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %node_name, null
   br i1 %tobool.not, label %if.else, label %do.body
@@ -12526,7 +12526,7 @@ declare ptr @blk_by_name(ptr noundef) local_unnamed_addr #5
 declare ptr @blk_bs(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_next_node(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_next_node(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -12544,7 +12544,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_next_all_states(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_next_all_states(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -12562,7 +12562,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @bdrv_get_node_name(ptr noundef readnone captures(ret: address, provenance) %bs) local_unnamed_addr #20 {
+define dso_local nonnull ptr @bdrv_get_node_name(ptr noundef readnone %bs) local_unnamed_addr #20 {
 entry:
   %node_name = getelementptr inbounds nuw i8, ptr %bs, i64 16600
   ret ptr %node_name
@@ -12647,7 +12647,7 @@ bdrv_get_parent_name.exit:                        ; preds = %land.lhs.true.i, %f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_get_device_or_node_name(ptr noundef readonly captures(ret: address, provenance) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_get_device_or_node_name(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %parents.i = getelementptr inbounds nuw i8, ptr %bs, i64 16848
   %c.07.i = load ptr, ptr %parents.i, align 8
@@ -12810,7 +12810,7 @@ return:                                           ; preds = %cond.end.i.i, %bdrv
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_cow_child(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_cow_child(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bs, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -13081,7 +13081,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @bdrv_find_debug_node(ptr noundef readonly captures(address_is_null, ret: address, provenance) %bs) unnamed_addr #4 {
+define internal fastcc ptr @bdrv_find_debug_node(ptr noundef readonly %bs) unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %while.cond.preheader, label %if.else
@@ -14443,7 +14443,7 @@ if.end17:                                         ; preds = %if.then9, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_op_unblock(ptr noundef readonly captures(none) %bs, i32 noundef %op, ptr noundef readnone captures(address) %reason) local_unnamed_addr #4 {
+define dso_local void @bdrv_op_unblock(ptr noundef readonly captures(none) %bs, i32 noundef %op, ptr noundef readnone %reason) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -14554,7 +14554,7 @@ for.end:                                          ; preds = %bdrv_op_block.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_op_unblock_all(ptr noundef readonly captures(none) %bs, ptr noundef readnone captures(address) %reason) local_unnamed_addr #4 {
+define dso_local void @bdrv_op_unblock_all(ptr noundef readonly captures(none) %bs, ptr noundef readnone %reason) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %for.cond.preheader, label %if.else
@@ -15014,7 +15014,7 @@ entry:
 declare void @bdrv_dec_in_flight(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_co_lock(ptr noundef readonly captures(address_is_null) %bs) #4 {
+define dso_local void @bdrv_co_lock(ptr noundef readonly %bs) #4 {
 entry:
   %tobool.not.i = icmp eq ptr %bs, null
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
@@ -15063,7 +15063,7 @@ if.end10:                                         ; preds = %if.then9, %if.end6
 declare zeroext i1 @qemu_in_coroutine() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_co_unlock(ptr noundef readonly captures(address_is_null) %bs) #4 {
+define dso_local void @bdrv_co_unlock(ptr noundef readonly %bs) #4 {
 entry:
   %tobool.not.i = icmp eq ptr %bs, null
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
@@ -15329,7 +15329,7 @@ if.end13:                                         ; preds = %if.then7, %do.body5
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_remove_aio_context_notifier(ptr noundef readonly captures(none) %bs, ptr noundef readnone captures(address) %attached_aio_context, ptr noundef readnone captures(address) %detach_aio_context, ptr noundef readnone captures(address) %opaque) local_unnamed_addr #4 {
+define dso_local void @bdrv_remove_aio_context_notifier(ptr noundef readonly captures(none) %bs, ptr noundef readnone %attached_aio_context, ptr noundef readnone %detach_aio_context, ptr noundef readnone %opaque) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -16098,7 +16098,7 @@ return:                                           ; preds = %if.end7, %if.then11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_filter_child(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #4 {
+define dso_local ptr @bdrv_filter_child(ptr noundef readonly %bs) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bs, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -16189,7 +16189,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @bdrv_bsc_is_data(ptr noundef readonly captures(none) %bs, i64 noundef %offset, ptr noundef writeonly captures(address_is_null) %pnum) local_unnamed_addr #4 {
+define dso_local zeroext i1 @bdrv_bsc_is_data(ptr noundef readonly captures(none) %bs, i64 noundef %offset, ptr noundef writeonly %pnum) local_unnamed_addr #4 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #31
   %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
@@ -16517,7 +16517,7 @@ glib_autoptr_cleanup_GHashTable.exit:             ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @bdrv_do_refresh_perms(ptr noundef readonly captures(address_is_null) %list, ptr noundef %q, ptr noundef %tran, ptr noundef %errp) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483648, 1) i32 @bdrv_do_refresh_perms(ptr noundef readonly %list, ptr noundef %q, ptr noundef %tran, ptr noundef %errp) unnamed_addr #4 {
 entry:
   %cur_perm.i = alloca i64, align 8
   %cur_shared.i = alloca i64, align 8
@@ -17054,7 +17054,7 @@ bdrv_schedule_unref.exit:                         ; preds = %if.end23, %if.end.i
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @bdrv_recurse_has_child(ptr noundef readonly captures(address) %bs, ptr noundef captures(address) %child) unnamed_addr #23 {
+define internal fastcc noundef zeroext i1 @bdrv_recurse_has_child(ptr noundef readonly %bs, ptr noundef %child) unnamed_addr #23 {
 entry:
   %cmp = icmp eq ptr %bs, %child
   br i1 %cmp, label %return, label %if.end

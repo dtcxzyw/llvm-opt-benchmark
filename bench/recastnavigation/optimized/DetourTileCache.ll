@@ -613,7 +613,7 @@ define void @_ZN22dtTileCacheMeshProcessD0Ev(ptr nonnull readnone align 8 captur
 declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483643) i32 @_ZN11dtTileCache7addTileEPhihPj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 align 2 {
+define noundef range(i32 1073741824, -2147483643) i32 @_ZN11dtTileCache7addTileEPhihPj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #14 align 2 {
   %6 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %6, 1146375250
   br i1 %.not, label %7, label %_ZN11dtTileCache9getTileAtEiii.exit
@@ -742,7 +742,7 @@ _ZN11dtTileCache9getTileAtEiii.exit:              ; preds = %37, %.loopexit, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeTileEjPPhPi(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeTileEjPPhPi(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %74, label %5
 
@@ -896,7 +896,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache11addObstacleEPKfffPj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #15 align 2 {
+define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache11addObstacleEPKfffPj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, ptr noundef writeonly %4) local_unnamed_addr #15 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 63
@@ -965,7 +965,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache14addBoxObstacleEPKfS1_Pj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #15 align 2 {
+define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache14addBoxObstacleEPKfS1_Pj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #15 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 63
@@ -1043,7 +1043,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache14addBoxObstacleEPKfS1_fPj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #16 align 2 {
+define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache14addBoxObstacleEPKfS1_fPj(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, ptr noundef writeonly %4) local_unnamed_addr #16 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 63
@@ -1455,7 +1455,7 @@ define void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache6updateEfP9dtNavMeshPb(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, float noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache6updateEfP9dtNavMeshPb(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %0, float noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
   %7 = alloca i32, align 4

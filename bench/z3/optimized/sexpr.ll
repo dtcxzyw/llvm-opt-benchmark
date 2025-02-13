@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5sexpr11get_numeralEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5sexpr11get_numeralEv(ptr noundef nonnull readnone align 4 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_val = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %m_val
@@ -110,7 +110,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5sexpr10get_stringB5cxx11Ev(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5sexpr10get_stringB5cxx11Ev(ptr noundef nonnull readnone align 4 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_val = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %m_val
@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK5sexpr12get_childrenEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK5sexpr12get_childrenEv(ptr noundef nonnull readnone align 4 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_children = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %m_children

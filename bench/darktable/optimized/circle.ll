@@ -257,7 +257,7 @@ define internal void @_circle_initial_source_pos(float noundef %0, float noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_circle_get_distance(float noundef %0, float noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef initializes((0, 4)) %8, ptr noundef writeonly captures(none) initializes((0, 4)) %9, ptr noundef writeonly captures(none) initializes((0, 4)) %10) #0 {
+define internal void @_circle_get_distance(float noundef %0, float noundef %1, float noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef initializes((0, 4)) %8, ptr noundef writeonly captures(none) initializes((0, 4)) %9, ptr noundef writeonly captures(none) initializes((0, 4)) %10) #0 {
   store i32 0, ptr %9, align 4, !tbaa !22
   store i32 0, ptr %6, align 4, !tbaa !22
   store i32 0, ptr %7, align 4, !tbaa !22

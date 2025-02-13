@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_File_open_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_file_open_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #0 {
+define void @ompi_file_open_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = load i32, ptr %0, align 4

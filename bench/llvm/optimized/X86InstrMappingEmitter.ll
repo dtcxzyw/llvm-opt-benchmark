@@ -4937,7 +4937,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.thread: ; preds = %.thread.i.i.i,
 declare { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122X86InstrMappingEmitter10printTableEN4llvm8ArrayRefISt4pairIPKNS1_18CodeGenInstructionES6_EEENS1_9StringRefES9_RNS1_11raw_ostreamE(ptr readonly captures(address) %0, i64 %1, ptr %2, i64 %3, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122X86InstrMappingEmitter10printTableEN4llvm8ArrayRefISt4pairIPKNS1_18CodeGenInstructionES6_EEENS1_9StringRefES9_RNS1_11raw_ostreamE(ptr readonly %0, i64 %1, ptr %2, i64 %3, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32

@@ -3753,7 +3753,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @add_address(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @add_address(ptr noundef %0, ptr noundef returned %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp eq i16 %2, 1
   %. = select i1 %4, i64 80, i64 88
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.
@@ -3848,7 +3848,7 @@ addresses_equal.exit:                             ; preds = %22, %15, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @add_chunk_count(ptr noundef nonnull readonly captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @add_chunk_count(ptr noundef nonnull readonly captures(none) %0, ptr noundef returned %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3456
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_list_first(ptr noundef %6) #8

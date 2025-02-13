@@ -110,7 +110,7 @@ define dso_local void @dm_io_client_destroy(ptr noundef %0) #0 align 16 {
 declare dso_local void @bioset_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @dm_io(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @dm_io(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = alloca %struct.sync_io, align 8
   %6 = alloca %struct.dpages, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12

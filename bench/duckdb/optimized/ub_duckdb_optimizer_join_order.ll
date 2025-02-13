@@ -6611,7 +6611,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK6duckdb17QueryGraphManager18GetQueryGraphEdgesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(288) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK6duckdb17QueryGraphManager18GetQueryGraphEdgesEv(ptr noundef nonnull readnone align 8 dereferenceable(288) %this) local_unnamed_addr #12 align 2 {
 entry:
   %query_graph = getelementptr inbounds nuw i8, ptr %this, i64 208
   ret ptr %query_graph
@@ -10342,7 +10342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb25FindSubgraphMatchAndMergeERNS_20Subgraph2DenominatorEmN9__gnu_cxx17__normal_iteratorIPS0_St6vectorIS0_SaIS0_EEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %merge_to, i64 noundef %find_me, ptr captures(address) %subgraph.coerce, ptr readnone captures(address) %end.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb25FindSubgraphMatchAndMergeERNS_20Subgraph2DenominatorEmN9__gnu_cxx17__normal_iteratorIPS0_St6vectorIS0_SaIS0_EEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %merge_to, i64 noundef %find_me, ptr %subgraph.coerce, ptr readnone %end.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.815", align 8
   %cmp.i.not51 = icmp eq ptr %subgraph.coerce, %end.coerce
@@ -20174,7 +20174,7 @@ unreachable:                                      ; preds = %invoke.cont155
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb17QueryGraphManager17GetFilterBindingsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(288) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb17QueryGraphManager17GetFilterBindingsEv(ptr noundef nonnull readnone align 8 dereferenceable(288) %this) local_unnamed_addr #12 align 2 {
 entry:
   %filters_and_bindings = getelementptr inbounds nuw i8, ptr %this, i64 184
   ret ptr %filters_and_bindings

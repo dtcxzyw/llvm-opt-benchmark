@@ -78,7 +78,7 @@ define void @_ZN21tree_sitter_highlight11Highlighter3new17hcc20723a1fa0746cE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN21tree_sitter_highlight11Highlighter6parser17he2aaf07566e8cdc0E(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN21tree_sitter_highlight11Highlighter6parser17he2aaf07566e8cdc0E(ptr noalias noundef readnone align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -145,7 +145,7 @@ define void @_ZN21tree_sitter_highlight22HighlightConfiguration27nonconformant_c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17hf6d493e4a2af66b5E(ptr noalias noundef writeonly sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17hf6d493e4a2af66b5E(ptr noalias noundef writeonly sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { i64, [6 x i64] }, align 8
   %.sroa.068 = alloca i64, align 8
   %8 = alloca { { i64, [6 x i64] }, { ptr, [3 x i64] } }, align 8

@@ -1166,7 +1166,7 @@ declare i32 @mca_pml_ob1_send_request_start_rdma(ptr noundef, ptr noundef, i64 n
 declare i32 @mca_pml_ob1_send_request_start_rndv(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -1286,7 +1286,7 @@ opal_convertor_need_buffers.exit:                 ; preds = %54, %52, %mca_bml_b
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_accelerator_add_ipc_support(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_accelerator_add_ipc_support(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %5
 

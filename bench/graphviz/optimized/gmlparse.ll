@@ -1558,7 +1558,7 @@ define internal fastcc ptr @mkGraph(ptr noundef readonly captures(none) %0, ptr 
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_node(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
+define internal void @free_node(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -1581,7 +1581,7 @@ define internal void @free_node(ptr noundef captures(address_is_null) %0, ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_edge(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
+define internal void @free_edge(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -1604,7 +1604,7 @@ define internal void @free_edge(ptr noundef captures(address_is_null) %0, ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_graph(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
+define internal void @free_graph(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %3
 
@@ -1674,7 +1674,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_attr(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
+define internal void @free_attr(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 

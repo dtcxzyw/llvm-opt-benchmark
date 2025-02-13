@@ -472,7 +472,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc i32 @hwloc_phases_from_string(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #10 {
+define internal fastcc i32 @hwloc_phases_from_string(ptr noundef readonly %0) unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %2
 

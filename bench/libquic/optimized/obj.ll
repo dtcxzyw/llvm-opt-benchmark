@@ -1281,7 +1281,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @global_next_nid = internal unnamed_addr global i32 949, align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @OBJ_dup(ptr noundef readonly captures(address_is_null, ret: address, provenance) %o) local_unnamed_addr #0 {
+define hidden ptr @OBJ_dup(ptr noundef readonly %o) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %o, null
   br i1 %cmp, label %return, label %if.end

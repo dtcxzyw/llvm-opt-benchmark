@@ -245,7 +245,7 @@ return:                                           ; preds = %if.end30, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_update(ptr noundef captures(address_is_null) %vpsm2ctx, ptr noundef %data, i64 noundef %datalen) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_update(ptr noundef %vpsm2ctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -274,7 +274,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef captures(address_is_null) %vpsm2ctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef %vpsm2ctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize) #0 {
 entry:
   %sltmp.i = alloca i32, align 4
   %digest = alloca [64 x i8], align 16
@@ -354,7 +354,7 @@ return:                                           ; preds = %if.end.split, %sm2s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2sig_digest_verify_final(ptr noundef captures(address_is_null) %vpsm2ctx, ptr noundef %sig, i64 noundef %siglen) #0 {
+define internal i32 @sm2sig_digest_verify_final(ptr noundef %vpsm2ctx, ptr noundef %sig, i64 noundef %siglen) #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %dlen = alloca i32, align 4

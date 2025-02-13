@@ -3090,7 +3090,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.not.i.i = icmp eq ptr %1, null
@@ -4294,7 +4294,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionType
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr readnone captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4368,7 +4368,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9TableTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly captures(address) %1, ptr readnone captures(none) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9TableTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4442,7 +4442,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9TableTypeEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPNS_9TableTypeEPKS1_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPNS_9TableTypeEPKS1_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8

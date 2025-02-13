@@ -483,7 +483,7 @@ define range(i32 -1, 1) i32 @H5O_msg_write(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 %3, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -1134,7 +1134,7 @@ H5O__msg_count_real.exit.thread13:                ; preds = %16, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @H5O__msg_count_real(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
+define i32 @H5O__msg_count_real(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -1307,7 +1307,7 @@ define range(i32 -1, 1) i32 @H5O_msg_remove(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__msg_remove_real(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__msg_remove_real(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5O_iter_rm_t, align 8
   %9 = alloca %struct.H5O_mesg_operator_t, align 8
   %10 = tail call i32 @H5F_get_intent(ptr noundef %0) #6
@@ -1470,7 +1470,7 @@ define internal range(i32 -1, 2) i32 @H5O__msg_remove_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 0, ptr %6, align 4

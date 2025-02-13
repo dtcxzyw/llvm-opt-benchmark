@@ -680,7 +680,7 @@ declare noundef zeroext i1 @_ZNK5clang7APValue13isNullPointerEv(ptr noundef nonn
 declare noundef ptr @_ZNK5clang7APValue20getMemberPointerDeclEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16TemplateArgument14CreatePackCopyERNS_10ASTContextEN4llvm8ArrayRefIS0_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::TemplateArgument") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang16TemplateArgument14CreatePackCopyERNS_10ASTContextEN4llvm8ArrayRefIS0_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::TemplateArgument") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %6, label %8
 

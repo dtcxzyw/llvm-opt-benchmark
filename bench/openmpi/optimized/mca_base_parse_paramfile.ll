@@ -22,7 +22,7 @@ define i32 @mca_base_parse_paramfile(ptr noundef %0, ptr noundef %1) local_unnam
 declare i32 @opal_util_keyval_parse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal void @save_value(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = load ptr, ptr @_param_list, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16

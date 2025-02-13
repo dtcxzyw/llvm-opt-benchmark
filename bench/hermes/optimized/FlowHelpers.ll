@@ -175,7 +175,7 @@ declare noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr
 declare noundef zeroext i1 @_ZN6hermes6parser7JSLexer24isCurrentTokenADirectiveEv(ptr noundef nonnull align 8 dereferenceable(1128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser13hasFlowPragmaEN4llvh8ArrayRefINS0_13StoredCommentEEE(ptr readonly captures(address) %comments.coerce0, i64 %comments.coerce1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser13hasFlowPragmaEN4llvh8ArrayRefINS0_13StoredCommentEEE(ptr readonly %comments.coerce0, i64 %comments.coerce1) local_unnamed_addr #0 {
 entry:
   %value = alloca %"class.llvh::StringRef", align 8
   %add.ptr.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %comments.coerce0, i64 %comments.coerce1
@@ -257,7 +257,7 @@ return:                                           ; preds = %for.inc, %lor.lhs.f
 declare noundef i64 @_ZNK4llvh9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser11getDocBlockB5cxx11EN4llvh8ArrayRefINS0_13StoredCommentEEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly captures(address) %comments.coerce0, i64 %comments.coerce1) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes6parser11getDocBlockB5cxx11EN4llvh8ArrayRefINS0_13StoredCommentEEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly %comments.coerce0, i64 %comments.coerce1) local_unnamed_addr #0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #7
   %add.ptr.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %comments.coerce0, i64 %comments.coerce1

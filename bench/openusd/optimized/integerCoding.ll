@@ -116,7 +116,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompression16CompressToBufferEPKimPc(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompression16CompressToBufferEPKimPc(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.8", align 8
   %5 = alloca %"class.std::tuple.11", align 1
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::robin_map", align 8
@@ -572,7 +572,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_CompressIntegersIiEEmPKT_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompression16CompressToBufferEPKjmPc(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompression16CompressToBufferEPKjmPc(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.8", align 8
   %5 = alloca %"class.std::tuple.11", align 1
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::robin_map", align 8
@@ -1627,7 +1627,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompression6416CompressToBufferEPKlmPc(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompression6416CompressToBufferEPKlmPc(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.46", align 8
   %5 = alloca %"class.std::tuple.11", align 1
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::robin_map.22", align 8
@@ -2083,7 +2083,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_CompressIntegersIlEEmPKT_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompression6416CompressToBufferEPKmmPc(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompression6416CompressToBufferEPKmmPc(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.46", align 8
   %5 = alloca %"class.std::tuple.11", align 1
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::robin_map.22", align 8

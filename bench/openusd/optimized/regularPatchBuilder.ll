@@ -1983,7 +1983,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilder26GatherCont
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilder5printEPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilder5printEPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4

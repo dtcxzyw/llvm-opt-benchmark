@@ -6235,7 +6235,7 @@ _ZN7rocksdb6StatusD2Ev.exit266:                   ; preds = %_ZNSt6vectorIPN7roc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10LDBCommand7CloseDBEv(ptr noundef nonnull align 8 captures(address) dereferenceable(2064) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10LDBCommand7CloseDBEv(ptr noundef nonnull align 8 dereferenceable(2064) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.rocksdb::Status", align 8
   %db_ = getelementptr inbounds nuw i8, ptr %this, i64 208

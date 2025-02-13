@@ -313,7 +313,7 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr noundef re
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -506,7 +506,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @ascii_strdown_inplace(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define noundef ptr @ascii_strdown_inplace(ptr noundef returned %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1
   %.not10 = icmp eq i8 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -536,7 +536,7 @@ define noundef ptr @ascii_strdown_inplace(ptr noundef returned captures(ret: add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @ascii_strup_inplace(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define noundef ptr @ascii_strup_inplace(ptr noundef returned %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1
   %.not10 = icmp eq i8 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -1159,13 +1159,13 @@ declare noalias ptr @wmem_strbuf_new_sized(ptr noundef, i64 noundef) local_unnam
 declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @format_text(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @format_text(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 128) #19
   %6 = getelementptr i8, ptr %1, i64 %2
   %7 = icmp ult ptr %1, %6
@@ -1829,20 +1829,20 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @format_text_string(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define ptr @format_text_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @format_text_wsp(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @format_text_wsp(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @format_text_chr(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
+define ptr @format_text_chr(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = add i64 %2, 1
   %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #19
   %7 = getelementptr i8, ptr %1, i64 %2

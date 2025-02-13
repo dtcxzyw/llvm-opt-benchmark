@@ -95,7 +95,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @compute_remaining_iovec(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define dso_local i32 @compute_remaining_iovec(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   br label %5
 
 5:                                                ; preds = %8, %4

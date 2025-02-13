@@ -947,7 +947,7 @@ _ZN4llvm9sandboxir19FunctionPassManagerC2EOS1_.exit: ; preds = %_ZN4llvm9sandbox
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21SandboxVectorizerPassD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) initializes((32, 40)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm21SandboxVectorizerPassD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((32, 40)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_EE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72

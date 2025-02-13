@@ -1875,7 +1875,7 @@ select_epoll_poll_impl.exit:                      ; preds = %34, %40, %43, %49, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_epoll___enter__(ptr noundef captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #0 {
+define internal noundef ptr @select_epoll___enter__(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !45
   %5 = icmp slt i32 %4, 0

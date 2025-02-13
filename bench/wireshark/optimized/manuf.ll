@@ -58805,7 +58805,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58784 = private unnamed_addr constant [15 x i8] c"SMS group GmbH\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_manuf_lookup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define ptr @ws_manuf_lookup(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = alloca [6 x i8], align 1
   %6 = alloca [6 x i8], align 1
@@ -58926,13 +58926,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_manuf_lookup_str(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @ws_manuf_lookup_str(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ws_manuf_lookup(ptr noundef %0, ptr noundef %1, ptr noundef null)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_manuf_lookup_oui24(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @ws_manuf_lookup_oui24(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
@@ -59185,7 +59185,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef writeo
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ws_manuf_block_str(ptr noundef returned writeonly captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define noundef ptr @ws_manuf_block_str(ptr noundef returned writeonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %45 [

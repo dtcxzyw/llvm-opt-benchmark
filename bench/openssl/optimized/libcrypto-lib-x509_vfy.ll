@@ -900,7 +900,7 @@ return:                                           ; preds = %verify_cb_cert.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @X509_cmp_time(ptr noundef %ctm, ptr noundef readonly captures(address_is_null) %cmp_time) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @X509_cmp_time(ptr noundef %ctm, ptr noundef readonly %cmp_time) local_unnamed_addr #0 {
 entry:
   %t.i.i = alloca i64, align 8
   %day = alloca i32, align 4
@@ -1058,7 +1058,7 @@ entry:
 declare i32 @ossl_ascii_isdigit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_time_adj(ptr noundef %s, i64 noundef %offset_sec, ptr noundef readonly captures(address_is_null) %in_tm) local_unnamed_addr #0 {
+define ptr @X509_time_adj(ptr noundef %s, i64 noundef %offset_sec, ptr noundef readonly %in_tm) local_unnamed_addr #0 {
 entry:
   %t.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i)
@@ -1218,7 +1218,7 @@ X509_time_adj.exit:                               ; preds = %if.then4.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_time_adj_ex(ptr noundef %s, i32 noundef %offset_day, i64 noundef %offset_sec, ptr noundef readonly captures(address_is_null) %in_tm) local_unnamed_addr #0 {
+define ptr @X509_time_adj_ex(ptr noundef %s, i32 noundef %offset_day, i64 noundef %offset_sec, ptr noundef readonly %in_tm) local_unnamed_addr #0 {
 entry:
   %t = alloca i64, align 8
   %tobool.not = icmp eq ptr %in_tm, null

@@ -3961,7 +3961,7 @@ _ZNK12G1HeapRegion20surv_rate_predictionERK13G1Predictions.exit: ; preds = %16, 
 declare noundef double @_ZNK11G1Analytics27predict_young_other_time_msEm(ptr noundef nonnull align 8 dereferenceable(2048), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK8G1Policy25predict_eden_copy_time_msEjPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZNK8G1Policy25predict_eden_copy_time_msEjPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %29, label %5
 

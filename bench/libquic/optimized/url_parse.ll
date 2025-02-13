@@ -199,7 +199,7 @@ if.end:                                           ; preds = %if.else, %if.else.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %other) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN3url6ParsedaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end12, label %if.then

@@ -31236,7 +31236,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Game27handleClientEvent_HudRemoveEP11ClientEventP17CameraOrientation(ptr noundef nonnull align 8 captures(address) dereferenceable(686) %this, ptr noundef readonly captures(none) %event, ptr readnone captures(none) %cam) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Game27handleClientEvent_HudRemoveEP11ClientEventP17CameraOrientation(ptr noundef nonnull align 8 dereferenceable(686) %this, ptr noundef readonly captures(none) %event, ptr readnone captures(none) %cam) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %client = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %client, align 8, !tbaa !117

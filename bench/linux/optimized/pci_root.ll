@@ -785,7 +785,7 @@ declare dso_local i32 @pci_scan_child_bus(ptr noundef) local_unnamed_addr #2
 declare dso_local void @pci_set_host_bridge_release(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_pci_root_release_info(ptr noundef readonly captures(address) %0) #0 align 16 {
+define internal void @acpi_pci_root_release_info(ptr noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2

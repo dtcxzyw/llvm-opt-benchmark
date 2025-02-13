@@ -8293,7 +8293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef captures(address) %extendee, i32 noundef %number) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %extendee, i32 noundef %number) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock11 = alloca %"class.absl::lts_20230802::MutexLockMaybe", align 8
   %extension_range_count_.i = getelementptr inbounds nuw i8, ptr %extendee, i64 136
@@ -8977,7 +8977,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6google8protobuf14DescriptorPool35InternalFindExtensionByNumberNoLockEPKNS0_10DescriptorEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readonly captures(address) %extendee, i32 noundef %number) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6google8protobuf14DescriptorPool35InternalFindExtensionByNumberNoLockEPKNS0_10DescriptorEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readonly %extendee, i32 noundef %number) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extension_range_count_.i = getelementptr inbounds nuw i8, ptr %extendee, i64 136
   %0 = load i32, ptr %extension_range_count_.i, align 8
@@ -9143,7 +9143,7 @@ return:                                           ; preds = %if.then8, %_ZNK6goo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf14DescriptorPool28FindExtensionByPrintableNameEPKNS0_10DescriptorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly captures(address) %extendee, i64 %printable_name.coerce0, ptr %printable_name.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6google8protobuf14DescriptorPool28FindExtensionByPrintableNameEPKNS0_10DescriptorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly %extendee, i64 %printable_name.coerce0, ptr %printable_name.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extension_range_count_.i = getelementptr inbounds nuw i8, ptr %extendee, i64 136
   %0 = load i32, ptr %extension_range_count_.i, align 8
@@ -16685,7 +16685,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf14FileDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf14FileDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i:
   %__guard.i484 = alloca %struct._Guard, align 8
   %__guard.i = alloca %struct._Guard, align 8
@@ -19191,7 +19191,7 @@ eh.resume:                                        ; preds = %ehcleanup109, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10Descriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsEb(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %depth, ptr noundef %contents, ptr noundef nonnull align 1 captures(none) dereferenceable(3) %debug_string_options, i1 noundef zeroext %include_opening_clause) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10Descriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsEb(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %depth, ptr noundef %contents, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %debug_string_options, i1 noundef zeroext %include_opening_clause) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i528 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp2.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21079,7 +21079,7 @@ eh.resume:                                        ; preds = %ehcleanup30, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf15FieldDescriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %depth, ptr noundef %contents, ptr noundef nonnull align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf15FieldDescriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %depth, ptr noundef %contents, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i150 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp2.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22118,7 +22118,7 @@ entry:
   %elide_oneof_body.i = getelementptr inbounds nuw i8, ptr %options, i64 2
   store i8 0, ptr %elide_oneof_body.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #38
-  invoke void @_ZNK6google8protobuf10Descriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsEb(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef 0, ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(3) %options, i1 noundef zeroext true)
+  invoke void @_ZNK6google8protobuf10Descriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsEb(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef 0, ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull readonly align 1 dereferenceable(3) %options, i1 noundef zeroext true)
           to label %_ZNK6google8protobuf10Descriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -22132,7 +22132,7 @@ _ZNK6google8protobuf10Descriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10Descriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(3) %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf10Descriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #38
   invoke void @_ZNK6google8protobuf10Descriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsEb(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef 0, ptr noundef nonnull %agg.result, ptr noundef nonnull align 1 dereferenceable(3) %options, i1 noundef zeroext true)
@@ -22149,7 +22149,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf15OneofDescriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %depth, ptr noundef %contents, ptr noundef nonnull align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf15OneofDescriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %depth, ptr noundef %contents, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp2.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22631,7 +22631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf15FieldDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf15FieldDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %debug_string_options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i = alloca [1 x %"class.std::basic_string_view"], align 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #38
@@ -23077,7 +23077,7 @@ entry:
   %elide_oneof_body.i = getelementptr inbounds nuw i8, ptr %options, i64 2
   store i8 0, ptr %elide_oneof_body.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #38
-  invoke void @_ZNK6google8protobuf15OneofDescriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef 0, ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(3) %options)
+  invoke void @_ZNK6google8protobuf15OneofDescriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef 0, ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull readonly align 1 dereferenceable(3) %options)
           to label %_ZNK6google8protobuf15OneofDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -23091,7 +23091,7 @@ _ZNK6google8protobuf15OneofDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18Deb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf15OneofDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(3) %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf15OneofDescriptor22DebugStringWithOptionsB5cxx11ERKNS0_18DebugStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #38
   invoke void @_ZNK6google8protobuf15OneofDescriptor11DebugStringEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18DebugStringOptionsE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef 0, ptr noundef nonnull %agg.result, ptr noundef nonnull align 1 dereferenceable(3) %options)
@@ -31539,7 +31539,7 @@ while.end:                                        ; preds = %cleanup.done
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf17DescriptorBuilder9AddSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvS9_RKNS0_7MessageENS0_6SymbolE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %full_name, ptr noundef readnone captures(address_is_null) %parent, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(16) %proto, ptr %symbol.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf17DescriptorBuilder9AddSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvS9_RKNS0_7MessageENS0_6SymbolE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %full_name, ptr noundef readnone %parent, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(16) %proto, ptr %symbol.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.anon.378, align 8
   %other_file = alloca ptr, align 8
@@ -41081,7 +41081,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit13:                  ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNS0_15DescriptorProtoEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(232) %proto, ptr noundef readonly captures(none) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNS0_15DescriptorProtoEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(232) %proto, ptr noundef readonly captures(none) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %message_name = alloca %"class.std::__cxx11::basic_string", align 8
   %all_names_.i = getelementptr inbounds nuw i8, ptr %result, i64 8
@@ -41131,7 +41131,7 @@ if.end13:                                         ; preds = %invoke.cont11.invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoEPKNS0_10DescriptorEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %message_name, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %message, ptr noundef readonly captures(none) %descriptor, i1 noundef zeroext %use_custom_names) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder28CheckFieldJsonNameUniquenessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoEPKNS0_10DescriptorEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %message_name, ptr noundef nonnull readonly align 8 dereferenceable(232) %message, ptr noundef readonly captures(none) %descriptor, i1 noundef zeroext %use_custom_names) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %agg.tmp.i.i = alloca %"class.std::allocator.85", align 1
   %tmp.i.i.i.i.i.i = alloca [80 x i8], align 8
@@ -47690,7 +47690,7 @@ if.end61:                                         ; preds = %if.then53, %_ZN6goo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal14LazyDescriptor7SetLazyESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef readonly captures(address_is_null) %file) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal14LazyDescriptor7SetLazyESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i64 %name.coerce0, ptr readonly captures(none) %name.coerce1, ptr noundef readonly %file) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp14 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -51038,7 +51038,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder28ValidateExtensionDeclarationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16RepeatedPtrFieldINS0_33ExtensionRangeOptions_DeclarationEEERKNS0_30DescriptorProto_ExtensionRangeERN4absl12lts_2023080213flat_hash_setISt17basic_string_viewIcS5_ENSJ_18container_internal10StringHashENSN_8StringEqESaISM_EEE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %full_name, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %declarations, ptr noundef nonnull align 8 dereferenceable(40) %proto, ptr noundef nonnull align 8 dereferenceable(32) %full_name_set) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder28ValidateExtensionDeclarationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_16RepeatedPtrFieldINS0_33ExtensionRangeOptions_DeclarationEEERKNS0_30DescriptorProto_ExtensionRangeERN4absl12lts_2023080213flat_hash_setISt17basic_string_viewIcS5_ENSJ_18container_internal10StringHashENSN_8StringEqESaISM_EEE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %full_name, ptr noundef nonnull readonly align 8 dereferenceable(24) %declarations, ptr noundef nonnull align 8 dereferenceable(40) %proto, ptr noundef nonnull align 8 dereferenceable(32) %full_name_set) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %extension_number_set = alloca %"class.absl::lts_20230802::flat_hash_set.294", align 8
   %ref.tmp = alloca %class.anon.561, align 8
@@ -60618,7 +60618,7 @@ declare void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull a
 declare void @_ZN6google8protobuf19FileDescriptorProtoC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_15DescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %messages, ptr noundef nonnull align 8 captures(none) dereferenceable(224) %alloc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_15DescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 dereferenceable(24) %messages, ptr noundef nonnull align 8 captures(none) dereferenceable(224) %alloc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i.i66 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp3.i.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -60854,7 +60854,7 @@ for.end:                                          ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_19EnumDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %enums, ptr noundef nonnull align 8 captures(none) dereferenceable(224) %alloc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_19EnumDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 dereferenceable(24) %enums, ptr noundef nonnull align 8 captures(none) dereferenceable(224) %alloc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %current_size_.i.i = getelementptr inbounds nuw i8, ptr %enums, i64 8
@@ -61005,7 +61005,7 @@ for.end:                                          ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_20FieldDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %fields, ptr noundef nonnull align 8 captures(none) dereferenceable(224) %alloc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobufL18PlanAllocationSizeERKNS0_16RepeatedPtrFieldINS0_20FieldDescriptorProtoEEERNS0_8internal13FlatAllocatorE(ptr noundef nonnull readonly align 8 dereferenceable(24) %fields, ptr noundef nonnull align 8 captures(none) dereferenceable(224) %alloc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i38 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp3.i19.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8

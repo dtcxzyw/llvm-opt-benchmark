@@ -2320,7 +2320,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http2h17decoder13PayloadLength7is_z
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb31e1b1dfdab4E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull readonly align 8 captures(address) %3, i64 noundef %4, i8 noundef %5) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb31e1b1dfdab4E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, i8 noundef %5) unnamed_addr #7 personality ptr @rust_eh_personality {
   %7 = alloca { {} }, align 1
   %8 = alloca { i64, { i64, [1 x i64] } }, align 8
   %9 = alloca { i64, { i64, [1 x i64] } }, align 8
@@ -9422,7 +9422,7 @@ define void @"_ZN89_$LT$actix_http..ws..codec.._..InternalBitFlags$u20$as$u20$co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN93_$LT$actix_http..ws..codec.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h0de953f72b476509E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #13 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN93_$LT$actix_http..ws..codec.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h0de953f72b476509E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #13 {
   ret ptr %0
 }
 

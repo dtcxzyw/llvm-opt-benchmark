@@ -63,7 +63,7 @@ define dso_local ptr @table_slot_callbacks(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @table_slot_create(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @table_slot_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null

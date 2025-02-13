@@ -2249,7 +2249,7 @@ declare ptr @_PyDict_LoadBuiltinsFromGlobals(ptr noundef) local_unnamed_addr #3
 declare ptr @_PyFunction_FromConstructor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyEval_Vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #2 {
+define hidden ptr @_PyEval_Vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = alloca [8 x %union._PyStackRef], align 16
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %8
@@ -2489,7 +2489,7 @@ define hidden range(i32 -1, 1) i32 @_Py_CheckRecursiveCallPy(ptr noundef %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyObjectArray_FromStackRefArray(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(ret: address, provenance) %2) local_unnamed_addr #2 {
+define dso_local ptr @_PyObjectArray_FromStackRefArray(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = icmp sgt i64 %1, 10
   br i1 %4, label %5, label %11
 
@@ -2533,7 +2533,7 @@ define dso_local ptr @_PyObjectArray_FromStackRefArray(ptr noundef readonly capt
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_PyObjectArray_Free(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
+define dso_local void @_PyObjectArray_Free(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %4, label %3
 
@@ -22304,7 +22304,7 @@ declare void @_Py_Specialize_Call(i64, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @_PyFunction_Vectorcall(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyEvalFramePushAndInit(ptr noundef %0, i64 %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #2 {
+define dso_local ptr @_PyEvalFramePushAndInit(ptr noundef %0, i64 %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca ptr, align 8
   %9 = inttoptr i64 %1 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48

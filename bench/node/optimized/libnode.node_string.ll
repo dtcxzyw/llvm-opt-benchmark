@@ -526,7 +526,7 @@ _ZN4node16MaybeStackBufferIcLm1024EED2Ev.exit:    ; preds = %do.end8, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN4node9inspector8protocol10StringUtil14CharactersUTF8ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %s.coerce0, ptr readnone returned captures(ret: address, provenance) %s.coerce1) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN4node9inspector8protocol10StringUtil14CharactersUTF8ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %s.coerce0, ptr readnone returned %s.coerce1) local_unnamed_addr #4 {
 entry:
   ret ptr %s.coerce1
 }

@@ -355,7 +355,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @MIDI_IN_ReleaseMessage(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #7 {
+define hidden void @MIDI_IN_ReleaseMessage(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %3
 

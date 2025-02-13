@@ -40,7 +40,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %bufs, ptr noundef readonly captures(address) %src, i64 noundef %srclen) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %bufs, ptr noundef readonly %src, i64 noundef %srclen) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srclen
   %cur = getelementptr inbounds nuw i8, ptr %bufs, i64 8
@@ -198,7 +198,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %ctx, ptr noundef captures(none) %buf, ptr noundef readonly captures(address) %src, i64 noundef %srclen, i32 noundef %final) local_unnamed_addr #5 {
+define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %ctx, ptr noundef captures(none) %buf, ptr noundef readonly %src, i64 noundef %srclen, i32 noundef %final) local_unnamed_addr #5 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srclen
   %0 = load i16, ptr %ctx, align 2

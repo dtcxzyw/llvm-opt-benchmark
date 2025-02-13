@@ -76,7 +76,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -5, 1) i32 @truncate_inode_folio(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @truncate_inode_folio(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
@@ -387,7 +387,7 @@ truncate_cleanup_folio.exit:                      ; preds = %80, %84
 declare dso_local void @folio_wait_writeback(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @generic_error_remove_folio(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @generic_error_remove_folio(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %54, label %4
 
@@ -1115,7 +1115,7 @@ define dso_local void @truncate_inode_pages_final(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @mapping_try_invalidate(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
+define dso_local i64 @mapping_try_invalidate(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = alloca [15 x i64], align 16
   %7 = alloca %struct.folio_batch, align 8

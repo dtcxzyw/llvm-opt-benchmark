@@ -40,7 +40,7 @@ define hidden void @_ZN19G1PhaseDependentSeqC2Ei(ptr noundef nonnull align 8 der
 declare void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, double noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN19G1PhaseDependentSeq7seq_rawEb(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(144) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN19G1PhaseDependentSeq7seq_rawEb(ptr noundef nonnull readnone align 8 dereferenceable(144) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %.idx = select i1 %1, i64 0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   ret ptr %3

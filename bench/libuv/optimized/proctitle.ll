@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @process_title_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define ptr @uv_setup_args(i32 noundef %argc, ptr noundef readonly captures(ret: address, provenance) %argv) local_unnamed_addr #0 {
+define ptr @uv_setup_args(i32 noundef %argc, ptr noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %argc, 1
   br i1 %cmp, label %return, label %if.end
@@ -166,7 +166,7 @@ declare void @uv__set_process_title(ptr noundef) local_unnamed_addr #2
 declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -105, 1) i32 @uv_get_process_title(ptr noundef writeonly captures(address_is_null) %buffer, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 -105, 1) i32 @uv_get_process_title(ptr noundef writeonly %buffer, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %buffer, null
   %cmp1 = icmp eq i64 %size, 0

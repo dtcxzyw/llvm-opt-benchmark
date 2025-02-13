@@ -1088,7 +1088,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__cycle_epoc
 declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 525048
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1213,7 +1213,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 525048
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 525032

@@ -319,7 +319,7 @@ _ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %.preheader, %40, %.
 declare i64 @mbsrtowcs(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_Z9WideToRawPKwmPhm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef returned writeonly captures(ret: address, provenance) %2, i64 noundef %3) local_unnamed_addr #5 {
+define noundef ptr @_Z9WideToRawPKwmPhm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef returned writeonly %2, i64 noundef %3) local_unnamed_addr #5 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -354,7 +354,7 @@ define noundef ptr @_Z9WideToRawPKwmPhm(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_Z9RawToWidePKhPwm(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, i64 noundef %2) local_unnamed_addr #5 {
+define noundef ptr @_Z9RawToWidePKhPwm(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly %1, i64 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -972,7 +972,7 @@ define noundef range(i32 -1, 2) i32 @_Z9wcsnicompPKwS0_m(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z10wcscasestrPKwS0_(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @_Z10wcscasestrPKwS0_(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4, !tbaa !6
   %.not28 = icmp eq i32 %3, 0
   br i1 %.not28, label %.thread, label %.preheader
@@ -1021,7 +1021,7 @@ define noundef i32 @_Z8tolowerwi(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z8wcslowerPw(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @_Z8wcslowerPw(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !tbaa !6
   %.not7 = icmp eq i32 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -1044,7 +1044,7 @@ define noundef ptr @_Z8wcslowerPw(ptr noundef returned captures(ret: address, pr
 declare i32 @towlower(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z8wcsupperPw(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @_Z8wcsupperPw(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !tbaa !6
   %.not7 = icmp eq i32 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph

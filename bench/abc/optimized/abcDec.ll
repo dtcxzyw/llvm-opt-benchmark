@@ -386,7 +386,7 @@ declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #8
 declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_TruthGetParams(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define void @Abc_TruthGetParams(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 

@@ -212,7 +212,7 @@ declare i64 @LFUGetTimeInMinutes() local_unnamed_addr #2
 declare i32 @LRU_CLOCK() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @makeObjectShared(ptr noundef returned captures(ret: address, provenance) %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @makeObjectShared(ptr noundef returned %o) local_unnamed_addr #0 {
 entry:
   %refcount = getelementptr inbounds nuw i8, ptr %o, i64 4
   %0 = load i32, ptr %refcount, align 4
@@ -250,7 +250,7 @@ entry:
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @createEmbeddedStringObject(ptr noundef readonly captures(address) %ptr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @createEmbeddedStringObject(ptr noundef readonly %ptr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %add1 = add i64 %len, 20
   %call = tail call noalias ptr @zmalloc(i64 noundef %add1) #16
@@ -1974,7 +1974,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @checkType(ptr noundef %c, ptr noundef readonly captures(address_is_null) %o, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @checkType(ptr noundef %c, ptr noundef readonly %o, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %o, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -2555,7 +2555,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @getDecodedObject(ptr noundef captures(ret: address, provenance) %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @getDecodedObject(ptr noundef %o) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %bf.load = load i32, ptr %o, align 8
@@ -2657,7 +2657,7 @@ return:                                           ; preds = %if.else.i8, %if.els
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @compareStringObjectsWithFlags(ptr noundef %a, ptr noundef readonly captures(address) %b, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local i32 @compareStringObjectsWithFlags(ptr noundef %a, ptr noundef readonly %b, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %bufa = alloca [128 x i8], align 16
   %bufb = alloca [128 x i8], align 16
@@ -2837,21 +2837,21 @@ declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) loc
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @compareStringObjects(ptr noundef %a, ptr noundef captures(address) %b) local_unnamed_addr #0 {
+define dso_local i32 @compareStringObjects(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @compareStringObjectsWithFlags(ptr noundef %a, ptr noundef %b, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @collateStringObjects(ptr noundef %a, ptr noundef captures(address) %b) local_unnamed_addr #0 {
+define dso_local i32 @collateStringObjects(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @compareStringObjectsWithFlags(ptr noundef %a, ptr noundef %b, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @equalStringObjects(ptr noundef %a, ptr noundef captures(address) %b) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @equalStringObjects(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %a, align 8
   %0 = and i32 %bf.load, 240
@@ -3233,7 +3233,7 @@ return:                                           ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @getLongLongFromObject(ptr noundef %o, ptr noundef writeonly captures(address_is_null) %target) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getLongLongFromObject(ptr noundef %o, ptr noundef writeonly %target) local_unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %cmp = icmp eq ptr %o, null

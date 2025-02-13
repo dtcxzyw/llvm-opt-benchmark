@@ -44,7 +44,7 @@ return:                                           ; preds = %if.end5, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @CRYPTO_get_mem_functions(ptr noundef writeonly captures(address_is_null) %malloc_fn, ptr noundef writeonly captures(address_is_null) %realloc_fn, ptr noundef writeonly captures(address_is_null) %free_fn) local_unnamed_addr #1 {
+define void @CRYPTO_get_mem_functions(ptr noundef writeonly %malloc_fn, ptr noundef writeonly %realloc_fn, ptr noundef writeonly %free_fn) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %malloc_fn, null
   br i1 %cmp.not, label %if.end, label %if.then

@@ -395,7 +395,7 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop40has_control_dependencies_
 declare void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14PhaseIdealLoop21revert_to_normal_loopEPK8LoopNode(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14PhaseIdealLoop21revert_to_normal_loopEPK8LoopNode(ptr noundef %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1023

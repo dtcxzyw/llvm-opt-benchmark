@@ -2310,7 +2310,7 @@ define internal void @chv_read_luts(ptr noundef captures(none) %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4324
   %6 = load i32, ptr %5, align 4
   br i1 %3, label %7, label %98
@@ -3686,7 +3686,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i9xx_load_lut_8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @i9xx_load_lut_8(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 
@@ -5091,7 +5091,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i965_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define internal zeroext i1 @i965_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   br i1 %3, label %5, label %9
 
 5:                                                ; preds = %4
@@ -6528,7 +6528,7 @@ define internal void @i9xx_read_luts(ptr noundef captures(none) %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i9xx_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define internal zeroext i1 @i9xx_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   br i1 %3, label %5, label %9
 
 5:                                                ; preds = %4
@@ -10424,7 +10424,7 @@ default.unreachable18:                            ; preds = %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %6 = load i32, ptr %5, align 8
   br i1 %3, label %7, label %100
@@ -12882,7 +12882,7 @@ ilk_lut_write.exit14:                             ; preds = %199, %227
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_load_lut_8(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_load_lut_8(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1648
   %5 = load i32, ptr %4, align 8
@@ -16002,7 +16002,7 @@ define internal void @glk_read_luts(ptr noundef captures(none) %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   br i1 %3, label %5, label %97
 
 5:                                                ; preds = %4
@@ -17718,7 +17718,7 @@ define internal void @bdw_read_luts(ptr noundef captures(none) %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4752
   %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = icmp eq i8 %6, 0
@@ -20207,7 +20207,7 @@ define internal void @ilk_read_luts(ptr noundef captures(none) %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   br i1 %3, label %5, label %112
 
 5:                                                ; preds = %4

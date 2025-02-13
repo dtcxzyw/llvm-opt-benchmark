@@ -4560,7 +4560,7 @@ define noundef zeroext i16 @de_rr_cause(ptr noundef %0, ptr noundef %1, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @de_rr_tlli(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #2 {
+define noundef zeroext i16 @de_rr_tlli(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #2 {
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_tlli, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #10
@@ -11255,7 +11255,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
+define internal i32 @dissect_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   %.not = icmp eq ptr %3, null
@@ -18756,7 +18756,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ra_channel_request_parse(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @ra_channel_request_parse(ptr noundef writeonly %0, ptr noundef writeonly %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = and i32 %2, 224
   %6 = call ptr @try_val_to_str_idx(i32 noundef %5, ptr noundef nonnull @gsm_a_rr_cannel_request_3bit_est_cause_vals, ptr noundef nonnull %4) #10

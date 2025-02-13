@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Info_get_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32, i32), ptr @ompi_info_get_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_info_get_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) #0 {
+define void @ompi_info_get_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   store ptr null, ptr %9, align 8

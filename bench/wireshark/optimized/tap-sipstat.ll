@@ -113,7 +113,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sipstat_reset(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @sipstat_reset(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -387,7 +387,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_draw_hash_responses(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal void @sip_draw_hash_responses(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
 

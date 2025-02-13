@@ -224,7 +224,7 @@ entry:
 declare void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net23CachedNetworkParametersC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net23CachedNetworkParametersC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(72) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net23CachedNetworkParametersE, i64 16), ptr %this, align 8
   %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -258,7 +258,7 @@ lpad:                                             ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %from) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %from) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %ref.tmp7.i = alloca %"class.google::protobuf::internal::LogFinisher", align 1
@@ -1507,7 +1507,7 @@ if.end48:                                         ; preds = %if.end40, %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net23CachedNetworkParameters21CheckTypeAndMergeFromERKN6google8protobuf11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %from) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net23CachedNetworkParameters21CheckTypeAndMergeFromERKN6google8protobuf11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %from) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from)
   ret void
@@ -1521,7 +1521,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net23CachedNetworkParameters8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %from) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net23CachedNetworkParameters8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -1545,7 +1545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net23CachedNetworkParameters4SwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %this, ptr noundef captures(address) %other) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN3net23CachedNetworkParameters4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %cmp = icmp eq ptr %other, %this
   br i1 %cmp, label %return, label %if.end

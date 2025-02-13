@@ -332,14 +332,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr3gui14CGUISpriteBank12getPositionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr3gui14CGUISpriteBank12getPositionsEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   %Rectangles = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %Rectangles
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr3gui14CGUISpriteBank10getSpritesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr3gui14CGUISpriteBank10getSpritesEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   %Sprites = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %Sprites

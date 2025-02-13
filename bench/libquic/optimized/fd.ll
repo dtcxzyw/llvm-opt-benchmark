@@ -251,7 +251,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef captures(address_is_null) %ptr) #2 {
+define internal i64 @fd_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
 entry:
   switch i32 %cmd, label %sw.default [
     i32 1, label %sw.bb
@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_null) %bio) #2 {
+define internal range(i32 0, 2) i32 @fd_free(ptr noundef %bio) #2 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

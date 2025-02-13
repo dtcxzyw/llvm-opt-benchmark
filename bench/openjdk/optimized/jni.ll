@@ -37956,7 +37956,7 @@ define hidden range(i32 -1, 1) i32 @jni_AttachCurrentThread(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL21attach_current_threadP7JavaVM_PPvS1_b(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL21attach_current_threadP7JavaVM_PPvS1_b(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %class.ExceptionMark, align 8
   %5 = alloca %class.HandleMark, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

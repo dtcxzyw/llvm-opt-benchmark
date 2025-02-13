@@ -1000,7 +1000,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ReservedMemoryRegion22move_committed_regionsEPhRS_(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(73) %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN20ReservedMemoryRegion22move_committed_regionsEPhRS_(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0, ptr noundef readnone %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(73) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.01218 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %.01218, null

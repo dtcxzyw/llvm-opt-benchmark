@@ -94,7 +94,7 @@ define range(i32 -1, 1) i32 @php_stream_parse_fopen_modes(ptr noundef readonly %
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @_php_stream_fopen_temporary_file(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define ptr @_php_stream_fopen_temporary_file(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = call i32 @php_open_temporary_fd(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #18
@@ -766,7 +766,7 @@ define internal noundef i32 @php_stdiop_seek(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #2 {
+define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #2 {
   %4 = alloca [5 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1277,7 +1277,7 @@ php_stdiop_sync.exit116:                          ; preds = %127, %php_stdiop_fl
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
+define ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -1569,7 +1569,7 @@ declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...)
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
+define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [4096 x i8], align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %7
@@ -1896,7 +1896,7 @@ declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unname
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_plain_files_stream_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr readnone captures(none) %5) #2 {
+define internal ptr @php_plain_files_stream_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #2 {
   %7 = and i32 %3, 1024
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11

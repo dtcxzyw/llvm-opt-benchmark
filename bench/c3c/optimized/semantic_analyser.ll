@@ -340,7 +340,7 @@ define dso_local i32 @context_get_defers(ptr noundef readnone captures(none) %0,
 declare ptr @copy_ast_defer(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @context_pop_defers(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @context_pop_defers(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -1709,7 +1709,7 @@ define dso_local void @generic_context_release_locals_list(ptr noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @context_transform_for_eval(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(ret: address, provenance) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @context_transform_for_eval(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, %5

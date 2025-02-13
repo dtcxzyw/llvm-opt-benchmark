@@ -7291,7 +7291,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm28typedArrayPrototypeEverySomeEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm28typedArrayPrototypeEverySomeEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -7821,7 +7821,7 @@ declare { i32, i64 } @_ZN6hermes2vm12toBigInt_RJSERNS0_7RuntimeENS0_6HandleINS0_
 declare noundef zeroext i8 @_ZNK6hermes2vm16JSTypedArrayBase12getByteWidthEv(ptr noundef nonnull align 4 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm23typedArrayPrototypeFindEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm23typedArrayPrototypeFindEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %agg.tmp = alloca %"class.hermes::vm::NativeArgs", align 8
   %0 = load ptr, ptr %args, align 8
@@ -7834,7 +7834,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, i1 noundef zeroext %reverse, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull readonly captures(none) %args) unnamed_addr #0 {
+define internal fastcc { i32, i64 } @_ZN6hermes2vmL15typedFindHelperEPvbRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, i1 noundef zeroext %reverse, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull readonly captures(none) %args) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -8049,7 +8049,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm27typedArrayPrototypeFindLastEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm27typedArrayPrototypeFindLastEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %agg.tmp = alloca %"class.hermes::vm::NativeArgs", align 8
   %0 = load ptr, ptr %args, align 8
@@ -8480,7 +8480,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @_ZN6hermes2vm15JSArrayIterator6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_13IterationKindE(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm28typedArrayPrototypeMapFilterEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm28typedArrayPrototypeMapFilterEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %ref.tmp.i31 = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -9731,7 +9731,7 @@ return:                                           ; preds = %_ZN6hermes2vm13Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm25typedArrayPrototypeReduceEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(address_is_null) %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm25typedArrayPrototypeReduceEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp23 = alloca %"class.hermes::vm::TwineChar16", align 8

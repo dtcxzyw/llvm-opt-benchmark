@@ -239,7 +239,7 @@ wmem_map_grow.exit:                               ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @wmem_map_contains(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @wmem_map_contains(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -287,7 +287,7 @@ define noundef zeroext i1 @wmem_map_contains(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_map_lookup(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @wmem_map_lookup(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -343,7 +343,7 @@ define ptr @wmem_map_lookup(ptr noundef readonly captures(address_is_null) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @wmem_map_lookup_extended(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @wmem_map_lookup_extended(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
 
@@ -413,7 +413,7 @@ define noundef zeroext i1 @wmem_map_lookup_extended(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_map_remove(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @wmem_map_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -482,7 +482,7 @@ define ptr @wmem_map_remove(ptr noundef captures(address_is_null) %0, ptr nounde
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @wmem_map_steal(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @wmem_map_steal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -586,7 +586,7 @@ declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 declare void @wmem_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_map_foreach(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @wmem_map_foreach(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -633,7 +633,7 @@ define void @wmem_map_foreach(ptr noundef readonly captures(address_is_null) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wmem_map_foreach_remove(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @wmem_map_foreach_remove(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -710,7 +710,7 @@ define i32 @wmem_map_size(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wmem_strong_hash(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #3 {
+define i32 @wmem_strong_hash(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 %1
   %4 = load i32, ptr @preseed, align 4
   %5 = trunc i64 %1 to i32
@@ -768,7 +768,7 @@ define i32 @wmem_strong_hash(ptr noundef readonly captures(address) %0, i64 noun
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wmem_str_hash(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
+define i32 @wmem_str_hash(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %3 = getelementptr i8, ptr %0, i64 %2
   %4 = load i32, ptr @preseed, align 4
@@ -830,7 +830,7 @@ wmem_strong_hash.exit:                            ; preds = %.lr.ph.i, %1
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wmem_int64_hash(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
+define i32 @wmem_int64_hash(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 8
   %3 = load i32, ptr @preseed, align 4
   %4 = add i32 %3, 8
@@ -887,7 +887,7 @@ wmem_strong_hash.exit:                            ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wmem_double_hash(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
+define i32 @wmem_double_hash(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 8
   %3 = load i32, ptr @preseed, align 4
   %4 = add i32 %3, 8

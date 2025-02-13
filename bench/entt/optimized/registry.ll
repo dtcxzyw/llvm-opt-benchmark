@@ -5185,7 +5185,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZeqRK11no_eto_typeS1_(ptr noundef nonnull readnone align 1 captures(address) dereferenceable(1) %lhs, ptr noundef nonnull readnone align 1 captures(address) dereferenceable(1) %rhs) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZeqRK11no_eto_typeS1_(ptr noundef nonnull readnone align 1 dereferenceable(1) %lhs, ptr noundef nonnull readnone align 1 dereferenceable(1) %rhs) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %lhs, %rhs
   ret i1 %cmp

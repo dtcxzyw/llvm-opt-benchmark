@@ -85,7 +85,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @unix_ss_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @unix_ss_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %3
@@ -151,7 +151,7 @@ unix_ss_was_stolen.exit:                          ; preds = %16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 2) i32 @unix_ss_was_stolen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @unix_ss_was_stolen(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #8
   %.not = icmp eq ptr %0, null

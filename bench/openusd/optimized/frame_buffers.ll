@@ -135,7 +135,7 @@ define hidden void @av1_zero_unused_internal_frame_buffers(ptr noundef readonly 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %._crit_edge.thread, label %.preheader
 

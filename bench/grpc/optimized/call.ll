@@ -1549,7 +1549,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core4Call24MaybeUnpublishFromParentEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Call24MaybeUnpublishFromParentEv(ptr noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %child_, align 8

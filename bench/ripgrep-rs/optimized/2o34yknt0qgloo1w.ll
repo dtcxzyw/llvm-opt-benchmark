@@ -510,7 +510,7 @@ define hidden void @_ZN10grep_regex5error5Error5regex17h793efd7e76319135E(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10grep_regex5error5Error4kind17hc8f92dc48bff516bE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN10grep_regex5error5Error4kind17hc8f92dc48bff516bE(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #4 {
   ret ptr %0
 }
 

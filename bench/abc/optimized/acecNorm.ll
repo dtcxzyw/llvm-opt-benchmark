@@ -895,7 +895,7 @@ common.ret12:                                     ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_BuildTree(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_BuildTree(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 4
   %.val48 = load i32, ptr %5, align 4, !tbaa !34
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16

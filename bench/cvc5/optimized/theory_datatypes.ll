@@ -2585,14 +2585,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2008) %this) unnamed_addr #7 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(2008) %this) unnamed_addr #7 align 2 {
 entry:
   %d_rewriter = getelementptr inbounds nuw i8, ptr %this, i64 1464
   ret ptr %d_rewriter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes15getProofCheckerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2008) %this) unnamed_addr #7 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes15getProofCheckerEv(ptr noundef nonnull readnone align 8 dereferenceable(2008) %this) unnamed_addr #7 align 2 {
 entry:
   %d_checker = getelementptr inbounds nuw i8, ptr %this, i64 1976
   ret ptr %d_checker
@@ -22081,7 +22081,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes8hasLabelEPNS3_7EqcInfoENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(2008) %this, ptr noundef readonly captures(address_is_null) %eqc, ptr noundef readonly captures(none) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes8hasLabelEPNS3_7EqcInfoENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(2008) %this, ptr noundef readonly %eqc, ptr noundef readonly captures(none) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

@@ -125,7 +125,7 @@ return:                                           ; preds = %if.end, %while.body
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly captures(address) %s) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly %s) local_unnamed_addr #3 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len, align 4
@@ -571,7 +571,7 @@ declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_str_new(ptr noundef %L, ptr noundef readonly captures(address) %str, i64 noundef %lenx) local_unnamed_addr #4 {
+define hidden ptr @lj_str_new(ptr noundef %L, ptr noundef readonly %str, i64 noundef %lenx) local_unnamed_addr #4 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %sub = add i64 %lenx, -1

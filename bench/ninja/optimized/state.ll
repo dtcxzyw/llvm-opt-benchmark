@@ -1902,7 +1902,7 @@ define dso_local void @_ZN5State5ResetEv(ptr noundef nonnull readonly align 8 ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(264) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 dereferenceable(264) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.012.017 = load ptr, ptr %2, align 8
   %.not18 = icmp eq ptr %.sroa.012.017, null

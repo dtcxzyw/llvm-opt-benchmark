@@ -495,7 +495,7 @@ sequence_analysis_list_free.exit:                 ; preds = %free_address.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sequence_analysis_list_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @sequence_analysis_list_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %2
 
@@ -572,7 +572,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @sequence_analysis_list_sort(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @sequence_analysis_list_sort(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

@@ -1751,7 +1751,7 @@ _ZN12ciMethodData23next_data_layout_helperEP10DataLayoutb.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef readnone %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1865,7 +1865,7 @@ define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = icmp eq ptr %2, null
@@ -2100,7 +2100,7 @@ define hidden void @_ZN12ciMethodData29exception_handler_bci_to_dataEi(ptr dead_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12ciMethodData11has_trap_atEP11ProfileDatai(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN12ciMethodData11has_trap_atEP11ProfileDatai(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = add i32 %2, -1
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit, label %6
@@ -2171,7 +2171,7 @@ _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.
 declare noundef i32 @_ZN14Deoptimization21trap_state_has_reasonEii(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN12ciMethodData18trap_recompiled_atEP11ProfileData(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN12ciMethodData18trap_recompiled_atEP11ProfileData(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %8
 

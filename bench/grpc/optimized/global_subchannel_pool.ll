@@ -320,7 +320,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit14:      ; preds = %cleanup18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20GlobalSubchannelPool20UnregisterSubchannelERKNS_13SubchannelKeyEPNS_10SubchannelE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(144) %key, ptr noundef readnone captures(address) %subchannel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20GlobalSubchannelPool20UnregisterSubchannelERKNS_13SubchannelKeyEPNS_10SubchannelE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(144) %key, ptr noundef readnone %subchannel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)

@@ -484,7 +484,7 @@ define range(i32 0, 2) i32 @cli_hm_have_size(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @cli_hm_have_wild(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cli_hm_have_wild(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -504,7 +504,7 @@ define range(i32 0, 2) i32 @cli_hm_have_wild(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @cli_hm_have_any(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cli_hm_have_any(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -532,7 +532,7 @@ define range(i32 0, 2) i32 @cli_hm_have_any(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ne ptr %0, null
   %7 = add i32 %1, -1
   %8 = icmp ult i32 %7, -2
@@ -638,7 +638,7 @@ hm_scan.exit:                                     ; preds = %55, %hm_cmp.exit.th
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6

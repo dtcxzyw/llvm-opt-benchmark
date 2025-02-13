@@ -111,7 +111,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @utrie_clone_75(ptr noundef captures(address_is_null, ret: address, provenance) %fillIn, ptr noundef readonly captures(address_is_null) %other, ptr noundef %aliasData, i32 noundef %aliasDataCapacity) local_unnamed_addr #0 {
+define noundef ptr @utrie_clone_75(ptr noundef %fillIn, ptr noundef readonly %other, ptr noundef %aliasData, i32 noundef %aliasDataCapacity) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %other, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -282,7 +282,7 @@ if.end6:                                          ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @utrie_getData_75(ptr noundef readonly captures(address_is_null) %trie, ptr noundef writeonly captures(address_is_null) %pLength) local_unnamed_addr #5 {
+define ptr @utrie_getData_75(ptr noundef readonly %trie, ptr noundef writeonly %pLength) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %trie, null
   %cmp1 = icmp eq ptr %pLength, null
@@ -303,7 +303,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @utrie_set32_75(ptr noundef captures(address_is_null) %trie, i32 noundef %c, i32 noundef %value) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @utrie_set32_75(ptr noundef %trie, i32 noundef %c, i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %trie, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -367,7 +367,7 @@ return:                                           ; preds = %if.end.i, %_ZL20utr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @utrie_get32_75(ptr noundef readonly captures(address_is_null) %trie, i32 noundef %c, ptr noundef writeonly captures(address_is_null) %pInBlockZero) local_unnamed_addr #7 {
+define i32 @utrie_get32_75(ptr noundef readonly %trie, i32 noundef %c, ptr noundef writeonly %pInBlockZero) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %trie, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -419,7 +419,7 @@ return:                                           ; preds = %if.then, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @utrie_setRange32_75(ptr noundef captures(address_is_null) %trie, i32 noundef %start, i32 noundef %limit, i32 noundef %value, i8 noundef signext %overwrite) local_unnamed_addr #8 {
+define signext range(i8 0, 2) i8 @utrie_setRange32_75(ptr noundef %trie, i32 noundef %start, i32 noundef %limit, i32 noundef %value, i8 noundef signext %overwrite) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %trie, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -756,7 +756,7 @@ return:                                           ; preds = %while.body.i77, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrie_serialize_75(ptr noundef %trie, ptr noundef writeonly captures(address_is_null) %dt, i32 noundef %capacity, ptr noundef readonly captures(address_is_null) %getFoldedValue, i8 noundef signext %reduceTo16Bits, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define i32 @utrie_serialize_75(ptr noundef %trie, ptr noundef writeonly %dt, i32 noundef %capacity, ptr noundef readonly %getFoldedValue, i8 noundef signext %reduceTo16Bits, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %leadIndexes.i = alloca [32 x i32], align 16
   %cmp = icmp eq ptr %pErrorCode, null
@@ -1513,7 +1513,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @utrie_unserialize_75(ptr noundef writeonly captures(none) %trie, ptr noundef %data, i32 noundef %length, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #5 {
+define i32 @utrie_unserialize_75(ptr noundef writeonly captures(none) %trie, ptr noundef %data, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1636,7 +1636,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 5376) i32 @utrie_unserializeDummy_75(ptr noundef captures(none) %trie, ptr noundef %data, i32 noundef %length, i32 noundef %initialValue, i32 noundef %leadUnitValue, i8 noundef signext %make16BitTrie, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #11 {
+define range(i32 -1, 5376) i32 @utrie_unserializeDummy_75(ptr noundef captures(none) %trie, ptr noundef %data, i32 noundef %length, i32 noundef %initialValue, i32 noundef %leadUnitValue, i8 noundef signext %make16BitTrie, ptr noundef %pErrorCode) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1788,7 +1788,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie_enum_75(ptr noundef readonly captures(address_is_null) %trie, ptr noundef readonly captures(address_is_null) %enumValue, ptr noundef readonly captures(address_is_null) %enumRange, ptr noundef %context) local_unnamed_addr #0 {
+define void @utrie_enum_75(ptr noundef readonly %trie, ptr noundef readonly %enumValue, ptr noundef readonly %enumRange, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %trie, null
   br i1 %cmp, label %return, label %lor.lhs.false

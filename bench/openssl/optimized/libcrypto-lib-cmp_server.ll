@@ -96,7 +96,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @OSSL_CMP_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init(ptr noundef writeonly captures(address_is_null) %srv_ctx, ptr noundef %custom_ctx, ptr noundef %process_cert_request, ptr noundef %process_rr, ptr noundef %process_genm, ptr noundef %process_error, ptr noundef %process_certConf, ptr noundef %process_pollReq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init(ptr noundef writeonly %srv_ctx, ptr noundef %custom_ctx, ptr noundef %process_cert_request, ptr noundef %process_rr, ptr noundef %process_genm, ptr noundef %process_error, ptr noundef %process_certConf, ptr noundef %process_pollReq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -135,7 +135,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_SRV_CTX_get0_cmp_ctx(ptr noundef readonly captures(address_is_null) %srv_ctx) local_unnamed_addr #0 {
+define ptr @OSSL_CMP_SRV_CTX_get0_cmp_ctx(ptr noundef readonly %srv_ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -157,7 +157,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef readonly captures(address_is_null) %srv_ctx) local_unnamed_addr #0 {
+define ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef readonly %srv_ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -178,7 +178,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_send_unprotected_errors(ptr noundef writeonly captures(address_is_null) %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_send_unprotected_errors(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -202,7 +202,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_unprotected(ptr noundef writeonly captures(address_is_null) %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_unprotected(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -226,7 +226,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef writeonly captures(address_is_null) %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -250,7 +250,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef writeonly captures(address_is_null) %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef writeonly %srv_ctx, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %srv_ctx, null
   br i1 %cmp, label %if.then, label %if.end

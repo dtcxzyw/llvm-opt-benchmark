@@ -934,7 +934,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 declare ptr @get_user_name_or_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 -2147483648, 3) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 {
+define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 -2147483648, 3) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 {
   %9 = alloca %struct.PQExpBufferData, align 8
   %10 = alloca %struct.PQExpBufferData, align 8
   %11 = alloca %struct.PQExpBufferData, align 8

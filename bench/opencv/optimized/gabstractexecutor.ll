@@ -518,7 +518,7 @@ _ZNKSt14default_deleteIN3ade5GraphEEclEPS1_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(192) ptr @_ZNK2cv5gimpl17GAbstractExecutor5modelEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(304) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(192) ptr @_ZNK2cv5gimpl17GAbstractExecutor5modelEv(ptr noundef nonnull readnone align 8 dereferenceable(304) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }

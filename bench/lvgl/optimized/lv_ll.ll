@@ -57,7 +57,7 @@ node_set_prev.exit19:                             ; preds = %node_set_next.exit
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_ll_ins_prev(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @lv_ll_ins_prev(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -135,7 +135,7 @@ lv_ll_ins_head.exit:                              ; preds = %23, %19, %12, %node
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_ll_get_head(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_ll_get_head(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -201,7 +201,7 @@ node_set_next.exit19:                             ; preds = %node_set_prev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_ll_remove(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
+define void @lv_ll_remove(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %node_set_prev.exit34, label %lv_ll_get_head.exit
 
@@ -292,7 +292,7 @@ define ptr @lv_ll_get_next(ptr noundef readonly captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_ll_get_tail(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_ll_get_tail(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -307,7 +307,7 @@ define ptr @lv_ll_get_tail(ptr noundef readonly captures(address_is_null) %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_ll_clear_custom(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define void @lv_ll_clear_custom(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %._crit_edge, label %lv_ll_get_head.exit
 
@@ -415,7 +415,7 @@ lv_ll_remove.exit.us:                             ; preds = %node_set_prev.exit.
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_ll_chg_list(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define void @lv_ll_chg_list(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %lv_ll_remove.exit, label %lv_ll_get_head.exit.i
 
@@ -583,7 +583,7 @@ node_set_next.exit35:                             ; preds = %node_set_next.exit3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_ll_get_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define i32 @lv_ll_get_len(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %._crit_edge, label %lv_ll_get_head.exit
 
@@ -614,7 +614,7 @@ lv_ll_get_head.exit:                              ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_ll_move_before(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @lv_ll_move_before(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %80, label %5
 
@@ -779,7 +779,7 @@ node_set_prev.exit:                               ; preds = %lv_ll_remove.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @lv_ll_is_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @lv_ll_is_empty(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -804,7 +804,7 @@ define noundef zeroext i1 @lv_ll_is_empty(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_ll_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @lv_ll_clear(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %lv_ll_clear_custom.exit, label %lv_ll_get_head.exit.i
 

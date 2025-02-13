@@ -1266,7 +1266,7 @@ define hidden void @_ZN6anyhow5error11object_drop17hfcf950dfb5b86112E(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h161a686dd8deef93E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h161a686dd8deef93E(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, -5948750855638620159
   %5 = icmp eq i64 %2, 1933361053858857639
   %or.cond = and i1 %4, %5
@@ -1276,7 +1276,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h161a686dd8deef93E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb334d8801a2a9b58E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb334d8801a2a9b58E(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, -2762482093538290455
   %5 = icmp eq i64 %2, -3543626384918356640
   %or.cond = and i1 %4, %5
@@ -1286,7 +1286,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb334d8801a2a9b58E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc3d606ea81757d03E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc3d606ea81757d03E(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, 3419990959903056772
   %5 = icmp eq i64 %2, 1871997861980073009
   %or.cond = and i1 %4, %5
@@ -1296,7 +1296,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc3d606ea81757d03E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc5bfec017e65219eE(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc5bfec017e65219eE(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, -5076933981314334344
   %5 = icmp eq i64 %2, 7199936582794304877
   %or.cond = and i1 %4, %5
@@ -1306,7 +1306,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc5bfec017e65219eE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17he318c0a23be367f8E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17he318c0a23be367f8E(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = icmp eq i64 %1, -2454506581885218606
   %5 = icmp eq i64 %2, -321265965296958118
   %or.cond = and i1 %4, %5
@@ -1431,7 +1431,7 @@ define hidden void @_ZN6anyhow5error17object_drop_front17hfa6e776b4a7d660cE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6anyhow5error22context_chain_downcast17hd27cb25d72f24241E(ptr noundef nonnull readonly captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef ptr @_ZN6anyhow5error22context_chain_downcast17hd27cb25d72f24241E(ptr noundef nonnull readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, -5076933981314334344
   %5 = icmp eq i64 %2, 7199936582794304877
   %or.cond = and i1 %4, %5

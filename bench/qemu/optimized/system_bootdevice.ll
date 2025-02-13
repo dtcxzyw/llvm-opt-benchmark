@@ -219,7 +219,7 @@ if.end4:                                          ; preds = %for.cond, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @del_boot_device_path(ptr noundef readnone captures(address) %dev, ptr noundef %suffix) local_unnamed_addr #1 {
+define dso_local void @del_boot_device_path(ptr noundef readnone %dev, ptr noundef %suffix) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dev, null
   br i1 %cmp, label %for.end, label %for.cond.preheader
@@ -902,7 +902,7 @@ do.end:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @del_boot_device_lchs(ptr noundef readnone captures(address) %dev, ptr noundef %suffix) local_unnamed_addr #1 {
+define dso_local void @del_boot_device_lchs(ptr noundef readnone %dev, ptr noundef %suffix) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dev, null
   br i1 %cmp, label %for.end, label %for.cond.preheader

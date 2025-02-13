@@ -257,7 +257,7 @@ declare ptr @Map_SuperTableCreate(ptr noundef) local_unnamed_addr #4
 declare i32 @Map_LibraryReadFileTreeStr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Map_SuperLibFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @Map_SuperLibFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %33, label %3
 

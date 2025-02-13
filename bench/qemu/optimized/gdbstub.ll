@@ -3550,7 +3550,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #3
 declare i32 @gdb_signal_to_target(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @process_string_cmd(ptr noundef %data, ptr noundef readonly captures(address_is_null) %cmds, i32 noundef range(i32 1, 14) %num_cmds) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @process_string_cmd(ptr noundef %data, ptr noundef readonly %cmds, i32 noundef range(i32 1, 14) %num_cmds) unnamed_addr #0 {
 entry:
   %curr_delimiters.i90.i = alloca [2 x i8], align 2
   %curr_delimiters.i72.i = alloca [2 x i8], align 2

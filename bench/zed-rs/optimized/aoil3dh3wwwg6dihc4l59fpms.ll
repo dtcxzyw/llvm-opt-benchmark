@@ -699,7 +699,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 0, 4) i8 @"_ZN80_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$workspace..toolbar..ToolbarItemView$GT$20set_active_pane_item17h78f06bd699dd629eE"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noundef align 1 %1, ptr readonly captures(address_is_null) %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 4) i8 @"_ZN80_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$workspace..toolbar..ToolbarItemView$GT$20set_active_pane_item17h78f06bd699dd629eE"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noundef align 1 %1, ptr readonly %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !14, !align !15, !noundef !14

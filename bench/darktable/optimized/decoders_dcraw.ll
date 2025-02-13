@@ -32,7 +32,7 @@ $_ZTS17LibRaw_exceptions = comdat any
 @.str.5 = private unnamed_addr constant [8 x i8] c"0244668\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 33554432) i32 @_ZN6LibRaw10getbithuffEiPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 33554432) i32 @_ZN6LibRaw10getbithuffEiPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = icmp sgt i32 %1, 25
   br i1 %4, label %79, label %5
 
@@ -1822,7 +1822,7 @@ define void @_ZN6LibRaw9ljpeg_endEP5jhead(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483646, 33554432) i32 @_ZN6LibRaw10ljpeg_diffEPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483646, 33554432) i32 @_ZN6LibRaw10ljpeg_diffEPt(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 
@@ -7173,7 +7173,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %113, %._crit_edge76
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 65536) i32 @_ZN6LibRaw9pana_dataEiPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN6LibRaw9pana_dataEiPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = icmp ne i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond = or i1 %4, %5

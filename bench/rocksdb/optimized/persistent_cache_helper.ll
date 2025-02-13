@@ -214,7 +214,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21PersistentCacheHelper16LookupSerializedERKNS_22PersistentCacheOptionsERKNS_11BlockHandleEPSt10unique_ptrIA_cSt14default_deleteIS8_EEm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %cache_options, ptr noundef nonnull align 8 dereferenceable(16) %handle, ptr noundef %out_data, i64 noundef %expected_data_size) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21PersistentCacheHelper16LookupSerializedERKNS_22PersistentCacheOptionsERKNS_11BlockHandleEPSt10unique_ptrIA_cSt14default_deleteIS8_EEm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %cache_options, ptr noundef nonnull align 8 dereferenceable(16) %handle, ptr noundef %out_data, i64 noundef %expected_data_size) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %key = alloca %"class.rocksdb::CacheKey", align 8
   %size = alloca i64, align 8
@@ -342,7 +342,7 @@ _ZN7rocksdb6StatusD2Ev.exit15:                    ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21PersistentCacheHelper18LookupUncompressedERKNS_22PersistentCacheOptionsERKNS_11BlockHandleEPNS_13BlockContentsE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %cache_options, ptr noundef nonnull align 8 dereferenceable(16) %handle, ptr noundef captures(address_is_null) %contents) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21PersistentCacheHelper18LookupUncompressedERKNS_22PersistentCacheOptionsERKNS_11BlockHandleEPNS_13BlockContentsE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %cache_options, ptr noundef nonnull align 8 dereferenceable(16) %handle, ptr noundef %contents) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.rocksdb::CacheKey", align 8
   %data = alloca %"class.std::unique_ptr.10", align 8

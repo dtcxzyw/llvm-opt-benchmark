@@ -615,7 +615,7 @@ rt_get_mask_point_group.exit.thread:              ; preds = %31, %.preheader.i, 
 declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !60
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -695,7 +695,7 @@ rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rt_show_hide_controls(ptr noundef readonly captures(address) %0) unnamed_addr #1 {
+define internal fastcc void @rt_show_hide_controls(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -1328,7 +1328,7 @@ declare ptr @dt_masks_get_from_id(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @dt_masks_set_edit_mode(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rt_show_forms_for_current_scale(ptr noundef readonly captures(address) %0) unnamed_addr #1 {
+define internal fastcc void @rt_show_forms_for_current_scale(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %3 = load i32, ptr %2, align 16, !tbaa !181
   %.not = icmp eq i32 %3, 0
@@ -1567,7 +1567,7 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct._GdkRGBA, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca [300 x %struct.dt_iop_retouch_form_data_t], align 16
@@ -3606,7 +3606,7 @@ declare void @dtgtk_cairo_paint_masks_ellipse(ptr noundef, i32 noundef, i32 noun
 declare void @dtgtk_cairo_paint_masks_circle(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rt_select_algorithm_callback(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
+define internal range(i32 0, 2) i32 @rt_select_algorithm_callback(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !131
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8, !tbaa !132
@@ -8117,7 +8117,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
+define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(19) @.str.110) #29
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %95, label %4

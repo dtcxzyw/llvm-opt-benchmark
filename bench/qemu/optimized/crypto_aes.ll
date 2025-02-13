@@ -1789,7 +1789,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_encrypt_key(ptr noundef readonly captures(address_is_null) %userKey, i32 noundef %bits, ptr noundef captures(address_is_null) %key) local_unnamed_addr #2 {
+define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %userKey, null
   %tobool1 = icmp ne ptr %key, null
@@ -2222,7 +2222,7 @@ return:                                           ; preds = %while.body267, %whi
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_decrypt_key(ptr noundef captures(address_is_null) %userKey, i32 noundef %bits, ptr noundef captures(address_is_null) %key) local_unnamed_addr #2 {
+define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @QEMU_AES_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key)
   %cmp = icmp slt i32 %call, 0
@@ -2460,7 +2460,7 @@ return:                                           ; preds = %for.body47, %for.co
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @QEMU_AES_encrypt(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #4 {
+define dso_local void @QEMU_AES_encrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -2949,7 +2949,7 @@ for.end:                                          ; preds = %for.cond
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @QEMU_AES_decrypt(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #4 {
+define dso_local void @QEMU_AES_decrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null

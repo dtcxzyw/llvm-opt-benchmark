@@ -3439,7 +3439,7 @@ define void @_ZN12RenderHelperD2Ev(ptr noundef nonnull readonly align 8 captures
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN12RenderHelper12initializeGLEPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN12RenderHelper12initializeGLEPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly %1) local_unnamed_addr #10 align 2 {
   %3 = alloca [4 x float], align 16
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
@@ -3663,7 +3663,7 @@ _ZN11ShaderUtils17linkShaderProgramEj.exit:       ; preds = %_ZN11ShaderUtils13c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12RenderHelper21initializeMeshBuffersEP9MeshModelPFbiPKcE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12RenderHelper21initializeMeshBuffersEP9MeshModelPFbiPKcE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 .loopexit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %4 = load i32, ptr %3, align 8

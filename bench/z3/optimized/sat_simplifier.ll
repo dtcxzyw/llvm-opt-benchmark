@@ -700,7 +700,7 @@ for.end:                                          ; preds = %_ZN3sat15clause_use
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat8use_list5eraseERNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3sat8use_list5eraseERNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -748,7 +748,7 @@ for.end:                                          ; preds = %_ZN3sat15clause_use
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat8use_list5eraseERNS_6clauseENS_7literalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c, i32 %l.coerce) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3sat8use_list5eraseERNS_6clauseENS_7literalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c, i32 %l.coerce) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -800,7 +800,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat8use_list5blockERNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3sat8use_list5blockERNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -833,7 +833,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat8use_list7unblockERNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3sat8use_list7unblockERNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -5924,7 +5924,7 @@ declare void @_ZN3sat6clause7restoreEj(ptr noundef nonnull align 4 dereferenceab
 declare void @_ZN3sat6solver6shrinkERNS_6clauseEjj(ptr noundef nonnull align 8 dereferenceable(4408), ptr noundef nonnull align 4 dereferenceable(20), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat10simplifier12mark_all_butERKNS_6clauseENS_7literalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c, i32 %l1.coerce) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN3sat10simplifier12mark_all_butERKNS_6clauseENS_7literalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c, i32 %l1.coerce) local_unnamed_addr #13 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -5963,7 +5963,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat10simplifier10unmark_allERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN3sat10simplifier10unmark_allERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #13 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -5995,7 +5995,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZNK3sat10simplifier15get_min_occ_varERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #10 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZNK3sat10simplifier15get_min_occ_varERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #10 align 2 {
 entry:
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %0 = select i1 %.b, i32 -2, i32 0
@@ -6041,7 +6041,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3sat10simplifier9subsumes1ERKNS_6clauseES3_RNS_7literalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c1, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %l) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3sat10simplifier9subsumes1ERKNS_6clauseES3_RNS_7literalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c1, ptr noundef nonnull readonly align 4 dereferenceable(20) %c2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %l) local_unnamed_addr #5 align 2 {
 entry:
   %m_lits.i.ptr.ptr = getelementptr inbounds nuw i8, ptr %c2, i64 20
   %m_size.i = getelementptr inbounds nuw i8, ptr %c2, i64 4
@@ -6155,7 +6155,7 @@ for.end45:                                        ; preds = %for.body39, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %out_lits, i32 %target.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat10simplifier22collect_subsumed1_coreERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %out_lits, i32 %target.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %it = alloca %"class.sat::clause_use_list::iterator", align 8
   %m_use_list = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6407,7 +6407,7 @@ for.inc:                                          ; preds = %_ZN6vectorIN3sat7li
 declare void @_ZN3sat15clause_use_list8iteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull align 4 captures(address) dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %out_lits) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat10simplifier17collect_subsumed1ERKNS_6clauseER10ptr_vectorIS1_ER7svectorINS_7literalEjE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull align 4 dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %out_lits) local_unnamed_addr #3 align 2 {
 entry:
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %0 = select i1 %.b, i32 -2, i32 0
@@ -7249,7 +7249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_ZNK3sat10simplifier16get_min_occ_var0ERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #10 align 2 {
+define hidden i32 @_ZNK3sat10simplifier16get_min_occ_var0ERKNS_6clauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #10 align 2 {
 entry:
   %retval.sroa.0.0.copyload.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %retval.sroa.0.0.copyload = select i1 %retval.sroa.0.0.copyload.b, i32 -2, i32 0
@@ -7289,7 +7289,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3sat10simplifier9subsumes0ERKNS_6clauseES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c1, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3sat10simplifier9subsumes0ERKNS_6clauseES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c1, ptr noundef nonnull readonly align 4 dereferenceable(20) %c2) local_unnamed_addr #5 align 2 {
 entry:
   %m_lits.i.ptr.ptr = getelementptr inbounds nuw i8, ptr %c2, i64 20
   %m_size.i = getelementptr inbounds nuw i8, ptr %c2, i64 4
@@ -7374,7 +7374,7 @@ for.end31:                                        ; preds = %for.body25, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier22collect_subsumed0_coreERKNS_6clauseER10ptr_vectorIS1_ENS_7literalE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %target.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat10simplifier22collect_subsumed0_coreERKNS_6clauseER10ptr_vectorIS1_ENS_7literalE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %target.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %it = alloca %"class.sat::clause_use_list::iterator", align 8
   %m_use_list = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7569,7 +7569,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier17collect_subsumed0ERKNS_6clauseER10ptr_vectorIS1_E(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull align 4 captures(address) dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat10simplifier17collect_subsumed0ERKNS_6clauseER10ptr_vectorIS1_E(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %this, ptr noundef nonnull align 4 dereferenceable(20) %c1, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %retval.sroa.0.0.copyload.i = select i1 %retval.sroa.0.0.copyload.i.b, i32 -2, i32 0

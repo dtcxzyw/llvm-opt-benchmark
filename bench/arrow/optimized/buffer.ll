@@ -1651,7 +1651,7 @@ entry:
 declare void @_ZN5arrow9HexEncodeB5cxx11EPKhm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_l(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %other, i64 noundef %nbytes) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_l(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other, i64 noundef %nbytes) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %lor.end10, label %lor.rhs
@@ -1685,7 +1685,7 @@ lor.end10:                                        ; preds = %lor.rhs, %lor.rhs7,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %other) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %lor.end10, label %lor.rhs

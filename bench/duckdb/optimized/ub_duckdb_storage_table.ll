@@ -51505,7 +51505,7 @@ unreachable:                                      ; preds = %invoke.cont9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb18RowGroupCollection8GetTypesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(144) %this) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb18RowGroupCollection8GetTypesEv(ptr noundef nonnull readnone align 8 dereferenceable(144) %this) local_unnamed_addr #21 align 2 {
 entry:
   %types = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %types
@@ -81021,7 +81021,7 @@ declare void @_ZN6duckdb14MetadataWriterD1Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN6duckdb9ExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14TableScanState12GetColumnIdsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %this) local_unnamed_addr #21 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14TableScanState12GetColumnIdsEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) local_unnamed_addr #21 align 2 {
 entry:
   %column_ids = getelementptr inbounds nuw i8, ptr %this, i64 128
   ret ptr %column_ids
@@ -87825,7 +87825,7 @@ delete.end:                                       ; preds = %_ZN6duckdb15ColumnS
 declare void @_ZN6duckdb14ArenaAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL19UpdateMergeValidityEmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull align 8 dereferenceable(104) %result) #3 {
+define internal void @_ZN6duckdbL19UpdateMergeValidityEmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull align 8 dereferenceable(104) %result) #3 {
 entry:
   %validity.i = getelementptr inbounds nuw i8, ptr %result, i64 40
   %tobool.not8.i = icmp eq ptr %info, null
@@ -87931,7 +87931,7 @@ if.end.i:                                         ; preds = %_ZN6duckdb21Templat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIaEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIaEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -87995,7 +87995,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIaEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIsEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIsEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88110,7 +88110,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIsEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIiEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIiEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88174,7 +88174,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIiEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIlEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIlEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88289,7 +88289,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIlEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIhEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIhEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88353,7 +88353,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIhEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchItEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchItEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88468,7 +88468,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchItEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIjEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIjEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88532,7 +88532,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIjEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchImEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchImEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88647,7 +88647,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchImEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchINS_9hugeint_tEEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchINS_9hugeint_tEEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88710,7 +88710,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchINS_9hugein
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIfEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIfEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88825,7 +88825,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIfEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchIdEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchIdEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -88940,7 +88940,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchIdEEvmmPS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchINS_10interval_tEEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchINS_10interval_tEEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -89003,7 +89003,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L16UpdateMergeFetchINS_10inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL16UpdateMergeFetchINS_8string_tEEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
+define internal void @_ZN6duckdbL16UpdateMergeFetchINS_8string_tEEEvmmPNS_10UpdateInfoERNS_6VectorE(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result) #29 {
 entry:
   %data.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %0 = load ptr, ptr %data.i.i.i, align 8, !tbaa !645
@@ -90730,7 +90730,7 @@ _ZN6duckdbL20MergeUpdateInfoRangeINS_8string_tEEEvPNS_10UpdateInfoEmmmPT_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL16FetchRowValidityEmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %result_idx) #3 {
+define internal void @_ZN6duckdbL16FetchRowValidityEmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %result_idx) #3 {
 entry:
   %validity.i = getelementptr inbounds nuw i8, ptr %result, i64 40
   %tobool.not9.i = icmp eq ptr %info, null
@@ -90831,7 +90831,7 @@ if.end.i:                                         ; preds = %if.else.i.i, %_ZN6d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIaEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIaEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIaEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -90900,7 +90900,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIaEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIsEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIsEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIsEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -90969,7 +90969,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIsEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIiEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIiEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIiEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91038,7 +91038,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIiEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIlEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIlEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIlEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91107,7 +91107,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIlEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIhEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIhEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIhEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91176,7 +91176,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIhEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowItEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowItEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowItEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91245,7 +91245,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowItEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIjEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIjEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIjEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91314,7 +91314,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIjEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowImEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowImEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowImEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91383,7 +91383,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowImEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowINS_9hugeint_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowINS_9hugeint_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowINS_9hugeint_tEEEvmmPS0_mRNS_6VectorEmEUlS4_E_EEvS4_mmOT_.exit, label %while.body.i.preheader
@@ -91451,7 +91451,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowINS_9hugei
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIfEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIfEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIfEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91520,7 +91520,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIfEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowIdEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowIdEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIdEEvmmPS0_mRNS_6VectorEmEUlS3_E_EEvS3_mmOT_.exit, label %while.body.i.preheader
@@ -91589,7 +91589,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowIdEEvmmPS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowINS_10interval_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowINS_10interval_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowINS_10interval_tEEEvmmPS0_mRNS_6VectorEmEUlS4_E_EEvS4_mmOT_.exit, label %while.body.i.preheader
@@ -91657,7 +91657,7 @@ _ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowINS_10inte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6duckdbL17TemplatedFetchRowINS_8string_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly captures(address_is_null) %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
+define internal void @_ZN6duckdbL17TemplatedFetchRowINS_8string_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm(i64 noundef %start_time, i64 noundef %transaction_id, ptr noundef readonly %info, i64 noundef %row_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %result, i64 noundef %result_idx) #29 {
 entry:
   %tobool.not9.i = icmp eq ptr %info, null
   br i1 %tobool.not9.i, label %_ZN6duckdb10UpdateInfo21UpdatesForTransactionIZNS_L17TemplatedFetchRowINS_8string_tEEEvmmPS0_mRNS_6VectorEmEUlS4_E_EEvS4_mmOT_.exit, label %while.body.i.preheader

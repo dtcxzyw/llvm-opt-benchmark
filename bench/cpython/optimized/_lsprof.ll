@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.66 = private unnamed_addr constant [38 x i8] c"inline time (not in further subcalls)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @get_cfunc_from_callable(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define hidden ptr @get_cfunc_from_callable(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val21 = load ptr, ptr %4, align 8, !tbaa !3
   %.not.i = icmp eq ptr %.val21, @PyCFunction_Type
@@ -702,7 +702,7 @@ define internal i32 @profiler_traverse(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_lsprof_Profiler_getstats(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_lsprof_Profiler_getstats(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %6 = alloca %struct.statscollector_t, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %7, label %10

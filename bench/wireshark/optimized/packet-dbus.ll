@@ -2952,7 +2952,7 @@ define internal fastcc ptr @add_dbus_string(ptr noundef captures(none) initializ
 declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef nonnull readonly captures(address) %0, ptr %.8.val.408.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef nonnull readonly %0, ptr %.8.val.408.val) unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_list_new(ptr noundef %.8.val.408.val) #9
   %3 = load i8, ptr %0, align 1
   %.not3 = icmp eq i8 %3, 0
@@ -3078,7 +3078,7 @@ is_basic_type.exit.thread:                        ; preds = %15, %8, %21, %24, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #5 {
+define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly %0) unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %2, %1

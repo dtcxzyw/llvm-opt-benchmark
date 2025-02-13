@@ -484,7 +484,7 @@ define dso_local ptr @intel_ring_begin(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @wait_for_space(ptr noundef captures(address) initializes((40, 44)) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @wait_for_space(ptr noundef initializes((40, 44)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36

@@ -8830,7 +8830,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h91764286c8a80d2dE.llvm.8429083252963556395"(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #6 {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h91764286c8a80d2dE.llvm.8429083252963556395"(ptr noundef readnone %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   ret ptr %2
 }

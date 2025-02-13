@@ -26519,7 +26519,7 @@ define hidden noundef zeroext i1 @_ZN13project_panel14ClipboardEntry6is_cut17h3b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13project_panel14ClipboardEntry5items17ha8cf589729803662E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #14 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN13project_panel14ClipboardEntry5items17ha8cf589729803662E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #14 {
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.sroa.0.0
 }

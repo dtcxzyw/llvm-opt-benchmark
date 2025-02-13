@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"\00\00\00\00\00\00\00\00\1E\0F\0F\0F\00\00\00\00\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @uiter_setString_75(ptr noundef writeonly captures(address_is_null) %iter, ptr noundef %s, i32 noundef %length) local_unnamed_addr #0 {
+define void @uiter_setString_75(ptr noundef writeonly %iter, ptr noundef %s, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %iter, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -58,7 +58,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @uiter_setUTF16BE_75(ptr noundef writeonly captures(address_is_null) %iter, ptr noundef %s, i32 noundef %length) local_unnamed_addr #0 {
+define void @uiter_setUTF16BE_75(ptr noundef writeonly %iter, ptr noundef %s, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %iter, null
   br i1 %cmp.not, label %if.end14, label %if.then
@@ -134,7 +134,7 @@ if.end14:                                         ; preds = %if.end, %if.else12,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @uiter_setCharacterIterator_75(ptr noundef writeonly captures(address_is_null) %iter, ptr noundef %charIter) local_unnamed_addr #3 {
+define void @uiter_setCharacterIterator_75(ptr noundef writeonly %iter, ptr noundef %charIter) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %iter, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -157,7 +157,7 @@ if.end3:                                          ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uiter_setReplaceable_75(ptr noundef writeonly captures(address_is_null) %iter, ptr noundef %rep) local_unnamed_addr #0 {
+define void @uiter_setReplaceable_75(ptr noundef writeonly %iter, ptr noundef %rep) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %iter, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -188,7 +188,7 @@ if.end3:                                          ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @uiter_setUTF8_75(ptr noundef writeonly captures(address_is_null) %iter, ptr noundef %s, i32 noundef %length) local_unnamed_addr #4 {
+define void @uiter_setUTF8_75(ptr noundef writeonly %iter, ptr noundef %s, i32 noundef %length) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %iter, null
   br i1 %cmp.not, label %if.end13, label %if.then
@@ -624,7 +624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef captures(address_is_null) %iter, i32 noundef %state, ptr noundef captures(address_is_null) %pErrorCode) #3 {
+define internal void @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef %iter, i32 noundef %state, ptr noundef %pErrorCode) #3 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %if.end10, label %lor.lhs.false
@@ -1002,7 +1002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25characterIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef readonly captures(address_is_null) %iter, i32 noundef %state, ptr noundef captures(address_is_null) %pErrorCode) #0 {
+define internal void @_ZL25characterIteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef readonly %iter, i32 noundef %state, ptr noundef %pErrorCode) #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %if.end18, label %lor.lhs.false
@@ -2551,7 +2551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef captures(address_is_null) %iter, i32 noundef %state, ptr noundef captures(address_is_null) %pErrorCode) #0 {
+define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(ptr noundef %iter, i32 noundef %state, ptr noundef %pErrorCode) #0 {
 entry:
   %index = alloca i32, align 4
   %cmp = icmp eq ptr %pErrorCode, null

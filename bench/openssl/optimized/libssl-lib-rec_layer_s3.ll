@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ssl3_pending(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #1 {
+define i64 @ssl3_pending(ptr noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %iter = alloca ptr, align 8
   %cmp = icmp eq ptr %s, null
@@ -265,7 +265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_default_read_buffer_len(ptr noundef captures(address_is_null) %s, i64 noundef %len) local_unnamed_addr #5 {
+define void @SSL_set_default_read_buffer_len(ptr noundef %s, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -285,7 +285,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_rstate_string_long(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #1 {
+define ptr @SSL_rstate_string_long(ptr noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %lng = alloca ptr, align 8
   %cmp = icmp eq ptr %s, null
@@ -330,7 +330,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_rstate_string(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #1 {
+define ptr @SSL_rstate_string(ptr noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %shrt = alloca ptr, align 8
   %cmp = icmp eq ptr %s, null
@@ -1042,7 +1042,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %ssl, i8 noundef zeroext %type, ptr noundef writeonly captures(address_is_null) %recvd_type, ptr noundef writeonly captures(none) %buf, i64 noundef %len, i32 noundef %peek, ptr noundef writeonly captures(none) %readbytes) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %ssl, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr noundef writeonly captures(none) %buf, i64 noundef %len, i32 noundef %peek, ptr noundef writeonly captures(none) %readbytes) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %cond.end5, label %cond.false
@@ -2118,7 +2118,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_set_new_record_layer(ptr noundef %s, i32 noundef %version, i32 noundef %direction, i32 noundef %level, ptr noundef %secret, i64 noundef %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef readonly captures(address_is_null) %comp, ptr noundef %kdfdigest) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl_set_new_record_layer(ptr noundef %s, i32 noundef %version, i32 noundef %direction, i32 noundef %level, ptr noundef %secret, i64 noundef %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef readonly %comp, ptr noundef %kdfdigest) local_unnamed_addr #1 {
 entry:
   %options = alloca [5 x %struct.ossl_param_st], align 16
   %settings = alloca [6 x %struct.ossl_param_st], align 16

@@ -3064,7 +3064,7 @@ declare dso_local i32 @fib_nh_match(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare dso_local zeroext i1 @fib_metrics_match(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8493,7 +8493,7 @@ define internal void @fib_route_seq_stop(ptr readnone captures(none) %0, ptr rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal noundef ptr @fib_route_seq_next(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) #15 align 16 {
+define internal noundef ptr @fib_route_seq_next(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) #15 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32

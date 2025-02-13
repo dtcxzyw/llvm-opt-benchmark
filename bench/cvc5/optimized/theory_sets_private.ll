@@ -37948,7 +37948,7 @@ declare void @_ZN4cvc58internal23nodeTriePathPairProcessEPKNS0_16NodeTemplateTri
 declare noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine13isTriggerTermENS0_12NodeTemplateILb0EEENS1_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(1784), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory4sets17TheorySetsPrivate18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %termSet) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory4sets17TheorySetsPrivate18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 dereferenceable(48) %termSet) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %ref.tmp9.i = alloca %"class.std::tuple.1008", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.948", align 1

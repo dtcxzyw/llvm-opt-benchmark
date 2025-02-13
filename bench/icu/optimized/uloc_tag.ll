@@ -4565,7 +4565,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_forLanguageTag_75(ptr noundef readonly captures(none) %langtag, ptr noundef %localeID, i32 noundef %localeIDCapacity, ptr noundef captures(address_is_null) %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uloc_forLanguageTag_75(ptr noundef readonly captures(none) %langtag, ptr noundef %localeID, i32 noundef %localeIDCapacity, ptr noundef %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %sink = alloca %"class.icu_75::CheckedArrayByteSink", align 8
   %0 = load i32, ptr %status, align 4
@@ -4614,7 +4614,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ulocimp_forLanguageTag_75(ptr noundef readonly captures(none) %langtag, i32 noundef %tagLen, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef writeonly captures(address_is_null) %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ulocimp_forLanguageTag_75(ptr noundef readonly captures(none) %langtag, i32 noundef %tagLen, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef writeonly %parsedLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %attrBuf.i.i = alloca [100 x i8], align 16
   %attrPool.i.i = alloca %"class.icu_75::MemoryPool", align 8

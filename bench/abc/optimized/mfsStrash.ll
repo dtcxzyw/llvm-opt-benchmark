@@ -344,7 +344,7 @@ define void @Abc_MfsConvertHopToAig(ptr noundef captures(none) %0, ptr noundef %
 declare void @Hop_ConeUnmark_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkConstructAig_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkConstructAig_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = getelementptr i8, ptr %5, i64 4
@@ -582,7 +582,7 @@ define ptr @Abc_NtkConstructCare_rec(ptr noundef %0, ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Aig_ManStart(i32 noundef 1000) #4
   %4 = tail call ptr @Abc_NtkConstructAig_rec(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = tail call ptr @Aig_ObjCreateCo(ptr noundef %3, ptr noundef %4) #4

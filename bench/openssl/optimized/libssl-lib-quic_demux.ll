@@ -316,7 +316,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_register(ptr noundef readonly captures(none) %demux, ptr noundef readonly captures(address_is_null) %dst_conn_id, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_demux_register(ptr noundef readonly captures(none) %demux, ptr noundef readonly %dst_conn_id, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.quic_demux_conn_st, align 8
   %cmp = icmp eq ptr %dst_conn_id, null
@@ -365,7 +365,7 @@ return:                                           ; preds = %if.end9, %demux_get
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_unregister(ptr noundef readonly captures(none) %demux, ptr noundef readonly captures(address_is_null) %dst_conn_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_demux_unregister(ptr noundef readonly captures(none) %demux, ptr noundef readonly %dst_conn_id) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.quic_demux_conn_st, align 8
   %cmp = icmp eq ptr %dst_conn_id, null
@@ -1000,7 +1000,7 @@ return:                                           ; preds = %demux_process_pendi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_demux_inject(ptr noundef captures(none) %demux, ptr noundef readonly captures(none) %buf, i64 noundef %buf_len, ptr noundef readonly captures(address_is_null) %peer, ptr noundef readonly captures(address_is_null) %local) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_demux_inject(ptr noundef captures(none) %demux, ptr noundef readonly captures(none) %buf, i64 noundef %buf_len, ptr noundef readonly %peer, ptr noundef readonly %local) local_unnamed_addr #0 {
 entry:
   %mtu.i = getelementptr inbounds nuw i8, ptr %demux, i64 16
   %urx_free.i = getelementptr inbounds nuw i8, ptr %demux, i64 80

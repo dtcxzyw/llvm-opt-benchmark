@@ -35,7 +35,7 @@ entry:
 declare ptr @llvm.returnaddress(i32 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 -2147483649, 2147483647) i64 @_ZN2EA6Thread12GetCallstackEPPvmPKNS0_16CallstackContextE(ptr noundef %pReturnAddressArray, i64 noundef %nReturnAddressArrayCapacity, ptr noundef readnone captures(address_is_null) %pContext) local_unnamed_addr #3 {
+define dso_local noundef range(i64 -2147483649, 2147483647) i64 @_ZN2EA6Thread12GetCallstackEPPvmPKNS0_16CallstackContextE(ptr noundef %pReturnAddressArray, i64 noundef %nReturnAddressArrayCapacity, ptr noundef readnone %pContext) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %pContext, null
   br i1 %cmp, label %if.then, label %if.end4
@@ -201,7 +201,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread19GetPthreadStackInfoEPPvS2_(ptr noundef writeonly captures(address_is_null) %pBase, ptr noundef writeonly captures(address_is_null) %pLimit) local_unnamed_addr #10 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread19GetPthreadStackInfoEPPvS2_(ptr noundef writeonly %pBase, ptr noundef writeonly %pLimit) local_unnamed_addr #10 {
 entry:
   %pLimitTemp = alloca ptr, align 8
   %attr = alloca %union.pthread_attr_t, align 8

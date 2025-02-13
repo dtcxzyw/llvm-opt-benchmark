@@ -199,7 +199,7 @@ define dso_local ptr @get_encoding_name_for_icu(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pg_char_to_encoding_private(ptr noundef %0)
   %3 = icmp ult i32 %2, 42
   %.0 = select i1 %3, i32 %2, i32 -1
@@ -207,7 +207,7 @@ define dso_local range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef rea
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca [64 x i8], align 16
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
@@ -301,7 +301,7 @@ clean_encoding_name.exit:                         ; preds = %21
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 35) i32 @pg_valid_server_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 35) i32 @pg_valid_server_encoding_private(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pg_char_to_encoding_private(ptr noundef %0)
   %3 = icmp ult i32 %2, 35
   %.0 = select i1 %3, i32 %2, i32 -1

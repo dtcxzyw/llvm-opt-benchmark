@@ -7411,7 +7411,7 @@ megasas_build_sense.exit:                         ; preds = %entry, %if.end12.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @megasas_map_sgl(ptr noundef %s, ptr noundef nonnull initializes((4, 6)) %cmd, ptr noundef readonly captures(address) %sgl) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @megasas_map_sgl(ptr noundef %s, ptr noundef nonnull initializes((4, 6)) %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
 entry:
   %_now.i.i84 = alloca %struct.timeval, align 8
   %_now.i.i70 = alloca %struct.timeval, align 8

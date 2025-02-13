@@ -893,7 +893,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing5Agent6EnableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %categories) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node7tracing5Agent6EnableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 dereferenceable(48) %categories) local_unnamed_addr #3 align 2 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %id.addr = alloca i32, align 4
@@ -965,7 +965,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing5Agent7DisableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %categories) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node7tracing5Agent7DisableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 dereferenceable(48) %categories) local_unnamed_addr #3 align 2 {
 entry:
   %id.addr = alloca i32, align 4
   store i32 %id, ptr %id.addr, align 4

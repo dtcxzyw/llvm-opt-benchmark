@@ -267,7 +267,7 @@ _ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %entry, %if.end.i
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %input, i64 noundef %input_size, ptr noundef writeonly captures(address, ret: address, provenance) %op, ptr noundef %table, i32 noundef %table_size) local_unnamed_addr #2 {
+define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %input, i64 noundef %input_size, ptr noundef writeonly %op, ptr noundef %table, i32 noundef %table_size) local_unnamed_addr #2 {
 entry:
   %sub = shl i32 %table_size, 1
   %mul = add i32 %sub, -2
@@ -3338,7 +3338,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #15
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %src, ptr noundef %op, ptr noundef readnone returned captures(address, ret: address, provenance) %op_limit, ptr noundef readnone captures(address) %buf_limit) unnamed_addr #16 {
+define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %src, ptr noundef %op, ptr noundef readnone returned %op_limit, ptr noundef readnone %buf_limit) unnamed_addr #16 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %op to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %src to i64

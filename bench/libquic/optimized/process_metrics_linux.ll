@@ -545,7 +545,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base14ProcessMetrics14GetMemoryBytesEPmS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef writeonly captures(address_is_null) %private_bytes, ptr noundef writeonly captures(address_is_null) %shared_bytes) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14ProcessMetrics14GetMemoryBytesEPmS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef writeonly %private_bytes, ptr noundef writeonly %shared_bytes) local_unnamed_addr #0 align 2 {
 entry:
   %ws_usage = alloca %"struct.base::WorkingSetKBytes", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ws_usage, i8 0, i64 24, i1 false)

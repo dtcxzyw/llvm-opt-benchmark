@@ -1414,7 +1414,7 @@ sub_0:                                            ; preds = %530
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @BDF_Face_Done(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @BDF_Face_Done(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -1779,7 +1779,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @bdf_get_font_property(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @bdf_get_font_property(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %4
 

@@ -1193,7 +1193,7 @@ define internal i32 @descr_traverse(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_get(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define internal ptr @method_get(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %10
 
@@ -1368,7 +1368,7 @@ Py_DECREF.exit:                                   ; preds = %31, %28, %23, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @classmethod_get(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
+define internal ptr @classmethod_get(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %20
 
@@ -1530,7 +1530,7 @@ descr_repr.exit:                                  ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @member_get(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @member_get(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %10
 
@@ -1695,7 +1695,7 @@ descr_repr.exit:                                  ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getset_get(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @getset_get(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %10
 
@@ -2276,7 +2276,7 @@ descr_new.exit.thread:                            ; preds = %34, %31, %29, %16, 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_VARARGS(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_VARARGS(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807
@@ -2459,7 +2459,7 @@ Py_XDECREF.exit:                                  ; preds = %47, %44, %42, %Py_D
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_FASTCALL(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_FASTCALL(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807
@@ -2549,7 +2549,7 @@ method_enter_call.exit.thread:                    ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_NOARGS(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_NOARGS(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807
@@ -2619,7 +2619,7 @@ Py_DECREF.exit:                                   ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_vectorcall_O(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal ptr @method_vectorcall_O(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = and i64 %2, 9223372036854775807
@@ -3820,7 +3820,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @property_descr_get(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @property_descr_get(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %1, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -4718,7 +4718,7 @@ define internal ptr @wrapperdescr_get_text_signature(ptr noundef readonly captur
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @method_check_args(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @method_check_args(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef readonly %3) unnamed_addr #5 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %6, label %16
 

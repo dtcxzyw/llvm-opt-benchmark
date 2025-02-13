@@ -1213,7 +1213,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = zext nneg i32 %2 to i64
   %5 = getelementptr [4 x [256 x i16]], ptr @translations, i64 0, i64 %4
   %6 = icmp eq ptr %1, null

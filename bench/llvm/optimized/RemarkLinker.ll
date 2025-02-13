@@ -388,7 +388,7 @@ define dso_local noundef nonnull align 8 dereferenceable(440) ptr @_ZN4llvm7rema
 declare void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(440)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks12RemarkLinker26setExternalFilePrependPathENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks12RemarkLinker26setExternalFilePrependPathENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18

@@ -2541,7 +2541,7 @@ declare void @_ZN5cmsys20CommandLineArguments13SetClientDataEPv(ptr noundef nonn
 declare void @_ZN5cmsys20CommandLineArguments26SetUnknownArgumentCallbackEPFiPKcPvE(ptr noundef nonnull align 8 dereferenceable(45), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL16unknown_argumentPKcPv(ptr noundef %0, ptr noundef readnone captures(address) %1) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL16unknown_argumentPKcPv(ptr noundef %0, ptr noundef readnone %1) #3 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.71, i64 noundef 23)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %12
@@ -2681,7 +2681,7 @@ declare void @_ZN5cmsys20CommandLineArguments11AddArgumentEPKcNS0_16ArgumentType
 declare void @_ZN5cmsys20CommandLineArguments11AddCallbackEPKcNS0_16ArgumentTypeEnumEPFiS2_S2_PvES4_S2_(ptr noundef nonnull align 8 dereferenceable(45), ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL8argumentPKcS0_Pv(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL8argumentPKcS0_Pv(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #3 {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.74, i64 noundef 15)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %13

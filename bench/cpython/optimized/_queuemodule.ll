@@ -597,7 +597,7 @@ define internal ptr @_queue_SimpleQueue_get(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_queue_SimpleQueue_get_nowait(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_queue_SimpleQueue_get_nowait(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -1117,7 +1117,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @_PyParkingLot_Unpark(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @maybe_handoff_item(ptr noundef captures(none) initializes((0, 1)) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #5 {
+define internal void @maybe_handoff_item(ptr noundef captures(none) initializes((0, 1)) %0, ptr noundef writeonly %1, i32 noundef %2) #5 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 

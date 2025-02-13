@@ -88,7 +88,7 @@ if.end8:                                          ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @ASYNC_start_job(ptr noundef captures(none) %job, ptr noundef %wctx, ptr noundef writeonly captures(none) %ret, ptr noundef %func, ptr noundef readonly captures(address_is_null) %args, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @ASYNC_start_job(ptr noundef captures(none) %job, ptr noundef %wctx, ptr noundef writeonly captures(none) %ret, ptr noundef %func, ptr noundef readonly %args, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 256, ptr noundef null) #7
   %tobool.not = icmp eq i32 %call, 0

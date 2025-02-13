@@ -1554,7 +1554,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7517CanonicalIterator15getEquivalents2EPNS_9HashtableEPKDsiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(ret: address, provenance) %fillinResult, ptr noundef %segment, i32 noundef %segLen, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7517CanonicalIterator15getEquivalents2EPNS_9HashtableEPKDsiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %fillinResult, ptr noundef %segment, i32 noundef %segLen, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %toPut = alloca %"class.icu_75::UnicodeString", align 8
   %starts = alloca %"class.icu_75::UnicodeSet", align 8

@@ -1015,7 +1015,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly captures(address) %qsm) local_unnamed_addr #5 {
+define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly %qsm) local_unnamed_addr #5 {
 entry:
   %accept_list = getelementptr inbounds nuw i8, ptr %qsm, i64 24
   %0 = getelementptr i8, ptr %qsm, i64 32

@@ -86,19 +86,19 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.XML_ErrorString = private unnamed_addr constant [43 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_ParserCreate(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @XML_ParserCreate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef null, ptr noundef null)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_ParserCreate_MM(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @XML_ParserCreate_MM(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_ParserCreateNS(ptr noundef captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define dso_local ptr @XML_ParserCreateNS(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #23
   store i8 %1, ptr %3, align 1, !tbaa !4
@@ -116,7 +116,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parserCreate(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -418,7 +418,7 @@ parserInit.exit:                                  ; preds = %57, %copyString.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext range(i8 0, 2) i8 @XML_ParserReset(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 2) i8 @XML_ParserReset(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %214, label %4
 
@@ -928,7 +928,7 @@ dtdReset.exit:                                    ; preds = %200, %.loopexit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @XML_SetEncoding(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @XML_SetEncoding(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %4
 
@@ -980,7 +980,7 @@ copyString.exit:                                  ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
   %5 = icmp eq ptr %0, null
   br i1 %5, label %897, label %6
@@ -2735,7 +2735,7 @@ dtdCopy.exit.thread:                              ; preds = %233, %poolCopyStrin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread115, label %4
 
@@ -3695,14 +3695,14 @@ define dso_local void @XML_UseParserAsHandlerArg(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 25, 42) i32 @XML_UseForeignDTD(ptr noundef readnone captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
+define dso_local noundef range(i32 25, 42) i32 @XML_UseForeignDTD(ptr noundef readnone %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %. = select i1 %3, i32 41, i32 25
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @XML_SetReturnNSTriplet(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local void @XML_SetReturnNSTriplet(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -3726,7 +3726,7 @@ define dso_local void @XML_SetReturnNSTriplet(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @XML_SetUserData(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @XML_SetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -3747,7 +3747,7 @@ define dso_local void @XML_SetUserData(ptr noundef captures(address_is_null) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @XML_SetBase(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @XML_SetBase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %poolCopyString.exit.thread, label %4
 
@@ -3810,7 +3810,7 @@ poolCopyString.exit.thread:                       ; preds = %15, %poolCopyString
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @XML_GetBase(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local ptr @XML_GetBase(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3825,7 +3825,7 @@ define dso_local ptr @XML_GetBase(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @XML_GetSpecifiedAttributeCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local i32 @XML_GetSpecifiedAttributeCount(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3840,7 +3840,7 @@ define dso_local i32 @XML_GetSpecifiedAttributeCount(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @XML_GetIdAttributeIndex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local i32 @XML_GetIdAttributeIndex(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3855,7 +3855,7 @@ define dso_local i32 @XML_GetIdAttributeIndex(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetElementHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @XML_SetElementHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -3871,7 +3871,7 @@ define dso_local void @XML_SetElementHandler(ptr noundef writeonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetStartElementHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetStartElementHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3885,7 +3885,7 @@ define dso_local void @XML_SetStartElementHandler(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetEndElementHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetEndElementHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3899,7 +3899,7 @@ define dso_local void @XML_SetEndElementHandler(ptr noundef writeonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetCharacterDataHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetCharacterDataHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3913,7 +3913,7 @@ define dso_local void @XML_SetCharacterDataHandler(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetProcessingInstructionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetProcessingInstructionHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3927,7 +3927,7 @@ define dso_local void @XML_SetProcessingInstructionHandler(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetCommentHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetCommentHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3941,7 +3941,7 @@ define dso_local void @XML_SetCommentHandler(ptr noundef writeonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetCdataSectionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @XML_SetCdataSectionHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -3957,7 +3957,7 @@ define dso_local void @XML_SetCdataSectionHandler(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetStartCdataSectionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetStartCdataSectionHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3971,7 +3971,7 @@ define dso_local void @XML_SetStartCdataSectionHandler(ptr noundef writeonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetEndCdataSectionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetEndCdataSectionHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3985,7 +3985,7 @@ define dso_local void @XML_SetEndCdataSectionHandler(ptr noundef writeonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetDefaultHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetDefaultHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -4001,7 +4001,7 @@ define dso_local void @XML_SetDefaultHandler(ptr noundef writeonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetDefaultHandlerExpand(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetDefaultHandlerExpand(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -4017,7 +4017,7 @@ define dso_local void @XML_SetDefaultHandlerExpand(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetDoctypeDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @XML_SetDoctypeDeclHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -4033,7 +4033,7 @@ define dso_local void @XML_SetDoctypeDeclHandler(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetStartDoctypeDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetStartDoctypeDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4047,7 +4047,7 @@ define dso_local void @XML_SetStartDoctypeDeclHandler(ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetEndDoctypeDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetEndDoctypeDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4061,7 +4061,7 @@ define dso_local void @XML_SetEndDoctypeDeclHandler(ptr noundef writeonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4075,7 +4075,7 @@ define dso_local void @XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetNotationDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetNotationDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4089,7 +4089,7 @@ define dso_local void @XML_SetNotationDeclHandler(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetNamespaceDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @XML_SetNamespaceDeclHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -4105,7 +4105,7 @@ define dso_local void @XML_SetNamespaceDeclHandler(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetStartNamespaceDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetStartNamespaceDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4119,7 +4119,7 @@ define dso_local void @XML_SetStartNamespaceDeclHandler(ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetEndNamespaceDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetEndNamespaceDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4133,7 +4133,7 @@ define dso_local void @XML_SetEndNamespaceDeclHandler(ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetNotStandaloneHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetNotStandaloneHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4147,7 +4147,7 @@ define dso_local void @XML_SetNotStandaloneHandler(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetExternalEntityRefHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetExternalEntityRefHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4177,7 +4177,7 @@ define dso_local void @XML_SetExternalEntityRefHandlerArg(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetSkippedEntityHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetSkippedEntityHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4191,7 +4191,7 @@ define dso_local void @XML_SetSkippedEntityHandler(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetUnknownEncodingHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @XML_SetUnknownEncodingHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -4207,7 +4207,7 @@ define dso_local void @XML_SetUnknownEncodingHandler(ptr noundef writeonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetElementDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetElementDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4221,7 +4221,7 @@ define dso_local void @XML_SetElementDeclHandler(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetAttlistDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetAttlistDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4235,7 +4235,7 @@ define dso_local void @XML_SetAttlistDeclHandler(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetEntityDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetEntityDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4249,7 +4249,7 @@ define dso_local void @XML_SetEntityDeclHandler(ptr noundef writeonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XML_SetXmlDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @XML_SetXmlDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4263,7 +4263,7 @@ define dso_local void @XML_SetXmlDeclHandler(ptr noundef writeonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @XML_SetParamEntityParsing(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @XML_SetParamEntityParsing(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -4286,7 +4286,7 @@ define dso_local range(i32 0, 2) i32 @XML_SetParamEntityParsing(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @XML_SetHashSalt(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @XML_SetHashSalt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %4, %2
@@ -4319,7 +4319,7 @@ tailrecurse:                                      ; preds = %4, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @XML_Parse(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @XML_Parse(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %2, 0
   %or.cond = or i1 %5, %6
@@ -4615,7 +4615,7 @@ generate_hash_secret_salt.exit:                   ; preds = %writeRandomBytes_ge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_GetBuffer(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @XML_GetBuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge.thread, label %4
 
@@ -5112,7 +5112,7 @@ define internal i32 @errorProcessor(ptr noundef readonly captures(none) %0, ptr 
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @XML_StopParser(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @XML_StopParser(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -5319,7 +5319,7 @@ define dso_local range(i32 0, 3) i32 @XML_ResumeParser(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @XML_GetParsingStatus(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
+define dso_local void @XML_GetParsingStatus(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -5334,7 +5334,7 @@ define dso_local void @XML_GetParsingStatus(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @XML_GetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local i32 @XML_GetErrorCode(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -5349,7 +5349,7 @@ define dso_local i32 @XML_GetErrorCode(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @XML_GetCurrentByteIndex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local i64 @XML_GetCurrentByteIndex(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -5376,7 +5376,7 @@ define dso_local i64 @XML_GetCurrentByteIndex(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @XML_GetCurrentByteCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local i32 @XML_GetCurrentByteCount(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -5405,7 +5405,7 @@ define dso_local i32 @XML_GetCurrentByteCount(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @XML_GetInputContext(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define dso_local ptr @XML_GetInputContext(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %25, label %5
 
@@ -5530,7 +5530,7 @@ define dso_local i64 @XML_GetCurrentColumnNumber(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @XML_FreeContentModel(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @XML_FreeContentModel(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -5545,7 +5545,7 @@ define dso_local void @XML_FreeContentModel(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @XML_MemMalloc(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias ptr @XML_MemMalloc(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -5561,7 +5561,7 @@ define dso_local noalias ptr @XML_MemMalloc(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XML_MemRealloc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @XML_MemRealloc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -5577,7 +5577,7 @@ define dso_local ptr @XML_MemRealloc(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @XML_MemFree(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @XML_MemFree(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -5592,7 +5592,7 @@ define dso_local void @XML_MemFree(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @XML_DefaultCurrent(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @XML_DefaultCurrent(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -5850,7 +5850,7 @@ define dso_local noundef nonnull ptr @XML_GetFeatureList() local_unnamed_addr #3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local zeroext range(i8 0, 2) i8 @XML_SetReparseDeferralEnabled(ptr noundef writeonly captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local zeroext range(i8 0, 2) i8 @XML_SetReparseDeferralEnabled(ptr noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
   %.not = icmp ne ptr %0, null
   %or.cond = icmp ult i8 %1, 2
   %or.cond8 = and i1 %.not, %or.cond
@@ -16828,7 +16828,7 @@ is_rfc3986_uri_char.exit:                         ; preds = %96, %96, %96, %96, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @sip24_update(ptr noundef nonnull returned %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #13 {
+define internal fastcc noundef nonnull ptr @sip24_update(ptr noundef nonnull returned %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17744,7 +17744,7 @@ select.unfold:                                    ; preds = %243, %111, %poolApp
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #6 {
+define internal fastcc i64 @hash(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = alloca %struct.siphash, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #23
   br label %tailrecurse.i.i

@@ -1120,7 +1120,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_115TextDiagnostics20FlushDiagnosticsImplERSt6vectorIPKN5clang4ento14PathDiagnosticESaIS6_EEPNS3_22PathDiagnosticConsumer9FilesMadeEENKUljNS2_13FullSourceLocEN4llvm9StringRefENSE_8ArrayRefINS2_11SourceRangeEEENSG_INS2_9FixItHintEEEE_clEjSD_SF_SI_SK_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i32 %2, ptr %3, i64 %4, ptr readonly captures(address) %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #9 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_115TextDiagnostics20FlushDiagnosticsImplERSt6vectorIPKN5clang4ento14PathDiagnosticESaIS6_EEPNS3_22PathDiagnosticConsumer9FilesMadeEENKUljNS2_13FullSourceLocEN4llvm9StringRefENSE_8ArrayRefINS2_11SourceRangeEEENSG_INS2_9FixItHintEEEE_clEjSD_SF_SI_SK_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i32 %2, ptr %3, i64 %4, ptr readonly %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #9 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8

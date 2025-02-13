@@ -856,7 +856,7 @@ return:                                           ; preds = %if.then4, %entry, %
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr noundef captures(none) %in, i64 noundef %inlen, ptr noundef %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef captures(address_is_null) %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_d2i_ex_primitive(ptr noundef nonnull %pval, ptr noundef captures(none) %in, i64 noundef %inlen, ptr noundef %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %ptag.i.i = alloca i32, align 4
   %pclass.i.i = alloca i32, align 4
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %err, %if.then110, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @asn1_check_tlen(ptr noundef writeonly captures(address_is_null) %olen, ptr noundef writeonly captures(address_is_null) %otag, ptr noundef writeonly captures(address_is_null) %oclass, ptr noundef writeonly captures(address_is_null) %inf, ptr noundef writeonly captures(address_is_null) %cst, ptr noundef nonnull captures(none) %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef captures(address_is_null) %ctx) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @asn1_check_tlen(ptr noundef writeonly %olen, ptr noundef writeonly %otag, ptr noundef writeonly %oclass, ptr noundef writeonly %inf, ptr noundef writeonly %cst, ptr noundef nonnull captures(none) %in, i64 noundef %len, i32 noundef %exptag, i32 noundef %expclass, i8 noundef signext %opt, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %ptag = alloca i32, align 4
   %pclass = alloca i32, align 4

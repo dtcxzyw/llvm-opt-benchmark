@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [57 x i8] c"assertion failed: (size_t)BIO_write(in, buf, len) == len\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i64 @time(ptr noundef writeonly captures(address_is_null) %t) local_unnamed_addr #0 {
+define dso_local noundef i64 @time(ptr noundef writeonly %t) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %t, null
   br i1 %cmp.not, label %if.end, label %if.then

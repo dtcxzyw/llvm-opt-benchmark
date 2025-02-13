@@ -253,7 +253,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIPN6Assi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter5clearEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter5clearEv(ptr noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(32) %rFile, ptr noundef captures(address_is_null) %scene, ptr noundef %ioHandler) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(32) %rFile, ptr noundef %scene, ptr noundef %ioHandler) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Archive = alloca %"class.Assimp::ZipArchiveIOSystem", align 8
   %archiveName = alloca %"class.std::__cxx11::basic_string", align 8
@@ -699,7 +699,7 @@ declare void @_ZN6Assimp15Q3BSPFileParserC1ERKNSt7__cxx1112basic_stringIcSt11cha
 declare noundef ptr @_ZNK6Assimp15Q3BSPFileParser8getModelEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter20CreateDataFromImportEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %pModel, ptr noundef captures(address_is_null) %pScene, ptr noundef %pArchive) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter20CreateDataFromImportEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %pModel, ptr noundef %pScene, ptr noundef %pArchive) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %pModel, null
   %cmp2 = icmp eq ptr %pScene, null
@@ -1021,7 +1021,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter11CreateNodesEPKNS_5Q3BSP10Q3BSPModelEP7aiSceneP6aiNode(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %this, ptr noundef readonly captures(address_is_null) %pModel, ptr noundef captures(none) %pScene, ptr noundef %pParent) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter11CreateNodesEPKNS_5Q3BSP10Q3BSPModelEP7aiSceneP6aiNode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef readonly %pModel, ptr noundef captures(none) %pScene, ptr noundef %pParent) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pMesh = alloca ptr, align 8
   %cmp = icmp eq ptr %pModel, null
@@ -1372,7 +1372,7 @@ return:                                           ; preds = %if.then.i.i.i79, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter15createMaterialsEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %this, ptr noundef captures(address_is_null) %pModel, ptr noundef captures(address_is_null) %pScene, ptr noundef %pArchive) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter15createMaterialsEPKNS_5Q3BSP10Q3BSPModelEP7aiScenePNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %pModel, ptr noundef %pScene, ptr noundef %pArchive) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2789,7 +2789,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter14importLightmapEPKNS_5Q3BSP10Q3BSPModelEP7aiSceneP10aiMateriali(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(address_is_null) %pModel, ptr noundef readnone captures(address_is_null) %pScene, ptr noundef %pMatHelper, i32 noundef %lightmapId) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter14importLightmapEPKNS_5Q3BSP10Q3BSPModelEP7aiSceneP10aiMateriali(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly %pModel, ptr noundef readnone %pScene, ptr noundef %pMatHelper, i32 noundef %lightmapId) local_unnamed_addr #5 align 2 {
 entry:
   %name = alloca %struct.aiString, align 4
   %cmp = icmp eq ptr %pModel, null

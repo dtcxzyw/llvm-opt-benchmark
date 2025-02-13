@@ -2364,7 +2364,7 @@ _ZNK6icu_757UVector7indexOfE8UElementia.exit:     ; preds = %for.inc.i, %for.inc
 declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_757UVector7toArrayEPPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef returned writeonly captures(ret: address, provenance) %result) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZNK6icu_757UVector7toArrayEPPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef returned writeonly %result) local_unnamed_addr #12 align 2 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8

@@ -20,7 +20,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemap(ptr noundef captures(none) %destination, ptr noundef readonly captures(address_is_null) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemap(ptr noundef captures(none) %destination, ptr noundef readonly %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -302,7 +302,7 @@ terminate.lpad:                                   ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemapMulti(ptr noundef captures(none) %destination, ptr noundef readonly captures(address_is_null) %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef readonly captures(none) %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemapMulti(ptr noundef captures(none) %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef readonly captures(none) %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -594,7 +594,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_remapVertexBuffer(ptr noundef writeonly captures(address) %destination, ptr noundef readonly captures(address) %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr noundef readonly captures(none) %remap) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @meshopt_remapVertexBuffer(ptr noundef writeonly %destination, ptr noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr noundef readonly captures(none) %remap) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -786,7 +786,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @meshopt_remapIndexBuffer(ptr noundef writeonly captures(none) %destination, ptr noundef readonly captures(address_is_null) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %remap) local_unnamed_addr #4 {
+define dso_local void @meshopt_remapIndexBuffer(ptr noundef writeonly captures(none) %destination, ptr noundef readonly %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %remap) local_unnamed_addr #4 {
 entry:
   %cmp6.not = icmp eq i64 %index_count, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph

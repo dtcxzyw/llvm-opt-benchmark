@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @strnatcmp_ex(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 %1
   %7 = getelementptr inbounds i8, ptr %2, i64 %3
   %8 = icmp eq i64 %1, 0

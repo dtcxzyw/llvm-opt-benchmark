@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @process_trailers_lists(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local void @process_trailers_lists(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !4
   %.not23 = icmp eq ptr %3, %1
   br i1 %.not23, label %._crit_edge, label %.lr.ph
@@ -392,7 +392,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @trailer_set_where(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @trailer_set_where(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.sink.split, label %3
 
@@ -430,7 +430,7 @@ define dso_local range(i32 -1, 1) i32 @trailer_set_where(ptr noundef writeonly c
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @trailer_set_if_exists(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @trailer_set_if_exists(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.sink.split, label %3
 
@@ -470,7 +470,7 @@ define dso_local range(i32 -1, 1) i32 @trailer_set_if_exists(ptr noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @trailer_set_if_missing(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @trailer_set_if_missing(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.sink.split, label %3
 
@@ -1182,7 +1182,7 @@ add_arg_item.exit:                                ; preds = %xstrdup_or_null.exi
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_trailers_from_command_line_args(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local void @parse_trailers_from_command_line_args(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.strbuf, align 8
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca ptr, align 8
@@ -1417,7 +1417,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_trailer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @parse_trailer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %.not = icmp eq i64 %4, -1
   br i1 %.not, label %10, label %6
 
@@ -2433,7 +2433,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_addch.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_trailers(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @free_trailers(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %.not10 = icmp eq ptr %2, %0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -2511,7 +2511,7 @@ define dso_local void @trailer_block_release(ptr noundef captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @format_trailers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @format_trailers(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
@@ -3123,7 +3123,7 @@ declare i32 @run_command(ptr noundef) local_unnamed_addr #4
 declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_item_command(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @apply_item_command(ptr noundef readonly %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.strbuf, align 8
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca %struct.child_process, align 8
@@ -3335,7 +3335,7 @@ define internal fastcc void @add_arg_to_input_list(ptr noundef %0, ptr noundef c
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @check_if_different(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef readnone captures(address) %3) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @check_if_different(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef readnone %3) unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i32, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16

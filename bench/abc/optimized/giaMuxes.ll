@@ -4297,7 +4297,7 @@ Vec_WecPushLevel.exit:
 declare ptr @Abc_NamStart(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Mux_ManFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @Mux_ManFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !81
   tail call void @Abc_NamStop(ptr noundef %3) #26
@@ -8548,7 +8548,7 @@ Vec_IntFreeP.exit:                                ; preds = %73, %.thread.i
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManFindCofs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManFindCofs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val73 = load i32, ptr %4, align 4, !tbaa !34
   %5 = shl nuw i32 1, %.val73

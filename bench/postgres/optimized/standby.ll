@@ -170,7 +170,7 @@ declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 declare void @VirtualXactLockTableCleanup() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.StringInfoData, align 8
@@ -341,7 +341,7 @@ define dso_local void @ResolveRecoveryConflictWithSnapshot(i32 noundef %0, i1 no
 declare ptr @GetConflictingVirtualXIDs(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 8, 11) %1, i32 noundef range(i32 50331648, 134217773) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %0, i32 noundef range(i32 8, 11) %1, i32 noundef range(i32 50331648, 134217773) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4

@@ -5816,7 +5816,7 @@ _ZNSt6vectorImSaImEED2Ev.exit516:                 ; preds = %ehcleanup207, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader19BuildCamerasForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %this, ptr noundef nonnull align 8 dereferenceable(772) %pParser, ptr noundef readonly captures(none) %pNode, ptr noundef readonly captures(address) %pTarget) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader19BuildCamerasForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %this, ptr noundef nonnull align 8 dereferenceable(772) %pParser, ptr noundef readonly captures(none) %pNode, ptr noundef readonly %pTarget) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mCameras = getelementptr inbounds nuw i8, ptr %pNode, i64 200
   %0 = load ptr, ptr %mCameras, align 8
@@ -6080,7 +6080,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader18BuildLightsForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %this, ptr noundef nonnull align 8 dereferenceable(772) %pParser, ptr noundef readonly captures(none) %pNode, ptr noundef readonly captures(address) %pTarget) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader18BuildLightsForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %this, ptr noundef nonnull align 8 dereferenceable(772) %pParser, ptr noundef readonly captures(none) %pNode, ptr noundef readonly %pTarget) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mLights = getelementptr inbounds nuw i8, ptr %pNode, i64 176
   %0 = load ptr, ptr %mLights, align 8

@@ -140,7 +140,7 @@ define noundef i32 @prte_proc_copy(ptr noundef writeonly captures(none) initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_app_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define i32 @prte_app_copy(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_app_context_t_class, i64 56), align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -394,7 +394,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare i32 @prte_pmix_convert_status(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @prte_map_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @prte_map_copy(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 

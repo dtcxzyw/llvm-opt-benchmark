@@ -1252,7 +1252,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @SHA256Type_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @SHA256Type_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -1648,7 +1648,7 @@ Py_DECREF.exit:                                   ; preds = %1, %6, %9
 declare void @python_hashlib_Hacl_Hash_SHA2_free_512(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @SHA512Type_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @SHA512Type_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

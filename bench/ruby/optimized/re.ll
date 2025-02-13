@@ -203,7 +203,7 @@ define dso_local range(i32 -255, 256) i32 @rb_memcicmp(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull readonly captures(address) %4) local_unnamed_addr #1 {
+define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull readonly %4) local_unnamed_addr #1 {
   %6 = alloca [256 x i64], align 16
   %7 = icmp sgt i64 %1, %3
   br i1 %7, label %78, label %8
@@ -1511,7 +1511,7 @@ define hidden i64 @rb_reg_search0(i64 noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_reg_search_set_match(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
+define internal fastcc i64 @rb_reg_search_set_match(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = alloca %struct.rb_reg_onig_match_args, align 8
   %8 = alloca i32, align 4
   %9 = inttoptr i64 %1 to ptr
@@ -7913,7 +7913,7 @@ declare ptr @rb_default_internal_encoding() local_unnamed_addr #3
 declare ptr @rb_default_external_encoding() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_reg_expr_str(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, i32 noundef range(i32 -1, 48) %5) unnamed_addr #1 {
+define internal fastcc void @rb_reg_expr_str(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readnone %4, i32 noundef range(i32 -1, 48) %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
@@ -9210,7 +9210,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_list(ptr noundef n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_bmp(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_bmp(ptr noundef nonnull captures(none) %0, ptr noundef readnone %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 4

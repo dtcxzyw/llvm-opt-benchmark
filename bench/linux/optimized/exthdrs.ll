@@ -1117,7 +1117,7 @@ declare dso_local ptr @sock_kmalloc(ptr noundef, i32 noundef, i32 noundef) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ipv6_renew_options(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #3 align 16 {
+define dso_local ptr @ipv6_renew_options(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.thread19, label %6
 
@@ -1445,7 +1445,7 @@ define dso_local ptr @ipv6_renew_options(ptr noundef %0, ptr noundef readonly ca
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef ptr @__ipv6_fixup_options(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef captures(address, ret: address, provenance) %1) #6 align 16 {
+define dso_local noundef ptr @__ipv6_fixup_options(ptr noundef %0, ptr noundef %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1489,7 +1489,7 @@ define dso_local noundef ptr @__ipv6_fixup_options(ptr noundef captures(address,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef ptr @fl6_update_dst(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(ret: address, provenance) %2) #6 align 16 {
+define dso_local noundef ptr @fl6_update_dst(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2) #6 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %24, label %5
 

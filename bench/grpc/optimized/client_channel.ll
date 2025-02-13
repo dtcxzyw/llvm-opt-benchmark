@@ -3260,7 +3260,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13ClientChannel27ExternalConnectivityWatcher36RemoveWatcherFromExternalWatchersMapEPS0_P12grpc_closureb(ptr noundef %chand, ptr noundef readnone captures(address) %on_complete, i1 noundef zeroext %cancel) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13ClientChannel27ExternalConnectivityWatcher36RemoveWatcherFromExternalWatchersMapEPS0_P12grpc_closureb(ptr noundef %chand, ptr noundef readnone %on_complete, i1 noundef zeroext %cancel) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %external_watchers_mu_ = getelementptr inbounds nuw i8, ptr %chand, i64 560
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %external_watchers_mu_)

@@ -8866,7 +8866,7 @@ if.end:                                           ; preds = %do.body12.i85, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %nfa, ptr noundef captures(address_is_null) %state, ptr noundef %buf, i8 noundef signext %top, i64 noundef %start_off, i64 noundef %len, ptr noundef readonly captures(none) %cb, ptr noundef %ctxt) local_unnamed_addr #1 {
+define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %nfa, ptr noundef %state, ptr noundef %buf, i8 noundef signext %top, i64 noundef %start_off, i64 noundef %len, ptr noundef readonly captures(none) %cb, ptr noundef %ctxt) local_unnamed_addr #1 {
 entry:
   %a.i2138 = alloca <2 x i64>, align 16
   %a.i2133 = alloca <2 x i64>, align 16

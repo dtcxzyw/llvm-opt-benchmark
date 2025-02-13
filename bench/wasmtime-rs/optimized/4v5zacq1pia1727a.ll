@@ -50,7 +50,7 @@ define range(i8 -1, 3) i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..Partial
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h5ad1a1ef0c44f338E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #1 {
+define noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h5ad1a1ef0c44f338E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #1 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = load i64, ptr %1, align 8, !noundef !3
@@ -764,7 +764,7 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %0, i64 %1, ptr readonly align 8 captures(address_is_null) %2, ptr readonly align 2 captures(address_is_null) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %0, i64 %1, ptr readonly align 8 %2, ptr readonly align 2 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca i16, align 2
   %6 = alloca { i8, [31 x i8] }, align 16
   %7 = alloca i16, align 2
@@ -932,7 +932,7 @@ default.unreachable:                              ; preds = %45
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr align 8 %0, i64 %1, ptr readonly align 8 captures(address_is_null) %2, ptr readonly align 8 captures(address_is_null) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr align 8 %0, i64 %1, ptr readonly align 8 %2, ptr readonly align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = getelementptr inbounds i64, ptr %0, i64 %1
   %7 = icmp ne ptr %0, null
@@ -1074,7 +1074,7 @@ define { ptr, i64 } @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$cl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4359db74af2d2730E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1, i64 %2) unnamed_addr #0 {
+define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4359db74af2d2730E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { i8, [31 x i8] }, align 16
   %5 = alloca { i8, [31 x i8] }, align 16
   %6 = alloca { i8, [31 x i8] }, align 16

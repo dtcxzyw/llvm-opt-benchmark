@@ -361,7 +361,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang7CodeGen17TargetCodeGenInfo13g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_124DirectXTargetCodeGenInfo11getHLSLTypeERN5clang7CodeGen13CodeGenModuleEPKNS1_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZNK12_GLOBAL__N_124DirectXTargetCodeGenInfo11getHLSLTypeERN5clang7CodeGen13CodeGenModuleEPKNS1_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.366", align 8
   %5 = alloca [1 x ptr], align 8
   %6 = alloca %"class.llvm::ArrayRef.371", align 8

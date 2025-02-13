@@ -242,7 +242,7 @@ declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(address) %2) #0 align 16 {
+define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1, ptr noundef readnone %2) #0 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
@@ -445,7 +445,7 @@ declare dso_local i64 @acpi_os_acquire_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @acpi_os_release_lock(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_remove_sci_handler(ptr noundef readnone captures(address) %0) #0 align 16 {
+define dso_local i32 @acpi_remove_sci_handler(ptr noundef readnone %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -746,7 +746,7 @@ define dso_local i32 @acpi_install_gpe_raw_handler(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_remove_gpe_handler(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(address) %2) #0 align 16 {
+define dso_local i32 @acpi_remove_gpe_handler(ptr noundef %0, i32 noundef %1, ptr noundef readnone %2) #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %56, label %5
 
@@ -853,7 +853,7 @@ declare dso_local i32 @acpi_ev_add_gpe_reference(ptr noundef, i8 noundef zeroext
 declare dso_local i32 @acpi_ev_detect_gpe(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_acquire_global_lock(i16 noundef zeroext %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
+define dso_local i32 @acpi_acquire_global_lock(i16 noundef zeroext %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %13, label %4
 

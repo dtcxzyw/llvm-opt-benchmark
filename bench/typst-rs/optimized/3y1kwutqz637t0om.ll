@@ -1205,7 +1205,7 @@ define hidden noundef double @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hf5981804e64194e4E.llvm.12347738516519586362"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(1024) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hf5981804e64194e4E.llvm.12347738516519586362"(ptr noalias noundef readonly returned align 2 dereferenceable(1024) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -6305,7 +6305,7 @@ _ZN9typst_pdf7deflate17h92d94c5f2a53d74bE.exit.i: ; preds = %134
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h67b650aba935d1e2E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(1032) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h67b650aba935d1e2E"(ptr noalias noundef readonly align 8 dereferenceable(1032) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 8, !range !1129, !noundef !26
   %trunc = trunc nuw i16 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2

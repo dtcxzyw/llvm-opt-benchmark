@@ -877,7 +877,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext range(i16 1, 0) %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i16 noundef zeroext range(i16 1, 0) %1) unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -983,7 +983,7 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @netlbl_domhsh_audit_add(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc void @netlbl_domhsh_audit_add(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 align 16 {
   %6 = tail call ptr @netlbl_audit_start_common(i32 noundef 1409, ptr noundef %4) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %52, label %8
@@ -1480,7 +1480,7 @@ declare dso_local void @calipso_doi_putdef(ptr noundef) local_unnamed_addr #1
 declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   %5 = icmp eq ptr %0, null
   br i1 %5, label %46, label %6
@@ -1652,7 +1652,7 @@ declare dso_local ptr @netlbl_af4list_remove(i32 noundef, i32 noundef, ptr nound
 declare dso_local void @synchronize_rcu() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   %5 = icmp eq ptr %0, null
   br i1 %5, label %46, label %6
@@ -1820,7 +1820,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noun
 declare dso_local ptr @netlbl_af6list_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   switch i16 %1, label %56 [
     i16 2, label %4
@@ -2076,7 +2076,7 @@ netlbl_domhsh_remove.exit:                        ; preds = %.loopexit10.i, %13,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local ptr @netlbl_domhsh_getentry(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 16 {
+define dso_local ptr @netlbl_domhsh_getentry(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq i16 %1, 0
   br i1 %3, label %6, label %4
 
@@ -2090,7 +2090,7 @@ define dso_local ptr @netlbl_domhsh_getentry(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @netlbl_domhsh_getentry_af4(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local ptr @netlbl_domhsh_getentry_af4(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call fastcc ptr @netlbl_domhsh_search_def(ptr noundef %0, i16 noundef zeroext 2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %16, label %5
@@ -2119,7 +2119,7 @@ define dso_local ptr @netlbl_domhsh_getentry_af4(ptr noundef captures(address_is
 declare dso_local ptr @netlbl_af4list_search(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @netlbl_domhsh_getentry_af6(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local ptr @netlbl_domhsh_getentry_af6(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call fastcc ptr @netlbl_domhsh_search_def(ptr noundef %0, i16 noundef zeroext 10)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5

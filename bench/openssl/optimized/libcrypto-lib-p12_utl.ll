@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/pkcs12/p12_utl.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %asc, i32 noundef %asclen, ptr noundef writeonly captures(address_is_null) %uni, ptr noundef writeonly captures(address_is_null) %unilen) local_unnamed_addr #0 {
+define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %asc, i32 noundef %asclen, ptr noundef writeonly %uni, ptr noundef writeonly %unilen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %asclen, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -148,7 +148,7 @@ return:                                           ; preds = %if.end6, %entry, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_utf82uni(ptr noundef %asc, i32 noundef %asclen, ptr noundef writeonly captures(address_is_null) %uni, ptr noundef writeonly captures(address_is_null) %unilen) local_unnamed_addr #0 {
+define ptr @OPENSSL_utf82uni(ptr noundef %asc, i32 noundef %asclen, ptr noundef writeonly %uni, ptr noundef writeonly %unilen) local_unnamed_addr #0 {
 entry:
   %utf32chr = alloca i64, align 8
   store i64 0, ptr %utf32chr, align 8

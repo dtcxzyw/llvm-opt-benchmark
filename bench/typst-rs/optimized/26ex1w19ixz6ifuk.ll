@@ -31016,7 +31016,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h05eeb016f8543c8aE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h05eeb016f8543c8aE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -31742,7 +31742,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h1a0346b9ff68affbE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h1a0346b9ff68affbE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -32193,7 +32193,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 16 dereferenceable(112) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h24e07fce5fdeda4eE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readnone align 16 captures(ret: address, provenance) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 16 dereferenceable(112) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h24e07fce5fdeda4eE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readnone align 16 %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   ret ptr %3
 }
@@ -32737,7 +32737,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h2c0f98a91ec51badE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h2c0f98a91ec51badE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -32923,7 +32923,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h37bc9af9f153dc07E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h37bc9af9f153dc07E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -33198,7 +33198,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h452c1bfdabed65c3E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h452c1bfdabed65c3E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -33651,7 +33651,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4bdb35b0deb4bff7E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4bdb35b0deb4bff7E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -34737,7 +34737,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h61027d591675964cE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h61027d591675964cE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -35188,7 +35188,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h6b3bff6e47cde1f4E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h6b3bff6e47cde1f4E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -35639,7 +35639,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h75c8438b996e4333E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h75c8438b996e4333E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -36806,7 +36806,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9cd9a7a436c20292E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9cd9a7a436c20292E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -36901,7 +36901,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f2ecf6ec56732cdE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f2ecf6ec56732cdE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -37174,7 +37174,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17ha43c2fd092cc83adE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17ha43c2fd092cc83adE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -37720,7 +37720,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hb7ce318cb461ba5fE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hb7ce318cb461ba5fE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -38171,7 +38171,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc507e1220481b0b7E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc507e1220481b0b7E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -38980,7 +38980,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd50c67cd5958db4bE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd50c67cd5958db4bE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -39164,13 +39164,13 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hdd939c19a1c60c70E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hdd939c19a1c60c70E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hddeb189d7354c86fE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hddeb189d7354c86fE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -39265,13 +39265,13 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he46a8a3a6f15ea32E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he46a8a3a6f15ea32E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he488aaa97aac3c72E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he488aaa97aac3c72E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -40175,7 +40175,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hefdf28b1602dbe85E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hefdf28b1602dbe85E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -40270,13 +40270,13 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf0994feb1ebcfb40E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf0994feb1ebcfb40E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf269aecc88406d46E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf269aecc88406d46E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -40638,7 +40638,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf868ca9f39a51a02E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf868ca9f39a51a02E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -41004,7 +41004,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hff58bc6af49ff063E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hff58bc6af49ff063E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
@@ -49696,7 +49696,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$typst..foundations..auto..Sm
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN4core4hash4Hash10hash_slice17h3822ad568df95a28E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #10 {
+define hidden void @_ZN4core4hash4Hash10hash_slice17h3822ad568df95a28E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds { { i64, i16, [3 x i16] }, double, double, { i16, i16 }, i16, [1 x i16] }, ptr %0, i64 %1
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -53010,7 +53010,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h052555ce
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h054f575b0a50cb54E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h054f575b0a50cb54E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h234d3500b8885648E.llvm.4622153547959463051.exit
 
@@ -53077,7 +53077,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h08bb248022d604abE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h08bb248022d604abE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h1e1c215f48e9352bE.llvm.4622153547959463051.exit
 
@@ -53107,7 +53107,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h0923d30b4aa5dedeE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h0923d30b4aa5dedeE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h836376e2f2c33835E.llvm.4622153547959463051.exit
 
@@ -53288,7 +53288,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1027d5ef5df15827E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1027d5ef5df15827E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h2dc1296bdc021a77E.llvm.4622153547959463051.exit
 
@@ -53402,7 +53402,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1443b9c4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1470b4930c8fd2faE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1470b4930c8fd2faE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hbf61073eb0a01001E.llvm.4622153547959463051.exit
 
@@ -53566,7 +53566,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1a149b6226a2c496E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1a149b6226a2c496E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h6279a7cfb01ed918E.llvm.4622153547959463051.exit
 
@@ -53703,7 +53703,7 @@ define hidden range(i16 5, 4) i16 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1e28b07ca0e2e710E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1e28b07ca0e2e710E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h57833764a0ddb384E.llvm.4622153547959463051.exit
 
@@ -53809,7 +53809,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7ad0e26143656d5fE.llvm.4622153547959463
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1f0f99515e76f07fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1f0f99515e76f07fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hc27c98e206885f0cE.llvm.4622153547959463051.exit
 
@@ -53970,7 +53970,7 @@ define hidden i32 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2220af1da
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h22b790f500003753E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h22b790f500003753E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h04098acbf7a51f70E.llvm.4622153547959463051.exit
 
@@ -54352,7 +54352,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 16 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2cd2ae60aff61629E.llvm.4622153547959463051"(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 16 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2cd2ae60aff61629E.llvm.4622153547959463051"(ptr noalias noundef readonly align 16 dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h3ef4f06369b4d3edE.llvm.4622153547959463051.exit
 
@@ -54593,7 +54593,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h316a96d1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3259ee50a7578521E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3259ee50a7578521E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h855745a11ae1f607E.llvm.4622153547959463051.exit
 
@@ -54628,7 +54628,7 @@ define hidden noundef range(i8 7, 6) i8 @"_ZN4core6option15Option$LT$T$GT$14unwr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h32da8e19faabfaf9E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h32da8e19faabfaf9E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17ha26f8d4f27926a10E.llvm.4622153547959463051.exit
 
@@ -54714,7 +54714,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h37c9e6e5bd00e00fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h37c9e6e5bd00e00fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hbe8d150c76f639e5E.llvm.4622153547959463051.exit
 
@@ -54810,7 +54810,7 @@ define hidden noundef range(i8 7, 6) i8 @"_ZN4core6option15Option$LT$T$GT$14unwr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3abc1fd2847ca654E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3abc1fd2847ca654E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h0802f24380d72379E.llvm.4622153547959463051.exit
 
@@ -54832,7 +54832,7 @@ _ZN4core3ops8function6FnOnce9call_once17h0802f24380d72379E.llvm.4622153547959463
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3ad2814c2ca5e213E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3ad2814c2ca5e213E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17he6221a79d7ee7657E.llvm.4622153547959463051.exit
 
@@ -54895,7 +54895,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3ce9f1bf
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3d1551b1fd668126E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3d1551b1fd668126E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hf9c2546df91cac1cE.llvm.4622153547959463051.exit
 
@@ -54917,7 +54917,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf9c2546df91cac1cE.llvm.4622153547959463
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3d67eee6a5e3aa56E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3d67eee6a5e3aa56E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h078e8ca07b48bb21E.llvm.4622153547959463051.exit
 
@@ -54988,7 +54988,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h3fc8bfe2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h403bb21a62f41bf1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h403bb21a62f41bf1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h869b1fb9e83ef9fbE.llvm.4622153547959463051.exit
 
@@ -55056,7 +55056,7 @@ define hidden noundef double @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h41d8da53b1ae28cdE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h41d8da53b1ae28cdE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17he3c9fa788c29eb07E.llvm.4622153547959463051.exit
 
@@ -55238,7 +55238,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h47582ed0eabd683dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h47582ed0eabd683dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h2a041d1e21cd759cE.llvm.4622153547959463051.exit
 
@@ -55500,7 +55500,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h4e3cbb2f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h4e3ed80a861d6e5eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h4e3ed80a861d6e5eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hc47c00ae1d684ba7E.llvm.4622153547959463051.exit
 
@@ -55597,7 +55597,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5019af18ffe3dd48E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5019af18ffe3dd48E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17he7eab37755a39509E.llvm.4622153547959463051.exit
 
@@ -55686,7 +55686,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h50ddcf5d37c96910E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h50ddcf5d37c96910E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h75c844908d94db9eE.llvm.4622153547959463051.exit
 
@@ -55733,7 +55733,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6option15Option$LT$T$GT$14un
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h52a9c65143eb774dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h52a9c65143eb774dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hf909fe499fd7f040E.llvm.4622153547959463051.exit
 
@@ -55874,7 +55874,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6option15Option$LT$T$GT$14un
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h53e3d0d44a899c0fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h53e3d0d44a899c0fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hcb3623875b8f268bE.llvm.4622153547959463051.exit
 
@@ -56089,7 +56089,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6option15Option$LT$T$GT$14un
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5817cadd3022df23E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5817cadd3022df23E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h06d1da21a8ce08caE.llvm.4622153547959463051.exit
 
@@ -56119,7 +56119,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h58c2290fb385b876E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h58c2290fb385b876E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h17bb9458a8a5174bE.llvm.4622153547959463051.exit
 
@@ -56199,7 +56199,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h59f657b33a617b12E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h59f657b33a617b12E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hc9f05953908dd394E.llvm.4622153547959463051.exit
 
@@ -56279,7 +56279,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5dd91395a55ce869E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5dd91395a55ce869E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hd69e2e3d846d7f9dE.llvm.4622153547959463051.exit
 
@@ -56330,7 +56330,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5e63d8f7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5e9275fa935c14f5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h5e9275fa935c14f5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h93cf761d4ef09bdcE.llvm.4622153547959463051.exit
 
@@ -56446,7 +56446,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6option15Option$LT$T$GT$14un
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h61b43073e8932c7fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h61b43073e8932c7fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h52f47adc42a25bc5E.llvm.4622153547959463051.exit
 
@@ -56482,7 +56482,7 @@ define hidden noundef range(i8 7, 6) i8 @"_ZN4core6option15Option$LT$T$GT$14unwr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h62e01ff5cfb78c68E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h62e01ff5cfb78c68E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hbda7d55242430758E.llvm.4622153547959463051.exit
 
@@ -56695,7 +56695,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h696e2e7fc1ea0935E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h696e2e7fc1ea0935E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17he0db28c00a620151E.llvm.4622153547959463051.exit
 
@@ -56877,7 +56877,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h712e305d326b836cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h712e305d326b836cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h44cf45609534244bE.llvm.4622153547959463051.exit
 
@@ -56962,7 +56962,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h7253e95ae31256a1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h7253e95ae31256a1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h674c9cc9ce23394bE.llvm.4622153547959463051.exit
 
@@ -57106,7 +57106,7 @@ define hidden noundef range(i8 4, 3) i8 @"_ZN4core6option15Option$LT$T$GT$14unwr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h760232676ca6a7e2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h760232676ca6a7e2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hcba012177d413fe2E.llvm.4622153547959463051.exit
 
@@ -57165,7 +57165,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h77e1e82587f54353E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h77e1e82587f54353E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h0adbe976753838f2E.llvm.4622153547959463051.exit
 
@@ -57258,7 +57258,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd11a2bc685aa0e57E.llvm.4622153547959463
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h798cfdeee4331782E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(80) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h798cfdeee4331782E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(80) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h505b74e8857c03e6E.llvm.4622153547959463051.exit
 
@@ -57596,7 +57596,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8365d620e1d201b2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8365d620e1d201b2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h2f55390bdd4b55feE.llvm.4622153547959463051.exit
 
@@ -57668,7 +57668,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h85e19954fec0e930E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h85e19954fec0e930E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hf23392ea5adb7438E.llvm.4622153547959463051.exit
 
@@ -57747,7 +57747,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8774f18686f14d1cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8774f18686f14d1cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h1c87538fb9d6cc71E.llvm.4622153547959463051.exit
 
@@ -57769,7 +57769,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1c87538fb9d6cc71E.llvm.4622153547959463
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8791b4d50a8fda43E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(80) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8791b4d50a8fda43E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(80) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hab64837f13f29acdE.llvm.4622153547959463051.exit
 
@@ -57923,7 +57923,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6option15Option$LT$T$GT$14un
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8b81206bc4864504E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8b81206bc4864504E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h4590aaf6d47426f4E.llvm.4622153547959463051.exit
 
@@ -57953,7 +57953,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 16 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8c0028d4bf9b9f19E.llvm.4622153547959463051"(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 16 dereferenceable(64) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8c0028d4bf9b9f19E.llvm.4622153547959463051"(ptr noalias noundef readonly align 16 dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h46209201a770fbe0E.llvm.4622153547959463051.exit
 
@@ -58436,7 +58436,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h972fadfe2f6066c2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h972fadfe2f6066c2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h9ad7a19e949f04e1E.llvm.4622153547959463051.exit
 
@@ -58987,7 +58987,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17ha86d053d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17ha875eb7f5dd3e654E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17ha875eb7f5dd3e654E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h7715086eac53eeb9E.llvm.4622153547959463051.exit
 
@@ -59036,7 +59036,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17ha9653674478f5854E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17ha9653674478f5854E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hab28e3ed07c53499E.llvm.4622153547959463051.exit
 
@@ -59208,7 +59208,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hac4ca53b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hacc8de7311695a7dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hacc8de7311695a7dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h57e4e1a0926afd63E.llvm.4622153547959463051.exit
 
@@ -59282,7 +59282,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hafaddc576605ca4bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hafaddc576605ca4bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h981fd577a5a5235fE.llvm.4622153547959463051.exit
 
@@ -59595,7 +59595,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6option15Option$LT$T$GT$14un
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hb5756d6dc0d979a0E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hb5756d6dc0d979a0E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h2fa93d6a5c92d16dE.llvm.4622153547959463051.exit
 
@@ -59722,7 +59722,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hb82759c1d8097dccE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hb82759c1d8097dccE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hf7f9a7fa4b6e7bfaE.llvm.4622153547959463051.exit
 
@@ -59908,7 +59908,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbbcdd3287f7eb91cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbbcdd3287f7eb91cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hb52f4f0dc54d8a0dE.llvm.4622153547959463051.exit
 
@@ -59978,7 +59978,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbe418c59246b4e7eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbe418c59246b4e7eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h34e07735d21fd464E.llvm.4622153547959463051.exit
 
@@ -60293,7 +60293,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcb4e1f5f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcbcda9fe33ec8810E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcbcda9fe33ec8810E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hfbdfff4edd0236a1E.llvm.4622153547959463051.exit
 
@@ -60428,7 +60428,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN4core6option15Option$LT$T$GT$14un
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcf67f3e2992b588eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcf67f3e2992b588eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hfd6929cba2d70d29E.llvm.4622153547959463051.exit
 
@@ -60450,7 +60450,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfd6929cba2d70d29E.llvm.4622153547959463
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcf6b74ecd1dd24ebE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcf6b74ecd1dd24ebE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h05a65a9aad2e3da1E.llvm.4622153547959463051.exit
 
@@ -60535,7 +60535,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hcfb48b36
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hd1ad0b217dc5d50aE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hd1ad0b217dc5d50aE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h42594fcc480dd212E.llvm.4622153547959463051.exit
 
@@ -61050,7 +61050,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hddff1ddcf7de7ccaE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hddff1ddcf7de7ccaE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h2ea53c12084804beE.llvm.4622153547959463051.exit
 
@@ -61269,7 +61269,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17he783d0cc5f5f19deE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17he783d0cc5f5f19deE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h10c1f4f524c50849E.llvm.4622153547959463051.exit
 
@@ -61311,7 +61311,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17he8079ded
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17he86a68f92f6442c3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17he86a68f92f6442c3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hf585ba5f9d98f233E.llvm.4622153547959463051.exit
 
@@ -61521,7 +61521,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hef7679408b69470eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hef7679408b69470eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17hcaf584a18d06b680E.llvm.4622153547959463051.exit
 
@@ -61620,7 +61620,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf25671441bd80c57E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf25671441bd80c57E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h599553d404f8b45bE.llvm.4622153547959463051.exit
 
@@ -61684,7 +61684,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf483ce12db7c2e3dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf483ce12db7c2e3dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h4581bbb51806e848E.llvm.4622153547959463051.exit
 
@@ -61796,7 +61796,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf66fe7b53684abfdE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf66fe7b53684abfdE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h85de08769f1e9a05E.llvm.4622153547959463051.exit
 
@@ -61846,7 +61846,7 @@ define hidden { double, double } @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf7319d3fccb57af1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf7319d3fccb57af1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h1079c98d220da594E.llvm.4622153547959463051.exit
 
@@ -61965,7 +61965,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hfa4f6fd0cdb2177fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hfa4f6fd0cdb2177fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h9c5bce32b8a6c26bE.llvm.4622153547959463051.exit
 
@@ -61987,7 +61987,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9c5bce32b8a6c26bE.llvm.4622153547959463
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hfa7270d0b2befc6eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hfa7270d0b2befc6eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h7e0a7570059f666bE.llvm.4622153547959463051.exit
 
@@ -62208,7 +62208,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hff70aba49aead56aE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hff70aba49aead56aE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZN4core3ops8function6FnOnce9call_once17h29f7a08c343f9204E.llvm.4622153547959463051.exit
 
@@ -69076,7 +69076,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17hff6fbeeb35a3ade4E.ll
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef readonly align 8 captures(address_is_null) %0, i64 noundef %1) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff03b95b4E.llvm.4622153547959463051"(ptr noundef readonly align 8 %0, i64 noundef %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -69091,7 +69091,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hacc2f97ff0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h0048ee0736010536E.llvm.4622153547959463051"(ptr noalias noundef readonly align 2 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h0048ee0736010536E.llvm.4622153547959463051"(ptr noalias noundef readonly align 2 dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17haa9bc0cb758bcc2dE.llvm.4622153547959463051.exit"
 
@@ -69110,7 +69110,7 @@ define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h00b86f190f2bd4a8E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h00b86f190f2bd4a8E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h482ddd680e768866E.llvm.4622153547959463051.exit"
 
@@ -69129,7 +69129,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h120f1a10df1970cfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h120f1a10df1970cfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1cea3746c989f93fE.llvm.4622153547959463051.exit"
 
@@ -69148,7 +69148,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h127aafe9628e7631E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h127aafe9628e7631E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0fe5ce15ac126e36E.llvm.4622153547959463051.exit"
 
@@ -69167,7 +69167,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1315cd2789bfae1eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1315cd2789bfae1eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hecef494fded60537E.llvm.4622153547959463051.exit"
 
@@ -69186,7 +69186,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1409fd9c83a289f9E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1409fd9c83a289f9E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h21868a760bd0118cE.llvm.4622153547959463051.exit"
 
@@ -69205,7 +69205,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h15388375370a811dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h15388375370a811dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hcf959d96b98b0e02E.llvm.4622153547959463051.exit"
 
@@ -69224,7 +69224,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h16beb77eede0ea26E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h16beb77eede0ea26E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hdb93fc51d963a035E.llvm.4622153547959463051.exit"
 
@@ -69243,7 +69243,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h18590dcecc6971e5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h18590dcecc6971e5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hb42370d582a45255E.llvm.4622153547959463051.exit"
 
@@ -69262,7 +69262,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h19432d8463682019E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h19432d8463682019E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h78374a4d5490e22aE.llvm.4622153547959463051.exit"
 
@@ -69281,7 +69281,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1a7c00d190956718E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1a7c00d190956718E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hde2093beedb497dbE.llvm.4622153547959463051.exit"
 
@@ -69300,7 +69300,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h97e5d99e62d0126eE.llvm.4622153547959463051.exit"
 
@@ -69319,7 +69319,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h240ff4c133015998E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h240ff4c133015998E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfd4363c06a0569ffE.llvm.4622153547959463051.exit"
 
@@ -69338,7 +69338,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(3) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h244ca9980ff87ed5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(3) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(3) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h244ca9980ff87ed5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(3) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5960265af3748282E.llvm.4622153547959463051.exit"
 
@@ -69357,7 +69357,7 @@ define hidden noundef align 1 dereferenceable_or_null(3) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2593b4370b7b2d04E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2593b4370b7b2d04E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hc2e0528056d7fadfE.llvm.4622153547959463051.exit"
 
@@ -69376,7 +69376,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h25de34af98e0ddceE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h25de34af98e0ddceE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0e3b15660dbf09cfE.llvm.4622153547959463051.exit"
 
@@ -69395,7 +69395,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h26c933ad8a832244E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h26c933ad8a832244E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8f030db9598d52a8E.llvm.4622153547959463051.exit"
 
@@ -69414,7 +69414,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17he32fb9cd8b9e8005E.llvm.4622153547959463051.exit"
 
@@ -69433,7 +69433,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2b533ddc2006d906E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2b533ddc2006d906E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h63a8cef800659dd9E.llvm.4622153547959463051.exit"
 
@@ -69452,7 +69452,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2c649dd57fd81217E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2c649dd57fd81217E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h02c1242e8dddb656E.llvm.4622153547959463051.exit"
 
@@ -69471,7 +69471,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3004711f86a3b9bdE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3004711f86a3b9bdE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0766a3858dbd91f5E.llvm.4622153547959463051.exit"
 
@@ -69490,7 +69490,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3299d1e7e623079bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3299d1e7e623079bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h473f1fde52c1edeeE.llvm.4622153547959463051.exit"
 
@@ -69509,7 +69509,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(80) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h356e3c5e1e297a46E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(80) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h356e3c5e1e297a46E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8c559ad33176f5ebE.llvm.4622153547959463051.exit"
 
@@ -69528,7 +69528,7 @@ define hidden noundef align 8 dereferenceable_or_null(80) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3a8531c5e4a8023dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3a8531c5e4a8023dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hcfbf4c8dfd948d62E.llvm.4622153547959463051.exit"
 
@@ -69547,7 +69547,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3a8a05551d0cbc36E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3a8a05551d0cbc36E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hda582721bf218e7cE.llvm.4622153547959463051.exit"
 
@@ -69566,7 +69566,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3bfc50ed662636eaE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3bfc50ed662636eaE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hf386e30a1965b642E.llvm.4622153547959463051.exit"
 
@@ -69585,7 +69585,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3dfe56725115e76eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3dfe56725115e76eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hed4a3d274610e8cfE.llvm.4622153547959463051.exit"
 
@@ -69604,7 +69604,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3f38a0133cb9e3fbE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3f38a0133cb9e3fbE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hbfb54b75930126b5E.llvm.4622153547959463051.exit"
 
@@ -69623,7 +69623,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h44dbd80134b13cffE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h44dbd80134b13cffE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hbb9c42f77cf66044E.llvm.4622153547959463051.exit"
 
@@ -69642,7 +69642,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h4cbba9f16c6d86deE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h4cbba9f16c6d86deE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h9e739351886eff5bE.llvm.4622153547959463051.exit"
 
@@ -69661,7 +69661,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h4e14f084bf9cd50bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h4e14f084bf9cd50bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h4a4d1138a39ab83aE.llvm.4622153547959463051.exit"
 
@@ -69680,7 +69680,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h507acdb06f4459e3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h507acdb06f4459e3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h7ae6f8261427b946E.llvm.4622153547959463051.exit"
 
@@ -69699,7 +69699,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h51f5d568957bcf1cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h51f5d568957bcf1cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17he19f6d3dd0893e49E.llvm.4622153547959463051.exit"
 
@@ -69718,7 +69718,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h53122879761311dfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h53122879761311dfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hecd77624aad05ecbE.llvm.4622153547959463051.exit"
 
@@ -69737,7 +69737,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(136) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h53bf6e5317a81438E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(136) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h53bf6e5317a81438E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h697bf4fcfe1ece5aE.llvm.4622153547959463051.exit"
 
@@ -69756,7 +69756,7 @@ define hidden noundef align 8 dereferenceable_or_null(136) ptr @"_ZN4core6option
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h53ee37c8af683573E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h53ee37c8af683573E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1359faec0279c862E.llvm.4622153547959463051.exit"
 
@@ -69775,7 +69775,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5571921448390bbfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(112) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5571921448390bbfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(112) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hb6227ab66579d661E.llvm.4622153547959463051.exit"
 
@@ -69794,7 +69794,7 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN4core6option
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h58f1f38c64d00f20E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h58f1f38c64d00f20E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hcfe3c81884e5233aE.llvm.4622153547959463051.exit"
 
@@ -69813,7 +69813,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5cc4e9f5d8aee519E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5cc4e9f5d8aee519E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hd79830718bb15fa5E.llvm.4622153547959463051.exit"
 
@@ -69832,7 +69832,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5e118efabb69ba13E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5e118efabb69ba13E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hd1eedbabef7ced25E.llvm.4622153547959463051.exit"
 
@@ -69851,7 +69851,7 @@ define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h643f13b909ecdd87E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h643f13b909ecdd87E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hb7b87ad5b06b47bbE.llvm.4622153547959463051.exit"
 
@@ -69870,7 +69870,7 @@ define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h69ef963968e1e9bcE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h69ef963968e1e9bcE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h7984d311169c0261E.llvm.4622153547959463051.exit"
 
@@ -69889,7 +69889,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h6a606c006c8ed0f3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h6a606c006c8ed0f3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hdbd1af7718c29d75E.llvm.4622153547959463051.exit"
 
@@ -69908,7 +69908,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h6e0c0d357e37b800E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h6e0c0d357e37b800E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hef31d4a54e908f91E.llvm.4622153547959463051.exit"
 
@@ -69927,7 +69927,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7088afc174cbc433E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7088afc174cbc433E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h4bf6a690bd097b1fE.llvm.4622153547959463051.exit"
 
@@ -69946,7 +69946,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h71c7791e2047bdc1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h71c7791e2047bdc1E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h75265042509e793cE.llvm.4622153547959463051.exit"
 
@@ -69965,7 +69965,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h75ec70900a0d08aeE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h75ec70900a0d08aeE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hee48424d04c19d7bE.llvm.4622153547959463051.exit"
 
@@ -69984,7 +69984,7 @@ define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h773a68e45a139780E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h773a68e45a139780E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hdf31d56bbbb0865cE.llvm.4622153547959463051.exit"
 
@@ -70003,7 +70003,7 @@ define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7de433884b4c7723E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7de433884b4c7723E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h24176fb923bbcfefE.llvm.4622153547959463051.exit"
 
@@ -70022,7 +70022,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h836d2123461de75cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h836d2123461de75cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha3e5cb08c021aac4E.llvm.4622153547959463051.exit"
 
@@ -70041,7 +70041,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h842e566f50604986E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h842e566f50604986E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha0bc5bda881b266cE.llvm.4622153547959463051.exit"
 
@@ -70060,7 +70060,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h91b5d5ce01cdf0c5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h91b5d5ce01cdf0c5E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h11248491e4d05093E.llvm.4622153547959463051.exit"
 
@@ -70079,7 +70079,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h96b6ca1f36c89d40E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h96b6ca1f36c89d40E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h811e273ff7d85fa6E.llvm.4622153547959463051.exit"
 
@@ -70098,7 +70098,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h9701e365f530cf94E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h9701e365f530cf94E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h81f3bef60046bf6fE.llvm.4622153547959463051.exit"
 
@@ -70117,7 +70117,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h9fccb43218334c1aE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h9fccb43218334c1aE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1b410ca292482150E.llvm.4622153547959463051.exit"
 
@@ -70136,7 +70136,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha320ef319bc2e2dbE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha320ef319bc2e2dbE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h54759b3f3db93cfaE.llvm.4622153547959463051.exit"
 
@@ -70155,7 +70155,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha846025df2736801E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha846025df2736801E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3f5ce0890553b7d7E.llvm.4622153547959463051.exit"
 
@@ -70174,7 +70174,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha888831efe9127ffE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha888831efe9127ffE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h7f62b75501f963d2E.llvm.4622153547959463051.exit"
 
@@ -70193,7 +70193,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hadcb65b0dfb61d17E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hadcb65b0dfb61d17E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h038c74a5f2c30f88E.llvm.4622153547959463051.exit"
 
@@ -70212,7 +70212,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hb6892055410c80acE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hb6892055410c80acE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h7172715ea872e49aE.llvm.4622153547959463051.exit"
 
@@ -70231,7 +70231,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hbb0432625f86a26dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hbb0432625f86a26dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hba811094a15eb68fE.llvm.4622153547959463051.exit"
 
@@ -70250,7 +70250,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hbc611745f924497fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hbc611745f924497fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h20a9e9d2639a64f2E.llvm.4622153547959463051.exit"
 
@@ -70269,7 +70269,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hbd991551e9c95383E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hbd991551e9c95383E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h588ee6d8abfab984E.llvm.4622153547959463051.exit"
 
@@ -70288,7 +70288,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc199e1365d6705dcE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc199e1365d6705dcE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hd49e01753c5e2532E.llvm.4622153547959463051.exit"
 
@@ -70307,7 +70307,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc51173755c1fb57cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc51173755c1fb57cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17he8c691ab447e05c9E.llvm.4622153547959463051.exit"
 
@@ -70326,7 +70326,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc640e038b5fc65edE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc640e038b5fc65edE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hd6ddd916d4497e3dE.llvm.4622153547959463051.exit"
 
@@ -70345,7 +70345,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc950ffac0b8c5caaE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc950ffac0b8c5caaE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h00004ce84fb1916dE.llvm.4622153547959463051.exit"
 
@@ -70364,7 +70364,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hca55d4619c52d2fcE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hca55d4619c52d2fcE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h050bb8e56456aac6E.llvm.4622153547959463051.exit"
 
@@ -70383,7 +70383,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hcc61f0e2fe6e2f77E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hcc61f0e2fe6e2f77E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hcc230a24f136e8a1E.llvm.4622153547959463051.exit"
 
@@ -70402,7 +70402,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(4) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hcc973a10563c9433E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(4) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hcc973a10563c9433E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h05fb98881a13e93fE.llvm.4622153547959463051.exit"
 
@@ -70421,7 +70421,7 @@ define hidden noundef align 1 dereferenceable_or_null(4) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd191f4e580336315E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd191f4e580336315E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h18af5c1c6b32bcbdE.llvm.4622153547959463051.exit"
 
@@ -70440,7 +70440,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 16 dereferenceable_or_null(64) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd77285a289a1530dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable_or_null(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 16 dereferenceable_or_null(64) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd77285a289a1530dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 16 dereferenceable_or_null(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h2e248fcd4c63c7b7E.llvm.4622153547959463051.exit"
 
@@ -70459,7 +70459,7 @@ define hidden noundef align 16 dereferenceable_or_null(64) ptr @"_ZN4core6option
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(6) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd811bb45f0d7a399E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(6) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(6) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd811bb45f0d7a399E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(6) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h11fc60243cf9a062E.llvm.4622153547959463051.exit"
 
@@ -70478,7 +70478,7 @@ define hidden noundef align 1 dereferenceable_or_null(6) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd894f165ea1fb3b4E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hd894f165ea1fb3b4E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0db20718e5ecfefcE.llvm.4622153547959463051.exit"
 
@@ -70497,7 +70497,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hda6bc205a5d0ae6cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hda6bc205a5d0ae6cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hbb1bc9bcede2e14dE.llvm.4622153547959463051.exit"
 
@@ -70516,7 +70516,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hdbd36f77e24dcf2eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hdbd36f77e24dcf2eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha5a655628886bbb1E.llvm.4622153547959463051.exit"
 
@@ -70535,7 +70535,7 @@ define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he0ca4a3c75222697E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he0ca4a3c75222697E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h9090d07d14f04277E.llvm.4622153547959463051.exit"
 
@@ -70554,7 +70554,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(128) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he561cd7e05c868cfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(128) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(128) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he561cd7e05c868cfE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(128) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h28c083fb3b5c4af4E.llvm.4622153547959463051.exit"
 
@@ -70573,7 +70573,7 @@ define hidden noundef align 8 dereferenceable_or_null(128) ptr @"_ZN4core6option
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he7d280b11c9ba8b2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he7d280b11c9ba8b2E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha1cf323f744f6bcaE.llvm.4622153547959463051.exit"
 
@@ -70592,7 +70592,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he884ab4370b3cc15E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17he884ab4370b3cc15E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0dd4ccddb3e18586E.llvm.4622153547959463051.exit"
 
@@ -70611,7 +70611,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hea59ec7c35703323E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hea59ec7c35703323E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5351f857738deb7bE.llvm.4622153547959463051.exit"
 
@@ -70630,7 +70630,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6ba1f8397262fe4cE.llvm.4622153547959463051.exit"
 
@@ -70649,7 +70649,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf3690cd3f541a162E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf3690cd3f541a162E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0c6d844d2952b9e6E.llvm.4622153547959463051.exit"
 
@@ -70668,7 +70668,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(12) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf6866a5c8ac02c57E.llvm.4622153547959463051"(ptr noalias noundef readonly align 4 captures(ret: address, provenance) dereferenceable_or_null(12) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 4 dereferenceable_or_null(12) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf6866a5c8ac02c57E.llvm.4622153547959463051"(ptr noalias noundef readonly align 4 dereferenceable_or_null(12) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h909ee97f15f4bff6E.llvm.4622153547959463051.exit"
 
@@ -70687,7 +70687,7 @@ define hidden noundef align 4 dereferenceable_or_null(12) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf6b8c462dbe2dee8E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf6b8c462dbe2dee8E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hcc3d871a2d596d80E.llvm.4622153547959463051.exit"
 
@@ -70706,7 +70706,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf8f17e6fef3221d3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 2 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf8f17e6fef3221d3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 2 dereferenceable_or_null(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17haab155a8085d5044E.llvm.4622153547959463051.exit"
 
@@ -70725,7 +70725,7 @@ define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf901e23fa471c676E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf901e23fa471c676E.llvm.4622153547959463051"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b90225821af937cE.llvm.4622153547959463051.exit"
 
@@ -70744,7 +70744,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf91f0e780ca74850E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hf91f0e780ca74850E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h892f04127aa0970fE.llvm.4622153547959463051.exit"
 
@@ -80584,7 +80584,7 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..co
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 16 dereferenceable(112) ptr @"_ZN5typst11foundations6styles6Styles4iter28_$u7b$$u7b$closure$u7d$$u7d$17h47735c9c4b393f6aE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readnone align 16 captures(ret: address, provenance) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 16 dereferenceable(112) ptr @"_ZN5typst11foundations6styles6Styles4iter28_$u7b$$u7b$closure$u7d$$u7d$17h47735c9c4b393f6aE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readnone align 16 %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   ret ptr %3
 }
@@ -125955,7 +125955,7 @@ define hidden noundef i16 @_ZN5typst11foundations6styles10StyleChain3get17hffd52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 16 dereferenceable(64) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h008b6168afa0868cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable_or_null(64) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 16 dereferenceable(64) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h008b6168afa0868cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 16 dereferenceable_or_null(64) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42750)
@@ -126003,7 +126003,7 @@ define hidden noundef nonnull align 16 dereferenceable(64) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h01497fa96f468735E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h01497fa96f468735E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42777)
@@ -126051,7 +126051,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h0285f9c816c8f417E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h0285f9c816c8f417E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42804)
@@ -126099,7 +126099,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 16 dereferenceable(64) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h03d0cbb34d4980f5E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable_or_null(64) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 16 dereferenceable(64) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h03d0cbb34d4980f5E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 16 dereferenceable_or_null(64) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42831)
@@ -126147,7 +126147,7 @@ define hidden noundef nonnull align 16 dereferenceable(64) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h059536ba0b97d686E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h059536ba0b97d686E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42858)
@@ -126195,7 +126195,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h08c548d7fb36899cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h08c548d7fb36899cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42885)
@@ -126243,7 +126243,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h0a41546c9c25d52dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h0a41546c9c25d52dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42912)
@@ -126291,7 +126291,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h0d7906a8db81a59fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h0d7906a8db81a59fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42939)
@@ -126339,7 +126339,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h10147442f5549e11E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h10147442f5549e11E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42966)
@@ -126387,7 +126387,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h12ad09468de4c46bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h12ad09468de4c46bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42993)
@@ -126435,7 +126435,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h182b1b51fcf4ef41E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h182b1b51fcf4ef41E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43020)
@@ -126483,7 +126483,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h1bfe7bd43a1ef9edE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h1bfe7bd43a1ef9edE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43047)
@@ -126531,7 +126531,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h1c7682360f670a61E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h1c7682360f670a61E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43074)
@@ -126579,7 +126579,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h1e265826b6da25ddE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h1e265826b6da25ddE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43101)
@@ -126627,7 +126627,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h232fddb294e1fa5eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h232fddb294e1fa5eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43128)
@@ -126675,7 +126675,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h2911f60bc663f79bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h2911f60bc663f79bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43155)
@@ -126723,7 +126723,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h2f62b467197530f3E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h2f62b467197530f3E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43182)
@@ -126771,7 +126771,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h35357ab400844dcaE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h35357ab400844dcaE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43209)
@@ -126819,7 +126819,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3679e48a6d754ec6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3679e48a6d754ec6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43236)
@@ -126867,7 +126867,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h370a49860634d4bdE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h370a49860634d4bdE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43263)
@@ -126915,7 +126915,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h37ce1fadfe59a9afE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h37ce1fadfe59a9afE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43290)
@@ -126963,7 +126963,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3dab6d81be968ea0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3dab6d81be968ea0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43317)
@@ -127011,7 +127011,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3e74c454e7138776E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3e74c454e7138776E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43344)
@@ -127059,7 +127059,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3fc7a36f359f3213E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h3fc7a36f359f3213E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43371)
@@ -127107,7 +127107,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h4197fdd703fc5cd1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h4197fdd703fc5cd1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43398)
@@ -127155,7 +127155,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h47573f48ee9cfa09E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h47573f48ee9cfa09E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43425)
@@ -127203,7 +127203,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h496300f433ab4457E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h496300f433ab4457E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43452)
@@ -127251,7 +127251,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h4a47b01e2c696e99E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(80) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h4a47b01e2c696e99E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(80) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43479)
@@ -127299,7 +127299,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h4b4281b8fc28f47dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h4b4281b8fc28f47dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43506)
@@ -127347,7 +127347,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h545c4793357c6b08E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h545c4793357c6b08E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43533)
@@ -127395,7 +127395,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h59b18fe35478fb8cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h59b18fe35478fb8cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43560)
@@ -127443,7 +127443,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h61b6559d222ff377E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h61b6559d222ff377E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43587)
@@ -127491,7 +127491,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h6369d319b6bc963bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h6369d319b6bc963bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43614)
@@ -127539,7 +127539,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h679ee765c84dbf2cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h679ee765c84dbf2cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43641)
@@ -127587,7 +127587,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h691139c917b08555E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h691139c917b08555E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43668)
@@ -127635,7 +127635,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h734b028954b8cc38E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h734b028954b8cc38E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43695)
@@ -127683,7 +127683,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h73c4dc781859b01bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h73c4dc781859b01bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43722)
@@ -127731,7 +127731,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h7b3aeb61464cc25bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h7b3aeb61464cc25bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43749)
@@ -127779,7 +127779,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h817fa1e3cc3918d2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h817fa1e3cc3918d2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43776)
@@ -127827,7 +127827,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h84da87f0d792c57dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h84da87f0d792c57dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43803)
@@ -127875,7 +127875,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h861273b1b93f83ceE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h861273b1b93f83ceE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43830)
@@ -127923,7 +127923,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5typst11foundat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h86d6e5303da6acd0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h86d6e5303da6acd0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43857)
@@ -127971,7 +127971,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h8cc25e9887bfd934E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h8cc25e9887bfd934E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43884)
@@ -128019,7 +128019,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h9634eac0d4076347E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h9634eac0d4076347E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43911)
@@ -128067,7 +128067,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h988cdfc211b520b4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(80) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17h988cdfc211b520b4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(80) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43938)
@@ -128115,7 +128115,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17ha026189c5a32d501E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17ha026189c5a32d501E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43965)
@@ -128163,7 +128163,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17ha05d28d2eb17750aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17ha05d28d2eb17750aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43992)
@@ -128211,7 +128211,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17had23c52324405a82E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17had23c52324405a82E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44019)
@@ -128259,7 +128259,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb16a8ac2fa3ad26aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(8) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb16a8ac2fa3ad26aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44046)
@@ -128307,7 +128307,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5typst11foundat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb4814653a441af65E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb4814653a441af65E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44073)
@@ -128355,7 +128355,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb50daac6318bf92bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb50daac6318bf92bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44100)
@@ -128403,7 +128403,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb871a31809194e81E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hb871a31809194e81E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44127)
@@ -128451,7 +128451,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hbc4127d33542528fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hbc4127d33542528fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44154)
@@ -128499,7 +128499,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hbc5a2c6aa5eaba6dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hbc5a2c6aa5eaba6dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44181)
@@ -128547,7 +128547,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hc14dd88f713014a0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hc14dd88f713014a0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44208)
@@ -128595,7 +128595,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hc2b8a7be50819c93E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hc2b8a7be50819c93E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44235)
@@ -128643,7 +128643,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hced7f635098175e7E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hced7f635098175e7E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44262)
@@ -128691,7 +128691,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hd02506dfe45d5105E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hd02506dfe45d5105E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44289)
@@ -128739,7 +128739,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hde7cf9201684b654E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hde7cf9201684b654E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44316)
@@ -128787,7 +128787,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he02a94b58b0c70e7E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he02a94b58b0c70e7E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44343)
@@ -128835,7 +128835,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he2088e4225f52860E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he2088e4225f52860E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44370)
@@ -128883,7 +128883,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he2ab8ce0a4f8398dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he2ab8ce0a4f8398dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44397)
@@ -128931,7 +128931,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he60dd21ce132905dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he60dd21ce132905dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44424)
@@ -128979,7 +128979,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he6aa90d3396720d6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17he6aa90d3396720d6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44451)
@@ -129027,7 +129027,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hf43a3b2de435b6ecE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hf43a3b2de435b6ecE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44478)
@@ -129075,7 +129075,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5typst11founda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hf5760d879699a22bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hf5760d879699a22bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44505)
@@ -129123,7 +129123,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hfaa455213e7e0d6dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hfaa455213e7e0d6dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(136) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44532)
@@ -129171,7 +129171,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN5typst11found
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hfc5235af2cb57103E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5typst11foundations6styles10StyleChain7get_ref17hfc5235af2cb57103E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i8 noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [1 x i64] }, { ptr, [8 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44559)
@@ -150818,145 +150818,145 @@ define hidden noundef zeroext i1 @"_ZN5typst11foundations6styles10StyleChain10pr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h030cd4289581a972E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h030cd4289581a972E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h0579caf930e0b6e4E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h0579caf930e0b6e4E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h0a0a4dd044f89e0eE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h0a0a4dd044f89e0eE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h136bce1aaa9c30c3E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h136bce1aaa9c30c3E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1b8dd9dbcfabfE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1b8dd9dbcfabfE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h39c49cc8138917eeE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h39c49cc8138917eeE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h482cc4d5641df3a7E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h482cc4d5641df3a7E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h54a52e46515b15dbE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h54a52e46515b15dbE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h708439a98c055b48E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h708439a98c055b48E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h710e94da0757c5e8E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h710e94da0757c5e8E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h86a3a0a15871a640E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h86a3a0a15871a640E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h873a9b5e457f654dE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h873a9b5e457f654dE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8a82ecba5871764cE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8a82ecba5871764cE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8fdeaabdd181a969E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8fdeaabdd181a969E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h939860131f6233d0E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h939860131f6233d0E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h96d4a05c1cc275c8E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h96d4a05c1cc275c8E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9f0c6d2a93d2b67eE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9f0c6d2a93d2b67eE.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hc07aba69e17b5751E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hc07aba69e17b5751E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hc0e21533c92c4666E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hc0e21533c92c4666E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd5d6c12737fd45e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd5d6c12737fd45e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdfce1e075b882361E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdfce1e075b882361E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he6bca44301519cc9E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he6bca44301519cc9E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he7bd388f3c603f12E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he7bd388f3c603f12E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hffbe92e451277d44E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hffbe92e451277d44E.llvm.4622153547959463051"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %3
 }

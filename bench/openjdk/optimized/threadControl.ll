@@ -720,7 +720,7 @@ threadState.exit:                                 ; preds = %14, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @findThread(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @findThread(ptr noundef readnone %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -3381,7 +3381,7 @@ define hidden void @threadControl_clearCLEInfo(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @threadControl_cmpCLEInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @threadControl_cmpCLEInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %6) #6
   %7 = tail call zeroext i8 @isVThread(ptr noundef %1) #6

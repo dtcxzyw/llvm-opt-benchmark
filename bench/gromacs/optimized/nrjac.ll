@@ -39,7 +39,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 @.str.12 = private unnamed_addr constant [4 x i8] c"eig\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z6jacobiPPdiS_S0_Pi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %7 = sext i32 %1 to i64

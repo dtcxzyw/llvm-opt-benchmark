@@ -370,7 +370,7 @@ if.end8:                                          ; preds = %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdev_alias_clock(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(address_is_null) %name, ptr noundef %alias_dev, ptr noundef %alias_name) local_unnamed_addr #0 {
+define dso_local ptr @qdev_alias_clock(ptr noundef readonly captures(none) %dev, ptr noundef readonly %name, ptr noundef %alias_dev, ptr noundef %alias_name) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %name, null
   %tobool1 = icmp ne ptr %alias_name, null

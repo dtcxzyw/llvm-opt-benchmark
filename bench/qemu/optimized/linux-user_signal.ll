@@ -392,7 +392,7 @@ declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -512, 1) i32 @do_sigprocmask(i32 noundef %how, ptr noundef %set, ptr noundef writeonly captures(address_is_null) %oldset) local_unnamed_addr #1 {
+define dso_local range(i32 -512, 1) i32 @do_sigprocmask(i32 noundef %how, ptr noundef %set, ptr noundef writeonly %oldset) local_unnamed_addr #1 {
 entry:
   %set.i = alloca %struct.__sigset_t, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -1883,7 +1883,7 @@ if.end20:                                         ; preds = %if.then5, %target_r
 declare ptr @lock_user(i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @do_sigaction(i32 noundef %sig, ptr noundef readonly captures(address_is_null) %act, ptr noundef writeonly captures(address_is_null) %oact, i64 noundef %ka_restorer) local_unnamed_addr #1 {
+define dso_local i32 @do_sigaction(i32 noundef %sig, ptr noundef readonly %act, ptr noundef writeonly %oact, i64 noundef %ka_restorer) local_unnamed_addr #1 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %set.i = alloca %struct.__sigset_t, align 8

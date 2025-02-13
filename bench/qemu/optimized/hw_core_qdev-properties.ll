@@ -128,7 +128,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @object_field_prop_ptr(ptr noundef readnone captures(ret: address, provenance) %obj, ptr noundef readonly captures(none) %prop) local_unnamed_addr #2 {
+define dso_local ptr @object_field_prop_ptr(ptr noundef readnone %obj, ptr noundef readonly captures(none) %prop) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %prop, i64 16
   %0 = load i64, ptr %offset, align 8

@@ -1250,7 +1250,7 @@ define i32 @H5S_get_simple_extent_ndims(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Sget_simple_extent_dims(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5Sget_simple_extent_dims(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1
@@ -1308,7 +1308,7 @@ define range(i32 -1, -2147483648) i32 @H5Sget_simple_extent_dims(i64 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5S_get_simple_extent_dims(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5S_get_simple_extent_dims(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %H5S_extent_get_dims.exit.thread6 [
@@ -1419,7 +1419,7 @@ H5S_extent_get_dims.exit.thread:                  ; preds = %.lr.ph.split.us.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5S_extent_get_dims(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @H5S_extent_get_dims(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %30 [
@@ -1664,7 +1664,7 @@ define range(i32 -1, 2) i32 @H5Sis_simple(i64 noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Sset_extent_simple(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Sset_extent_simple(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @H5_libinit_g, align 1
   %6 = trunc i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1
@@ -1837,7 +1837,7 @@ define range(i32 -1, 1) i32 @H5Sset_extent_simple(i64 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5S_set_extent_simple(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5S_set_extent_simple(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp ugt i32 %1, 32
   br i1 %5, label %6, label %10
 
@@ -1991,7 +1991,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5Screate_simple(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5Screate_simple(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1
@@ -2174,7 +2174,7 @@ H5S_create_simple.exit:                           ; preds = %68
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5S_create_simple(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define ptr @H5S_create_simple(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @H5S_create(i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -2680,7 +2680,7 @@ declare ptr @H5O_msg_copy(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @H5S_select_deserialize(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @H5S_get_simple_extent(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define noundef ptr @H5S_get_simple_extent(ptr noundef readnone returned %0) local_unnamed_addr #5 {
   ret ptr %0
 }
 

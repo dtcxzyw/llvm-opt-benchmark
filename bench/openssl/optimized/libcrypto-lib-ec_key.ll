@@ -837,7 +837,7 @@ return:                                           ; preds = %if.end7, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_key_public_check_quick(ptr noundef readonly captures(address_is_null) %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_public_check_quick(ptr noundef readonly %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %return.sink.split, label %lor.lhs.false
@@ -947,7 +947,7 @@ declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @EC_POINT_is_on_curve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef captures(address_is_null) %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_ec_key_public_check_quick(ptr noundef %eckey, ptr noundef %ctx)
   %tobool.not = icmp eq i32 %call, 0
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %if.end, %entry, %er
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_key_private_check(ptr noundef readonly captures(address_is_null) %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_private_check(ptr noundef readonly %eckey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %return.sink.split, label %lor.lhs.false
@@ -1053,7 +1053,7 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BN_value_one() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_key_pairwise_check(ptr noundef readonly captures(address_is_null) %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_pairwise_check(ptr noundef readonly %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1122,7 +1122,7 @@ return:                                           ; preds = %err, %if.then
 declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_key_simple_check_key(ptr noundef captures(address_is_null) %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_simple_check_key(ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1641,7 +1641,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @EC_KEY_decoded_from_explicit_params(ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #6 {
+define i32 @EC_KEY_decoded_from_explicit_params(ptr noundef readonly %key) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1663,7 +1663,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @EC_KEY_key2buf(ptr noundef readonly captures(address_is_null) %key, i32 noundef %form, ptr noundef %pbuf, ptr noundef %ctx) local_unnamed_addr #0 {
+define i64 @EC_KEY_key2buf(ptr noundef readonly %key, i32 noundef %form, ptr noundef %pbuf, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1692,7 +1692,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EC_KEY_oct2key(ptr noundef captures(address_is_null) %key, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_KEY_oct2key(ptr noundef %key, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false

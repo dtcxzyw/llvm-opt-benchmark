@@ -3427,7 +3427,7 @@ define dso_local i32 @reclaim_clean_pages_from_list(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @shrink_folio_list(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) initializes((0, 44)) %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @shrink_folio_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 44)) %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nodemask_t, align 8
   %8 = alloca %struct.migration_target_control, align 8
@@ -5287,7 +5287,7 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @do_try_to_free_pages(ptr noundef %0, ptr noundef captures(address_is_null) initializes((56, 64)) %1) unnamed_addr #1 align 16 {
+define internal fastcc i64 @do_try_to_free_pages(ptr noundef %0, ptr noundef initializes((56, 64)) %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 43
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -8511,7 +8511,7 @@ declare dso_local ptr @__next_zones_zonelist(ptr noundef, i32 noundef, ptr nound
 declare dso_local void @__delayacct_freepages_start() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #1 align 16 {
+define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.reclaim_stat, align 4

@@ -972,7 +972,7 @@ define dso_local i32 @LLVMRemarkStringGetLen(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @LLVMRemarkDebugLocGetSourceFilePath(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local noundef ptr @LLVMRemarkDebugLocGetSourceFilePath(ptr noundef readnone returned %0) local_unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -991,18 +991,18 @@ define dso_local i32 @LLVMRemarkDebugLocGetSourceColumn(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @LLVMRemarkArgGetKey(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local noundef ptr @LLVMRemarkArgGetKey(ptr noundef readnone returned %0) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @LLVMRemarkArgGetValue(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local nonnull ptr @LLVMRemarkArgGetValue(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMRemarkArgGetDebugLoc(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define dso_local ptr @LLVMRemarkArgGetDebugLoc(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8, !tbaa !54, !range !55, !noundef !56
@@ -1045,25 +1045,25 @@ define dso_local i32 @LLVMRemarkEntryGetType(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @LLVMRemarkEntryGetPassName(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local nonnull ptr @LLVMRemarkEntryGetPassName(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @LLVMRemarkEntryGetRemarkName(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local nonnull ptr @LLVMRemarkEntryGetRemarkName(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @LLVMRemarkEntryGetFunctionName(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local nonnull ptr @LLVMRemarkEntryGetFunctionName(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMRemarkEntryGetDebugLoc(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define dso_local ptr @LLVMRemarkEntryGetDebugLoc(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8, !tbaa !54, !range !55, !noundef !56
@@ -1108,7 +1108,7 @@ define dso_local ptr @LLVMRemarkEntryGetFirstArg(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMRemarkEntryGetNextArg(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define dso_local ptr @LLVMRemarkEntryGetNextArg(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %13, label %4
 

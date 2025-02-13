@@ -97,7 +97,7 @@ skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly captures(address, ret: address, provenance) %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %.not87 = icmp eq i32 %1, 0

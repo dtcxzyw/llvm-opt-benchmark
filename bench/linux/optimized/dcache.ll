@@ -227,7 +227,7 @@ define dso_local void @take_dentry_name_snapshot(ptr noundef initializes((0, 16)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @release_dentry_name_snapshot(ptr noundef readonly captures(address) %0) #1 align 16 {
+define dso_local void @release_dentry_name_snapshot(ptr noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -264,7 +264,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__d_drop(ptr noundef captures(address) %0) #1 align 16 {
+define dso_local void @__d_drop(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -285,7 +285,7 @@ define dso_local void @__d_drop(ptr noundef captures(address) %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @___d_drop(ptr noundef readonly captures(address) %0) unnamed_addr #1 align 16 {
+define internal fastcc void @___d_drop(ptr noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %0
@@ -2684,7 +2684,7 @@ define internal noundef range(i32 0, 2) i32 @find_submount(ptr noundef writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @d_alloc(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 16 {
+define dso_local ptr @d_alloc(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @__d_alloc(ptr noundef %4, ptr noundef %1)
@@ -2724,7 +2724,7 @@ define dso_local ptr @d_alloc(ptr noundef %0, ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__d_alloc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__d_alloc(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr @dentry_cache, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %5 = tail call noalias align 8 ptr @kmem_cache_alloc_lru(ptr noundef %3, ptr noundef nonnull %4, i32 noundef 3264) #17
@@ -2883,7 +2883,7 @@ define dso_local ptr @d_alloc_cursor(ptr noundef %0) local_unnamed_addr #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @d_alloc_pseudo(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @d_alloc_pseudo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call fastcc ptr @__d_alloc(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5, !prof !10
@@ -4623,7 +4623,7 @@ define dso_local zeroext i1 @d_same_name(ptr noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__d_lookup_rcu(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 16 {
+define dso_local ptr @__d_lookup_rcu(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4729,7 +4729,7 @@ define dso_local ptr @__d_lookup_rcu(ptr noundef captures(address) %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__d_lookup_rcu_op_compare(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__d_lookup_rcu_op_compare(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = trunc i64 %4 to i32
   %6 = load ptr, ptr @dentry_hashtable, align 8
@@ -4817,7 +4817,7 @@ define internal fastcc ptr @__d_lookup_rcu_op_compare(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @d_lookup(ptr noundef captures(address) %0, ptr noundef %1) #1 align 16 {
+define dso_local ptr @d_lookup(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %13, %2
@@ -4851,7 +4851,7 @@ define dso_local ptr @d_lookup(ptr noundef captures(address) %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__d_lookup(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @__d_lookup(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = load ptr, ptr @dentry_hashtable, align 8
   %5 = load i32, ptr @d_hash_shift, align 4
@@ -6323,7 +6323,7 @@ define dso_local void @d_exchange(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @d_ancestor(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #9 align 16 {
+define dso_local ptr @d_ancestor(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #9 align 16 {
   br label %3
 
 3:                                                ; preds = %8, %2
@@ -6400,7 +6400,7 @@ define internal fastcc noundef range(i32 -116, 1) i32 @__d_unalias(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @is_subdir(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #1 align 16 {
+define dso_local zeroext i1 @is_subdir(ptr noundef readonly %0, ptr noundef readnone %1) #1 align 16 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %24, label %.preheader2
 
@@ -6458,7 +6458,7 @@ define dso_local void @d_genocide(ptr noundef %0) local_unnamed_addr #1 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 0, 4) i32 @d_genocide_kill(ptr noundef readnone captures(address) %0, ptr noundef captures(address) %1) #7 align 16 {
+define internal noundef range(i32 0, 4) i32 @d_genocide_kill(ptr noundef readnone %0, ptr noundef %1) #7 align 16 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %21, label %4
 
@@ -6928,7 +6928,7 @@ declare dso_local ptr @__lookup_mnt(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @umount_check(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @umount_check(ptr noundef readnone %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

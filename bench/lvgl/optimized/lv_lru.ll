@@ -147,7 +147,7 @@ define void @lv_lru_delete(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 6) i32 @lv_lru_set(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 6) i32 @lv_lru_set(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %146, label %6
 
@@ -599,7 +599,7 @@ lv_lru_remove_item.exit:                          ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @lv_lru_get(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @lv_lru_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %65, label %5
 
@@ -733,7 +733,7 @@ lv_lru_cmp_keys.exit.thread:                      ; preds = %53, %lv_lru_cmp_key
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge25, label %4
 

@@ -2267,7 +2267,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11btRigidBody16addConstraintRefEP17btTypedConstraint(ptr noundef nonnull align 8 captures(address) dereferenceable(744) %this, ptr noundef %c) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN11btRigidBody16addConstraintRefEP17btTypedConstraint(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr noundef %c) local_unnamed_addr #0 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 604
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -2566,7 +2566,7 @@ if.end9:                                          ; preds = %if.end9.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN11btRigidBody19removeConstraintRefEP17btTypedConstraint(ptr noundef nonnull align 8 captures(address) dereferenceable(744) %this, ptr noundef readonly captures(address) %c) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN11btRigidBody19removeConstraintRefEP17btTypedConstraint(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr noundef readonly %c) local_unnamed_addr #14 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 604
   %0 = load i32, ptr %m_size.i.i, align 4

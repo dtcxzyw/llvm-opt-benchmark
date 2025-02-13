@@ -367,7 +367,7 @@ return:                                           ; preds = %while.body12.i, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ChaCha20Poly1305_Decrypt(ptr noundef %inKey, ptr noundef %inIV, ptr noundef %inAAD, i32 noundef %inAADLen, ptr noundef %inCiphertext, i32 noundef %inCiphertextLen, ptr noundef readonly captures(address_is_null) %inAuthTag, ptr noundef %outPlaintext) local_unnamed_addr #0 {
+define i32 @wc_ChaCha20Poly1305_Decrypt(ptr noundef %inKey, ptr noundef %inIV, ptr noundef %inAAD, i32 noundef %inAADLen, ptr noundef %inCiphertext, i32 noundef %inCiphertextLen, ptr noundef readonly %inAuthTag, ptr noundef %outPlaintext) local_unnamed_addr #0 {
 entry:
   %aead = alloca %struct.ChaChaPoly_Aead, align 8
   %calculatedAuthTag = alloca [16 x i8], align 16
@@ -468,7 +468,7 @@ return:                                           ; preds = %if.end, %if.then9, 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly captures(address_is_null) %authTag, ptr noundef readonly captures(address_is_null) %authTagChk) local_unnamed_addr #2 {
+define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly %authTag, ptr noundef readonly %authTagChk) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %authTag, null
   %cmp1 = icmp eq ptr %authTagChk, null

@@ -1224,7 +1224,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load i8, ptr %1, align 8
@@ -5555,7 +5555,7 @@ reflection_function_factory.exit23:               ; preds = %97, %115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_method_factory(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @reflection_method_factory(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr @reflection_method_ptr, align 8
   %6 = tail call i32 @object_init_ex(ptr noundef %3, ptr noundef %5) #13
   %7 = load ptr, ptr %3, align 8
@@ -15352,7 +15352,7 @@ define hidden void @zim_ReflectionClass___toString(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   %6 = alloca %struct.smart_str, align 8
   %7 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.160, ptr noundef %3) #13
@@ -22693,7 +22693,7 @@ define hidden void @zim_ReflectionProperty___toString(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_property_string(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_property_string(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8

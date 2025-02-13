@@ -1498,7 +1498,7 @@ declare void @epan_dissect_fill_in_columns(ptr noundef, i32 noundef, i32 noundef
 declare void @_ZN9ProtoNodeC1EP11_proto_nodePS_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN18AddressEditorFrame15isAddressColumnEP16epan_column_infoi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN18AddressEditorFrame15isAddressColumnEP16epan_column_infoi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = icmp eq ptr %1, null
   %5 = icmp slt i32 %2, 0
   %or.cond = or i1 %4, %5

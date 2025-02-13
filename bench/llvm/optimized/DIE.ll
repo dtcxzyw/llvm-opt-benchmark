@@ -1294,7 +1294,7 @@ _ZNK4llvm3DIE10getUnitDieEv.exit.thread:          ; preds = %select.unfold.i, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm3DIE10getUnitDieEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK4llvm3DIE10getUnitDieEv(ptr noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %select.unfold

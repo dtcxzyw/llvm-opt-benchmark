@@ -4975,7 +4975,7 @@ _ZN11flatbuffers7builder17FlatBufferBuilder14grow_owned_buf17h800bbc37da501967E.
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h226b8c90f0e5c34fE"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h226b8c90f0e5c34fE"(ptr %.0.val) unnamed_addr #5 {
   %1 = alloca [6 x { i64, [2 x i64] }], align 8
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { ptr, [5 x i64] }, align 8
@@ -5018,7 +5018,7 @@ define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7539cef412434b9fE"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7539cef412434b9fE"(ptr %.0.val) unnamed_addr #5 {
   %1 = alloca { ptr, [5 x i64] }, align 8
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = icmp ne ptr %.0.val, null
@@ -5047,7 +5047,7 @@ define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h9356e477cd24dca5E"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h9356e477cd24dca5E"(ptr %.0.val) unnamed_addr #5 {
   %1 = alloca [3 x { i64, [2 x i64] }], align 8
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { ptr, [5 x i64] }, align 8
@@ -5084,7 +5084,7 @@ define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h9ccb7d51cd1e0185E"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h9ccb7d51cd1e0185E"(ptr %.0.val) unnamed_addr #5 {
   %1 = alloca [5 x { i64, [2 x i64] }], align 8
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { ptr, [5 x i64] }, align 8
@@ -5125,7 +5125,7 @@ define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17hdc9b3e8e4e91e8cbE"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17hdc9b3e8e4e91e8cbE"(ptr %.0.val) unnamed_addr #5 {
   %1 = alloca [2 x { i64, [2 x i64] }], align 8
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { ptr, [5 x i64] }, align 8
@@ -5160,7 +5160,7 @@ define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17hef3357b5c255a1b3E"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN11lazy_static4lazy13Lazy$LT$T$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17hef3357b5c255a1b3E"(ptr %.0.val) unnamed_addr #5 {
   %1 = alloca [1 x { i64, [2 x i64] }], align 8
   %2 = alloca { ptr, [5 x i64] }, align 8
   %3 = alloca { ptr, [5 x i64] }, align 8
@@ -19653,7 +19653,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hf091444f8e87583cE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc59b512dc307192fE.llvm.51275720373526900"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hc59b512dc307192fE.llvm.51275720373526900"(ptr noundef nonnull writeonly align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2535)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2538)
@@ -19696,7 +19696,7 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd1f631f41a990b53E.llvm.51275720373526900"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd1f631f41a990b53E.llvm.51275720373526900"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2542)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2545)
   %.not.i.i = icmp eq ptr %1, null
@@ -19734,7 +19734,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17he523df16c70fc76dE"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17he523df16c70fc76dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i64, ptr %0, align 8, !range !1002, !noundef !16
   %trunc = trunc nuw i64 %4 to i1
@@ -19786,7 +19786,7 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hf6a0819303e70704E"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$3get17hf6a0819303e70704E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !1002, !noundef !16
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20097,7 +20097,7 @@ define hidden void @_ZN3std4sync4once4Once9call_once17he5d2646c1a593533E.llvm.51
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h35979e24daacc57dE"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h35979e24daacc57dE"(ptr %.0.val) unnamed_addr #5 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.0.val, align 8, !align !365, !noundef !16
@@ -20116,7 +20116,7 @@ define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closu
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h4f5c0045e1a6abb1E"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h4f5c0045e1a6abb1E"(ptr %.0.val) unnamed_addr #5 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.0.val, align 8, !align !365, !noundef !16
@@ -20135,7 +20135,7 @@ define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closu
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h6c7c01a92b3c0b8aE"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h6c7c01a92b3c0b8aE"(ptr %.0.val) unnamed_addr #5 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.0.val, align 8, !align !365, !noundef !16
@@ -20154,7 +20154,7 @@ define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closu
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h9df9976c671c86bbE"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h9df9976c671c86bbE"(ptr %.0.val) unnamed_addr #5 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.0.val, align 8, !align !365, !noundef !16
@@ -20173,7 +20173,7 @@ define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closu
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hbad2f32c24289b1aE"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hbad2f32c24289b1aE"(ptr %.0.val) unnamed_addr #5 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.0.val, align 8, !align !365, !noundef !16
@@ -20192,7 +20192,7 @@ define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closu
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hf005ce91e6df3ff6E"(ptr captures(address_is_null) %.0.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hf005ce91e6df3ff6E"(ptr %.0.val) unnamed_addr #5 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.0.val, align 8, !align !365, !noundef !16
@@ -30946,7 +30946,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$$LP
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h9019f31dd13e4b2fE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h9019f31dd13e4b2fE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !16, !nonnull !16
@@ -40067,7 +40067,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h5b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort10merge_sort17h31f9d8181ed0fb00E(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort10merge_sort17h31f9d8181ed0fb00E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.6.i.i = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -40715,7 +40715,7 @@ _ZN4core5slice4sort11insert_tail17h34a1ed6e1d9cd6cbE.exit.i: ; preds = %.thread.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort10merge_sort17h6596031d336ccbecE(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort10merge_sort17h6596031d336ccbecE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { ptr, i64, i64, {}, {} }, align 8
@@ -41319,7 +41319,7 @@ _ZN4core5slice4sort20provide_sorted_batch17ha03eae5fe0729118E.exit: ; preds = %.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort10merge_sort17h87cbbad37fa37c1fE(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort10merge_sort17h87cbbad37fa37c1fE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { ptr, i64, i64, {}, {} }, align 8
@@ -42574,7 +42574,7 @@ _ZN4core5slice4sort11insert_tail17h62bbc339cc753d27E.exit.i: ; preds = %.thread.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn uwtable
-define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h528aba9387a55098E"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #17 {
+define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h528aba9387a55098E"(ptr readonly %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #17 {
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6384)
@@ -42714,7 +42714,7 @@ define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$clos
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn uwtable
-define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h6b0cab857ffd5feeE"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #17 {
+define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h6b0cab857ffd5feeE"(ptr readonly %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #17 {
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6429)
@@ -42854,7 +42854,7 @@ define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$clos
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn uwtable
-define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hc958a4f8629b8aa9E"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #17 {
+define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hc958a4f8629b8aa9E"(ptr readonly %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #17 {
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6474)
@@ -44151,7 +44151,7 @@ _ZN4core5slice4sort11insert_tail17h86c5ddc67e4bf1efE.exit: ; preds = %"_ZN115_$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort7recurse17h83ad36b3718daef4E.llvm.51275720373526900(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(address) dereferenceable_or_null(96) %3, i32 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort7recurse17h83ad36b3718daef4E.llvm.51275720373526900(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(96) %3, i32 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.i.i61 = alloca [12 x i64], align 8
   %.sroa.020.i = alloca [12 x i64], align 8
   %.sroa.11.i62 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, align 8
@@ -44864,7 +44864,7 @@ _ZN4core5slice4sort15partition_equal17h5257f56d1b42351dE.exit: ; preds = %247
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort7recurse17hdd6cb72db8853e0cE.llvm.51275720373526900(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(address) dereferenceable_or_null(32) %3, i32 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort7recurse17hdd6cb72db8853e0cE.llvm.51275720373526900(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3, i32 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.i.i61 = alloca [4 x i64], align 8
   %.sroa.020.i = alloca [4 x i64], align 8
   %.sroa.0.i40.i = alloca [4 x i64], align 8
@@ -45558,7 +45558,7 @@ _ZN4core5slice4sort15partition_equal17hee1afa7a7727416eE.exit: ; preds = %244
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort7recurse17hf81655a2a6ebe2beE.llvm.51275720373526900(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(address) dereferenceable_or_null(96) %3, i32 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort7recurse17hf81655a2a6ebe2beE.llvm.51275720373526900(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(96) %3, i32 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.i.i61 = alloca [12 x i64], align 8
   %.sroa.020.i = alloca [12 x i64], align 8
   %.sroa.11.i62 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, align 8

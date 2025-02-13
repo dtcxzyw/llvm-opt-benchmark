@@ -710,7 +710,7 @@ _ZN5quote9to_tokens8ToTokens15to_token_stream17he92f866d986c4051E.llvm.766656764
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h8f75cef7604730e5E.llvm.7666567648687728228"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h8f75cef7604730e5E.llvm.7666567648687728228"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #4 {
   ret ptr %0
 }
 

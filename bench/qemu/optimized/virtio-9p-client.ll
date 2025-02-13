@@ -335,7 +335,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_string_read(ptr noundef captures(none) %req, ptr noundef writeonly captures(address_is_null) %len, ptr noundef captures(address_is_null) %string) local_unnamed_addr #1 {
+define dso_local void @v9fs_string_read(ptr noundef captures(none) %req, ptr noundef writeonly %len, ptr noundef %string) local_unnamed_addr #1 {
 entry:
   %local_len = alloca i16, align 2
   %0 = load ptr, ptr %req, align 8
@@ -928,7 +928,7 @@ if.end94:                                         ; preds = %if.then34, %if.else
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_rversion(ptr noundef %req, ptr noundef writeonly captures(address_is_null) %len, ptr noundef captures(address_is_null) %version) local_unnamed_addr #1 {
+define dso_local void @v9fs_rversion(ptr noundef %req, ptr noundef writeonly %len, ptr noundef %version) local_unnamed_addr #1 {
 entry:
   %local_len.i = alloca i16, align 2
   %msize = alloca i32, align 4
@@ -1586,7 +1586,7 @@ split_free.exit:                                  ; preds = %if.end94, %for.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_rwalk(ptr noundef %req, ptr noundef writeonly captures(address_is_null) %nwqid, ptr noundef writeonly captures(address_is_null) %wqid) local_unnamed_addr #1 {
+define dso_local void @v9fs_rwalk(ptr noundef %req, ptr noundef writeonly %nwqid, ptr noundef writeonly %wqid) local_unnamed_addr #1 {
 entry:
   %local_nwqid = alloca i16, align 2
   tail call void @v9fs_req_recv(ptr noundef %req, i8 noundef zeroext 111)
@@ -2119,7 +2119,7 @@ if.end39:                                         ; preds = %if.else31, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_rreaddir(ptr noundef %req, ptr noundef writeonly captures(address_is_null) %count, ptr noundef writeonly captures(address_is_null) %nentries, ptr noundef writeonly captures(address_is_null) %entries) local_unnamed_addr #1 {
+define dso_local void @v9fs_rreaddir(ptr noundef %req, ptr noundef writeonly %count, ptr noundef writeonly %nentries, ptr noundef writeonly %entries) local_unnamed_addr #1 {
 entry:
   %local_len.i = alloca i16, align 2
   %local_count = alloca i32, align 4

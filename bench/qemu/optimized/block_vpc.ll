@@ -1659,7 +1659,7 @@ declare void @qemu_co_mutex_lock(ptr noundef) #1
 declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2, 2207613189118) i64 @get_image_offset(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 noundef zeroext %write, ptr noundef writeonly captures(address_is_null) %err) #0 {
+define internal range(i64 -2, 2207613189118) i64 @get_image_offset(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 noundef zeroext %write, ptr noundef writeonly %err) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

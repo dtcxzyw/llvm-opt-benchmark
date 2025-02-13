@@ -7174,7 +7174,7 @@ define { ptr, ptr } @"_ZN121_$LT$actix_web..resource..ResourceService$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN9actix_web8resource16ResourceEndpoint3new17h6656ced407c8317aE(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #5 {
+define noundef nonnull ptr @_ZN9actix_web8resource16ResourceEndpoint3new17h6656ced407c8317aE(ptr noundef nonnull readnone returned %0) unnamed_addr #5 {
   ret ptr %0
 }
 

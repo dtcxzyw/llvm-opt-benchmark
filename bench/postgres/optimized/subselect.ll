@@ -1835,7 +1835,7 @@ SS_compute_initplan_cost.exit.thread:             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SS_compute_initplan_cost(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
+define dso_local void @SS_compute_initplan_cost(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3080,7 +3080,7 @@ declare ptr @make_orclause(ptr noundef) local_unnamed_addr #1
 declare ptr @get_cheapest_fractional_path(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_subplan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc ptr @build_subplan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %struct.convert_testexpr_context, align 8
   %11 = alloca %struct.convert_testexpr_context, align 8
   %12 = alloca %struct.process_sublinks_context, align 8
@@ -3569,7 +3569,7 @@ declare i32 @get_promoted_array_type(i32 noundef) local_unnamed_addr #1
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_subquery_params(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc ptr @generate_subquery_params(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3630,7 +3630,7 @@ declare ptr @list_copy(ptr noundef) local_unnamed_addr #1
 declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @testexpr_is_hashable(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @testexpr_is_hashable(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %test_opexpr_is_hashable.exit.thread, label %3
 
@@ -3768,7 +3768,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare i64 @get_hash_memory_limit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @hash_ok_operator(i32 %.4.val, ptr readonly captures(address_is_null) %.32.val) unnamed_addr #0 {
+define internal fastcc zeroext i1 @hash_ok_operator(i32 %.4.val, ptr readonly %.32.val) unnamed_addr #0 {
   %.not.i = icmp eq ptr %.32.val, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 

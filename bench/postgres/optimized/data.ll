@@ -34,7 +34,7 @@ define noundef range(i32 0, -2147483648) i32 @ecpg_hex_dec_len(i32 noundef %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, -1) i32 @ecpg_hex_encode(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+define noundef range(i32 0, -1) i32 @ecpg_hex_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = icmp ult ptr %0, %5

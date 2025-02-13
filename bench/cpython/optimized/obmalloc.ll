@@ -3505,7 +3505,7 @@ mi_heap_recalloc.exit:                            ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_heap_strdup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden noalias ptr @mi_heap_strdup(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %25, label %4
 
@@ -3557,7 +3557,7 @@ mi_heap_malloc.exit:                              ; preds = %4, %8
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden noalias ptr @mi_strdup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = icmp eq ptr %0, null
@@ -6251,7 +6251,7 @@ mi_is_valid_pointer.exit:                         ; preds = %54, %.critedge.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 23) i32 @mi_posix_memalign(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 23) i32 @mi_posix_memalign(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = and i64 %1, 7
   %.not = icmp eq i64 %5, 0
@@ -6578,7 +6578,7 @@ mi_reallocn.exit.thread:                          ; preds = %6, %mi_reallocn.exi
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 23) i32 @mi_reallocarr(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 23) i32 @mi_reallocarr(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -6681,7 +6681,7 @@ mi_expand.exit:                                   ; preds = %_mi_usable_size.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_wcsdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden noalias ptr @mi_wcsdup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %.preheader
 
@@ -6738,7 +6738,7 @@ mi_malloc.exit:                                   ; preds = %6, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_mbsdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden noalias ptr @mi_mbsdup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = icmp eq ptr %0, null
@@ -6789,7 +6789,7 @@ mi_strdup.exit:                                   ; preds = %1, %mi_heap_malloc.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -6879,7 +6879,7 @@ _mi_strlen.exit:                                  ; preds = %.preheader.i
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_mi_strlen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
+define hidden i64 @_mi_strlen(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -6897,7 +6897,7 @@ define hidden i64 @_mi_strlen(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mi_wdupenv_s(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #16 {
+define hidden noundef i32 @mi_wdupenv_s(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readnone %2) local_unnamed_addr #16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -7972,7 +7972,7 @@ define hidden ptr @_mi_arena_alloc(i64 noundef %0, i1 noundef zeroext %1, i1 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @mi_arena_area(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #18 {
+define hidden ptr @mi_arena_area(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -8016,7 +8016,7 @@ define hidden ptr @mi_arena_area(i32 noundef %0, ptr noundef writeonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_arena_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %3, ptr noundef captures(address) %4) local_unnamed_addr #2 {
+define hidden void @_mi_arena_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq i64 %1, 0
   %or.cond3 = or i1 %6, %7
@@ -8267,7 +8267,7 @@ _mi_bitmap_unclaim_across.exit:                   ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_decrease(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #19 {
+define hidden void @_mi_stat_decrease(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = sub i64 0, %1
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %mi_stat_update.exit, label %5
@@ -8351,7 +8351,7 @@ define hidden void @_mi_os_free(ptr noundef %0, i64 noundef %1, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_error_message(i32 noundef %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #2 {
+define hidden void @_mi_error_message(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #55
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -8500,7 +8500,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_arena_schedule_purge(ptr noundef nonnull captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3) unnamed_addr #2 {
+define internal fastcc void @mi_arena_schedule_purge(ptr noundef nonnull captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca %struct.timespec, align 8
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 488), align 8, !tbaa !106
   %7 = icmp eq i32 %6, 0
@@ -8634,7 +8634,7 @@ _mi_bitmap_claim_across.exit:                     ; preds = %63, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) unnamed_addr #2 {
+define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = tail call zeroext i1 @_mi_preloading()
@@ -8944,13 +8944,13 @@ mi_arena_try_purge.exit:                          ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_arena_collect(i1 noundef zeroext %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
+define hidden void @_mi_arena_collect(i1 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #2 {
   tail call fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 noundef zeroext true, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_arena_unsafe_destroy_all(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @_mi_arena_unsafe_destroy_all(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.mi_memid_s, align 8
   %3 = alloca %struct.mi_memid_s, align 8
   %4 = load atomic i64, ptr @mi_arena_count monotonic, align 64
@@ -9030,7 +9030,7 @@ mi_arenas_unsafe_destroy.exit:                    ; preds = %31, %1
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone captures(address) %0) local_unnamed_addr #11 {
+define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone %0) local_unnamed_addr #11 {
   %2 = load atomic i64, ptr @mi_arena_count monotonic, align 64
   %.not2124.not = icmp eq i64 %2, 0
   br i1 %.not2124.not, label %.critedge23, label %.lr.ph
@@ -9069,7 +9069,7 @@ define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca %struct.mi_memid_s, align 8
   %10 = zext i1 %2 to i8
   %11 = zext i1 %3 to i8
@@ -9090,7 +9090,7 @@ define hidden noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %5, ptr noundef writeonly %6) unnamed_addr #2 {
   %8 = alloca %struct.mi_memid_s, align 8
   %9 = zext i1 %2 to i8
   %10 = zext i1 %4 to i8
@@ -9242,7 +9242,7 @@ mi_arena_add.exit:                                ; preds = %83, %78, %76, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
+define hidden range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.mi_memid_s, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -9509,7 +9509,7 @@ mi_os_free_huge_os_pages.exit:                    ; preds = %mi_os_prim_free.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_verbose_message(ptr noundef readonly captures(address_is_null) %0, ...) local_unnamed_addr #2 {
+define hidden void @_mi_verbose_message(ptr noundef readonly %0, ...) local_unnamed_addr #2 {
   %2 = alloca [512 x i8], align 16
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 72), align 8, !tbaa !106
@@ -9768,7 +9768,7 @@ mi_debug_show_bitmap.exit:                        ; preds = %17, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
+define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.mi_memid_s, align 8
@@ -9844,7 +9844,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((0, 24)) %5) local_unnamed_addr #2 {
+define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) initializes((0, 24)) %5) local_unnamed_addr #2 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
@@ -10184,7 +10184,7 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_warning_message(ptr noundef captures(address_is_null) %0, ...) local_unnamed_addr #2 {
+define hidden void @_mi_warning_message(ptr noundef %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 72), align 8, !tbaa !106
   %4 = icmp eq i32 %3, 0
@@ -10301,7 +10301,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %8, %6, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %0, double noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.16)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
@@ -10708,7 +10708,7 @@ _mi_bitmap_try_find_claim_field.exit:             ; preds = %74, %.lr.ph127, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #2 {
   %.not2535.not = icmp eq i64 %1, 0
   br i1 %.not2535.not, label %.critedge, label %.lr.ph
 
@@ -11035,7 +11035,7 @@ mi_bitmap_mask_.exit:                             ; preds = %4, %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_claim(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #21 {
+define hidden zeroext i1 @_mi_bitmap_claim(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #21 {
   %6 = lshr i64 %3, 6
   %7 = and i64 %3, 63
   %8 = icmp ugt i64 %2, 63
@@ -11163,7 +11163,7 @@ mi_bitmap_is_claimedx.exit:                       ; preds = %4, %7, %9
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #19 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #19 {
   %6 = icmp ult i64 %3, 3
   br i1 %6, label %13, label %.preheader
 
@@ -11460,7 +11460,7 @@ mi_bitmap_try_find_claim_field_across.exit:       ; preds = %59, %110
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_claim_across(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #19 {
+define hidden zeroext i1 @_mi_bitmap_claim_across(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #19 {
   %6 = lshr i64 %3, 6
   %7 = and i64 %3, 63
   %8 = add i64 %7, %2
@@ -13251,7 +13251,7 @@ _mi_prim_thread_associate_default_heap.exit:      ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #18 {
+define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %0, @_mi_heap_empty
   %or.cond = and i1 %3, %4
@@ -13299,7 +13299,7 @@ mi_heap_of_block.exit:                            ; preds = %5, %7, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #24 {
+define hidden noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #24 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %mi_heap_visit_pages.exit, label %4
 
@@ -14783,7 +14783,7 @@ _mi_heap_set_default_direct.exit:                 ; preds = %44, %34, %12, %_mi_
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_increase(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #19 {
+define hidden void @_mi_stat_increase(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %mi_stat_update.exit, label %4
 
@@ -14867,7 +14867,7 @@ define hidden void @mi_thread_done() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_thread_done(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
+define hidden void @_mi_thread_done(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = alloca %struct.mi_memid_s, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %8
@@ -16072,7 +16072,7 @@ mi_out_buf_flush.exit:                            ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mi_out_stderr(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #32 {
+define internal void @mi_out_stderr(ptr noundef readonly %0, ptr readnone captures(none) %1) #32 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -16091,7 +16091,7 @@ define internal void @mi_out_stderr(ptr noundef readonly captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_fputs(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden void @_mi_fputs(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = load ptr, ptr @stdout, align 8
   %7 = icmp eq ptr %0, %6
@@ -16140,7 +16140,7 @@ define hidden void @_mi_fputs(ptr noundef readonly captures(address) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_fprintf(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) local_unnamed_addr #2 {
+define hidden void @_mi_fprintf(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ...) local_unnamed_addr #2 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #55
@@ -16197,7 +16197,7 @@ declare void @llvm.va_start.p0(ptr) #33
 declare void @llvm.va_end.p0(ptr) #33
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_trace_message(ptr noundef captures(address_is_null) %0, ...) local_unnamed_addr #2 {
+define hidden void @_mi_trace_message(ptr noundef %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 72), align 8, !tbaa !106
   %4 = icmp eq i32 %3, 0
@@ -16225,7 +16225,7 @@ mi_option_get.exit:                               ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_vfprintf_thread(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc void @mi_vfprintf_thread(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #2 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [64 x i8], align 16
@@ -16414,7 +16414,7 @@ define hidden range(i32 -255, 256) i32 @_mi_strnicmp(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_strlcpy(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #23 {
+define hidden void @_mi_strlcpy(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #23 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -16454,7 +16454,7 @@ define hidden void @_mi_strlcpy(ptr noundef writeonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_strlcat(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #23 {
+define hidden void @_mi_strlcat(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #23 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
@@ -16514,7 +16514,7 @@ _mi_strlcpy.exit:                                 ; preds = %._crit_edge.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_mi_strnlen(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #15 {
+define hidden i64 @_mi_strnlen(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -17112,7 +17112,7 @@ mi_os_decommit_ex.exit:                           ; preds = %3, %_mi_stat_decrea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr readnone captures(none) %3) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr readnone captures(none) %3) local_unnamed_addr #2 {
   %.not30 = icmp eq ptr %2, null
   br i1 %.not30, label %6, label %5
 
@@ -17218,7 +17218,7 @@ mi_os_page_align_areax.exit.thread:               ; preds = %_mi_prim_commit.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_counter_increase(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #21 {
+define hidden void @_mi_stat_counter_increase(ptr noundef %0, i64 noundef %1) local_unnamed_addr #21 {
   %3 = icmp uge ptr %0, @_mi_stats_main
   %4 = icmp ult ptr %0, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
   %5 = select i1 %3, i1 %4, i1 false
@@ -17261,7 +17261,7 @@ define hidden i32 @_mi_prim_commit(ptr noundef %0, i64 noundef %1, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_reset(ptr noundef %0, i64 noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_os_reset(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %1, 0
   %5 = icmp eq ptr %0, null
   %or.cond.i.i = or i1 %5, %4
@@ -17462,7 +17462,7 @@ define hidden i32 @_mi_prim_reset(ptr noundef %0, i64 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_purge_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef captures(address) %3) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_os_purge_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 488), align 8, !tbaa !106
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %mi_option_get.exit, !prof !13
@@ -17681,7 +17681,7 @@ mi_os_decommit_ex.exit:                           ; preds = %112, %109, %mi_alig
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_purge(ptr noundef %0, i64 noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_mi_os_purge(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call zeroext i1 @_mi_os_purge_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true, ptr noundef %2)
   ret i1 %4
 }
@@ -18142,7 +18142,7 @@ define hidden i64 @_mi_bin_size(i8 noundef zeroext %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_page_queue_append(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define hidden i64 @_mi_page_queue_append(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %2, align 8, !tbaa !58
   %5 = icmp eq ptr %4, null
   br i1 %5, label %mi_heap_queue_first_update.exit, label %.preheader
@@ -18402,7 +18402,7 @@ _mi_page_try_use_delayed_free.exit:               ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_mi_page_reclaim(ptr noundef captures(address) %0, ptr noundef initializes((56, 72)) %1) local_unnamed_addr #35 {
+define hidden void @_mi_page_reclaim(ptr noundef %0, ptr noundef initializes((56, 72)) %1) local_unnamed_addr #35 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = icmp sgt i32 %4, -1
@@ -18461,7 +18461,7 @@ mi_page_queue.exit:                               ; preds = %mi_page_block_size.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef initializes((56, 72)) %2) unnamed_addr #35 {
+define internal fastcc void @mi_page_queue_push(ptr noundef %0, ptr noundef %1, ptr noundef initializes((56, 72)) %2) unnamed_addr #35 {
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8, !tbaa !55
   %5 = icmp eq i64 %.val, 131088
@@ -18947,7 +18947,7 @@ mi_heap_page_queue_of.exit:                       ; preds = %4, %17, %20, %22
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #11 {
+define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -19250,7 +19250,7 @@ mi_heap_queue_first_update.exit52:                ; preds = %.lr.ph.i49, %157, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_abandon(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
+define hidden void @_mi_page_abandon(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -19333,7 +19333,7 @@ _mi_segment_page_abandon.exit:                    ; preds = %_mi_stat_increase.e
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #11 {
+define internal fastcc void @mi_page_queue_remove(ptr noundef %0, ptr noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -19581,7 +19581,7 @@ _mi_stat_increase.exit:                           ; preds = %mi_atomic_maxi64_re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_free(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
+define hidden void @_mi_page_free(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %5 = load i8, ptr %4, align 2
   %6 = and i8 %5, -3
@@ -19622,7 +19622,7 @@ _mi_segment_page_free.exit:                       ; preds = %20, %21, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) local_unnamed_addr #2 {
+define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add i64 %4, -1
   %6 = and i64 %5, -33554432
@@ -19652,7 +19652,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define hidden void @_mi_heap_collect_retired(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3032
   %4 = load i64, ptr %3, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3040
@@ -20591,7 +20591,7 @@ define hidden i64 @_mi_commit_mask_next_run(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #36 {
+define hidden ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #36 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !18
   %6 = zext i32 %5 to i64
@@ -20642,7 +20642,7 @@ define hidden void @_mi_segment_thread_collect(ptr noundef readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_page_clear(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_page_clear(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = add i64 %3, -1
   %5 = and i64 %4, -33554432
@@ -21352,7 +21352,7 @@ define hidden void @_mi_abandoned_await_readers(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
+define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 912
   br label %4
 
@@ -21472,7 +21472,7 @@ mi_abandoned_pop.exit.thread:                     ; preds = %12, %9, %mi_abandon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address) %4) unnamed_addr #2 {
+define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #2 {
   %6 = icmp ne ptr %3, null
   br i1 %6, label %7, label %8
 
@@ -21904,7 +21904,7 @@ mi_page_has_any_available.exit:                   ; preds = %200, %206
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_collect(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) local_unnamed_addr #2 {
+define hidden void @_mi_abandoned_collect(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 912
   %5 = load ptr, ptr %4, align 8, !tbaa !266
   br i1 %1, label %6, label %mi_abandoned_visited_revisit.exit
@@ -22121,7 +22121,7 @@ mi_abandoned_visited_push.exit:                   ; preds = %115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @mi_segment_check_free(ptr noundef nonnull %0, i64 noundef range(i64 0, 281474976710656) %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef captures(address) %3) unnamed_addr #2 {
+define internal fastcc zeroext i1 @mi_segment_check_free(ptr noundef nonnull %0, i64 noundef range(i64 0, 281474976710656) %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load i64, ptr %6, align 8, !tbaa !257
@@ -22346,7 +22346,7 @@ mi_page_has_any_available.exit.thread:            ; preds = %103, %mi_page_has_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_try_purge(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) unnamed_addr #2 {
+define internal fastcc void @mi_segment_try_purge(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.mi_commit_mask_s, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -22561,7 +22561,7 @@ mi_usable_size.exit.thread:                       ; preds = %mi_usable_size.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
+define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = icmp ugt i64 %2, 16777216
   br i1 %7, label %8, label %12, !prof !13
@@ -22692,7 +22692,7 @@ mi_segment_huge_page_alloc.exit:                  ; preds = %24, %_mi_segment_pa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_huge_page_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #55
   store ptr null, ptr %6, align 8, !tbaa !47
@@ -22782,7 +22782,7 @@ _mi_align_up.exit:                                ; preds = %46, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 16777217) %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 16777217) %1, i64 noundef range(i64 0, 16777217) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #2 {
   %6 = alloca i8, align 1
   %7 = icmp samesign ugt i64 %1, 524288
   %.neg = select i1 %7, i64 -524288, i64 -65536
@@ -24309,7 +24309,7 @@ define hidden i64 @_mi_clock_now() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #2 {
+define hidden void @mi_process_info(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #2 {
   %9 = alloca %struct.rusage, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = load i64, ptr @mi_process_start, align 8, !tbaa !99
@@ -24657,7 +24657,7 @@ define hidden void @_mi_prim_out_stderr(ptr noundef readonly captures(none) %0) 
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #40 {
+define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #40 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %.preheader.i
 
@@ -24874,7 +24874,7 @@ define hidden void @_mi_prim_thread_init_auto_done() local_unnamed_addr #2 {
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #38
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_pthread_done(ptr noundef captures(address) %0) #2 {
+define internal void @mi_pthread_done(ptr noundef %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -25315,7 +25315,7 @@ define hidden void @_PyMem_ArenaFree(ptr noundef readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyMem_SetDefaultAllocator(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @_PyMem_SetDefaultAllocator(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 768), i8 0, i8 1 seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 1
   br i1 %4, label %_PyMutex_Lock.exit, label %5
@@ -25397,7 +25397,7 @@ _PyMutex_Unlock.exit:                             ; preds = %set_default_allocat
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @_PyMem_GetAllocatorName(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #46 {
+define hidden range(i32 -1, 1) i32 @_PyMem_GetAllocatorName(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #46 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.sink.split, label %4
 
@@ -26199,7 +26199,7 @@ free_delayed.exit:                                ; preds = %4, %8, %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyMem_ProcessDelayed(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @_PyMem_ProcessDelayed(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !487
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -26238,7 +26238,7 @@ process_interp_queue.exit:                        ; preds = %1, %10, %14, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_queue(ptr noundef readonly captures(address) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc void @process_queue(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !489
   %.not7 = icmp eq ptr %4, %0
   br i1 %.not7, label %.critedge.thread, label %.preheader
@@ -26331,7 +26331,7 @@ free_work_item.exit:                              ; preds = %21, %25, %28, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyMem_ProcessDelayedNoDealloc(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define hidden void @_PyMem_ProcessDelayedNoDealloc(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !487
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -26446,7 +26446,7 @@ _PyMutex_Unlock.exit:                             ; preds = %36, %llist_concat.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyMem_FiniDelayed(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
+define hidden void @_PyMem_FiniDelayed(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 79776
   %3 = load ptr, ptr %2, align 8, !tbaa !489
   %.not11 = icmp eq ptr %3, %2
@@ -26586,7 +26586,7 @@ define dso_local void @PyObject_Free(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_PyInterpreterState_GetAllocatedBlocks(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
+define hidden i64 @_PyInterpreterState_GetAllocatedBlocks(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1040), align 8, !tbaa !311
   %.not.i = icmp eq i32 %2, 0
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 864), align 8
@@ -26894,7 +26894,7 @@ get_mimalloc_allocated_blocks.exit:               ; preds = %.loopexit, %.crited
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #47
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyInterpreterState_FinalizeAllocatedBlocks(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @_PyInterpreterState_FinalizeAllocatedBlocks(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1040), align 8, !tbaa !311
   %.not.i = icmp eq i32 %2, 0
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 864), align 8
@@ -29539,7 +29539,7 @@ _mi_heap_malloc_zero.exit:                        ; preds = %.thread, %34, %33, 
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc ptr @mi_arena_try_alloc_at(ptr noundef nonnull captures(address) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
+define internal fastcc ptr @mi_arena_try_alloc_at(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #55
@@ -29957,7 +29957,7 @@ mi_arena_try_claim.exit:                          ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_arena_purge(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3) unnamed_addr #2 {
+define internal fastcc void @mi_arena_purge(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = shl i64 %2, 25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load atomic ptr, ptr %6 seq_cst, align 8, !tbaa !91
@@ -30366,7 +30366,7 @@ mi_stats_print.exit:                              ; preds = %25, %_mi_stat_incre
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mi_out_buf_stderr(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #32 {
+define internal void @mi_out_buf_stderr(ptr noundef readonly %0, ptr readnone captures(none) %1) #32 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %mi_out_buf.exit, label %3
 
@@ -30416,7 +30416,7 @@ mi_out_buf.exit:                                  ; preds = %2, %8, %_mi_strlen.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @mi_out_buf(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) unnamed_addr #11 {
+define internal void @mi_out_buf(ptr noundef readonly %0, ptr readnone captures(none) %1) unnamed_addr #11 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %19, label %4
 
@@ -30582,7 +30582,7 @@ mi_page_queue.exit:                               ; preds = %_mi_os_good_alloc_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 952
@@ -31027,7 +31027,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = add i64 %3, -1
   %5 = and i64 %4, -33554432
@@ -31247,7 +31247,7 @@ mi_segment_span_remove_from_queue.exit45:         ; preds = %102, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_span_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address) %4) unnamed_addr #2 {
+define internal fastcc void @mi_segment_span_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #2 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -31537,7 +31537,7 @@ mi_span_queue_push.exit:                          ; preds = %mi_segment_schedule
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_purge(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address) %3) unnamed_addr #2 {
+define internal fastcc void @mi_segment_purge(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.mi_commit_mask_s, align 8
@@ -31960,7 +31960,7 @@ _mi_stat_increase.exit:                           ; preds = %54, %mi_atomic_maxi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #2 {
+define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #2 {
   %7 = alloca %struct.mi_memid_s, align 8
   %8 = alloca %struct.mi_commit_mask_s, align 8
   %9 = load i64, ptr @mi_os_mem_config.0, align 8, !tbaa !84
@@ -32771,7 +32771,7 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_buffered_out(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #2 {
+define internal void @mi_buffered_out(ptr noundef readonly %0, ptr noundef %1) #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -32891,7 +32891,7 @@ mi_buffered_flush.exit21:                         ; preds = %50, %52, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef range(i64 -1, 2) %2, ptr noundef nonnull %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef range(i64 -1, 2) %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #2 {
   %6 = alloca [32 x i8], align 16
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.138, ptr noundef %1)
   %7 = icmp sgt i64 %2, 0
@@ -32977,7 +32977,7 @@ define internal fastcc void @mi_stat_print_ex(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef range(i64 -1, 2) %1, ptr noundef nonnull %2, ptr noundef captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef range(i64 -1, 2) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #55

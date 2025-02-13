@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [192 x i8] c"assertion failed: (family == AF_UNSPEC || family == BIO_ADDRINFO_family(res)) && (type == 0 || type == BIO_ADDRINFO_socktype(res)) && (protocol == 0 || protocol == BIO_ADDRINFO_protocol(res))\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %sock, ptr noundef %host, ptr noundef %port, ptr noundef %bindhost, ptr noundef %bindport, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, i32 noundef %tfo, i32 noundef %doconn, ptr noundef writeonly captures(address_is_null) %ba_ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %sock, ptr noundef %host, ptr noundef %port, ptr noundef %bindhost, ptr noundef %bindport, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, i32 noundef %tfo, i32 noundef %doconn, ptr noundef writeonly %ba_ret) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   %bindaddr = alloca ptr, align 8
@@ -330,7 +330,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @BIO_ADDRINFO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @get_sock_info_address(i32 noundef %asock, ptr noundef writeonly captures(address_is_null) %hostname, ptr noundef writeonly captures(address_is_null) %service) local_unnamed_addr #0 {
+define void @get_sock_info_address(i32 noundef %asock, ptr noundef writeonly %hostname, ptr noundef writeonly %service) local_unnamed_addr #0 {
 entry:
   %info = alloca %union.BIO_sock_info_u, align 8
   %cmp.not = icmp eq ptr %hostname, null
@@ -487,7 +487,7 @@ declare i32 @getpid() local_unnamed_addr #4
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @do_server(ptr noundef writeonly captures(address_is_null) %accept_sock, ptr noundef %host, ptr noundef %port, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, ptr noundef readonly captures(none) %cb, ptr noundef %context, i32 noundef %naccept, ptr noundef %bio_s_out, i32 noundef %tfo) local_unnamed_addr #0 {
+define i32 @do_server(ptr noundef writeonly %accept_sock, ptr noundef %host, ptr noundef %port, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, ptr noundef readonly captures(none) %cb, ptr noundef %context, i32 noundef %naccept, ptr noundef %bio_s_out, i32 noundef %tfo) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   %sink = alloca [64 x i8], align 16

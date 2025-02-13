@@ -110,7 +110,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_try_cancel(ptr noundef readonly captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local i32 @io_try_cancel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !5
   %6 = and i32 %5, 16711936
@@ -392,7 +392,7 @@ declare dso_local ptr @io_file_get_fixed(ptr noundef, i32 noundef, i32 noundef) 
 declare dso_local ptr @io_file_get_normal(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__io_async_cancel(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @__io_async_cancel(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %.fr = freeze i32 %5

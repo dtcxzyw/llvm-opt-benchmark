@@ -2422,7 +2422,7 @@ declare i32 @krb5_kt_end_seq_get(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @krb5_kt_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 256) #16
@@ -2450,7 +2450,7 @@ kerberos_new_private_data.exit:                   ; preds = %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca %struct.decrypt_krb5_data_state, align 8
   %9 = tail call i32 @tvb_captured_length(ptr noundef %4) #16
   %10 = tail call ptr @tvb_get_ptr(ptr noundef %4, i32 noundef 0, i32 noundef %9) #16

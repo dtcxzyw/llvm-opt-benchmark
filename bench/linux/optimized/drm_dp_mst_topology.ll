@@ -1358,7 +1358,7 @@ drm_dp_free_mst_branch_device.exit:               ; preds = %7, %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_mst_payload_state(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #7 align 16 {
+define dso_local ptr @drm_atomic_get_mst_payload_state(ptr noundef readonly %0, ptr noundef readnone %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %4
 
@@ -1692,7 +1692,7 @@ define dso_local void @drm_dp_mst_connector_early_unregister(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @drm_dp_send_power_updown_phy(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) #3 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_dp_send_power_updown_phy(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #3 align 16 {
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %6 = tail call fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %0, ptr noundef %1)
@@ -1793,7 +1793,7 @@ define dso_local range(i32 -22, 1) i32 @drm_dp_send_power_updown_phy(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
   tail call void @mutex_lock(ptr noundef nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -2097,7 +2097,7 @@ select.unfold:                                    ; preds = %61, %79, %72
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @drm_dp_send_query_stream_enc_status(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef writeonly captures(none) %2) #3 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_dp_send_query_stream_enc_status(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #3 align 16 {
   %4 = alloca %struct.drm_printer, align 8
   %5 = alloca %struct.drm_dp_sideband_msg_req_body, align 8
   %6 = alloca [7 x i8], align 1
@@ -2459,7 +2459,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #5
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_dp_remove_payload_part2(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3) #3 align 16 {
+define dso_local void @drm_dp_remove_payload_part2(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
@@ -3053,7 +3053,7 @@ define dso_local void @drm_dp_mst_topology_mgr_suspend(ptr noundef %0) #3 align 
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @drm_dp_mst_topology_mgr_invalidate_mstb(ptr noundef nonnull captures(address) initializes((72, 73)) %0) unnamed_addr #10 align 16 {
+define internal fastcc void @drm_dp_mst_topology_mgr_invalidate_mstb(ptr noundef nonnull initializes((72, 73)) %0) unnamed_addr #10 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4314,7 +4314,7 @@ define dso_local void @drm_dp_mst_hpd_irq_send_new_request(ptr noundef %0) #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 0) i32 @drm_dp_mst_detect_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) #3 align 16 {
+define dso_local range(i32 1, 0) i32 @drm_dp_mst_detect_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 align 16 {
   %5 = tail call fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %2, ptr noundef %3)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %41, label %7
@@ -4386,7 +4386,7 @@ define dso_local range(i32 1, 0) i32 @drm_dp_mst_detect_port(ptr noundef %0, ptr
 declare dso_local ptr @drm_edid_read_ddc(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_dp_mst_edid_read(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #3 align 16 {
+define dso_local ptr @drm_dp_mst_edid_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
   %4 = tail call fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %1, ptr noundef %2)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -4420,7 +4420,7 @@ define dso_local ptr @drm_dp_mst_edid_read(ptr noundef %0, ptr noundef %1, ptr n
 declare dso_local ptr @drm_edid_dup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_dp_mst_get_edid(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #3 align 16 {
+define dso_local ptr @drm_dp_mst_get_edid(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
   %4 = tail call fastcc ptr @drm_dp_mst_topology_get_port_validated(ptr noundef %1, ptr noundef %2)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -5869,7 +5869,7 @@ declare dso_local i32 @drm_modeset_lock_single_interruptible(ptr noundef) local_
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_dp_mst_port_downstream_of_parent(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) #3 align 16 {
+define dso_local noundef zeroext i1 @drm_dp_mst_port_downstream_of_parent(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 784
   tail call void @mutex_lock(ptr noundef nonnull %4) #21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -6779,7 +6779,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_atomic_check_mgr(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_dp_mst_atomic_check_mstb_bw_limit(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #3 align 16 {
+define internal fastcc i32 @drm_dp_mst_atomic_check_mstb_bw_limit(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -8638,7 +8638,7 @@ declare dso_local i32 @drm_dp_read_desc(ptr noundef, ptr noundef, i1 noundef zer
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc ptr @drm_dp_mst_topology_get_port_validated_locked(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #11 align 16 {
+define internal fastcc ptr @drm_dp_mst_topology_get_port_validated_locked(ptr noundef nonnull readonly %0, ptr noundef readnone %1) unnamed_addr #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -9473,7 +9473,7 @@ drm_dp_get_last_connected_port_to_mstb.exit:      ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_dp_mst_topology_get_mstb_validated(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @drm_dp_mst_topology_get_mstb_validated(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
   tail call void @mutex_lock(ptr noundef nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -9547,7 +9547,7 @@ define internal fastcc ptr @drm_dp_mst_topology_get_mstb_validated(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc ptr @drm_dp_mst_topology_get_mstb_validated_locked(ptr noundef nonnull readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) unnamed_addr #11 align 16 {
+define internal fastcc ptr @drm_dp_mst_topology_get_mstb_validated_locked(ptr noundef nonnull readonly %0, ptr noundef readnone %1) unnamed_addr #11 align 16 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %.loopexit, label %4
 
@@ -12111,7 +12111,7 @@ declare dso_local void @drm_connector_unregister(ptr noundef) local_unnamed_addr
 declare dso_local void @drm_mode_object_put(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc ptr @get_mst_branch_device_by_guid_helper(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #18 align 16 {
+define internal fastcc ptr @get_mst_branch_device_by_guid_helper(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #18 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

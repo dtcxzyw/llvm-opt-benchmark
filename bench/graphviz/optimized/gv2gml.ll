@@ -2755,7 +2755,7 @@ declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 512) i32 @parseStyle(ptr noundef readonly captures(address) %0) unnamed_addr #9 {
+define internal fastcc range(i32 0, 512) i32 @parseStyle(ptr noundef readonly %0) unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %._crit_edge, label %.lr.ph
 

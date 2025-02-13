@@ -156,7 +156,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format22MacroCallReconstructor7addLineERKNS0_13UnwrappedLineE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format22MacroCallReconstructor7addLineERKNS0_13UnwrappedLineE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.anon, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store ptr %0, ptr %3, align 8, !tbaa !25
@@ -166,7 +166,7 @@ define dso_local void @_ZN5clang6format22MacroCallReconstructor7addLineERKNS0_13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang6format12forEachTokenIZNS0_22MacroCallReconstructor7addLineERKNS0_13UnwrappedLineEE3$_0EEvS5_RKT_PNS0_11FormatTokenE"(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(68) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN5clang6format12forEachTokenIZNS0_22MacroCallReconstructor7addLineERKNS0_13UnwrappedLineEE3$_0EEvS5_RKT_PNS0_11FormatTokenE"(ptr noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2) unnamed_addr #0 {
   %.sroa.018.024 = load ptr, ptr %0, align 8, !tbaa !28
   %.not2125 = icmp eq ptr %.sroa.018.024, %0
   br i1 %.not2125, label %._crit_edge, label %.lr.ph28
@@ -844,7 +844,7 @@ _ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11Form
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %3, align 8, !tbaa !15

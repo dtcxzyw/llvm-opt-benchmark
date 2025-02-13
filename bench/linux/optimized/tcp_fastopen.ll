@@ -70,7 +70,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @tcp_fastopen_reset_cipher(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @tcp_fastopen_reset_cipher(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 56) #10
   %7 = icmp eq ptr %6, null
@@ -416,7 +416,7 @@ declare dso_local void @sk_forced_mem_schedule(ptr noundef, i32 noundef) local_u
 declare dso_local void @tcp_fin(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tcp_try_fastopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
+define dso_local ptr @tcp_try_fastopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.tcp_fastopen_cookie, align 8
   %8 = alloca %struct.tcp_fastopen_cookie, align 8

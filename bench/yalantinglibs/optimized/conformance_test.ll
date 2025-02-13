@@ -3770,7 +3770,7 @@ ehcleanup:                                        ; preds = %lpad15, %lpad13
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN6google8protobuf20ConformanceTestSuite13CheckSetEmptyERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKS8_SG_(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %set_to_check, ptr noundef nonnull align 8 dereferenceable(32) %write_to_file, ptr noundef nonnull align 8 dereferenceable(32) %msg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN6google8protobuf20ConformanceTestSuite13CheckSetEmptyERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKS8_SG_(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %set_to_check, ptr noundef nonnull align 8 dereferenceable(32) %write_to_file, ptr noundef nonnull align 8 dereferenceable(32) %msg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i61 = alloca %"class.absl::SimpleAppender", align 8
   %ref.tmp.i40 = alloca %"class.std::allocator", align 1

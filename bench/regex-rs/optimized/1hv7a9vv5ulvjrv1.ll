@@ -491,21 +491,21 @@ define void @_ZN12regex_syntax3hir9translate17TranslatorBuilder5build17h9847d935
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder4utf817h0387294b46fbc869E(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder4utf817h0387294b46fbc869E(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 1
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder15line_terminator17hcc927b884a1ab89aE(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((7, 8)) %0, i8 noundef %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder15line_terminator17hcc927b884a1ab89aE(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((7, 8)) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 %1, ptr %3, align 1
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder16case_insensitive17h5f287f1d3fa8123cE(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((1, 2)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder16case_insensitive17h5f287f1d3fa8123cE(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((1, 2)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %. = select i1 %1, i8 1, i8 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %., ptr %3, align 1
@@ -513,7 +513,7 @@ define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder10multi_line17h16a9a323f628cafcE(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((2, 3)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder10multi_line17h16a9a323f628cafcE(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((2, 3)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %. = select i1 %1, i8 1, i8 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %., ptr %3, align 1
@@ -521,7 +521,7 @@ define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder20dot_matches_new_line17hc582fe82759c2a99E(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((3, 4)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder20dot_matches_new_line17hc582fe82759c2a99E(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((3, 4)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %. = select i1 %1, i8 1, i8 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %., ptr %3, align 1
@@ -529,7 +529,7 @@ define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder4crlf17hb1d01705459567bfE(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((6, 7)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder4crlf17hb1d01705459567bfE(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((6, 7)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %. = select i1 %1, i8 1, i8 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 %., ptr %3, align 1
@@ -537,7 +537,7 @@ define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder10swap_greed17heff8af0e439163cfE(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((4, 5)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder10swap_greed17heff8af0e439163cfE(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((4, 5)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %. = select i1 %1, i8 1, i8 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %., ptr %3, align 1
@@ -545,7 +545,7 @@ define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder7unicode17hfcae6e09bdc686b7E(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(8) initializes((5, 6)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(8) ptr @_ZN12regex_syntax3hir9translate17TranslatorBuilder7unicode17hfcae6e09bdc686b7E(ptr noalias noundef returned writeonly align 1 dereferenceable(8) initializes((5, 6)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %. = select i1 %1, i8 2, i8 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %., ptr %3, align 1

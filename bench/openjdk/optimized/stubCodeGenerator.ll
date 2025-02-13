@@ -86,7 +86,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN12StubCodeMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12StubCodeMarkD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN12StubCodeDesc8desc_forEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12StubCodeDesc8desc_forEPh(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %3, %1

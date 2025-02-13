@@ -464,7 +464,7 @@ define dso_local void @__probestub_initcall_finish(ptr readnone captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_initcall_level(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define internal void @trace_event_raw_event_initcall_level(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
   %3 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -511,7 +511,7 @@ define internal void @trace_event_raw_event_initcall_level(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_initcall_level(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define internal void @perf_trace_initcall_level(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
@@ -1418,7 +1418,7 @@ declare dso_local void @boot_cpu_hotplug_init() local_unnamed_addr #0
 declare dso_local void @jump_label_init() local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @unknown_bootoption(ptr noundef %0, ptr noundef captures(address) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 section ".init.text" align 16 {
+define internal noundef i32 @unknown_bootoption(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 section ".init.text" align 16 {
   %5 = tail call i64 @strlen(ptr noundef %0) #26
   %6 = tail call zeroext i1 @sysctl_is_alias(ptr noundef %0) #26
   br i1 %6, label %55, label %7
@@ -1619,7 +1619,7 @@ define internal fastcc void @print_unknown_bootoptions() unnamed_addr #5 section
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_init_arg(ptr noundef %0, ptr noundef captures(address) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 section ".init.text" align 16 {
+define internal noundef i32 @set_init_arg(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 section ".init.text" align 16 {
   %5 = load ptr, ptr @panic_later, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %22
@@ -2394,7 +2394,7 @@ declare dso_local ptr @memblock_alloc_try_nid(i64 noundef, i64 noundef, i64 noun
 declare dso_local zeroext i1 @sysctl_is_alias(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @repair_env_string(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc void @repair_env_string(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #5 section ".init.text" align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %20, label %4
 

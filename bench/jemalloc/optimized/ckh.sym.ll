@@ -279,7 +279,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @ckh_iter(ptr noundef readonly captures(none) %ckh, ptr noundef captures(none) %tabind, ptr noundef writeonly captures(address_is_null) %key, ptr noundef writeonly captures(address_is_null) %data) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @ckh_iter(ptr noundef readonly captures(none) %ckh, ptr noundef captures(none) %tabind, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %tabind, align 8
   %lg_curbuckets = getelementptr inbounds nuw i8, ptr %ckh, i64 20
@@ -978,7 +978,7 @@ return:                                           ; preds = %ckh_try_bucket_inse
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @ckh_remove(ptr noundef %tsd, ptr noundef captures(none) %ckh, ptr noundef %searchkey, ptr noundef writeonly captures(address_is_null) %key, ptr noundef writeonly captures(address_is_null) %data) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @ckh_remove(ptr noundef %tsd, ptr noundef captures(none) %ckh, ptr noundef %searchkey, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #0 {
 entry:
   %tmp.i.i.i = alloca %struct.rtree_contents_s, align 8
   %key.i.i = alloca ptr, align 8
@@ -1376,7 +1376,7 @@ return:                                           ; preds = %ckh_isearch.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @ckh_search(ptr noundef readonly captures(none) %ckh, ptr noundef %searchkey, ptr noundef writeonly captures(address_is_null) %key, ptr noundef writeonly captures(address_is_null) %data) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @ckh_search(ptr noundef readonly captures(none) %ckh, ptr noundef %searchkey, ptr noundef writeonly %key, ptr noundef writeonly %data) local_unnamed_addr #0 {
 entry:
   %hashes.i = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashes.i)
@@ -1805,7 +1805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @ckh_pointer_keycomp(ptr noundef readnone captures(address) %k1, ptr noundef readnone captures(address) %k2) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @ckh_pointer_keycomp(ptr noundef readnone %k1, ptr noundef readnone %k2) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %k1, %k2
   ret i1 %cmp

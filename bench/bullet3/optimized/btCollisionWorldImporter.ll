@@ -4003,7 +4003,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter13duplicateNameEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter13duplicateNameEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1336) %this, ptr noundef readonly %name) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %return, label %if.then
@@ -7362,7 +7362,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createCollisionObjectERK11btTransformP16btCollisionShapePKc(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %startTransform, ptr noundef %shape, ptr noundef captures(address_is_null) %bodyName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN24btCollisionWorldImporter21createCollisionObjectERK11btTransformP16btCollisionShapePKc(ptr noundef nonnull align 8 dereferenceable(1336) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %startTransform, ptr noundef %shape, ptr noundef %bodyName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %colObj = alloca ptr, align 8
   %newname = alloca ptr, align 8

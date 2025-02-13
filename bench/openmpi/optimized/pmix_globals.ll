@@ -4350,7 +4350,7 @@ declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_
 declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dirpath_destroy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @dirpath_destroy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %dirpath_is_empty.exit.thread, label %5
 

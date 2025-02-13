@@ -39745,7 +39745,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit34: ; preds = %60
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12debug_expand28_$u7b$$u7b$closure$u7d$$u7d$17h9851e46ee3f1421cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12debug_expand28_$u7b$$u7b$closure$u7d$$u7d$17h9851e46ee3f1421cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %.sroa.0.i1632 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -52771,7 +52771,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit492: ; preds = %928
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro11hash_expand28_$u7b$$u7b$closure$u7d$$u7d$17hf6636fb581063a6aE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro11hash_expand28_$u7b$$u7b$closure$u7d$$u7d$17hf6636fb581063a6aE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %.sroa.0.i1725 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8

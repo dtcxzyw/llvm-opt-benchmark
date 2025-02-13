@@ -40948,7 +40948,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hd877f2017fd2af3eE.exit.i.i.i: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h3d414b4bfe026c36E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h3d414b4bfe026c36E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = alloca { { { ptr, i64 }, i64 } }, align 8
   %6 = alloca { { { ptr, i64 }, i64 } }, align 8
@@ -43380,7 +43380,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h77f8c5323aedbd9bE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h77f8c5323aedbd9bE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = icmp ne ptr %2, null
@@ -43618,7 +43618,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h839a90854ef25034E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h839a90854ef25034E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = alloca { { { ptr, i64 }, i64 } }, align 8
   %6 = alloca { { { ptr, i64 }, i64 } }, align 8
@@ -49288,7 +49288,7 @@ define hidden void @"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN119_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..IntoDeserializer$LT$E$GT$$GT$17into_deserializer17h5baefec9a056b57cE.llvm.7819687297340404219"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #13 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN119_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..IntoDeserializer$LT$E$GT$$GT$17into_deserializer17h5baefec9a056b57cE.llvm.7819687297340404219"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #13 {
   ret ptr %0
 }
 
@@ -53314,7 +53314,7 @@ define hidden noalias noundef ptr @_ZN20aws_credential_types8provider11credentia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @"_ZN22aws_smithy_runtime_api4http7request16Request$LT$B$GT$8body_mut17h173492af4bbfc3ebE"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(344) %0) unnamed_addr #13 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @"_ZN22aws_smithy_runtime_api4http7request16Request$LT$B$GT$8body_mut17h173492af4bbfc3ebE"(ptr noalias noundef readnone align 8 dereferenceable(344) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }
@@ -53402,7 +53402,7 @@ define internal void @_ZN3std2io4Read11read_to_end17hd75e72f6f369fc0eE(ptr noali
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN3std2io4Read13read_vectored17hc4cf88f49416eb1eE(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias nonnull readnone align 1 captures(none) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #16 personality ptr @rust_eh_personality {
+define internal void @_ZN3std2io4Read13read_vectored17hc4cf88f49416eb1eE(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias nonnull readnone align 1 captures(none) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #16 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15478)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15481)
   %5 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
@@ -53842,7 +53842,7 @@ _ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3std2io5Write14write_vectored17he9422e4f8bd764d9E(ptr noalias noundef sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std2io5Write14write_vectored17he9422e4f8bd764d9E(ptr noalias noundef sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15549)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15552)
   %5 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
@@ -54141,7 +54141,7 @@ _ZN3std2io7IoSlice14advance_slices17h36998f08bfcdca1dE.exit20.thread: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h1fa7c301fb333434E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h1fa7c301fb333434E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
@@ -54336,7 +54336,7 @@ _ZN3std2io7IoSlice14advance_slices17h36998f08bfcdca1dE.exit21: ; preds = %63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hab67c67800383c8cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hab67c67800383c8cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -57330,7 +57330,7 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17h57d3de07b4ba2af9E.llv
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4core3ops8function5FnMut8call_mut17h5c16768ac77c86f8E.llvm.7819687297340404219(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %1) unnamed_addr #18 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4core3ops8function5FnMut8call_mut17h5c16768ac77c86f8E.llvm.7819687297340404219(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 dereferenceable(32) %1) unnamed_addr #18 {
   ret ptr %1
 }
 
@@ -57728,7 +57728,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f9100ad41c8aeaeE.llvm.7819687297340404219"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %1) unnamed_addr #13 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9f9100ad41c8aeaeE.llvm.7819687297340404219"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 dereferenceable(32) %1) unnamed_addr #13 {
   ret ptr %1
 }
 
@@ -57860,7 +57860,7 @@ define hidden void @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1008drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..node..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..node..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..node..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..node..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5bb9078576a42abE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1008drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..node..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..node..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..node..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..node..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5bb9078576a42abE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -57874,7 +57874,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1012drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..relay..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..relay..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..relay..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..relay..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h075bbb197e274c0aE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1012drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..relay..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..relay..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..relay..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..relay..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h075bbb197e274c0aE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -57882,7 +57882,7 @@ define internal fastcc void @"_ZN4core3ptr1012drop_in_place$LT$core..iter..adapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1012drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..vault..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..vault..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..vault..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..vault..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h254c8cd981a50785E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1012drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..vault..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..vault..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..vault..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..vault..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h254c8cd981a50785E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -57890,7 +57890,7 @@ define internal fastcc void @"_ZN4core3ptr1012drop_in_place$LT$core..iter..adapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1016drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..policy..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..policy..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..policy..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..policy..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he27d212b38cbd7b9E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1016drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..policy..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..policy..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..policy..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..policy..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he27d212b38cbd7b9E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -57926,7 +57926,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1020drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..project..enroll..EnrollCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..project..enroll..EnrollCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..project..enroll..EnrollCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..project..enroll..EnrollCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6ab820d2a5b4acc0E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1020drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..project..enroll..EnrollCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..project..enroll..EnrollCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..project..enroll..EnrollCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..project..enroll..EnrollCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6ab820d2a5b4acc0E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -57934,7 +57934,7 @@ define internal fastcc void @"_ZN4core3ptr1020drop_in_place$LT$core..iter..adapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1024drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..identity..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..identity..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..identity..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..identity..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c9a8a9429b61c79E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1024drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..identity..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..identity..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..identity..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..identity..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c9a8a9429b61c79E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -57995,7 +57995,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1032drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..tcp..inlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..tcp..inlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8190a403f172d4aeE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1032drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..tcp..inlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..tcp..inlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8190a403f172d4aeE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -58003,7 +58003,7 @@ define internal fastcc void @"_ZN4core3ptr1032drop_in_place$LT$core..iter..adapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1036drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..tcp..outlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..tcp..outlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf539d874e5ec7fbE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1036drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..tcp..outlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..tcp..outlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..tcp..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf539d874e5ec7fbE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -58011,7 +58011,7 @@ define internal fastcc void @"_ZN4core3ptr1036drop_in_place$LT$core..iter..adapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1040drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..kafka..inlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..kafka..inlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h136d5caa5183c148E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1040drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..kafka..inlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..kafka..inlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..inlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h136d5caa5183c148E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -58019,7 +58019,7 @@ define internal fastcc void @"_ZN4core3ptr1040drop_in_place$LT$core..iter..adapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1044drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..kafka..outlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..kafka..outlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hef2b8d467ceaf984E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1044drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_command..kafka..outlet..create..CreateCommand$C$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$$LP$$RP$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$C$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$ockam_command..run..parser..resource..traits..ParsedCommand$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_command..kafka..outlet..create..CreateCommand$GT$$C$ockam_command..run..parser..resource..traits..ParsedCommands..new$LT$ockam_command..kafka..outlet..create..CreateCommand$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hef2b8d467ceaf984E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -58196,7 +58196,7 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$$LP$alloc..string.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1119drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$C$ockam_command..node..models..secure_channel..ShowSecureChannelListener$C$$LP$$RP$$C$$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$C$alloc..vec..Vec$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$GT$$C$$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h290bf2519c961e4cE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1119drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$C$ockam_command..node..models..secure_channel..ShowSecureChannelListener$C$$LP$$RP$$C$$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$C$alloc..vec..Vec$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$GT$$C$$LT$ockam_command..node..models..secure_channel..ShowSecureChannelListener$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..secure_channel..ShowSecureChannelListenerResponse$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h290bf2519c961e4cE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -58319,7 +58319,7 @@ define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$$LP$ockam_core..ro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1230drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_identity..identity..verified_change..VerifiedChange$C$ockam_identity..identity..verified_change..VerifiedChange$C$$LP$$RP$$C$$LT$ockam_identity..identity..verified_change..VerifiedChange$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..adapters..map..map_fold$LT$ockam_identity..identity..verified_change..VerifiedChange$C$ockam_command..identity..show..Change$C$$LP$$RP$$C$$LT$ockam_command..identity..show..Change$u20$as$u20$core..convert..From$LT$ockam_identity..identity..verified_change..VerifiedChange$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..identity..show..Change$C$alloc..vec..Vec$LT$ockam_command..identity..show..Change$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$ockam_identity..identity..verified_change..VerifiedChange$GT$$GT$$C$$LT$ockam_command..identity..show..Change$u20$as$u20$core..convert..From$LT$ockam_identity..identity..verified_change..VerifiedChange$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h607b8af7f897e534E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr1230drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_identity..identity..verified_change..VerifiedChange$C$ockam_identity..identity..verified_change..VerifiedChange$C$$LP$$RP$$C$$LT$ockam_identity..identity..verified_change..VerifiedChange$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..adapters..map..map_fold$LT$ockam_identity..identity..verified_change..VerifiedChange$C$ockam_command..identity..show..Change$C$$LP$$RP$$C$$LT$ockam_command..identity..show..Change$u20$as$u20$core..convert..From$LT$ockam_identity..identity..verified_change..VerifiedChange$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..identity..show..Change$C$alloc..vec..Vec$LT$ockam_command..identity..show..Change$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$ockam_identity..identity..verified_change..VerifiedChange$GT$$GT$$C$$LT$ockam_command..identity..show..Change$u20$as$u20$core..convert..From$LT$ockam_identity..identity..verified_change..VerifiedChange$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h607b8af7f897e534E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -58433,7 +58433,7 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$$GT$17h86856f73a4a52c78E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..client..client_conn..ClientConnectionData$GT$$GT$$GT$17h86856f73a4a52c78E"(ptr %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -58608,7 +58608,7 @@ define internal fastcc void @"_ZN4core3ptr141drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr143drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17hea449b20b88f5746E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr143drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17hea449b20b88f5746E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58625,7 +58625,7 @@ define internal fastcc void @"_ZN4core3ptr143drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_abac..expr..Expr$C$alloc..alloc..Global$GT$$GT$17hf9d7abd0b1db0f1aE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_abac..expr..Expr$C$alloc..alloc..Global$GT$$GT$17hf9d7abd0b1db0f1aE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58710,7 +58710,7 @@ define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$std..ffi..os_str..OsString$C$alloc..alloc..Global$GT$$GT$17h282b3732991854f7E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$std..ffi..os_str..OsString$C$alloc..alloc..Global$GT$$GT$17h282b3732991854f7E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58727,7 +58727,7 @@ define internal fastcc void @"_ZN4core3ptr150drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr153drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..arg..Arg$C$alloc..alloc..Global$GT$$GT$17had0aff0e9d7bdae7E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr153drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..arg..Arg$C$alloc..alloc..Global$GT$$GT$17had0aff0e9d7bdae7E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58736,7 +58736,7 @@ define internal fastcc void @"_ZN4core3ptr153drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr156drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_command..status..NodeDetails$C$alloc..alloc..Global$GT$$GT$17heb5f3791a2b820a5E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr156drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_command..status..NodeDetails$C$alloc..alloc..Global$GT$$GT$17heb5f3791a2b820a5E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58806,7 +58806,7 @@ define internal fastcc void @"_ZN4core3ptr158drop_in_place$LT$$LP$ockam_core..fl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr159drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_core..routing..address..Address$C$alloc..alloc..Global$GT$$GT$17hce04ee61a1dbe805E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr159drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_core..routing..address..Address$C$alloc..alloc..Global$GT$$GT$17hce04ee61a1dbe805E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58815,7 +58815,7 @@ define internal fastcc void @"_ZN4core3ptr159drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr160drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$serde..__private..de..content..Content$C$alloc..alloc..Global$GT$$GT$17he0aa28c30827e55cE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr160drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$serde..__private..de..content..Content$C$alloc..alloc..Global$GT$$GT$17he0aa28c30827e55cE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58824,7 +58824,7 @@ define internal fastcc void @"_ZN4core3ptr160drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..command..Command$C$alloc..alloc..Global$GT$$GT$17hd9ee0a3345910b28E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..command..Command$C$alloc..alloc..Global$GT$$GT$17hd9ee0a3345910b28E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58833,7 +58833,7 @@ define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr164drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..arg_group..ArgGroup$C$alloc..alloc..Global$GT$$GT$17h2b1669739fcf759aE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr164drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..arg_group..ArgGroup$C$alloc..alloc..Global$GT$$GT$17h2b1669739fcf759aE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58842,7 +58842,7 @@ define internal fastcc void @"_ZN4core3ptr164drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr164drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..ext..BoxedExtension$C$alloc..alloc..Global$GT$$GT$17hcce406d72dee5a96E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr164drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..builder..ext..BoxedExtension$C$alloc..alloc..Global$GT$$GT$17hcce406d72dee5a96E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58851,7 +58851,7 @@ define internal fastcc void @"_ZN4core3ptr164drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$aws_runtime..env_config..file..EnvConfigFile$C$alloc..alloc..Global$GT$$GT$17h85fca45ef18c1673E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$aws_runtime..env_config..file..EnvConfigFile$C$alloc..alloc..Global$GT$$GT$17h85fca45ef18c1673E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58860,7 +58860,7 @@ define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_api..cloud..email_address..EmailAddress$C$alloc..alloc..Global$GT$$GT$17h1d9558b06303f933E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_api..cloud..email_address..EmailAddress$C$alloc..alloc..Global$GT$$GT$17h1d9558b06303f933E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58869,7 +58869,7 @@ define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr168drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_identity..models..change_history..Change$C$alloc..alloc..Global$GT$$GT$17he1e31b550cec1361E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr168drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_identity..models..change_history..Change$C$alloc..alloc..Global$GT$$GT$17he1e31b550cec1361E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58886,7 +58886,7 @@ define internal fastcc void @"_ZN4core3ptr168drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr171drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$C$alloc..alloc..Global$GT$$GT$17h6af300190373bae6E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr171drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$C$alloc..alloc..Global$GT$$GT$17h6af300190373bae6E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58938,7 +58938,7 @@ define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$$LP$ockam_identity
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_api..cloud..project..models..ProjectUserRole$C$alloc..alloc..Global$GT$$GT$17h0ac0946aab582b4eE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_api..cloud..project..models..ProjectUserRole$C$alloc..alloc..Global$GT$$GT$17h0ac0946aab582b4eE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58963,7 +58963,7 @@ define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr175drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$C$alloc..alloc..Global$GT$$GT$17h1b8b20dd61cca24aE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr175drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$C$alloc..alloc..Global$GT$$GT$17h1b8b20dd61cca24aE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -58980,7 +58980,7 @@ define internal fastcc void @"_ZN4core3ptr175drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..parser..matches..matched_arg..MatchedArg$C$alloc..alloc..Global$GT$$GT$17h0430a0a9116c6e25E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$clap_builder..parser..matches..matched_arg..MatchedArg$C$alloc..alloc..Global$GT$$GT$17h0430a0a9116c6e25E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -59069,7 +59069,7 @@ define internal fastcc void @"_ZN4core3ptr183drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr184drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$C$alloc..alloc..Global$GT$$GT$17hfc12575f51ac1adfE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr184drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$C$alloc..alloc..Global$GT$$GT$17hfc12575f51ac1adfE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -59179,7 +59179,7 @@ define internal void @"_ZN4core3ptr204drop_in_place$LT$ockam_command..run..parse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$C$alloc..alloc..Global$GT$$GT$17h362acc02cbc53e52E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$C$alloc..alloc..Global$GT$$GT$17h362acc02cbc53e52E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -59891,7 +59891,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$$u5b$std..ffi..os_str..OsStr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr592drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$alloc..string..String$C$alloc..string..String$C$$LP$$RP$$C$ockam_command..entry_point..run..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$RF$alloc..string..String$GT$$C$ockam_command..entry_point..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0da42c09f30f4e46E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr592drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$alloc..string..String$C$alloc..string..String$C$$LP$$RP$$C$ockam_command..entry_point..run..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$RF$alloc..string..String$GT$$C$ockam_command..entry_point..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0da42c09f30f4e46E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60013,7 +60013,7 @@ common.resume:                                    ; preds = %26, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr604drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$alloc..string..String$C$alloc..string..String$C$$LP$$RP$$C$clap_builder..error..Error..invalid_value..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..string..String$GT$$C$clap_builder..error..Error..invalid_value..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h33d1312b80d68525E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr604drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$alloc..string..String$C$alloc..string..String$C$$LP$$RP$$C$clap_builder..error..Error..invalid_value..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..string..String$GT$$C$clap_builder..error..Error..invalid_value..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h33d1312b80d68525E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60133,7 +60133,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$$u5b$crossbeam_channel..wake
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr633drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$str$C$clap_builder..util..id..Id$C$$LP$$RP$$C$$LT$$RF$str$u20$as$u20$core..convert..Into$LT$clap_builder..util..id..Id$GT$$GT$..into$C$core..iter..traits..iterator..Iterator..for_each..call$LT$clap_builder..util..id..Id$C$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$$RF$str$C$2_usize$GT$$C$$LT$$RF$str$u20$as$u20$core..convert..Into$LT$clap_builder..util..id..Id$GT$$GT$..into$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b408db14a3b5deaE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr633drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$str$C$clap_builder..util..id..Id$C$$LP$$RP$$C$$LT$$RF$str$u20$as$u20$core..convert..Into$LT$clap_builder..util..id..Id$GT$$GT$..into$C$core..iter..traits..iterator..Iterator..for_each..call$LT$clap_builder..util..id..Id$C$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$$RF$str$C$2_usize$GT$$C$$LT$$RF$str$u20$as$u20$core..convert..Into$LT$clap_builder..util..id..Id$GT$$GT$..into$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b408db14a3b5deaE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60141,7 +60141,7 @@ define internal fastcc void @"_ZN4core3ptr633drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr634drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_multiaddr..MultiAddr$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_multiaddr..MultiAddr$u20$as$u20$alloc..string..ToString$GT$..to_string$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_multiaddr..MultiAddr$GT$$C$$LT$ockam_multiaddr..MultiAddr$u20$as$u20$alloc..string..ToString$GT$..to_string$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9d7d45a2ae0b7b64E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr634drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_multiaddr..MultiAddr$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_multiaddr..MultiAddr$u20$as$u20$alloc..string..ToString$GT$..to_string$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_multiaddr..MultiAddr$GT$$C$$LT$ockam_multiaddr..MultiAddr$u20$as$u20$alloc..string..ToString$GT$..to_string$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9d7d45a2ae0b7b64E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60165,7 +60165,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$alloc..string.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr641drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..string..String$RP$$C$$LP$$RF$str$C$alloc..string..String$RP$$C$$LP$$RP$$C$$LT$$LP$$RF$str$C$alloc..string..String$RP$$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$$RF$str$C$alloc..string..String$RP$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$alloc..string..String$RP$$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..string..String$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd50caf0dcedb0126E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr641drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..string..String$RP$$C$$LP$$RF$str$C$alloc..string..String$RP$$C$$LP$$RP$$C$$LT$$LP$$RF$str$C$alloc..string..String$RP$$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$$RF$str$C$alloc..string..String$RP$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$alloc..string..String$RP$$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..string..String$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd50caf0dcedb0126E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60193,7 +60193,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$serde..__private..de..conten
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hd745c5d7240061b0E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hd745c5d7240061b0E"(ptr %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -60225,7 +60225,7 @@ define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr686drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$std..process..Command$C$$LP$$RP$$C$open..unix..commands$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..process..Command$C$alloc..vec..Vec$LT$std..process..Command$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$$C$open..unix..commands$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8d3104868b65623fE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr686drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$std..process..Command$C$$LP$$RP$$C$open..unix..commands$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..process..Command$C$alloc..vec..Vec$LT$std..process..Command$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$$C$open..unix..commands$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8d3104868b65623fE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60248,7 +60248,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr710drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$ockam_command..node..list..ListCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$ockam_command..node..list..ListCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1aba9faaffe92236E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr710drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$ockam_command..node..list..ListCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$ockam_command..node..list..ListCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1aba9faaffe92236E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60256,7 +60256,7 @@ define internal fastcc void @"_ZN4core3ptr710drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr714drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$std..process..Command$C$$LP$$RP$$C$open..unix..commands$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..process..Command$C$alloc..vec..Vec$LT$std..process..Command$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$$C$open..unix..commands$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3c90a3089c10593fE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr714drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$std..process..Command$C$$LP$$RP$$C$open..unix..commands$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..process..Command$C$alloc..vec..Vec$LT$std..process..Command$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$$C$open..unix..commands$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3c90a3089c10593fE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60269,7 +60269,7 @@ define internal void @"_ZN4core3ptr71drop_in_place$LT$$RF$aws_smithy_runtime_api
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr722drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_api..session..sessions..Session$C$alloc..vec..Vec$LT$ockam_api..session..sessions..Session$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..InletInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..RegistryRelayInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h020d4b041fc82af3E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr722drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_api..session..sessions..Session$C$alloc..vec..Vec$LT$ockam_api..session..sessions..Session$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..InletInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..RegistryRelayInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h020d4b041fc82af3E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60277,7 +60277,7 @@ define internal fastcc void @"_ZN4core3ptr722drop_in_place$LT$core..iter..traits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr738drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..identities..NamedIdentity$C$alloc..string..String$C$$LP$$RP$$C$ockam_command..identity..show..ShowCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..identities..NamedIdentity$GT$$C$ockam_command..identity..show..ShowCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbad4b35b68c05cd9E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr738drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..identities..NamedIdentity$C$alloc..string..String$C$$LP$$RP$$C$ockam_command..identity..show..ShowCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..identities..NamedIdentity$GT$$C$ockam_command..identity..show..ShowCommand..async_run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbad4b35b68c05cd9E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60309,7 +60309,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$mini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr745drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$str$C$std..ffi..os_str..OsString$C$$LP$$RP$$C$$LT$clap_lex..RawArgs$u20$as$u20$core..convert..From$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..ffi..os_str..OsString$C$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$$LT$clap_lex..RawArgs$u20$as$u20$core..convert..From$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7ab8e9ef186efc0E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr745drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$str$C$std..ffi..os_str..OsString$C$$LP$$RP$$C$$LT$clap_lex..RawArgs$u20$as$u20$core..convert..From$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..ffi..os_str..OsString$C$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$$LT$clap_lex..RawArgs$u20$as$u20$core..convert..From$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7ab8e9ef186efc0E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60379,7 +60379,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$ockam_command..run..parser..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr754drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$str$C$alloc..string..String$C$$LP$$RP$$C$ockam_api..ui..terminal..Terminal$LT$ockam_api..ui..terminal..TerminalStream$LT$console..term..Term$GT$$GT$..confirm_interactively..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$RF$str$GT$$C$ockam_api..ui..terminal..Terminal$LT$ockam_api..ui..terminal..TerminalStream$LT$console..term..Term$GT$$GT$..confirm_interactively..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3206f74647c918baE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr754drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$str$C$alloc..string..String$C$$LP$$RP$$C$ockam_api..ui..terminal..Terminal$LT$ockam_api..ui..terminal..TerminalStream$LT$console..term..Term$GT$$GT$..confirm_interactively..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$RF$str$GT$$C$ockam_api..ui..terminal..Terminal$LT$ockam_api..ui..terminal..TerminalStream$LT$console..term..Term$GT$$GT$..confirm_interactively..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3206f74647c918baE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60639,7 +60639,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$$LP$minicbor..bytes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr815drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$$LP$$RP$$C$$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7bf68a90ffd6323fE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr815drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$$LP$$RP$$C$$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$RP$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7bf68a90ffd6323fE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60708,7 +60708,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$$LP$alloc..vec..Vec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr832drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cloud..space..Space$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..space..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cloud..space..Space$GT$$C$$LT$ockam_command..space..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h92f1e7ff8b0a8255E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr832drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cloud..space..Space$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..space..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cloud..space..Space$GT$$C$$LT$ockam_command..space..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h92f1e7ff8b0a8255E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60742,7 +60742,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$core..ops..control_flow..Con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr844drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..node..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$$LT$ockam_command..node..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h43d272cadfa0b4f3E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr844drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..node..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$$LT$ockam_command..node..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h43d272cadfa0b4f3E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60750,7 +60750,7 @@ define internal fastcc void @"_ZN4core3ptr844drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr844drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cloud..space..Space$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..space..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cloud..space..Space$GT$$C$$LT$ockam_command..space..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h72251b7524d7412eE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr844drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cloud..space..Space$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..space..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cloud..space..Space$GT$$C$$LT$ockam_command..space..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h72251b7524d7412eE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60775,7 +60775,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr852drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..vaults..NamedVault$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..vault..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..vaults..NamedVault$GT$$C$$LT$ockam_command..vault..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6455a849434fb621E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr852drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..vaults..NamedVault$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..vault..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..vaults..NamedVault$GT$$C$$LT$ockam_command..vault..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6455a849434fb621E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60783,7 +60783,7 @@ define internal fastcc void @"_ZN4core3ptr852drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr856drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..node..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$$LT$ockam_command..node..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6dc3b406fde6b9ddE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr856drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..node..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$$LT$ockam_command..node..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6dc3b406fde6b9ddE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60791,7 +60791,7 @@ define internal fastcc void @"_ZN4core3ptr856drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr860drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..relay..RelayInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..relay..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..relay..RelayInfo$GT$$C$$LT$ockam_command..relay..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8237e283234c8559E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr860drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..relay..RelayInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..relay..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..relay..RelayInfo$GT$$C$$LT$ockam_command..relay..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8237e283234c8559E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60799,7 +60799,7 @@ define internal fastcc void @"_ZN4core3ptr860drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr862drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cloud..project..project..Project$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..project..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cloud..project..project..Project$GT$$C$$LT$ockam_command..project..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h261c60bd3c2e40c2E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr862drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cloud..project..project..Project$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..project..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cloud..project..project..Project$GT$$C$$LT$ockam_command..project..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h261c60bd3c2e40c2E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60807,7 +60807,7 @@ define internal fastcc void @"_ZN4core3ptr862drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr864drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..vaults..NamedVault$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..vault..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..vaults..NamedVault$GT$$C$$LT$ockam_command..vault..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h53562d504fdbedeaE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr864drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..vaults..NamedVault$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..vault..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..vaults..NamedVault$GT$$C$$LT$ockam_command..vault..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h53562d504fdbedeaE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60815,7 +60815,7 @@ define internal fastcc void @"_ZN4core3ptr864drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr872drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..relay..RelayInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..relay..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..relay..RelayInfo$GT$$C$$LT$ockam_command..relay..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h03fc0ede277c2638E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr872drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..relay..RelayInfo$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..relay..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..relay..RelayInfo$GT$$C$$LT$ockam_command..relay..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h03fc0ede277c2638E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60823,7 +60823,7 @@ define internal fastcc void @"_ZN4core3ptr872drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr876drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_policy..ResourcePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_policy..ResourcePolicy$GT$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c6ed4784196dcebE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr876drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_policy..ResourcePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_policy..ResourcePolicy$GT$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c6ed4784196dcebE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60831,7 +60831,7 @@ define internal fastcc void @"_ZN4core3ptr876drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr880drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..portal..OutletStatus$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..tcp..outlet..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$C$$LT$ockam_command..tcp..outlet..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hda8fc993852b5e1fE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr880drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..portal..OutletStatus$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..tcp..outlet..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$C$$LT$ockam_command..tcp..outlet..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hda8fc993852b5e1fE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60839,7 +60839,7 @@ define internal fastcc void @"_ZN4core3ptr880drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr884drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..identities..NamedIdentity$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..identity..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..identities..NamedIdentity$GT$$C$$LT$ockam_command..identity..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8d219c667ad4a224E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr884drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..identities..NamedIdentity$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..identity..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..identities..NamedIdentity$GT$$C$$LT$ockam_command..identity..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8d219c667ad4a224E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60847,7 +60847,7 @@ define internal fastcc void @"_ZN4core3ptr884drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr888drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_policy..ResourcePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_policy..ResourcePolicy$GT$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7b9ef44cfaf8321bE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr888drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_policy..ResourcePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_policy..ResourcePolicy$GT$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7b9ef44cfaf8321bE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60855,7 +60855,7 @@ define internal fastcc void @"_ZN4core3ptr888drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr888drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..nodes..models..portal..OutletStatus$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..tcp..outlet..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$C$$LT$ockam_command..tcp..outlet..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48ee6d863305d114E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr888drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..nodes..models..portal..OutletStatus$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..tcp..outlet..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$C$$LT$ockam_command..tcp..outlet..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48ee6d863305d114E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60885,7 +60885,7 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$$LP$alloc..string..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr894drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3b5de95c25d5e2eE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr894drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$$C$$LT$ockam_command..policy..show..ShowTui$u20$as$u20$ockam_command..terminal..tui..ShowCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3b5de95c25d5e2eE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60893,7 +60893,7 @@ define internal fastcc void @"_ZN4core3ptr894drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr904drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$ockam_api..cli_state..identities..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_identity_by_name..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$ockam_api..cli_state..identities..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_identity_by_name..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he428648451006d8fE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr904drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..nodes..NodeInfo$C$alloc..string..String$C$$LP$$RP$$C$ockam_api..cli_state..identities..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_identity_by_name..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..nodes..NodeInfo$GT$$C$ockam_api..cli_state..identities..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_identity_by_name..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he428648451006d8fE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60901,7 +60901,7 @@ define internal fastcc void @"_ZN4core3ptr904drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr906drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he53aca2a505525aaE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr906drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$C$alloc..string..String$C$$LP$$RP$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$$C$$LT$ockam_command..policy..delete..DeleteTui$u20$as$u20$ockam_command..terminal..tui..DeleteCommandTui$GT$..list_items_names..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he53aca2a505525aaE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60909,7 +60909,7 @@ define internal fastcc void @"_ZN4core3ptr906drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr906drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..identities..NamedIdentity$C$alloc..string..String$C$$LP$$RP$$C$ockam_api..cli_state..vaults..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_named_vault..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..identities..NamedIdentity$GT$$C$ockam_api..cli_state..vaults..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_named_vault..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1b212c954ecbd87E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr906drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..cli_state..identities..NamedIdentity$C$alloc..string..String$C$$LP$$RP$$C$ockam_api..cli_state..vaults..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_named_vault..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..cli_state..identities..NamedIdentity$GT$$C$ockam_api..cli_state..vaults..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_named_vault..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd1b212c954ecbd87E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60917,7 +60917,7 @@ define internal fastcc void @"_ZN4core3ptr906drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr909drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..portal..InletStatus$C$ockam_command..node..models..portal..ShowInletStatus$C$$LP$$RP$$C$$LT$ockam_command..node..models..portal..ShowInletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..InletStatus$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..portal..ShowInletStatus$C$alloc..vec..Vec$LT$ockam_command..node..models..portal..ShowInletStatus$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..portal..InletStatus$GT$$C$$LT$ockam_command..node..models..portal..ShowInletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..InletStatus$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he05f7928f0c0e232E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr909drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..portal..InletStatus$C$ockam_command..node..models..portal..ShowInletStatus$C$$LP$$RP$$C$$LT$ockam_command..node..models..portal..ShowInletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..InletStatus$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..portal..ShowInletStatus$C$alloc..vec..Vec$LT$ockam_command..node..models..portal..ShowInletStatus$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..portal..InletStatus$GT$$C$$LT$ockam_command..node..models..portal..ShowInletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..InletStatus$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he05f7928f0c0e232E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60925,7 +60925,7 @@ define internal fastcc void @"_ZN4core3ptr909drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr918drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..portal..OutletStatus$C$ockam_command..node..models..portal..ShowOutletStatus$C$$LP$$RP$$C$$LT$ockam_command..node..models..portal..ShowOutletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..portal..ShowOutletStatus$C$alloc..vec..Vec$LT$ockam_command..node..models..portal..ShowOutletStatus$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$C$$LT$ockam_command..node..models..portal..ShowOutletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49fa3820bae96dedE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr918drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..portal..OutletStatus$C$ockam_command..node..models..portal..ShowOutletStatus$C$$LP$$RP$$C$$LT$ockam_command..node..models..portal..ShowOutletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..portal..ShowOutletStatus$C$alloc..vec..Vec$LT$ockam_command..node..models..portal..ShowOutletStatus$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$C$$LT$ockam_command..node..models..portal..ShowOutletStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..portal..OutletStatus$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49fa3820bae96dedE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60933,7 +60933,7 @@ define internal fastcc void @"_ZN4core3ptr918drop_in_place$LT$core..iter..adapte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr923drop_in_place$LT$core..iter..adapters..map..map_try_fold$LT$$RF$alloc..string..String$C$std..ffi..os_str..OsString$C$$LP$$RP$$C$core..ops..try_trait..NeverShortCircuit$LT$$LP$$RP$$GT$$C$$LT$$RF$alloc..string..String$u20$as$u20$core..convert..Into$LT$std..ffi..os_str..OsString$GT$$GT$..into$C$core..ops..try_trait..NeverShortCircuit$LT$$LP$$RP$$GT$..wrap_mut_2$LT$$LP$$RP$$C$std..ffi..os_str..OsString$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..ffi..os_str..OsString$C$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$..extend_trusted$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$$RF$alloc..string..String$C$1_usize$GT$$C$$LT$$RF$alloc..string..String$u20$as$u20$core..convert..Into$LT$std..ffi..os_str..OsString$GT$$GT$..into$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h36d1eb62abb934beE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr923drop_in_place$LT$core..iter..adapters..map..map_try_fold$LT$$RF$alloc..string..String$C$std..ffi..os_str..OsString$C$$LP$$RP$$C$core..ops..try_trait..NeverShortCircuit$LT$$LP$$RP$$GT$$C$$LT$$RF$alloc..string..String$u20$as$u20$core..convert..Into$LT$std..ffi..os_str..OsString$GT$$GT$..into$C$core..ops..try_trait..NeverShortCircuit$LT$$LP$$RP$$GT$..wrap_mut_2$LT$$LP$$RP$$C$std..ffi..os_str..OsString$C$core..iter..traits..iterator..Iterator..for_each..call$LT$std..ffi..os_str..OsString$C$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$..extend_trusted$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$$RF$alloc..string..String$C$1_usize$GT$$C$$LT$$RF$alloc..string..String$u20$as$u20$core..convert..Into$LT$std..ffi..os_str..OsString$GT$$GT$..into$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h36d1eb62abb934beE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -60993,7 +60993,7 @@ define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr945drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..services..ServiceStatus$C$ockam_command..node..models..services..ShowServiceStatus$C$$LP$$RP$$C$$LT$ockam_command..node..models..services..ShowServiceStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..services..ServiceStatus$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..services..ShowServiceStatus$C$alloc..vec..Vec$LT$ockam_command..node..models..services..ShowServiceStatus$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..services..ServiceStatus$GT$$C$$LT$ockam_command..node..models..services..ShowServiceStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..services..ServiceStatus$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c946b054ad229c5E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr945drop_in_place$LT$core..iter..adapters..map..map_fold$LT$ockam_api..nodes..models..services..ServiceStatus$C$ockam_command..node..models..services..ShowServiceStatus$C$$LP$$RP$$C$$LT$ockam_command..node..models..services..ShowServiceStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..services..ServiceStatus$GT$$GT$..from$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_command..node..models..services..ShowServiceStatus$C$alloc..vec..Vec$LT$ockam_command..node..models..services..ShowServiceStatus$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$ockam_api..nodes..models..services..ServiceStatus$GT$$C$$LT$ockam_command..node..models..services..ShowServiceStatus$u20$as$u20$core..convert..From$LT$ockam_api..nodes..models..services..ServiceStatus$GT$$GT$..from$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c946b054ad229c5E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -61046,7 +61046,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr993drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..nodes..registry..RegistryRelayInfo$C$ockam_api..session..sessions..Session$C$$LP$$RP$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_api..session..sessions..Session$C$alloc..vec..Vec$LT$ockam_api..session..sessions..Session$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..InletInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..RegistryRelayInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e626e7062a79a5dE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #21 {
+define internal fastcc void @"_ZN4core3ptr993drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_api..nodes..registry..RegistryRelayInfo$C$ockam_api..session..sessions..Session$C$$LP$$RP$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_api..session..sessions..Session$C$alloc..vec..Vec$LT$ockam_api..session..sessions..Session$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..InletInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_api..nodes..registry..RegistryRelayInfo$GT$$C$ockam_api..session..Medic..sessions..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e626e7062a79a5dE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #21 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -62060,7 +62060,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4find17hc02246c249c95f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4core4iter6traits8iterator8Iterator6by_ref17h5c28c414ab1f656eE(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #13 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4core4iter6traits8iterator8Iterator6by_ref17h5c28c414ab1f656eE(ptr noalias noundef readnone returned align 8 dereferenceable(24) %0) unnamed_addr #13 {
   ret ptr %0
 }
 
@@ -65408,7 +65408,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7ee5
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h06e809f0d09aa5f2E.llvm.7819687297340404219"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #26 {
+define hidden noundef nonnull align 8 ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h06e809f0d09aa5f2E.llvm.7819687297340404219"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #26 {
   ret ptr %0
 }
 
@@ -65438,7 +65438,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4fro
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hf567f4f0950b923aE.llvm.7819687297340404219"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #26 {
+define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hf567f4f0950b923aE.llvm.7819687297340404219"(ptr noundef nonnull readnone returned %0) unnamed_addr #26 {
   ret ptr %0
 }
 
@@ -66869,7 +66869,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h29ad9d3e4a96cf66E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h29ad9d3e4a96cf66E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.52.sroa.5.i.i = alloca [33 x i8], align 1
   %.sroa.5.sroa.5.i = alloca [33 x i8], align 1
   %.sroa.07.sroa.8 = alloca [33 x i8], align 1
@@ -66985,7 +66985,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2de82f813b328b33E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2de82f813b328b33E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.07.sroa.6 = alloca [7 x i8], align 1
   %4 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h176ad554234ba52cE"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -68313,7 +68313,7 @@ default.unreachable:                              ; preds = %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4a303c37f4666794E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4a303c37f4666794E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hfa85cc542c9d08eaE"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -68474,7 +68474,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6d9f6b208b50484fE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6d9f6b208b50484fE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1215de1518fd1f07E"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -68550,7 +68550,7 @@ default.unreachable:                              ; preds = %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7cbbc46eed9b2babE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7cbbc46eed9b2babE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hc7fd6b861891cc4dE"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -68600,7 +68600,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h8810c2ea505c313dE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h8810c2ea505c313dE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.58.i = alloca [64 x i8], align 1
   %.sroa.07.sroa.7 = alloca [64 x i8], align 1
   %.sroa.07.sroa.9 = alloca [64 x i8], align 2
@@ -68981,7 +68981,7 @@ default.unreachable:                              ; preds = %20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h95ba5069a64104b8E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h95ba5069a64104b8E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   %5 = alloca { { ptr, i64 }, i64 }, align 8
   %.sroa.07.sroa.5 = alloca [3 x i64], align 8
@@ -69250,7 +69250,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb11a1c8f844f706fE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb11a1c8f844f706fE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.07.sroa.7 = alloca [7 x i8], align 1
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -69347,7 +69347,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc77f6149693f9081E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hc77f6149693f9081E.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h460223a34a711f2eE"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -69470,7 +69470,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hd939b3327f73c8beE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hd939b3327f73c8beE.llvm.7819687297340404219"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   %.sroa.07.i.i.i = alloca [3 x i64], align 8
   %5 = alloca { { ptr, i64 }, i64 }, align 8
@@ -112728,7 +112728,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h0a2637cd9967f2aaE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h0a2637cd9967f2aaE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -112770,7 +112770,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h0f031c7fbcad00afE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h0f031c7fbcad00afE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -112812,7 +112812,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h13b7a257d65d7d16E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h13b7a257d65d7d16E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -112854,7 +112854,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h143d7462b8866de5E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h143d7462b8866de5E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -112896,7 +112896,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h266ccbef763950afE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h266ccbef763950afE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -112938,7 +112938,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h2ecf9fb04a741885E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h2ecf9fb04a741885E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -112980,7 +112980,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h2f413ef864d8767bE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h2f413ef864d8767bE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113022,7 +113022,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h339aa861bb03c9b5E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h339aa861bb03c9b5E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113064,7 +113064,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h34f6199e002de19fE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h34f6199e002de19fE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113106,7 +113106,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h357c3981420c520aE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h357c3981420c520aE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113148,7 +113148,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h39e60a83a5e3c8ccE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h39e60a83a5e3c8ccE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113190,7 +113190,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h3f1049d5ab77fedfE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h3f1049d5ab77fedfE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113232,7 +113232,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h475924ca80596ccbE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h475924ca80596ccbE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113274,7 +113274,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h4cc938e4158b141dE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h4cc938e4158b141dE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113316,7 +113316,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h4f94b6059b6c7042E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h4f94b6059b6c7042E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113358,7 +113358,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h53c7d6bcc25974bbE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h53c7d6bcc25974bbE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113400,7 +113400,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7092a27bcf3b8e89E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7092a27bcf3b8e89E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113442,7 +113442,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7105632e40fbb80eE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7105632e40fbb80eE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113484,7 +113484,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7258d8208d642bddE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7258d8208d642bddE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113526,7 +113526,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h72cd835278a01a77E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h72cd835278a01a77E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113568,7 +113568,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7378fd33fbb58a7aE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h7378fd33fbb58a7aE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113610,7 +113610,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h821ffc05ac8f5157E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h821ffc05ac8f5157E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113652,7 +113652,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h8cc45e7035b60aadE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h8cc45e7035b60aadE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113694,7 +113694,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h9792783c09aec959E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h9792783c09aec959E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113736,7 +113736,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h97ff65a66de5f548E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h97ff65a66de5f548E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113778,7 +113778,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17ha1af26e5e2e0986fE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17ha1af26e5e2e0986fE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113820,7 +113820,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17ha780d1497ad6ce26E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17ha780d1497ad6ce26E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113862,7 +113862,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17ha8133f41d39e6281E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17ha8133f41d39e6281E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113904,7 +113904,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hacb8e19b0edb29dfE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hacb8e19b0edb29dfE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113946,7 +113946,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hafc41b370e6f2cd4E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hafc41b370e6f2cd4E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -113988,7 +113988,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hb1259319b2dfec3bE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hb1259319b2dfec3bE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114030,7 +114030,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hb30cab8d5f341236E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hb30cab8d5f341236E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114072,7 +114072,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hb42552e0bd75aa61E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hb42552e0bd75aa61E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114114,7 +114114,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbbfbec401f44e1eaE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbbfbec401f44e1eaE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114156,7 +114156,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbe5ed8eb073ac281E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbe5ed8eb073ac281E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114198,7 +114198,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hc62d81849e2c6290E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hc62d81849e2c6290E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114240,7 +114240,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he12b2bd7f9e7b3f1E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he12b2bd7f9e7b3f1E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114282,7 +114282,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he1e6322db8acaf9dE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he1e6322db8acaf9dE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114324,7 +114324,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he50fd57b761f771bE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he50fd57b761f771bE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114366,7 +114366,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he77891739b706022E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he77891739b706022E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114408,7 +114408,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he844883bd95a85bdE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17he844883bd95a85bdE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114450,7 +114450,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17heb1af8522d45eb08E.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17heb1af8522d45eb08E.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -114492,7 +114492,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hf1d4f41314d86baeE.llvm.7819687297340404219"(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #29 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hf1d4f41314d86baeE.llvm.7819687297340404219"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #29 {
   %2 = load i64, ptr %0, align 8, !range !743, !noundef !4
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %7, label %3
@@ -131263,7 +131263,7 @@ define hidden void @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$3new17h91fe2c10fd79e4beE.llvm.7819687297340404219"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #13 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$3new17h91fe2c10fd79e4beE.llvm.7819687297340404219"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #13 {
   ret ptr %0
 }
 
@@ -137002,87 +137002,87 @@ define hidden void @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$6finish17h16a439bb85
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h082ac35874f4ee0cE"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h082ac35874f4ee0cE"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h214356d75e679b4bE"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h214356d75e679b4bE"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h253b5efcc3541431E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h253b5efcc3541431E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h27e7db346978b2c9E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h27e7db346978b2c9E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h40f75afbd11574d8E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h40f75afbd11574d8E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5161450188f2d1b3E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5161450188f2d1b3E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5211bbd447ca4a2cE"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5211bbd447ca4a2cE"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5d1f6c7b8a8b5cddE"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5d1f6c7b8a8b5cddE"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5f936aba0354ae16E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h5f936aba0354ae16E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h779582c7cea0d871E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h779582c7cea0d871E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h89413b0cb16cd47aE"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h89413b0cb16cd47aE"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h9ba4ce7f704ff8dfE"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17h9ba4ce7f704ff8dfE"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17ha1ce56b2aef5f604E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17ha1ce56b2aef5f604E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hd0810a7a42e100f0E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hd0810a7a42e100f0E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hd0cf50f4ce2910e8E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hd0cf50f4ce2910e8E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hd58c3529fec7f917E"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hd58c3529fec7f917E"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hf3244fbd396373bdE"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #13 {
+define hidden noundef nonnull ptr @"_ZN6miette7eyreish3ptr12Own$LT$T$GT$3new17hf3244fbd396373bdE"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #13 {
   ret ptr %0
 }
 
@@ -138584,7 +138584,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60fc89cb57b5d27eE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #23 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60fc89cb57b5d27eE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #23 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -138655,7 +138655,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #23 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f97030179360a7E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #23 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -138790,100 +138790,100 @@ define hidden void @"_ZN74_$LT$clap_builder..builder..arg..Arg$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h0154a2599a9dcd46E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h0154a2599a9dcd46E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [10 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h1ba2d434cfe9649dE.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h1ba2d434cfe9649dE.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [4 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h21b5dfa8712efd05E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h21b5dfa8712efd05E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [4 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h2f04be60955ea055E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h2f04be60955ea055E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [3 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h30422697e91942f1E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h30422697e91942f1E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h56a11b651eee7f19E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h56a11b651eee7f19E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [4 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h906bd5837670fc40E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h906bd5837670fc40E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [32 x i8] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17ha1f525f3c7e6ebd3E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone returned captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17ha1f525f3c7e6ebd3E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone returned %1, i64 noundef %2) unnamed_addr #18 {
   ret ptr %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17ha2e48f60ebd819c5E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone returned captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17ha2e48f60ebd819c5E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone returned %1, i64 noundef %2) unnamed_addr #18 {
   ret ptr %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hb68c9820c1e00e6eE.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hb68c9820c1e00e6eE.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [3 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbaaffb0ba73371b8E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbaaffb0ba73371b8E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [7 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbe137a1a1fad2ed1E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbe137a1a1fad2ed1E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [3 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbecc567057e5ec74E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbecc567057e5ec74E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [3 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc385bc642b350001E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc385bc642b350001E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [4 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc6461bf955dce5e9E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hc6461bf955dce5e9E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [3 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17he1c784cab1e2242eE.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone returned captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17he1c784cab1e2242eE.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone returned %1, i64 noundef %2) unnamed_addr #18 {
   ret ptr %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hf4717b2f5741fb28E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #18 {
+define hidden noundef ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hf4717b2f5741fb28E.llvm.7819687297340404219"(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds { [3 x i64] }, ptr %1, i64 %0
   ret ptr %4
 }
@@ -142207,7 +142207,7 @@ define hidden void @"_ZN87_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..convert
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal void @"_ZN87_$LT$rustls..conn..ConnectionCommon$LT$T$GT$$u20$as$u20$rustls..conn..PlaintextSink$GT$14write_vectored17h4ba364314681cd74E"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(1008) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #1 {
+define internal void @"_ZN87_$LT$rustls..conn..ConnectionCommon$LT$T$GT$$u20$as$u20$rustls..conn..PlaintextSink$GT$14write_vectored17h4ba364314681cd74E"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(1008) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
@@ -147208,7 +147208,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h13486f179d224301E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h13486f179d224301E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h77f8c5323aedbd9bE.llvm.7819687297340404219"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -147244,7 +147244,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h355f83cb825c1cf5E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h355f83cb825c1cf5E"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h839a90854ef25034E.llvm.7819687297340404219"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -147340,7 +147340,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h83f80ea7e32c4dacE"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef captures(address) %2) unnamed_addr #1 {
+define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h83f80ea7e32c4dacE"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h3d414b4bfe026c36E.llvm.7819687297340404219"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }

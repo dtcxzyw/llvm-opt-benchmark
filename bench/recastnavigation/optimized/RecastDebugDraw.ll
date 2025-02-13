@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const._ZL16drawLayerPortalsP11duDebugDrawPK18rcHeightfieldLayer.segs = private unnamed_addr constant [16 x i32] [i32 0, i32 0, i32 0, i32 1, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0], align 16
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, float noundef %7) local_unnamed_addr #0 {
+define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, float noundef %7) local_unnamed_addr #0 {
   %9 = alloca [2 x float], align 4
   %10 = alloca [2 x float], align 4
   %11 = alloca [2 x float], align 4
@@ -187,7 +187,7 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
+define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
   %9 = alloca [2 x float], align 4
   %10 = alloca [2 x float], align 4
   %11 = alloca [2 x float], align 4

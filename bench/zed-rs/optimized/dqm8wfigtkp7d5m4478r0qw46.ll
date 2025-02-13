@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.070e9c7bc5d707468c664bdbd0e35c72.2.llvm.606029798833714216 = external hidden unnamed_addr constant <{ [24 x i8], ptr }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN15form_urlencoded19Serializer$LT$T$GT$12extend_pairs17hb856bb9d5dae4a61E"(ptr noalias noundef returned align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN15form_urlencoded19Serializer$LT$T$GT$12extend_pairs17hb856bb9d5dae4a61E"(ptr noalias noundef returned align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %4 = load i64, ptr %0, align 8, !range !7, !alias.scope !4, !noundef !8
   %5 = icmp eq i64 %4, -9223372036854775807

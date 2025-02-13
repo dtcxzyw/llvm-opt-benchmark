@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_process_info = external global %struct.prte_process_info_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond63 = icmp ult i32 %6, 64
   br i1 %or.cond63, label %7, label %24

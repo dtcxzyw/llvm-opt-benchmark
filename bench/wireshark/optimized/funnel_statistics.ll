@@ -3040,7 +3040,7 @@ declare void @text_window_destroy(ptr noundef) #1
 declare void @text_window_add_button(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17string_dialog_newP16_funnel_ops_id_tPKcPS2_S3_PFvPPcPvES6_PFvS6_E(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL17string_dialog_newP16_funnel_ops_id_tPKcPS2_S3_PFvPPcPvES6_PFvS6_E(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8
   %10 = alloca %class.QString, align 8
@@ -3440,7 +3440,7 @@ _ZN7QStringD2Ev.exit45:                           ; preds = %.loopexit, %.loopex
 declare void @string_dialogs_close() #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL31funnel_statistics_retap_packetsP16_funnel_ops_id_t(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @_ZL31funnel_statistics_retap_packetsP16_funnel_ops_id_t(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -3530,7 +3530,7 @@ _ZN7QStringD2Ev.exit6:                            ; preds = %19, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL28funnel_statistics_get_filterP16_funnel_ops_id_t(ptr noundef readonly captures(address_is_null) %0) #12 {
+define internal noundef ptr @_ZL28funnel_statistics_get_filterP16_funnel_ops_id_t(ptr noundef readonly %0) #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -3552,7 +3552,7 @@ define internal noundef ptr @_ZL28funnel_statistics_get_filterP16_funnel_ops_id_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL28funnel_statistics_set_filterP16_funnel_ops_id_tPKc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL28funnel_statistics_set_filterP16_funnel_ops_id_tPKc(ptr noundef readonly %0, ptr noundef %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %.not = icmp eq ptr %0, null
@@ -3654,7 +3654,7 @@ define internal void @_ZL39funnel_statistics_set_color_filter_slothPKc(i8 nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL27funnel_statistics_open_fileP16_funnel_ops_id_tPKcS2_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL27funnel_statistics_open_fileP16_funnel_ops_id_tPKcS2_PPc(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -3849,7 +3849,7 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %42, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL32funnel_statistics_reload_packetsP16_funnel_ops_id_t(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @_ZL32funnel_statistics_reload_packetsP16_funnel_ops_id_t(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -3869,7 +3869,7 @@ define internal void @_ZL32funnel_statistics_reload_packetsP16_funnel_ops_id_t(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL35funnel_statistics_redissect_packetsP16_funnel_ops_id_t(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @_ZL35funnel_statistics_redissect_packetsP16_funnel_ops_id_t(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -3888,7 +3888,7 @@ define internal void @_ZL35funnel_statistics_redissect_packetsP16_funnel_ops_id_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL36funnel_statistics_reload_lua_pluginsP16_funnel_ops_id_t(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @_ZL36funnel_statistics_reload_lua_pluginsP16_funnel_ops_id_t(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -3907,7 +3907,7 @@ define internal void @_ZL36funnel_statistics_reload_lua_pluginsP16_funnel_ops_id
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL30funnel_statistics_apply_filterP16_funnel_ops_id_t(ptr noundef readonly captures(address_is_null) %0) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL30funnel_statistics_apply_filterP16_funnel_ops_id_t(ptr noundef readonly %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %3
@@ -4154,7 +4154,7 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %24, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL19progress_window_newP16_funnel_ops_id_tPKcS2_iPi(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal noundef ptr @_ZL19progress_window_newP16_funnel_ops_id_tPKcS2_iPi(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %6
 
@@ -4860,7 +4860,7 @@ define void @funnel_statistics_reload_menus() local_unnamed_addr #0 {
 declare void @funnel_reload_menus(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18deregister_menu_cbPFvPvE(ptr noundef readnone captures(address) %0) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL18deregister_menu_cbPFvPvE(ptr noundef readnone %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %class.QHash.3, align 8

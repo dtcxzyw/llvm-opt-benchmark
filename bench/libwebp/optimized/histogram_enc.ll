@@ -78,7 +78,7 @@ VP8LRefsCursorNext.exit:                          ; preds = %5, %10
 declare void @VP8LRefsCursorInit(ptr dead_on_unwind writable sret(%struct.VP8LRefsCursor) align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %.val = load i8, ptr %1, align 4
   switch i8 %.val, label %41 [
     i8 0, label %5
@@ -592,7 +592,7 @@ define hidden float @VP8LHistogramEstimateBits(ptr noundef initializes((3264, 32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @PopulationCost(ptr noundef %0, i32 noundef range(i32 -2147483368, -2147483648) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #1 {
+define internal fastcc float @PopulationCost(ptr noundef %0, i32 noundef range(i32 -2147483368, -2147483648) %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #1 {
   %5 = alloca %struct.VP8LBitEntropy, align 4
   %6 = alloca %struct.VP8LStreaks, align 4
   %7 = load ptr, ptr @VP8LGetEntropyUnrefined, align 8

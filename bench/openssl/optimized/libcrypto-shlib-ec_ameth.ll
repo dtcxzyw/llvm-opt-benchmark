@@ -602,7 +602,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_pkey_export_to(ptr noundef readonly captures(address_is_null) %from, ptr noundef %to_keydata, ptr noundef readonly captures(none) %importer, ptr noundef %libctx, ptr noundef %propq) #0 {
+define internal i32 @ec_pkey_export_to(ptr noundef readonly %from, ptr noundef %to_keydata, ptr noundef readonly captures(none) %importer, ptr noundef %libctx, ptr noundef %propq) #0 {
 entry:
   %pub_key_buf = alloca ptr, align 8
   %gen_buf = alloca ptr, align 8

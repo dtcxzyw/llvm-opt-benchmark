@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @fixedtables.distfix = internal constant [32 x %struct.code] [%struct.code { i8 16, i8 5, i16 1 }, %struct.code { i8 23, i8 5, i16 257 }, %struct.code { i8 19, i8 5, i16 17 }, %struct.code { i8 27, i8 5, i16 4097 }, %struct.code { i8 17, i8 5, i16 5 }, %struct.code { i8 25, i8 5, i16 1025 }, %struct.code { i8 21, i8 5, i16 65 }, %struct.code { i8 29, i8 5, i16 16385 }, %struct.code { i8 16, i8 5, i16 3 }, %struct.code { i8 24, i8 5, i16 513 }, %struct.code { i8 20, i8 5, i16 33 }, %struct.code { i8 28, i8 5, i16 8193 }, %struct.code { i8 18, i8 5, i16 9 }, %struct.code { i8 26, i8 5, i16 2049 }, %struct.code { i8 22, i8 5, i16 129 }, %struct.code { i8 64, i8 5, i16 0 }, %struct.code { i8 16, i8 5, i16 2 }, %struct.code { i8 23, i8 5, i16 385 }, %struct.code { i8 19, i8 5, i16 25 }, %struct.code { i8 27, i8 5, i16 6145 }, %struct.code { i8 17, i8 5, i16 7 }, %struct.code { i8 25, i8 5, i16 1537 }, %struct.code { i8 21, i8 5, i16 97 }, %struct.code { i8 29, i8 5, i16 24577 }, %struct.code { i8 16, i8 5, i16 4 }, %struct.code { i8 24, i8 5, i16 769 }, %struct.code { i8 20, i8 5, i16 49 }, %struct.code { i8 28, i8 5, i16 12289 }, %struct.code { i8 18, i8 5, i16 13 }, %struct.code { i8 26, i8 5, i16 3073 }, %struct.code { i8 22, i8 5, i16 193 }, %struct.code { i8 64, i8 5, i16 0 }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateResetKeep(ptr noundef captures(address_is_null) %strm) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateResetKeep(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -91,7 +91,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateReset(ptr noundef captures(address_is_null) %strm) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateReset(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end6.i, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateReset2(ptr noundef captures(address_is_null) %strm, i32 noundef %windowBits) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateReset2(ptr noundef %strm, i32 noundef %windowBits) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -300,7 +300,7 @@ return:                                           ; preds = %if.end6.i.i, %lor.l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @MOZ_Z_inflateInit2_(ptr noundef captures(address_is_null) %strm, i32 noundef %windowBits, ptr noundef readonly captures(address_is_null) %version, i32 noundef %stream_size) local_unnamed_addr #1 {
+define dso_local range(i32 -6, 1) i32 @MOZ_Z_inflateInit2_(ptr noundef %strm, i32 noundef %windowBits, ptr noundef readonly %version, i32 noundef %stream_size) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %version, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -490,14 +490,14 @@ declare ptr @MOZ_Z_zcalloc(ptr noundef, i32 noundef, i32 noundef) #2
 declare void @MOZ_Z_zcfree(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @MOZ_Z_inflateInit_(ptr noundef captures(address_is_null) %strm, ptr noundef captures(address_is_null) %version, i32 noundef %stream_size) local_unnamed_addr #1 {
+define dso_local range(i32 -6, 1) i32 @MOZ_Z_inflateInit_(ptr noundef %strm, ptr noundef %version, i32 noundef %stream_size) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @MOZ_Z_inflateInit2_(ptr noundef %strm, i32 noundef 15, ptr noundef %version, i32 noundef %stream_size)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflatePrime(ptr noundef readonly captures(address_is_null) %strm, i32 noundef %bits, i32 noundef %value) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflatePrime(ptr noundef readonly %strm, i32 noundef %bits, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3447,7 +3447,7 @@ declare i32 @MOZ_Z_inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr noun
 declare void @MOZ_Z_inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateEnd(ptr noundef captures(address_is_null) %strm) local_unnamed_addr #1 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateEnd(ptr noundef %strm) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3493,7 +3493,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateGetDictionary(ptr noundef readonly captures(address_is_null) %strm, ptr noundef writeonly captures(address_is_null) %dictionary, ptr noundef writeonly captures(address_is_null) %dictLength) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateGetDictionary(ptr noundef readonly %strm, ptr noundef writeonly %dictionary, ptr noundef writeonly %dictLength) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3548,7 +3548,7 @@ return:                                           ; preds = %if.end17, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -4, 1) i32 @MOZ_Z_inflateSetDictionary(ptr noundef readonly captures(address_is_null) %strm, ptr noundef %dictionary, i32 noundef %dictLength) local_unnamed_addr #1 {
+define dso_local range(i32 -4, 1) i32 @MOZ_Z_inflateSetDictionary(ptr noundef readonly %strm, ptr noundef %dictionary, i32 noundef %dictLength) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3699,7 +3699,7 @@ return:                                           ; preds = %if.then10, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateGetHeader(ptr noundef readonly captures(address_is_null) %strm, ptr noundef %head) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @MOZ_Z_inflateGetHeader(ptr noundef readonly %strm, ptr noundef %head) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3730,7 +3730,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -5, 1) i32 @MOZ_Z_inflateSync(ptr noundef captures(address_is_null) %strm) local_unnamed_addr #4 {
+define dso_local range(i32 -5, 1) i32 @MOZ_Z_inflateSync(ptr noundef %strm) local_unnamed_addr #4 {
 entry:
   %buf = alloca [4 x i8], align 1
   %cmp = icmp eq ptr %strm, null
@@ -3959,7 +3959,7 @@ return:                                           ; preds = %syncsearch.exit55, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 2) i32 @MOZ_Z_inflateSyncPoint(ptr noundef readonly captures(address_is_null) %strm) local_unnamed_addr #5 {
+define dso_local range(i32 -2, 2) i32 @MOZ_Z_inflateSyncPoint(ptr noundef readonly %strm) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3988,7 +3988,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -4, 1) i32 @MOZ_Z_inflateCopy(ptr noundef writeonly captures(address_is_null) %dest, ptr noundef readonly captures(address_is_null) %source) local_unnamed_addr #1 {
+define dso_local range(i32 -4, 1) i32 @MOZ_Z_inflateCopy(ptr noundef writeonly %dest, ptr noundef readonly %source) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dest, null
   %cmp1 = icmp eq ptr %source, null
@@ -4111,7 +4111,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -3, -1) i32 @MOZ_Z_inflateUndermine(ptr noundef readonly captures(address_is_null) %strm, i32 noundef %subvert) local_unnamed_addr #6 {
+define dso_local range(i32 -3, -1) i32 @MOZ_Z_inflateUndermine(ptr noundef readonly %strm, i32 noundef %subvert) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -4133,7 +4133,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 -140737488355328, 140741783257088) i64 @MOZ_Z_inflateMark(ptr noundef readonly captures(address_is_null) %strm) local_unnamed_addr #5 {
+define dso_local range(i64 -140737488355328, 140741783257088) i64 @MOZ_Z_inflateMark(ptr noundef readonly %strm) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %strm, null
   br i1 %cmp, label %return, label %lor.lhs.false

@@ -3871,7 +3871,7 @@ Vec_PtrStart.exit:                                ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Ssw_SmlStop(ptr noundef captures(address_is_null) %0) local_unnamed_addr #17 {
+define void @Ssw_SmlStop(ptr noundef %0) local_unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -4271,7 +4271,7 @@ define i32 @Ssw_SmlNumWordsTotal(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @Ssw_SmlSimInfo(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define nonnull ptr @Ssw_SmlSimInfo(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48

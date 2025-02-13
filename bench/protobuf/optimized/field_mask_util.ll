@@ -202,7 +202,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf4util13FieldMaskUtil20SnakeCaseToCamelCaseESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS5_SaIcEEE(i64 %input.coerce0, ptr readonly captures(address) %input.coerce1, ptr noundef nonnull %output) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf4util13FieldMaskUtil20SnakeCaseToCamelCaseESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS5_SaIcEEE(i64 %input.coerce0, ptr readonly %input.coerce1, ptr noundef nonnull %output) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #21
   %add.ptr.i = getelementptr inbounds i8, ptr %input.coerce1, i64 %input.coerce0
@@ -261,7 +261,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf4util13FieldMaskUtil20CamelCaseToSnakeCaseESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS5_SaIcEEE(i64 %input.coerce0, ptr readonly captures(address) %input.coerce1, ptr noundef nonnull %output) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf4util13FieldMaskUtil20CamelCaseToSnakeCaseESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS5_SaIcEEE(i64 %input.coerce0, ptr readonly %input.coerce1, ptr noundef nonnull %output) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #21
   %add.ptr.i = getelementptr inbounds i8, ptr %input.coerce1, i64 %input.coerce0
@@ -560,7 +560,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit10: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf4util13FieldMaskUtil19GetFieldDescriptorsEPKNS0_10DescriptorESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EE(ptr noundef %descriptor, i64 %path.coerce0, ptr %path.coerce1, ptr noundef captures(address_is_null) %field_descriptors) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf4util13FieldMaskUtil19GetFieldDescriptorsEPKNS0_10DescriptorESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EE(ptr noundef %descriptor, i64 %path.coerce0, ptr %path.coerce1, ptr noundef %field_descriptors) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.absl::lts_20230802::strings_internal::Splitter<absl::lts_20230802::ByChar, absl::lts_20230802::AllowEmpty, std::basic_string_view<char>>::ConvertToContainer", align 1
   %parts = alloca %"class.std::vector", align 8
@@ -3445,7 +3445,7 @@ declare noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6ato
 declare void @AbslInternalSpinLockWake_lts_20230802(ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree7AddPathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %this, i64 %path.coerce0, ptr %path.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree7AddPathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %path.coerce0, ptr %path.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.absl::lts_20230802::strings_internal::Splitter<absl::lts_20230802::ByChar, absl::lts_20230802::AllowEmpty, std::basic_string_view<char>>::ConvertToContainer", align 1
   %parts = alloca %"class.std::vector", align 8
@@ -5136,7 +5136,7 @@ for.end:                                          ; preds = %_ZN4absl12lts_20230
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree20MergeLeafNodesToTreeESt17basic_string_viewIcSt11char_traitsIcEEPKNS3_4NodeEPS3_(i64 %prefix.coerce0, ptr %prefix.coerce1, ptr noundef readonly captures(none) %node, ptr noundef nonnull captures(address) %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree20MergeLeafNodesToTreeESt17basic_string_viewIcSt11char_traitsIcEEPKNS3_4NodeEPS3_(i64 %prefix.coerce0, ptr %prefix.coerce1, ptr noundef readonly captures(none) %node, ptr noundef nonnull %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_path = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8

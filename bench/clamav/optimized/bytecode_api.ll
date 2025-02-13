@@ -4761,7 +4761,7 @@ define range(i32 -128, 128) i32 @cli_bcapi_hex2ui(ptr noundef readnone captures(
 declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #18 {
+define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = tail call ptr @__ctype_b_loc() #30
@@ -4840,7 +4840,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_debug_print_str_start(ptr noundef readonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @cli_bcapi_debug_print_str_nonl(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #19 {
+define noundef i32 @cli_bcapi_debug_print_str_nonl(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -4867,7 +4867,7 @@ define noundef i32 @cli_bcapi_debug_print_str_nonl(ptr noundef readnone captures
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define i32 @cli_bcapi_entropy_buffer(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #20 {
+define i32 @cli_bcapi_entropy_buffer(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = alloca [256 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #28
   %5 = icmp eq ptr %1, null
@@ -5307,7 +5307,7 @@ define range(i32 1073741824, 335544320) i32 @cli_bcapi_engine_scan_options(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -6704,7 +6704,7 @@ define range(i32 0, 2) i32 @cli_bcapi_json_is_active(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_json_get_object(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @cli_bcapi_json_get_object(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1088

@@ -3649,7 +3649,7 @@ unreachable:                                      ; preds = %invoke.cont24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib17OptionletStripper21optionletFixingTenorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(312) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib17OptionletStripper21optionletFixingTenorsEv(ptr noundef nonnull readnone align 8 dereferenceable(312) %this) local_unnamed_addr #12 align 2 {
 entry:
   %optionletTenors_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   ret ptr %optionletTenors_

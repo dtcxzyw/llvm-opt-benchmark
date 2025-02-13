@@ -360,7 +360,7 @@ declare void @Pobsclose(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addGraphObjs(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(address) %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc void @addGraphObjs(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readnone %3, ptr noundef %4) unnamed_addr #3 {
   %6 = tail call ptr @agfstnode(ptr noundef %1) #14
   %.not34 = icmp eq ptr %6, null
   br i1 %.not34, label %.preheader, label %.lr.ph

@@ -214,7 +214,7 @@ write_to_file.exit:                               ; preds = %26, %25, %17, %9
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.shb, align 8
   %10 = alloca %struct.ws_option, align 2
   %11 = alloca i32, align 4
@@ -458,7 +458,7 @@ write_to_file.exit77:                             ; preds = %.lr.ph83, %104, %10
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr noundef captures(none) %0, i16 noundef zeroext range(i16 1, 16) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr noundef captures(none) %0, i16 noundef zeroext range(i16 1, 16) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.ws_option, align 2
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
@@ -559,7 +559,7 @@ write_to_file.exit30:                             ; preds = %37, %39
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_interface_description_block(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(none) %9, i64 noundef %10, i8 noundef zeroext %11, ptr noundef writeonly captures(none) %12) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_interface_description_block(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(none) %9, i64 noundef %10, i8 noundef zeroext %11, ptr noundef writeonly captures(none) %12) local_unnamed_addr #0 {
   %14 = alloca i64, align 8
   %15 = alloca i8, align 1
   %16 = alloca %struct.idb, align 4
@@ -879,7 +879,7 @@ write_to_file.exit130:                            ; preds = %114, %116
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_enhanced_packet_block(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(none) %8, i32 noundef %9, ptr noundef captures(none) %10, ptr noundef writeonly captures(none) %11) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_enhanced_packet_block(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(none) %8, i32 noundef %9, ptr noundef captures(none) %10, ptr noundef writeonly captures(none) %11) local_unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca %struct.epb, align 4
   %15 = alloca %struct.ws_option, align 2
@@ -1119,7 +1119,7 @@ write_to_file.exit79:                             ; preds = %write_to_file.exit8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca %struct.isb, align 4

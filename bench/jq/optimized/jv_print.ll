@@ -1234,7 +1234,7 @@ declare i32 @jv_get_refcnt(i64, ptr) local_unnamed_addr #5
 declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_str(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #4 {
+define internal fastcc void @put_str(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %13, label %5
@@ -1264,7 +1264,7 @@ put_buf.exit:                                     ; preds = %5, %13
 declare { i64, ptr } @jv_invalid_get_msg(i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jvp_dump_string(i64 %0, ptr %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #4 {
+define internal fastcc void @jvp_dump_string(i64 %0, ptr %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #4 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -1682,7 +1682,7 @@ declare double @jv_number_value(i64, ptr) local_unnamed_addr #5
 declare ptr @jvp_dtoa_fmt(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_refcnt(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #4 {
+define internal fastcc void @put_refcnt(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #4 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1762,7 +1762,7 @@ declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #5
 declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_char(i8 noundef signext %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #4 {
+define internal fastcc void @put_char(i8 noundef signext %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
   %.not.i = icmp eq ptr %2, null
@@ -1789,7 +1789,7 @@ put_buf.exit:                                     ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_indent(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #4 {
+define internal fastcc void @put_indent(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #4 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = and i32 %1, 64

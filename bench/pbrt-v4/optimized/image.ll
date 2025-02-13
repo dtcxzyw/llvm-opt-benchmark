@@ -1044,7 +1044,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_null) %data, ptr noundef readonly captures(address_is_null) %desc, ptr noundef writeonly captures(address_is_null) %out_len) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %data, ptr noundef readonly %desc, ptr noundef writeonly %out_len) local_unnamed_addr #3 {
 entry:
   %index = alloca [64 x %union.qoi_rgba_t], align 16
   %cmp = icmp eq ptr %data, null
@@ -1379,7 +1379,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(address_is_null) %data, i32 noundef %size, ptr noundef writeonly captures(address_is_null) %desc, i32 noundef %channels) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly %data, i32 noundef %size, ptr noundef writeonly %desc, i32 noundef %channels) local_unnamed_addr #3 {
 entry:
   %index = alloca [64 x %union.qoi_rgba_t], align 16
   %cmp = icmp eq ptr %data, null
@@ -12932,7 +12932,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont14, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt5Image11SetChannelsENS_6Point2IiEERKNS_18ImageChannelValuesE(ptr noundef nonnull align 8 dereferenceable(152) %this, i64 %p.coerce, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %values) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4pbrt5Image11SetChannelsENS_6Point2IiEERKNS_18ImageChannelValuesE(ptr noundef nonnull align 8 dereferenceable(152) %this, i64 %p.coerce, ptr noundef nonnull readonly align 8 dereferenceable(48) %values) local_unnamed_addr #7 align 2 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
@@ -27317,7 +27317,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %image, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %desc, i32 %dataWindow.0.val, i32 %dataWindow.4.val) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %image, ptr noundef nonnull readonly align 8 dereferenceable(48) %desc, i32 %dataWindow.0.val, i32 %dataWindow.4.val) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %channelNames = alloca %"class.std::vector.36", align 8
   %ref.tmp25 = alloca %"struct.Imf_2_5::Slice", align 8

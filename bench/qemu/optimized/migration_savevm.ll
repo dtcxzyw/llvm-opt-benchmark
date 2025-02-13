@@ -999,7 +999,7 @@ if.end42:                                         ; preds = %if.then39, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @unregister_savevm(ptr noundef %obj, ptr noundef %idstr, ptr noundef readnone captures(address) %opaque) local_unnamed_addr #0 {
+define dso_local void @unregister_savevm(ptr noundef %obj, ptr noundef %idstr, ptr noundef readnone %opaque) local_unnamed_addr #0 {
 entry:
   %id = alloca [256 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %id, i8 0, i64 256, i1 false)
@@ -1543,7 +1543,7 @@ while.end22:                                      ; preds = %land.rhs, %if.end20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vmstate_unregister(ptr noundef readnone captures(none) %obj, ptr noundef readnone captures(address) %vmsd, ptr noundef readnone captures(address) %opaque) local_unnamed_addr #0 {
+define dso_local void @vmstate_unregister(ptr noundef readnone captures(none) %obj, ptr noundef readnone %vmsd, ptr noundef readnone %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @savevm_state, align 8
   %tobool.not7 = icmp eq ptr %0, null
@@ -6982,7 +6982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @vmstate_check_only_migratable(ptr noundef readonly captures(address_is_null) %vmsd) local_unnamed_addr #9 {
+define dso_local zeroext i1 @vmstate_check_only_migratable(ptr noundef readonly %vmsd) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr @only_migratable, align 4
   %tobool.not = icmp eq i32 %0, 0

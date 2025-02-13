@@ -127,7 +127,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN4cvc58internal19LastExceptionBuffer11setContentsEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address_is_null) %string) local_unnamed_addr #4 align 2 {
+define void @_ZN4cvc58internal19LastExceptionBuffer11setContentsEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %string) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null

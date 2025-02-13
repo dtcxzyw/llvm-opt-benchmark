@@ -350,7 +350,7 @@ declare void @vmstate_unregister(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @eeprom93xx_data(ptr noundef readnone captures(ret: address, provenance) %eeprom) local_unnamed_addr #6 {
+define dso_local nonnull ptr @eeprom93xx_data(ptr noundef readnone %eeprom) local_unnamed_addr #6 {
 entry:
   %contents = getelementptr inbounds nuw i8, ptr %eeprom, i64 12
   ret ptr %contents

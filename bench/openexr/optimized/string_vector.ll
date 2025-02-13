@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"<nil>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_vector_init(ptr noundef %ctxt, ptr noundef captures(address_is_null) %sv, i32 noundef %nent) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_vector_init(ptr noundef %ctxt, ptr noundef %sv, i32 noundef %nent) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %nent to i64
   %mul = shl nsw i64 %conv, 4
@@ -99,7 +99,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_string_vector_destroy(ptr noundef %ctxt, ptr noundef captures(address_is_null) %sv) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_string_vector_destroy(ptr noundef %ctxt, ptr noundef %sv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -153,7 +153,7 @@ return:                                           ; preds = %if.end, %if.end8, %
 declare i32 @exr_attr_string_destroy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_vector_copy(ptr noundef %ctxt, ptr noundef captures(address_is_null) %sv, ptr noundef readonly captures(address_is_null) %src) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_vector_copy(ptr noundef %ctxt, ptr noundef %sv, ptr noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %src, null
   br i1 %tobool.not, label %return, label %if.end
@@ -311,7 +311,7 @@ return:                                           ; preds = %land.rhs, %if.end, 
 declare i32 @exr_attr_string_set_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_vector_init_entry(ptr noundef %ctxt, ptr noundef readonly captures(address_is_null) %sv, i32 noundef %idx, i32 noundef %len) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_vector_init_entry(ptr noundef %ctxt, ptr noundef readonly %sv, i32 noundef %idx, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -355,7 +355,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 declare i32 @exr_attr_string_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_vector_set_entry_with_length(ptr noundef %ctxt, ptr noundef readonly captures(address_is_null) %sv, i32 noundef %idx, ptr noundef %s, i32 noundef %len) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_vector_set_entry_with_length(ptr noundef %ctxt, ptr noundef readonly %sv, i32 noundef %idx, ptr noundef %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -399,7 +399,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_vector_set_entry(ptr noundef %ctxt, ptr noundef readonly captures(address_is_null) %sv, i32 noundef %idx, ptr noundef %s) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_vector_set_entry(ptr noundef %ctxt, ptr noundef readonly %sv, i32 noundef %idx, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %entry.split, label %if.then.split
@@ -485,7 +485,7 @@ if.end:                                           ; preds = %if.end9.i17, %if.th
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_vector_add_entry_with_length(ptr noundef %ctxt, ptr noundef captures(address_is_null) %sv, ptr noundef %s, i32 noundef %len) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_vector_add_entry_with_length(ptr noundef %ctxt, ptr noundef %sv, ptr noundef %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -606,7 +606,7 @@ return:                                           ; preds = %if.end35, %if.then4
 declare i32 @exr_attr_string_create_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_string_vector_add_entry(ptr noundef %ctxt, ptr noundef captures(address_is_null) %sv, ptr noundef %s) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_string_vector_add_entry(ptr noundef %ctxt, ptr noundef %sv, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %entry.split, label %if.then.split

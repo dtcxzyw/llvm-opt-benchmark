@@ -1765,7 +1765,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3e888e28a52b1ec5E"(ptr %0, ptr readnone captures(address) %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h3e888e28a52b1ec5E"(ptr %0, ptr readnone %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   store ptr %2, ptr %4, align 8
   %5 = icmp eq ptr %0, %1

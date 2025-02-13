@@ -3399,7 +3399,7 @@ define hidden void @zif_array_walk(ptr noundef %0, ptr noundef writeonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @php_array_walk(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc i32 @php_array_walk(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = alloca [3 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca i32, align 4

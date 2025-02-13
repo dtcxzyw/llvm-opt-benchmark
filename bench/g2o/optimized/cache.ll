@@ -379,7 +379,7 @@ define noundef ptr @_ZN3g2o14CacheContainer5graphEv(ptr noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o5Cache10parametersEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o5Cache10parametersEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -1102,7 +1102,7 @@ _ZN3g2o5Cache8CacheKeyD2Ev.exit:                  ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o14CacheContainer6updateEv(ptr noundef nonnull align 8 captures(address) dereferenceable(65) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN3g2o14CacheContainer6updateEv(ptr noundef nonnull align 8 dereferenceable(65) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1125,7 +1125,7 @@ define void @_ZN3g2o14CacheContainer6updateEv(ptr noundef nonnull align 8 captur
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define void @_ZN3g2o14CacheContainer15setUpdateNeededEb(ptr noundef nonnull align 8 captures(address) dereferenceable(65) initializes((64, 65)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define void @_ZN3g2o14CacheContainer15setUpdateNeededEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((64, 65)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %3, ptr %4, align 8

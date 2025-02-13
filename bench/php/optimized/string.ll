@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_addslashes = ifunc ptr (ptr), ptr @resolve_addslashes
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @localeconv_r(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 96)) %0) local_unnamed_addr #0 {
+define noundef ptr @localeconv_r(ptr noundef returned writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @localeconv() #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   ret ptr %0
@@ -972,7 +972,7 @@ define hidden void @zif_strcoll(ptr noundef %0, ptr noundef writeonly captures(n
 declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_trim(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @php_trim(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %0 to i64
   %6 = alloca [256 x i8], align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5252,7 +5252,7 @@ define hidden void @zif_str_decrement(ptr noundef %0, ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_basename(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define ptr @php_basename(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %.preheader
@@ -6123,7 +6123,7 @@ thread-pre-split:                                 ; preds = %90, %95, %100, %91
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @php_stristr(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #9 {
+define ptr @php_stristr(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   %6 = icmp sgt i64 %2, -1
   tail call void @llvm.assume(i1 %6)
@@ -11869,7 +11869,7 @@ define hidden void @zif_ucwords(ptr noundef %0, ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_charmask(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 256)) %2) unnamed_addr #0 {
+define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 256)) %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0
@@ -11969,7 +11969,7 @@ define internal fastcc void @php_charmask(ptr noundef readonly captures(address)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @php_strtr(ptr noundef returned captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #11 {
+define noundef ptr @php_strtr(ptr noundef returned %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #11 {
   %6 = alloca [256 x i8], align 16
   switch i64 %4, label %.lr.ph35.preheader [
     i64 0, label %.loopexit
@@ -14655,7 +14655,7 @@ define hidden void @zif_addcslashes(ptr noundef %0, ptr noundef writeonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_addcslashes_str(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #0 {
+define ptr @php_addcslashes_str(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = tail call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %1, i64 noundef 32) #28
   store i32 1, ptr %6, align 4
@@ -14965,7 +14965,7 @@ define hidden void @zif_stripcslashes(ptr noundef %0, ptr noundef writeonly capt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @php_stripcslashes(ptr noundef captures(address) %0) local_unnamed_addr #15 {
+define void @php_stripcslashes(ptr noundef %0) local_unnamed_addr #15 {
   %2 = alloca [4 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -15405,7 +15405,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_addcslashes(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @php_addcslashes(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
@@ -16298,7 +16298,7 @@ define hidden void @zflf_str_replace_3(ptr noundef captures(none) %0, ptr nounde
 declare zeroext i1 @zend_flf_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_php_str_replace_common(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @_php_str_replace_common(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef readonly %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %struct._zval_struct, align 8
   %11 = icmp ne ptr %2, null
   %12 = icmp ne ptr %3, null
@@ -21912,7 +21912,7 @@ declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr no
 declare ptr @zend_long_to_str(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @php_char_to_str_ex(ptr noundef %0, i8 noundef signext %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5) unnamed_addr #13 {
+define internal fastcc noundef ptr @php_char_to_str_ex(ptr noundef %0, i8 noundef signext %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #13 {
   br i1 %4, label %7, label %32
 
 7:                                                ; preds = %6
@@ -22633,7 +22633,7 @@ declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare dso_local void @__cpu_indicator_init() local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23256,7 +23256,7 @@ declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @zend_try_assign_typed_ref_long(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_str_to_str_i_ex(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
+define internal fastcc ptr @php_str_to_str_i_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16

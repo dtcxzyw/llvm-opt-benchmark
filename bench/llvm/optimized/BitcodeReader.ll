@@ -1972,7 +1972,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13readWideAPIntENS_8ArrayRefImEEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr readonly captures(address) %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm13readWideAPIntENS_8ArrayRefImEEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr readonly %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallVector.11", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -34355,7 +34355,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEjNS_12DenseMapInfoIS3_vEENS_6d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr readonly captures(address) %.552.val, i32 %.568.val, i32 noundef %0, i32 noundef %1) unnamed_addr #22 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113BitcodeReader18getContainedTypeIDEjj(ptr readonly %.552.val, i32 %.568.val, i32 noundef %0, i32 noundef %1) unnamed_addr #22 align 2 {
   %3 = icmp eq i32 %.568.val, 0
   br i1 %3, label %.loopexit.i, label %4
 
@@ -45172,7 +45172,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyIPmPjEEvT_S5_T0_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113BitcodeReader17readConstantRangeEN4llvm8ArrayRefImEERjj(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4, i32 noundef %5) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113BitcodeReader17readConstantRangeEN4llvm8ArrayRefImEERjj(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1960) %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4, i32 noundef %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::SmallVector.11", align 8
   %8 = alloca %"class.llvm::SmallVector.11", align 8
   %9 = alloca %"class.llvm::Error", align 8
@@ -64094,7 +64094,7 @@ define internal fastcc range(i32 0, 2048) i32 @_ZL24getDecodedGVSummaryFlagsmm(i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader11makeRefListEN4llvm8ArrayRefImEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(624) %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader11makeRefListEN4llvm8ArrayRefImEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(624) %1, ptr readonly %2, i64 %3) unnamed_addr #1 align 2 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !25

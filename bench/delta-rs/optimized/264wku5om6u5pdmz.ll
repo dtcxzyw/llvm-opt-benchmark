@@ -43633,7 +43633,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit2246: ; preds = %4065
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$16find_window_func17h34777836206d983eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$16find_window_func17h34777836206d983eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -77931,7 +77931,7 @@ common.resume:                                    ; preds = %75, %25, %56
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$17convert_data_type17h89a1afe43a97a8ddE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$17convert_data_type17h89a1afe43a97a8ddE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -78658,7 +78658,7 @@ common.resume:                                    ; preds = %.thread, %126
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$24convert_simple_data_type17h4dd503aa29d0b164E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$24convert_simple_data_type17h4dd503aa29d0b164E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -79244,7 +79244,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit102: ; preds = %138
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$24convert_simple_data_type17h92c0ef560f6435f6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$24convert_simple_data_type17h92c0ef560f6435f6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -113879,7 +113879,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h9019f31dd13e4b2fE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h9019f31dd13e4b2fE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5
@@ -144980,7 +144980,7 @@ switch.lookup:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN74_$LT$arrow_schema..fields..UnionFields$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6716f2988beb1fdcE"(ptr readonly captures(address_is_null) %.0.val, i64 %.8.val, ptr readonly captures(address_is_null) %.0.val1, i64 %.8.val3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN74_$LT$arrow_schema..fields..UnionFields$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6716f2988beb1fdcE"(ptr readonly %.0.val, i64 %.8.val, ptr readonly %.0.val1, i64 %.8.val3) unnamed_addr #0 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16

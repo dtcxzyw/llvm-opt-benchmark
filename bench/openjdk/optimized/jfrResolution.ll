@@ -648,7 +648,7 @@ _ZL30on_compiler_resolve_deprecatedPK8ciMethodiP6Method.exit: ; preds = %_ZNK10c
 declare void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JfrResolution19on_jvmci_resolutionEPK6MethodS2_P10JavaThread(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13JfrResolution19on_jvmci_resolutionEPK6MethodS2_P10JavaThread(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

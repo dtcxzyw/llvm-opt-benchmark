@@ -1555,7 +1555,7 @@ declare void @srun_allocate_abort(ptr noundef) local_unnamed_addr #1
 declare void @job_completion_logger(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fill_array_reasons(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local void @fill_array_reasons(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %3
 
@@ -3400,7 +3400,7 @@ _depend_state2str.exit46:                         ; preds = %54, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @test_job_dependency(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @test_job_dependency(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1

@@ -41867,14 +41867,14 @@ _ZN5arrow3ipc8internal26IoRecordedRandomAccessFile4ReadEl.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #15 align 2 {
 entry:
   %io_context_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %io_context_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZTv0_n48_NK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef readonly captures(ret: address, provenance) %this) unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZTv0_n48_NK5arrow3ipc8internal26IoRecordedRandomAccessFile10io_contextEv(ptr noundef readonly %this) unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -48
@@ -41885,7 +41885,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile13GetReadRangesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile13GetReadRangesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) local_unnamed_addr #15 align 2 {
 entry:
   %read_ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %read_ranges_

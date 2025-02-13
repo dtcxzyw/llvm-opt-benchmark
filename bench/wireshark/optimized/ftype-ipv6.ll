@@ -28,7 +28,7 @@ define hidden void @ftype_register_ipv6() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ipv6_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @ipv6_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #12
@@ -159,7 +159,7 @@ define internal void @ipv6_set(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ipv6_get(ptr noundef readnone captures(ret: address, provenance) %0) #2 {
+define internal nonnull ptr @ipv6_get(ptr noundef readnone %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

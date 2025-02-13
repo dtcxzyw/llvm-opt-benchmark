@@ -1577,7 +1577,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %cps) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %cps) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 24

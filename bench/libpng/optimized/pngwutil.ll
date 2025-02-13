@@ -4079,7 +4079,7 @@ define void @png_write_finish_row(ptr noalias noundef %0) local_unnamed_addr #1 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = icmp slt i32 %2, 6
   br i1 %4, label %5, label %148
 

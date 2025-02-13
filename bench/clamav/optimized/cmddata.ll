@@ -640,7 +640,7 @@ define noundef zeroext i1 @_ZN11CommandData9SizeCheckEl(ptr noundef nonnull read
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11CommandData13IsProcessFileER10FileHeaderPbibPwj(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN11CommandData13IsProcessFileER10FileHeaderPbibPwj(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1, ptr noundef writeonly %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
   %8 = icmp ne ptr %5, null
   %9 = icmp ne i32 %6, 0
   %or.cond = and i1 %8, %9

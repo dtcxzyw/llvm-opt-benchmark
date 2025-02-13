@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [22 x i8] c"include/net/netlink.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %6 = or i1 %4, %5
@@ -390,7 +390,7 @@ define dso_local range(i32 -105, 1) i32 @netlink_policy_dump_write_attr(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -105, 1) i32 @__netlink_policy_dump_write_attr(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -105, 1) i32 @__netlink_policy_dump_write_attr(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -792,7 +792,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192

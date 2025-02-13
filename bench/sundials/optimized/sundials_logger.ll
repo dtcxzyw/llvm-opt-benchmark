@@ -266,7 +266,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNLogger_SetErrorFilename(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -9999, 1) i32 @SUNLogger_SetErrorFilename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %SUNHashMap_Insert.exit, label %3
 
@@ -482,7 +482,7 @@ SUNHashMap_Insert.exit:                           ; preds = %81, %77, %92, %89, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNLogger_SetWarningFilename(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -9999, 1) i32 @SUNLogger_SetWarningFilename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %SUNHashMap_Insert.exit, label %3
 
@@ -698,14 +698,14 @@ SUNHashMap_Insert.exit:                           ; preds = %81, %77, %92, %89, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -9999, 1) i32 @SUNLogger_SetDebugFilename(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
+define noundef range(i32 -9999, 1) i32 @SUNLogger_SetDebugFilename(ptr noundef readnone %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, i32 -9999, i32 0
   ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -9999, 1) i32 @SUNLogger_SetInfoFilename(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
+define noundef range(i32 -9999, 1) i32 @SUNLogger_SetInfoFilename(ptr noundef readnone %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, i32 -9999, i32 0
   ret i32 %spec.select
@@ -1022,7 +1022,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -9999, 1) i32 @SUNLogger_GetOutputRank(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+define range(i32 -9999, 1) i32 @SUNLogger_GetOutputRank(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

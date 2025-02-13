@@ -8160,7 +8160,7 @@ _ZL11parseHeaderIN4llvm5MachO14mach_header_64EEvRKNS0_6object15MachOObjectFileER
 declare void @_ZN4llvm6object10ObjectFileC2EjNS_15MemoryBufferRefE(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(28) ptr @_ZNK4llvm6object15MachOObjectFile9getHeaderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(360) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(28) ptr @_ZNK4llvm6object15MachOObjectFile9getHeaderEv(ptr noundef nonnull readnone align 8 dereferenceable(360) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -11351,7 +11351,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9getStructIN4llvm5MachO23encryption_info_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL9getStructIN4llvm5MachO23encryption_info_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #31
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp ult ptr %2, %5
@@ -11627,7 +11627,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9getStructIN4llvm5MachO26encryption_info_command_64EET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL9getStructIN4llvm5MachO26encryption_info_command_64EET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #31
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp ult ptr %2, %5
@@ -12025,7 +12025,7 @@ _ZN4llvm8ExpectedINS_5MachO21linker_option_commandEED2Ev.exit: ; preds = %_ZL14m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO21sub_framework_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO21sub_framework_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #31
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -12853,7 +12853,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO20sub_umbrella_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO20sub_umbrella_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #31
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -12896,7 +12896,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %13, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO19sub_library_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO19sub_library_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #31
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -12939,7 +12939,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %13, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL9getStructIN4llvm5MachO18sub_client_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc i32 @_ZL9getStructIN4llvm5MachO18sub_client_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #31
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = icmp ult ptr %1, %4
@@ -17004,7 +17004,7 @@ _ZN4llvm8ExpectedINS_5MachO22twolevel_hints_commandEED2Ev.exit: ; preds = %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9getStructIN4llvm5MachO16dysymtab_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL9getStructIN4llvm5MachO16dysymtab_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #31
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp ult ptr %2, %5
@@ -17656,7 +17656,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %193, %_ZNK4llvm6obj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4llvm6object15MachOObjectFile11getHeader64Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(360) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4llvm6object15MachOObjectFile11getHeader64Ev(ptr noundef nonnull readnone align 8 dereferenceable(360) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -22299,7 +22299,7 @@ _ZN4llvm8ExpectedINS_5MachO13dylib_commandEED2Ev.exit33: ; preds = %57, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #31
@@ -22764,7 +22764,7 @@ define dso_local noundef range(i32 0, 39) i32 @_ZN4llvm6object15MachOObjectFile7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Triple") align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Triple") align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -23428,7 +23428,7 @@ _ZN4llvm6object15MachOObjectFile7getArchEjj.exit: ; preds = %1, %3, %4, %5, %6, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object15MachOObjectFile13getArchTripleEPPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::Triple") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object15MachOObjectFile13getArchTripleEPPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::Triple") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !229
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -25444,7 +25444,7 @@ _ZNK4llvm11SmallStringILj256EE6equalsENS_9StringRefE.exit.thread: ; preds = %33,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4llvm6object11ExportEntry11readULEB128ERPKhPPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1353) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #16 align 2 {
+define dso_local noundef i64 @_ZN4llvm6object11ExportEntry11readULEB128ERPKhPPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1353) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef writeonly %2) local_unnamed_addr #16 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !189
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !3931
@@ -31923,7 +31923,7 @@ define dso_local void @_ZN4llvm6object16MachORebaseEntry9moveToEndEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4llvm6object16MachORebaseEntry11readULEB128EPPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(75) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef i64 @_ZN4llvm6object16MachORebaseEntry11readULEB128EPPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(75) %0, ptr noundef writeonly %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4755
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -35679,7 +35679,7 @@ define dso_local void @_ZN4llvm6object14MachOBindEntry9moveToEndEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4llvm6object14MachOBindEntry11readULEB128EPPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef i64 @_ZN4llvm6object14MachOBindEntry11readULEB128EPPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %0, ptr noundef writeonly %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !5274
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -35756,7 +35756,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit:        ; preds = %thread-pre-split.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4llvm6object14MachOBindEntry11readSLEB128EPPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef i64 @_ZN4llvm6object14MachOBindEntry11readSLEB128EPPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %0, ptr noundef writeonly %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !5274
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -39522,7 +39522,7 @@ _ZL9getStructIN4llvm5MachO21linkedit_data_commandEET_RKNS0_6object15MachOObjectF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #31
@@ -44213,7 +44213,7 @@ declare i64 @llvm.bswap.i64(i64) #19
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #31
@@ -44346,7 +44346,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %26, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #31

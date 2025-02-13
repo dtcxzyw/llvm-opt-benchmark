@@ -2553,7 +2553,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef writeonly captures(address_is_null) %matchLen1, ptr noundef writeonly captures(none) %matchLen2, i32 %pErrorCode.0.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef writeonly %matchLen1, ptr noundef writeonly captures(none) %matchLen2, i32 %pErrorCode.0.val) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %stack1 = alloca [2 x %struct.CmpEquivLevel], align 16
@@ -3177,7 +3177,7 @@ return:                                           ; preds = %for.end339, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -65535, 65536) i32 @u_strCaseCompare_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define range(i32 -65535, 65536) i32 @u_strCaseCompare_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3236,7 +3236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @u_caseInsensitivePrefixMatch_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef captures(address_is_null) %matchLen1, ptr noundef writeonly captures(none) %matchLen2, ptr noundef readonly captures(none) %pErrorCode) local_unnamed_addr #0 {
+define void @u_caseInsensitivePrefixMatch_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %matchLen1, ptr noundef writeonly captures(none) %matchLen2, ptr noundef readonly captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %pErrorCode.val = load i32, ptr %pErrorCode, align 4
   %0 = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %matchLen1, ptr noundef %matchLen2, i32 %pErrorCode.val)

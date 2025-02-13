@@ -5371,7 +5371,7 @@ define internal fastcc void @Vec_IntFree(ptr noundef captures(none) %0) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_FrameDeriveStatusArray(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_FrameDeriveStatusArray(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.critedge, label %3
 
@@ -5563,7 +5563,7 @@ Vec_IntGrow.exit:                                 ; preds = %3, %14
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_FrameDeriveStatusArray2(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_FrameDeriveStatusArray2(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.critedge, label %3
 
@@ -95558,7 +95558,7 @@ declare void @Abc_NtkTimeSetArrival(ptr noundef, i32 noundef, float noundef, flo
 declare void @Abc_NtkTimeSetRequired(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #6 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -97730,7 +97730,7 @@ declare ptr @Abc_TruthDecRead(ptr noundef, i32 noundef) local_unnamed_addr #8
 declare void @Gia_ManMatchCuts(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_MemHashFree(ptr noundef captures(address_is_null) %0) unnamed_addr #3 {
+define internal fastcc void @Vec_MemHashFree(ptr noundef %0) unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %Vec_IntFreeP.exit5, label %3
 

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter18convert1BitTo16BitEPKhPsiiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter18convert1BitTo16BitEPKhPsiiib(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -177,7 +177,7 @@ for.end31:                                        ; preds = %for.cond10.for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter18convert4BitTo16BitEPKhPsiiPKiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly captures(address_is_null) %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter18convert4BitTo16BitEPKhPsiiPKiib(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -258,7 +258,7 @@ for.end35:                                        ; preds = %for.cond12.for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly captures(address_is_null) %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -329,7 +329,7 @@ for.end27:                                        ; preds = %for.cond12.for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter18convert8BitTo24BitEPKhPhiiS3_ib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly captures(address_is_null) %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter18convert8BitTo24BitEPKhPhiiS3_ib(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -503,7 +503,7 @@ return:                                           ; preds = %for.cond11.for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter18convert8BitTo32BitEPKhPhiiS3_ib(ptr noundef readonly captures(address) %in, ptr noundef writeonly captures(address) %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly captures(address_is_null) %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter18convert8BitTo32BitEPKhPhiiS3_ib(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, ptr noundef readonly %palette, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -826,7 +826,7 @@ return:                                           ; preds = %for.cond13.if.end34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #1 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -909,7 +909,7 @@ for.end:                                          ; preds = %for.body.epil, %for
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip, i1 noundef zeroext %bgr) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip, i1 noundef zeroext %bgr) local_unnamed_addr #1 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool2 = icmp ne ptr %out, null
@@ -1107,7 +1107,7 @@ return:                                           ; preds = %for.cond6.for.cond.
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #1 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null

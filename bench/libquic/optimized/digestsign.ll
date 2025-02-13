@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/digestsign.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %ctx, ptr noundef captures(address_is_null) %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly captures(address_is_null) %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef range(i32 0, 2) %is_verify) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef range(i32 0, 2) %is_verify) unnamed_addr #0 {
 entry:
   %pctx1 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx1, align 8
@@ -82,7 +82,7 @@ return:                                           ; preds = %if.end30, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef captures(address_is_null) %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef 1)
   ret i32 %call

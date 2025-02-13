@@ -1079,7 +1079,7 @@ define dso_local ptr @_PyXIData_Lookup(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_getdata(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %.8.val) unnamed_addr #0 {
+define internal fastcc ptr @lookup_getdata(ptr noundef readonly captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %.8.val, i64 168
   %.val10.i = load i64, ptr %2, align 8, !tbaa !96
   %3 = lshr i64 %.val10.i, 6
@@ -1434,7 +1434,7 @@ _xidregistry_unlock.exit:                         ; preds = %76, %72, %_xidregis
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_PyXIData_UnregisterClass(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyXIData_UnregisterClass(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 168
   %.val = load i64, ptr %3, align 8, !tbaa !96
   %4 = lshr i64 %.val, 6
@@ -5592,7 +5592,7 @@ xid_lookup_fini.exit:                             ; preds = %Py_XDECREF.exit.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyXI_Init(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define hidden void @_PyXI_Init(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !183
   %.not = icmp eq ptr %1, %3
   br i1 %.not, label %4, label %8
@@ -5661,7 +5661,7 @@ define hidden void @_PyXI_Init(ptr dead_on_unwind noalias writable writeonly sre
 declare void @PyErr_PrintEx(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyXI_Fini(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define hidden void @_PyXI_Fini(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %.not.i.i = icmp eq ptr %3, null
@@ -5879,7 +5879,7 @@ fini_static_exctypes.exit:                        ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyXI_NewInterpreter(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @_PyXI_NewInterpreter(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.PyStatus, align 8
   %7 = tail call ptr @PyThreadState_Swap(ptr noundef null) #11
@@ -5962,7 +5962,7 @@ declare void @PyThreadState_Clear(ptr noundef) local_unnamed_addr #1
 declare void @PyThreadState_Delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_PyXI_EndInterpreter(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @_PyXI_EndInterpreter(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call i32 @_PyInterpreterState_IsReady(ptr noundef %0) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
@@ -6553,7 +6553,7 @@ _PyXIData_InitWithSize.exit.thread:               ; preds = %_PyXIData_Init.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_bool_shared(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 40)) %2) #0 {
+define internal noundef i32 @_bool_shared(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 40)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !129
   %6 = icmp eq ptr %1, @_Py_TrueStruct

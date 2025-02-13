@@ -483,7 +483,7 @@ define dso_local void @drm_object_attach_property(ptr noundef readonly captures(
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_object_property_set_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_object_property_set_value(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -666,7 +666,7 @@ define dso_local i32 @drm_object_property_get_value(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_object_property_get_default_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_object_property_get_default_value(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48

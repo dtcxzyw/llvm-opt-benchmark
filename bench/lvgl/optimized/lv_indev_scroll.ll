@@ -1193,7 +1193,7 @@ declare i32 @lv_obj_get_scroll_snap_x(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_obj_get_scroll_snap_y(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

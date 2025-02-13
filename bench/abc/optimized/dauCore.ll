@@ -16,7 +16,7 @@ define noalias noundef ptr @Xyz_ManTryAlloc(ptr noundef %0, ptr noundef %1) loca
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Xyz_ManTryFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @Xyz_ManTryFree(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

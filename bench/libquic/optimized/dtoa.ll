@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6dmg_fpL3p5sE = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN6dmg_fp6strtodEPKcPPc(ptr noundef %s00, ptr noundef writeonly captures(address_is_null) %se) local_unnamed_addr #0 {
+define dso_local noundef double @_ZN6dmg_fp6strtodEPKcPPc(ptr noundef %s00, ptr noundef writeonly %se) local_unnamed_addr #0 {
 entry:
   %bbits.i = alloca i32, align 4
   %p2.i = alloca i32, align 4
@@ -2984,7 +2984,7 @@ return:                                           ; preds = %if.end12, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #7 {
 entry:
   %wds = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %wds, align 4
@@ -3347,7 +3347,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit:              ; preds = %if.end28, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6dmg_fpL4diffEPNS_6BigintES1_(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZN6dmg_fpL4diffEPNS_6BigintES1_(ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #7 {
 entry:
   %wds.i = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %wds.i, align 4
@@ -3617,7 +3617,7 @@ if.end:                                           ; preds = %if.then, %_ZN6dmg_f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN6dmg_fp4dtoaEdiiPiS0_PPc(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly captures(address_is_null) %rve) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @_ZN6dmg_fp4dtoaEdiiPiS0_PPc(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #0 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -5628,7 +5628,7 @@ if.end18:                                         ; preds = %if.end, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN6dmg_fpL6quoremEPNS_6BigintES1_(ptr noundef captures(none) %b, ptr noundef readonly captures(address) %S) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN6dmg_fpL6quoremEPNS_6BigintES1_(ptr noundef captures(none) %b, ptr noundef readonly %S) unnamed_addr #9 {
 entry:
   %wds = getelementptr inbounds nuw i8, ptr %S, i64 20
   %0 = load i32, ptr %wds, align 4
@@ -5825,7 +5825,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly captures(address) %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #12 {
+define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #12 {
 entry:
   %x.ptr = getelementptr inbounds nuw i8, ptr %a, i64 24
   %wds = getelementptr inbounds nuw i8, ptr %a, i64 20

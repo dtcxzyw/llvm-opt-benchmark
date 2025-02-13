@@ -4871,7 +4871,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EEEvT_SG_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce, ptr %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EEEvT_SG_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr %__comp.coerce) unnamed_addr #5 {
 entry:
   %ref.tmp.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp2.i.i = alloca %"class.rocksdb::Slice", align 8

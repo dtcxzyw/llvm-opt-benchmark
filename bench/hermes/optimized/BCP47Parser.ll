@@ -3699,7 +3699,7 @@ _ZN6hermes13platform_intl17LanguageTagParserD2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes13platform_intl22ParsedLocaleIdentifier12canonicalizeB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(512) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes13platform_intl22ParsedLocaleIdentifier12canonicalizeB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(512) %this) local_unnamed_addr #0 align 2 {
 entry:
   %transformedExtension = alloca %"class.std::__cxx11::basic_string", align 8
   %unicodeExtension = alloca %"class.std::__cxx11::basic_string", align 8

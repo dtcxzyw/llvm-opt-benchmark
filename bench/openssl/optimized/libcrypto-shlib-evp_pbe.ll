@@ -173,7 +173,7 @@ err:                                              ; preds = %if.then57, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PBE_find_ex(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly captures(address_is_null) %pcnid, ptr noundef writeonly captures(address_is_null) %pmnid, ptr noundef writeonly captures(address_is_null) %pkeygen, ptr noundef writeonly captures(address_is_null) %pkeygen_ex) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_find_ex(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly %pcnid, ptr noundef writeonly %pmnid, ptr noundef writeonly %pkeygen, ptr noundef writeonly %pkeygen_ex) local_unnamed_addr #0 {
 entry:
   %pbelu = alloca %struct.evp_pbe_st, align 8
   %cmp = icmp eq i32 %pbe_nid, 0
@@ -398,7 +398,7 @@ declare i32 @EVP_CIPHER_get_nid(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PBE_find(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly captures(address_is_null) %pcnid, ptr noundef writeonly captures(address_is_null) %pmnid, ptr noundef writeonly captures(address_is_null) %pkeygen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_find(i32 noundef %type, i32 noundef %pbe_nid, ptr noundef writeonly %pcnid, ptr noundef writeonly %pmnid, ptr noundef writeonly %pkeygen) local_unnamed_addr #0 {
 entry:
   %pbelu.i = alloca %struct.evp_pbe_st, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pbelu.i)
@@ -481,7 +481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @EVP_PBE_get(ptr noundef writeonly captures(address_is_null) %ptype, ptr noundef writeonly captures(address_is_null) %ppbe_nid, i64 noundef %num) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @EVP_PBE_get(ptr noundef writeonly %ptype, ptr noundef writeonly %ppbe_nid, i64 noundef %num) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i64 %num, 33
   br i1 %cmp, label %return, label %if.end

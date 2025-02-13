@@ -1556,7 +1556,7 @@ declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_commit_graph(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @free_commit_graph(ptr noundef %0) local_unnamed_addr #0 {
   %.not11 = icmp eq ptr %0, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -3113,7 +3113,7 @@ define internal noundef i32 @add_ref_to_set(ptr readnone captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @write_commit_graph(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @write_commit_graph(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timeval, align 8
   %7 = alloca %struct.strbuf, align 8
   %8 = alloca %struct.stat, align 8
@@ -6498,7 +6498,7 @@ define internal fastcc void @mark_commit_graphs(ptr noundef readonly captures(no
 declare void @oid_array_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @verify_commit_graph(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @verify_commit_graph(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.object_id, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

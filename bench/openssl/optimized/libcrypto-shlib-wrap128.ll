@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @CRYPTO_128_unwrap_pad.zeros = internal global [8 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %key, ptr noundef readonly captures(address_is_null) %iv, ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
+define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %key, ptr noundef readonly %iv, ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %B = alloca [16 x i8], align 16
   %and = and i64 %inlen, 7
@@ -215,7 +215,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %key, ptr noundef readonly captures(address_is_null) %icv, ptr noundef %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %key, ptr noundef readonly %icv, ptr noundef %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %B.i = alloca [16 x i8], align 16
   %add = add i64 %inlen, 7

@@ -4853,7 +4853,7 @@ declare void @_ZN17CHeapStringHolder5clearEv(ptr noundef nonnull align 8 derefer
 declare noundef ptr @_ZN15ciObjectFactory28get_unloaded_object_constantEv(ptr noundef nonnull align 8 dereferenceable(652)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5ciEnv8dyno_locEPK13InstanceKlassRPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK5ciEnv8dyno_locEPK13InstanceKlassRPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef readnone %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -5150,7 +5150,7 @@ _ZNK5ciEnv8dyno_locEPK13InstanceKlassRPKc.exit:   ; preds = %21, %2, %.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5ciEnv14print_dyno_locEP12outputStreamPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK5ciEnv14print_dyno_locEP12outputStreamPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -5210,7 +5210,7 @@ _ZNK5ciEnv8dyno_locEPK13InstanceKlassRPKc.exit.thread: ; preds = %23, %3, %24
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK5ciEnv9dyno_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK5ciEnv9dyno_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.stringStream, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 4
@@ -5323,7 +5323,7 @@ _ZNK5ciEnv11replay_nameEPK13InstanceKlass.exit:   ; preds = %11, %7, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK5ciEnv11replay_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK5ciEnv11replay_nameEPK13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1265) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK5ciEnv9dyno_nameEPK13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8

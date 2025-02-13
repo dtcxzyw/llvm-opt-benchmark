@@ -16335,7 +16335,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(304) ptr @"_ZN3png7decoder15Reader$LT$R$GT$4info17h8fec02fd59af926fE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(712) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(304) ptr @"_ZN3png7decoder15Reader$LT$R$GT$4info17h8fec02fd59af926fE"(ptr noalias noundef readonly align 8 dereferenceable(712) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8, !range !101, !noundef !19
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -16350,7 +16350,7 @@ define hidden noundef nonnull align 8 dereferenceable(304) ptr @"_ZN3png7decoder
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(304) ptr @"_ZN3png7decoder15Reader$LT$R$GT$4info17haf6332fcfbc4d8b0E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(688) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(304) ptr @"_ZN3png7decoder15Reader$LT$R$GT$4info17haf6332fcfbc4d8b0E"(ptr noalias noundef readonly align 8 dereferenceable(688) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8, !range !101, !noundef !19
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -17675,7 +17675,7 @@ define hidden noundef ptr @"_ZN3std2io5impls70_$LT$impl$u20$std..io..Read$u20$fo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hf5a1da7790032043E.llvm.10180119082961779398"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hf5a1da7790032043E.llvm.10180119082961779398"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2416)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2419)
   %.not.i.i = icmp eq ptr %1, null
@@ -17713,7 +17713,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h3085eff3fb2824c3E"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h3085eff3fb2824c3E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !83, !noundef !19
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18422,7 +18422,7 @@ define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$image..error..Unsuppor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hc37df40fed51534eE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hc37df40fed51534eE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !19, !nonnull !19

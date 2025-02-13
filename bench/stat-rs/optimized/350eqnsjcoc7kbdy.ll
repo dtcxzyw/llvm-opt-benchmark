@@ -170,7 +170,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hedb3f3d77d528b69E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hedb3f3d77d528b69E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -271,7 +271,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define hidden noundef zeroext i1 @_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = getelementptr inbounds double, ptr %0, i64 %1
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph

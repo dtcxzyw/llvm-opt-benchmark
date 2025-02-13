@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_digest_signverify_update(ptr noundef readonly captures(address_is_null) %vpdsactx, ptr noundef %data, i64 noundef %datalen) #0 {
+define internal i32 @dsa_digest_signverify_update(ptr noundef readonly %vpdsactx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
   %cmp = icmp eq ptr %vpdsactx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -320,7 +320,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_digest_verify_final(ptr noundef captures(address_is_null) %vpdsactx, ptr noundef %sig, i64 noundef %siglen) #0 {
+define internal i32 @dsa_digest_verify_final(ptr noundef %vpdsactx, ptr noundef %sig, i64 noundef %siglen) #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %dlen = alloca i32, align 4
@@ -626,7 +626,7 @@ return:                                           ; preds = %land.lhs.true25, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @dsa_settable_ctx_params(ptr noundef readonly captures(address_is_null) %vpdsactx, ptr readnone captures(none) %provctx) #2 {
+define internal noundef nonnull ptr @dsa_settable_ctx_params(ptr noundef readonly %vpdsactx, ptr readnone captures(none) %provctx) #2 {
 entry:
   %cmp.not = icmp eq ptr %vpdsactx, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true

@@ -287,7 +287,7 @@ declare void @_ZN3zmq6pipe_t19send_disconnect_msgEv(ptr noundef nonnull align 8 
 declare void @_ZN3zmq6pipe_t9terminateEb(ptr noundef nonnull align 8 dereferenceable(328), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readnone captures(address) %pipe_) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readnone %pipe_) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -8183,7 +8183,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq21routing_socket_base_t16xwrite_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1912) %this, ptr noundef readnone captures(address) %pipe_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq21routing_socket_base_t16xwrite_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 dereferenceable(1912) %this, ptr noundef readnone %pipe_) unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1840
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1856
@@ -8279,7 +8279,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3zmq21routing_socket_base_t12has_out_pipeERKNS_6blob_tE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %routing_id_) local_unnamed_addr #25 align 2 {
+define noundef zeroext i1 @_ZNK3zmq21routing_socket_base_t12has_out_pipeERKNS_6blob_tE(ptr noundef nonnull readonly align 8 dereferenceable(1912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %routing_id_) local_unnamed_addr #25 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1848
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -8350,7 +8350,7 @@ _ZNKSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaIS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN3zmq21routing_socket_base_t15lookup_out_pipeERKNS_6blob_tE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(1912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %routing_id_) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZN3zmq21routing_socket_base_t15lookup_out_pipeERKNS_6blob_tE(ptr noundef nonnull readonly align 8 dereferenceable(1912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %routing_id_) local_unnamed_addr #25 align 2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1848
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -8421,7 +8421,7 @@ cond.end:                                         ; preds = %_ZNSt3mapIN3zmq6blo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3zmq21routing_socket_base_t15lookup_out_pipeERKNS_6blob_tE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(1912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %routing_id_) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZNK3zmq21routing_socket_base_t15lookup_out_pipeERKNS_6blob_tE(ptr noundef nonnull readonly align 8 dereferenceable(1912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %routing_id_) local_unnamed_addr #25 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1848
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8

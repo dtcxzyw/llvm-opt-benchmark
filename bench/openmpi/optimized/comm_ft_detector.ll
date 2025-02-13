@@ -725,7 +725,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %9, %0, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %.not = icmp eq ptr %0, @ompi_mpi_comm_world
   br i1 %.not, label %3, label %53

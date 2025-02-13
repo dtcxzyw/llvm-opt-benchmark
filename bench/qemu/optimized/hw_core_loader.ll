@@ -1036,7 +1036,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @load_elf_hdr(ptr noundef %filename, ptr noundef captures(address) %hdr, ptr noundef writeonly captures(address_is_null) %is64, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @load_elf_hdr(ptr noundef %filename, ptr noundef %hdr, ptr noundef writeonly %is64, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %e_ident_local = alloca [16 x i8], align 16
   %tobool.not = icmp eq ptr %hdr, null
@@ -1151,28 +1151,28 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @load_elf(ptr noundef %filename, ptr noundef captures(address_is_null) %elf_note_fn, ptr noundef captures(address_is_null) %translate_fn, ptr noundef %translate_opaque, ptr noundef captures(address_is_null) %pentry, ptr noundef captures(address_is_null) %lowaddr, ptr noundef captures(address_is_null) %highaddr, ptr noundef captures(address_is_null) %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab) local_unnamed_addr #0 {
+define dso_local i64 @load_elf(ptr noundef %filename, ptr noundef %elf_note_fn, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %pentry, ptr noundef %lowaddr, ptr noundef %highaddr, ptr noundef %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @load_elf_ram_sym(ptr noundef %filename, ptr noundef %elf_note_fn, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %pentry, ptr noundef %lowaddr, ptr noundef %highaddr, ptr noundef %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef null, i1 noundef zeroext true, ptr noundef null)
   ret i64 %call.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @load_elf_as(ptr noundef %filename, ptr noundef captures(address_is_null) %elf_note_fn, ptr noundef captures(address_is_null) %translate_fn, ptr noundef %translate_opaque, ptr noundef captures(address_is_null) %pentry, ptr noundef captures(address_is_null) %lowaddr, ptr noundef captures(address_is_null) %highaddr, ptr noundef captures(address_is_null) %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as) local_unnamed_addr #0 {
+define dso_local i64 @load_elf_as(ptr noundef %filename, ptr noundef %elf_note_fn, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %pentry, ptr noundef %lowaddr, ptr noundef %highaddr, ptr noundef %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @load_elf_ram_sym(ptr noundef %filename, ptr noundef %elf_note_fn, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %pentry, ptr noundef %lowaddr, ptr noundef %highaddr, ptr noundef %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as, i1 noundef zeroext true, ptr noundef null)
   ret i64 %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @load_elf_ram(ptr noundef %filename, ptr noundef captures(address_is_null) %elf_note_fn, ptr noundef captures(address_is_null) %translate_fn, ptr noundef %translate_opaque, ptr noundef captures(address_is_null) %pentry, ptr noundef captures(address_is_null) %lowaddr, ptr noundef captures(address_is_null) %highaddr, ptr noundef captures(address_is_null) %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as, i1 noundef zeroext %load_rom) local_unnamed_addr #0 {
+define dso_local i64 @load_elf_ram(ptr noundef %filename, ptr noundef %elf_note_fn, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %pentry, ptr noundef %lowaddr, ptr noundef %highaddr, ptr noundef %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as, i1 noundef zeroext %load_rom) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @load_elf_ram_sym(ptr noundef %filename, ptr noundef %elf_note_fn, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %pentry, ptr noundef %lowaddr, ptr noundef %highaddr, ptr noundef %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as, i1 noundef zeroext %load_rom, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @load_elf_ram_sym(ptr noundef %filename, ptr noundef readonly captures(address_is_null) %elf_note_fn, ptr noundef readonly captures(address_is_null) %translate_fn, ptr noundef %translate_opaque, ptr noundef writeonly captures(address_is_null) %pentry, ptr noundef writeonly captures(address_is_null) %lowaddr, ptr noundef writeonly captures(address_is_null) %highaddr, ptr noundef writeonly captures(address_is_null) %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as, i1 noundef zeroext %load_rom, ptr noundef readonly captures(address_is_null) %sym_cb) local_unnamed_addr #0 {
+define dso_local i64 @load_elf_ram_sym(ptr noundef %filename, ptr noundef readonly %elf_note_fn, ptr noundef readonly %translate_fn, ptr noundef %translate_opaque, ptr noundef writeonly %pentry, ptr noundef writeonly %lowaddr, ptr noundef writeonly %highaddr, ptr noundef writeonly %pflags, i32 noundef %big_endian, i32 noundef %elf_machine, i32 noundef %clear_lsb, i32 noundef %data_swab, ptr noundef %as, i1 noundef zeroext %load_rom, ptr noundef readonly %sym_cb) local_unnamed_addr #0 {
 entry:
   %ehdr.i28 = alloca %struct.elf32_hdr, align 4
   %ehdr.i = alloca %struct.elf64_hdr, align 8
@@ -4109,14 +4109,14 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @load_uimage(ptr noundef %filename, ptr noundef captures(address_is_null) %ep, ptr noundef captures(address_is_null) %loadaddr, ptr noundef captures(address_is_null) %is_linux, ptr noundef captures(address_is_null) %translate_fn, ptr noundef %translate_opaque) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @load_uimage(ptr noundef %filename, ptr noundef %ep, ptr noundef %loadaddr, ptr noundef %is_linux, ptr noundef %translate_fn, ptr noundef %translate_opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @load_uboot_image(ptr noundef %filename, ptr noundef %ep, ptr noundef %loadaddr, ptr noundef %is_linux, i8 noundef zeroext 2, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef null)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @load_uboot_image(ptr noundef %filename, ptr noundef writeonly captures(address_is_null) %ep, ptr noundef captures(address_is_null) %loadaddr, ptr noundef writeonly captures(address_is_null) %is_linux, i8 noundef zeroext range(i8 2, 4) %image_type, ptr noundef readonly captures(address_is_null) %translate_fn, ptr noundef %translate_opaque, ptr noundef %as) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @load_uboot_image(ptr noundef %filename, ptr noundef writeonly %ep, ptr noundef %loadaddr, ptr noundef writeonly %is_linux, i8 noundef zeroext range(i8 2, 4) %image_type, ptr noundef readonly %translate_fn, ptr noundef %translate_opaque, ptr noundef %as) unnamed_addr #0 {
 entry:
   %h = alloca %struct.uboot_image_header, align 4
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 0) #23
@@ -4329,7 +4329,7 @@ return:                                           ; preds = %entry, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @load_uimage_as(ptr noundef %filename, ptr noundef captures(address_is_null) %ep, ptr noundef captures(address_is_null) %loadaddr, ptr noundef captures(address_is_null) %is_linux, ptr noundef captures(address_is_null) %translate_fn, ptr noundef %translate_opaque, ptr noundef %as) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @load_uimage_as(ptr noundef %filename, ptr noundef %ep, ptr noundef %loadaddr, ptr noundef %is_linux, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %as) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @load_uboot_image(ptr noundef %filename, ptr noundef %ep, ptr noundef %loadaddr, ptr noundef %is_linux, i8 noundef zeroext 2, ptr noundef %translate_fn, ptr noundef %translate_opaque, ptr noundef %as)
   ret i64 %call
@@ -5578,7 +5578,7 @@ declare ptr @flatview_translate(ptr noundef, i64 noundef, ptr noundef, ptr nound
 declare void @flatview_for_each_range(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @find_rom_cb(i64 noundef %start.coerce0, i64 noundef %start.coerce1, i64 %len.coerce0, i64 %len.coerce1, ptr noundef readnone captures(address) %mr, i64 noundef %offset_in_region, ptr noundef captures(none) %opaque) #0 {
+define internal zeroext i1 @find_rom_cb(i64 noundef %start.coerce0, i64 noundef %start.coerce1, i64 %len.coerce0, i64 %len.coerce1, ptr noundef readnone %mr, i64 noundef %offset_in_region, ptr noundef captures(none) %opaque) #0 {
 entry:
   %mr3 = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %mr3, align 8

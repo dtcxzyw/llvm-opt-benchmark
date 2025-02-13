@@ -1717,7 +1717,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13getKeySettingPKc(ptr dead_on_unwind noalias writable sret(%class.KeyPress) align 8 %agg.result, ptr noundef readonly captures(address_is_null) %settingname) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z13getKeySettingPKc(ptr dead_on_unwind noalias writable sret(%class.KeyPress) align 8 %agg.result, ptr noundef readonly %settingname) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i86 = alloca i64, align 8
   %__dnew.i.i64 = alloca i64, align 8

@@ -12317,7 +12317,7 @@ cleanup:                                          ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL29ColumnArrowToDuckDBDictionaryERNS_6VectorER10ArrowArrayRNS_19ArrowArrayScanStateEmRKNS_9ArrowTypeElPNS_12ValidityMaskEm(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %array, ptr noundef nonnull align 8 dereferenceable(72) %array_state, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(72) %arrow_type, i64 noundef %nested_offset, ptr noundef readonly captures(address_is_null) %parent_mask, i64 noundef %parent_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL29ColumnArrowToDuckDBDictionaryERNS_6VectorER10ArrowArrayRNS_19ArrowArrayScanStateEmRKNS_9ArrowTypeElPNS_12ValidityMaskEm(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %array, ptr noundef nonnull align 8 dereferenceable(72) %array_state, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(72) %arrow_type, i64 noundef %nested_offset, ptr noundef readonly %parent_mask, i64 noundef %parent_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
   %base_vector = alloca %"class.duckdb::unique_ptr.540", align 8
@@ -41648,7 +41648,7 @@ _ZN6duckdb10Serializer13WritePropertyIPKNS_11ReadCSVDataEEEvtPKcRKT_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL20CSVReaderDeserializeERNS_12DeserializerERNS_13TableFunctionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.42") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer, ptr noundef nonnull align 8 captures(address) dereferenceable(360) %function) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL20CSVReaderDeserializeERNS_12DeserializerERNS_13TableFunctionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr.42") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer, ptr noundef nonnull align 8 dereferenceable(360) %function) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.duckdb::unique_ptr.1634", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -62818,7 +62818,7 @@ if.end31:                                         ; preds = %_ZN6duckdb21Templat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL18SetSelectionVectorERNS_15SelectionVectorEPhRNS_11LogicalTypeEmPNS_12ValidityMaskEm(ptr noundef nonnull align 8 dereferenceable(24) %sel, ptr noundef readonly captures(none) %indices_p, ptr noundef nonnull align 8 dereferenceable(24) %logical_type, i64 noundef %size, ptr noundef readonly captures(address_is_null) %mask, i64 noundef %last_element_pos) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL18SetSelectionVectorERNS_15SelectionVectorEPhRNS_11LogicalTypeEmPNS_12ValidityMaskEm(ptr noundef nonnull align 8 dereferenceable(24) %sel, ptr noundef readonly captures(none) %indices_p, ptr noundef nonnull align 8 dereferenceable(24) %logical_type, i64 noundef %size, ptr noundef readonly %mask, i64 noundef %last_element_pos) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %indices_p700 = ptrtoint ptr %indices_p to i64
   %ref.tmp.i491 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -66294,7 +66294,7 @@ declare noundef zeroext i1 @_ZN6duckdb7Hugeint7TryCastIlEEbNS_9hugeint_tERT_(i64
 declare void @_ZN6duckdb14TypeIdToStringB5cxx11ENS_12PhysicalTypeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL17ArrowToDuckDBListERNS_6VectorER10ArrowArrayRNS_19ArrowArrayScanStateEmRKNS_9ArrowTypeElPNS_12ValidityMaskEl(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %array, ptr noundef nonnull align 8 dereferenceable(72) %array_state, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(72) %arrow_type, i64 noundef %nested_offset, ptr noundef readonly captures(address_is_null) %parent_mask, i64 noundef %parent_offset) unnamed_addr #0 {
+define internal fastcc void @_ZN6duckdbL17ArrowToDuckDBListERNS_6VectorER10ArrowArrayRNS_19ArrowArrayScanStateEmRKNS_9ArrowTypeElPNS_12ValidityMaskEl(ptr noundef nonnull align 8 dereferenceable(104) %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %array, ptr noundef nonnull align 8 dereferenceable(72) %array_state, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(72) %arrow_type, i64 noundef %nested_offset, ptr noundef readonly %parent_mask, i64 noundef %parent_offset) unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i8 @_ZNK6duckdb9ArrowType11GetSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %arrow_type)
   %0 = load ptr, ptr %array_state, align 8, !tbaa !371

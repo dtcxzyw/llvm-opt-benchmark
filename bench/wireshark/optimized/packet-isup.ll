@@ -3523,7 +3523,7 @@ define hidden void @proto_reg_handoff_isup() local_unnamed_addr #1 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
+define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %53, label %5
 

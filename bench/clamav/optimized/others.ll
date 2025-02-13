@@ -1156,7 +1156,7 @@ declare void @cli_infomsg(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 declare i32 @clean_cache_init(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @cl_engine_get_num(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define i64 @cl_engine_get_num(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -1411,7 +1411,7 @@ define i64 @cl_engine_get_num(ptr noundef readonly captures(address_is_null) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cl_engine_set_str(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 21) i32 @cl_engine_set_str(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %4
 
@@ -1478,7 +1478,7 @@ define range(i32 0, 21) i32 @cl_engine_set_str(ptr noundef captures(address_is_n
 declare ptr @cli_mpool_strdup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @cl_engine_get_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define ptr @cl_engine_get_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -2045,7 +2045,7 @@ define range(i32 0, 21) i32 @cl_engine_settings_apply(ptr noundef initializes((2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, 3) i32 @cl_engine_settings_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define range(i32 0, 3) i32 @cl_engine_settings_free(ptr noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -2436,7 +2436,7 @@ define range(i32 0, 26) i32 @cli_updatelimits(ptr noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @cli_hashstream(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define noalias noundef ptr @cli_hashstream(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
@@ -2776,7 +2776,7 @@ define range(i32 0, 35) i32 @cli_append_virus(ptr noundef %0, ptr noundef %1) lo
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_get_last_virus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @cli_get_last_virus(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -2798,7 +2798,7 @@ define ptr @cli_get_last_virus(ptr noundef readonly captures(address_is_null) %0
 declare ptr @evidence_get_last_alert(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @cli_get_last_virus_str(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define nonnull ptr @cli_get_last_virus_str(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cli_get_last_virus.exit, label %2
 
@@ -3349,7 +3349,7 @@ define noalias noundef ptr @cli_bitset_init() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @cli_bitset_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define void @cli_bitset_free(ptr noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

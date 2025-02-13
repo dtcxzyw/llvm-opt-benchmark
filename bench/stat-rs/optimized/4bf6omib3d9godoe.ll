@@ -1241,7 +1241,7 @@ define void @_ZN6statrs12distribution9dirichlet9Dirichlet14new_with_param17h5c5b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6statrs12distribution9dirichlet9Dirichlet5alpha17h68637ab7fd061478E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6statrs12distribution9dirichlet9Dirichlet5alpha17h68637ab7fd061478E(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

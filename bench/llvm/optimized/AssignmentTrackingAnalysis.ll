@@ -1182,7 +1182,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm19SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm15FunctionVarLocs5printERNS_11raw_ostreamERKNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm15FunctionVarLocs5printERNS_11raw_ostreamERKNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 dereferenceable(136) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2766,17 +2766,17 @@ _Z11getNextNodePKN4llvm11InstructionE.exit:       ; preds = %41, %36, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_Z15CastToDbgAssignPN4llvm20DbgVariableIntrinsicE(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local noundef ptr @_Z15CastToDbgAssignPN4llvm20DbgVariableIntrinsicE(ptr noundef readnone returned %0) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_Z15CastToDbgAssignPN4llvm17DbgVariableRecordE(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local noundef ptr @_Z15CastToDbgAssignPN4llvm17DbgVariableRecordE(ptr noundef readnone returned %0) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef ptr @_Z19DynCastToDbgDeclarePN4llvm20DbgVariableIntrinsicE(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #7 {
+define dso_local noundef ptr @_Z19DynCastToDbgDeclarePN4llvm20DbgVariableIntrinsicE(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load ptr, ptr %2, align 8, !tbaa !212, !nonnull !55, !noundef !55
   %4 = load i8, ptr %3, align 8, !tbaa !216
@@ -2796,7 +2796,7 @@ define dso_local noundef ptr @_Z19DynCastToDbgDeclarePN4llvm20DbgVariableIntrins
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z19DynCastToDbgDeclarePN4llvm17DbgVariableRecordE(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @_Z19DynCastToDbgDeclarePN4llvm17DbgVariableRecordE(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8, !tbaa !227
   %4 = icmp eq i8 %3, 0
@@ -42028,7 +42028,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126AssignmentTrackingLowering13joinBlockInfoERKNS0_9BlockInfoES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(264) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126AssignmentTrackingLowering13joinBlockInfoERKNS0_9BlockInfoES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val, ptr noundef nonnull readonly align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(264) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", align 8
   %5 = alloca %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", align 8
   %6 = alloca %"class.llvm::BitVector", align 8
@@ -55115,7 +55115,7 @@ _ZN4llvm11IntervalMapIjjLj16ENS_23IntervalMapHalfOpenInfoIjEEE8iterator16setStop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118MemLocFragmentFill12insertMemLocERN4llvm10BasicBlockENS1_12PointerUnionIJPKNS1_11InstructionEPKNS1_9DbgRecordEEEEjjjjNS1_8DebugLocE(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readonly captures(address) %7) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118MemLocFragmentFill12insertMemLocERN4llvm10BasicBlockENS1_12PointerUnionIJPKNS1_11InstructionEPKNS1_9DbgRecordEEEEjjjjNS1_8DebugLocE(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readonly %7) unnamed_addr #1 align 2 {
   %9 = alloca %"struct.std::pair.375", align 8
   %10 = alloca %"struct.std::pair.610", align 8
   %11 = alloca %"struct.std::pair.658", align 8

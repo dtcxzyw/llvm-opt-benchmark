@@ -1276,7 +1276,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_snap_regspmap(ptr noundef readnone captures(none) %J, ptr noundef readonly captures(none) %T, i32 noundef %snapno, ptr noundef captures(ret: address, provenance) %ir) local_unnamed_addr #4 {
+define hidden ptr @lj_snap_regspmap(ptr noundef readnone captures(none) %J, ptr noundef readonly captures(none) %T, i32 noundef %snapno, ptr noundef %ir) local_unnamed_addr #4 {
 entry:
   %snap1 = getelementptr inbounds nuw i8, ptr %T, i64 48
   %0 = load ptr, ptr %snap1, align 8

@@ -486,7 +486,7 @@ _ZN3url12_GLOBAL__N_113DoIsInSchemesIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20FindAndCompareSchemeEPKciS1_PNS_9ComponentE(ptr noundef %str, i32 noundef %str_len, ptr noundef %compare, ptr noundef writeonly captures(address_is_null) %found_scheme) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3url20FindAndCompareSchemeEPKciS1_PNS_9ComponentE(ptr noundef %str, i32 noundef %str_len, ptr noundef %compare, ptr noundef writeonly %found_scheme) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp3.i.i = alloca %"class.base::BasicStringPiece", align 8
@@ -618,7 +618,7 @@ _ZN3url12_GLOBAL__N_122DoFindAndCompareSchemeIcEEbPKT_iPKcPNS_9ComponentE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20FindAndCompareSchemeEPKtiPKcPNS_9ComponentE(ptr noundef %str, i32 noundef %str_len, ptr noundef %compare, ptr noundef writeonly captures(address_is_null) %found_scheme) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3url20FindAndCompareSchemeEPKtiPKcPNS_9ComponentE(ptr noundef %str, i32 noundef %str_len, ptr noundef %compare, ptr noundef writeonly %found_scheme) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.base::BasicStringPiece.4", align 8
   %agg.tmp3.i.i = alloca %"class.base::BasicStringPiece", align 8

@@ -3875,7 +3875,7 @@ decode_context_param.exit:                        ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @user_space_stream_notifier(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, ptr readnone captures(none) %7) #0 {
+define internal void @user_space_stream_notifier(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, ptr readnone captures(none) %7) #0 {
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca [6 x %struct._zval_struct], align 16
   %11 = load ptr, ptr %0, align 8

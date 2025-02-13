@@ -7984,12 +7984,12 @@ define void @_ZN19ockam_transport_uds6router6handle15UdsRouterHandle3new17he5a7e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(240) ptr @_ZN19ockam_transport_uds6router6handle15UdsRouterHandle3ctx17h449bc75a94366b36E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #8 {
+define noundef nonnull align 8 dereferenceable(240) ptr @_ZN19ockam_transport_uds6router6handle15UdsRouterHandle3ctx17h449bc75a94366b36E(ptr noalias noundef readonly returned align 8 dereferenceable(304) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_uds6router6handle15UdsRouterHandle9main_addr17h54ad241582131753E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(304) %0) unnamed_addr #8 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_uds6router6handle15UdsRouterHandle9main_addr17h54ad241582131753E(ptr noalias noundef readonly align 8 dereferenceable(304) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   ret ptr %2
 }

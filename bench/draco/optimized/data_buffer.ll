@@ -18,7 +18,7 @@ define void @_ZN5draco10DataBufferC2Ev(ptr noundef nonnull writeonly align 8 cap
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvl(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvl(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq ptr %1, null
   %5 = icmp slt i64 %2, 0
   br i1 %4, label %6, label %8
@@ -69,7 +69,7 @@ _ZN5draco10DataBuffer6UpdateEPKvll.exit:          ; preds = %6, %8, %_ZSt4copyIP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvll(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvll(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %10
 

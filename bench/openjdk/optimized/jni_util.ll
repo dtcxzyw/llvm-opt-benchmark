@@ -462,7 +462,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @JNU_CallMethodByName(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
+define i64 @JNU_CallMethodByName(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = call i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6)
@@ -522,7 +522,7 @@ define void @JNU_ThrowIOExceptionWithMessageAndLastError(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
+define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   br label %7
 
@@ -744,7 +744,7 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %9, %6
@@ -1606,13 +1606,13 @@ newStringUTF8.exit:                               ; preds = %177, %172, %54, %ne
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
 
@@ -2318,19 +2318,19 @@ getStringUTF8.exit:                               ; preds = %312, %307, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @JNU_GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @JNU_GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret ptr %4
 }
@@ -2445,7 +2445,7 @@ define ptr @JNU_ToString(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load ptr, ptr %7, align 8
@@ -2623,7 +2623,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly captures(ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
+define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
@@ -2972,7 +2972,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load ptr, ptr %7, align 8

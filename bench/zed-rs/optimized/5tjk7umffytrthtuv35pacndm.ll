@@ -781,7 +781,7 @@ define noundef zeroext i1 @_ZN12multi_buffer22ExpandExcerptDirection18should_exp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN80_$LT$multi_buffer..MultiBufferIndentGuide$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7f50257469e6ff2fE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #8 {
+define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN80_$LT$multi_buffer..MultiBufferIndentGuide$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7f50257469e6ff2fE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -4666,7 +4666,7 @@ common.resume:                                    ; preds = %69, %56, %45, %50, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN12multi_buffer11MultiBuffer21set_active_selections17h02bce8000a63dcebE(ptr noalias noundef align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, i1 noundef zeroext %3, i8 noundef %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @_ZN12multi_buffer11MultiBuffer21set_active_selections17h02bce8000a63dcebE(ptr noalias noundef align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, i1 noundef zeroext %3, i8 noundef %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca [0 x i8], align 1
   %8 = alloca [16 x i8], align 8
   %9 = alloca [8 x i8], align 8

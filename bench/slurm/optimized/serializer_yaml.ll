@@ -148,7 +148,7 @@ define noundef i32 @serializer_p_fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr noundef writeonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.yaml_event_s, align 8
   %6 = alloca %struct.yaml_version_directive_s, align 8
   %7 = alloca %struct.yaml_emitter_s, align 8

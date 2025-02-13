@@ -16751,7 +16751,7 @@ if.end:                                           ; preds = %cond.true, %cond.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(56) ptr @_ZNK8proxygen15HTTPTransaction18getCompressionInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(912) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 4 dereferenceable(56) ptr @_ZNK8proxygen15HTTPTransaction18getCompressionInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(912) %this) local_unnamed_addr #14 align 2 {
 entry:
   %tableInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   ret ptr %tableInfo_

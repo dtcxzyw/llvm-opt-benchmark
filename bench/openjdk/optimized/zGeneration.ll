@@ -751,7 +751,7 @@ define hidden noundef zeroext i1 @_ZNK11ZGeneration14is_initializedEv(ptr nounde
 declare noundef zeroext i1 @_ZNK5ZMark14is_initializedEv(ptr noundef nonnull align 64 dereferenceable(2652)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull readnone align 64 captures(ret: address, provenance) dereferenceable(6592) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull readnone align 64 dereferenceable(6592) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -3245,7 +3245,7 @@ define hidden void @_ZN16ZGenerationYoung20register_with_remsetEP5ZPage(ptr noun
 declare void @_ZN11ZRemembered18register_found_oldEP5ZPage(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN16ZGenerationYoung10jfr_tracerEv(ptr noundef nonnull readnone align 64 captures(ret: address, provenance) dereferenceable(6720) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN16ZGenerationYoung10jfr_tracerEv(ptr noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   ret ptr %2
 }
@@ -4413,7 +4413,7 @@ define hidden noundef i32 @_ZNK14ZGenerationOld26total_collections_at_startEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN14ZGenerationOld10jfr_tracerEv(ptr noundef nonnull readnone align 64 captures(ret: address, provenance) dereferenceable(6720) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN14ZGenerationOld10jfr_tracerEv(ptr noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   ret ptr %2
 }

@@ -102,7 +102,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Dot11DecryptFtDerivePtk = private unnamed_addr constant [18 x i32] [i32 2, i32 2, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [256 x i8], align 16
@@ -451,7 +451,7 @@ define internal fastcc range(i32 0, 2) i32 @AES_unwrap(ptr noundef %0, i16 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Dot11DecryptCopyKey(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #3 {
+define internal fastcc void @Dot11DecryptCopyKey(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly %1) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %3
 
@@ -521,7 +521,7 @@ switch.lookup:                                    ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 25) i32 @Dot11DecryptGetKCK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 25) i32 @Dot11DecryptGetKCK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -558,7 +558,7 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %switch.lookup, %10,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 33) i32 @Dot11DecryptGetKEK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 33) i32 @Dot11DecryptGetKEK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -619,7 +619,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup15, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 33) i32 @Dot11DecryptGetTK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 33) i32 @Dot11DecryptGetTK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -733,7 +733,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 33) i32 @Dot11DecryptGetGTK(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 33) i32 @Dot11DecryptGetGTK(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1830,7 +1830,7 @@ Dot11DecryptGroupHandshake.exit:                  ; preds = %221, %219, %228, %1
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %10
@@ -2042,7 +2042,7 @@ Dot11DecryptGetNbrOfTkKeys.exit.thread:           ; preds = %.thread, %79, %Dot1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef writeonly %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %8 = alloca [35 x i8], align 16
   %9 = load i32, ptr %3, align 4
@@ -2233,7 +2233,7 @@ Dot11DecryptAddSa.exit:                           ; preds = %59, %58, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dot11DecryptRsnaMng(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @Dot11DecryptRsnaMng(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %Dot11DecryptCopyKey.exit, label %8
@@ -2593,7 +2593,7 @@ Dot11DecryptCopyKey.exit:                         ; preds = %.sink.split.i, %113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %8 = alloca [4 x i32], align 16
   %9 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #17
@@ -2743,7 +2743,7 @@ Dot11DecryptAddSa.exit:                           ; preds = %6, %56, %55, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Dot11DecryptSetKeys(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @Dot11DecryptSetKeys(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -2890,7 +2890,7 @@ Dot11DecryptValidateKey.exit.thread:              ; preds = %34, %19, %25, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Dot11DecryptInitContext(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dot11DecryptInitContext(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3062,7 +3062,7 @@ Dot11DecryptRsnaPwd2PskStep.exit22:               ; preds = %55, %62, %Dot11Decr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not16 = or i1 %4, %5
@@ -3118,7 +3118,7 @@ define internal void @Dot11DecryptCleanSA(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Dot11DecryptDestroyContext(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dot11DecryptDestroyContext(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3144,7 +3144,7 @@ Dot11DecryptCleanSecAssoc.exit:                   ; preds = %7, %4, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca [16 x i8], align 16
   %8 = alloca ptr, align 8
@@ -3721,7 +3721,7 @@ Dot11DecryptGetXXKeyFromMSK.exit.thread67:        ; preds = %40, %43, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef range(i64 0, 65536) %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 0, 65536) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %6 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   %7 = icmp eq ptr %1, null
@@ -3800,7 +3800,7 @@ Dot11DecryptAddSa.exit:                           ; preds = %36, %35, %10, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 

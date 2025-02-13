@@ -884,7 +884,7 @@ define internal noundef i128 @_ZN4core5error5Error7type_id17hbfeafd7412acaa18E(p
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h1d2c5867a158d5abE.llvm.2711790923827917968"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #7 {
+define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h1d2c5867a158d5abE.llvm.2711790923827917968"(ptr noundef nonnull readnone returned %0) unnamed_addr #7 {
   ret ptr %0
 }
 

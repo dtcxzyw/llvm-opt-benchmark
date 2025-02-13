@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [48 x i8] c"Invalid (NULL) arguments to float vector create\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_float_vector_init(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %fv, i32 noundef %nent) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_float_vector_init(ptr noundef %ctxt, ptr noundef writeonly %fv, i32 noundef %nent) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %nent to i64
   %mul = shl nsw i64 %conv, 2
@@ -85,7 +85,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_float_vector_init_static(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %fv, ptr noundef %arr, i32 noundef %nent) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_float_vector_init_static(ptr noundef %ctxt, ptr noundef writeonly %fv, ptr noundef %arr, i32 noundef %nent) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -134,7 +134,7 @@ return:                                           ; preds = %entry, %if.end11, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_float_vector_create(ptr noundef %ctxt, ptr noundef captures(address_is_null) %fv, ptr noundef readonly captures(address_is_null) %arr, i32 noundef %nent) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_float_vector_create(ptr noundef %ctxt, ptr noundef %fv, ptr noundef readonly %arr, i32 noundef %nent) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -220,7 +220,7 @@ return:                                           ; preds = %if.end13.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_float_vector_destroy(ptr noundef readonly captures(address_is_null) %ctxt, ptr noundef captures(address_is_null) %fv) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_float_vector_destroy(ptr noundef readonly %ctxt, ptr noundef %fv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

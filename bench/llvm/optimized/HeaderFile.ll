@@ -1203,7 +1203,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm3vfs28recursive_directory_iterator9incrementERSt10error_code(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10installapi10HeaderGlobC2EN4llvm9StringRefEONS2_5RegexENS0_10HeaderTypeE(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10installapi10HeaderGlobC2EN4llvm9StringRefEONS2_5RegexENS0_10HeaderTypeE(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !3

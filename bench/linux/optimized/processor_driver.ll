@@ -293,7 +293,7 @@ declare dso_local i32 @acpi_processor_thermal_init(ptr noundef, ptr noundef) loc
 declare dso_local i32 @acpi_install_notify_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_processor_notify(ptr noundef readnone captures(address) %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
+define internal void @acpi_processor_notify(ptr noundef readnone %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %0

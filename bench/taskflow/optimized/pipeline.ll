@@ -4501,7 +4501,7 @@ _ZNSt6futureIvED2Ev.exit:                         ; preds = %_ZNSt8weak_ptrIN2tf
 }
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define internal fastcc void @"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEED2Ev"(ptr noundef nonnull align 8 captures(address) dereferenceable(368) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(368) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_deferred_tokens = getelementptr inbounds nuw i8, ptr %this, i64 304
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320

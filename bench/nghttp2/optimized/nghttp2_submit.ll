@@ -26,7 +26,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %session, i8 noundef zeroext range(i8 0, 34) %flags, i32 noundef %stream_id, ptr noundef readonly captures(address_is_null) %pri_spec, ptr noundef %nva, i64 noundef %nvlen, ptr noundef readonly captures(address_is_null) %data_prd, ptr noundef %stream_user_data) unnamed_addr #0 {
+define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %session, i8 noundef zeroext range(i8 0, 34) %flags, i32 noundef %stream_id, ptr noundef readonly %pri_spec, ptr noundef %nva, i64 noundef %nvlen, ptr noundef readonly %data_prd, ptr noundef %stream_user_data) unnamed_addr #0 {
 entry:
   %nva_copy = alloca ptr, align 8
   %copy_pri_spec = alloca %struct.nghttp2_priority_spec, align 4
@@ -191,7 +191,7 @@ entry:
 declare i32 @nghttp2_session_add_ping(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_submit_priority(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef readonly captures(address_is_null) %pri_spec) local_unnamed_addr #0 {
+define i32 @nghttp2_submit_priority(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef readonly %pri_spec) local_unnamed_addr #0 {
 entry:
   %copy_pri_spec = alloca %struct.nghttp2_priority_spec, align 4
   %mem1 = getelementptr inbounds nuw i8, ptr %session, i64 2528
@@ -842,7 +842,7 @@ declare void @nghttp2_frame_priority_update_init(ptr noundef, i32 noundef, ptr n
 declare void @nghttp2_frame_priority_update_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_submit_request(ptr noundef %session, ptr noundef %pri_spec, ptr noundef %nva, i64 noundef %nvlen, ptr noundef captures(address_is_null) %data_prd, ptr noundef %stream_user_data) local_unnamed_addr #0 {
+define i32 @nghttp2_submit_request(ptr noundef %session, ptr noundef %pri_spec, ptr noundef %nva, i64 noundef %nvlen, ptr noundef %data_prd, ptr noundef %stream_user_data) local_unnamed_addr #0 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
@@ -899,7 +899,7 @@ return:                                           ; preds = %if.then4, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_submit_response(ptr noundef %session, i32 noundef %stream_id, ptr noundef %nva, i64 noundef %nvlen, ptr noundef captures(address_is_null) %data_prd) local_unnamed_addr #0 {
+define i32 @nghttp2_submit_response(ptr noundef %session, i32 noundef %stream_id, ptr noundef %nva, i64 noundef %nvlen, ptr noundef %data_prd) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %stream_id, 1
   br i1 %cmp, label %return, label %if.end

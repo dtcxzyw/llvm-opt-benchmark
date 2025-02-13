@@ -1647,7 +1647,7 @@ define range(i32 0, 8) i32 @lv_label_get_long_mode(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_label_get_letter_pos(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @lv_label_get_letter_pos(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.lv_area_t, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.preheader, label %5
@@ -1871,7 +1871,7 @@ declare i32 @lv_text_get_next_line(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare i32 @lv_text_get_width_with_flags(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_label_get_letter_on(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 zeroext %2) local_unnamed_addr #0 {
+define i32 @lv_label_get_letter_on(ptr noundef %0, ptr noundef readonly %1, i1 zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2169,7 +2169,7 @@ declare zeroext i1 @lv_text_is_cmd(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_label_is_char_under_pos(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_label_is_char_under_pos(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

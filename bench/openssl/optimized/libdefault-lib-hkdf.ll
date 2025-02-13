@@ -714,7 +714,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %evp_md, ptr noundef %prk, i64 noundef %prk_len, ptr noundef %info, i64 noundef %info_len, ptr noundef writeonly captures(address_is_null) %okm, i64 noundef %okm_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %evp_md, ptr noundef %prk, i64 noundef %prk_len, ptr noundef %info, i64 noundef %info_len, ptr noundef writeonly %okm, i64 noundef %okm_len) unnamed_addr #0 {
 entry:
   %prev = alloca [64 x i8], align 16
   %ctr = alloca i8, align 1
@@ -968,7 +968,7 @@ declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_set_size_t(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %md, ptr noundef %key, i64 noundef %keylen, ptr noundef %prefix, i64 noundef %prefixlen, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef captures(address_is_null) %out, i64 noundef %outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prov_tls13_hkdf_expand(ptr noundef nonnull %md, ptr noundef %key, i64 noundef %keylen, ptr noundef %prefix, i64 noundef %prefixlen, ptr noundef %label, i64 noundef %labellen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outlen) unnamed_addr #0 {
 entry:
   %hkdflabellen = alloca i64, align 8
   %hkdflabel = alloca [2048 x i8], align 16

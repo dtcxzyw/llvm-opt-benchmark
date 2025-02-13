@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end41, %if.then4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr noundef readonly captures(none) %pval, ptr noundef writeonly captures(address_is_null) %cont, ptr readnone captures(none) %putype, ptr noundef readonly captures(none) %it) #3 {
+define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr noundef readonly captures(none) %pval, ptr noundef writeonly %cont, ptr readnone captures(none) %putype, ptr noundef readonly captures(none) %it) #3 {
 entry:
   %ltmp.0.copyload = load i64, ptr %pval, align 8
   %size = getelementptr inbounds nuw i8, ptr %it, i64 40

@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.verify_ss_cert = private unnamed_addr constant [15 x i8] c"verify_ss_cert\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_get1_caCerts(ptr noundef %ctx, ptr noundef captures(address_is_null) %out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_get1_caCerts(ptr noundef %ctx, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %certs = alloca ptr, align 8
   store ptr null, ptr %certs, align 8
@@ -315,7 +315,7 @@ declare void @X509_free(ptr noundef) #1
 declare void @OSSL_CMP_ITAV_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %ctx, ptr noundef %oldWithOld, ptr noundef %newWithNew, ptr noundef captures(address_is_null) %newWithOld, ptr noundef writeonly captures(address_is_null) %oldWithNew) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %ctx, ptr noundef %oldWithOld, ptr noundef %newWithNew, ptr noundef %newWithOld, ptr noundef writeonly %oldWithNew) local_unnamed_addr #0 {
 entry:
   %my_newWithOld = alloca ptr, align 8
   %my_oldWithNew = alloca ptr, align 8

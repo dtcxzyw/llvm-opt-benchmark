@@ -81,7 +81,7 @@ declare ptr @__errno_location() local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_getaddrinfo(ptr noundef %loop, ptr noundef %req, ptr noundef %cb, ptr noundef %hostname, ptr noundef readonly captures(address_is_null) %service, ptr noundef readonly captures(address_is_null) %hints) local_unnamed_addr #3 {
+define i32 @uv_getaddrinfo(ptr noundef %loop, ptr noundef %req, ptr noundef %cb, ptr noundef %hostname, ptr noundef readonly %service, ptr noundef readonly %hints) local_unnamed_addr #3 {
 entry:
   %hostname_ascii = alloca [256 x i8], align 16
   %cmp = icmp eq ptr %req, null
@@ -346,7 +346,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_if_indextoname(i32 noundef %ifindex, ptr noundef writeonly captures(address_is_null) %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @uv_if_indextoname(i32 noundef %ifindex, ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #3 {
 entry:
   %ifname_buf = alloca [17 x i8], align 16
   %cmp = icmp eq ptr %buffer, null
@@ -400,7 +400,7 @@ declare ptr @if_indextoname(i32 noundef, ptr noundef) local_unnamed_addr #7
 declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 noundef %ifindex, ptr noundef writeonly captures(address_is_null) %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 noundef %ifindex, ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #3 {
 entry:
   %ifname_buf.i = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %ifname_buf.i)

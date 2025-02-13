@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_cipher_context_t = type { ptr, i32, i32, ptr, ptr, [16 x i8], i64, [16 x i8], i64, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mbedtls_cipher_info_from_psa(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden ptr @mbedtls_cipher_info_from_psa(i32 noundef %0, i16 noundef zeroext %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = and i32 %0, 2130706432
   %6 = icmp eq i32 %5, 83886080
   %7 = and i32 %0, -2050981889

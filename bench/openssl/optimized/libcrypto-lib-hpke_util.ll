@@ -587,7 +587,7 @@ declare i32 @EVP_KDF_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %suitestr, ptr noundef writeonly captures(address_is_null) %suite) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %suitestr, ptr noundef writeonly %suite) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %suitestr, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

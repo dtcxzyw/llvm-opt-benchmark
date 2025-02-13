@@ -1830,7 +1830,7 @@ define linkonce_odr noundef i64 @_ZN13sentencepiece3bpe7Trainer9EncodePosEiii(i3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece3bpe7Trainer9ResetFreqEiiiPKNS1_6SymbolE(ptr noundef nonnull align 8 dereferenceable(856) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #3 align 2 {
+define void @_ZN13sentencepiece3bpe7Trainer9ResetFreqEiiiPKNS1_6SymbolE(ptr noundef nonnull align 8 dereferenceable(856) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone %4) local_unnamed_addr #3 align 2 {
   %6 = icmp eq i32 %2, -1
   %7 = icmp eq i32 %3, -1
   %or.cond = or i1 %6, %7

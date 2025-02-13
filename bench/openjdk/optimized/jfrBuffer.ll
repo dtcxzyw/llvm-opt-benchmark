@@ -168,7 +168,7 @@ define hidden noundef nonnull ptr @_ZNK9JfrBuffer10stable_topEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK9JfrBuffer11acquired_byEPKv(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK9JfrBuffer11acquired_byEPKv(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6

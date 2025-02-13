@@ -1784,7 +1784,7 @@ get_dav_token_headers.exit:                       ; preds = %2, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @unlock_remote(ptr noundef nonnull captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @unlock_remote(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
   %3 = alloca %struct.slot_results, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
@@ -4056,7 +4056,7 @@ declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare ptr @get_revision(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_tree(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc ptr @process_tree(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.tree_desc, align 8
   %4 = alloca %struct.name_entry, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16

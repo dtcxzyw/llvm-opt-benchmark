@@ -1425,7 +1425,7 @@ define internal i32 @dissect_acdr_mii(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %102, label %6
 
@@ -1672,7 +1672,7 @@ dissect_rtp_packet.exit:                          ; preds = %18, %78, %.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %16, label %6
 
@@ -1898,7 +1898,7 @@ define internal i32 @dissect_acdr_voiceai(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %33, label %6
 
@@ -1951,7 +1951,7 @@ define internal i32 @dissect_acdr_tls(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_sip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_sip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = load ptr, ptr @sip_dissector_handle, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %dissect_acdr_ip_or_other.exit, label %7
@@ -1990,7 +1990,7 @@ dissect_acdr_ip_or_other.exit:                    ; preds = %4, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_megaco(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_megaco(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = load ptr, ptr @megaco_dissector_handle, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %dissect_acdr_ip_or_other.exit, label %7
@@ -2029,7 +2029,7 @@ dissect_acdr_ip_or_other.exit:                    ; preds = %4, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_mgcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_mgcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = load ptr, ptr @mgcp_dissector_handle, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %dissect_acdr_ip_or_other.exit, label %7
@@ -2068,7 +2068,7 @@ dissect_acdr_ip_or_other.exit:                    ; preds = %4, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_rtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_rtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %23, label %6
 
@@ -2109,7 +2109,7 @@ define internal i32 @dissect_acdr_rtcp(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_acdr_video_rtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3) #0 {
+define internal i32 @dissect_acdr_video_rtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %dissect_acdr_rtcp.exit, label %6
 

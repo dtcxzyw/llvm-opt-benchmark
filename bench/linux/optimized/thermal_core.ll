@@ -986,7 +986,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @thermal_unregister_governor(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @thermal_unregister_governor(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %42, label %3
 
@@ -2036,7 +2036,7 @@ define dso_local i32 @thermal_zone_bind_cooling_device(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -19, 1) i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 992
   tail call void @mutex_lock(ptr noundef nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 792
@@ -3076,7 +3076,7 @@ define dso_local ptr @thermal_zone_device_priv(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @thermal_zone_device_type(ptr noundef readnone captures(ret: address, provenance) %0) #2 align 16 {
+define dso_local nonnull ptr @thermal_zone_device_type(ptr noundef readnone %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   ret ptr %2
 }
@@ -3088,7 +3088,7 @@ define dso_local i32 @thermal_zone_device_id(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @thermal_zone_device(ptr noundef readnone captures(ret: address, provenance) %0) #2 align 16 {
+define dso_local nonnull ptr @thermal_zone_device(ptr noundef readnone %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -3215,7 +3215,7 @@ declare dso_local void @ida_destroy(ptr noundef) local_unnamed_addr #0
 declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @thermal_zone_get_zone_by_name(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local ptr @thermal_zone_get_zone_by_name(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %21, label %3
 

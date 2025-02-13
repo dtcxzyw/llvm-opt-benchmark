@@ -229,7 +229,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_socket_close(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden noundef i32 @Curl_socket_close(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %socket_close.exit, label %5
 
@@ -2833,7 +2833,7 @@ define hidden noundef zeroext i1 @Curl_conn_is_tcp_listen(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 3) i32 @Curl_cf_socket_peek(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @Curl_cf_socket_peek(ptr noundef readonly %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cf_is_socket.exit.thread, label %cf_is_socket.exit
 
@@ -3821,7 +3821,7 @@ define internal fastcc range(i32 0, 8) i32 @socket_connect_result(ptr noundef %0
 declare i32 @Curl_socket_check(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verifyconnect(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @verifyconnect(i32 noundef %0, ptr noundef writeonly %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13

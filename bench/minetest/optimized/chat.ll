@@ -4870,7 +4870,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZNK10ChatBuffer16getFormattedLineEj(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(113) %this, i32 noundef %row) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZNK10ChatBuffer16getFormattedLineEj(ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef %row) local_unnamed_addr #7 align 2 {
 entry:
   %m_scroll = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %m_scroll, align 8, !tbaa !64
@@ -5331,7 +5331,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ChatPrompt10getLineRefB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ChatPrompt10getLineRefB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_history_index = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %m_history_index, align 8, !tbaa !110
@@ -5352,7 +5352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ChatPrompt11makeLineRefB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN10ChatPrompt11makeLineRefB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i = alloca i64, align 8
   %m_history_index = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -7091,7 +7091,7 @@ if.end:                                           ; preds = %_ZN10ChatPrompt9cla
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatPrompt14nickCompletionERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %names, i1 noundef zeroext %backwards) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatPrompt14nickCompletionERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %names, i1 noundef zeroext %backwards) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i.i.i = alloca i64, align 8
@@ -9643,13 +9643,13 @@ eh.resume:                                        ; preds = %ehcleanup34, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(113) ptr @_ZN11ChatBackend16getConsoleBufferEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(360) %this) local_unnamed_addr #15 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(113) ptr @_ZN11ChatBackend16getConsoleBufferEv(ptr noundef nonnull readnone returned align 8 dereferenceable(360) %this) local_unnamed_addr #15 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(113) ptr @_ZN11ChatBackend15getRecentBufferEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(360) %this) local_unnamed_addr #15 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(113) ptr @_ZN11ChatBackend15getRecentBufferEv(ptr noundef nonnull readnone align 8 dereferenceable(360) %this) local_unnamed_addr #15 align 2 {
 entry:
   %m_recent_buffer = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %m_recent_buffer
@@ -10040,7 +10040,7 @@ declare void @_ZN14EnrichedStringC1EPKwRKN3irr5video6SColorE(ptr noundef nonnull
 declare void @_ZN14EnrichedStringpLERKS_(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZN11ChatBackend9getPromptEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(360) %this) local_unnamed_addr #15 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZN11ChatBackend9getPromptEv(ptr noundef nonnull readnone align 8 dereferenceable(360) %this) local_unnamed_addr #15 align 2 {
 entry:
   %m_prompt = getelementptr inbounds nuw i8, ptr %this, i64 240
   ret ptr %m_prompt

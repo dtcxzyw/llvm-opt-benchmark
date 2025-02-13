@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncode(ptr noundef readonly captures(address_is_null) %long_range, ptr noundef readonly captures(address_is_null) %lat_range, double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashEncode(ptr noundef readonly %long_range, ptr noundef readonly %lat_range, double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %hash, null
   %0 = add i8 %step, -33
@@ -149,7 +149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncodeType(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashEncodeType(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %hash, null
   %0 = add i8 %step, -33
@@ -189,7 +189,7 @@ geohashEncode.exit:                               ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncodeWGS84(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashEncodeWGS84(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq ptr %hash, null
   %0 = add i8 %step, -33
@@ -262,7 +262,7 @@ geohashEncodeType.exit:                           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecode(double %long_range.coerce0, double %long_range.coerce1, double %lat_range.coerce0, double %lat_range.coerce1, i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly captures(address_is_null) %area) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecode(double %long_range.coerce0, double %long_range.coerce1, double %lat_range.coerce0, double %lat_range.coerce1, i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly %area) local_unnamed_addr #0 {
 entry:
   %tobool = icmp eq i64 %hash.coerce0, 0
   %tobool1 = icmp eq i8 %hash.coerce1, 0
@@ -363,14 +363,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef captures(address_is_null) %area) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef %area) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @geohashDecode(double -1.800000e+02, double 1.800000e+02, double 0xC0554345B1A57F00, double 0x40554345B1A57F00, i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef %area)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeWGS84(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly captures(address_is_null) %area) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeWGS84(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly %area) local_unnamed_addr #0 {
 entry:
   %tobool.i = icmp eq i64 %hash.coerce0, 0
   %tobool1.i = icmp eq i8 %hash.coerce1, 0
@@ -451,7 +451,7 @@ geohashDecode.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %area, ptr noundef writeonly captures(address_is_null) %xy) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %area, ptr noundef writeonly %xy) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %xy, null
   br i1 %tobool.not, label %return, label %if.end
@@ -488,7 +488,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly captures(address_is_null) %xy) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly %xy) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %xy, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -575,7 +575,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatWGS84(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef captures(address_is_null) %xy) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatWGS84(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef %xy) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @geohashDecodeToLongLatType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef %xy)
   ret i32 %call

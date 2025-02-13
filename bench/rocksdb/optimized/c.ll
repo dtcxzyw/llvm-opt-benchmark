@@ -2851,7 +2851,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rocksdb_backup_engine_options_set_env(ptr noundef writeonly captures(none) initializes((32, 40)) %options, ptr noundef readonly captures(address_is_null) %env) local_unnamed_addr #9 {
+define void @rocksdb_backup_engine_options_set_env(ptr noundef writeonly captures(none) initializes((32, 40)) %options, ptr noundef readonly %env) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %env, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -12303,7 +12303,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 declare noundef nonnull align 8 dereferenceable(89) ptr @_ZN7rocksdb13PinnableSliceaSEOS0_(ptr noundef nonnull align 8 dereferenceable(89), ptr noundef nonnull align 8 dereferenceable(89)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define zeroext range(i8 0, 2) i8 @rocksdb_key_may_exist(ptr noundef readonly captures(none) %db, ptr noundef %options, ptr noundef %key, i64 noundef %key_len, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %val_len, ptr noundef %timestamp, i64 noundef %timestamp_len, ptr noundef writeonly captures(address_is_null) %value_found) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define zeroext range(i8 0, 2) i8 @rocksdb_key_may_exist(ptr noundef readonly captures(none) %db, ptr noundef %options, ptr noundef %key, i64 noundef %key_len, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %val_len, ptr noundef %timestamp, i64 noundef %timestamp_len, ptr noundef writeonly %value_found) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %time = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12371,7 +12371,7 @@ if.end20:                                         ; preds = %if.then12, %if.then
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define zeroext range(i8 0, 2) i8 @rocksdb_key_may_exist_cf(ptr noundef readonly captures(none) %db, ptr noundef %options, ptr noundef readonly captures(none) %column_family, ptr noundef %key, i64 noundef %key_len, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %val_len, ptr noundef %timestamp, i64 noundef %timestamp_len, ptr noundef writeonly captures(address_is_null) %value_found) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define zeroext range(i8 0, 2) i8 @rocksdb_key_may_exist_cf(ptr noundef readonly captures(none) %db, ptr noundef %options, ptr noundef readonly captures(none) %column_family, ptr noundef %key, i64 noundef %key_len, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %val_len, ptr noundef %timestamp, i64 noundef %timestamp_len, ptr noundef writeonly %value_found) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %time = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12451,7 +12451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_get_updates_since(ptr noundef readonly captures(none) %db, i64 noundef %seq_number, ptr noundef readonly captures(address_is_null) %options, ptr noundef captures(none) %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @rocksdb_get_updates_since(ptr noundef readonly captures(none) %db, i64 noundef %seq_number, ptr noundef readonly %options, ptr noundef captures(none) %errptr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12695,7 +12695,7 @@ delete.notnull2:                                  ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @rocksdb_wal_iter_get_batch(ptr noundef readonly captures(none) %iter, ptr noundef writeonly captures(address_is_null) %seq) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @rocksdb_wal_iter_get_batch(ptr noundef readonly captures(none) %iter, ptr noundef writeonly %seq) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %wal_batch = alloca %"struct.rocksdb::BatchResult", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #39
@@ -19717,7 +19717,7 @@ _ZNSt10shared_ptrIN7rocksdb14ObjectRegistryEED2Ev.exit: ; preds = %entry, %_ZN9_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_load_latest_options_destroy(ptr noundef %db_options, ptr noundef captures(address_is_null) %list_column_family_names, ptr noundef captures(address_is_null) %list_column_family_options, i64 noundef %len) local_unnamed_addr #4 {
+define void @rocksdb_load_latest_options_destroy(ptr noundef %db_options, ptr noundef %list_column_family_names, ptr noundef %list_column_family_options, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %isnull.i = icmp eq ptr %db_options, null
   br i1 %isnull.i, label %rocksdb_options_destroy.exit, label %delete.notnull.i
@@ -20123,7 +20123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_block_based_options_set_block_cache(ptr noundef captures(none) %options, ptr noundef readonly captures(address_is_null) %block_cache) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_block_based_options_set_block_cache(ptr noundef captures(none) %options, ptr noundef readonly %block_cache) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %block_cache, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -22086,7 +22086,7 @@ _ZNSt6vectorIN7rocksdb6DbPathESaIS1_EED2Ev.exit:  ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rocksdb_options_set_env(ptr noundef writeonly captures(none) initializes((8, 16)) %opt, ptr noundef readonly captures(address_is_null) %env) local_unnamed_addr #9 {
+define void @rocksdb_options_set_env(ptr noundef writeonly captures(none) initializes((8, 16)) %opt, ptr noundef readonly %env) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %env, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -22103,7 +22103,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_options_set_info_log(ptr noundef captures(none) %opt, ptr noundef readonly captures(address_is_null) %l) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_options_set_info_log(ptr noundef captures(none) %opt, ptr noundef readonly %l) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %l, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -25076,7 +25076,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_options_set_ratelimiter(ptr noundef captures(none) %opt, ptr noundef readonly captures(address_is_null) %limiter) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_options_set_ratelimiter(ptr noundef captures(none) %opt, ptr noundef readonly %limiter) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %limiter, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -25495,7 +25495,7 @@ delete.end:                                       ; preds = %_ZN21rocksdb_rateli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_options_set_row_cache(ptr noundef captures(none) %opt, ptr noundef readonly captures(address_is_null) %cache) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_options_set_row_cache(ptr noundef captures(none) %opt, ptr noundef readonly %cache) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %cache, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -26962,7 +26962,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rocksdb_readoptions_set_snapshot(ptr noundef writeonly captures(none) initializes((0, 8)) %opt, ptr noundef readonly captures(address_is_null) %snap) local_unnamed_addr #9 {
+define void @rocksdb_readoptions_set_snapshot(ptr noundef writeonly captures(none) initializes((0, 8)) %opt, ptr noundef readonly %snap) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %snap, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -33375,7 +33375,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @rocksdb_transaction_begin(ptr noundef readonly captures(none) %txn_db, ptr noundef %write_options, ptr noundef %txn_options, ptr noundef captures(address_is_null, ret: address, provenance) %old_txn) local_unnamed_addr #0 {
+define nonnull ptr @rocksdb_transaction_begin(ptr noundef readonly captures(none) %txn_db, ptr noundef %write_options, ptr noundef %txn_options, ptr noundef %old_txn) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %old_txn, null
   br i1 %cmp, label %if.then, label %if.end
@@ -39624,7 +39624,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @rocksdb_optimistictransaction_begin(ptr noundef readonly captures(none) %otxn_db, ptr noundef %write_options, ptr noundef %otxn_options, ptr noundef captures(address_is_null, ret: address, provenance) %old_txn) local_unnamed_addr #0 {
+define nonnull ptr @rocksdb_optimistictransaction_begin(ptr noundef readonly captures(none) %otxn_db, ptr noundef %write_options, ptr noundef %otxn_options, ptr noundef %old_txn) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %old_txn, null
   br i1 %cmp, label %if.then, label %if.end
@@ -40072,7 +40072,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @rocksdb_pinnableslice_value(ptr noundef readonly captures(address_is_null) %v, ptr noundef writeonly captures(none) initializes((0, 8)) %vlen) local_unnamed_addr #9 {
+define ptr @rocksdb_pinnableslice_value(ptr noundef readonly %v, ptr noundef writeonly captures(none) initializes((0, 8)) %vlen) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %v, null
   br i1 %tobool.not, label %if.then, label %if.end

@@ -298,7 +298,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.200 = private unnamed_addr constant [10 x i8] c"fragments\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 256) i32 @process_netbios_name(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 256) i32 @process_netbios_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   br label %6
@@ -406,7 +406,7 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 noundef %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef 16) #6
   %6 = getelementptr i8, ptr %5, i64 15
   %7 = load i8, ptr %6, align 1

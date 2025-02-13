@@ -1744,7 +1744,7 @@ sw.epilog108:                                     ; preds = %cond.end, %land.lhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 0, 256) %c, ptr noundef readonly captures(address) %p, ptr noundef readnone captures(address) %ep) unnamed_addr #3 {
+define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 0, 256) %c, ptr noundef readonly %p, ptr noundef readnone %ep) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %p, align 1
   switch i8 %0, label %sw.default [

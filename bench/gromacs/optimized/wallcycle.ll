@@ -144,7 +144,7 @@ define noundef zeroext i1 @_Z22wallcycle_have_counterv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14wallcycle_initP8_IO_FILEiPK9t_commrec(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z14wallcycle_initP8_IO_FILEiPK9t_commrec(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %5 = invoke noalias noundef nonnull dereferenceable(2304) ptr @_Znwm(i64 noundef 2304) #23
           to label %.noexc unwind label %6
@@ -405,7 +405,7 @@ define void @_Z17wallcycle_sub_getP13gmx_wallcycle19WallCycleSubCounterPiPd(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z19wallcycle_reset_allP13gmx_wallcycle(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define void @_Z19wallcycle_reset_allP13gmx_wallcycle(ptr noundef %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader19
 
@@ -467,7 +467,7 @@ define void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef readonly captures(
 declare noundef i32 @_Z12tMPI_BarrierP10tmpi_comm_(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z30wallcycle_scale_by_num_threadsP13gmx_wallcyclebii(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define void @_Z30wallcycle_scale_by_num_threadsP13gmx_wallcyclebii(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit42, label %.preheader41
 
@@ -564,7 +564,7 @@ define void @_Z30wallcycle_scale_by_num_threadsP13gmx_wallcyclebii(ptr noundef c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13wallcycle_sumPK9t_commrecP13gmx_wallcycle(ptr dead_on_unwind noalias writable sret(%"struct.std::array.11") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define void @_Z13wallcycle_sumPK9t_commrecP13gmx_wallcycle(ptr dead_on_unwind noalias writable sret(%"struct.std::array.11") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %"struct.gmx::EnumerationArray.12", align 8
   %5 = alloca %"struct.gmx::EnumerationArray.12", align 8
   %6 = alloca %"struct.gmx::EnumerationArray.12", align 8
@@ -780,7 +780,7 @@ declare noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_com
 declare double @llvm.rint.f64(double) #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15wallcycle_printP8_IO_FILERKN3gmx8MDLoggerEiiiidP13gmx_wallcycleRKSt5arrayIdLm93EEPK25gmx_wallclock_gpu_nbnxn_tPK23gmx_wallclock_gpu_pme_t(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef readonly captures(address_is_null) %10) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z15wallcycle_printP8_IO_FILERKN3gmx8MDLoggerEiiiidP13gmx_wallcycleRKSt5arrayIdLm93EEPK25gmx_wallclock_gpu_nbnxn_tPK23gmx_wallclock_gpu_pme_t(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, ptr noundef readonly %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %8, ptr noundef readonly %9, ptr noundef readonly %10) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %12 = alloca [4096 x i8], align 16
   %13 = alloca [4096 x i8], align 16
   %14 = alloca [4096 x i8], align 16
@@ -2052,7 +2052,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z25wcycle_get_reset_countersP13gmx_wallcycle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #17 {
+define noundef i64 @_Z25wcycle_get_reset_countersP13gmx_wallcycle(ptr noundef readonly %0) local_unnamed_addr #17 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -2067,7 +2067,7 @@ define noundef i64 @_Z25wcycle_get_reset_countersP13gmx_wallcycle(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z25wcycle_set_reset_countersP13gmx_wallcyclel(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #18 {
+define void @_Z25wcycle_set_reset_countersP13gmx_wallcyclel(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #18 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 

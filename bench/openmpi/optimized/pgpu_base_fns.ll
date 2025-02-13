@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_pgpu_base_allocate(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef i32 @pmix_pgpu_base_allocate(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pgpu_base_framework, i64 76), align 4
   %or.cond41 = icmp ult i32 %5, 64
   br i1 %or.cond41, label %6, label %12

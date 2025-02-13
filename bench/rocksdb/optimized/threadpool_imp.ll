@@ -1523,7 +1523,7 @@ _ZNSt8functionIFvvEED2Ev.exit6:                   ; preds = %_ZNSt8functionIFvvE
 declare void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb14ThreadPoolImpl4Impl10UnScheduleEPv(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef readnone captures(address) %arg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7rocksdb14ThreadPoolImpl4Impl10UnScheduleEPv(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef readnone %arg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::_Deque_iterator", align 8
   %candidates = alloca %"class.std::vector.7", align 8
@@ -2506,7 +2506,7 @@ eh.resume:                                        ; preds = %if.then.i.i57, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb14ThreadPoolImpl10UnScheduleEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(address) %arg) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN7rocksdb14ThreadPoolImpl10UnScheduleEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %arg) local_unnamed_addr #3 align 2 {
 entry:
   %impl_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl_, align 8

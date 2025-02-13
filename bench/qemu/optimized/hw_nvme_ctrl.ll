@@ -24585,7 +24585,7 @@ _nocheck__trace_pci_nvme_err_invalid_iocsci.exit: ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16426) i16 @nvme_set_feature_fdp_events(ptr noundef %n, ptr noundef readonly captures(address_is_null) %ns, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16426) i16 @nvme_set_feature_fdp_events(ptr noundef %n, ptr noundef readonly %ns, ptr noundef %req) unnamed_addr #0 {
 entry:
   %cdw112 = getelementptr inbounds nuw i8, ptr %req, i64 100
   %0 = load i32, ptr %cdw112, align 1

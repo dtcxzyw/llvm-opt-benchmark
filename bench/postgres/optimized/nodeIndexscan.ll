@@ -816,7 +816,7 @@ declare ptr @ExecInitExprList(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexBuildScanKeys(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #0 {
+define dso_local void @ExecIndexBuildScanKeys(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4

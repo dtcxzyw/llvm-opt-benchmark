@@ -298,14 +298,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_final(ptr noundef captures(address_is_null) %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl, i64 noundef %outsize) local_unnamed_addr #0 {
+define i32 @EVP_MAC_final(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl, i64 noundef %outsize) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evp_mac_final(ptr noundef %ctx, i32 noundef 0, ptr noundef %out, ptr noundef %outl, i64 noundef %outsize)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_is_null) %ctx, i32 noundef range(i32 0, 2) %xof, ptr noundef %out, ptr noundef writeonly captures(address_is_null) %outl, i64 noundef %outsize) unnamed_addr #0 {
+define internal fastcc i32 @evp_mac_final(ptr noundef readonly %ctx, i32 noundef range(i32 0, 2) %xof, ptr noundef %out, ptr noundef writeonly %outl, i64 noundef %outsize) unnamed_addr #0 {
 entry:
   %sz.i.i = alloca i64, align 8
   %params.i.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -464,7 +464,7 @@ return:                                           ; preds = %if.end22, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_finalXOF(ptr noundef captures(address_is_null) %ctx, ptr noundef %out, i64 noundef %outsize) local_unnamed_addr #0 {
+define i32 @EVP_MAC_finalXOF(ptr noundef %ctx, ptr noundef %out, i64 noundef %outsize) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evp_mac_final(ptr noundef %ctx, i32 noundef 1, ptr noundef %out, ptr noundef null, i64 noundef %outsize)
   ret i32 %call
@@ -552,7 +552,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_MAC_is_a(ptr noundef readonly captures(address_is_null) %mac, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_MAC_is_a(ptr noundef readonly %mac, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %mac, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -594,7 +594,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_Q_mac(ptr noundef %libctx, ptr noundef %name, ptr noundef %propq, ptr noundef %subalg, ptr noundef %params, ptr noundef %key, i64 noundef %keylen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outsize, ptr noundef writeonly captures(address_is_null) %outlen) local_unnamed_addr #0 {
+define ptr @EVP_Q_mac(ptr noundef %libctx, ptr noundef %name, ptr noundef %propq, ptr noundef %subalg, ptr noundef %params, ptr noundef %key, i64 noundef %keylen, ptr noundef %data, i64 noundef %datalen, ptr noundef %out, i64 noundef %outsize, ptr noundef writeonly %outlen) local_unnamed_addr #0 {
 entry:
   %subalg_param = alloca [2 x %struct.ossl_param_st], align 16
   %len = alloca i64, align 8

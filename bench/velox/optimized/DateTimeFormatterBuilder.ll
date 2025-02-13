@@ -79,7 +79,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder9appendEraEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder9appendEraEv(ptr noundef nonnull returned align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -163,7 +163,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendCenturyOfEraEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendCenturyOfEraEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -247,7 +247,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendYearOfEraEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendYearOfEraEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -331,7 +331,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder14appendWeekYearEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder14appendWeekYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -415,7 +415,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendWeekOfWeekYearEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendWeekOfWeekYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -499,7 +499,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendDayOfWeek0BasedEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendDayOfWeek0BasedEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -583,7 +583,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendDayOfWeek1BasedEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendDayOfWeek1BasedEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -667,7 +667,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder19appendDayOfWeekTextEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder19appendDayOfWeekTextEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -751,7 +751,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder10appendYearEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder10appendYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -835,7 +835,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendDayOfYearEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendDayOfYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -919,7 +919,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder17appendMonthOfYearEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder17appendMonthOfYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1003,7 +1003,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendMonthOfYearTextEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendMonthOfYearTextEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1087,7 +1087,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder16appendDayOfMonthEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder16appendDayOfMonthEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1171,7 +1171,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendHalfDayOfDayEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendHalfDayOfDayEv(ptr noundef nonnull returned align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1255,7 +1255,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder19appendHourOfHalfDayEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder19appendHourOfHalfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1339,7 +1339,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder24appendClockHourOfHalfDayEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder24appendClockHourOfHalfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1423,7 +1423,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendHourOfDayEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendHourOfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1507,7 +1507,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendClockHourOfDayEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendClockHourOfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1591,7 +1591,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendMinuteOfHourEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendMinuteOfHourEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1675,7 +1675,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendSecondOfMinuteEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendSecondOfMinuteEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1759,7 +1759,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder22appendFractionOfSecondEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %digits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder22appendFractionOfSecondEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %digits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1843,7 +1843,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder14appendTimeZoneEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder14appendTimeZoneEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1927,7 +1927,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder22appendTimeZoneOffsetIdEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder22appendTimeZoneOffsetIdEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2011,7 +2011,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %literal) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 dereferenceable(44) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %literal) local_unnamed_addr #0 align 2 {
 entry:
   %_M_str.i = getelementptr inbounds nuw i8, ptr %literal, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8
@@ -2021,7 +2021,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralEPKcm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this, ptr noundef readonly captures(none) %literalStart, i64 noundef %literalSize) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralEPKcm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, ptr noundef readonly captures(none) %literalStart, i64 noundef %literalSize) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %bufEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2137,7 +2137,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder7setTypeENS1_21DateTimeFormatterTypeE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(44) initializes((40, 44)) %this, i32 noundef %type) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder7setTypeENS1_21DateTimeFormatterTypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(44) initializes((40, 44)) %this, i32 noundef %type) local_unnamed_addr #4 align 2 {
 entry:
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 %type, ptr %type_, align 8

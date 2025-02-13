@@ -586,7 +586,7 @@ define internal fastcc i64 @common_prefix_len(ptr noundef readonly captures(none
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fill_directory(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @fill_directory(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8, !tbaa !26
   %5 = and i32 %4, 33
   %6 = icmp eq i32 %5, 33
@@ -618,7 +618,7 @@ define dso_local noundef i32 @fill_directory(ptr noundef %0, ptr noundef %1, ptr
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @read_directory(ptr noundef initializes((300, 308)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local i32 @read_directory(ptr noundef initializes((300, 308)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.strbuf, align 8
   %8 = alloca %struct.strbuf, align 8
@@ -1112,7 +1112,7 @@ emit_traversal_statistics.exit:                   ; preds = %sane_qsort.exit63, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @within_depth(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @within_depth(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 %2)
@@ -1145,7 +1145,7 @@ define dso_local range(i32 0, 2) i32 @within_depth(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @match_pathspec(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @match_pathspec(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq i32 %6, 0
   %8 = select i1 %.not, i32 0, i32 2
   %9 = tail call fastcc i32 @do_match_pathspec(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 7) %8)
@@ -1170,7 +1170,7 @@ match_pathspec_with_flags.exit:                   ; preds = %7, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @submodule_path_match(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @submodule_path_match(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   %6 = trunc i64 %5 to i32
   %7 = tail call fastcc i32 @do_match_pathspec(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %2, i32 noundef %6, i32 noundef 0, ptr noundef %3, i32 noundef 6)
@@ -2627,7 +2627,7 @@ define dso_local range(i32 -1, 1) i32 @add_patterns_from_blob_to_list(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @do_read_blob(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @do_read_blob(ptr noundef %0, ptr noundef writeonly %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
@@ -4724,7 +4724,7 @@ declare i32 @has_symlink_leading_path(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_directory_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @read_directory_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.stat, align 8
   %10 = alloca %struct.cached_dir, align 8
   %11 = alloca %struct.strbuf, align 8
@@ -5302,7 +5302,7 @@ define dso_local range(i32 0, 2) i32 @file_exists(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @repo_file_exists(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @repo_file_exists(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = load ptr, ptr @the_repository, align 8, !tbaa !132
   %.not = icmp eq ptr %0, %4
@@ -5424,7 +5424,7 @@ cmp_icase.exit.thread:                            ; preds = %14, %cmp_icase.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @is_inside_dir(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_inside_dir(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %2
 
@@ -5859,7 +5859,7 @@ declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local void @strip_dir_trailing_slashes(ptr noundef captures(address) %0) local_unnamed_addr #17 {
+define dso_local void @strip_dir_trailing_slashes(ptr noundef %0) local_unnamed_addr #17 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   br label %4
@@ -5887,7 +5887,7 @@ define dso_local i32 @remove_dir_recursively(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @remove_dir_recurse(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc i32 @remove_dir_recurse(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.object_id, align 4
   %6 = alloca %struct.stat, align 8
@@ -7005,7 +7005,7 @@ declare i32 @ewah_serialize_strbuf(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ewah_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_untracked(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @free_untracked(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %.preheader14
 
@@ -7796,7 +7796,7 @@ define dso_local void @untracked_cache_invalidate_path(ptr noundef readonly capt
 declare i32 @verify_path(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @invalidate_one_component(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @invalidate_one_component(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #28
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %33, label %6
@@ -8364,7 +8364,7 @@ define dso_local range(i32 0, 2) i32 @path_match_flags(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @do_match_pathspec(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef range(i32 0, 8) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @do_match_pathspec(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 8) %6) unnamed_addr #0 {
   %8 = and i32 %6, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !23
@@ -8996,7 +8996,7 @@ declare ptr @index_file_exists(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_untracked(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @lookup_untracked(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread78, label %5
 
@@ -9225,7 +9225,7 @@ declare ptr @repo_get_work_tree(ptr noundef) local_unnamed_addr #2
 declare i32 @is_directory(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @treat_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc i32 @treat_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -9606,7 +9606,7 @@ treat_path_fast.exit:                             ; preds = %94, %179, %57, %.pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_path_to_appropriate_result_list(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @add_path_to_appropriate_result_list(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) unnamed_addr #0 {
   switch i32 %7, label %add_untracked.exit [
     i32 2, label %9
     i32 3, label %68
@@ -9898,7 +9898,7 @@ directory_exists_in_index_icase.exit:             ; preds = %39, %33, %34, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @treat_directory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @treat_directory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.strbuf, align 8
   %10 = add nsw i32 %4, -1
   %11 = tail call fastcc i32 @directory_exists_in_index(ptr noundef %1, ptr noundef %3, i32 noundef %10)

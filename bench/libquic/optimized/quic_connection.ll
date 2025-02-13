@@ -11737,7 +11737,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %land.lh
 declare void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection25CheckIfApplicationLimitedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection25CheckIfApplicationLimitedEv(ptr noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %queued_packets_ = getelementptr inbounds nuw i8, ptr %this, i64 816
   %0 = load ptr, ptr %queued_packets_, align 8

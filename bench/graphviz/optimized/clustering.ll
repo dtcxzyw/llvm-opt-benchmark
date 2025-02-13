@@ -228,7 +228,7 @@ declare void @SparseMatrix_multiply_vector(ptr noundef, ptr noundef, ptr noundef
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret13, label %2
 

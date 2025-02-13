@@ -54317,7 +54317,7 @@ _ZNSt8_Rb_treeIN4cvc58internal13DeltaRationalES2_St9_IdentityIS2_ESt4lessIS2_ESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate18collectModelValuesERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS7_ESaIS7_EERSt3mapIS7_S7_S9_SaISt4pairIKS7_S7_EEESK_(ptr noundef nonnull align 8 dereferenceable(9400) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(48) %arithModel, ptr noundef nonnull align 8 dereferenceable(48) %arithModelIllTyped) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate18collectModelValuesERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS7_ESaIS7_EERSt3mapIS7_S7_S9_SaISt4pairIKS7_S7_EEESK_(ptr noundef nonnull align 8 dereferenceable(9400) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(48) %arithModel, ptr noundef nonnull align 8 dereferenceable(48) %arithModelIllTyped) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i458 = alloca %"class.std::tuple.1227", align 8
   %ref.tmp10.i459 = alloca %"class.std::tuple.1230", align 1
@@ -71093,7 +71093,7 @@ _ZN10__gmp_exprIA1_12__mpq_structS1_ED2Ev.exit3:  ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate20getCongruenceManagerEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(9400) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate20getCongruenceManagerEv(ptr noundef nonnull readonly align 8 dereferenceable(9400) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 5632
   %0 = load i8, ptr %d_data.i, align 8

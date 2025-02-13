@@ -1117,7 +1117,7 @@ define dso_local ptr @drm_atomic_get_private_obj_state(ptr noundef %0, ptr nound
 declare dso_local ptr @krealloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_old_private_obj_state(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_old_private_obj_state(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1152,7 +1152,7 @@ define dso_local ptr @drm_atomic_get_old_private_obj_state(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_new_private_obj_state(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_new_private_obj_state(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1187,7 +1187,7 @@ define dso_local ptr @drm_atomic_get_new_private_obj_state(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_old_connector_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_old_connector_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1225,7 +1225,7 @@ define dso_local ptr @drm_atomic_get_old_connector_for_encoder(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_new_connector_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_new_connector_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1263,7 +1263,7 @@ define dso_local ptr @drm_atomic_get_new_connector_for_encoder(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_old_crtc_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_old_crtc_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1319,7 +1319,7 @@ define dso_local ptr @drm_atomic_get_old_crtc_for_encoder(ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_new_crtc_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_new_crtc_for_encoder(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1516,7 +1516,7 @@ define dso_local ptr @drm_atomic_get_bridge_state(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_old_bridge_state(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_old_bridge_state(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1551,7 +1551,7 @@ define dso_local ptr @drm_atomic_get_old_bridge_state(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_atomic_get_new_bridge_state(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define dso_local ptr @drm_atomic_get_new_bridge_state(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1586,7 +1586,7 @@ define dso_local ptr @drm_atomic_get_new_bridge_state(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_add_encoder_bridges(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define dso_local i32 @drm_atomic_add_encoder_bridges(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 

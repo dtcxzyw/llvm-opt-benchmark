@@ -5272,7 +5272,7 @@ declare i64 @rb_num2ull(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2uint(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @io_buffer_validate_slice(i64 noundef range(i64 5, 4) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @io_buffer_validate_slice(i64 noundef range(i64 5, 4) %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 {
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %0, 0

@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.53 = private unnamed_addr constant [37 x i8] c"add_newsuffix: Unable to add filter\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.cli_ac_data, align 8
   %10 = alloca ptr, align 8
@@ -512,7 +512,7 @@ declare i32 @cli_bm_init(ptr noundef) local_unnamed_addr #2
 declare void @filter_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
+define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %9) #14
   %10 = icmp eq ptr %1, null
@@ -1319,7 +1319,7 @@ declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @cli_bm_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @is_regex_ok(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @is_regex_ok(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1346,7 +1346,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare i32 @cli_regex2suffix(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1631,7 +1631,7 @@ add_newsuffix.exit:                               ; preds = %105
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #8 {
+define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonly %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 

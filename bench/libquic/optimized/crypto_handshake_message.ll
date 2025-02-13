@@ -977,7 +977,7 @@ _ZNK3net22CryptoHandshakeMessage6GetPODEjPvm.exit: ; preds = %entry, %_ZNKSt8_Rb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK3net22CryptoHandshakeMessage4sizeEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZNK3net22CryptoHandshakeMessage4sizeEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %_M_node_count.i.i, align 8
@@ -1043,14 +1043,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net22CryptoHandshakeMessage11DebugStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK3net22CryptoHandshakeMessage11DebugStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK3net22CryptoHandshakeMessage19DebugStringInternalB5cxx11Em(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net22CryptoHandshakeMessage19DebugStringInternalB5cxx11Em(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %this, i64 noundef %indent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net22CryptoHandshakeMessage19DebugStringInternalB5cxx11Em(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %indent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8

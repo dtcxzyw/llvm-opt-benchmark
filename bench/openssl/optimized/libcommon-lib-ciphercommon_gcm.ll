@@ -39,14 +39,14 @@ entry:
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_gcm_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef captures(address_is_null) %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly captures(address_is_null) %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -121,7 +121,7 @@ return:                                           ; preds = %if.end15, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_gcm_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef captures(address_is_null) %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @gcm_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call

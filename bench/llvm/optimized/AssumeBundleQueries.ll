@@ -250,7 +250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20hasAttributeInAssumeERNS_10AssumeInstEPNS_5ValueENS_9StringRefEPm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readnone captures(address) %1, ptr readonly captures(none) %2, i64 %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm20hasAttributeInAssumeERNS_10AssumeInstEPNS_5ValueENS_9StringRefEPm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readnone %1, ptr readonly captures(none) %2, i64 %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
@@ -1320,7 +1320,7 @@ _ZNK4llvm8CallBase15bundle_op_infosEv.exit:       ; preds = %1, %_ZNK4llvm8CallB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19getKnowledgeFromUseEPKNS_3UseENS_8ArrayRefINS_9Attribute8AttrKindEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm19getKnowledgeFromUseEPKNS_3UseENS_8ArrayRefINS_9Attribute8AttrKindEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = load ptr, ptr %1, align 8, !tbaa !23
@@ -1570,7 +1570,7 @@ _ZN4llvm12is_containedIRNS_8ArrayRefINS_9Attribute8AttrKindEEES3_EEbOT_RKT0_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20getKnowledgeForValueEPKNS_5ValueENS_8ArrayRefINS_9Attribute8AttrKindEEEPNS_15AssumptionCacheENS_12function_refIFbNS_17RetainedKnowledgeEPNS_11InstructionEPKNS_8CallBase12BundleOpInfoEEEE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef %4, ptr noundef readonly byval(%"class.llvm::function_ref") align 8 captures(none) %5) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm20getKnowledgeForValueEPKNS_5ValueENS_8ArrayRefINS_9Attribute8AttrKindEEEPNS_15AssumptionCacheENS_12function_refIFbNS_17RetainedKnowledgeEPNS_11InstructionEPKNS_8CallBase12BundleOpInfoEEEE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr readonly %2, i64 %3, ptr noundef %4, ptr noundef readonly byval(%"class.llvm::function_ref") align 8 captures(none) %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %165, label %7
 
@@ -2154,7 +2154,7 @@ _ZL16getBundleFromUsePKN4llvm3UseE.exit.thread:   ; preds = %._crit_edge._crit_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26getKnowledgeValidInContextEPKNS_5ValueENS_8ArrayRefINS_9Attribute8AttrKindEEEPKNS_11InstructionEPKNS_13DominatorTreeEPNS_15AssumptionCacheE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr captures(address) %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm26getKnowledgeValidInContextEPKNS_5ValueENS_8ArrayRefINS_9Attribute8AttrKindEEEPKNS_11InstructionEPKNS_13DominatorTreeEPNS_15AssumptionCacheE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::RetainedKnowledge") align 8 captures(none) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.llvm::function_ref", align 8

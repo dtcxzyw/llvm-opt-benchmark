@@ -2126,7 +2126,7 @@ declare ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18DecorateBasePlugin10DrawCameraEPK9MeshModelRKN3vcg4ShotIfNS3_8Matrix44IfEEEENS3_6Color4IhEERS6_PK17RichParameterListP8QPainter5QFont(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %2, i32 %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18DecorateBasePlugin10DrawCameraEPK9MeshModelRKN3vcg4ShotIfNS3_8Matrix44IfEEEENS3_6Color4IhEERS6_PK17RichParameterListP8QPainter5QFont(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %2, i32 %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.vcg::Matrix44", align 4
   %10 = alloca %"class.vcg::Matrix44", align 4
   %11 = alloca %"class.vcg::Color4", align 4
@@ -3104,7 +3104,7 @@ declare ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull align 8 dereferen
 declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18DecorateBasePlugin12decorateMeshEPK7QActionR9MeshModelPK17RichParameterListP6GLAreaP8QPainterR11GLLogStream(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18DecorateBasePlugin12decorateMeshEPK7QActionR9MeshModelPK17RichParameterListP6GLAreaP8QPainterR11GLLogStream(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QFileInfo, align 8
   %9 = alloca %class.QFileInfo, align 8
   %10 = alloca %"class.vcg::Matrix44", align 4
@@ -5574,7 +5574,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN9QtPrivate8RefCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18DecorateBasePlugin12DrawTexParamER9MeshModelP6GLAreaP8QPainterPK17RichParameterList5QFont(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18DecorateBasePlugin12DrawTexParamER9MeshModelP6GLAreaP8QPainterPK17RichParameterList5QFont(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8
@@ -7313,7 +7313,7 @@ declare void @_ZN16QGLShaderProgram7releaseEv(ptr noundef nonnull align 8 derefe
 declare void @glPopMatrix() local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N18DecorateBasePlugin12decorateMeshEPK7QActionR9MeshModelPK17RichParameterListP6GLAreaP8QPainterR11GLLogStream(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6) unnamed_addr #12 align 2 {
+define void @_ZThn16_N18DecorateBasePlugin12decorateMeshEPK7QActionR9MeshModelPK17RichParameterListP6GLAreaP8QPainterR11GLLogStream(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6) unnamed_addr #12 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN18DecorateBasePlugin12decorateMeshEPK7QActionR9MeshModelPK17RichParameterListP6GLAreaP8QPainterR11GLLogStream(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
   ret void

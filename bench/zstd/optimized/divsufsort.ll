@@ -4268,7 +4268,7 @@ if.end350:                                        ; preds = %for.end331, %for.en
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @divbwt(ptr noundef %T, ptr noundef writeonly captures(address_is_null) %U, ptr noundef %A, i32 noundef %n, ptr noundef writeonly captures(address_is_null) %num_indexes, ptr noundef writeonly captures(address_is_null) %indexes, i32 noundef %openMP) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @divbwt(ptr noundef %T, ptr noundef writeonly %U, ptr noundef %A, i32 noundef %n, ptr noundef writeonly %num_indexes, ptr noundef writeonly %indexes, i32 noundef %openMP) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %T, null
   %cmp1 = icmp eq ptr %U, null

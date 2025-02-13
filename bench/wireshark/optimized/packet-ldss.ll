@@ -442,7 +442,7 @@ is_broadcast.exit.thread:                         ; preds = %12, %8, %4, %dissec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ldss_transfer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_ldss_transfer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8

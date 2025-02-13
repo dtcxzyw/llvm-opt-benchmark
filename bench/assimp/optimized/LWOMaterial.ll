@@ -219,7 +219,7 @@ $_ZTV17DeadlyImportError = comdat any
 @.str.89 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp11LWOImporter14HandleTexturesEP10aiMaterialRKNSt7__cxx114listINS_3LWO7TextureESaIS6_EEE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef %pcMat, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %in, i32 noundef %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp11LWOImporter14HandleTexturesEP10aiMaterialRKNSt7__cxx114listINS_3LWO7TextureESaIS6_EEE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef %pcMat, ptr noundef nonnull readonly align 8 dereferenceable(24) %in, i32 noundef %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca i32, align 4
   %s = alloca %struct.aiString, align 4
@@ -901,7 +901,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef signext range(i8 0, 2) i8 @_ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_EEERNS3_5LayerERNS3_9UVChannelEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %list, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(112) %uv, i32 noundef %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef signext range(i8 0, 2) i8 @_ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_EEERNS3_5LayerERNS3_9UVChannelEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(112) %uv, i32 noundef %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1.sroa.0.013 = load ptr, ptr %list, align 8
   %cmp.i.not14 = icmp eq ptr %__begin1.sroa.0.013, %list
@@ -979,7 +979,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt6vectorIjSaIjEERNS1_5LayerEPj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(328) %surf, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sorted, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(341) %layer, ptr noundef captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt6vectorIjSaIjEERNS1_5LayerEPj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(328) %surf, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sorted, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(341) %layer, ptr noundef captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i71 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.Assimp::Formatter::basic_formatter", align 8

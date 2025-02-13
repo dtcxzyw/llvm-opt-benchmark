@@ -1610,7 +1610,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 declare noundef zeroext i1 @_ZN4cvc58internal4expr12getVariablesENS0_12NodeTemplateILb0EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EESB_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal5proof18AlfPrintChannelPre12getVariablesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(184) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal5proof18AlfPrintChannelPre12getVariablesEv(ptr noundef nonnull readnone align 8 dereferenceable(184) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_vars = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %d_vars

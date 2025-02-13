@@ -398,7 +398,7 @@ define hidden i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 nou
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @witness_dissect_enum_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @witness_dissect_enum_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -424,7 +424,7 @@ define hidden i32 @witness_dissect_enum_version(ptr noundef %0, i32 noundef %1, 
 declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @witness_dissect_enum_interfaceInfo_state(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @witness_dissect_enum_interfaceInfo_state(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -675,7 +675,7 @@ define hidden i32 @witness_dissect_struct_interfaceList(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @witness_dissect_enum_notifyResponse_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @witness_dissect_enum_notifyResponse_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -699,7 +699,7 @@ define hidden i32 @witness_dissect_enum_notifyResponse_type(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @witness_dissect_enum_ResourceChange_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @witness_dissect_enum_ResourceChange_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null

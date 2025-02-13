@@ -1612,7 +1612,7 @@ return:                                           ; preds = %for.body, %for.body
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %en, ptr noundef writeonly captures(address_is_null) %resultLength, ptr readnone captures(none) %0) #0 {
+define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %en, ptr noundef writeonly %resultLength, ptr readnone captures(none) %0) #0 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8

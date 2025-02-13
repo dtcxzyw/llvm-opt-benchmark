@@ -689,7 +689,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit4:       ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental15PollEventHandle12OrphanHandleEPNS0_18PosixEngineClosureEPiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 16 dereferenceable(200) %this, ptr noundef %on_done, ptr noundef writeonly captures(address_is_null) %release_fd, i64 %.coerce0, ptr readnone captures(none) %.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental15PollEventHandle12OrphanHandleEPNS0_18PosixEngineClosureEPiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 16 dereferenceable(200) %this, ptr noundef %on_done, ptr noundef writeonly %release_fd, i64 %.coerce0, ptr readnone captures(none) %.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock = alloca %"class.absl::lts_20230802::ReleasableMutexLock", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1935,7 +1935,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN17grpc_event_engine12experimental10PollPoller29PollerHandlesListRemoveHandleEPNS0_15PollEventHandleE(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %this, ptr noundef readonly captures(address) %handle) local_unnamed_addr #10 align 2 {
+define void @_ZN17grpc_event_engine12experimental10PollPoller29PollerHandlesListRemoveHandleEPNS0_15PollEventHandleE(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %this, ptr noundef readonly %handle) local_unnamed_addr #10 align 2 {
 entry:
   %poll_handles_list_head_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %poll_handles_list_head_, align 8
@@ -3587,7 +3587,7 @@ _ZN17grpc_event_engine12experimental15PollEventHandle5UnrefEv.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental10PollPoller8ShutdownEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(73) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental10PollPoller8ShutdownEv(ptr noundef nonnull readnone align 8 dereferenceable(73) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i.i = alloca %"class.std::__cxx11::list", align 8
   %call.i = tail call noundef zeroext i1 @_ZN9grpc_core4Fork7EnabledEv()

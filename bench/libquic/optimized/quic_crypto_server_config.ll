@@ -4297,7 +4297,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net22QuicCryptoServerConfig22SelectNewPrimaryConfigENS_12QuicWallTimeE(ptr noundef nonnull align 8 captures(address) dereferenceable(405) %this, i64 %now.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net22QuicCryptoServerConfig22SelectNewPrimaryConfigENS_12QuicWallTimeE(ptr noundef nonnull align 8 dereferenceable(405) %this, i64 %now.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %configs = alloca %"class.std::vector.141", align 8
   %ref.tmp20 = alloca %"class.logging::LogMessage", align 8

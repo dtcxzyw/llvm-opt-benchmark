@@ -399,7 +399,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @has_non_ascii(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @has_non_ascii(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1570,7 +1570,7 @@ strbuf_add_with_color.exit40:                     ; preds = %50, %._crit_edge.th
 declare { i64, ptr } @date_mode_from_type(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @skip_blank_lines(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define dso_local ptr @skip_blank_lines(ptr noundef readonly %0) local_unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %14, %1
@@ -1624,7 +1624,7 @@ is_blank_line.exit.thread:                        ; preds = %get_one_line.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @repo_logmsg_reencode(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local ptr @repo_logmsg_reencode(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -2094,7 +2094,7 @@ is_blank_line.exit:                               ; preds = %31, %28
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @format_set_trailers_options(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @format_set_trailers_options(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
   %7 = load ptr, ptr %4, align 8, !tbaa !4
   %8 = load i8, ptr %7, align 1, !tbaa !9
   %9 = icmp eq i8 %8, 41

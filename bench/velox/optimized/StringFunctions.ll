@@ -13320,7 +13320,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN8facebook5velox9functions12_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt19_Sp_counted_deleterIPN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionESt14default_deleteIS4_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__ti) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZNSt19_Sp_counted_deleterIPN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionESt14default_deleteIS4_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__ti) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8

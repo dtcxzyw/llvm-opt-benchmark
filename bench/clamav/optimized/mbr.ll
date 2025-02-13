@@ -121,7 +121,7 @@ define void @mbr_convert_to_host(ptr noundef captures(none) %0) local_unnamed_ad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mbr_boot_record, align 1
   call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %3) #6
   %.not = icmp eq ptr %0, null

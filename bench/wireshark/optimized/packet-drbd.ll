@@ -1626,7 +1626,7 @@ define internal void @decode_payload_twopc_prep_rsz(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_twopc_commit(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @decode_payload_twopc_commit(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct.drbd_twopc_key, align 4
   %5 = call fastcc i32 @decode_twopc_request_common(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq ptr %2, null
@@ -1928,7 +1928,7 @@ define internal void @decode_payload_peers_in_sync(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_twopc_reply(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @decode_payload_twopc_reply(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct.drbd_twopc_key, align 4
   %5 = load i32, ptr @hf_drbd_tid, align 4
   %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #8

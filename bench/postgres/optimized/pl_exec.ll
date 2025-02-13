@@ -3933,7 +3933,7 @@ define internal fastcc void @plpgsql_create_econtext(ptr noundef nonnull capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -9249,7 +9249,7 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 declare i32 @get_typsubscript(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 5, 11) i32 @exec_run_select(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 5, 11) i32 @exec_run_select(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -11067,7 +11067,7 @@ define internal fastcc ptr @convert_value_to_string(ptr %.200.val.40.val, i64 no
 declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @exec_eval_using_params(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @exec_eval_using_params(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
@@ -11311,7 +11311,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @appendStringInfoStringQuoted(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_preparedparamsdata(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @format_preparedparamsdata(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca %struct.StringInfoData, align 8
@@ -11389,7 +11389,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr noundef nonnull readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -11642,7 +11642,7 @@ define internal noundef ptr @plpgsql_param_fetch(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @plpgsql_param_compile(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal void @plpgsql_param_compile(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.ExprEvalStep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -12120,7 +12120,7 @@ declare void @DeleteExpandedObject(i64 noundef) local_unnamed_addr #1
 declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_move_row_from_fields(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address) %5) unnamed_addr #0 {
+define internal fastcc void @exec_move_row_from_fields(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [64 x i64], align 16
   %8 = alloca [64 x i8], align 16
   %9 = alloca i8, align 1

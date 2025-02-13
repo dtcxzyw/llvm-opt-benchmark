@@ -1130,7 +1130,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 declare i64 @intrev64(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef writeonly captures(address_is_null) %isencoded, ptr noundef writeonly captures(none) %lenptr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef writeonly %isencoded, ptr noundef writeonly captures(none) %lenptr) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2 x i8], align 1
   %len = alloca i32, align 4
@@ -1393,7 +1393,7 @@ return:                                           ; preds = %if.then54, %if.then
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rdbLoadLen(ptr noundef %rdb, ptr noundef captures(address_is_null) %isencoded) local_unnamed_addr #0 {
+define dso_local i64 @rdbLoadLen(ptr noundef %rdb, ptr noundef %isencoded) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %call = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef %isencoded, ptr noundef nonnull %len)
@@ -1463,7 +1463,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @rdbLoadIntegerObject(ptr noundef %rdb, i32 noundef %enctype, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %lenptr) local_unnamed_addr #0 {
+define dso_local ptr @rdbLoadIntegerObject(ptr noundef %rdb, i32 noundef %enctype, i32 noundef %flags, ptr noundef writeonly %lenptr) local_unnamed_addr #0 {
 entry:
   %enc = alloca [4 x i8], align 4
   %buf = alloca [21 x i8], align 16
@@ -1956,7 +1956,7 @@ declare i64 @lzf_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) lo
 declare void @zfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @rdbLoadLzfStringObject(ptr noundef %rdb, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %lenptr) local_unnamed_addr #0 {
+define dso_local ptr @rdbLoadLzfStringObject(ptr noundef %rdb, i32 noundef %flags, ptr noundef writeonly %lenptr) local_unnamed_addr #0 {
 entry:
   %len.i29 = alloca i64, align 8
   %len.i = alloca i64, align 8
@@ -2717,7 +2717,7 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef %flags, ptr noundef captures(address_is_null) %lenptr) local_unnamed_addr #0 {
+define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef %flags, ptr noundef %lenptr) local_unnamed_addr #0 {
 entry:
   %len.i = alloca i64, align 8
   %isencoded = alloca i32, align 4
@@ -6453,7 +6453,7 @@ rdbSaveAuxField.exit:                             ; preds = %rdbSaveType.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @rdbSaveInfoAuxFields(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef readonly captures(address_is_null) %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @rdbSaveInfoAuxFields(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef readonly %rsi) local_unnamed_addr #0 {
 entry:
   %and = and i32 %rdbflags, 1
   %call = tail call i64 @rdbSaveAuxFieldStrStr(ptr noundef %rdb, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
@@ -7481,7 +7481,7 @@ declare void @sendChildInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed
 declare void @dbReleaseIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbSaveRio(i32 noundef %req, ptr noundef %rdb, ptr noundef writeonly captures(address_is_null) %error, i32 noundef %rdbflags, ptr noundef captures(address_is_null) %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveRio(i32 noundef %req, ptr noundef %rdb, ptr noundef writeonly %error, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %type.addr.i = alloca i8, align 1
   %magic = alloca [10 x i8], align 1
@@ -7742,7 +7742,7 @@ declare i64 @rdbSaveModulesAux(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbSaveRioWithEOFMark(i32 noundef %req, ptr noundef %rdb, ptr noundef captures(address_is_null) %error, ptr noundef captures(address_is_null) %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveRioWithEOFMark(i32 noundef %req, ptr noundef %rdb, ptr noundef %error, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %eofmark = alloca [40 x i8], align 16
   %call5.i = tail call i32 @getpid() #22
@@ -7997,7 +7997,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @rdbSaveInternal(i32 noundef %req, ptr noundef %filename, ptr noundef captures(address_is_null) %rsi, i32 noundef %rdbflags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @rdbSaveInternal(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) unnamed_addr #0 {
 entry:
   %cwd = alloca [4096 x i8], align 16
   %rdb = alloca %struct._rio, align 8
@@ -8123,7 +8123,7 @@ return:                                           ; preds = %if.end42, %if.end58
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbSave(i32 noundef %req, ptr noundef %filename, ptr noundef captures(address_is_null) %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSave(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
 entry:
   %tmpfile = alloca [256 x i8], align 16
   %cwd = alloca [4096 x i8], align 16
@@ -8219,7 +8219,7 @@ declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_a
 declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbSaveBackground(i32 noundef %req, ptr noundef %filename, ptr noundef captures(address_is_null) %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveBackground(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @hasActiveChildProcess() #22
   %tobool.not = icmp eq i32 %call, 0
@@ -8726,7 +8726,7 @@ return:                                           ; preds = %if.end17, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @rdbLoadObject(i32 noundef %rdbtype, ptr noundef %rdb, ptr noundef %key, i32 noundef %dbid, ptr noundef writeonly captures(address_is_null) %error) local_unnamed_addr #0 {
+define dso_local ptr @rdbLoadObject(i32 noundef %rdbtype, ptr noundef %rdb, ptr noundef %key, i32 noundef %dbid, ptr noundef writeonly %error) local_unnamed_addr #0 {
 entry:
   %len.i846 = alloca i64, align 8
   %len.i841 = alloca i64, align 8
@@ -11719,7 +11719,7 @@ declare void @processModuleLoadingProgressEvent(i32 noundef) local_unnamed_addr 
 declare zeroext i8 @rioCheckType(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbFunctionLoad(ptr noundef %rdb, i32 %ver, ptr noundef %lib_ctx, i32 noundef %rdbflags, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbFunctionLoad(ptr noundef %rdb, i32 %ver, ptr noundef %lib_ctx, i32 noundef %rdbflags, ptr noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
@@ -11800,7 +11800,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 declare ptr @functionsCreateWithLibraryCtx(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbLoadRio(ptr noundef initializes((32, 40), (64, 72)) %rdb, i32 noundef %rdbflags, ptr noundef captures(address_is_null) %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRio(ptr noundef initializes((32, 40), (64, 72)) %rdb, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %loading_ctx = alloca %struct.rdbLoadingCtx, align 8
   %call = tail call ptr @functionsLibCtxGetCurrent() #22
@@ -11815,7 +11815,7 @@ entry:
 declare ptr @functionsLibCtxGetCurrent() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40), (64, 72)) %rdb, i32 noundef %rdbflags, ptr noundef writeonly captures(address_is_null) %rsi, ptr noundef readonly captures(none) %rdb_loading_ctx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40), (64, 72)) %rdb, i32 noundef %rdbflags, ptr noundef writeonly %rsi, ptr noundef readonly captures(none) %rdb_loading_ctx) local_unnamed_addr #0 {
 entry:
   %len.i259 = alloca i64, align 8
   %len.i254 = alloca i64, align 8
@@ -12979,7 +12979,7 @@ declare i32 @objectSetLRUOrLFU(ptr noundef, i64 noundef, i64 noundef, i64 nounde
 declare void @moduleNotifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @rdbLoad(ptr noundef %filename, ptr noundef captures(address_is_null) %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @rdbLoad(ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
 entry:
   %loading_ctx.i = alloca %struct.rdbLoadingCtx, align 8
   %rdb = alloca %struct._rio, align 8
@@ -13278,7 +13278,7 @@ entry:
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %req, ptr noundef captures(address_is_null) %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %req, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %pipefds = alloca [2 x i32], align 4
@@ -13590,7 +13590,7 @@ if.end4:                                          ; preds = %if.else, %if.then3,
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @rdbPopulateSaveInfo(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 64)) %rsi) local_unnamed_addr #18 {
+define dso_local noundef ptr @rdbPopulateSaveInfo(ptr noundef writeonly initializes((0, 64)) %rsi) local_unnamed_addr #18 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4576), align 8

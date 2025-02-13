@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stb_c_lexer_get_location(ptr noundef readonly captures(none) %lexer, ptr noundef readnone captures(address) %where, ptr noundef writeonly captures(none) %loc) local_unnamed_addr #1 {
+define void @stb_c_lexer_get_location(ptr noundef readonly captures(none) %lexer, ptr noundef readnone %where, ptr noundef writeonly captures(none) %loc) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %lexer, align 8
   %1 = load i8, ptr %0, align 1
@@ -119,7 +119,7 @@ lor.end:                                          ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef ptr @stb__strchr(ptr noundef readonly captures(ret: address, provenance) %str, i32 noundef %ch) local_unnamed_addr #3 {
+define noundef ptr @stb__strchr(ptr noundef readonly %str, i32 noundef %ch) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %str, align 1
   %tobool.not4 = icmp eq i8 %0, 0

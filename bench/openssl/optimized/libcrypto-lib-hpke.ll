@@ -245,7 +245,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef captures(address_is_null) %ctx, ptr noundef %pskid, ptr noundef %psk, i64 noundef %psklen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %ctx, ptr noundef %pskid, ptr noundef %psk, i64 noundef %psklen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %pskid, null
@@ -356,7 +356,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_ikme(ptr noundef captures(address_is_null) %ctx, ptr noundef %ikme, i64 noundef %ikmelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_ikme(ptr noundef %ctx, ptr noundef %ikme, i64 noundef %ikmelen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %ikme, null
@@ -413,7 +413,7 @@ return:                                           ; preds = %if.end9, %if.end16,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef captures(address_is_null) %ctx, ptr noundef %priv) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef %ctx, ptr noundef %priv) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %priv, null
@@ -469,7 +469,7 @@ return:                                           ; preds = %if.end9, %if.then8,
 declare ptr @EVP_PKEY_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef captures(address_is_null) %ctx, ptr noundef %pub, i64 noundef %publen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %ctx, ptr noundef %pub, i64 noundef %publen) local_unnamed_addr #0 {
 entry:
   %lpublen = alloca i64, align 8
   store i64 0, ptr %lpublen, align 8
@@ -662,7 +662,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @EVP_PKEY_get_octet_string_param(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_CTX_get_seq(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef writeonly captures(address_is_null) %seq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_get_seq(ptr noundef readonly %ctx, ptr noundef writeonly %seq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %seq, null
@@ -687,7 +687,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set_seq(ptr noundef captures(address_is_null) %ctx, i64 noundef %seq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set_seq(ptr noundef %ctx, i64 noundef %seq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1368,7 +1368,7 @@ return:                                           ; preds = %err, %if.then40, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_decap(ptr noundef captures(address_is_null) %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %recippriv, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_decap(ptr noundef %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %recippriv, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %enc, null
@@ -1675,7 +1675,7 @@ return:                                           ; preds = %err, %if.then67, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_seal(ptr noundef captures(address_is_null) %ctx, ptr noundef %ct, ptr noundef captures(address_is_null) %ctlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_seal(ptr noundef %ctx, ptr noundef %ct, ptr noundef %ctlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen) local_unnamed_addr #0 {
 entry:
   %seqbuf = alloca [12 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -1972,7 +1972,7 @@ return:                                           ; preds = %if.end9, %if.end67,
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_open(ptr noundef captures(address_is_null) %ctx, ptr noundef %pt, ptr noundef captures(address_is_null) %ptlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_open(ptr noundef %ctx, ptr noundef %pt, ptr noundef %ptlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen) local_unnamed_addr #0 {
 entry:
   %seqbuf = alloca [12 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -2250,7 +2250,7 @@ return:                                           ; preds = %if.end, %if.end54, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_HPKE_export(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef %secret, i64 noundef %secretlen, ptr noundef %label, i64 noundef %labellen) local_unnamed_addr #0 {
+define i32 @OSSL_HPKE_export(ptr noundef readonly %ctx, ptr noundef %secret, i64 noundef %secretlen, ptr noundef %label, i64 noundef %labellen) local_unnamed_addr #0 {
 entry:
   %suitebuf = alloca [6 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -2383,7 +2383,7 @@ declare i32 @ossl_hpke_labeled_expand(ptr noundef, ptr noundef, i64 noundef, ptr
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_keygen(i48 %suite.coerce, ptr noundef %pub, ptr noundef %publen, ptr noundef writeonly captures(address_is_null) %priv, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_keygen(i48 %suite.coerce, ptr noundef %pub, ptr noundef %publen, ptr noundef writeonly %priv, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %skR = alloca ptr, align 8
   %params = alloca [3 x %struct.ossl_param_st], align 16
@@ -2593,7 +2593,7 @@ hpke_suite_check.exit:                            ; preds = %if.end4.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HPKE_get_grease_value(ptr noundef readonly captures(address_is_null) %suite_in, ptr noundef writeonly captures(address_is_null) %suite, ptr noundef %enc, ptr noundef %enclen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_get_grease_value(ptr noundef readonly %suite_in, ptr noundef writeonly %suite, ptr noundef %enc, ptr noundef %enclen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %fakepriv = alloca ptr, align 8
   store ptr null, ptr %fakepriv, align 8

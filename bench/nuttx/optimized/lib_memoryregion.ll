@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.memory_region_s = type { i64, i64, i32 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %41, label %6
@@ -203,7 +203,7 @@ parse_memory_region.exit.thread:                  ; preds = %1, %parse_memory_re
 declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @free_memory_region(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define void @free_memory_region(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

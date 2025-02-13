@@ -204,7 +204,7 @@ define dso_local noundef zeroext i1 @arch_restore_msi_irqs(ptr noundef readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef captures(none) %3) #4 align 16 {
+define internal noundef zeroext i1 @x86_init_dev_msi_info(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 96

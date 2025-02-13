@@ -11363,7 +11363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit5: ; preds = %83, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndex22_ComputeDirtiedEntriesERKSt3mapINS_7SdfPathESt6vectorINS_7TfTokenESaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEPS3_IS2_SaIS2_EENS_34UsdImagingPropertyInvalidationTypeEPNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(960) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndex22_ComputeDirtiedEntriesERKSt3mapINS_7SdfPathESt6vectorINS_7TfTokenESaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEPS3_IS2_SaIS2_EENS_34UsdImagingPropertyInvalidationTypeEPNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(960) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8

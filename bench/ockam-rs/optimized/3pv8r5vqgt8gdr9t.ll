@@ -290,7 +290,7 @@ define hidden void @_ZN10ockam_core5error5inner9ErrorData3new17he72748acdbdaa98a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(16) ptr @_ZN12futures_util6future14poll_immediate14poll_immediate17h69e706ac2ef2a486E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(16) ptr @_ZN12futures_util6future14poll_immediate14poll_immediate17h69e706ac2ef2a486E(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #1 {
   ret ptr %0
 }
 
@@ -3264,7 +3264,7 @@ define hidden { ptr, ptr } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h323fba7d20c9ffd8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h323fba7d20c9ffd8E"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #1 {
   ret ptr %0
 }
 
@@ -3452,7 +3452,7 @@ define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFutur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h783c773cbe619dc3E"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable_or_null(16) %0) unnamed_addr #1 {
+define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h783c773cbe619dc3E"(ptr noalias noundef readnone returned align 8 dereferenceable_or_null(16) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

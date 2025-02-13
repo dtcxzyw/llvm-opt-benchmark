@@ -49523,7 +49523,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE7_DecRefEv.exit
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z7GetInfoIN32pxrInternal_v0_24__pxrReserved__14SdfOpaqueValueEEvPNS0_7VtArrayIT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(address) %0, ptr noundef nonnull %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z7GetInfoIN32pxrInternal_v0_24__pxrReserved__14SdfOpaqueValueEEvPNS0_7VtArrayIT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct._Filler.481, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfOpaqueValue", align 1
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.108", align 8

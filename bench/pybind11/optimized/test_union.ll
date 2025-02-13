@@ -20162,7 +20162,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %1, %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ21test_submodule_union_RNS_7module_EE9TestUnionJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ21test_submodule_union_RNS_7module_EE9TestUnionJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ21test_submodule_union_RN8pybind117module_EE9TestUnion, ptr %4, align 8
@@ -26484,7 +26484,7 @@ define linkonce_odr hidden void @_ZNK8pybind1120reference_cast_error9set_errorEv
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ21test_submodule_union_RNS_7module_EE9TestUnionJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ21test_submodule_union_RNS_7module_EE9TestUnionJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3

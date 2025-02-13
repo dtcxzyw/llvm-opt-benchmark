@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @__quicklistCompress(ptr noundef readonly captures(none) %quicklist, ptr noundef captures(address) %node) local_unnamed_addr #1 {
+define dso_local void @__quicklistCompress(ptr noundef readonly captures(none) %quicklist, ptr noundef %node) local_unnamed_addr #1 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %quicklist, i64 24
   %0 = load i64, ptr %len, align 8
@@ -797,7 +797,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowInsert(ptr noundef readonly captures(address_is_null) %node, i32 noundef %fill, i64 noundef %sz) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowInsert(ptr noundef readonly %node, i32 noundef %fill, i64 noundef %sz) local_unnamed_addr #11 {
 entry:
   %tobool.not = icmp eq ptr %node, null
   br i1 %tobool.not, label %return, label %if.end
@@ -849,7 +849,7 @@ return:                                           ; preds = %quicklistNodeExceed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowMerge(ptr noundef readonly captures(address_is_null) %a, ptr noundef readonly captures(address_is_null) %b, i32 noundef %fill) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowMerge(ptr noundef readonly %a, ptr noundef readonly %b, i32 noundef %fill) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %a, null
   %tobool1 = icmp ne ptr %b, null
@@ -1360,7 +1360,7 @@ if.end27:                                         ; preds = %if.then24, %if.end2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef ptr @_quicklistBookmarkFindByNode(ptr noundef readonly captures(ret: address, provenance) %ql, ptr noundef readnone captures(address) %node) local_unnamed_addr #12 {
+define dso_local noundef ptr @_quicklistBookmarkFindByNode(ptr noundef readonly %ql, ptr noundef readnone %node) local_unnamed_addr #12 {
 entry:
   %bookmarks = getelementptr inbounds nuw i8, ptr %ql, i64 40
   %bookmark_count = getelementptr inbounds nuw i8, ptr %ql, i64 32
@@ -3535,7 +3535,7 @@ if.end5:                                          ; preds = %if.end5.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef captures(address_is_null) %iter, ptr noundef initializes((0, 52)) %entry1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef %iter, ptr noundef initializes((0, 52)) %entry1) local_unnamed_addr #1 {
 entry:
   %sz96 = alloca i32, align 4
   %value = getelementptr inbounds nuw i8, ptr %entry1, i64 24
@@ -4023,7 +4023,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @quicklistPopCustom(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %sz, ptr noundef writeonly captures(address_is_null) %sval, ptr noundef readonly captures(none) %saver) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistPopCustom(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly %data, ptr noundef writeonly %sz, ptr noundef writeonly %sval, ptr noundef readonly captures(none) %saver) local_unnamed_addr #1 {
 entry:
   %p = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -4213,7 +4213,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @_quicklistSaver(ptr noundef readonly captures(address_is_null) %data, i64 noundef %sz) #1 {
+define dso_local noalias ptr @_quicklistSaver(ptr noundef readonly %data, i64 noundef %sz) #1 {
 entry:
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %return, label %if.then
@@ -4229,7 +4229,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @quicklistPop(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %sz, ptr noundef writeonly captures(address_is_null) %slong) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistPop(ptr noundef %quicklist, i32 noundef %where, ptr noundef writeonly %data, ptr noundef writeonly %sz, ptr noundef writeonly %slong) local_unnamed_addr #1 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i64, align 8
@@ -4562,7 +4562,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @_quicklistBookmarkFindByName(ptr noundef readonly captures(ret: address, provenance) %ql, ptr noundef readonly captures(none) %name) local_unnamed_addr #16 {
+define dso_local ptr @_quicklistBookmarkFindByName(ptr noundef readonly %ql, ptr noundef readonly captures(none) %name) local_unnamed_addr #16 {
 entry:
   %bookmarks = getelementptr inbounds nuw i8, ptr %ql, i64 40
   %bookmark_count = getelementptr inbounds nuw i8, ptr %ql, i64 32

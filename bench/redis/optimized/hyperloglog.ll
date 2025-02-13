@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [42 x i8] c"-INVALIDOBJ Corrupted HLL object detected\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
+define dso_local i64 @MurmurHash64A(ptr noundef readonly %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %seed to i64
   %conv1 = sext i32 %len to i64
@@ -161,7 +161,7 @@ sw.epilog:                                        ; preds = %while.end, %sw.bb37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 1, 0) i32 @hllPatLen(ptr noundef readonly captures(address) %ele, i64 noundef %elesize, ptr noundef writeonly captures(none) %regp) local_unnamed_addr #1 {
+define dso_local range(i32 1, 0) i32 @hllPatLen(ptr noundef readonly %ele, i64 noundef %elesize, ptr noundef writeonly captures(none) %regp) local_unnamed_addr #1 {
 entry:
   %conv = trunc i64 %elesize to i32
   %sext = shl i64 %elesize, 32
@@ -344,7 +344,7 @@ return:                                           ; preds = %entry, %do.body9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr noundef captures(none) %registers, ptr noundef captures(address) %ele, i64 noundef %elesize) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @hllDenseAdd(ptr noundef captures(none) %registers, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #1 {
 entry:
   %index = alloca i64, align 8
   %call = call i32 @hllPatLen(ptr noundef %ele, i64 noundef %elesize, ptr noundef nonnull %index)
@@ -1522,7 +1522,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @sdsIncrLen(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %o, ptr noundef captures(address) %ele, i64 noundef %elesize) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @hllSparseAdd(ptr noundef captures(none) %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
 entry:
   %index = alloca i64, align 8
   %call = call i32 @hllPatLen(ptr noundef %ele, i64 noundef %elesize, ptr noundef nonnull %index)
@@ -1533,7 +1533,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @hllSparseRegHisto(ptr noundef readonly captures(address) %sparse, i32 noundef %sparselen, ptr noundef writeonly captures(address_is_null) %invalid, ptr noundef captures(none) %reghisto) local_unnamed_addr #1 {
+define dso_local void @hllSparseRegHisto(ptr noundef readonly %sparse, i32 noundef %sparselen, ptr noundef writeonly %invalid, ptr noundef captures(none) %reghisto) local_unnamed_addr #1 {
 entry:
   %idx.ext = sext i32 %sparselen to i64
   %add.ptr = getelementptr inbounds i8, ptr %sparse, i64 %idx.ext
@@ -1757,7 +1757,7 @@ return:                                           ; preds = %entry, %do.end
 declare double @sqrt(double noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hllCount(ptr noundef readonly captures(address) %hdr, ptr noundef writeonly captures(address_is_null) %invalid) local_unnamed_addr #3 {
+define dso_local i64 @hllCount(ptr noundef readonly %hdr, ptr noundef writeonly %invalid) local_unnamed_addr #3 {
 entry:
   %reghisto = alloca [64 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %reghisto, i8 0, i64 256, i1 false)
@@ -2053,7 +2053,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i64 @llroundl(x86_fp80 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %o, ptr noundef captures(address) %ele, i64 noundef %elesize) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @hllAdd(ptr noundef captures(none) %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
 entry:
   %index.i5 = alloca i64, align 8
   %index.i = alloca i64, align 8

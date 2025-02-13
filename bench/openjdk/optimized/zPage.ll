@@ -1127,7 +1127,7 @@ define hidden void @_ZN5ZPage19swap_remset_bitmapsEv(ptr noundef nonnull align 8
 declare void @_ZN14ZRememberedSet19swap_remset_bitmapsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN5ZPage14remset_currentEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN5ZPage14remset_currentEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %4 = sext i32 %3 to i64

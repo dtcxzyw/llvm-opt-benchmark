@@ -1399,7 +1399,7 @@ define ptr @prte_hwloc_get_print_buffer() local_unnamed_addr #0 {
 declare i32 @pmix_tsd_key_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @buffer_cleanup(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @buffer_cleanup(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %.preheader
 

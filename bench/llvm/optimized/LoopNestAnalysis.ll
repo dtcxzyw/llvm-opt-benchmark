@@ -2097,7 +2097,7 @@ _ZN4llvm11SmallVectorIPNS_4LoopELj8EEC2ERKS3_.exit: ; preds = %_ZN4llvm23SmallVe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm8LoopNest19skipEmptyBlockUntilEPKNS_10BasicBlockES3_b(ptr noundef %0, ptr noundef readnone captures(address, ret: address, provenance) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm8LoopNest19skipEmptyBlockUntilEPKNS_10BasicBlockES3_b(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallPtrSet.36", align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %57, label %6

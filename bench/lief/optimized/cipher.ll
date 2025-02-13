@@ -72,7 +72,7 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @mbedtls_cipher_info_from_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden ptr @mbedtls_cipher_info_from_string(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -1032,7 +1032,7 @@ define internal void @add_pkcs_padding(ptr noundef writeonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #14 {
+define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1099,7 +1099,7 @@ define internal void @add_one_and_zeros_padding(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #14 {
+define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1171,7 +1171,7 @@ define internal void @add_zeros_and_len_padding(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -25088, 1) i32 @get_zeros_and_len_padding(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #14 {
+define internal range(i32 -25088, 1) i32 @get_zeros_and_len_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1230,7 +1230,7 @@ define internal void @add_zeros_padding(ptr noundef writeonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -24832, 1) i32 @get_zeros_padding(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #14 {
+define internal range(i32 -24832, 1) i32 @get_zeros_padding(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #14 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1265,7 +1265,7 @@ define internal range(i32 -24832, 1) i32 @get_zeros_padding(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 -24832, 1) i32 @get_no_padding(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #5 {
+define internal range(i32 -24832, 1) i32 @get_no_padding(ptr noundef readnone %0, i64 noundef %1, ptr noundef writeonly %2) #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

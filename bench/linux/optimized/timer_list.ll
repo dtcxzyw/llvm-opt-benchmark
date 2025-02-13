@@ -345,7 +345,7 @@ define internal fastcc void @print_cpu(ptr noundef %0, i32 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @print_tickdevice(ptr noundef %0, ptr readonly captures(address_is_null) %.0.val, i32 %.8.val, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @print_tickdevice(ptr noundef %0, ptr readonly %.0.val, i32 %.8.val, i32 noundef %1) unnamed_addr #0 align 16 {
   tail call void (ptr, ptr, ...) @SEQ_printf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.8.val)
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %5

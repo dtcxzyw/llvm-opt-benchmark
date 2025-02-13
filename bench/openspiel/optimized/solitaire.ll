@@ -9435,7 +9435,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit25: ; preds = %_ZNK10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10793,7 +10793,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.115") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(309) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.115") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(309) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.open_spiel::solitaire::Card", align 8
   %4 = alloca %"class.open_spiel::solitaire::Card", align 8
   %5 = alloca %"class.open_spiel::solitaire::Card", align 8
@@ -11403,7 +11403,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EED2Ev.exit: ; preds = %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZNK10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

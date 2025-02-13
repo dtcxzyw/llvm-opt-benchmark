@@ -204,7 +204,7 @@ define hidden noundef i32 @_ZN13MemoryManager8add_poolEP10MemoryPool(ptr noundef
 declare void @_ZN10MemoryPool11add_managerEP13MemoryManager(ptr noundef nonnull align 8 dereferenceable(201), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13MemoryManager10is_managerE14instanceHandle(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK13MemoryManager10is_managerE14instanceHandle(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr readonly %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load volatile i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1

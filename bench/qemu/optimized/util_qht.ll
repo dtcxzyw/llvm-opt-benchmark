@@ -608,7 +608,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qht_insert(ptr noundef %ht, ptr noundef %p, i32 noundef %hash, ptr noundef writeonly captures(address_is_null) %existing) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qht_insert(ptr noundef %ht, ptr noundef %p, i32 noundef %hash, ptr noundef writeonly %existing) local_unnamed_addr #0 {
 entry:
   %map = alloca ptr, align 8
   %call = call fastcc ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef %map)
@@ -899,7 +899,7 @@ return:                                           ; preds = %qht_bucket_lock.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qht_remove(ptr noundef %ht, ptr noundef readnone captures(address) %p, i32 noundef %hash) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qht_remove(ptr noundef %ht, ptr noundef readnone %p, i32 noundef %hash) local_unnamed_addr #0 {
 entry:
   %map = alloca ptr, align 8
   %call = call fastcc ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef %map)

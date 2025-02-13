@@ -807,7 +807,7 @@ _ZN17DependencyContext34release_and_get_next_not_unloadingEP13nmethodBucket.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17DependencyContext20is_dependent_nmethodEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17DependencyContext20is_dependent_nmethodEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.not7.not = icmp eq ptr %3, null
   br i1 %.not7.not, label %._crit_edge, label %.lr.ph

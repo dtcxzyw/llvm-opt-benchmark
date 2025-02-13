@@ -287,7 +287,7 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr noundef readonly captures(
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [5000 x i8], align 16
   %5 = tail call ptr @Pdr_InvCounts(ptr noundef %1) #11
   %6 = tail call ptr @Pdr_InvPrintStr(ptr noundef %1, ptr noundef %5) #11

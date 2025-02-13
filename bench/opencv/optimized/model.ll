@@ -1086,7 +1086,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK2cv3dnn14dnn4_v20240
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model20setPreferableBackendENS1_7BackendE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model20setPreferableBackendENS1_7BackendE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1096,7 +1096,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model19setPreferableTargetENS1_6TargetE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model19setPreferableTargetENS1_6TargetE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1106,7 +1106,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model14enableWinogradEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model14enableWinogradEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1116,7 +1116,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model12setInputSizeERKNS_5Size_IiEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model12setInputSizeERKNS_5Size_IiEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %1, align 4
@@ -1125,7 +1125,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model12setInputMeanERKNS_7Scalar_IdEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model12setInputMeanERKNS_7Scalar_IdEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load double, ptr %1, align 8
@@ -1146,7 +1146,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model13setInputScaleERKNS_7Scalar_IdEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model13setInputScaleERKNS_7Scalar_IdEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -1216,7 +1216,7 @@ _ZN2cv3dnn14dnn4_v20240521L19broadcastRealScalarERKNS_7Scalar_IdEE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model12setInputCropEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model12setInputCropEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 97
@@ -1225,7 +1225,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model14setInputSwapRBEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model14setInputSwapRBEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -1234,7 +1234,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model14setOutputNamesERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v202405215Model14setOutputNamesERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -2140,7 +2140,7 @@ _ZNSt10shared_ptrIN2cv3dnn24ClassificationModel_ImplEED2Ev.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052119ClassificationModel30setEnableSoftmaxPostProcessingEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052119ClassificationModel30setEnableSoftmaxPostProcessingEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   %5 = load ptr, ptr %0, align 8
@@ -4779,7 +4779,7 @@ _ZN2cv3dnn14dnn4_v202405215ModelC2Ev.exit:        ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052114DetectionModel19setNmsAcrossClassesEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052114DetectionModel19setNmsAcrossClassesEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   %5 = load ptr, ptr %0, align 8
@@ -8422,7 +8422,7 @@ _ZNSt10shared_ptrIN2cv3dnn25TextRecognitionModel_ImplEED2Ev.exit: ; preds = %116
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModel13setDecodeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModel13setDecodeTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -8513,7 +8513,7 @@ _ZN2cv3dnn25TextRecognitionModel_Impl4fromERKSt10shared_ptrINS0_14dnn4_v20240521
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModel32setDecodeOptsCTCPrefixBeamSearchEii(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModel32setDecodeOptsCTCPrefixBeamSearchEii(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -8561,7 +8561,7 @@ _ZN2cv3dnn25TextRecognitionModel_Impl4fromERKSt10shared_ptrINS0_14dnn4_v20240521
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModel13setVocabularyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModel13setVocabularyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -10059,7 +10059,7 @@ _ZN2cv3PtrINS_3dnn28TextDetectionModel_EAST_ImplEED2Ev.exit: ; preds = %118, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052123TextDetectionModel_EAST22setConfidenceThresholdEf(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052123TextDetectionModel_EAST22setConfidenceThresholdEf(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -10151,7 +10151,7 @@ _ZN2cv3dnn28TextDetectionModel_EAST_Impl4fromERKSt10shared_ptrINS0_14dnn4_v20240
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052123TextDetectionModel_EAST15setNMSThresholdEf(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052123TextDetectionModel_EAST15setNMSThresholdEf(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -10891,7 +10891,7 @@ _ZN2cv3PtrINS_3dnn26TextDetectionModel_DB_ImplEED2Ev.exit: ; preds = %118, %131,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB18setBinaryThresholdEf(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB18setBinaryThresholdEf(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -10983,7 +10983,7 @@ _ZN2cv3dnn26TextDetectionModel_DB_Impl4fromERKSt10shared_ptrINS0_14dnn4_v2024052
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB19setPolygonThresholdEf(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB19setPolygonThresholdEf(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, float noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -11075,7 +11075,7 @@ _ZN2cv3dnn26TextDetectionModel_DB_Impl4fromERKSt10shared_ptrINS0_14dnn4_v2024052
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB14setUnclipRatioEd(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, double noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB14setUnclipRatioEd(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, double noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -11167,7 +11167,7 @@ _ZN2cv3dnn26TextDetectionModel_DB_Impl4fromERKSt10shared_ptrINS0_14dnn4_v2024052
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB16setMaxCandidatesEi(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DB16setMaxCandidatesEi(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)

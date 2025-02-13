@@ -16,7 +16,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData6GetIntEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData6GetIntEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getIlJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
@@ -26,7 +26,7 @@ _ZSt3getIlJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetUIntEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetUIntEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getImJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
@@ -36,7 +36,7 @@ _ZSt3getImJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData8GetFloatEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData8GetFloatEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getIdJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
@@ -46,7 +46,7 @@ _ZSt3getIdJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetBoolEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetBoolEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getIbJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
@@ -56,7 +56,7 @@ _ZSt3getIbJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataES5_blmdEERKT_RKSt7variantIJDpT0_EE.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8

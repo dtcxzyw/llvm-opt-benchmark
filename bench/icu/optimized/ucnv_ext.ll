@@ -132,7 +132,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef readonly captures(address_is_null) %cx, i8 noundef signext %sisoState, ptr noundef readonly captures(none) %pre, i32 noundef %preLength, ptr noundef readonly captures(none) %src, i32 noundef %srcLength, ptr noundef nonnull writeonly captures(none) %pMatchValue, i8 noundef signext %flush) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr noundef readonly %cx, i8 noundef signext %sisoState, ptr noundef readonly captures(none) %pre, i32 noundef %preLength, ptr noundef readonly captures(none) %src, i32 noundef %srcLength, ptr noundef nonnull writeonly captures(none) %pMatchValue, i8 noundef signext %flush) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %cx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -367,7 +367,7 @@ return:                                           ; preds = %for.end, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2031616, 1114112) i32 @ucnv_extSimpleMatchToU_75(ptr noundef captures(address_is_null) %cx, ptr noundef readonly captures(none) %source, i32 noundef %length, i8 noundef signext %useFallback) local_unnamed_addr #2 {
+define range(i32 -2031616, 1114112) i32 @ucnv_extSimpleMatchToU_75(ptr noundef %cx, ptr noundef readonly captures(none) %source, i32 noundef %length, i8 noundef signext %useFallback) local_unnamed_addr #2 {
 entry:
   %value = alloca i32, align 4
   store i32 0, ptr %value, align 4
@@ -738,7 +738,7 @@ return:                                           ; preds = %land.lhs.true2, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr noundef readonly captures(address_is_null) %cx, i32 noundef %firstCP, ptr noundef readonly captures(none) %pre, i32 noundef range(i32 -128, 128) %preLength, ptr noundef readonly captures(none) %src, i32 noundef %srcLength, ptr noundef nonnull writeonly captures(none) %pMatchValue, i8 noundef signext %useFallback, i8 noundef signext %flush) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr noundef readonly %cx, i32 noundef %firstCP, ptr noundef readonly captures(none) %pre, i32 noundef range(i32 -128, 128) %preLength, ptr noundef readonly captures(none) %src, i32 noundef %srcLength, ptr noundef nonnull writeonly captures(none) %pMatchValue, i8 noundef signext %useFallback, i8 noundef signext %flush) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %cx, null
   br i1 %cmp, label %return, label %if.end
@@ -1005,7 +1005,7 @@ return:                                           ; preds = %if.end91, %if.else8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -3, 4) i32 @ucnv_extSimpleMatchFromU_75(ptr noundef captures(address_is_null) %cx, i32 noundef %cp, ptr noundef writeonly captures(none) %pValue, i8 noundef signext %useFallback) local_unnamed_addr #2 {
+define range(i32 -3, 4) i32 @ucnv_extSimpleMatchFromU_75(ptr noundef %cx, i32 noundef %cp, ptr noundef writeonly captures(none) %pValue, i8 noundef signext %useFallback) local_unnamed_addr #2 {
 entry:
   %value = alloca i32, align 4
   %call = call fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr noundef %cx, i32 noundef %cp, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef %value, i8 noundef signext %useFallback, i8 noundef signext 1)

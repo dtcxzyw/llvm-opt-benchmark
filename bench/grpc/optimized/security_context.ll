@@ -1107,7 +1107,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_auth_context12add_propertyEPKcS1_m(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %name, ptr noundef readonly captures(address_is_null) %value, i64 noundef %value_length) local_unnamed_addr #4 align 2 {
+define void @_ZN17grpc_auth_context12add_propertyEPKcS1_m(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %name, ptr noundef readonly %value, i64 noundef %value_length) local_unnamed_addr #4 align 2 {
 entry:
   %count.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %count.i, align 8
@@ -1387,7 +1387,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z30grpc_find_auth_context_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %args) local_unnamed_addr #4 {
+define noundef ptr @_Z30grpc_find_auth_context_in_argsPK17grpc_channel_args(ptr noundef readonly %args) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -1549,7 +1549,7 @@ declare noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull al
 declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL29auth_context_pointer_arg_copyPv(ptr noundef returned captures(address_is_null, ret: address, provenance) %p) #15 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL29auth_context_pointer_arg_copyPv(ptr noundef returned %p) #15 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %cleanup.done, label %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit
@@ -1583,7 +1583,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL24auth_context_pointer_cmpPvS_(ptr noundef readnone captures(address) %a, ptr noundef readnone captures(address) %b) #16 {
+define internal noundef range(i32 -1, 2) i32 @_ZL24auth_context_pointer_cmpPvS_(ptr noundef readnone %a, ptr noundef readnone %b) #16 {
 entry:
   %cmp.i = icmp ult ptr %a, %b
   %cmp1.i = icmp ult ptr %b, %a

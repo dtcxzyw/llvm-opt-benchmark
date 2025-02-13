@@ -369,7 +369,7 @@ define hidden noundef i64 @_ZNK8JfrChunk19last_chunk_durationEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JfrChunk8set_pathEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(66) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JfrChunk8set_pathEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(66) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4

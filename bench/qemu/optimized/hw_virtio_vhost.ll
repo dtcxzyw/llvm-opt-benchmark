@@ -3531,7 +3531,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_dev_free_inflight(ptr noundef captures(address_is_null) %inflight) local_unnamed_addr #0 {
+define dso_local void @vhost_dev_free_inflight(ptr noundef %inflight) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %inflight, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true

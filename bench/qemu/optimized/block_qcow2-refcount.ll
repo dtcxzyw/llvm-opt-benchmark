@@ -3464,7 +3464,7 @@ return:                                           ; preds = %if.end45, %if.end76
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_refcounts(ptr noundef %bs, ptr noundef captures(address) %res, i32 noundef %fix, ptr noundef writeonly captures(none) %rebuild, ptr noundef writeonly captures(none) initializes((0, 8)) %highest_cluster, ptr noundef %refcount_table, i64 noundef %nb_clusters) #0 {
+define internal void @compare_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr noundef writeonly captures(none) %rebuild, ptr noundef writeonly captures(none) initializes((0, 8)) %highest_cluster, ptr noundef %refcount_table, i64 noundef %nb_clusters) #0 {
 entry:
   %refcount1 = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -5120,7 +5120,7 @@ if.end129:                                        ; preds = %if.then3.i114, %do.
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @walk_over_reftable(ptr noundef %bs, ptr noundef nonnull %new_reftable, ptr noundef nonnull captures(none) %new_reftable_index, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i32 noundef %new_refblock_size, i32 noundef %new_refcount_bits, ptr noundef readonly captures(none) %operation, ptr noundef nonnull %allocated, ptr noundef readonly captures(address_is_null) %new_set_refcount, ptr noundef readonly captures(none) %status_cb, ptr noundef %cb_opaque, i32 noundef %index, i32 noundef %total, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @walk_over_reftable(ptr noundef %bs, ptr noundef nonnull %new_reftable, ptr noundef nonnull captures(none) %new_reftable_index, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i32 noundef %new_refblock_size, i32 noundef %new_refcount_bits, ptr noundef readonly captures(none) %operation, ptr noundef nonnull %allocated, ptr noundef readonly %new_set_refcount, ptr noundef readonly captures(none) %status_cb, ptr noundef %cb_opaque, i32 noundef %index, i32 noundef %total, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %refblock = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -7174,7 +7174,7 @@ cleanup:                                          ; preds = %if.end39, %if.then8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @fix_l2_entry_by_zero(ptr noundef %bs, ptr noundef captures(none) %res, i64 noundef %l2_offset, ptr noundef %l2_table, i32 noundef %l2_index, i1 noundef zeroext %active, ptr noundef writeonly captures(address_is_null) %metadata_overlap) #0 {
+define internal range(i32 -2147483648, 1) i32 @fix_l2_entry_by_zero(ptr noundef %bs, ptr noundef captures(none) %res, i64 noundef %l2_offset, ptr noundef %l2_table, i32 noundef %l2_index, i1 noundef zeroext %active, ptr noundef writeonly %metadata_overlap) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

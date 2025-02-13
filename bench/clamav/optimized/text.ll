@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @textDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @textDestroy(ptr noundef %0) local_unnamed_addr #0 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -53,7 +53,7 @@ declare ptr @lineUnlink(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @textAddMessage(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %4
 
@@ -261,7 +261,7 @@ declare ptr @messageGetBody(ptr noundef) local_unnamed_addr #1
 declare ptr @messageToText(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @textMove(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   br i1 %3, label %5, label %16
@@ -342,7 +342,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @textToBlob(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @textToBlob(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %56, label %.preheader.i
 
@@ -500,7 +500,7 @@ declare void @blobDestroy(ptr noundef) local_unnamed_addr #1
 declare void @blobClose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @textToFileblob(ptr noundef captures(address_is_null) %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5
 

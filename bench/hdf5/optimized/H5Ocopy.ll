@@ -475,7 +475,7 @@ declare i32 @H5G_loc_free(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @H5O_copy_header_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5O_copy_header_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5_obj_t, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = call i32 @H5F_get_fileno(ptr noundef %8, ptr noundef nonnull %7) #8
@@ -571,7 +571,7 @@ declare i32 @H5F_get_fileno(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__copy_header_real(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__copy_header_real(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.H5G_loc_t, align 8
   %7 = alloca %struct.H5O_copy_search_comm_dt_ud_t, align 8
   %8 = alloca %struct.H5G_loc_t, align 8

@@ -1427,7 +1427,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_wait_on_conflicts(ptr noundef writeonly captures(address) %self, ptr noundef readonly captures(none) %s, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal void @mirror_wait_on_conflicts(ptr noundef writeonly %self, ptr noundef readonly captures(none) %s, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %granularity = getelementptr inbounds nuw i8, ptr %s, i64 608
   %0 = load i64, ptr %granularity, align 8
@@ -3644,7 +3644,7 @@ if.end24:                                         ; preds = %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned captures(ret: address, provenance) %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #12
   ret ptr %x

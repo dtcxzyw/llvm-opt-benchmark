@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb(ptr noundef nonnull align 8 dereferenceable(136) %entry1, ptr readonly captures(address) %extra_sinks.coerce0, i64 %extra_sinks.coerce1, i1 noundef zeroext %extra_sinks_only) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEb(ptr noundef nonnull align 8 dereferenceable(136) %entry1, ptr readonly %extra_sinks.coerce0, i64 %extra_sinks.coerce1, i1 noundef zeroext %extra_sinks_only) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -424,7 +424,7 @@ do.end19:                                         ; preds = %_ZN4absl15WriterMut
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal13RemoveLogSinkEPNS_7LogSinkE(ptr noundef readnone captures(address) %sink) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal13RemoveLogSinkEPNS_7LogSinkE(ptr noundef readnone %sink) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %absl_raw_log_internal_filename.i = alloca ptr, align 8
   %ref.tmp20.i = alloca i32, align 4

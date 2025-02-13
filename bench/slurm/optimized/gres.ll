@@ -1027,7 +1027,7 @@ define i64 @gres_get_system_cnt(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @gres_get_value_by_type(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #2 {
+define i64 @gres_get_value_by_type(ptr noundef %0, ptr noundef readonly %1) #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -1119,7 +1119,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %4, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_get_job_info(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
+define i32 @gres_get_job_info(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %78, label %7
 
@@ -1320,7 +1320,7 @@ _get_job_info.exit:                               ; preds = %.lr.ph, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_get_step_info(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
+define i32 @gres_get_step_info(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %78, label %7
 
@@ -1675,7 +1675,7 @@ define void @destroy_gres_slurmd_conf(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @gres_build_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @gres_build_id(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2896,7 +2896,7 @@ define i32 @gres_links_validate(ptr noundef %0) local_unnamed_addr #2 {
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = tail call ptr @xstrcasestr(ptr noundef %0, ptr noundef nonnull @.str.27) #25
   %.not = icmp eq ptr %4, null
   %spec.select = select i1 %.not, i32 0, i32 8
@@ -8424,7 +8424,7 @@ _node_config_validate.exit:                       ; preds = %72, %136, %.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_sync_node_shared_to_sharing(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #2 {
+define internal fastcc void @_sync_node_shared_to_sharing(ptr noundef readonly %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -11761,7 +11761,7 @@ define void @gres_job_clear_alloc(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef captures(none) %13, ptr noundef readonly captures(address_is_null) %14, ptr noundef captures(none) %15) local_unnamed_addr #2 {
+define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef captures(none) %13, ptr noundef readonly %14, ptr noundef captures(none) %15) local_unnamed_addr #2 {
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
   %19 = alloca i64, align 8
@@ -14041,7 +14041,7 @@ _job_state_dup2.exit.thread31:                    ; preds = %136, %.lr.ph.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @gres_job_state_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -19480,7 +19480,7 @@ _accumulate_job_gres_alloc.exit:                  ; preds = %17, %29, %22, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef captures(address_is_null) %8) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8) unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -20263,7 +20263,7 @@ define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef writeonly captures(address_is_null) %13) local_unnamed_addr #2 {
+define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef writeonly %13) local_unnamed_addr #2 {
   %15 = alloca i64, align 8
   %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
@@ -23200,7 +23200,7 @@ define i64 @gres_step_count(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @cpu_set_to_bit_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @cpu_set_to_bit_str(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = tail call ptr @bit_alloc(i64 noundef %3) #25
   %.not = icmp eq ptr %0, null
@@ -23638,7 +23638,7 @@ _accumulate_step_gres_alloc.exit:                 ; preds = %46, %49, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_accumulate_step_gres_alloc(ptr readonly captures(none) %.8.val, ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc void @_accumulate_step_gres_alloc(ptr readonly captures(none) %.8.val, ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 96
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 1
@@ -27183,7 +27183,7 @@ declare i32 @bit_overlap(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_get_gres_list_cnt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc i64 @_get_gres_list_cnt(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %81, label %6
 
@@ -27954,7 +27954,7 @@ _assign_gres_to_task.exit:                        ; preds = %111, %114, %117, %1
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @gres_conf_list, align 8
   %.not = icmp eq ptr %5, null

@@ -2470,7 +2470,7 @@ _ZN10bit_vectorD2Ev.exit:                         ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf25smt_theory_checker_plugin6clauseEP3app(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %jst) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf25smt_theory_checker_plugin6clauseEP3app(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly %jst) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m, align 8
@@ -2907,7 +2907,7 @@ if.end:                                           ; preds = %_Z7deallocI6solverE
 declare noundef ptr @_Z13mk_smt_solverR11ast_managerRK10params_refRK6symbol(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf17smt_proof_checker12log_verifiedEP3appb(ptr noundef nonnull align 8 dereferenceable(5220) %this, ptr noundef readonly captures(address_is_null) %proof_hint, i1 noundef zeroext %success) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf17smt_proof_checker12log_verifiedEP3appb(ptr noundef nonnull align 8 dereferenceable(5220) %this, ptr noundef readonly %proof_hint, i1 noundef zeroext %success) local_unnamed_addr #3 align 2 {
 entry:
   %temp.i.i.i7 = alloca %struct._key_data, align 8
   %et.i.i8 = alloca ptr, align 8

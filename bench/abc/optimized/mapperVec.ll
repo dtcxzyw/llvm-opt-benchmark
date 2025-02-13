@@ -32,7 +32,7 @@ define noalias noundef ptr @Map_NodeVecAlloc(i32 noundef %0) local_unnamed_addr 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Map_NodeVecFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @Map_NodeVecFree(ptr noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -329,7 +329,7 @@ define ptr @Map_NodeVecPop(ptr noundef captures(none) %0) local_unnamed_addr #10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Map_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #11 {
+define void @Map_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sgt i32 %4, 0

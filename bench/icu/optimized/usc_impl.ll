@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL11pairedChars = internal unnamed_addr constant [34 x i32] [i32 40, i32 41, i32 60, i32 62, i32 91, i32 93, i32 123, i32 125, i32 171, i32 187, i32 8216, i32 8217, i32 8220, i32 8221, i32 8249, i32 8250, i32 12296, i32 12297, i32 12298, i32 12299, i32 12300, i32 12301, i32 12302, i32 12303, i32 12304, i32 12305, i32 12308, i32 12309, i32 12310, i32 12311, i32 12312, i32 12313, i32 12314, i32 12315], align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uscript_openRun_75(ptr noundef %src, i32 noundef %length, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @uscript_openRun_75(ptr noundef %src, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -77,7 +77,7 @@ return:                                           ; preds = %uscript_setRunText_
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @uscript_setRunText_75(ptr noundef writeonly captures(address_is_null) %scriptRun, ptr noundef %src, i32 noundef %length, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #2 {
+define void @uscript_setRunText_75(ptr noundef writeonly %scriptRun, ptr noundef %src, i32 noundef %length, ptr noundef %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -142,7 +142,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @uscript_resetRun_75(ptr noundef writeonly captures(address_is_null) %scriptRun) local_unnamed_addr #4 {
+define void @uscript_resetRun_75(ptr noundef writeonly %scriptRun) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %scriptRun, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -167,7 +167,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @uscript_nextRun_75(ptr noundef captures(address_is_null) %scriptRun, ptr noundef writeonly captures(address_is_null) %pRunStart, ptr noundef writeonly captures(address_is_null) %pRunLimit, ptr noundef writeonly captures(address_is_null) %pRunScript) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uscript_nextRun_75(ptr noundef %scriptRun, ptr noundef writeonly %pRunStart, ptr noundef writeonly %pRunLimit, ptr noundef writeonly %pRunScript) local_unnamed_addr #0 {
 entry:
   %error = alloca i32, align 4
   store i32 0, ptr %error, align 4

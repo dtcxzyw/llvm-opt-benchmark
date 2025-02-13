@@ -7175,7 +7175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm9symbolize14LLVMSymbolizer15findDebugBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_jRS7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(416) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm9symbolize14LLVMSymbolizer15findDebugBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_jRS7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(416) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::ErrorOr", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -9275,7 +9275,7 @@ declare void @_ZNK4llvm6object20MachOUniversalBinary21getMachOObjectForArchENS_9
 declare void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, i32, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer16createModuleInfoEPKNS_6object10ObjectFileESt10unique_ptrINS_9DIContextESt14default_deleteIS7_EENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.115") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr readonly captures(address_is_null) %4, i64 %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer16createModuleInfoEPKNS_6object10ObjectFileESt10unique_ptrINS_9DIContextESt14default_deleteIS7_EENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.115") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr readonly %4, i64 %5) local_unnamed_addr #1 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.llvm::Expected.127", align 8
   %9 = alloca %"class.std::unique_ptr.119", align 8
@@ -11557,7 +11557,7 @@ declare noundef ptr @_ZN4llvm17microsoftDemangleESt17basic_string_viewIcSt11char
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer10pruneCacheEv(ptr noundef nonnull align 8 captures(address) dereferenceable(416) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer10pruneCacheEv(ptr noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400

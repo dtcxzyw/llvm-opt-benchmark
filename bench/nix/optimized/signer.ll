@@ -162,7 +162,7 @@ declare void @_ZNK3nix9SecretKey12signDetachedB5cxx11ESt17basic_string_viewIcSt1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN3nix11LocalSigner12getPublicKeyEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %0) unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN3nix11LocalSigner12getPublicKeyEv(ptr noundef nonnull readnone align 8 dereferenceable(136) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }

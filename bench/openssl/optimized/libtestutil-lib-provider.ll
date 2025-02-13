@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @test_get_libctx(ptr noundef writeonly captures(address_is_null) %libctx, ptr noundef writeonly captures(address_is_null) %default_null_prov, ptr noundef %config_file, ptr noundef writeonly captures(address_is_null) %provider, ptr noundef %module_name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_get_libctx(ptr noundef writeonly %libctx, ptr noundef writeonly %default_null_prov, ptr noundef %config_file, ptr noundef writeonly %provider, ptr noundef %module_name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %libctx, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -103,7 +103,7 @@ declare i32 @OSSL_LIB_CTX_load_config(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @test_arg_libctx(ptr noundef captures(address_is_null) %libctx, ptr noundef captures(address_is_null) %default_null_prov, ptr noundef captures(address_is_null) %provider, i32 noundef %argn, ptr noundef %usage) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @test_arg_libctx(ptr noundef %libctx, ptr noundef %default_null_prov, ptr noundef %provider, i32 noundef %argn, ptr noundef %usage) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %argn to i64
   %call = tail call ptr @test_get_argument(i64 noundef %conv) #8

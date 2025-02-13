@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Comm_connect = weak alias i32 (ptr, ptr, i32, ptr, ptr), ptr @PMPI_Comm_connect
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Comm_connect(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) #0 {
+define i32 @PMPI_Comm_connect(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) #0 {
   %6 = alloca ptr, align 8
   store ptr @ompi_mpi_comm_null, ptr %6, align 8
   %7 = load i8, ptr @ompi_mpi_param_check, align 1

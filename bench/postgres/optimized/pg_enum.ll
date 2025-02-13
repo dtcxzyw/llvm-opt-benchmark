@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [18 x i8] c"Uncommitted enums\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EnumValuesCreate(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @EnumValuesCreate(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit, label %3
 

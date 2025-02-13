@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_ec_wNAF_precompute_mult = private unnamed_addr constant [29 x i8] c"ossl_ec_wNAF_precompute_mult\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @EC_ec_pre_comp_dup(ptr noundef returned captures(address_is_null, ret: address, provenance) %pre) local_unnamed_addr #0 {
+define noundef ptr @EC_ec_pre_comp_dup(ptr noundef returned %pre) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pre, null
   br i1 %cmp.not, label %if.end, label %if.then

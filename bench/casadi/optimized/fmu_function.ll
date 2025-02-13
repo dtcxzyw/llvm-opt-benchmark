@@ -13309,7 +13309,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi11FmuFunction8eval_allEPNS_9FmuMe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi11FmuFunction11remove_nansEPdPx(ptr noundef nonnull align 8 dereferenceable(1752) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK6casadi11FmuFunction11remove_nansEPdPx(ptr noundef nonnull align 8 dereferenceable(1752) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %5 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = tail call noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -13423,7 +13423,7 @@ _ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi11FmuFunction13check_hessianEPNS_9FmuMemoryEPKdPx(ptr noundef nonnull align 8 dereferenceable(1752) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi11FmuFunction13check_hessianEPNS_9FmuMemoryEPKdPx(ptr noundef nonnull align 8 dereferenceable(1752) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13937,7 +13937,7 @@ _ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi11FmuFunction14make_symmetricEPdPx(ptr noundef nonnull align 8 dereferenceable(1752) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK6casadi11FmuFunction14make_symmetricEPdPx(ptr noundef nonnull align 8 dereferenceable(1752) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %5 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = tail call noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8) %4)

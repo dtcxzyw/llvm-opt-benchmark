@@ -86,7 +86,7 @@ $_ZTVN7rocksdb25InternalKeySliceTransformE = comdat any
 @.str.6 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16BlockPrefixIndex6CreateEPKNS_14SliceTransformERKNS_5SliceES6_PPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef %prefix_extractor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %prefixes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %prefix_meta, ptr noundef writeonly captures(none) %prefix_index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16BlockPrefixIndex6CreateEPKNS_14SliceTransformERKNS_5SliceES6_PPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef %prefix_extractor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %prefixes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %prefix_meta, ptr noundef writeonly captures(none) %prefix_index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.rocksdb::BlockPrefixIndex::Builder", align 16
   %prefix_size = alloca i32, align 4

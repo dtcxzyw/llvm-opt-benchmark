@@ -57,7 +57,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %7, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detail16SlowDynamicAPIntaSEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detail16SlowDynamicAPIntaSEl(ptr noundef nonnull returned align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10

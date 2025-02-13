@@ -163,7 +163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7AddressC2EPK16IPv6AddressBytest(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(22) initializes((0, 2), (4, 22)) %this, ptr noundef readonly captures(address_is_null) %ipv6_bytes, i16 noundef zeroext %port) unnamed_addr #5 align 2 {
+define dso_local void @_ZN7AddressC2EPK16IPv6AddressBytest(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(22) initializes((0, 2), (4, 22)) %this, ptr noundef readonly %ipv6_bytes, i16 noundef zeroext %port) unnamed_addr #5 align 2 {
 entry:
   %m_address2 = getelementptr inbounds nuw i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %m_address2, i8 0, i64 18, i1 false)
@@ -186,7 +186,7 @@ _ZN7Address10setAddressEPK16IPv6AddressBytes.exit: ; preds = %if.else.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7Address10setAddressEPK16IPv6AddressBytes(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(22) initializes((0, 2), (4, 20)) %this, ptr noundef readonly captures(address_is_null) %ipv6_bytes) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN7Address10setAddressEPK16IPv6AddressBytes(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(22) initializes((0, 2), (4, 20)) %this, ptr noundef readonly %ipv6_bytes) local_unnamed_addr #5 align 2 {
 entry:
   store i16 10, ptr %this, align 4, !tbaa !4
   %tobool.not = icmp eq ptr %ipv6_bytes, null
@@ -248,7 +248,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7Address7ResolveEPKcPS_(ptr noundef nonnull align 4 captures(none) dereferenceable(22) %this, ptr noundef %name, ptr noundef writeonly captures(address_is_null) %fallback) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7Address7ResolveEPKcPS_(ptr noundef nonnull align 4 captures(none) dereferenceable(22) %this, ptr noundef %name, ptr noundef writeonly %fallback) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.sroa.4 = alloca <{ [2 x i8], %union.anon, i16 }>, align 2
   %hints = alloca %struct.addrinfo, align 8

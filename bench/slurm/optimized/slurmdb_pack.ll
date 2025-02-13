@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._unpack_slurmdb_stats = private unnamed_addr constant [22 x i8] c"_unpack_slurmdb_stats\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_user_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_user_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %50
 
@@ -843,7 +843,7 @@ _pack_list_of_str.exit374:                        ; preds = %.thread.i373, %276,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_coord_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define void @slurmdb_pack_coord_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %16
 
@@ -888,7 +888,7 @@ define void @slurmdb_pack_coord_rec(ptr noundef readonly captures(address_is_nul
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_wckey_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define void @slurmdb_pack_wckey_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %39
 
@@ -1332,7 +1332,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr noundef writeonly capt
 declare void @slurmdb_destroy_user_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_used_limits(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @slurmdb_pack_used_limits(ptr noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ugt i16 %2, 9983
   br i1 %5, label %6, label %27
 
@@ -1470,7 +1470,7 @@ declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @slurmdb_destroy_used_limits(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_account_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_account_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %36
 
@@ -1684,7 +1684,7 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph48, %31
 declare void @slurmdb_destroy_account_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_cluster_accounting_rec(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define void @slurmdb_pack_cluster_accounting_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %22
 
@@ -1745,7 +1745,7 @@ define void @slurmdb_pack_cluster_accounting_rec(ptr noundef captures(address_is
 declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_tres_rec(ptr noundef readonly captures(address_is_null) %0, i16 zeroext %1, ptr noundef %2) #0 {
+define void @slurmdb_pack_tres_rec(ptr noundef readonly %0, i16 zeroext %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -1948,7 +1948,7 @@ declare i32 @unpack_time(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_destroy_cluster_accounting_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_clus_res_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define void @slurmdb_pack_clus_res_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %16
 
@@ -3288,7 +3288,7 @@ declare i32 @unpack8(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_destroy_cluster_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_federation_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_federation_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %19
 
@@ -3424,7 +3424,7 @@ declare void @slurmdb_init_federation_rec(ptr noundef, i1 noundef zeroext) local
 declare void @slurmdb_destroy_federation_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_accounting_rec(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define void @slurmdb_pack_accounting_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %14
 
@@ -4518,7 +4518,7 @@ slurmdb_unpack_assoc_rec.exit:                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_event_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_event_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %52
 
@@ -4878,7 +4878,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_instance_rec(ptr noundef writeonly c
 declare void @slurmdb_destroy_instance_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_qos_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_qos_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp ugt i16 %1, 9983
   br i1 %5, label %6, label %159
@@ -5842,7 +5842,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_usage(ptr noundef writeonly capt
 declare void @slurmdb_destroy_qos_usage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_qos_usage_update(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_qos_usage_update(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 10239
   br i1 %4, label %5, label %6
 
@@ -5859,7 +5859,7 @@ define void @slurmdb_pack_qos_usage_update(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_qos_rec_with_usage(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_qos_rec_with_usage(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @slurmdb_pack_qos_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2)
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %63
@@ -6062,7 +6062,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec_with_usage(ptr noundef captu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_reservation_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_reservation_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %71
 
@@ -6406,7 +6406,7 @@ slurmdb_unpack_tres_rec_noalloc.exit.thread:      ; preds = %16
 declare void @slurmdb_destroy_reservation_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_res_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_res_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %58
 
@@ -6680,7 +6680,7 @@ declare void @slurmdb_init_res_rec(ptr noundef, i1 noundef zeroext) local_unname
 declare void @slurmdb_destroy_res_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_txn_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_txn_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %55
 
@@ -6873,7 +6873,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_txn_rec(ptr noundef writeonly captur
 declare void @slurmdb_destroy_txn_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_archive_rec(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_archive_rec(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -6944,7 +6944,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_archive_rec(ptr noundef writeonly ca
 declare void @slurmdb_destroy_archive_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_tres_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_tres_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %35
 
@@ -7266,7 +7266,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_tres_cond(ptr noundef writeonly capt
 declare void @slurmdb_destroy_tres_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_user_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_user_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %31
 
@@ -7357,7 +7357,7 @@ _pack_list_of_str.exit30:                         ; preds = %.thread.i29, %19, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_assoc_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_assoc_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %79
 
@@ -8154,7 +8154,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr noundef writeonly cap
 declare void @slurmdb_destroy_user_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_account_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_account_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %27
 
@@ -8349,7 +8349,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr noundef writeonly c
 declare void @slurmdb_destroy_account_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_cluster_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_cluster_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 10239
   br i1 %4, label %5, label %43
 
@@ -9038,7 +9038,7 @@ declare void @slurmdb_init_cluster_cond(ptr noundef, i1 noundef zeroext) local_u
 declare void @slurmdb_destroy_cluster_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_federation_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_federation_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %27
 
@@ -9901,7 +9901,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_instance_cond(ptr noundef writeonly 
 declare void @slurmdb_destroy_instance_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_job_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_job_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %_pack_list_of_str.exit134
 
@@ -13510,7 +13510,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_step_rec(ptr noundef writeonly captu
 declare void @slurmdb_destroy_job_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_qos_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_qos_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %35
 
@@ -13807,7 +13807,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr noundef writeonly captu
 declare void @slurmdb_destroy_qos_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_reservation_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_reservation_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %46
 
@@ -14275,7 +14275,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurmdb_stats(ptr noundef %
 declare i32 @unpack_step_id_members(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_res_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_res_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %67
 
@@ -14892,7 +14892,7 @@ declare void @slurmdb_init_res_cond(ptr noundef, i1 noundef zeroext) local_unnam
 declare void @slurmdb_destroy_res_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_txn_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_txn_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %67
 
@@ -15488,7 +15488,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_txn_cond(ptr noundef writeonly captu
 declare void @slurmdb_destroy_txn_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_wckey_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_wckey_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %47
 
@@ -15873,7 +15873,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_cond(ptr noundef writeonly cap
 declare void @slurmdb_destroy_wckey_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_pack_archive_cond(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @slurmdb_pack_archive_cond(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 9983
   br i1 %4, label %5, label %37
 

@@ -3195,7 +3195,7 @@ declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @scan_once_unicode(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @scan_once_unicode(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 34
   %.val.i = load i16, ptr %6, align 2
   %7 = and i16 %.val.i, 8
@@ -6118,7 +6118,7 @@ Py_DECREF.exit247:                                ; preds = %.critedge244, %Py_D
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_parse_array_unicode(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef range(i64 1, -9223372036854775807) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @_parse_array_unicode(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef range(i64 1, -9223372036854775807) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   %7 = tail call ptr @PyList_New(i64 noundef 0) #5

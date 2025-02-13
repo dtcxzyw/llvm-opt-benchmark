@@ -633,7 +633,7 @@ entry:
 declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_SIGNATURE_is_a(ptr noundef readonly captures(address_is_null) %signature, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_SIGNATURE_is_a(ptr noundef readonly %signature, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %signature, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -707,7 +707,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SIGNATURE_gettable_ctx_params(ptr noundef readonly captures(address_is_null) %sig) local_unnamed_addr #0 {
+define ptr @EVP_SIGNATURE_gettable_ctx_params(ptr noundef readonly %sig) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sig, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -734,7 +734,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SIGNATURE_settable_ctx_params(ptr noundef readonly captures(address_is_null) %sig) local_unnamed_addr #0 {
+define ptr @EVP_SIGNATURE_settable_ctx_params(ptr noundef readonly %sig) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sig, null
   br i1 %cmp, label %return, label %lor.lhs.false

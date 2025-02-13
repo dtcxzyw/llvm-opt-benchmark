@@ -400,7 +400,7 @@ while.end:                                        ; preds = %while.cond
 declare zeroext i8 @qtest_readb(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtio_wait_used_elem(ptr noundef %qts, ptr noundef %d, ptr noundef %vq, i32 noundef %desc_idx, ptr noundef captures(address_is_null) %len, i64 noundef %timeout_us) local_unnamed_addr #0 {
+define dso_local void @qvirtio_wait_used_elem(ptr noundef %qts, ptr noundef %d, ptr noundef %vq, i32 noundef %desc_idx, ptr noundef %len, i64 noundef %timeout_us) local_unnamed_addr #0 {
 entry:
   %got_desc_idx = alloca i32, align 4
   %call = tail call i64 @g_get_monotonic_time() #6
@@ -444,7 +444,7 @@ if.else15:                                        ; preds = %do.body10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qvirtqueue_get_buf(ptr noundef %qts, ptr noundef captures(none) %vq, ptr noundef writeonly captures(address_is_null) %desc_idx, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qvirtqueue_get_buf(ptr noundef %qts, ptr noundef captures(none) %vq, ptr noundef writeonly %desc_idx, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vq, align 8
   %used = getelementptr inbounds nuw i8, ptr %vq, i64 24

@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_mm_print
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable___drm_mm_interval_first329, ptr @__UNIQUE_ID___addressable_drm_mm_init355, ptr @__UNIQUE_ID___addressable_drm_mm_insert_node_in_range340, ptr @__UNIQUE_ID___addressable_drm_mm_print361, ptr @__UNIQUE_ID___addressable_drm_mm_remove_node341, ptr @__UNIQUE_ID___addressable_drm_mm_replace_node342, ptr @__UNIQUE_ID___addressable_drm_mm_reserve_node331, ptr @__UNIQUE_ID___addressable_drm_mm_scan_add_block352, ptr @__UNIQUE_ID___addressable_drm_mm_scan_color_evict354, ptr @__UNIQUE_ID___addressable_drm_mm_scan_init_with_range343, ptr @__UNIQUE_ID___addressable_drm_mm_scan_remove_block353, ptr @__UNIQUE_ID___addressable_drm_mm_takedown360], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local nonnull ptr @__drm_mm_interval_first(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local nonnull ptr @__drm_mm_interval_first(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2035,7 +2035,7 @@ define dso_local void @drm_mm_takedown(ptr noundef %0) #1 align 16 {
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_mm_print(ptr noundef readonly captures(address) %0, ptr noundef %1) #1 align 16 {
+define dso_local void @drm_mm_print(ptr noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0

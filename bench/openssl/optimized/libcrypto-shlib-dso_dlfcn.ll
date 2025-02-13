@@ -89,7 +89,7 @@ return:                                           ; preds = %err.thread, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly captures(address_is_null) %dso) #1 {
+define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly %dso) #1 {
 entry:
   %cmp = icmp eq ptr %dso, null
   br i1 %cmp, label %if.then, label %if.end
@@ -131,7 +131,7 @@ return:                                           ; preds = %if.end, %if.end14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dlfcn_bind_func(ptr noundef readonly captures(address_is_null) %dso, ptr noundef %symname) #1 {
+define internal ptr @dlfcn_bind_func(ptr noundef readonly %dso, ptr noundef %symname) #1 {
 entry:
   %cmp = icmp eq ptr %dso, null
   %cmp1 = icmp eq ptr %symname, null

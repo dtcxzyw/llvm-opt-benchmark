@@ -1419,7 +1419,7 @@ mld_ifc_event.exit:                               ; preds = %8, %112, %177, %173
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip6_mc_del_src(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
+define internal fastcc void @ip6_mc_del_src(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %mld_ifc_event.exit, label %8
 
@@ -2695,7 +2695,7 @@ define dso_local noundef range(i32 -19, 1) i32 @ipv6_dev_mc_dec(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @ipv6_chk_mcast_addr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @ipv6_chk_mcast_addr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load volatile ptr, ptr %4, align 8

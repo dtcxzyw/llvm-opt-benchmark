@@ -640,7 +640,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 declare i32 @getErrorErrors() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @freeParseProg(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @freeParseProg(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %2
 
@@ -721,7 +721,7 @@ freeBlocks.exit:                                  ; preds = %freeCaseList.exit10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @readc(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @readc(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %3, label %49 [
     i32 10, label %4
@@ -1014,7 +1014,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parseBracket(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(address_is_null) %1, i32 noundef range(i32 91, 124) %2, i32 noundef range(i32 93, 126) %3) unnamed_addr #0 {
+define internal fastcc ptr @parseBracket(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, i32 noundef range(i32 91, 124) %2, i32 noundef range(i32 93, 126) %3) unnamed_addr #0 {
   br label %gv_isspace.exit.i
 
 gv_isspace.exit.i:                                ; preds = %gv_isspace.exit.i.backedge, %4
@@ -1104,7 +1104,7 @@ unreadc.exit:                                     ; preds = %11, %8, %20, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(address_is_null) %1, i8 noundef signext range(i8 91, 124) %2, i8 noundef signext range(i8 93, 126) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, i8 noundef signext range(i8 91, 124) %2, i8 noundef signext range(i8 93, 126) %3) unnamed_addr #0 {
   %5 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
   %6 = icmp slt i32 %5, 0
   %7 = zext nneg i8 %3 to i32

@@ -499,7 +499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4cvc58internal6theory11quantifiers16QuantifiersState8getStatsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4cvc58internal6theory11quantifiers16QuantifiersState8getStatsEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_statistics = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %d_statistics

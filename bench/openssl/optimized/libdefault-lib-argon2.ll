@@ -1070,7 +1070,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i64 @ossl_get_avail_threads(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @initialize(ptr noundef captures(address_is_null) %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @initialize(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %blockhash_bytes.i = alloca [1024 x i8], align 16
   %value.i = alloca [4 x i8], align 1
@@ -1679,7 +1679,7 @@ cond.end:                                         ; preds = %for.inc10.i, %retur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finalize(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc void @finalize(ptr noundef readonly %ctx, ptr noundef %out) unnamed_addr #0 {
 entry:
   %blockhash = alloca %struct.BLOCK, align 8
   %blockhash_bytes = alloca [1024 x i8], align 16
@@ -1996,7 +1996,7 @@ return:                                           ; preds = %entry, %blake2b_md.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @fill_segment(ptr noundef readonly captures(address_is_null) %ctx, i32 noundef %pass, i32 noundef %lane, i8 noundef zeroext %slice) unnamed_addr #5 {
+define internal fastcc void @fill_segment(ptr noundef readonly %ctx, i32 noundef %pass, i32 noundef %lane, i8 noundef zeroext %slice) unnamed_addr #5 {
 entry:
   %address_block = alloca %struct.BLOCK, align 8
   %input_block = alloca %struct.BLOCK, align 8

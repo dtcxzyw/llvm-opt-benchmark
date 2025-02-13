@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hugetlb_optimize_vmemmap_key = external dso_local global %struct.static_key_false, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [8 x i64], align 16
   %5 = alloca %struct.ext4_map_blocks, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 142

@@ -777,7 +777,7 @@ define hidden void @_ZN16SystemDictionary19set_platform_loaderEP15ClassLoaderDat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %29, label %3
 
@@ -830,7 +830,7 @@ _ZNK9OopHandle4peekEv.exit:                       ; preds = %21, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN16SystemDictionary24is_platform_class_loaderEP7oopDesc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN16SystemDictionary24is_platform_class_loaderEP7oopDesc(ptr noundef readonly %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %21, label %3
 
@@ -868,7 +868,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle(ptr readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle(ptr readonly %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZL18is_parallelCapable6Handle.exit.thread, label %_ZL18is_parallelCapable6Handle.exit
 
@@ -919,7 +919,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 declare void @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %0, ptr captures(address_is_null) %1, ptr %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %0, ptr %1, ptr %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %0, ptr %1, ptr %2, ptr noundef %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -943,7 +943,7 @@ define hidden noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6Handl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %0, ptr captures(address_is_null) %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = icmp ugt i16 %6, 1
@@ -1258,7 +1258,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %113, %111, %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16SystemDictionary27resolve_array_class_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %0, ptr captures(address_is_null) %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16SystemDictionary27resolve_array_class_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.SignatureStream, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %7 = load ptr, ptr %6, align 8
@@ -1363,7 +1363,7 @@ declare noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef, i32 noundef)
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16SystemDictionary30resolve_instance_class_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16SystemDictionary30resolve_instance_class_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %0, ptr readonly %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.EventClassLoad, align 8
   %6 = alloca %class.HandleMark, align 8
   %7 = alloca %class.ObjectLocker, align 8
@@ -2387,7 +2387,7 @@ declare void @_ZN12ObjectLockerD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, ptr %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef %0, ptr noundef %1, ptr readonly %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %_ZNK6HandleclEv.exit, label %6
 
@@ -2426,7 +2426,7 @@ _ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit: ; preds = %11, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16SystemDictionary28find_instance_or_array_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, ptr %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16SystemDictionary28find_instance_or_array_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef %0, ptr noundef %1, ptr readonly %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.SignatureStream, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 4
@@ -3183,7 +3183,7 @@ define hidden noundef ptr @_ZN16SystemDictionary19resolve_from_streamEP15ClassFi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16SystemDictionary23is_shared_class_visibleEP6SymbolP13InstanceKlassP12PackageEntry6Handle(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16SystemDictionary23is_shared_class_visibleEP6SymbolP13InstanceKlassP12PackageEntry6Handle(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 128
@@ -3296,7 +3296,7 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %8, %_ZN16SystemDict
 declare noundef zeroext i1 @_ZNK15ClassLoaderData28is_builtin_class_loader_dataEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16SystemDictionary28is_shared_class_visible_implEP6SymbolP13InstanceKlassP12PackageEntry6Handle(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16SystemDictionary28is_shared_class_visible_implEP6SymbolP13InstanceKlassP12PackageEntry6Handle(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr readonly %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %6 = load i16, ptr %5, align 2
   %7 = sext i16 %6 to i32
@@ -3401,7 +3401,7 @@ declare noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb(ptr n
 declare noundef ptr @_ZN17PackageEntryTable11lookup_onlyEP6Symbol(ptr noundef nonnull align 8 dereferenceable(880), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr %2, ptr %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr %2, ptr %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 896
@@ -5491,7 +5491,7 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN10Dictionary9add_klassEP10JavaThreadP6SymbolP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16SystemDictionary40find_constrained_instance_or_array_klassEP6ThreadP6Symbol6Handle(ptr noundef %0, ptr noundef %1, ptr captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16SystemDictionary40find_constrained_instance_or_array_klassEP6ThreadP6Symbol6Handle(ptr noundef %0, ptr noundef %1, ptr %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.SignatureStream, align 8
   %5 = tail call noundef ptr @_ZN16SystemDictionary28find_instance_or_array_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef %0, ptr noundef %1, ptr %2, ptr null)
   %.not = icmp eq ptr %5, null
@@ -7163,7 +7163,7 @@ declare ptr @_ZN10oopFactory19new_objArray_handleEP5KlassiP10JavaThread(ptr noun
 declare void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL26unpack_method_and_appendix6HandleP5Klass14objArrayHandlePS_P10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL26unpack_method_and_appendix6HandleP5Klass14objArrayHandlePS_P10JavaThread(ptr readonly %0, ptr noundef readonly captures(none) %1, ptr readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %class.methodHandle, align 8
   %.not27 = icmp eq ptr %0, null
   br i1 %.not27, label %63, label %_ZNK6HandleclEv.exit

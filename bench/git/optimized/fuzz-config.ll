@@ -28,7 +28,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @git_config_from_mem(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @config_parser_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 {
+define internal range(i32 0, 2) i32 @config_parser_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %6

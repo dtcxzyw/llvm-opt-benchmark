@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hist_entries = internal global [4097 x %struct.PGLZ_HistEntry] zeroinitializer, align 16
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = sext i32 %1 to i64
   %7 = getelementptr i8, ptr %0, i64 %6
@@ -537,7 +537,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @pglz_decompress(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
+define i32 @pglz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = sext i32 %1 to i64
   %7 = getelementptr i8, ptr %0, i64 %6
   %8 = sext i32 %3 to i64

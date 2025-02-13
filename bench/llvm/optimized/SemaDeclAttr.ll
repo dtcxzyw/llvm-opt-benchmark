@@ -621,7 +621,7 @@ define dso_local i32 @_ZN5clang4Sema10getAttrLocERKNS_10ParsedAttrE(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentAttrERKNS_19AttributeCommonInfoEPKNS_4ExprERN4llvm9StringRefEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentAttrERKNS_19AttributeCommonInfoEPKNS_4ExprERN4llvm9StringRefEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -1026,7 +1026,7 @@ declare void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind 
 declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentAttrERKNS_10ParsedAttrEjRN4llvm9StringRefEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i32 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentAttrERKNS_10ParsedAttrEjRN4llvm9StringRefEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i32 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -50914,7 +50914,7 @@ define dso_local void @_ZN5clang4Sema25checkUnusedDeclAttributesERNS_10Declarato
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25checkUnusedDeclAttributesRN5clang4SemaERKNS_20ParsedAttributesViewE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr readonly captures(address) %.8.val, i32 %.16.val) unnamed_addr #1 {
+define internal fastcc void @_ZL25checkUnusedDeclAttributesRN5clang4SemaERKNS_20ParsedAttributesViewE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr readonly %.8.val, i32 %.16.val) unnamed_addr #1 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::CharSourceRange", align 8
   %4 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -52125,7 +52125,7 @@ define dso_local void @_ZN5clang4Sema21ProcessDeclAttributesEPNS_5ScopeEPNS_4Dec
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang4Sema21ProcessDeclAttributesEPNS_5ScopeEPNS_4DeclERKNS_10DeclaratorEENK3$_0clERKNS_20ParsedAttributesViewERKNS0_27ProcessDeclAttributeOptionsE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address) %.8.val, i32 %.16.val, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #7 align 2 {
+define internal fastcc void @"_ZZN5clang4Sema21ProcessDeclAttributesEPNS_5ScopeEPNS_4DeclERKNS_10DeclaratorEENK3$_0clERKNS_20ParsedAttributesViewERKNS0_27ProcessDeclAttributeOptionsE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readonly %.8.val, i32 %.16.val, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(2) %1) unnamed_addr #7 align 2 {
   %3 = alloca %"class.clang::ParsedAttributesView", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !1521
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #24

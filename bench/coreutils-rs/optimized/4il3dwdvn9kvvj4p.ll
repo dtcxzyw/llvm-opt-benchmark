@@ -1089,7 +1089,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h19683ab033caab0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h395cfb412243836bE(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h395cfb412243836bE(ptr noundef nonnull readonly %0, ptr noundef readnone %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = icmp eq ptr %0, %1
@@ -9542,7 +9542,7 @@ define hidden void @_ZN7uu_sort12print_sorted17hd5ad73bb4f4f0cc1E(ptr noalias no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN7uu_sort12print_sorted17hf41bbb403ef3c88aE(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @_ZN7uu_sort12print_sorted17hf41bbb403ef3c88aE(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = alloca { { { i64, ptr, {} }, i64 }, i8, [7 x i8], { { { { ptr, ptr } }, {} }, {} } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @_ZN7uu_sort6Output10into_write17he385553643496c77E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8], { { { { ptr, ptr } }, {} }, {} } }) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)

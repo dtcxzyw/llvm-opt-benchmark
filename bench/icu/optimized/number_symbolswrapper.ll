@@ -601,7 +601,7 @@ sw.epilog:                                        ; preds = %entry, %sw.epilog.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl14SymbolsWrapperaSERKS2_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %other) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl14SymbolsWrapperaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end
@@ -675,7 +675,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl14SymbolsWrapperaSEOS2_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl14SymbolsWrapperaSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %this, %src
   br i1 %cmp, label %return, label %if.end

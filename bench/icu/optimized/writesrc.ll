@@ -781,7 +781,7 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #12
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeArray(ptr noundef captures(none) %f, ptr noundef readonly captures(address_is_null) %prefix, ptr noundef readonly captures(none) %p, i32 noundef %width, i32 noundef %length, ptr noundef readonly captures(none) %indent, ptr noundef readonly captures(address_is_null) %postfix) local_unnamed_addr #10 {
+define void @usrc_writeArray(ptr noundef captures(none) %f, ptr noundef readonly %prefix, ptr noundef readonly captures(none) %p, i32 noundef %width, i32 noundef %length, ptr noundef readonly captures(none) %indent, ptr noundef readonly %postfix) local_unnamed_addr #10 {
 entry:
   %0 = add i32 %width, -8
   %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 29)
@@ -913,7 +913,7 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeUTrie2Arrays(ptr noundef captures(none) %f, ptr noundef captures(address_is_null) %indexPrefix, ptr noundef captures(address_is_null) %data32Prefix, ptr noundef readonly captures(none) %pTrie, ptr noundef captures(address_is_null) %postfix) local_unnamed_addr #10 {
+define void @usrc_writeUTrie2Arrays(ptr noundef captures(none) %f, ptr noundef %indexPrefix, ptr noundef %data32Prefix, ptr noundef readonly captures(none) %pTrie, ptr noundef %postfix) local_unnamed_addr #10 {
 entry:
   %data32 = getelementptr inbounds nuw i8, ptr %pTrie, i64 16
   %0 = load ptr, ptr %data32, align 8
@@ -943,7 +943,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %f, ptr noundef readonly captures(address_is_null) %prefix, ptr noundef readonly captures(none) %pTrie, ptr noundef %indexName, ptr noundef %data32Name, ptr noundef readonly captures(address_is_null) %postfix) local_unnamed_addr #10 {
+define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %f, ptr noundef readonly %prefix, ptr noundef readonly captures(none) %pTrie, ptr noundef %indexName, ptr noundef %data32Name, ptr noundef readonly %postfix) local_unnamed_addr #10 {
 entry:
   %cmp.not = icmp eq ptr %prefix, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1007,7 +1007,7 @@ if.end19:                                         ; preds = %if.then17, %if.end5
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeUCPTrieArrays(ptr noundef captures(none) %f, ptr noundef captures(address_is_null) %indexPrefix, ptr noundef captures(address_is_null) %dataPrefix, ptr noundef readonly captures(none) %pTrie, ptr noundef captures(address_is_null) %postfix, i32 noundef %syntax) local_unnamed_addr #10 {
+define void @usrc_writeUCPTrieArrays(ptr noundef captures(none) %f, ptr noundef %indexPrefix, ptr noundef %dataPrefix, ptr noundef readonly captures(none) %pTrie, ptr noundef %postfix, i32 noundef %syntax) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq i32 %syntax, 1
   %cond = select i1 %cmp, ptr @.str.14, ptr @.str.10
@@ -1041,7 +1041,7 @@ cond.end12:                                       ; preds = %entry, %cond.end12.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeUCPTrieStruct(ptr noundef captures(none) %f, ptr noundef readonly captures(address_is_null) %prefix, ptr noundef readonly captures(none) %pTrie, ptr noundef %indexName, ptr noundef %dataName, ptr noundef readonly captures(address_is_null) %postfix, i32 noundef %syntax) local_unnamed_addr #10 {
+define void @usrc_writeUCPTrieStruct(ptr noundef captures(none) %f, ptr noundef readonly %prefix, ptr noundef readonly captures(none) %pTrie, ptr noundef %indexName, ptr noundef %dataName, ptr noundef readonly %postfix, i32 noundef %syntax) local_unnamed_addr #10 {
 entry:
   %cmp.not = icmp eq ptr %prefix, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1497,7 +1497,7 @@ while.end:                                        ; preds = %while.body, %while.
 declare i32 @ucpmap_getRange_75(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @usrc_writeArrayOfMostlyInvChars(ptr noundef captures(none) %f, ptr noundef readonly captures(address_is_null) %prefix, ptr noundef readonly captures(none) %p, i32 noundef %length, ptr noundef readonly captures(address_is_null) %postfix) local_unnamed_addr #10 {
+define void @usrc_writeArrayOfMostlyInvChars(ptr noundef captures(none) %f, ptr noundef readonly %prefix, ptr noundef readonly captures(none) %p, i32 noundef %length, ptr noundef readonly %postfix) local_unnamed_addr #10 {
 entry:
   %cmp.not = icmp eq ptr %prefix, null
   br i1 %cmp.not, label %if.end, label %if.then

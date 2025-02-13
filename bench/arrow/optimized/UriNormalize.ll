@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @defaultMemoryManager = external global %struct.UriMemoryManagerStruct, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriNormalizeSyntaxMaskRequiredA(ptr noundef readonly captures(address_is_null) %uri) local_unnamed_addr #0 {
+define i32 @uriNormalizeSyntaxMaskRequiredA(ptr noundef readonly %uri) local_unnamed_addr #0 {
 entry:
   %writeableClone.i = alloca %struct.UriUriStructA, align 8
   %outMask = alloca i32, align 4
@@ -36,7 +36,7 @@ uriNormalizeSyntaxMaskRequiredExA.exit:           ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExA(ptr noundef readonly captures(address_is_null) %uri, ptr noundef captures(address_is_null) %outMask) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExA(ptr noundef readonly %uri, ptr noundef %outMask) local_unnamed_addr #0 {
 entry:
   %writeableClone = alloca %struct.UriUriStructA, align 8
   %cmp = icmp eq ptr %uri, null
@@ -58,7 +58,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef %inMask, ptr noundef captures(address_is_null) %outMask, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef %inMask, ptr noundef %outMask, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %doneMask = alloca i32, align 4
   store i32 0, ptr %doneMask, align 4
@@ -1461,7 +1461,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriNormalizeSyntaxMaskRequiredW(ptr noundef readonly captures(address_is_null) %uri) local_unnamed_addr #0 {
+define i32 @uriNormalizeSyntaxMaskRequiredW(ptr noundef readonly %uri) local_unnamed_addr #0 {
 entry:
   %writeableClone.i = alloca %struct.UriUriStructW, align 8
   %outMask = alloca i32, align 4
@@ -1483,7 +1483,7 @@ uriNormalizeSyntaxMaskRequiredExW.exit:           ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExW(ptr noundef readonly captures(address_is_null) %uri, ptr noundef captures(address_is_null) %outMask) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @uriNormalizeSyntaxMaskRequiredExW(ptr noundef readonly %uri, ptr noundef %outMask) local_unnamed_addr #0 {
 entry:
   %writeableClone = alloca %struct.UriUriStructW, align 8
   %cmp = icmp eq ptr %uri, null
@@ -1502,7 +1502,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineW(ptr noundef %uri, i32 noundef %inMask, ptr noundef captures(address_is_null) %outMask, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineW(ptr noundef %uri, i32 noundef %inMask, ptr noundef %outMask, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %doneMask = alloca i32, align 4
   store i32 0, ptr %doneMask, align 4

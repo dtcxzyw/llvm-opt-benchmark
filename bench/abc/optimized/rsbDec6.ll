@@ -1317,7 +1317,7 @@ define void @Rsb_DecPrintTable(ptr noundef readonly captures(none) %0, i32 nound
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Rsb_DecInitCexes(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #4 {
+define noundef i32 @Rsb_DecInitCexes(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef %6) local_unnamed_addr #4 {
   %8 = icmp slt i32 %0, 7
   %9 = add nsw i32 %0, -6
   %10 = shl nuw i32 1, %9

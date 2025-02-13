@@ -1779,7 +1779,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb22DuckTransactionManager13CanCheckpointENS_12optional_ptrINS_15DuckTransactionEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(161) %this, ptr readnone captures(address) %current.coerce) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN6duckdb22DuckTransactionManager13CanCheckpointENS_12optional_ptrINS_15DuckTransactionEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(161) %this, ptr readnone %current.coerce) local_unnamed_addr #5 align 2 {
 entry:
   %db = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %db, align 8, !tbaa !52
@@ -3115,7 +3115,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN6duckdb12ValidChecker3GetERNS_15MetaTransactionE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %transaction) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN6duckdb12ValidChecker3GetERNS_15MetaTransactionE(ptr noundef nonnull readnone align 8 dereferenceable(208) %transaction) local_unnamed_addr #3 align 2 {
 entry:
   %transaction_validity = getelementptr inbounds nuw i8, ptr %transaction, i64 24
   ret ptr %transaction_validity

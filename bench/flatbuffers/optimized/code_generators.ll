@@ -1169,7 +1169,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers10GenCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_PKNS_13CommentConfigEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %dc, ptr noundef %code_ptr, ptr noundef readonly captures(address_is_null) %config, ptr noundef %prefix) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers10GenCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_PKNS_13CommentConfigEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %dc, ptr noundef %code_ptr, ptr noundef readonly %config, ptr noundef %prefix) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8

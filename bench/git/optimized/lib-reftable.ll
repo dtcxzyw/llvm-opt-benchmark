@@ -74,7 +74,7 @@ declare i32 @check_bool_loc(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.reftable_write_options, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #7

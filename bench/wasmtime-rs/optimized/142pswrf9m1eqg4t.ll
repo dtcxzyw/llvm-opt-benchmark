@@ -494,7 +494,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1, ptr readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [9 x i64] }, align 16
   %5 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
   %.not = icmp eq ptr %5, null

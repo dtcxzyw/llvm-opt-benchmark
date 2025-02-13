@@ -490,7 +490,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonl
 declare i32 @TS_execute_ternary(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) #2 {
+define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8

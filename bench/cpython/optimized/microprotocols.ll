@@ -73,7 +73,7 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #2
 declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pysqlite_microprotocols_adapt(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #0 {
+define hidden ptr @pysqlite_microprotocols_adapt(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %6 = getelementptr i8, ptr %1, i64 8

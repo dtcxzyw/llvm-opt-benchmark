@@ -1512,7 +1512,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox6memory9MmapArena16checkConsistencyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8facebook5velox6memory9MmapArena16checkConsistencyEv(ptr noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp28 = alloca %"class.google::LogMessage", align 8
   %ref.tmp50 = alloca %"class.google::LogMessage", align 8

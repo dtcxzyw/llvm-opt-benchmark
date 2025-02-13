@@ -9458,7 +9458,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl19EnumerateRectPointsEddddPi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl33ComputeMinDistanceBetweenTwoLinesEP13EDLineSegmentS3_Pi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 align 2 {
+define hidden noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl33ComputeMinDistanceBetweenTwoLinesEP13EDLineSegmentS3_Pi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24

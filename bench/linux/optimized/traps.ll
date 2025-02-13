@@ -745,7 +745,7 @@ declare dso_local void @irqentry_exit_to_user_mode(ptr noundef) local_unnamed_ad
 declare dso_local void @irqentry_nmi_exit(ptr noundef, i8) local_unnamed_addr #5 section ".noinstr.text"
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define dso_local ptr @sync_regs(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
+define dso_local ptr @sync_regs(ptr noundef readonly %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
   %2 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 24)) #18, !srcloc !42
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr i8, ptr %3, i64 -168

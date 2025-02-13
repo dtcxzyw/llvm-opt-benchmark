@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [9 x i8] c"aAfFeEgG\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [128 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

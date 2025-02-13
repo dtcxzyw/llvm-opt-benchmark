@@ -1050,7 +1050,7 @@ unreachable:                                      ; preds = %invoke.cont23
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8facebook3jsi7PointeraSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %other) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8facebook3jsi7PointeraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %other) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null

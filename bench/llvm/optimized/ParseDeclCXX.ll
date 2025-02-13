@@ -8180,7 +8180,7 @@ declare void @_ZN5clang6Parser29AnnotateTemplateIdTokenAsTypeERNS_12CXXScopeSpec
 declare void @_ZN5clang17DiagnosticBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang6Parser36ParseAliasDeclarationAfterDeclaratorERKNS0_18ParsedTemplateInfoENS_14SourceLocationERNS0_15UsingDeclaratorERS4_NS_15AccessSpecifierERNS_16ParsedAttributesEPPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(92) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang6Parser36ParseAliasDeclarationAfterDeclaratorERKNS0_18ParsedTemplateInfoENS_14SourceLocationERNS0_15UsingDeclaratorERS4_NS_15AccessSpecifierERNS_16ParsedAttributesEPPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(92) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef writeonly %7) local_unnamed_addr #0 align 2 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -35152,7 +35152,7 @@ _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit.thread: ; preds = %233
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6Parser26ParseCXXAssumeAttributeArgERNS_16ParsedAttributesEPNS_14IdentifierInfoENS_14SourceLocationEPS5_NS_19AttributeCommonInfo4FormE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, i32 %3, ptr noundef writeonly captures(address_is_null) %4, i32 %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang6Parser26ParseCXXAssumeAttributeArgERNS_16ParsedAttributesEPNS_14IdentifierInfoENS_14SourceLocationEPS5_NS_19AttributeCommonInfo4FormE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, i32 %3, ptr noundef writeonly %4, i32 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca [2 x i16], align 2
   %9 = alloca %"class.clang::BalancedDelimiterTracker", align 8

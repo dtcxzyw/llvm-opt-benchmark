@@ -8527,7 +8527,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm9MCContext24getELFUniqueI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readonly %1, i64 %2, i32 %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca %"struct.std::pair.289", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9431,7 +9431,7 @@ define dso_local noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9MCContext25getAssociativeCOFFSectionEPNS_13MCSectionCOFFEPKNS_8MCSymbolEj(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm9MCContext25getAssociativeCOFFSectionEPNS_13MCSectionCOFFEPKNS_8MCSymbolEj(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %2, null
   %6 = icmp eq i32 %3, -1
   %or.cond = and i1 %5, %6
@@ -9940,7 +9940,7 @@ _ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit: ; preds = %165, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm9MCContext15hasXCOFFSectionENS_9StringRefENS_5XCOFF15CsectPropertiesE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readonly captures(address_is_null) %1, i64 %2, i16 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm9MCContext15hasXCOFFSectionENS_9StringRefENS_5XCOFF15CsectPropertiesE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readonly %1, i64 %2, i16 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"struct.llvm::MCContext::XCOFFSectionKey", align 8
@@ -10131,7 +10131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 %3, i24 %4, i1 noundef zeroext %5, i64 %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readonly %1, i64 %2, i32 %3, i24 %4, i1 noundef zeroext %5, i64 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca i8, align 1
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca i8, align 1
@@ -12949,7 +12949,7 @@ _ZNKSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9MCContext12reportCommonENS_5SMLocESt8functionIFvRNS_12SMDiagnosticEPKNS_9SourceMgrEEE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readnone captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9MCContext12reportCommonENS_5SMLocESt8functionIFvRNS_12SMDiagnosticEPKNS_9SourceMgrEEE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr readnone %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::SourceMgr", align 8

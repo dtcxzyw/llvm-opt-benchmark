@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -13, 1) i32 @mca_patcher_overwrite_patch_symbol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
+define internal range(i32 -13, 1) i32 @mca_patcher_overwrite_patch_symbol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) #0 {
   %4 = tail call ptr @dlsym(ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %0) #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %12

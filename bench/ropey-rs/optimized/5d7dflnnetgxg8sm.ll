@@ -67,7 +67,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h2038b18d1bf2c4bcE.llvm.8018463459433534105"(i64 noundef %0, ptr noalias noundef nonnull readonly align 1 captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h2038b18d1bf2c4bcE.llvm.8018463459433534105"(i64 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = icmp ult i64 %0, %2
   %5 = getelementptr inbounds i8, ptr %1, i64 %0
   %.sroa.0.0 = select i1 %4, ptr %5, ptr null

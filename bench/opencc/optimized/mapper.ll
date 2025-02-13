@@ -106,7 +106,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef readonly %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::grimoire::io::Mapper", align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %11

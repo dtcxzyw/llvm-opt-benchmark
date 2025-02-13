@@ -1962,7 +1962,7 @@ lpad:                                             ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN8subterms8iteratorppEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN8subterms8iteratorppEv(ptr noundef nonnull readonly returned align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_esp = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_esp, align 8

@@ -9811,7 +9811,7 @@ if.end98:                                         ; preds = %_ZN3smt9theory_pb10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3smt9theory_pb11clear_watchERNS0_4cardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(29) %c) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3smt9theory_pb11clear_watchERNS0_4cardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, ptr noundef nonnull readonly align 8 dereferenceable(29) %c) local_unnamed_addr #8 align 2 {
 entry:
   %m_bound.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %m_bound.i, align 8
@@ -14399,7 +14399,7 @@ _ZN6vectorIPN3smt9theory_pb4ineqELb0EjE9push_backERKS3_.exit: ; preds = %lor.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4ineqE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, i32 %lit.coerce, ptr noundef readnone captures(address) %c) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4ineqE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, i32 %lit.coerce, ptr noundef readnone %c) local_unnamed_addr #8 align 2 {
 entry:
   %shr.i = lshr i32 %lit.coerce, 1
   %m_var_infos = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -14470,7 +14470,7 @@ if.end8:                                          ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4ineqEEPS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(968) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ineqs, ptr noundef readnone captures(address) %c) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4ineqEEPS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(968) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ineqs, ptr noundef readnone %c) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %ineqs, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -14908,7 +14908,7 @@ for.end30:                                        ; preds = %_ZNK3smt9theory_pb4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4cardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, i32 %lit.coerce, ptr noundef readnone captures(address) %c) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4cardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, i32 %lit.coerce, ptr noundef readnone %c) local_unnamed_addr #8 align 2 {
 entry:
   %m_var_infos = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_var_infos, align 8
@@ -14974,7 +14974,7 @@ if.end8:                                          ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4cardEEPS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(968) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %cards, ptr noundef readnone captures(address) %c) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4cardEEPS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(968) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %cards, ptr noundef readnone %c) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %cards, align 8
   %cmp.i = icmp eq ptr %0, null

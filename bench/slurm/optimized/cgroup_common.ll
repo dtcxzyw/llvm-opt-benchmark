@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._is_empty_dir = private unnamed_addr constant [14 x i8] c"_is_empty_dir\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store ptr null, ptr %5, align 8
@@ -534,7 +534,7 @@ define range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @common_file_read_content(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @common_file_read_content(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = icmp eq ptr %1, null
@@ -857,7 +857,7 @@ define void @common_cgroup_destroy(ptr noundef initializes((0, 8)) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @common_cgroup_delete(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @common_cgroup_delete(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 -1, ptr %2, align 4
@@ -1062,7 +1062,7 @@ _is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.
 declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @common_cgroup_get_pids(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @common_cgroup_get_pids(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1191,7 +1191,7 @@ _cgroup_procs_writable_path.exit:                 ; preds = %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @common_cgroup_get_param(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @common_cgroup_get_param(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16

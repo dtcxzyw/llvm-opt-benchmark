@@ -390,7 +390,7 @@ define internal range(i32 0, 2) i32 @fcdns_equal(ptr noundef readonly captures(n
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._fc_ct_preamble, align 4
   %6 = alloca %struct._fcdns_conv_key, align 4
   %7 = icmp eq ptr %3, null

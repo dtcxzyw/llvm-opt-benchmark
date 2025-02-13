@@ -232,7 +232,7 @@ declare void @_ZN4base16HistogramSamples11IncreaseSumEl(ptr noundef nonnull alig
 declare void @_ZN4base16HistogramSamples22IncreaseRedundantCountEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4base9SampleMap8GetCountEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, i32 noundef %value) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK4base9SampleMap8GetCountEi(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %value) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -274,7 +274,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i32 @_ZNK4base9SampleMap10TotalCountEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK4base9SampleMap10TotalCountEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #6 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -542,7 +542,7 @@ _ZN4base12_GLOBAL__N_117SampleMapIterator16SkipEmptyBucketsEv.exit: ; preds = %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK4base12_GLOBAL__N_117SampleMapIterator3GetEPiS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(address_is_null) %min, ptr noundef writeonly captures(address_is_null) %max, ptr noundef writeonly captures(address_is_null) %count) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK4base12_GLOBAL__N_117SampleMapIterator3GetEPiS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly %min, ptr noundef writeonly %max, ptr noundef writeonly %count) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %min, null
   br i1 %tobool.not, label %if.end, label %if.then

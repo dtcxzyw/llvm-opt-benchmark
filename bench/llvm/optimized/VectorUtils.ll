@@ -942,7 +942,7 @@ define dso_local noundef ptr @_ZN4llvm13getSplatValueEPKNS_5ValueE(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4llvm13getSplatIndexENS_8ArrayRefIiEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #6 {
+define dso_local noundef i32 @_ZN4llvm13getSplatIndexENS_8ArrayRefIiEE(ptr readonly %0, i64 %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i32, ptr %0, i64 %1
   %.not29 = icmp eq i64 %1, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
@@ -1124,7 +1124,7 @@ _ZNK4llvm4User10getOperandEj.exit12.i.i:          ; preds = %_ZNK4llvm4User10get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm22getShuffleDemandedEltsEiNS_8ArrayRefIiEERKNS_5APIntERS2_S5_b(i32 noundef %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm22getShuffleDemandedEltsEiNS_8ArrayRefIiEERKNS_5APIntERS2_S5_b(i32 noundef %0, ptr readonly %1, i64 %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca %"class.llvm::APInt", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1416,7 +1416,7 @@ _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %_ZN4llvm5APInt6setB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21narrowShuffleMaskEltsEiNS_8ArrayRefIiEERNS_15SmallVectorImplIiEE(i32 noundef %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm21narrowShuffleMaskEltsEiNS_8ArrayRefIiEERNS_15SmallVectorImplIiEE(i32 noundef %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %3) local_unnamed_addr #1 {
   %5 = icmp eq i32 %0, 1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 8, !tbaa !26
@@ -1801,7 +1801,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20widenShuffleMaskEltsENS_8ArrayRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20scaleShuffleMaskEltsEjNS_8ArrayRefIiEERNS_15SmallVectorImplIiEE(i32 noundef %0, ptr captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm20scaleShuffleMaskEltsEjNS_8ArrayRefIiEERNS_15SmallVectorImplIiEE(i32 noundef %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #1 {
   %5 = trunc i64 %2 to i32
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %20
@@ -3060,7 +3060,7 @@ _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %82, %79, %63, %60, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24computeMinimumValueSizesENS_8ArrayRefIPNS_10BasicBlockEEERNS_12DemandedBitsEPKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias writable sret(%"class.llvm::MapVector") align 8 %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm24computeMinimumValueSizesENS_8ArrayRefIPNS_10BasicBlockEEERNS_12DemandedBitsEPKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias writable sret(%"class.llvm::MapVector") align 8 %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -6547,7 +6547,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit11: ; preds = %.lr.ph14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15createUnaryMaskENS_8ArrayRefIiEEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.9") align 8 %0, ptr readonly captures(address) %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm15createUnaryMaskENS_8ArrayRefIiEEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.9") align 8 %0, ptr readonly %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

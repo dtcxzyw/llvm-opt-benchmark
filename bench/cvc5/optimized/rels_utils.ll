@@ -143,7 +143,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4sets9RelsUtils9computeTCERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EES6_(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %members, ptr noundef readonly captures(none) %rel) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4sets9RelsUtils9computeTCERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EES6_(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %members, ptr noundef readonly captures(none) %rel) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ele_num_map = alloca %"class.std::map", align 8
   %fst = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -683,7 +683,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4sets9RelsUtils9computeTCENS0_12NodeTemplateILb1EEERKSt3setIS5_St4lessIS5_ESaIS5_EES5_S5_RSA_SD_(ptr noundef readonly captures(none) %rel, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %members, ptr noundef readonly captures(none) %a, ptr noundef %b, ptr noundef nonnull align 8 dereferenceable(48) %traversed, ptr noundef nonnull align 8 dereferenceable(48) %transitiveClosureMembers) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4sets9RelsUtils9computeTCENS0_12NodeTemplateILb1EEERKSt3setIS5_St4lessIS5_ESaIS5_EES5_S5_RSA_SD_(ptr noundef readonly captures(none) %rel, ptr noundef nonnull align 8 dereferenceable(48) %members, ptr noundef readonly captures(none) %a, ptr noundef %b, ptr noundef nonnull align 8 dereferenceable(48) %traversed, ptr noundef nonnull align 8 dereferenceable(48) %transitiveClosureMembers) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

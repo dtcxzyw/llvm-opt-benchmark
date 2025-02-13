@@ -200,7 +200,7 @@ _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5video15CImageWriterPNG10writeImageEPNS_2io10IWriteFileEPNS0_6IImageEj(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file, ptr noundef readonly captures(address_is_null) %image, i32 %param) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video15CImageWriterPNG10writeImageEPNS_2io10IWriteFileEPNS0_6IImageEj(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file, ptr noundef readonly %image, i32 %param) unnamed_addr #0 align 2 {
 entry:
   %png_ptr = alloca ptr, align 8
   %info_ptr = alloca ptr, align 8

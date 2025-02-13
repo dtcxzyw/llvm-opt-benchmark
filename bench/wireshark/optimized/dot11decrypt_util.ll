@@ -94,7 +94,7 @@ define hidden void @dot11decrypt_construct_aad(ptr noundef readonly captures(non
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dot11decrypt_prf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @dot11decrypt_prf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly %6, i64 noundef %7) local_unnamed_addr #2 {
   %9 = alloca [256 x i8], align 16
   %10 = alloca [1024 x i8], align 16
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
@@ -166,7 +166,7 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 declare i32 @ws_hmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly %6, i64 noundef %7) local_unnamed_addr #2 {
   %9 = alloca [256 x i8], align 16
   %10 = alloca [1024 x i8], align 16
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
@@ -233,7 +233,7 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5, i64 noundef %6, ptr noundef readonly %7, i32 noundef %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11) local_unnamed_addr #2 {
   %13 = alloca ptr, align 8
   %14 = alloca [256 x i8], align 16
   %15 = alloca [64 x i8], align 16
@@ -323,7 +323,7 @@ sha256.exit.thread:                               ; preds = %32, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8) local_unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca [34 x i8], align 16
   %12 = alloca [32 x i8], align 16
@@ -387,7 +387,7 @@ sha256.exit.thread:                               ; preds = %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef captures(address_is_null) %8, i64 noundef %9, ptr noundef readnone captures(none) %10) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef readnone captures(none) %10) local_unnamed_addr #2 {
   %12 = alloca [76 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %3, i64 32, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32

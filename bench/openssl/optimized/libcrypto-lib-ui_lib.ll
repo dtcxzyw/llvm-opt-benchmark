@@ -1100,7 +1100,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef captures(address_is_null) %ui, i32 noundef %cmd, i64 noundef %i, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %f) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef %ui, i32 noundef %cmd, i64 noundef %i, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %f) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ui, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1245,7 +1245,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly captures(address_is_null) %method, ptr noundef %opener) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly %method, ptr noundef %opener) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1261,7 +1261,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly captures(address_is_null) %method, ptr noundef %writer) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly %method, ptr noundef %writer) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1277,7 +1277,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly captures(address_is_null) %method, ptr noundef %flusher) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly %method, ptr noundef %flusher) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1293,7 +1293,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly captures(address_is_null) %method, ptr noundef %reader) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly %method, ptr noundef %reader) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1309,7 +1309,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly captures(address_is_null) %method, ptr noundef %closer) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly %method, ptr noundef %closer) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1325,7 +1325,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly captures(address_is_null) %method, ptr noundef %duplicator, ptr noundef %destructor) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly %method, ptr noundef %duplicator, ptr noundef %destructor) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1343,7 +1343,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeonly captures(address_is_null) %method, ptr noundef %prompt_constructor) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeonly %method, ptr noundef %prompt_constructor) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1367,7 +1367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_opener(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_opener(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1383,7 +1383,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_writer(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_writer(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1399,7 +1399,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_flusher(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_flusher(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1415,7 +1415,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_reader(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_reader(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1431,7 +1431,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_closer(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_closer(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1447,7 +1447,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_prompt_constructor(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_prompt_constructor(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1463,7 +1463,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_data_duplicator(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_data_duplicator(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1479,7 +1479,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_data_destructor(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #4 {
+define ptr @UI_method_get_data_destructor(ptr noundef readonly %method) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then

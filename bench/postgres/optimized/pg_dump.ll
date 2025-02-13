@@ -29118,7 +29118,7 @@ define internal fastcc void @binary_upgrade_extension_member(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpCommentExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #4 {
+define internal fastcc void @dumpCommentExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #4 {
   %9 = alloca i32, align 4
   %10 = alloca %struct._archiveOpts, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32

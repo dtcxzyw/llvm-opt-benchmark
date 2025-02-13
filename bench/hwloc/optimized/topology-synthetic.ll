@@ -3675,7 +3675,7 @@ hwloc_synthetic_next_index.exit:                  ; preds = %16, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_synthetic_insert_attached(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @hwloc_synthetic_insert_attached(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %.not31 = icmp eq ptr %2, null
   br i1 %.not31, label %tailrecurse._crit_edge, label %.lr.ph
 

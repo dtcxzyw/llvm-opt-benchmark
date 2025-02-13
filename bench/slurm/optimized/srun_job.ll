@@ -1404,7 +1404,7 @@ _normalize_hostlist.exit:                         ; preds = %10, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca [5 x i8], align 1

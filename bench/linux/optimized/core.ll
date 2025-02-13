@@ -8265,7 +8265,7 @@ define internal void @intel_pmu_swap_task_ctx(ptr noundef %0, ptr noundef %1) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @intel_guest_get_msrs(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define internal ptr @intel_guest_get_msrs(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef readonly %1) #1 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #24, !srcloc !125
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3552
@@ -9011,7 +9011,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i64 @events_hybrid_sysfs_show(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @mem_is_visible(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #17 align 16 {
+define internal zeroext i16 @mem_is_visible(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 %2) #17 align 16 {
   %4 = icmp eq ptr %1, @event_attr_mem_ld_aux
   br i1 %4, label %5, label %11
 
@@ -9133,7 +9133,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @branch_counter_w
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @default_is_visible(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #17 align 16 {
+define internal zeroext i16 @default_is_visible(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 %2) #17 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_allow_tsx_force_abort
   br i1 %4, label %5, label %11
 

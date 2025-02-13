@@ -873,7 +873,7 @@ declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: nounwind uwtable
-define void @SptfqmrFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @SptfqmrFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %24, label %3
 

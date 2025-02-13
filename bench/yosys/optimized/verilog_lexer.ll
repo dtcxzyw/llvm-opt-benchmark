@@ -12461,7 +12461,7 @@ _ZL38frontend_verilog_yyensure_buffer_stackv.exit: ; preds = %11, %.critedge, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31frontend_verilog_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZL31frontend_verilog_yy_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = tail call ptr @__errno_location() #46
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
@@ -12655,7 +12655,7 @@ define void @_Z36frontend_verilog_yy_switch_to_bufferP15yy_buffer_state(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state(ptr noundef captures(address) %0) local_unnamed_addr #20 {
+define void @_Z33frontend_verilog_yy_delete_bufferP15yy_buffer_state(ptr noundef %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -12702,7 +12702,7 @@ define void @_Z23frontend_verilog_yyfreePv(ptr noundef captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state(ptr noundef captures(address) %0) local_unnamed_addr #22 {
+define void @_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state(ptr noundef %0) local_unnamed_addr #22 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

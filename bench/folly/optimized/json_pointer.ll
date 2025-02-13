@@ -2876,7 +2876,7 @@ cleanup:                                          ; preds = %for.inc.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %this) local_unnamed_addr #16 align 2 {
 entry:
   ret ptr %this
 }

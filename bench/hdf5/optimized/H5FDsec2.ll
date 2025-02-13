@@ -464,7 +464,7 @@ define internal range(i32 -1, 2) i32 @H5FD__sec2_cmp(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FD__sec2_query(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) #6 {
+define internal noundef i32 @H5FD__sec2_query(ptr noundef readonly %0, ptr noundef writeonly %1) #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %3
 
@@ -509,7 +509,7 @@ define internal i64 @H5FD__sec2_get_eof(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__sec2_get_handle(ptr noundef %0, i64 %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__sec2_get_handle(ptr noundef %0, i64 %1, ptr noundef writeonly %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %8
 

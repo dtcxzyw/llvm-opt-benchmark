@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [39 x i8] c"no memory during frame initialization.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8InitDithering(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @VP8InitDithering(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %39, label %3
 
@@ -1648,7 +1648,7 @@ define hidden i32 @VP8ExitCritical(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @VP8GetThreadMethod(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 3) i32 @VP8GetThreadMethod(ptr noundef readonly %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %12, label %6
 

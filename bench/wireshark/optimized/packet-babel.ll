@@ -1083,7 +1083,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 -1, 256) %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 -14, 254) %6, ptr noundef nonnull writeonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 -1, 256) %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef range(i32 -14, 254) %6, ptr noundef nonnull writeonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
   %10 = add nuw nsw i32 %1, 7
   %11 = lshr i32 %10, 3

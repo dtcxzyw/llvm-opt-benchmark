@@ -506,7 +506,7 @@ return:                                           ; preds = %if.end9, %entry, %i
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unum_format_75(ptr noundef %fmt, i32 noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(address_is_null) %pos, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @unum_format_75(ptr noundef %fmt, i32 noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef %pos, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %number to i64
   %call = tail call i32 @unum_formatInt64_75(ptr noundef %fmt, i64 noundef %conv, ptr noundef %result, i32 noundef %resultLength, ptr noundef %pos, ptr noundef %status)
@@ -514,7 +514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unum_formatInt64_75(ptr noundef %fmt, i64 noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(address_is_null) %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unum_formatInt64_75(ptr noundef %fmt, i64 noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::UnicodeString", align 8
   %fp = alloca %"class.icu_75::FieldPosition", align 8
@@ -623,7 +623,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UError
 declare void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unum_formatDouble_75(ptr noundef %fmt, double noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(address_is_null) %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unum_formatDouble_75(ptr noundef %fmt, double noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::UnicodeString", align 8
   %fp = alloca %"class.icu_75::FieldPosition", align 8
@@ -803,7 +803,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unum_formatDecimal_75(ptr noundef %fmt, ptr noundef %number, i32 noundef %length, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(address_is_null) %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unum_formatDecimal_75(ptr noundef %fmt, ptr noundef %number, i32 noundef %length, ptr noundef %result, i32 noundef %resultLength, ptr noundef %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fp = alloca %"class.icu_75::FieldPosition", align 8
   %numFmtbl = alloca %"class.icu_75::Formattable", align 8
@@ -940,7 +940,7 @@ declare void @_ZN6icu_7511FormattableC1ENS_11StringPieceER10UErrorCode(ptr nound
 declare void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unum_formatDoubleCurrency_75(ptr noundef %fmt, double noundef %number, ptr noundef %currency, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(address_is_null) %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unum_formatDoubleCurrency_75(ptr noundef %fmt, double noundef %number, ptr noundef %currency, ptr noundef %result, i32 noundef %resultLength, ptr noundef %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::UnicodeString", align 8
   %fp = alloca %"class.icu_75::FieldPosition", align 8
@@ -1091,7 +1091,7 @@ declare void @_ZN6icu_7514CurrencyAmountC1EdNS_14ConstChar16PtrER10UErrorCode(pt
 declare void @_ZN6icu_7511FormattableC1EPNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unum_parse_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(address_is_null) %parsePos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unum_parse_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::Formattable", align 8
   call void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %res)
@@ -1116,7 +1116,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8parseResRN6icu_7511FormattableEPKPvPKDsiPiP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %res, ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(address_is_null) %parsePos, ptr noundef captures(none) %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8parseResRN6icu_7511FormattableEPKPvPKDsiPiP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %res, ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef captures(none) %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1206,7 +1206,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 declare noundef i32 @_ZNK6icu_7511Formattable7getLongER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @unum_parseInt64_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(address_is_null) %parsePos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i64 @unum_parseInt64_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::Formattable", align 8
   call void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %res)
@@ -1231,7 +1231,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare noundef i64 @_ZNK6icu_7511Formattable8getInt64ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @unum_parseDouble_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(address_is_null) %parsePos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef double @unum_parseDouble_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::Formattable", align 8
   call void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %res)
@@ -1256,7 +1256,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare noundef double @_ZNK6icu_7511Formattable9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unum_parseDecimal_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(address_is_null) %parsePos, ptr noundef %outBuf, i32 noundef %outBufLength, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define i32 @unum_parseDecimal_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef %outBuf, i32 noundef %outBufLength, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::Formattable", align 8
   %0 = load i32, ptr %status, align 4
@@ -1338,7 +1338,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @unum_parseDoubleCurrency_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(address_is_null) %parsePos, ptr noundef initializes((0, 2)) %currency, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef double @unum_parseDoubleCurrency_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef initializes((0, 2)) %currency, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -2226,7 +2226,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @unum_setSymbol_75(ptr noundef %fmt, i32 noundef %symbol, ptr noundef %value, i32 noundef %length, ptr noundef captures(address_is_null) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @unum_setSymbol_75(ptr noundef %fmt, i32 noundef %symbol, ptr noundef %value, i32 noundef %length, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %symbols = alloca %"class.icu_75::DecimalFormatSymbols", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -2522,7 +2522,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @unum_parseToUFormattable_75(ptr noundef %fmt, ptr noundef %result, ptr noundef %text, i32 noundef %textLength, ptr noundef captures(address_is_null) %parsePos, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @unum_parseToUFormattable_75(ptr noundef %fmt, ptr noundef %result, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2574,7 +2574,7 @@ declare ptr @ufmt_open_75(ptr noundef) local_unnamed_addr #1
 declare void @ufmt_close_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unum_formatUFormattable_75(ptr noundef %fmt, ptr noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(address_is_null) %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unum_formatUFormattable_75(ptr noundef %fmt, ptr noundef %number, ptr noundef %result, i32 noundef %resultLength, ptr noundef %pos, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::UnicodeString", align 8
   %fp = alloca %"class.icu_75::FieldPosition", align 8

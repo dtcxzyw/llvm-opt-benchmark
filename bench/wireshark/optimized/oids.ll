@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @unknown_type = internal constant %struct._oid_value_type_t { i32 30, i32 0, i8 99, i32 -1, i32 0, i32 -1, i32 0, i32 0 }, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @oid_add(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @oid_add(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %26, label %4
 
@@ -115,7 +115,7 @@ oid_subid2string.exit:                            ; preds = %6, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_subid2string(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @oid_subid2string(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %or.cond.i = or i1 %4, %5
@@ -809,7 +809,7 @@ define void @oids_cleanup() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @rel_oid_subid2string(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @rel_oid_subid2string(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i32 %2, 0
   %or.cond = or i1 %5, %6
@@ -985,7 +985,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef readonly captures(
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_get(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -1263,7 +1263,7 @@ oid_encoded2subid_sub.exit:                       ; preds = %37, %14, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
+define ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %4
 
@@ -1527,7 +1527,7 @@ oid_encoded2subid_sub.exit:                       ; preds = %25, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   %6 = icmp ult i32 %1, 2
   %or.cond = or i1 %6, %5
@@ -1925,7 +1925,7 @@ define ptr @oid_resolved_from_string(ptr noundef %0, ptr noundef %1) local_unnam
 declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   store ptr %6, ptr %3, align 8
   %7 = icmp eq ptr %2, null

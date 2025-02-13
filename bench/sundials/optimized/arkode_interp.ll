@@ -146,7 +146,7 @@ define i32 @arkInterpEvaluate(ptr noundef %0, ptr noundef %1, double noundef %2,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @arkInterpCreate_Hermite(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define noalias noundef ptr @arkInterpCreate_Hermite(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %or.cond = icmp ugt i32 %1, 5
   %or.cond43 = or i1 %3, %or.cond
@@ -222,7 +222,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkInterpResize_Hermite(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+define range(i32 -21, 1) i32 @arkInterpResize_Hermite(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %36, label %9
 
@@ -278,7 +278,7 @@ define range(i32 -21, 1) i32 @arkInterpResize_Hermite(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -380,7 +380,7 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef captures(address_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @arkInterpPrintMem_Hermite(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #4 {
+define void @arkInterpPrintMem_Hermite(ptr noundef readonly %0, ptr noundef captures(none) %1) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -1373,7 +1373,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @arkInterpCreate_Lagrange(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define noalias noundef ptr @arkInterpCreate_Lagrange(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %or.cond = icmp ugt i32 %1, 5
   %or.cond42 = or i1 %3, %or.cond
@@ -1447,7 +1447,7 @@ define noalias noundef ptr @arkInterpCreate_Lagrange(ptr noundef captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+define range(i32 -21, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %.loopexit20, label %9
 
@@ -1499,7 +1499,7 @@ define range(i32 -21, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1621,7 +1621,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef captures(address
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @arkInterpPrintMem_Lagrange(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #4 {
+define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr noundef captures(none) %1) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %48, label %3
 
@@ -1993,7 +1993,7 @@ arkInterpFree.exit69:                             ; preds = %86
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, double noundef %2) #0 {
+define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, double noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %60, label %5
 

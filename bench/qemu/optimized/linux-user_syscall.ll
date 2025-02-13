@@ -3616,7 +3616,7 @@ declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare ptr @path(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @do_guest_readlink(ptr noundef %pathname, ptr noundef captures(address_is_null) %buf, i64 noundef %bufsiz) local_unnamed_addr #2 {
+define dso_local i64 @do_guest_readlink(ptr noundef %pathname, ptr noundef %buf, i64 noundef %bufsiz) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %pathname, null
   %tobool1 = icmp ne ptr %buf, null
@@ -18138,7 +18138,7 @@ return:                                           ; preds = %do.body, %for.cond.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_sockaddr(i64 noundef %target_addr, ptr noundef readonly captures(address_is_null) %addr, i32 noundef %len) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_sockaddr(i64 noundef %target_addr, ptr noundef readonly %addr, i32 noundef %len) unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %len, 0
   br i1 %cmp, label %return, label %if.end

@@ -2452,7 +2452,7 @@ avifCodecSpecificOptionsClear.exit:               ; preds = %.lr.ph.i, %1
 declare void @avifArrayDestroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 27) i32 @avifCodecSpecificOptionsSet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 27) i32 @avifCodecSpecificOptionsSet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not53 = icmp eq i32 %5, 0

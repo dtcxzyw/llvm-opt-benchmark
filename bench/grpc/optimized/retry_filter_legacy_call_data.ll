@@ -4643,7 +4643,7 @@ if.end15:                                         ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt7AbandonEv(ptr noundef nonnull align 8 captures(address) dereferenceable(3105) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt7AbandonEv(ptr noundef nonnull align 8 dereferenceable(3105) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp9 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -5628,7 +5628,7 @@ lpad:                                             ; preds = %do.body25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11RetryCommitEPNS1_11CallAttemptE(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr noundef readonly captures(address_is_null) %call_attempt) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11RetryCommitEPNS1_11CallAttemptE(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr noundef readonly %call_attempt) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %on_commit.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %retry_committed_ = getelementptr inbounds nuw i8, ptr %this, i64 576

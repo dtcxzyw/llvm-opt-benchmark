@@ -592,7 +592,7 @@ return:                                           ; preds = %if.else.i17, %if.th
 declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_is_null) %mtctx) local_unnamed_addr #0 {
+define i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly %mtctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mtctx, null
   br i1 %cmp, label %return, label %if.end

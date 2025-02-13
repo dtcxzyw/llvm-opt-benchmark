@@ -5516,7 +5516,7 @@ declare void @_ZN6duckdb20PartitionedTupleData5ResetEv(ptr noundef nonnull align
 declare void @_ZNK6duckdb20PartitionedTupleData21InitializeAppendStateERNS_31PartitionedTupleDataAppendStateENS_22TupleDataPinPropertiesE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(648), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb25GroupedAggregateHashTable18GetPartitionedDataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1504) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb25GroupedAggregateHashTable18GetPartitionedDataEv(ptr noundef nonnull readnone align 8 dereferenceable(1504) %this) local_unnamed_addr #5 align 2 {
 entry:
   %partitioned_data = getelementptr inbounds nuw i8, ptr %this, i64 1368
   ret ptr %partitioned_data
@@ -14322,7 +14322,7 @@ declare noundef i64 @_ZN6duckdb18ExpressionExecutor6SelectERKNS_25BoundCompariso
 declare noundef i64 @_ZN6duckdb18ExpressionExecutor6SelectERKNS_26BoundConjunctionExpressionEPNS_15ExpressionStateEPKNS_15SelectionVectorEmPS6_S9_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb18ExpressionExecutor13DefaultSelectERKNS_10ExpressionEPNS_15ExpressionStateEPKNS_15SelectionVectorEmPS6_S9_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(80) %expr, ptr noundef %state, ptr noundef %sel, i64 noundef %count, ptr noundef readonly captures(address_is_null) %true_sel, ptr noundef readonly captures(address_is_null) %false_sel) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN6duckdb18ExpressionExecutor13DefaultSelectERKNS_10ExpressionEPNS_15ExpressionStateEPKNS_15SelectionVectorEmPS6_S9_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(80) %expr, ptr noundef %state, ptr noundef %sel, i64 noundef %count, ptr noundef readonly %true_sel, ptr noundef readonly %false_sel) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %intermediate_bools = alloca [2048 x i8], align 16
   %intermediate = alloca %"class.duckdb::Vector", align 8
@@ -16109,7 +16109,7 @@ _ZN6duckdb21TemplatedValidityMaskImED2Ev.exit:    ; preds = %if.then7.i.i.i.i14,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb18ExpressionExecutor9GetStatesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb18ExpressionExecutor9GetStatesEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) local_unnamed_addr #5 align 2 {
 entry:
   %states = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %states
@@ -41458,7 +41458,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb20GroupedAgg
 declare void @_ZN6duckdb5Value6BIGINTEl(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(129) ptr @_ZNK6duckdb25RadixPartitionedHashTable9GetLayoutEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(224) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(129) ptr @_ZNK6duckdb25RadixPartitionedHashTable9GetLayoutEv(ptr noundef nonnull readnone align 8 dereferenceable(224) %this) local_unnamed_addr #5 align 2 {
 entry:
   %layout = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %layout
@@ -67040,7 +67040,7 @@ entry:
 declare void @llvm.trap() #27
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16WindowAggregator4SinkERNS_9DataChunkEPNS_15SelectionVectorEm(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 8 dereferenceable(64) %payload_chunk, ptr noundef readonly captures(address_is_null) %filter_sel, i64 noundef %filtered) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16WindowAggregator4SinkERNS_9DataChunkEPNS_15SelectionVectorEm(ptr noundef nonnull align 8 dereferenceable(521) %this, ptr noundef nonnull align 8 dereferenceable(64) %payload_chunk, ptr noundef readonly %filter_sel, i64 noundef %filtered) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::vector.25", align 8
   %ref.tmp17 = alloca i64, align 8
@@ -68176,7 +68176,7 @@ _ZN6duckdb10unique_ptrINS_21WindowAggregatorStateESt14default_deleteIS1_ELb1EE13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb24WindowConstantAggregator4SinkERNS_9DataChunkEPNS_15SelectionVectorEm(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef nonnull align 8 dereferenceable(64) %payload_chunk, ptr noundef readonly captures(address_is_null) %filter_sel, i64 noundef %filtered) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb24WindowConstantAggregator4SinkERNS_9DataChunkEPNS_15SelectionVectorEm(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef nonnull align 8 dereferenceable(64) %payload_chunk, ptr noundef readonly %filter_sel, i64 noundef %filtered) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8

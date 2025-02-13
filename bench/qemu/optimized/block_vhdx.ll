@@ -243,7 +243,7 @@ vhdx_checksum_calc.exit:                          ; preds = %if.end5.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhdx_guid_generate(ptr noundef writeonly captures(address_is_null) %guid) local_unnamed_addr #0 {
+define dso_local void @vhdx_guid_generate(ptr noundef writeonly %guid) local_unnamed_addr #0 {
 entry:
   %uuid = alloca %struct.QemuUUID, align 4
   %cmp.not = icmp eq ptr %guid, null
@@ -262,7 +262,7 @@ if.end:                                           ; preds = %entry
 declare void @qemu_uuid_generate(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhdx_update_headers(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %s, i1 noundef zeroext %generate_data_write_guid, ptr noundef readonly captures(address_is_null) %log_guid) local_unnamed_addr #0 {
+define dso_local i32 @vhdx_update_headers(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %s, i1 noundef zeroext %generate_data_write_guid, ptr noundef readonly %log_guid) local_unnamed_addr #0 {
 entry:
   %uuid.i.i6 = alloca %struct.QemuUUID, align 4
   %uuid.i.i = alloca %struct.QemuUUID, align 4
@@ -2054,7 +2054,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhdx_co_check(ptr noundef readonly captures(none) %bs, ptr noundef captures(address_is_null) %result, i32 %fix) #0 {
+define internal noundef i32 @vhdx_co_check(ptr noundef readonly captures(none) %bs, ptr noundef %result, i32 %fix) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2132,7 +2132,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_check_bat_entries(ptr noundef readonly captures(none) %bs, ptr noundef captures(address_is_null) %errcnt) #0 {
+define internal i32 @vhdx_check_bat_entries(ptr noundef readonly captures(none) %bs, ptr noundef %errcnt) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2402,7 +2402,7 @@ glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %if.end7, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_create_new_region_table(ptr noundef %blk, i64 noundef %image_size, i32 noundef %block_size, i32 noundef %sector_size, i32 noundef %log_size, i1 noundef zeroext %use_zero_blocks, i32 noundef %type, ptr noundef writeonly captures(address_is_null) %metadata_offset, ptr noundef %errp) #0 {
+define internal i32 @vhdx_create_new_region_table(ptr noundef %blk, i64 noundef %image_size, i32 noundef %block_size, i32 noundef %sector_size, i32 noundef %log_size, i1 noundef zeroext %use_zero_blocks, i32 noundef %type, ptr noundef writeonly %metadata_offset, ptr noundef %errp) #0 {
 entry:
   %cmp.not = icmp eq ptr %metadata_offset, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -2655,7 +2655,7 @@ declare void @bdrv_co_unref(ptr noundef) #3
 declare ptr @blk_bs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned captures(ret: address, provenance) %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #17
   ret ptr %x

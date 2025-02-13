@@ -1491,7 +1491,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10AtLocationESt17basic_string_viewIcSt11char_traitsIcEEi(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i64 %file.coerce0, ptr %file.coerce1, i32 noundef %line) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10AtLocationESt17basic_string_viewIcSt11char_traitsIcEEi(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i64 %file.coerce0, ptr %file.coerce1, i32 noundef %line) local_unnamed_addr #0 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -1534,7 +1534,7 @@ _ZN4absl12log_internal12_GLOBAL__N_18BasenameESt17basic_string_viewIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage8NoPrefixEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage8NoPrefixEv(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -1544,7 +1544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i32 noundef %verbose_level) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i32 noundef %verbose_level) local_unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq i32 %verbose_level, -1
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %verbose_level, i32 0)
@@ -1557,7 +1557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage13WithTimestampENS_4TimeE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i64 %timestamp.coerce0, i32 %timestamp.coerce1) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage13WithTimestampENS_4TimeE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i64 %timestamp.coerce0, i32 %timestamp.coerce1) local_unnamed_addr #10 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -1569,7 +1569,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage12WithThreadIDEi(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i32 noundef %tid) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage12WithThreadIDEi(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i32 noundef %tid) local_unnamed_addr #10 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -1579,7 +1579,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage16WithMetadataFromERKNS_8LogEntryE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %entry1) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage16WithMetadataFromERKNS_8LogEntryE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %entry1) local_unnamed_addr #11 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -1622,7 +1622,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10WithPerrorEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10WithPerrorEv(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -1632,7 +1632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10ToSinkAlsoEPNS_7LogSinkE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef %sink) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10ToSinkAlsoEPNS_7LogSinkE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef %sink) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sink.addr = alloca ptr, align 8
   %death_message = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1756,7 +1756,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10ToSinkOnlyEPNS_7LogSinkE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef %sink) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage10ToSinkOnlyEPNS_7LogSinkE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef %sink) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sink.addr = alloca ptr, align 8
   %death_message = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1899,7 +1899,7 @@ entry:
 declare void @_exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %v) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %v) local_unnamed_addr #0 align 2 {
 entry:
   %encoded_remaining_copy.i = alloca %"class.absl::Span", align 8
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %v) #25
@@ -1939,7 +1939,7 @@ _ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE1EEEvS
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i64 %v.coerce0, ptr %v.coerce1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i64 %v.coerce0, ptr %v.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %encoded_remaining_copy.i = alloca %"class.absl::Span", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %encoded_remaining_copy.i)
@@ -1973,7 +1973,7 @@ _ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE1EEEvS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsEPFRSoS2_E(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef %m) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsEPFRSoS2_E(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef %m) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::log_internal::LogMessage::OstreamView", align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1998,7 +1998,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsEPFRSt8ios_baseS3_E(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef %m) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsEPFRSt8ios_baseS3_E(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef %m) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::log_internal::LogMessage::OstreamView", align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8

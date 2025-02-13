@@ -104,7 +104,7 @@ define dso_local ptr @intel_output_format_name(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca [64 x i8], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1673,7 +1673,7 @@ declare dso_local i32 @drm_mode_vrefresh(ptr noundef) local_unnamed_addr #4
 declare dso_local void @intel_dpll_dump_hw_state(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_dump_csc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 16 {
+define internal fastcc void @ilk_dump_csc(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 

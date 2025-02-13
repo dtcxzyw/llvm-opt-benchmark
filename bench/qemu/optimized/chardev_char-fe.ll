@@ -471,7 +471,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_deinit(ptr noundef captures(address) %b, i1 noundef zeroext %del) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_deinit(ptr noundef %b, i1 noundef zeroext %del) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %if.else, label %if.end

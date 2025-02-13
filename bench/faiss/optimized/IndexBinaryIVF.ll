@@ -545,7 +545,7 @@ define void @_ZN5faiss14IndexBinaryIVF12add_with_idsElPKhPKl(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5faiss14IndexBinaryIVF6searchElPKhlPiPlPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(address_is_null) %6) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5faiss14IndexBinaryIVF6searchElPKhlPiPlPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone %6) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -771,7 +771,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit44: ; preds = %_ZNSt10uniq
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5faiss14IndexBinaryIVF12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noalias noundef %2, i32 noundef %3, ptr noalias noundef %4, ptr noundef readnone captures(address_is_null) %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5faiss14IndexBinaryIVF12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noalias noundef %2, i32 noundef %3, ptr noalias noundef %4, ptr noundef readnone %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %24, label %8
@@ -1072,7 +1072,7 @@ define void @_ZNK5faiss14IndexBinaryIVF13reconstruct_nEllPh(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noalias noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, ptr noundef readnone captures(address_is_null) %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noalias noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, ptr noundef readnone %7) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2011,7 +2011,7 @@ define void @_ZN5faiss14IndexBinaryIVFC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss14IndexBinaryIVF8add_coreElPKhPKlS4_(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss14IndexBinaryIVF8add_coreElPKhPKlS4_(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %8 = load i8, ptr %7, align 1
@@ -9278,7 +9278,7 @@ default.unreachable92:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef readonly captures(address_is_null) %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"struct.faiss::(anonymous namespace)::BlockSearch.87", align 8

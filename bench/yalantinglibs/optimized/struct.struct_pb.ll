@@ -96,7 +96,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6StructEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6StructEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 dereferenceable(48) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
@@ -338,7 +338,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf6StructEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 %size, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf6StructEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 %size, ptr noundef nonnull readonly align 8 dereferenceable(48) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp28 = alloca %"struct.struct_pb::UnknownFields", align 8

@@ -1718,7 +1718,7 @@ if.end175:                                        ; preds = %while.cond.for.inc1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr_core(ptr noundef readonly captures(none) %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(address_is_null) %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_hdr_core(ptr noundef readonly captures(none) %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly %data) local_unnamed_addr #4 {
 entry:
   %buffer = alloca [128 x i8], align 16
   %header = alloca [66 x i8], align 16
@@ -1779,7 +1779,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef captures(address_is_null) %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -1792,7 +1792,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef captures(address_is_null) %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_hdr(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -1868,7 +1868,7 @@ if.end17:                                         ; preds = %if.end, %cond.end
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbiw__zlib_flushf(ptr noundef captures(address, ret: address, provenance) %data, ptr noundef captures(none) %bitbuffer, ptr noundef captures(none) %bitcount) local_unnamed_addr #4 {
+define ptr @stbiw__zlib_flushf(ptr noundef %data, ptr noundef captures(none) %bitbuffer, ptr noundef captures(none) %bitcount) local_unnamed_addr #4 {
 entry:
   %.pr = load i32, ptr %bitcount, align 4
   %cmp6 = icmp sgt i32 %.pr, 7
@@ -5420,7 +5420,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(none) %s, i32 noundef %width, i32 noundef %height, i32 noundef %comp, ptr noundef readonly captures(address_is_null) %data, i32 noundef %quality) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(none) %s, i32 noundef %width, i32 noundef %height, i32 noundef %comp, ptr noundef readonly %data, i32 noundef %quality) local_unnamed_addr #4 {
 entry:
   %c.addr.i195 = alloca i8, align 1
   %c.addr.i193 = alloca i8, align 1
@@ -6077,7 +6077,7 @@ return:                                           ; preds = %entry, %stbiw__jpg_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef captures(address_is_null) %data, i32 noundef %quality) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data, i32 noundef %quality) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -6090,7 +6090,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef captures(address_is_null) %data, i32 noundef %quality) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data, i32 noundef %quality) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16

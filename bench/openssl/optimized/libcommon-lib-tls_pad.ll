@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [40 x i8] c"../openssl/ssl/record/methods/tls_pad.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl3_cbc_remove_padding_and_mac(ptr noundef captures(none) %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef captures(address_is_null) %mac, ptr noundef captures(address_is_null) %alloced, i64 noundef %block_size, i64 noundef %mac_size, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl3_cbc_remove_padding_and_mac(ptr noundef captures(none) %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %add = add i64 %mac_size, 1
   %0 = load i64, ptr %reclen, align 8
@@ -43,7 +43,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captures(none) %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef writeonly captures(address_is_null) %mac, ptr noundef writeonly captures(address_is_null) %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %good, ptr noundef %libctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captures(none) %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef writeonly %mac, ptr noundef writeonly %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %good, ptr noundef %libctx) unnamed_addr #0 {
 entry:
   %rotated_mac_buf = alloca [128 x i8], align 16
   %randmac = alloca [64 x i8], align 16
@@ -203,7 +203,7 @@ return:                                           ; preds = %for.body82, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr noundef captures(none) %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef captures(address_is_null) %mac, ptr noundef captures(address_is_null) %alloced, i64 noundef %block_size, i64 noundef %mac_size, i32 noundef %aead, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr noundef captures(none) %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i32 noundef %aead, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne i64 %block_size, 1
   %conv = zext i1 %cmp to i64

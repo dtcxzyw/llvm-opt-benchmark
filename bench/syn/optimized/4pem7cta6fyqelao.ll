@@ -213,7 +213,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.cb776e29a3edfb21b922828375758a83.4.llvm.11864023271123110445 = external hidden unnamed_addr constant <{}>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden { i64, i64 } @"_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17hb6ca3650398b6db3E"(i64 noundef %0, ptr readonly captures(address_is_null) %1) unnamed_addr #0 {
+define hidden { i64, i64 } @"_ZN4core3ops5range18Bound$LT$$RF$T$GT$6cloned17hb6ca3650398b6db3E"(i64 noundef %0, ptr readonly %1) unnamed_addr #0 {
   %switch = icmp ult i64 %0, 2
   br i1 %switch, label %.sink.split, label %5
 
@@ -1008,7 +1008,7 @@ _ZN3syn5parse11ParseBuffer4step17hb941b6aeea17b97dE.exit: ; preds = %12, %14
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN60_$LT$syn..token..Underscore$u20$as$u20$syn..token..Token$GT$4peek17h173d2a27b13890d0E"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @"_ZN60_$LT$syn..token..Underscore$u20$as$u20$syn..token..Token$GT$4peek17h173d2a27b13890d0E"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.01.i.i = alloca { { i64, ptr }, i64 }, align 8
   %.sroa.8.i = alloca [7 x i8], align 1
@@ -1490,7 +1490,7 @@ define hidden void @"_ZN3syn6thread20ThreadBound$LT$T$GT$3new17hb3cc000cd12a157f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN3syn6thread20ThreadBound$LT$T$GT$3get17h70fbd4853681454aE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #2 {
+define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN3syn6thread20ThreadBound$LT$T$GT$3get17h70fbd4853681454aE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %3 = tail call noundef nonnull ptr @_ZN3std6thread7current17ha2f171abb653aba5E()
@@ -2402,12 +2402,12 @@ define i32 @"_ZN61_$LT$syn..token..Underscore$u20$as$u20$core..clone..Clone$GT$5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN66_$LT$syn..token..Underscore$u20$as$u20$core..ops..deref..Deref$GT$5deref17h11a3d47cd8759accE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN66_$LT$syn..token..Underscore$u20$as$u20$core..ops..deref..Deref$GT$5deref17h11a3d47cd8759accE"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN69_$LT$syn..token..Underscore$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb63674a691f2cad0E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN69_$LT$syn..token..Underscore$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb63674a691f2cad0E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -10806,12 +10806,12 @@ define i32 @"_ZN54_$LT$syn..token..And$u20$as$u20$core..clone..Clone$GT$5clone17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN59_$LT$syn..token..And$u20$as$u20$core..ops..deref..Deref$GT$5deref17h694681d41e8fce8fE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN59_$LT$syn..token..And$u20$as$u20$core..ops..deref..Deref$GT$5deref17h694681d41e8fce8fE"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..And$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h65cb647fcfc97eccE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..And$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h65cb647fcfc97eccE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -10863,12 +10863,12 @@ define i32 @"_ZN53_$LT$syn..token..At$u20$as$u20$core..clone..Clone$GT$5clone17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..At$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7e583478a29fa219E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..At$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7e583478a29fa219E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..At$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h091dcc0aedc6c6d0E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..At$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h091dcc0aedc6c6d0E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -10886,12 +10886,12 @@ define i32 @"_ZN56_$LT$syn..token..Caret$u20$as$u20$core..clone..Clone$GT$5clone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Caret$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd8e485e45887e258E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Caret$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd8e485e45887e258E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Caret$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h31ef3d013d4cdf9aE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Caret$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h31ef3d013d4cdf9aE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -10926,12 +10926,12 @@ define i32 @"_ZN56_$LT$syn..token..Colon$u20$as$u20$core..clone..Clone$GT$5clone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Colon$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2ad103741cc13411E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Colon$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2ad103741cc13411E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Colon$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hec488cc508040f07E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Colon$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hec488cc508040f07E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -10949,12 +10949,12 @@ define i32 @"_ZN56_$LT$syn..token..Comma$u20$as$u20$core..clone..Clone$GT$5clone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Comma$u20$as$u20$core..ops..deref..Deref$GT$5deref17h219ad1df854670a0E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Comma$u20$as$u20$core..ops..deref..Deref$GT$5deref17h219ad1df854670a0E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Comma$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hcdd83f75d843fe55E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Comma$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hcdd83f75d843fe55E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -10972,12 +10972,12 @@ define i32 @"_ZN57_$LT$syn..token..Dollar$u20$as$u20$core..clone..Clone$GT$5clon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..Dollar$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb38cc3d45d693de1E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..Dollar$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb38cc3d45d693de1E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN65_$LT$syn..token..Dollar$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hdd9f846703fc2e5bE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN65_$LT$syn..token..Dollar$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hdd9f846703fc2e5bE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -10995,12 +10995,12 @@ define i32 @"_ZN54_$LT$syn..token..Dot$u20$as$u20$core..clone..Clone$GT$5clone17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN59_$LT$syn..token..Dot$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf26161a6de7bb13eE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN59_$LT$syn..token..Dot$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf26161a6de7bb13eE"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..Dot$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h31f462e9e31a3833E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..Dot$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h31f462e9e31a3833E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11089,12 +11089,12 @@ define i32 @"_ZN53_$LT$syn..token..Eq$u20$as$u20$core..clone..Clone$GT$5clone17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..Deref$GT$5deref17h23c65288318746adE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..Deref$GT$5deref17h23c65288318746adE"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h569436a278063268E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h569436a278063268E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11163,12 +11163,12 @@ define i32 @"_ZN53_$LT$syn..token..Gt$u20$as$u20$core..clone..Clone$GT$5clone17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Gt$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc3dcbd0944e96704E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Gt$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc3dcbd0944e96704E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Gt$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2f280e2f1e1b3bdfE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Gt$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2f280e2f1e1b3bdfE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11220,12 +11220,12 @@ define i32 @"_ZN53_$LT$syn..token..Lt$u20$as$u20$core..clone..Clone$GT$5clone17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Lt$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf18ed48adfaf8b72E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Lt$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf18ed48adfaf8b72E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Lt$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h36abe81dd2e965f4E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Lt$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h36abe81dd2e965f4E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11243,12 +11243,12 @@ define i32 @"_ZN56_$LT$syn..token..Minus$u20$as$u20$core..clone..Clone$GT$5clone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Minus$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb09ff423526c98d8E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Minus$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb09ff423526c98d8E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Minus$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb72c199ac11fd213E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Minus$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb72c199ac11fd213E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11300,12 +11300,12 @@ define i32 @"_ZN54_$LT$syn..token..Not$u20$as$u20$core..clone..Clone$GT$5clone17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN59_$LT$syn..token..Not$u20$as$u20$core..ops..deref..Deref$GT$5deref17h05353cb7b22c66ecE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN59_$LT$syn..token..Not$u20$as$u20$core..ops..deref..Deref$GT$5deref17h05353cb7b22c66ecE"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..Not$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h74733ab5bb95b0baE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN62_$LT$syn..token..Not$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h74733ab5bb95b0baE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11323,12 +11323,12 @@ define i32 @"_ZN53_$LT$syn..token..Or$u20$as$u20$core..clone..Clone$GT$5clone17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Or$u20$as$u20$core..ops..deref..Deref$GT$5deref17h686536473e8b5cd6E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN58_$LT$syn..token..Or$u20$as$u20$core..ops..deref..Deref$GT$5deref17h686536473e8b5cd6E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Or$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h548d3560831184b4E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Or$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h548d3560831184b4E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11397,12 +11397,12 @@ define i32 @"_ZN58_$LT$syn..token..Percent$u20$as$u20$core..clone..Clone$GT$5clo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Percent$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2accfa3ad2066c40E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Percent$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2accfa3ad2066c40E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN66_$LT$syn..token..Percent$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb3e036f1a42aa079E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN66_$LT$syn..token..Percent$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb3e036f1a42aa079E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11437,12 +11437,12 @@ define i32 @"_ZN55_$LT$syn..token..Plus$u20$as$u20$core..clone..Clone$GT$5clone1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN60_$LT$syn..token..Plus$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1b97d68ee137a682E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN60_$LT$syn..token..Plus$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1b97d68ee137a682E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Plus$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2aaa2b4be9e25a4eE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Plus$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2aaa2b4be9e25a4eE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11477,12 +11477,12 @@ define i32 @"_ZN56_$LT$syn..token..Pound$u20$as$u20$core..clone..Clone$GT$5clone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Pound$u20$as$u20$core..ops..deref..Deref$GT$5deref17hbde2bf6c3d3ceba4E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Pound$u20$as$u20$core..ops..deref..Deref$GT$5deref17hbde2bf6c3d3ceba4E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Pound$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8496fa7856d81ce3E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Pound$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8496fa7856d81ce3E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11500,12 +11500,12 @@ define i32 @"_ZN59_$LT$syn..token..Question$u20$as$u20$core..clone..Clone$GT$5cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Question$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0bdce854be62de38E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Question$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0bdce854be62de38E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN67_$LT$syn..token..Question$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h97ee01ee8c25a6a2E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN67_$LT$syn..token..Question$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h97ee01ee8c25a6a2E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11540,12 +11540,12 @@ define i32 @"_ZN55_$LT$syn..token..Semi$u20$as$u20$core..clone..Clone$GT$5clone1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN60_$LT$syn..token..Semi$u20$as$u20$core..ops..deref..Deref$GT$5deref17hec45fad38d102004E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN60_$LT$syn..token..Semi$u20$as$u20$core..ops..deref..Deref$GT$5deref17hec45fad38d102004E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Semi$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb0c58ce317ee4d31E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Semi$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb0c58ce317ee4d31E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11651,12 +11651,12 @@ define i32 @"_ZN56_$LT$syn..token..Slash$u20$as$u20$core..clone..Clone$GT$5clone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Slash$u20$as$u20$core..ops..deref..Deref$GT$5deref17h91f0816895aa108dE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Slash$u20$as$u20$core..ops..deref..Deref$GT$5deref17h91f0816895aa108dE"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Slash$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8b1459be05386e5eE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Slash$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8b1459be05386e5eE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11691,12 +11691,12 @@ define i32 @"_ZN55_$LT$syn..token..Star$u20$as$u20$core..clone..Clone$GT$5clone1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN60_$LT$syn..token..Star$u20$as$u20$core..ops..deref..Deref$GT$5deref17hab7120c9acd4d877E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN60_$LT$syn..token..Star$u20$as$u20$core..ops..deref..Deref$GT$5deref17hab7120c9acd4d877E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Star$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h48f89d16543635b5E"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN63_$LT$syn..token..Star$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h48f89d16543635b5E"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -11731,12 +11731,12 @@ define i32 @"_ZN56_$LT$syn..token..Tilde$u20$as$u20$core..clone..Clone$GT$5clone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Tilde$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf5fbdcfb965991d6E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN61_$LT$syn..token..Tilde$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf5fbdcfb965991d6E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Tilde$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h9d417554aa2d9f9cE"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #5 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN64_$LT$syn..token..Tilde$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h9d417554aa2d9f9cE"(ptr noalias noundef readnone returned align 4 dereferenceable(4) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

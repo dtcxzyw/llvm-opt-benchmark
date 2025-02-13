@@ -2867,7 +2867,7 @@ _ZN5clang19OpenACCCreateClauseC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang23OpenACCDeviceTypeClause6CreateERKNS_10ASTContextENS_17OpenACCClauseKindENS_14SourceLocationES5_N4llvm8ArrayRefISt4pairIPNS_14IdentifierInfoES5_EEES5_(ptr noundef nonnull align 8 dereferenceable(23216) %0, i8 noundef zeroext %1, i32 %2, i32 %3, ptr readonly captures(address) %4, i64 %5, i32 %6) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN5clang23OpenACCDeviceTypeClause6CreateERKNS_10ASTContextENS_17OpenACCClauseKindENS_14SourceLocationES5_N4llvm8ArrayRefISt4pairIPNS_14IdentifierInfoES5_EEES5_(ptr noundef nonnull align 8 dereferenceable(23216) %0, i8 noundef zeroext %1, i32 %2, i32 %3, ptr readonly %4, i64 %5, i32 %6) local_unnamed_addr #1 align 2 {
   %8 = shl i64 %5, 4
   %9 = add i64 %8, 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -3565,7 +3565,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %30, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20OpenACCClausePrinter15VisitSelfClauseERKNS_17OpenACCSelfClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang20OpenACCClausePrinter15VisitSelfClauseERKNS_17OpenACCSelfClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -6564,7 +6564,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %120, %118, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang20OpenACCClausePrinter21VisitDeviceTypeClauseERKNS_23OpenACCDeviceTypeClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !187
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !3

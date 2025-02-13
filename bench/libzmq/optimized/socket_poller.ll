@@ -752,7 +752,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef readnone captures(address) %socket_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef readnone %socket_, i16 noundef signext %events_) local_unnamed_addr #11 align 2 {
 entry:
   %_items = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_items, align 8

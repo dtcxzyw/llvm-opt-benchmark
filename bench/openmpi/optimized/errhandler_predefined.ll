@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_comm_self = external global %struct.ompi_predefined_communicator_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -112,7 +112,7 @@ backend_abort.exit:                               ; preds = %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_errors_are_fatal_file_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define void @ompi_mpi_errors_are_fatal_file_handler(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -154,7 +154,7 @@ backend_abort.exit:                               ; preds = %13, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_errors_are_fatal_win_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define void @ompi_mpi_errors_are_fatal_win_handler(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -195,7 +195,7 @@ backend_abort.exit:                               ; preds = %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_errors_abort_comm_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define void @ompi_mpi_errors_abort_comm_handler(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -244,7 +244,7 @@ backend_abort.exit:                               ; preds = %14, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_errors_abort_file_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define void @ompi_mpi_errors_abort_file_handler(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -291,7 +291,7 @@ backend_abort.exit:                               ; preds = %15, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_errors_abort_win_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define void @ompi_mpi_errors_abort_win_handler(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -332,7 +332,7 @@ backend_abort.exit:                               ; preds = %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -373,7 +373,7 @@ define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @backend_abort_aggregate(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @backend_abort_aggregate(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr %4, align 8
@@ -504,7 +504,7 @@ ompi_mpi_errnum_get_string.exit:                  ; preds = %36, %44, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @backend_abort_no_aggregate(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @backend_abort_no_aggregate(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [512 x i8], align 16
   %7 = load volatile i32, ptr @ompi_mpi_state, align 4
   %8 = load ptr, ptr @stdout, align 8

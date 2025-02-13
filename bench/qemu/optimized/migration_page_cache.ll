@@ -190,7 +190,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @get_cached_data(ptr noundef readonly captures(address_is_null) %cache, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local ptr @get_cached_data(ptr noundef readonly %cache, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %cache, null
   br i1 %tobool.not.i, label %if.else.i, label %do.body1.i
@@ -230,7 +230,7 @@ cache_get_by_addr.exit:                           ; preds = %do.end6.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @cache_is_cached(ptr noundef readonly captures(address_is_null) %cache, i64 noundef %addr, i64 noundef %current_age) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @cache_is_cached(ptr noundef readonly %cache, i64 noundef %addr, i64 noundef %current_age) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %cache, null
   br i1 %tobool.not.i, label %if.else.i, label %do.body1.i
@@ -279,7 +279,7 @@ return:                                           ; preds = %cache_get_by_addr.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @cache_insert(ptr noundef captures(address_is_null) %cache, i64 noundef %addr, ptr noundef readonly captures(none) %pdata, i64 noundef %current_age) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cache_insert(ptr noundef %cache, i64 noundef %addr, ptr noundef readonly captures(none) %pdata, i64 noundef %current_age) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tobool.not.i = icmp eq ptr %cache, null

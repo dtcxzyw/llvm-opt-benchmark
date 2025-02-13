@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_threads_pthreads_yield_fn = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_wait(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @ompi_request_default_wait(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ompi_wait_sync_t, align 8
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3)
@@ -384,7 +384,7 @@ ompi_request_wait_completion.exit:                ; preds = %106, %.critedge11.b
 declare i32 @ompi_grequest_invoke_query(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_wait_any(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @ompi_request_default_wait_any(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ompi_wait_sync_t, align 8
   %6 = icmp eq i64 %0, 0
   br i1 %6, label %13, label %.preheader86
@@ -819,7 +819,7 @@ declare zeroext i1 @ompi_request_is_failed_fn(ptr noundef) local_unnamed_addr #1
 declare i32 @ompi_sync_wait_mt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_wait_all(i64 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @ompi_request_default_wait_all(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ompi_wait_sync_t, align 8
   %5 = icmp eq i64 %0, 0
   br i1 %5, label %241, label %.preheader166
@@ -1353,7 +1353,7 @@ opal_thread_compare_exchange_strong_ptr.exit140:  ; preds = %188, %191, %183
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ompi_wait_sync_t, align 8
   %7 = icmp eq i64 %0, 0
   br i1 %7, label %14, label %.preheader127

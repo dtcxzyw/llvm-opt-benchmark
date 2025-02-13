@@ -1451,7 +1451,7 @@ declare i32 @ssl_cert_get_cert_store(ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i64 0, 2) i64 @ssl3_callback_ctrl(ptr noundef captures(address_is_null) %s, i32 noundef %cmd, ptr noundef %fp) local_unnamed_addr #8 {
+define range(i64 0, 2) i64 @ssl3_callback_ctrl(ptr noundef %s, i32 noundef %cmd, ptr noundef %fp) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1985,7 +1985,7 @@ declare i32 @SSL_CTX_set0_tmp_dh_pkey(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @srp_password_from_info_cb(ptr noundef readonly captures(address_is_null) %s, ptr readnone captures(none) %arg) #4 {
+define internal noalias ptr @srp_password_from_info_cb(ptr noundef readonly %s, ptr readnone captures(none) %arg) #4 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -3147,7 +3147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ssl3_renegotiate(ptr noundef captures(address_is_null) %s) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @ssl3_renegotiate(ptr noundef %s) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -4140,7 +4140,7 @@ declare i32 @EVP_PKEY_encapsulate_init(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @EVP_PKEY_encapsulate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_get0_group_name(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #4 {
+define ptr @SSL_get0_group_name(ptr noundef readonly %s) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false

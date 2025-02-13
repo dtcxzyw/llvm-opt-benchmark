@@ -1618,7 +1618,7 @@ define internal void @virtio_commit_rqs(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_queue_rqs(ptr noundef captures(address_is_null) %0) #2 align 16 {
+define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   %2 = alloca %struct.scatterlist, align 8
   %3 = alloca %struct.scatterlist, align 8
   %4 = alloca [3 x ptr], align 16
@@ -1816,7 +1816,7 @@ define internal void @virtio_queue_rqs(ptr noundef captures(address_is_null) %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #2 align 16 {
+define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
@@ -2690,7 +2690,7 @@ declare dso_local void @_dev_notice(ptr noundef, ptr noundef, ...) local_unnamed
 declare dso_local zeroext i1 @set_capacity_and_notify(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @virtblk_attrs_are_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #2 align 16 {
+define internal zeroext i16 @virtblk_attrs_are_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #2 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_cache_type
   br i1 %4, label %5, label %16
 

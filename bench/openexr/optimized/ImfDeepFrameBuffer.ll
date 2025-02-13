@@ -198,7 +198,7 @@ entry:
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7Imf_3_215DeepFrameBufferixEPKc(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7Imf_3_215DeepFrameBufferixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imf_3_2::Name", align 1
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -283,7 +283,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7Imf_3_215DeepFrameBufferixEPKc(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7Imf_3_215DeepFrameBufferixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imf_3_2::Name", align 1
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -368,7 +368,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7Imf_3_215DeepFrameBufferixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN7Imf_3_215DeepFrameBufferixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   %call2 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN7Imf_3_215DeepFrameBufferixEPKc(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %call)
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7Imf_3_215DeepFrameBufferixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7Imf_3_215DeepFrameBufferixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   %call2 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK7Imf_3_215DeepFrameBufferixEPKc(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %call)
@@ -384,7 +384,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7Imf_3_215DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7Imf_3_215DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #19
@@ -427,7 +427,7 @@ cond.end:                                         ; preds = %_ZNSt3mapIN7Imf_3_2
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK7Imf_3_215DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK7Imf_3_215DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #19
@@ -470,7 +470,7 @@ cond.end:                                         ; preds = %_ZNKSt3mapIN7Imf_3_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7Imf_3_215DeepFrameBuffer9findSliceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7Imf_3_215DeepFrameBuffer9findSliceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
@@ -516,7 +516,7 @@ _ZN7Imf_3_215DeepFrameBuffer9findSliceEPKc.exit:  ; preds = %entry, %_ZNSt8_Rb_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK7Imf_3_215DeepFrameBuffer9findSliceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK7Imf_3_215DeepFrameBuffer9findSliceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.Imf_3_2::Name", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
@@ -578,21 +578,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZN7Imf_3_215DeepFrameBuffer3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
+define nonnull ptr @_ZN7Imf_3_215DeepFrameBuffer3endEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK7Imf_3_215DeepFrameBuffer3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
+define nonnull ptr @_ZNK7Imf_3_215DeepFrameBuffer3endEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @_ZN7Imf_3_215DeepFrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 {
+define nonnull ptr @_ZN7Imf_3_215DeepFrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp2 = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp2, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #19
@@ -634,7 +634,7 @@ _ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findER
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @_ZNK7Imf_3_215DeepFrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 {
+define nonnull ptr @_ZNK7Imf_3_215DeepFrameBuffer4findEPKc(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp2 = alloca %"class.Imf_3_2::Name", align 1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp2, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 255) #19
@@ -676,7 +676,7 @@ _ZNKSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define nonnull ptr @_ZN7Imf_3_215DeepFrameBuffer4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 {
+define nonnull ptr @_ZN7Imf_3_215DeepFrameBuffer4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp2.i = alloca %"class.Imf_3_2::Name", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
@@ -721,7 +721,7 @@ _ZN7Imf_3_215DeepFrameBuffer4findEPKc.exit:       ; preds = %entry, %_ZNSt8_Rb_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define nonnull ptr @_ZNK7Imf_3_215DeepFrameBuffer4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 {
+define nonnull ptr @_ZNK7Imf_3_215DeepFrameBuffer4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp2.i = alloca %"class.Imf_3_2::Name", align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
@@ -796,7 +796,7 @@ if.end:                                           ; preds = %entry
 declare void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(50) ptr @_ZNK7Imf_3_215DeepFrameBuffer19getSampleCountSliceEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(50) ptr @_ZNK7Imf_3_215DeepFrameBuffer19getSampleCountSliceEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
 entry:
   %_sampleCounts = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %_sampleCounts

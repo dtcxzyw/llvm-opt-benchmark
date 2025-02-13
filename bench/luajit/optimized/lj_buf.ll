@@ -414,7 +414,7 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_putmem(ptr noundef returned captures(ret: address, provenance) %sb, ptr noundef readonly captures(none) %q, i32 noundef %len) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_putmem(ptr noundef returned %sb, ptr noundef readonly captures(none) %q, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %e.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %0 = load ptr, ptr %e.i, align 8
@@ -440,7 +440,7 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_putchar(ptr noundef returned captures(ret: address, provenance) %sb, i32 noundef %c) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_putchar(ptr noundef returned %sb, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sb, align 8
   %e = getelementptr inbounds nuw i8, ptr %sb, i64 8
@@ -462,7 +462,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_putstr(ptr noundef returned captures(ret: address, provenance) %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_putstr(ptr noundef returned %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
@@ -491,7 +491,7 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_putstr_reverse(ptr noundef returned captures(ret: address, provenance) %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_putstr_reverse(ptr noundef returned %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
@@ -542,7 +542,7 @@ while.end:                                        ; preds = %while.body, %lj_buf
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_putstr_lower(ptr noundef returned captures(ret: address, provenance) %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_putstr_lower(ptr noundef returned %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
@@ -595,7 +595,7 @@ for.end:                                          ; preds = %for.body, %lj_buf_m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_putstr_upper(ptr noundef returned captures(ret: address, provenance) %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_putstr_upper(ptr noundef returned %sb, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
@@ -648,7 +648,7 @@ for.end:                                          ; preds = %for.body, %lj_buf_m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_putstr_rep(ptr noundef returned captures(ret: address, provenance) %sb, ptr noundef readonly captures(address) %s, i32 noundef %rep) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_putstr_rep(ptr noundef returned %sb, ptr noundef readonly %s, i32 noundef %rep) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
@@ -735,7 +735,7 @@ if.end35:                                         ; preds = %if.end33, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_buf_puttab(ptr noundef %sb, ptr noundef %t, ptr noundef readonly captures(address_is_null) %sep, i32 noundef %i, i32 noundef %e) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_buf_puttab(ptr noundef %sb, ptr noundef %t, ptr noundef readonly %sep, i32 noundef %i, i32 noundef %e) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %sep, null
   br i1 %tobool.not, label %cond.end, label %cond.true

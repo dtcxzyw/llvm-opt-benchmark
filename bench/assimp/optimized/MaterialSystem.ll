@@ -258,7 +258,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef captures(address_is_null) %pMax) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
 entry:
   %pKey.addr = alloca ptr, align 8
   %prop = alloca ptr, align 8
@@ -733,7 +733,7 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %pOut, ptr noundef captures(address_is_null) %pMax) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
 entry:
   %in.addr.i = alloca ptr, align 8
   %pKey.addr = alloca ptr, align 8
@@ -1174,7 +1174,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialTexture(ptr noundef readonly captures(none) %mat, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %path, ptr noundef writeonly captures(address_is_null) %_mapping, ptr noundef writeonly captures(address_is_null) %uvindex, ptr noundef %blend, ptr noundef writeonly captures(address_is_null) %op, ptr noundef writeonly captures(address_is_null) %mapmode, ptr noundef writeonly captures(address_is_null) %flags) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialTexture(ptr noundef readonly captures(none) %mat, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %path, ptr noundef writeonly %_mapping, ptr noundef writeonly %uvindex, ptr noundef %blend, ptr noundef writeonly %op, ptr noundef writeonly %mapmode, ptr noundef writeonly %flags) local_unnamed_addr #2 {
 entry:
   %pKey.addr.i = alloca ptr, align 8
   %prop.i = alloca ptr, align 8

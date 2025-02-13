@@ -33,7 +33,7 @@ define hidden void @mlib_free(ptr noundef captures(none) %0) local_unnamed_addr 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @mlib_memset(ptr noundef returned writeonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden noundef ptr @mlib_memset(ptr noundef returned writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = trunc i32 %1 to i8
   %5 = zext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 %4, i64 %5, i1 false)
@@ -44,7 +44,7 @@ define hidden noundef ptr @mlib_memset(ptr noundef returned writeonly captures(r
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @mlib_memcpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden noundef ptr @mlib_memcpy(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = zext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %4, i1 false)
   ret ptr %0
@@ -54,7 +54,7 @@ define hidden noundef ptr @mlib_memcpy(ptr noundef returned writeonly captures(r
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @mlib_memmove(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden noundef ptr @mlib_memmove(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = zext i32 %2 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %4, i1 false)
   ret ptr %0

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { ptr, [1192 x i8] }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @g_fmt(ptr noundef returned writeonly captures(ret: address, provenance) %b, double noundef %x) local_unnamed_addr #0 {
+define hidden noundef ptr @g_fmt(ptr noundef returned writeonly %b, double noundef %x) local_unnamed_addr #0 {
 entry:
   %decpt = alloca i32, align 4
   %sign = alloca i32, align 4

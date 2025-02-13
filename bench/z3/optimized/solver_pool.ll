@@ -1244,7 +1244,7 @@ if.end:                                           ; preds = %entry, %_ZN11pool_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11solver_pool7refreshEP6solver(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, ptr noundef readnone captures(address) %base_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11solver_pool7refreshEP6solver(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, ptr noundef readnone %base_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_base = alloca %class.ref, align 8
   %0 = load ptr, ptr %this, align 8

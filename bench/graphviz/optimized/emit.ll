@@ -479,7 +479,7 @@ gv_strdup.exit:                                   ; preds = %41
 declare ptr @strdup_and_subst_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @getObjId(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(ret: address, provenance) %2) local_unnamed_addr #0 {
+define ptr @getObjId(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %6 = load ptr, ptr %5, align 8
@@ -11694,7 +11694,7 @@ declare double @llvm.minnum.f64(double, double) #6
 declare void @free_textspan(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initObjMapData(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @initObjMapData(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = tail call ptr @agget(ptr noundef %2, ptr noundef nonnull @.str.47) #28
   %6 = tail call ptr @agget(ptr noundef %2, ptr noundef nonnull @.str.48) #28
@@ -12745,7 +12745,7 @@ define internal noundef double @nonefunc(double %0, double %1, double noundef %2
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nodeIntersect(ptr noundef %0, double %1, double %2, i1 noundef zeroext %3, ptr noundef readnone captures(address) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @nodeIntersect(ptr noundef %0, double %1, double %2, i1 noundef zeroext %3, ptr noundef readnone %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   br i1 %3, label %12, label %9

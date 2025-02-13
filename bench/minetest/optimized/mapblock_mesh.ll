@@ -7109,7 +7109,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12MapBlockMesh7animateEbfij(ptr noundef nonnull align 8 captures(address) dereferenceable(328) initializes((76, 80)) %this, i1 noundef zeroext %faraway, float noundef %time, i32 noundef %crack, i32 noundef %daynight_ratio) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN12MapBlockMesh7animateEbfij(ptr noundef nonnull align 8 dereferenceable(328) initializes((76, 80)) %this, i1 noundef zeroext %faraway, float noundef %time, i32 noundef %crack, i32 noundef %daynight_ratio) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

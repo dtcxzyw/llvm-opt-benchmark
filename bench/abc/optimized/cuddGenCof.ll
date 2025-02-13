@@ -2893,7 +2893,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
 declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @MarkCacheCleanUp(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal noundef i32 @MarkCacheCleanUp(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 

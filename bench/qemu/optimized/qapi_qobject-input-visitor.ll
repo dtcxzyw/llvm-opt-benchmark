@@ -877,7 +877,7 @@ return:                                           ; preds = %if.end, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_input_end_struct(ptr noundef captures(none) %v, ptr noundef readnone captures(address) %obj) #0 {
+define internal void @qobject_input_end_struct(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
@@ -1091,7 +1091,7 @@ return:                                           ; preds = %if.end, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_input_end_list(ptr noundef captures(none) %v, ptr noundef readnone captures(address) %obj) #0 {
+define internal void @qobject_input_end_list(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8

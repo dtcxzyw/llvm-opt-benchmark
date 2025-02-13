@@ -295,7 +295,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$std..path..Path$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6uu_env15variable_parser14VariableParser25check_variable_name_start17hfb6f4b875849867aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr readonly %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { ptr, [3 x i64] }, align 8

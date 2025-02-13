@@ -434,7 +434,7 @@ default.unreachable:                              ; preds = %9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401"(i64 noundef %0, ptr readnone returned captures(ret: address, provenance) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401"(i64 noundef %0, ptr readnone returned %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %switch = icmp eq i64 %0, 0
   br i1 %switch, label %7, label %8
@@ -1309,7 +1309,7 @@ define hidden noundef i64 @_ZN10rayon_core8registry8Registry19current_num_thread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef align 128 ptr @_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E(ptr noundef nonnull readnone align 128 captures(address) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define noundef align 128 ptr @_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E(ptr noundef nonnull readnone align 128 %0) unnamed_addr #5 personality ptr @rust_eh_personality {
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit":
   %.0.val.i = load ptr, ptr @_ZN10rayon_core8registry19WORKER_THREAD_STATE7__getit3VAL17h9453257021be81b2E, align 8, !noalias !182, !noundef !4
   %1 = icmp eq ptr %.0.val.i, null

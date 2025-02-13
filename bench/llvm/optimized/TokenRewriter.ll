@@ -246,7 +246,7 @@ _ZNSt7__cxx1110_List_baseIN5clang5TokenESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @_ZN5clang13TokenRewriter13RemapIteratorESt20_List_const_iteratorINS_5TokenEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(80) %0, ptr readonly captures(address) %1) local_unnamed_addr #6 align 2 {
+define dso_local ptr @_ZN5clang13TokenRewriter13RemapIteratorESt20_List_const_iteratorINS_5TokenEE(ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr readonly %1) local_unnamed_addr #6 align 2 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %19, label %4
 
@@ -376,7 +376,7 @@ _ZNSt3mapIN5clang14SourceLocationESt14_List_iteratorINS0_5TokenEESt4lessIS1_ESaI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN5clang13TokenRewriter14AddTokenBeforeESt20_List_const_iteratorINS_5TokenEEPKc(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang13TokenRewriter14AddTokenBeforeESt20_List_const_iteratorINS_5TokenEEPKc(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.114", align 8
   %5 = alloca ptr, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17

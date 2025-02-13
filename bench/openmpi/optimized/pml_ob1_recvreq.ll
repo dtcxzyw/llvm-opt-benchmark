@@ -2007,7 +2007,7 @@ mca_pml_ob1_recv_request_get_frag.exit.thread:    ; preds = %.thread.i101, %mca_
 declare i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef initializes((560, 568)) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef initializes((560, 568)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -2590,7 +2590,7 @@ opal_free_list_wait_st.exit:                      ; preds = %107, %137, %opal_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [16 x %struct.iovec], align 16
   %7 = alloca i32, align 4
@@ -3390,7 +3390,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %7, %mca_pml_ob1_com
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -5654,7 +5654,7 @@ declare void @mca_pml_ob1_send_request_process_pending(ptr noundef) local_unname
 declare void @mca_pml_ob1_process_pending_rdma() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef readnone captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8

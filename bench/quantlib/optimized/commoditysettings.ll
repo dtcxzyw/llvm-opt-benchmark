@@ -463,13 +463,13 @@ _ZN5boost10shared_ptrIN8QuantLib8Currency4DataEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib17CommoditySettings8currencyEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(32) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib17CommoditySettings8currencyEv(ptr noundef nonnull readnone returned align 8 dereferenceable(32) %this) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib17CommoditySettings13unitOfMeasureEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib17CommoditySettings13unitOfMeasureEv(ptr noundef nonnull readnone align 8 dereferenceable(32) %this) local_unnamed_addr #4 align 2 {
 entry:
   %unitOfMeasure_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %unitOfMeasure_

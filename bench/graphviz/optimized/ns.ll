@@ -2977,7 +2977,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_tree_edge(ptr noundef nonnull %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @inter_tree_edge_search(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #9 {
+define internal fastcc ptr @inter_tree_edge_search(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #9 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 440
@@ -3335,7 +3335,7 @@ STsetFind.exit125:                                ; preds = %.lr.ph.i117, %164, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tree_adjust(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef %2) unnamed_addr #9 {
+define internal fastcc void @tree_adjust(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 360
@@ -3516,7 +3516,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @dfs_range_init(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfs_cutval(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @dfs_cutval(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 424

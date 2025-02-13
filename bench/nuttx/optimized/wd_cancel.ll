@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_wdactivelist = external global %struct.sq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @wd_cancel(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @wd_cancel(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #3, !srcloc !6

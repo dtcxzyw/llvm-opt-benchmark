@@ -19984,7 +19984,7 @@ _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal23GetOwnedMessageInternalEPNS0_5ArenaEPNS0_11MessageLiteES3_(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6google8protobuf8internal23GetOwnedMessageInternalEPNS0_5ArenaEPNS0_11MessageLiteES3_(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = and i1 %4, %5

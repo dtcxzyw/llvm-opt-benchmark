@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_base62 = internal unnamed_addr global [6 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mktemp(ptr noundef captures(address, ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [6 x i8], align 1
   %3 = alloca %struct.stat, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6

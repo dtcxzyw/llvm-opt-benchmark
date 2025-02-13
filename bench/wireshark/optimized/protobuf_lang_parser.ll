@@ -56,7 +56,7 @@ define hidden void @ProtobufLangParserInit(ptr noundef initializes((8, 12)) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ProtobufLangParserFinalize(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define hidden void @ProtobufLangParserFinalize(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %0, align 8
   %3 = icmp ugt ptr %.promoted, %2
@@ -86,7 +86,7 @@ define hidden range(i32 0, 256) i32 @ProtobufLangParserFallback(i32 noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @protobuf_lang_error(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @protobuf_lang_error(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %4
 
@@ -144,7 +144,7 @@ define internal void @pbl_printf(ptr noundef readonly captures(none) %0, ...) un
 declare i32 @protobuf_lang_get_lineno(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pbl_parser_error(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #3 {
+define hidden void @pbl_parser_error(ptr noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %1, ptr noundef nonnull %3) #11

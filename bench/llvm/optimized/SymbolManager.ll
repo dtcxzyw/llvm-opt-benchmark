@@ -2121,7 +2121,7 @@ define dso_local void @_ZN5clang4ento12SymbolReaper8markLiveEPKNS0_9MemRegionE(p
 declare noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento12SymbolReaper22markElementIndicesLiveEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento12SymbolReaper22markElementIndicesLiveEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.clang::ento::SVal", align 8
   %4 = alloca %"class.llvm::iterator_range", align 8
   %5 = alloca %"class.clang::ento::SymExpr::symbol_iterator", align 8

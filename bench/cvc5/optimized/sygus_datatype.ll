@@ -1618,7 +1618,7 @@ declare void @_ZN4cvc58internal5DType8setSygusENS0_8TypeNodeENS0_12NodeTemplateI
 declare void @_ZN4cvc58internal5DType19addSygusConstructorENS0_12NodeTemplateILb1EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_8TypeNodeESaISD_EEi(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(448) ptr @_ZNK4cvc58internal13SygusDatatype11getDatatypeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(472) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(448) ptr @_ZNK4cvc58internal13SygusDatatype11getDatatypeEv(ptr noundef nonnull readnone align 8 dereferenceable(472) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_dt = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %d_dt

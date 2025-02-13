@@ -28,7 +28,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @subgraph_search(ptr noundef readnone returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #1 {
+define internal noundef ptr @subgraph_search(ptr noundef readnone returned %0, ptr readnone captures(none) %1) #1 {
   ret ptr %0
 }
 

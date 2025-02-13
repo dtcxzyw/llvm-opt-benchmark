@@ -139,7 +139,7 @@ define void @ext_sensors_destroy(ptr noundef %0) local_unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @ext_sensors_data_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define void @ext_sensors_data_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %2, 9983
   br i1 %4, label %5, label %15
 

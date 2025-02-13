@@ -373,7 +373,7 @@ declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 28
   %4 = add i32 %1, 4095
   %5 = sext i32 %4 to i64

@@ -330,14 +330,14 @@ _ZN3irr5scene29IDummyTransformationSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneMa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(312) %this) unnamed_addr #1 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 dereferenceable(312) %this) unnamed_addr #1 align 2 {
 entry:
   %Box = getelementptr inbounds nuw i8, ptr %this, i64 288
   ret ptr %Box
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(64) ptr @_ZN3irr5scene29CDummyTransformationSceneNode31getRelativeTransformationMatrixEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(312) %this) unnamed_addr #1 align 2 {
+define noundef nonnull align 4 dereferenceable(64) ptr @_ZN3irr5scene29CDummyTransformationSceneNode31getRelativeTransformationMatrixEv(ptr noundef nonnull readnone align 8 dereferenceable(312) %this) unnamed_addr #1 align 2 {
 entry:
   %RelativeTransformationMatrix = getelementptr inbounds nuw i8, ptr %this, i64 224
   ret ptr %RelativeTransformationMatrix
@@ -533,7 +533,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode8getScaleEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(312) %this) unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode8getScaleEv(ptr noundef nonnull readnone align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str, i32 noundef 0) #18
   %RelativeScale = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -552,7 +552,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode11getRotationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(312) %this) unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode11getRotationEv(ptr noundef nonnull readnone align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.2, i32 noundef 0) #18
   %RelativeRotation = getelementptr inbounds nuw i8, ptr %this, i64 124
@@ -569,7 +569,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode11getPositionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(312) %this) unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode11getPositionEv(ptr noundef nonnull readnone align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.4, i32 noundef 0) #18
   %RelativeTranslation = getelementptr inbounds nuw i8, ptr %this, i64 112

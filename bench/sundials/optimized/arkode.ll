@@ -256,7 +256,7 @@ define noundef ptr @arkCreate(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @arkProcessError(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ...) local_unnamed_addr #0 {
+define void @arkProcessError(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ...) local_unnamed_addr #0 {
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef nonnull %7) #16
@@ -490,7 +490,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @arkResizeVectors(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @arkResizeVectors(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -1203,7 +1203,7 @@ define range(i32 -1, 1) i32 @arkEwtSetSV(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -23, 1) i32 @arkWFtolerances(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @arkWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1636,7 +1636,7 @@ define range(i32 -23, 1) i32 @arkResFtolerance(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @arkEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca double, align 8
   %8 = alloca i32, align 4
@@ -3128,7 +3128,7 @@ define range(i32 0, 2) i32 @arkStopTests(ptr noundef %0, double noundef %1, ptr 
 declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 4) i32 @arkCheckConvergence(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -32, 4) i32 @arkCheckConvergence(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %switch.lookup, label %6
@@ -3550,7 +3550,7 @@ define i32 @arkCompleteStep(ptr noundef initializes((424, 432)) %0, double nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -99, -2) i32 @arkHandleFailure(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -99, -2) i32 @arkHandleFailure(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %70 [
     i32 -3, label %3
     i32 -4, label %8
@@ -5017,7 +5017,7 @@ define void @arkFreeVecArray(i32 noundef %0, ptr noundef captures(none) %1, i64 
 declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @arkResizeVec(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @arkResizeVec(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %25, label %9
@@ -5064,7 +5064,7 @@ define range(i32 0, 2) i32 @arkResizeVec(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @arkResizeVecArray(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i64 noundef %5, ptr noundef captures(none) %6, i64 noundef %7, ptr noundef captures(none) %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @arkResizeVecArray(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i64 noundef %5, ptr noundef captures(none) %6, i64 noundef %7, ptr noundef captures(none) %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.loopexit27, label %11
@@ -5557,7 +5557,7 @@ define i32 @arkPredict_CutoffOrder(ptr noundef %0, double noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -28, 1) i32 @arkPredict_Bootstrap(ptr noundef captures(address_is_null) %0, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @arkPredict_Bootstrap(ptr noundef %0, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 

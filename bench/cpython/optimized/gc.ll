@@ -356,7 +356,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare void @PyUnstable_GC_VisitObjects(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) #3 {
+define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone %0, ptr noundef captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8, !tbaa !9
   %4 = icmp eq ptr %0, %3
   br i1 %4, label %5, label %7

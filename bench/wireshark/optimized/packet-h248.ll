@@ -2796,7 +2796,7 @@ define hidden ptr @gcp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %8
 
@@ -3103,7 +3103,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @gcp_msg_to_str(ptr noundef readonly captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @gcp_msg_to_str(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %80, label %4
 
@@ -3717,7 +3717,7 @@ declare void @alcap_tree_from_bearer_key(ptr noundef, ptr noundef, ptr noundef, 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @h248_param_ber_integer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define void @h248_param_ber_integer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2) #7
   %.not = icmp eq ptr %5, null
@@ -3740,7 +3740,7 @@ declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr no
 declare i32 @dissect_ber_integer(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @h248_param_ber_octetstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden void @h248_param_ber_octetstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2) #7
   %.not = icmp eq ptr %5, null
@@ -3761,7 +3761,7 @@ define hidden void @h248_param_ber_octetstring(ptr noundef %0, ptr noundef %1, p
 declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @h248_param_ber_boolean(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden void @h248_param_ber_boolean(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2) #7
   %.not = icmp eq ptr %5, null
@@ -3782,7 +3782,7 @@ define hidden void @h248_param_ber_boolean(ptr noundef %0, ptr noundef %1, ptr n
 declare i32 @dissect_ber_boolean(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @h248_param_bytes_item(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden void @h248_param_bytes_item(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %7
 
@@ -3799,7 +3799,7 @@ define hidden void @h248_param_bytes_item(ptr noundef %0, ptr noundef %1, ptr no
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @h248_param_uint_item(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
+define hidden void @h248_param_uint_item(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %7
 

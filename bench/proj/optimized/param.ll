@@ -42,7 +42,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %40, label %.preheader
 
@@ -143,7 +143,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #8 {
+define noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 61) #14
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %.not = icmp eq ptr %3, null

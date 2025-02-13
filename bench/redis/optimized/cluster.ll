@@ -415,7 +415,7 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @crc64(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @verifyDumpPayload(ptr noundef %p, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %rdbver_ptr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @verifyDumpPayload(ptr noundef %p, i64 noundef %len, ptr noundef writeonly %rdbver_ptr) local_unnamed_addr #0 {
 entry:
   %crc = alloca i64, align 8
   %cmp = icmp ult i64 %len, 10
@@ -3306,7 +3306,7 @@ declare i32 @clusterCommandSpecial(ptr noundef) local_unnamed_addr #1
 declare void @addReplySubcommandSyntaxError(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getNodeByQuery(ptr noundef %c, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly captures(address_is_null) %hashslot, ptr noundef writeonly captures(address_is_null) %error_code) local_unnamed_addr #0 {
+define dso_local ptr @getNodeByQuery(ptr noundef %c, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly %hashslot, ptr noundef writeonly %error_code) local_unnamed_addr #0 {
 entry:
   %_ms.sroa.0 = alloca ptr, align 8
   %_ms.sroa.2 = alloca i32, align 8

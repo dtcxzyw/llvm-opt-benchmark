@@ -150,7 +150,7 @@ return:                                           ; preds = %if.else78, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -2, 5) i32 @UTF8_putc(ptr noundef writeonly captures(address_is_null) %str, i32 noundef %len, i64 noundef %value) local_unnamed_addr #1 {
+define range(i32 -2, 5) i32 @UTF8_putc(ptr noundef writeonly %str, i32 noundef %len, i64 noundef %value) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end2, label %if.else

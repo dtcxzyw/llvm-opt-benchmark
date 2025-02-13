@@ -967,7 +967,7 @@ define hidden noalias noundef ptr @_ZN10CodeBuffer17code_section_nameEi(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 3) i32 @_ZNK10CodeBuffer16section_index_ofEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -1, 3) i32 @_ZNK10CodeBuffer16section_index_ofEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
@@ -1666,7 +1666,7 @@ _ZNK11CodeSection14align_at_startEi.exit:         ; preds = %11, %14, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10CodeBuffer20compute_final_layoutEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK10CodeBuffer20compute_final_layoutEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2524,7 +2524,7 @@ define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer21total_relocation_s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_toEP8CodeBlob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 
@@ -2542,7 +2542,7 @@ define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_toEPhib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef writeonly captures(address_is_null) %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer19copy_relocations_toEPhib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef writeonly %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not71 = icmp eq ptr %1, null
   %6 = icmp ne ptr %1, null
@@ -3201,7 +3201,7 @@ declare noundef i32 @_ZN17AbstractAssembler14code_fill_byteEv() local_unnamed_ad
 declare noundef ptr @_ZN13RelocIterator5relocEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN10CodeBuffer26figure_expanded_capacitiesEP11CodeSectioniPi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(448) %0, ptr noundef readnone captures(address) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN10CodeBuffer26figure_expanded_capacitiesEP11CodeSectioniPi(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %invariant.gep = getelementptr i8, ptr %3, i64 -4
   br label %6
@@ -3320,7 +3320,7 @@ _ZNK11CodeSection14align_at_startEi.exit:         ; preds = %12, %15, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %class.CodeBuffer, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280

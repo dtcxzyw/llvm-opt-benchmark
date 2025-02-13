@@ -237,7 +237,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK19TileAnimationParams15determineParamsEN3irr4core8vector2dIjEEPiS4_PS3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, i64 %texture_size.coerce, ptr noundef writeonly captures(address_is_null) %frame_count, ptr noundef writeonly captures(address_is_null) %frame_length_ms, ptr noundef writeonly captures(address_is_null) %frame_size) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK19TileAnimationParams15determineParamsEN3irr4core8vector2dIjEEPiS4_PS3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, i64 %texture_size.coerce, ptr noundef writeonly %frame_count, ptr noundef writeonly %frame_length_ms, ptr noundef writeonly %frame_size) local_unnamed_addr #5 align 2 {
 entry:
   %texture_size.sroa.0.0.extract.trunc = trunc i64 %texture_size.coerce to i32
   %texture_size.sroa.4.0.extract.shift = lshr i64 %texture_size.coerce, 32

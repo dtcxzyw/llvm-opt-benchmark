@@ -396,7 +396,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %l, i32 noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj(ptr noundef nonnull readonly align 8 dereferenceable(24) %l, i32 noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %n.addr = alloca i32, align 4
   store i32 %n, ptr %n.addr, align 4

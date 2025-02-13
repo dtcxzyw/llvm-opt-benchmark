@@ -617,7 +617,7 @@ declare i32 @H5Eclose_stack(i64 noundef) local_unnamed_addr #1
 declare i32 @H5close() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @h5tools_set_data_output_file(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @h5tools_set_data_output_file(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @rawdatastream, align 8
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @stdout, align 8
@@ -670,7 +670,7 @@ define range(i32 -1, 1) i32 @h5tools_set_data_output_file(ptr noundef readonly c
 declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @h5tools_set_attr_output_file(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @h5tools_set_attr_output_file(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @rawattrstream, align 8
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @stdout, align 8
@@ -720,7 +720,7 @@ define range(i32 -1, 1) i32 @h5tools_set_attr_output_file(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @h5tools_set_input_file(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @h5tools_set_input_file(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @rawinstream, align 8
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @stdin, align 8
@@ -770,7 +770,7 @@ define range(i32 -1, 1) i32 @h5tools_set_input_file(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @h5tools_set_output_file(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @h5tools_set_output_file(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @rawoutstream, align 8
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @stdout, align 8
@@ -820,7 +820,7 @@ define range(i32 -1, 1) i32 @h5tools_set_output_file(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @h5tools_set_error_file(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @h5tools_set_error_file(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @rawerrorstream, align 8
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @stderr, align 8
@@ -870,7 +870,7 @@ define range(i32 -1, 1) i32 @h5tools_set_error_file(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @h5tools_get_fapl(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @h5tools_get_fapl(i64 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp slt i64 %0, 0
   br i1 %5, label %6, label %22
@@ -2860,7 +2860,7 @@ declare i32 @H5Tget_nmembers(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Tget_member_type(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_simple_prefix(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @h5tools_simple_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.h5tools_str_t, align 8
   %7 = alloca %struct.h5tools_str_t, align 8
   %8 = icmp eq ptr %0, null
@@ -3023,7 +3023,7 @@ declare i64 @h5tools_str_len(ptr noundef) local_unnamed_addr #1
 declare void @h5tools_str_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_region_simple_prefix(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @h5tools_region_simple_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.h5tools_str_t, align 8
   %8 = alloca %struct.h5tools_str_t, align 8
   %9 = icmp eq ptr %0, null
@@ -3171,7 +3171,7 @@ define void @h5tools_region_simple_prefix(ptr noundef captures(address_is_null) 
 declare ptr @h5tools_str_region_prefix(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @h5tools_render_element(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define noundef zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %0, null
   br i1 %9, label %150, label %10
 
@@ -3478,7 +3478,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @h5tools_render_region_element(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #0 {
+define noundef zeroext i1 @h5tools_render_region_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @h5tools_str_fmt(ptr noundef %3, i64 noundef 0, ptr noundef nonnull @.str.63) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %12 = load i32, ptr %11, align 8

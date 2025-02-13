@@ -361,7 +361,7 @@ declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_un
 declare ptr @agroot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.clist_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = icmp eq ptr %1, null
@@ -2369,7 +2369,7 @@ freeDerivedGraph.exit:                            ; preds = %._crit_edge35.i, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evalPositions(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @evalPositions(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160

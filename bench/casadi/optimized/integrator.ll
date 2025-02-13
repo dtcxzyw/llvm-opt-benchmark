@@ -9555,7 +9555,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
 declare void @_ZNK6casadi16FunctionInternal5setupEPvPPKdPPdPxS5_(ptr noundef nonnull align 8 dereferenceable(1304), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6casadi10Integrator9next_stopExPKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1905) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK6casadi10Integrator9next_stopExPKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1905) %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -9696,7 +9696,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6casadi10Integrator8all_zeroEPKdx(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN6casadi10Integrator8all_zeroEPKdx(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp sgt i64 %1, 0
   %or.cond14 = and i1 %3, %4
@@ -9718,7 +9718,7 @@ define noundef zeroext i1 @_ZN6casadi10Integrator8all_zeroEPKdx(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK6casadi10Integrator10next_stopBExPKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1905) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 {
+define noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK6casadi10Integrator10next_stopBExPKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1905) %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -32537,7 +32537,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi19FixedStepIntegrator8init_memEPv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi19FixedStepIntegrator7advanceEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 align 2 {
+define void @_ZNK6casadi19FixedStepIntegrator7advanceEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -33167,7 +33167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi19FixedStepIntegrator7retreatEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 align 2 {
+define void @_ZNK6casadi19FixedStepIntegrator7retreatEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -33962,7 +33962,7 @@ _ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi19FixedStepIntegrator5resetEPNS_16IntegratorMemoryEPKdS4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1976) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #15 align 2 {
+define void @_ZNK6casadi19FixedStepIntegrator5resetEPNS_16IntegratorMemoryEPKdS4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1976) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #15 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -34230,7 +34230,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit22:         ; preds = %_ZN6casadi12casadi_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi19FixedStepIntegrator8impulseBEPNS_16IntegratorMemoryEPKdS4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1976) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #17 align 2 {
+define void @_ZNK6casadi19FixedStepIntegrator8impulseBEPNS_16IntegratorMemoryEPKdS4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1976) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #17 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 256

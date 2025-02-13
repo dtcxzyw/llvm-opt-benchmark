@@ -1003,7 +1003,7 @@ define range(i32 -1, 1) i32 @conmgr_process_fd(i32 noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_add_connection(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.conmgr_events_t) align 8 captures(none) %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc ptr @_add_connection(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.conmgr_events_t) align 8 captures(none) %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca %struct.stat, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -1770,7 +1770,7 @@ _queue_func.exit:                                 ; preds = %40, %36, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_watch(ptr noundef readnone captures(address_is_null) %0) #0 {
+define internal void @_watch(ptr noundef readnone %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -4284,7 +4284,7 @@ define void @conmgr_add_signal_work(i32 noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @conmgr_get_fd_auth_creds(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @conmgr_get_fd_auth_creds(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ucred, align 4
   %6 = alloca i32, align 4
   %7 = icmp ne ptr %0, null
@@ -4465,7 +4465,7 @@ define ptr @conmgr_fd_get_name(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @conmgr_fd_get_in_buffer(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #9 {
+define void @conmgr_fd_get_in_buffer(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %4
 
@@ -4523,7 +4523,7 @@ define void @conmgr_fd_mark_consumed_in_buffer(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @conmgr_fd_xfer_in_buffer(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @conmgr_fd_xfer_in_buffer(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %53, label %3
 
@@ -4618,7 +4618,7 @@ declare i32 @try_grow_buf_remaining(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @create_buf(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @conmgr_fd_xfer_out_buffer(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef i32 @conmgr_fd_xfer_out_buffer(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %14, label %3
 
@@ -7908,7 +7908,7 @@ declare ptr @poll_revents_to_str(i16 noundef signext) local_unnamed_addr #5
 declare i32 @fd_get_socket_error(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_listen_accept(ptr noundef captures(address_is_null) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
+define internal void @_listen_accept(ptr noundef %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.sockaddr_storage, align 8
   %7 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)

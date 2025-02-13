@@ -24601,7 +24601,7 @@ _ZNK6duckdb6vectorINS_17ExportedTableInfoELb1EE3getILb1EEERKS1_m.exit: ; preds =
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL19WriteCatalogEntriesERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS_6vectorISt17reference_wrapperINS_12CatalogEntryEELb1EEE(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr readonly captures(address) %entries.0.val, ptr readnone captures(address) %entries.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL19WriteCatalogEntriesERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERNS_6vectorISt17reference_wrapperINS_12CatalogEntryEELb1EEE(ptr noundef nonnull align 8 dereferenceable(128) %ss, ptr readonly %entries.0.val, ptr readnone %entries.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %cmp.i.not7 = icmp eq ptr %entries.0.val, %entries.8.val

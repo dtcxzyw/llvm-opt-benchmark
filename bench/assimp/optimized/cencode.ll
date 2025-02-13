@@ -34,7 +34,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @base64_encode_block(ptr noundef readonly captures(address) %plaintext_in, i32 noundef %length_in, ptr noundef %code_out, ptr noundef captures(none) %state_in) local_unnamed_addr #2 {
+define i32 @base64_encode_block(ptr noundef readonly %plaintext_in, i32 noundef %length_in, ptr noundef %code_out, ptr noundef captures(none) %state_in) local_unnamed_addr #2 {
 entry:
   %idx.ext = sext i32 %length_in to i64
   %add.ptr = getelementptr inbounds i8, ptr %plaintext_in, i64 %idx.ext

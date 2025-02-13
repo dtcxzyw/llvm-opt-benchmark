@@ -225,7 +225,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal13DTypeSelector7getNameB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(57) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal13DTypeSelector7getNameB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(57) %this) local_unnamed_addr #5 align 2 {
 entry:
   ret ptr %this
 }

@@ -922,7 +922,7 @@ define dso_local ptr @ewah_new() local_unnamed_addr #0 {
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @ewah_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define dso_local void @ewah_free(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

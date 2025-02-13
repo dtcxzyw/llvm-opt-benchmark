@@ -96,7 +96,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @lineGetData(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @lineGetData(ptr noundef readnone %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = select i1 %.not, ptr null, ptr %2
@@ -104,7 +104,7 @@ define ptr @lineGetData(ptr noundef readnone captures(address_is_null, ret: addr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef ptr @lineUnlink(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define noundef ptr @lineUnlink(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !tbaa !3
   %3 = add i8 %2, -1
   store i8 %3, ptr %0, align 1, !tbaa !3

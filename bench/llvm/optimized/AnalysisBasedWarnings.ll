@@ -12659,7 +12659,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_125UnsafeBufferUsageReporte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_125UnsafeBufferUsageReporter35getUnsafeBufferUsageAttributeTextAtB5cxx11EN5clang14SourceLocationEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1, i32 %2, ptr readonly captures(address_is_null) %3, i64 %4) unnamed_addr #1 align 2 {
+define internal void @_ZNK12_GLOBAL__N_125UnsafeBufferUsageReporter35getUnsafeBufferUsageAttributeTextAtB5cxx11EN5clang14SourceLocationEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1, i32 %2, ptr readonly %3, i64 %4) unnamed_addr #1 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [7 x %"class.clang::TokenValue"], align 16
@@ -13972,7 +13972,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZZNK12_GLOBAL__N_125UnsafeBufferUsageReporter25listVariableGroupAsStringB5cxx11EPKN5clang7VarDeclERKN4llvm8ArrayRefIS4_EEENKUlNS5_9StringRefEE_clB5cxx11ESA_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address_is_null) %1, i64 %2) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZZNK12_GLOBAL__N_125UnsafeBufferUsageReporter25listVariableGroupAsStringB5cxx11EPKN5clang7VarDeclERKN4llvm8ArrayRefIS4_EEENKUlNS5_9StringRefEE_clB5cxx11ESA_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %1, i64 %2) unnamed_addr #7 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19885,7 +19885,7 @@ _ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter18handleMutexNotHeldEN4llvm9StringRefEPKNS_9NamedDeclENS0_22ProtectedOperationKindES4_NS0_8LockKindENS_14SourceLocationEPS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr %1, i64 %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, i32 noundef %6, i32 %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #1 align 2 {
+define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter18handleMutexNotHeldEN4llvm9StringRefEPKNS_9NamedDeclENS0_22ProtectedOperationKindES4_NS0_8LockKindENS_14SourceLocationEPS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr %1, i64 %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, i32 noundef %6, i32 %7, ptr noundef readonly %8) unnamed_addr #1 align 2 {
   %10 = alloca %"struct.std::pair.1367", align 8
   %11 = alloca %"class.clang::PartialDiagnostic", align 8
   %12 = alloca %"struct.std::pair.1367", align 8
@@ -26800,7 +26800,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9UninitUse6BranchELb1EE18uninitialized_
 declare void @_ZN5clang22UninitVariablesHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122UninitValsDiagReporter25hasAlwaysUninitializedUseEPKN4llvm11SmallVectorIN5clang9UninitUseELj2EEE(ptr readonly captures(address) %.0.val, i32 %.8.val) unnamed_addr #18 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122UninitValsDiagReporter25hasAlwaysUninitializedUseEPKN4llvm11SmallVectorIN5clang9UninitUseELj2EEE(ptr readonly %.0.val, i32 %.8.val) unnamed_addr #18 align 2 {
   %1 = zext i32 %.8.val to i64
   %.idx1.i = shl nuw nsw i64 %1, 6
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1.i
@@ -35117,7 +35117,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit29
 declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117ContainsReferenceEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117ContainsReferenceEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -35329,7 +35329,7 @@ declare noundef zeroext i1 @_ZNK5clang8CallExpr24isUnevaluatedBuiltinCallERKNS_1
 declare noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEvaluatedEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13CreateIfFixitRN5clang4SemaEPKNS_4StmtES4_S4_bRNS_9FixItHintES6_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 captures(address) dereferenceable(57) initializes((0, 21)) %5, ptr noundef nonnull align 8 captures(address) dereferenceable(57) %6) unnamed_addr #1 {
+define internal fastcc void @_ZL13CreateIfFixitRN5clang4SemaEPKNS_4StmtES4_S4_bRNS_9FixItHintES6_(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 21)) %5, ptr noundef nonnull align 8 dereferenceable(57) %6) unnamed_addr #1 {
   %8 = alloca %"class.clang::FixItHint", align 8
   %9 = alloca %"class.clang::FixItHint", align 8
   %10 = alloca %"class.clang::FixItHint", align 8
@@ -37714,7 +37714,7 @@ _ZN5clang9UninitUseD2Ev.exit:                     ; preds = %_ZN4llvm15SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIPN5clang9UninitUseEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_SC_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::UninitUse", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -38477,7 +38477,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEEN
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127shouldAnalyzeCalledOnceImplEN4llvm8ArrayRefIjEERKN5clang17DiagnosticsEngineENS3_14SourceLocationE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull readonly align 8 dereferenceable(15248) %2, i32 %3) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127shouldAnalyzeCalledOnceImplEN4llvm8ArrayRefIjEERKN5clang17DiagnosticsEngineENS3_14SourceLocationE(ptr readonly %0, i64 %1, ptr noundef nonnull readonly align 8 dereferenceable(15248) %2, i32 %3) unnamed_addr #8 {
   %.idx1.i = shl nuw nsw i64 %1, 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx1.i
   %.not.i = icmp ult i64 %1, 4

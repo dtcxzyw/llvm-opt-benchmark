@@ -5145,7 +5145,7 @@ _ZN2cv4gapi4s11n19ByteMemoryOutStreamD2Ev.exit:   ; preds = %_ZNSt6vectorIcSaIcE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv4gapi4s11n19ByteMemoryOutStream4dataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv4gapi4s11n19ByteMemoryOutStream4dataEv(ptr noundef nonnull readnone align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -5247,42 +5247,42 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamENS_4util9monostateE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamENS_4util9monostateE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4util9monostateE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4util9monostateE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -5383,7 +5383,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERSt10shared_ptrINS0_3wip13IStreamSourceEE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERSt10shared_ptrINS0_3wip13IStreamSourceEE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -20569,7 +20569,7 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i9:        ; preds = %90, %87, %78
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEj(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = trunc i32 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20847,7 +20847,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit30:         ; preds = %90, %_ZNSt6vectorIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEm(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20934,7 +20934,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %12, %_ZNSt6vectorIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEb(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEb(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21008,7 +21008,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEc(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i8 noundef signext %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEc(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i8 noundef signext %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -21081,7 +21081,7 @@ _ZNSt6vectorIcSaIcEE9push_backERKc.exit:          ; preds = %8, %_ZNSt6vectorIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEh(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i8 noundef zeroext %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEh(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i8 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -21154,7 +21154,7 @@ _ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEc.exit:   ; preds = %8, %_ZNSt6vectorIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEs(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i16 noundef signext %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEs(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i16 noundef signext %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = trunc i16 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21296,19 +21296,19 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit10:         ; preds = %36, %_ZNSt6vectorIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEt(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i16 noundef zeroext %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEt(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i16 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEs(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef signext %1)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEi(ptr noundef nonnull returned align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEf(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, float noundef %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEf(ptr noundef nonnull returned align 8 dereferenceable(32) %0, float noundef %1) unnamed_addr #3 align 2 {
   %3 = bitcast float %1 to i32
   %4 = tail call i32 @htonl(i32 noundef %3) #36
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4)
@@ -21322,7 +21322,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @htonl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, double noundef %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEd(ptr noundef nonnull returned align 8 dereferenceable(32) %0, double noundef %1) unnamed_addr #3 align 2 {
   %3 = bitcast double %1 to i64
   %.0.extract.trunc = trunc i64 %3 to i32
   %.4.extract.shift = lshr i64 %3, 32
@@ -21338,7 +21338,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMem
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #31
   %4 = trunc i64 %3 to i32
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4)
@@ -21451,7 +21451,7 @@ define void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC2ERKSt6vectorIcSaIcEE(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERj(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21491,7 +21491,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERb(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERb(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21508,7 +21508,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsESt14_Bit_reference(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr captures(none) %1, i64 %2) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsESt14_Bit_reference(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr captures(none) %1, i64 %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21539,7 +21539,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERc(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERc(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21554,7 +21554,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERm(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #14 align 2 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21584,7 +21584,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERh(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERh(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21599,7 +21599,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERs(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERs(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21623,7 +21623,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERt(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERt(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21647,7 +21647,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERi(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21687,7 +21687,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERf(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERf(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21731,7 +21731,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERd(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21805,7 +21805,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -1081,7 +1081,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @__errno_location() #10
   store i32 0, ptr %6, align 4
@@ -1194,7 +1194,7 @@ declare ptr @__errno_location() local_unnamed_addr #1
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @__errno_location() #10
   store i32 0, ptr %6, align 4
@@ -1827,7 +1827,7 @@ define dso_local range(i32 0, 22) i32 @pg_lltoa(i64 noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local ptr @pg_ultostr_zeropad(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local ptr @pg_ultostr_zeropad(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ult i32 %1, 100
   %5 = icmp eq i32 %2, 2
   %or.cond = and i1 %4, %5
@@ -1982,7 +1982,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local ptr @pg_ultostr(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 

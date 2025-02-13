@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @d2i_ocsp_nonce(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %length) #1 {
+define internal noundef ptr @d2i_ocsp_nonce(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -214,7 +214,7 @@ return:                                           ; preds = %if.end7, %if.then9,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @i2d_ocsp_nonce(ptr noundef readonly captures(none) %a, ptr noundef captures(address_is_null) %pp) #2 {
+define internal i32 @i2d_ocsp_nonce(ptr noundef readonly captures(none) %a, ptr noundef %pp) #2 {
 entry:
   %tobool.not = icmp eq ptr %pp, null
   br i1 %tobool.not, label %if.end, label %if.then

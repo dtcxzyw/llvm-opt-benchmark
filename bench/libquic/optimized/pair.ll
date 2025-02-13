@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_write(ptr noundef %bio, ptr noundef readonly captures(address_is_null) %buf, i32 noundef %num_) #0 {
+define internal i32 @bio_write(ptr noundef %bio, ptr noundef readonly %buf, i32 noundef %num_) #0 {
 entry:
   %conv = sext i32 %num_ to i64
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #12
@@ -722,7 +722,7 @@ return:                                           ; preds = %if.end, %entry, %do
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_read(ptr noundef %bio, ptr noundef writeonly captures(address_is_null) %buf, i32 noundef %size_) #0 {
+define internal i32 @bio_read(ptr noundef %bio, ptr noundef writeonly %buf, i32 noundef %size_) #0 {
 entry:
   %conv = sext i32 %size_ to i64
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #12
@@ -833,7 +833,7 @@ return:                                           ; preds = %if.then12, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_puts(ptr noundef %bio, ptr noundef captures(address_is_null) %str) #0 {
+define internal i32 @bio_puts(ptr noundef %bio, ptr noundef %str) #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #14
   %conv = trunc i64 %call to i32
@@ -842,7 +842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @bio_ctrl(ptr noundef captures(none) %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef readonly captures(address_is_null) %ptr) #2 {
+define internal i64 @bio_ctrl(ptr noundef captures(none) %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef readonly %ptr) #2 {
 entry:
   %ptr1 = getelementptr inbounds nuw i8, ptr %bio, i64 48
   %0 = load ptr, ptr %ptr1, align 8
@@ -981,7 +981,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 0, 2) i32 @bio_free(ptr noundef captures(address_is_null) %bio) #4 {
+define internal range(i32 0, 2) i32 @bio_free(ptr noundef %bio) #4 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

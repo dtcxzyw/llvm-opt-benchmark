@@ -7563,7 +7563,7 @@ declare void @glGetFloatv(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @glGetError() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(12) ptr @_ZNK3irr5video23COpenGLExtensionHandler10getFeatureEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1872) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(12) ptr @_ZNK3irr5video23COpenGLExtensionHandler10getFeatureEv(ptr noundef nonnull readnone align 8 dereferenceable(1872) %this) local_unnamed_addr #8 align 2 {
 entry:
   %Feature = getelementptr inbounds nuw i8, ptr %this, i64 544
   ret ptr %Feature

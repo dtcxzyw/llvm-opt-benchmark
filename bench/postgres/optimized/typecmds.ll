@@ -207,7 +207,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.AlterTypeRecurse = private unnamed_addr constant [17 x i8] c"AlterTypeRecurse\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca [3 x i32], align 4
   %6 = alloca ptr, align 8
@@ -1972,7 +1972,7 @@ declare ptr @deparse_expression(ptr noundef, ptr noundef, i1 noundef zeroext, i1
 declare ptr @nodeToString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @domainAddConstraint(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @domainAddConstraint(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -3702,7 +3702,7 @@ declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 declare void @CacheInvalidateHeapTuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @makeTypeNameFromNameList(ptr noundef %0) #8
   %5 = tail call i32 @typenameTypeId(ptr noundef null, ptr noundef %4) #8
   %6 = tail call ptr @table_open(i32 noundef 1247, i32 noundef 3) #8
@@ -4683,7 +4683,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare i32 @get_range_multirange(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterTypeNamespace(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterTypeNamespace(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call ptr @makeTypeNameFromNameList(ptr noundef %0) #8
   %6 = tail call i32 @typenameTypeId(ptr noundef null, ptr noundef %5) #8
   %7 = icmp eq i32 %2, 12

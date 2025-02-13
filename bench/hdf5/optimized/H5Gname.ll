@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [20 x i8] c"can't free location\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @H5G__component(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @H5G__component(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -365,7 +365,7 @@ define noundef i32 @H5G_name_reset(ptr noundef writeonly captures(none) initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G_get_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5G_get_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -452,7 +452,7 @@ declare i64 @H5RS_len(ptr noundef) local_unnamed_addr #3
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G_get_name_by_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5G_get_name_by_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
   %6 = alloca %struct.H5G_gnba_iter_t, align 8
   %7 = alloca %struct.H5G_loc_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -559,7 +559,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @H5RS_decr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G_name_replace(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5G_name_replace(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.H5O_loc_t, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.H5G_names_t, align 8

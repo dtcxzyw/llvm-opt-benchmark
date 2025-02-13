@@ -49,7 +49,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_send_key(ptr noundef readonly captures(address_is_null) %keys, i1 noundef zeroext %has_hold_time, i64 noundef %hold_time, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_send_key(ptr noundef readonly %keys, i1 noundef zeroext %has_hold_time, i64 noundef %hold_time, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %spec.select = select i1 %has_hold_time, i64 %hold_time, i64 0
   %cmp.not20 = icmp eq ptr %keys, null
@@ -484,7 +484,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @qemu_input_key_number_to_qcode(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @legacy_kbd_event(ptr noundef readonly captures(address_is_null) %dev, ptr readnone captures(none) %src, ptr noundef readonly captures(none) %evt) #0 {
+define internal void @legacy_kbd_event(ptr noundef readonly %dev, ptr readnone captures(none) %src, ptr noundef readonly captures(none) %evt) #0 {
 entry:
   %scancodes = alloca [3 x i32], align 4
   %u = getelementptr inbounds nuw i8, ptr %evt, i64 8

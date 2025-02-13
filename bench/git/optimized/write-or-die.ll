@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fsync_method = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @maybe_flush_or_die(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @maybe_flush_or_die(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = load ptr, ptr @stdout, align 8, !tbaa !4
   %5 = icmp eq ptr %0, %4

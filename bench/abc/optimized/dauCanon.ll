@@ -800,7 +800,7 @@ Abc_TtCopy.exit18:                                ; preds = %.lr.ph, %Abc_TtCopy
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = icmp eq i32 %2, %3
   br i1 %5, label %.loopexit, label %6
 
@@ -2303,7 +2303,7 @@ Abc_TtCopy.exit56:                                ; preds = %Abc_TtSwapAdjacent.
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtFlip(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @Abc_TtFlip(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %5, label %17
 
@@ -3292,7 +3292,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %.loopexit98.i, %.pr
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 2) i32 @Abc_TtCompare2VarCofsRev(ptr noundef readonly captures(address) %0, i32 noundef range(i32 2, 1) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 2) i32 @Abc_TtCompare2VarCofsRev(ptr noundef readonly %0, i32 noundef range(i32 2, 1) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #8 {
   %6 = icmp slt i32 %2, 5
   br i1 %6, label %.preheader, label %29
 
@@ -4062,7 +4062,7 @@ Abc_TtCofactorPerm.exit71:                        ; preds = %.lr.ph18.i68.i61, %
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_TtSemiCanonicize(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
+define internal fastcc i32 @Abc_TtSemiCanonicize(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = icmp slt i32 %1, 7
   %7 = add nsw i32 %1, -6
   %8 = shl nuw i32 1, %7
@@ -5017,7 +5017,7 @@ Vec_IntFree.exit12:                               ; preds = %._crit_edge, %57
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Abc_TtHieRetrieveOrInsert(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(address) %3) local_unnamed_addr #11 {
+define range(i32 -1, 2) i32 @Abc_TtHieRetrieveOrInsert(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %Abc_TtCopy.exit, label %5
 
@@ -5886,7 +5886,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i67, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_TtCanonicizeHie(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
+define noundef i32 @Abc_TtCanonicizeHie(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = alloca [17 x i32], align 16
   %7 = alloca i32, align 4
   %8 = alloca [1024 x i64], align 16
@@ -6665,7 +6665,7 @@ define i32 @Abc_TgExpendSymmetry(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_TtCanonicizeAda(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
+define i32 @Abc_TtCanonicizeAda(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = alloca %struct.Abc_TgMan_t_, align 8
   %7 = alloca %struct.Abc_TgMan_t_, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #21
@@ -10642,7 +10642,7 @@ Abc_TgPermPhase.exit98:                           ; preds = %205, %214, %Abc_TtC
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_TtCanonicizeCA(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
+define i32 @Abc_TtCanonicizeCA(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = alloca %struct.Abc_TgMan_t_, align 8
   %7 = alloca %struct.Abc_TgMan_t_, align 8
   %8 = icmp slt i32 %2, 7
@@ -10919,7 +10919,7 @@ Abc_TtClear.exit:                                 ; preds = %.lr.ph.preheader.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @Abc_TgRecordPhase(ptr noundef nonnull captures(address) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #11 {
+define internal fastcc { i64, i32 } @Abc_TgRecordPhase(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #11 {
   %3 = alloca [18 x i32], align 16
   %4 = alloca [18 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -12696,7 +12696,7 @@ Abc_TgSaveBest.exit:                              ; preds = %75, %84, %Abc_TgMan
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Abc_TgCalcScc(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #7 {
+define internal fastcc void @Abc_TgCalcScc(ptr noundef nonnull readonly %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #7 {
   %4 = alloca [10 x i32], align 16
   %5 = load ptr, ptr %0, align 8, !tbaa !117
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

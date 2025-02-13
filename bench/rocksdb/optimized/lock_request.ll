@@ -1398,7 +1398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4toku12lock_request4waitEmmPFivEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 noundef %wait_time_ms, i64 noundef %killed_time_ms, ptr noundef readonly captures(address_is_null) %killed_callback, ptr noundef readonly captures(address_is_null) %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN4toku12lock_request4waitEmmPFivEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 noundef %wait_time_ms, i64 noundef %killed_time_ms, ptr noundef readonly %killed_callback, ptr noundef readonly %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i20 = alloca %struct.timeval, align 8
   %t.i13 = alloca %struct.timeval, align 8
@@ -1734,7 +1734,7 @@ if.end18:                                         ; preds = %if.else16, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request12report_waitsEPSt6vectorINS_14lock_wait_infoESaIS2_EEPFvPvS5_ES6_(ptr noundef %wait_conflicts, ptr noundef readonly captures(address_is_null) %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku12lock_request12report_waitsEPSt6vectorINS_14lock_wait_infoESaIS2_EEPFvPvS5_ES6_(ptr noundef %wait_conflicts, ptr noundef readonly %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %lock_wait_callback, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2104,7 +2104,7 @@ for.end:                                          ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_PFvvE(ptr noundef nonnull %lt, ptr noundef captures(address_is_null) %lock_wait_callback, ptr noundef %callback_arg, ptr noundef readonly captures(address_is_null) %after_retry_all_test_callback) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_PFvvE(ptr noundef nonnull %lt, ptr noundef %lock_wait_callback, ptr noundef %callback_arg, ptr noundef readonly %after_retry_all_test_callback) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN4toku8locktree21get_lock_request_infoEv(ptr noundef nonnull align 8 dereferenceable(400) %lt)
   %pending_is_empty = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -2167,7 +2167,7 @@ return:                                           ; preds = %entry, %if.end18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request28retry_all_lock_requests_infoEPNS_20lt_lock_request_infoEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_(ptr noundef captures(none) %info, ptr noundef readonly captures(address_is_null) %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request28retry_all_lock_requests_infoEPNS_20lt_lock_request_infoEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_(ptr noundef captures(none) %info, ptr noundef readonly %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i = alloca %"class.rocksdb::Status", align 8
   %conflicts_collector = alloca %"class.std::vector", align 8
@@ -2415,7 +2415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request11kill_waiterEPNS_8locktreeEPv(ptr noundef nonnull %lt, ptr noundef readnone captures(address) %extra) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request11kill_waiterEPNS_8locktreeEPv(ptr noundef nonnull %lt, ptr noundef readnone %extra) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i = alloca %"class.rocksdb::Status", align 8
   %call = tail call noundef ptr @_ZN4toku8locktree21get_lock_request_infoEv(ptr noundef nonnull align 8 dereferenceable(400) %lt)

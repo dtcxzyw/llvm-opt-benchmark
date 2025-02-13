@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [9 x i8] c"SHA2-512\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %md, ptr noundef %md_out, ptr noundef writeonly captures(address_is_null) %md_out_size, ptr noundef %header, ptr noundef %data, i64 noundef %data_size, i64 noundef %data_plus_mac_plus_padding_size, ptr noundef %mac_secret, i64 noundef %mac_secret_length, i8 noundef signext %is_sslv3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %md, ptr noundef %md_out, ptr noundef writeonly %md_out_size, ptr noundef %header, ptr noundef %data, i64 noundef %data_size, i64 noundef %data_plus_mac_plus_padding_size, ptr noundef %mac_secret, i64 noundef %mac_secret_length, i8 noundef signext %is_sslv3) local_unnamed_addr #0 {
 entry:
   %md_state = alloca %union.anon, align 8
   %length_bytes = alloca [16 x i8], align 16

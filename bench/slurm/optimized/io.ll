@@ -3013,7 +3013,7 @@ declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @eio_signal_shutdown(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @io_close_local_fds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @io_close_local_fds(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 

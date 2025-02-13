@@ -1502,7 +1502,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdf12_GLOBAL__N_1lsIPNS0_7RefNodeEEERNS_11raw_ostreamES6_RKNS1_10PrintListVIT_EE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr readonly captures(address) %.0.val.0.val, i32 %.0.val.8.val, ptr %.8.val) unnamed_addr #0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdf12_GLOBAL__N_1lsIPNS0_7RefNodeEEERNS_11raw_ostreamES6_RKNS1_10PrintListVIT_EE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr readonly %.0.val.0.val, i32 %.0.val.8.val, ptr %.8.val) unnamed_addr #0 {
   %2 = alloca %"struct.llvm::rdf::PrintNode", align 8
   %3 = alloca %"struct.llvm::rdf::NodeAddr.65", align 8
   %4 = alloca %"struct.llvm::rdf::PrintNode.74", align 8
@@ -1614,7 +1614,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %42, %40, %_ZN4llvm3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.77") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.77") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !95, !alias.scope !132
@@ -4089,7 +4089,7 @@ define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefEPNS_14MachineOperandERNS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #5 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #5 align 2 {
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !126
@@ -4407,7 +4407,7 @@ _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit: ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr readonly captures(none) %1, i32 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %3) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, i32 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %3) local_unnamed_addr #9 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !50
   %7 = icmp eq i32 %6, 0
@@ -4511,7 +4511,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #5 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #5 align 2 {
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !126
@@ -4735,7 +4735,7 @@ _ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.77", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
@@ -4861,7 +4861,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
@@ -11755,7 +11755,7 @@ _ZN4llvm3rdf8disjointIjEEbRKSt3setIT_St4lessIS3_ESaIS3_EES9_.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph15recordDefsForDFERNS0_15RegisterAggrMapIjEENS0_8NodeAddrIPNS0_9BlockNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr readonly captures(address) %2, i32 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph15recordDefsForDFERNS0_15RegisterAggrMapIjEENS0_8NodeAddrIPNS0_9BlockNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr readonly %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::set", align 8
   %7 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
@@ -14075,7 +14075,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEENS0_8NodeAddrIPNS0_9BlockNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr readonly captures(address) %2, i32 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEENS0_8NodeAddrIPNS0_9BlockNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr readonly %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.77", align 8
   %6 = alloca %"class.llvm::SmallVector.77", align 8
   %7 = alloca %"class.llvm::SmallVector.77", align 8
@@ -17284,7 +17284,7 @@ _ZN4llvm3rdf13DataFlowGraph8DefStack11start_blockEj.exit: ; preds = %10, %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph12releaseBlockEjRSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph12releaseBlockEjRSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::rdf::DataFlowGraph::DefStack::Iterator", align 8
   %5 = alloca %"struct.llvm::rdf::DataFlowGraph::DefStack::Iterator", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -17549,14 +17549,14 @@ _ZNSt13unordered_mapIjN4llvm3rdf13DataFlowGraph8DefStackESt4hashIjESt8equal_toIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph11pushAllDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr captures(address) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph11pushAllDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3rdf13DataFlowGraph12pushClobbersENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   tail call void @_ZN4llvm3rdf13DataFlowGraph8pushDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph12pushClobbersENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(address) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph12pushClobbersENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::set", align 8
   %6 = alloca %"class.std::set", align 8
   %7 = alloca %"class.std::set", align 8
@@ -18270,7 +18270,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit97:    ; preds = %272, %_ZNSt8_Rb_tre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph8pushDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(address) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph8pushDefsENS0_8NodeAddrIPNS0_9InstrNodeEEERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS7_EEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::set", align 8
   %6 = alloca %"class.std::set", align 8
   %7 = alloca %"class.llvm::SmallVector.77", align 8
@@ -19021,7 +19021,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
 declare void @_ZNK4llvm3rdf20PhysicalRegisterInfo11getAliasSetEj(ptr dead_on_unwind writable sret(%"class.std::set") align 8, ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(none) %1, i32 %2, ptr readonly captures(address) %3, i32 %4) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(none) %1, i32 %2, ptr readonly %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = load i16, ptr %3, align 8, !tbaa !47
   %7 = and i16 %6, 128
   %.not.i = icmp eq i16 %7, 0
@@ -19431,7 +19431,7 @@ _ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i10.i.i.i74: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEb(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr captures(none) %1, i32 %2, ptr captures(address) %3, i32 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEb(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr captures(none) %1, i32 %2, ptr %3, i32 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = load i16, ptr %3, align 8, !tbaa !47
   %8 = and i16 %7, 4032
   %9 = or disjoint i16 %8, 32
@@ -20683,7 +20683,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit90: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3rdf13DataFlowGraph15hasUntrackedRefENS0_8NodeAddrIPNS0_8StmtNodeEEEb(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(address) %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3rdf13DataFlowGraph15hasUntrackedRefENS0_8NodeAddrIPNS0_8StmtNodeEEEb(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::set", align 8
   %6 = alloca %"class.llvm::SmallVector.439", align 8
   %7 = alloca %"class.llvm::SmallVector.77", align 8

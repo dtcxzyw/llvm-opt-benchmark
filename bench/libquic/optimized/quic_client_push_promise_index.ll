@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net26QuicClientPushPromiseIndexD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net26QuicClientPushPromiseIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i64 16), ptr %this, align 8
   %promised_by_url_ = getelementptr inbounds nuw i8, ptr %this, i64 8

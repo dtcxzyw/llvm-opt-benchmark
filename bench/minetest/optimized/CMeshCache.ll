@@ -1187,7 +1187,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene10CMeshCache10removeMeshEPKNS0_5IMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone captures(address) %mesh) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene10CMeshCache10removeMeshEPKNS0_5IMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone %mesh) unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %mesh, null
   br i1 %tobool.not, label %for.end, label %for.cond.preheader
@@ -1370,7 +1370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3irr5scene10CMeshCache12getMeshIndexEPKNS0_5IMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone captures(address) %mesh) unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3irr5scene10CMeshCache12getMeshIndexEPKNS0_5IMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone %mesh) unnamed_addr #2 align 2 {
 entry:
   %Meshes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2180,7 +2180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3irr5scene10CMeshCache11getMeshNameEPKNS0_5IMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone captures(address) %mesh) unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK3irr5scene10CMeshCache11getMeshNameEPKNS0_5IMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone %mesh) unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %mesh, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -2924,7 +2924,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i7, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene10CMeshCache10renameMeshEPKNS0_5IMeshERKNS_4core6stringIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone captures(address) %mesh, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene10CMeshCache10renameMeshEPKNS0_5IMeshERKNS_4core6stringIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone %mesh, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #2 align 2 {
 entry:
   %Meshes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16

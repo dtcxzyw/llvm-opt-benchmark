@@ -2786,7 +2786,7 @@ define dso_local i32 @GetMaxSnapshotSubxidCount() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @GetSnapshotData(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @procArray, align 8
   %4 = load ptr, ptr @ProcGlobal, align 8
@@ -3334,7 +3334,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
 declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @procArray, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %55, label %4
@@ -5730,7 +5730,7 @@ define dso_local void @ProcArraySetReplicationSlotXmin(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ProcArrayGetReplicationSlotXmin(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @ProcArrayGetReplicationSlotXmin(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr i8, ptr %3, i64 512
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 1) #15

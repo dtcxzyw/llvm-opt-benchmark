@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %rhs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count = getelementptr inbounds nuw i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count, align 8
@@ -85,7 +85,7 @@ return:                                           ; preds = %for.body.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %rhs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count.i = getelementptr inbounds nuw i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count.i, align 8
@@ -139,7 +139,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(784) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %rhs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count.i = getelementptr inbounds nuw i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count.i, align 8
@@ -179,7 +179,7 @@ _ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit: ; preds = %for.body.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(784) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %rhs) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count.i.i, align 8

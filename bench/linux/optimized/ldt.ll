@@ -1140,7 +1140,7 @@ define internal fastcc void @install_ldt(ptr noundef %0, ptr noundef nonnull %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unmap_ldt_struct(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @unmap_ldt_struct(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null

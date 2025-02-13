@@ -173,7 +173,7 @@ define dso_local void @usbfs_notify_suspend(ptr noundef readnone captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @usbfs_notify_resume(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @usbfs_notify_resume(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @usbfs_mutex) #17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %3 = load ptr, ptr %2, align 8
@@ -2866,7 +2866,7 @@ define internal fastcc i32 @proc_ioctl_compat(ptr noundef %0, i32 noundef %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @proc_unlinkurb(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @proc_unlinkurb(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7122,7 +7122,7 @@ declare dso_local i32 @usb_hub_release_port(ptr noundef, i32 noundef, ptr nounde
 declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @parse_usbdevfs_streams(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @parse_usbdevfs_streams(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #1 align 16 {
   %7 = tail call i64 @llvm.read_register.i64(metadata !0)
   %8 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %7) #17, !srcloc !85
   %9 = extractvalue { ptr, i32, i64 } %8, 0

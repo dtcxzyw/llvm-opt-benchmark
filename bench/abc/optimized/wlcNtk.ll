@@ -124,7 +124,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [22 x i8] c"Node type statistics:\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Wlc_ObjTypeName(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @Wlc_ObjTypeName(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -6724,7 +6724,7 @@ Vec_IntDup.exit:                                  ; preds = %2, %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Wlc_ReduceMarkedInitStr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #17 {
+define noundef ptr @Wlc_ReduceMarkedInitStr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #17 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %3
 

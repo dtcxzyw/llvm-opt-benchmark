@@ -6173,7 +6173,7 @@ _ZN5clang8comments4Sema26isTemplateOrSpecializationEv.exit.thread: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang8comments4Sema22resolveTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListEPNS2_15SmallVectorImplIjEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef initializes((8, 12)) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang8comments4Sema22resolveTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListEPNS2_15SmallVectorImplIjEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef readonly %3, ptr noundef initializes((8, 12)) %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 8, !tbaa !31
   %.not = icmp eq ptr %3, null

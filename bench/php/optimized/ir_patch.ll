@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_asm_x86_inslen.map_op2 = internal unnamed_addr constant [256 x i8] c"\93\93\93\93RRRRRRQRQ\93R\94\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93SSSSSSSS\93\93\93\93\93\93\93\93RRRRRRRR4Q5QQQQQ\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93S\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\94TTT\93\93\93R\93\93\93\93\93\93\93\93FFFFFFFFFFFFFFFF\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93RRR\93\94\93QQRRR\93\94\93\93\93\93\93\93\93\93\93\93\93\93\93\94\93\93\93\93\93\93\93\94\93\94\94\94\93RRRRRRRR\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93\93R", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readnone captures(address) %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readnone %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %6
 

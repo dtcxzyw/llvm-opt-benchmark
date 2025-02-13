@@ -14,7 +14,7 @@ define hidden zeroext i1 @"_ZN13logos_codegen6parser11type_params10TypeParams3se
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden align 8 ptr @"_ZN13logos_codegen6parser11type_params16replace_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17h959aeb26fda030a9E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(ret: address, provenance) %1) unnamed_addr #1 {
+define hidden align 8 ptr @"_ZN13logos_codegen6parser11type_params16replace_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17h959aeb26fda030a9E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, -9223372036854775807
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -300,7 +300,7 @@ define dso_local noundef i32 @select_p_node_init() local_unnamed_addr #0 {
 declare void @cr_init_global_core_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2041) i32 @select_p_job_test(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2041) i32 @select_p_job_test(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -3366,7 +3366,7 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_fini(ptr noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_rm_job_from_nodes(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_rm_job_from_nodes(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %9
@@ -3887,7 +3887,7 @@ define dso_local noundef i32 @select_p_step_finish(ptr noundef readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @select_p_select_nodeinfo_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @select_p_select_nodeinfo_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %.not = icmp eq ptr %0, null
@@ -5459,7 +5459,7 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
 declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_dup_cr(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc ptr @_dup_cr(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
@@ -5644,7 +5644,7 @@ declare ptr @gres_node_state_list_dup(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @_find_job(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #5 {
+define internal range(i32 0, 2) i32 @_find_job(ptr noundef readnone %0, ptr noundef readnone %1) #5 {
   %3 = icmp eq ptr %0, %1
   %. = zext i1 %3 to i32
   ret i32 %.

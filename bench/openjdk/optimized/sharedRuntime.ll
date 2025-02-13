@@ -6384,7 +6384,7 @@ declare noundef ptr @_Z13CompiledIC_atP7nmethodPh(ptr noundef, ptr noundef) loca
 declare void @_ZN10CompiledIC12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef %0, ptr noundef readnone returned %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %4 = tail call noundef zeroext i1 @_ZN14HandshakeState29has_async_exception_operationEv(ptr noundef nonnull align 8 dereferenceable(131) %3) #18
   br i1 %4, label %_ZN10JavaThread31set_pending_unsafe_access_errorEv.exit, label %5
@@ -8874,7 +8874,7 @@ define hidden void @_ZN13SharedRuntime17OSR_migration_endEPl(ptr noundef %0) loc
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlob(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlob(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZL22_adapter_handler_table, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2344
   %4 = load i32, ptr %3, align 8
@@ -8923,7 +8923,7 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlob(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlob(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZL22_adapter_handler_table, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2344
   %5 = load i32, ptr %4, align 8

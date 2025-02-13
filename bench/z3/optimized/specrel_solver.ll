@@ -440,7 +440,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7specrel6solver7displayERSo(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %out) unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7specrel6solver7displayERSo(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readnone returned align 8 dereferenceable(8) %out) unnamed_addr #7 align 2 {
 entry:
   ret ptr %out
 }

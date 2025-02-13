@@ -173,7 +173,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
+define noundef ptr @X509v3_add_ext(ptr noundef %x, ptr noundef %ex, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %err, label %if.end
@@ -258,7 +258,7 @@ declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_EXTENSION_create_by_NID(ptr noundef captures(address_is_null) %ex, i32 noundef %nid, i32 noundef %crit, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
+define ptr @X509_EXTENSION_create_by_NID(ptr noundef %ex, i32 noundef %nid, i32 noundef %crit, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #6
   %cmp = icmp eq ptr %call, null
@@ -285,7 +285,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_EXTENSION_create_by_OBJ(ptr noundef captures(address_is_null) %ex, ptr noundef %obj, i32 noundef %crit, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
+define ptr @X509_EXTENSION_create_by_OBJ(ptr noundef %ex, ptr noundef %obj, i32 noundef %crit, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -366,7 +366,7 @@ declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_EXTENSION_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_EXTENSION_set_object(ptr noundef captures(address_is_null) %ex, ptr noundef %obj) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_EXTENSION_set_object(ptr noundef %ex, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ex, null
   %cmp1 = icmp eq ptr %obj, null
@@ -388,7 +388,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @X509_EXTENSION_set_critical(ptr noundef writeonly captures(address_is_null) %ex, i32 noundef %crit) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @X509_EXTENSION_set_critical(ptr noundef writeonly %ex, i32 noundef %crit) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end
@@ -431,7 +431,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_EXTENSION_get_object(ptr noundef readonly captures(address_is_null) %ex) local_unnamed_addr #3 {
+define ptr @X509_EXTENSION_get_object(ptr noundef readonly %ex) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end
@@ -446,7 +446,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @X509_EXTENSION_get_data(ptr noundef readnone captures(address_is_null, ret: address, provenance) %ex) local_unnamed_addr #4 {
+define ptr @X509_EXTENSION_get_data(ptr noundef readnone %ex) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ex, null
   %value = getelementptr inbounds nuw i8, ptr %ex, i64 16
@@ -455,7 +455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @X509_EXTENSION_get_critical(ptr noundef readonly captures(address_is_null) %ex) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @X509_EXTENSION_get_critical(ptr noundef readonly %ex) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end

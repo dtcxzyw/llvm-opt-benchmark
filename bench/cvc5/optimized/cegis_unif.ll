@@ -2298,7 +2298,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus18registerEnumer
 declare void @_ZNK4cvc58internal6theory11quantifiers11SygusUnifRl30getConditionForEvaluationPointENS0_12NodeTemplateILb1EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(680), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEERKSB_IS6_S8_SD_SaISE_ISF_S8_EEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((169, 170)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %es, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %e_to_cond, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %strategy_lemmas) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEERKSB_IS6_S8_SD_SaISE_ISF_S8_EEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((169, 170)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %es, ptr noundef nonnull readonly align 8 dereferenceable(48) %e_to_cond, ptr noundef nonnull readonly align 8 dereferenceable(48) %strategy_lemmas) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::CegisUnifEnumDecisionStrategy::StrategyPtInfo>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::CegisUnifEnumDecisionStrategy::StrategyPtInfo>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Auto_node", align 8
   %ref.tmp9.i588 = alloca %"class.std::tuple.875", align 8
@@ -10041,7 +10041,7 @@ _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %_ZN4cvc57context3CD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy9mkLiteralEj(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(240) %this, i32 noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy9mkLiteralEj(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i824 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i825 = alloca %"class.cvc5::internal::NodeTemplate.605", align 8
@@ -13241,7 +13241,7 @@ ehcleanup130:                                     ; preds = %lpad127, %lpad125
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy20registerEvalPtAtSizeENS0_12NodeTemplateILb1EEES5_S5_j(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef readonly captures(none) %e, ptr noundef %ei, ptr noundef %guq_lit, i32 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy20registerEvalPtAtSizeENS0_12NodeTemplateILb1EEES5_S5_j(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef readonly captures(none) %e, ptr noundef %ei, ptr noundef %guq_lit, i32 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.605", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8

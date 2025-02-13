@@ -49,7 +49,7 @@ define noundef i32 @WebPGetDecoderVersion() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @VP8InitIoInternal(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @VP8InitIoInternal(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %.mask = and i32 %1, -256
   %.not = icmp eq i32 %.mask, 512
   br i1 %.not, label %3, label %5
@@ -131,7 +131,7 @@ declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @WebPGetWorkerInterface() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @VP8Status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define hidden i32 @VP8Status(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -145,7 +145,7 @@ define hidden i32 @VP8Status(ptr noundef readonly captures(address_is_null) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @VP8StatusMessage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define hidden nonnull ptr @VP8StatusMessage(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -263,7 +263,7 @@ define range(i32 0, 2) i32 @VP8CheckSignature(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @VP8GetInfo(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @VP8GetInfo(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ult i64 %1, 10
   %or.cond = or i1 %6, %7
@@ -349,7 +349,7 @@ VP8CheckSignature.exit.thread:                    ; preds = %8, %12, %50, %51, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8GetHeaders(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @VP8GetHeaders(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %VP8SetError.exit128, label %4
 

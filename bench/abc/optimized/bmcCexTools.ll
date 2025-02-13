@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.7 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Bmc_CexBitCount(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Bmc_CexBitCount(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %.preheader
 
@@ -101,7 +101,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bmc_CexDumpStats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #0 {
+define void @Bmc_CexDumpStats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %0, i64 16
   %.val = load i32, ptr %7, align 8, !tbaa !13
   %8 = getelementptr i8, ptr %0, i64 64
@@ -2452,7 +2452,7 @@ Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet0Fa
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Bmc_CexInnerStates(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #3 {
+define noundef ptr @Bmc_CexInnerStates(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %0, i64 64
   %.val179 = load ptr, ptr %5, align 8, !tbaa !35
   %6 = getelementptr i8, ptr %.val179, i64 4
@@ -3074,7 +3074,7 @@ tailrecurse.backedge:                             ; preds = %21, %29, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Bmc_CexCareBits(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define noundef ptr @Bmc_CexCareBits(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr i8, ptr %0, i64 64
   %.val176 = load ptr, ptr %7, align 8, !tbaa !35
   %8 = getelementptr i8, ptr %.val176, i64 4
@@ -3538,7 +3538,7 @@ define noundef ptr @Bmc_CexCareBits(ptr noundef %0, ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
+define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 

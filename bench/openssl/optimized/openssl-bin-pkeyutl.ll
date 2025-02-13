@@ -1196,7 +1196,7 @@ declare i32 @bio_to_mem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_raw_keyop(i32 noundef range(i32 16, 2049) %pkey_op, ptr noundef %mctx, ptr noundef %pkey, ptr noundef %in, i32 noundef %filesize, ptr noundef %sig, i32 noundef range(i32 -1, -2147483648) %siglen, ptr noundef writeonly captures(address_is_null) %out, ptr noundef %poutlen) unnamed_addr #0 {
+define internal fastcc i32 @do_raw_keyop(i32 noundef range(i32 16, 2049) %pkey_op, ptr noundef %mctx, ptr noundef %pkey, ptr noundef %in, i32 noundef %filesize, ptr noundef %sig, i32 noundef range(i32 -1, -2147483648) %siglen, ptr noundef writeonly %out, ptr noundef %poutlen) unnamed_addr #0 {
 entry:
   %tbuf = alloca [2048 x i8], align 16
   %call = tail call i32 @EVP_PKEY_get_id(ptr noundef %pkey) #5

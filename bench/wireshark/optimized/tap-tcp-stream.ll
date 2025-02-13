@@ -1114,7 +1114,7 @@ declare void @epan_dissect_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @dfilter_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @rtt_is_retrans(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @rtt_is_retrans(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 

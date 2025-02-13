@@ -1226,7 +1226,7 @@ _ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %35, %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11vframeArray17register_locationEi(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(5160) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull ptr @_ZNK11vframeArray17register_locationEi(ptr noundef nonnull readnone align 8 dereferenceable(5160) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [609 x i64], ptr %3, i64 0, i64 %4

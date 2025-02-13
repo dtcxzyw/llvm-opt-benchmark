@@ -20691,7 +20691,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14arith_rewriter8flat_mulEP4exprR10ptr_bufferIS0_Lj16EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %e, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %args) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN14arith_rewriter8flat_mulEP4exprR10ptr_bufferIS0_Lj16EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %e, ptr noundef nonnull align 8 dereferenceable(144) %args) local_unnamed_addr #3 align 2 {
 entry:
   %m_pos.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
@@ -33892,7 +33892,7 @@ _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14arith_rewriter14remove_divisorEP4exprR10ptr_bufferIS0_Lj16EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone captures(address) %d, ptr noundef nonnull align 8 captures(none) dereferenceable(144) %args) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN14arith_rewriter14remove_divisorEP4exprR10ptr_bufferIS0_Lj16EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone %d, ptr noundef nonnull align 8 captures(none) dereferenceable(144) %args) local_unnamed_addr #3 align 2 {
 entry:
   %m_pos.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
@@ -34859,7 +34859,7 @@ return:                                           ; preds = %land.rhs.i.i, %land
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN14arith_rewriter12is_pi_offsetEP4exprR8rationalRS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly captures(address) %t, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14arith_rewriter12is_pi_offsetEP4exprR8rationalRS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly %t, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -35223,7 +35223,7 @@ ehcleanup45:                                      ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN14arith_rewriter22is_2_pi_integer_offsetEP4exprRS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly captures(address) %t, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14arith_rewriter22is_2_pi_integer_offsetEP4exprRS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly %t, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -35499,7 +35499,7 @@ return:                                           ; preds = %land.rhs.i.i.i, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN14arith_rewriter20is_pi_integer_offsetEP4exprRS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly captures(address) %t, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14arith_rewriter20is_pi_integer_offsetEP4exprRS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly %t, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4

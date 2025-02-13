@@ -727,7 +727,7 @@ if.end:                                           ; preds = %if.then, %_ZN6icu_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder5clearEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) initializes((8, 13), (21, 22), (26, 27)) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(48) initializes((8, 13), (21, 22), (26, 27)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %status_, align 8
@@ -767,7 +767,7 @@ _ZN6icu_7513LocaleBuilder15clearExtensionsEv.exit: ; preds = %delete.end, %delet
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder11setLanguageENS_11StringPieceE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this, ptr %language.coerce0, i32 %language.coerce1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder11setLanguageENS_11StringPieceE(ptr noundef nonnull returned align 8 dereferenceable(48) %this, ptr %language.coerce0, i32 %language.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %language_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -806,7 +806,7 @@ _ZN6icu_75L8setFieldENS_11StringPieceEPcR10UErrorCodePFaPKciE.exit: ; preds = %e
 declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder9setScriptENS_11StringPieceE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this, ptr %script.coerce0, i32 %script.coerce1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder9setScriptENS_11StringPieceE(ptr noundef nonnull returned align 8 dereferenceable(48) %this, ptr %script.coerce0, i32 %script.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %script_ = getelementptr inbounds nuw i8, ptr %this, i64 21
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -843,7 +843,7 @@ _ZN6icu_75L8setFieldENS_11StringPieceEPcR10UErrorCodePFaPKciE.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder9setRegionENS_11StringPieceE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this, ptr %region.coerce0, i32 %region.coerce1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder9setRegionENS_11StringPieceE(ptr noundef nonnull returned align 8 dereferenceable(48) %this, ptr %region.coerce0, i32 %region.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %region_ = getelementptr inbounds nuw i8, ptr %this, i64 26
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2144,7 +2144,7 @@ cleanup88:                                        ; preds = %if.end17, %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder15clearExtensionsEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder15clearExtensionsEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
   %extensions_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %extensions_, align 8

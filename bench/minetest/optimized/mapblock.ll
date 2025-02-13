@@ -9003,7 +9003,7 @@ declare void @_Z35content_mapnode_get_name_id_mappingP13NameIdMapping(ptr nounde
 declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(65848), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13analyze_blockB5cxx11P8MapBlock(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(address_is_null) %block) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z13analyze_blockB5cxx11P8MapBlock(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly %block) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i479 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8

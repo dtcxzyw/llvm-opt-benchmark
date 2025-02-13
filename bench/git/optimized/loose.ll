@@ -583,7 +583,7 @@ should_use_loose_object_map.exit.thread:          ; preds = %11, %3, %should_use
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.object_id, align 8
   %6 = alloca %struct.object_id, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16

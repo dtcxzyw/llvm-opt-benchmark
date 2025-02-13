@@ -1994,7 +1994,7 @@ declare void @_ZNK7MapNode17getCollisionBoxesEPK14NodeDefManagerPSt6vectorIN3irr
 declare float @llvm.ceil.f32(float) #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11LocalPlayer4moveEfP11EnvironmentfPSt6vectorI13CollisionInfoSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(812) %this, float noundef %dtime, ptr noundef %env, float noundef %pos_max_d, ptr noundef captures(address_is_null) %collision_info) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11LocalPlayer4moveEfP11EnvironmentfPSt6vectorI13CollisionInfoSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(812) %this, float noundef %dtime, ptr noundef %env, float noundef %pos_max_d, ptr noundef %collision_info) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3794,7 +3794,7 @@ ehcleanup769:                                     ; preds = %_ZN19collisionMoveR
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11LocalPlayer8old_moveEfP11EnvironmentfPSt6vectorI13CollisionInfoSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(812) %this, float noundef %dtime, ptr noundef %env, float noundef %pos_max_d, ptr noundef captures(address_is_null) %collision_info) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11LocalPlayer8old_moveEfP11EnvironmentfPSt6vectorI13CollisionInfoSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(812) %this, float noundef %dtime, ptr noundef %env, float noundef %pos_max_d, ptr noundef %collision_info) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -2572,7 +2572,7 @@ define internal i32 @ring_context_alloc(ptr noundef captures(none) initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ring_context_revoke(ptr noundef readnone captures(address) %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal void @ring_context_revoke(ptr noundef readnone %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 
@@ -2870,7 +2870,7 @@ declare dso_local void @intel_context_free(ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @i915_mitigate_clear_residuals() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @switch_mm(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @switch_mm(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %63, label %4
 

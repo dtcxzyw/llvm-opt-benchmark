@@ -507,7 +507,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKSt3mapINS_4DateENS_19EnergyDailyPositionESt4lessIS2_ESaISt4pairIKS2_S3_EEE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %dailyPositions) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKSt3mapINS_4DateENS_19EnergyDailyPositionESt4lessIS2_ESaISt4pairIKS2_S3_EEE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 dereferenceable(48) %dailyPositions) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.QuantLib::detail::iso_date_holder", align 8
   %vtable.i = load ptr, ptr %out, align 8, !tbaa !13
@@ -1660,7 +1660,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15EnergyCommodity13commodityTypeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15EnergyCommodity13commodityTypeEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %this) local_unnamed_addr #14 align 2 {
 entry:
   %commodityType_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   ret ptr %commodityType_

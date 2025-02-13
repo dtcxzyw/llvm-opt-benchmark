@@ -2372,7 +2372,7 @@ eh.resume:                                        ; preds = %lpad26, %_ZN9grpc_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher11CancelWatchEPN26grpc_server_config_fetcher16WatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readnone captures(address) %watcher) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher11CancelWatchEPN26grpc_server_config_fetcher16WatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readnone %watcher) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -13475,7 +13475,7 @@ declare void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6Stat
 declare { i64, ptr } @_Z22grpc_endpoint_get_peerP13grpc_endpoint(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_130FindFilterChainDataForSourceIpERKSt6vectorINS_19XdsListenerResource14FilterChainMap8SourceIpESaIS4_EEPK21grpc_resolved_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr %source_ip_vector.0.val, ptr readnone captures(address) %source_ip_vector.8.val, ptr noundef nonnull %source_ip, i64 %port.coerce0, ptr %port.coerce1) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_130FindFilterChainDataForSourceIpERKSt6vectorINS_19XdsListenerResource14FilterChainMap8SourceIpESaIS4_EEPK21grpc_resolved_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr %source_ip_vector.0.val, ptr readnone %source_ip_vector.8.val, ptr noundef nonnull %source_ip, i64 %port.coerce0, ptr %port.coerce1) unnamed_addr #4 {
 entry:
   %val.i.i.i = alloca i32, align 4
   %cmp.i.not3 = icmp eq ptr %source_ip_vector.0.val, %source_ip_vector.8.val
@@ -20605,7 +20605,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_122XdsServerConfigFetcher15Listener
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readnone captures(address) %filter_chain_match_manager) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readnone %filter_chain_match_manager) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp17 = alloca %"class.grpc_core::RefCountedPtr.945", align 8
   %pending_filter_chain_match_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 96

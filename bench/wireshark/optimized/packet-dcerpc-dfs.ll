@@ -602,7 +602,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.360 = private unnamed_addr constant [39 x i8] c"Pointer to Unknown (dfs_UnknownStruct)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @netdfs_dissect_enum_dfs_ManagerVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @netdfs_dissect_enum_dfs_ManagerVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -1300,7 +1300,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info5(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @netdfs_dissect_enum_dfs_Target_PriorityClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @netdfs_dissect_enum_dfs_Target_PriorityClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -2126,7 +2126,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info200(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @netdfs_dissect_enum_dfs_VolumeFlavor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @netdfs_dissect_enum_dfs_VolumeFlavor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null

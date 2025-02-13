@@ -7341,7 +7341,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb28ColumnDataRowIterationHelper21ColumnDataRowIteratordeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb28ColumnDataRowIterationHelper21ColumnDataRowIteratordeEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #13 align 2 {
 entry:
   %current_row = getelementptr inbounds nuw i8, ptr %this, i64 152
   ret ptr %current_row
@@ -21838,7 +21838,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb20ColumnDataCollection11GetSegmentsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(97) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb20ColumnDataCollection11GetSegmentsEv(ptr noundef nonnull readnone align 8 dereferenceable(97) %this) local_unnamed_addr #13 align 2 {
 entry:
   %segments = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %segments
@@ -23735,7 +23735,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN6duckdb27ColumnDataCollectionSegment18GetValidityPointerEPhm(ptr noundef readnone captures(ret: address, provenance) %base_ptr, i64 noundef %type_size) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZN6duckdb27ColumnDataCollectionSegment18GetValidityPointerEPhm(ptr noundef readnone %base_ptr, i64 noundef %type_size) local_unnamed_addr #13 align 2 {
 entry:
   %mul.i = shl i64 %type_size, 11
   %add.ptr = getelementptr inbounds i8, ptr %base_ptr, i64 %mul.i
@@ -28001,7 +28001,7 @@ if.end:                                           ; preds = %for.inc, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb21PartitionedColumnData13GetPartitionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb21PartitionedColumnData13GetPartitionsEv(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #13 align 2 {
 entry:
   %partitions = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %partitions

@@ -2091,7 +2091,7 @@ declare void @_ZN7Iex_3_29NoImplExcD1Ev(ptr noundef nonnull align 8 dereferencea
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBase7unRleAcERPtS2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %currAcComp, ptr noundef readnone captures(address) %packedAcEnd, ptr noundef writeonly captures(none) %halfZigBlock) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBase7unRleAcERPtS2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %currAcComp, ptr noundef readnone %packedAcEnd, ptr noundef writeonly captures(none) %halfZigBlock) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_packedAcCount = getelementptr inbounds nuw i8, ptr %this, i64 12
   %.pre = load ptr, ptr %currAcComp, align 8

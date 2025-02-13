@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.ossl_pw_get_password.params = private unnamed_addr constant [2 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str.1, i32 4, ptr null, i64 0, i64 -1 }, %struct.ossl_param_st zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_pw_clear_passphrase_data(ptr noundef captures(address_is_null) %data) local_unnamed_addr #0 {
+define void @ossl_pw_clear_passphrase_data(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %data, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -70,7 +70,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pw_set_passphrase(ptr noundef captures(address_is_null) %data, ptr noundef %passphrase, i64 noundef %passphrase_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_passphrase(ptr noundef %data, ptr noundef %passphrase, i64 noundef %passphrase_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %passphrase, null
@@ -143,7 +143,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pw_set_pem_password_cb(ptr noundef captures(address_is_null) %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_pem_password_cb(ptr noundef %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %cb, null
@@ -189,7 +189,7 @@ return:                                           ; preds = %ossl_pw_clear_passp
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef captures(address_is_null) %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef %data, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %cb, null
@@ -235,7 +235,7 @@ return:                                           ; preds = %ossl_pw_clear_passp
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pw_set_ui_method(ptr noundef captures(address_is_null) %data, ptr noundef %ui_method, ptr noundef %ui_data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pw_set_ui_method(ptr noundef %data, ptr noundef %ui_method, ptr noundef %ui_data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %data, null
   %cmp1 = icmp ne ptr %ui_method, null

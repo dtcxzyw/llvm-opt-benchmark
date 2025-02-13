@@ -2769,7 +2769,7 @@ Vec_PtrFree.exit72:                               ; preds = %.critedge4, %106
 declare ptr @Abc_NtkDfsIterNodes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkWriteAig(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @Abc_NtkWriteAig(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

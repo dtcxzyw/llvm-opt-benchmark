@@ -195,7 +195,7 @@ return:                                           ; preds = %if.then21, %_ZNK6ic
 declare noundef i32 @_ZNK6icu_7513CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2, 2) i32 @_ZN6icu_7518CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr noundef readonly captures(none) %table, ptr noundef readonly captures(none) %primaries, i32 noundef %options, ptr noundef captures(address_is_null) %left, i32 noundef %leftLength, ptr noundef captures(address_is_null) %right, i32 noundef %rightLength) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -2, 2) i32 @_ZN6icu_7518CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr noundef readonly captures(none) %table, ptr noundef readonly captures(none) %primaries, i32 noundef %options, ptr noundef %left, i32 noundef %leftLength, ptr noundef %right, i32 noundef %rightLength) local_unnamed_addr #2 align 2 {
 entry:
   %leftLength.addr = alloca i32, align 4
   %rightLength.addr = alloca i32, align 4
@@ -1554,7 +1554,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef readonly captures(none) %table, i32 noundef %c, i32 noundef %ce, ptr noundef readonly captures(address_is_null) %s16, ptr noundef readonly captures(none) %s8, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sIndex, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sLength) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef readonly captures(none) %table, i32 noundef %c, i32 noundef %ce, ptr noundef readonly %s16, ptr noundef readonly captures(none) %s8, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sIndex, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sLength) local_unnamed_addr #4 align 2 {
 entry:
   %0 = add i32 %ce, -3072
   %or.cond = icmp ult i32 %0, -2048

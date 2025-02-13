@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN16JNI_FastGetField16find_slowcase_pcEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16JNI_FastGetField16find_slowcase_pcEPh(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @_ZN16JNI_FastGetField5countE, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.preheader, label %.loopexit

@@ -3303,7 +3303,7 @@ define void @_RNvXsj_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_13InvariantTextIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_RNvMsk_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragment9as_string(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_RNvMsk_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragment9as_string(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #8 {
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.sroa.0.0
 }
@@ -3520,7 +3520,7 @@ define noundef zeroext i1 @_RNvXCseG2FYMysgNb_3waxcNtB2_7CharExt10has_casing(i32
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXs_CseG2FYMysgNb_3waxeNtB4_6StrExt10has_casing(ptr noalias noundef nonnull readonly align 1 captures(address) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_RNvXs_CseG2FYMysgNb_3waxeNtB4_6StrExt10has_casing(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %_RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cmp9PartialEq2eqCseG2FYMysgNb_3wax.llvm.8606166020250795160.exit, label %.lr.ph

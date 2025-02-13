@@ -6003,7 +6003,7 @@ define zeroext i1 @pkpy_check_error(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @pkpy_clear_error(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @pkpy_clear_error(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
   %4 = alloca %"struct.pkpy::Str", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264488

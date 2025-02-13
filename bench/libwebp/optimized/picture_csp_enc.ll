@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPPackRGB = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %CheckNonOpaque.exit, label %3
 

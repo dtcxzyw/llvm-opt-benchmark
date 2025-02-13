@@ -15,7 +15,7 @@ $_ZTS17LibRaw_exceptions = comdat any
 @.str.2 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

@@ -4270,7 +4270,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY19ElementInstanceList17ParseInstanceListERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEEPKNS0_7ElementEPS1_PNS_11PLYImporterE(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef %pcElement, ptr noundef readonly captures(address_is_null) %p_pcOut, ptr noundef %loader) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY19ElementInstanceList17ParseInstanceListERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEEPKNS0_7ElementEPS1_PNS_11PLYImporterE(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef %pcElement, ptr noundef readonly %p_pcOut, ptr noundef %loader) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %pCur = alloca ptr, align 8
@@ -4634,7 +4634,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY19ElementInstanceList23ParseInstanceListBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_7ElementEPS1_PNS_11PLYImporterEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, ptr noundef %pcElement, ptr noundef readonly captures(address_is_null) %p_pcOut, ptr noundef %loader, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY19ElementInstanceList23ParseInstanceListBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_7ElementEPS1_PNS_11PLYImporterEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, ptr noundef %pcElement, ptr noundef readonly %p_pcOut, ptr noundef %loader, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elt = alloca %"class.Assimp::PLY::ElementInstance", align 8
   %NumOccur = getelementptr inbounds nuw i8, ptr %pcElement, i64 64

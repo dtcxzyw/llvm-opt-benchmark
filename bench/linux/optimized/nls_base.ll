@@ -114,7 +114,7 @@ define dso_local range(i32 1, 0) i32 @utf8_to_utf32(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local i32 @utf32_to_utf8(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 align 16 {
+define dso_local i32 @utf32_to_utf8(i32 noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 
@@ -534,7 +534,7 @@ define dso_local noundef range(i32 -16, 1) i32 @__register_nls(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @unregister_nls(ptr noundef readonly captures(address) %0) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @unregister_nls(ptr noundef readonly %0) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @nls_lock) #8
   %2 = load ptr, ptr @tables, align 8
   %3 = icmp eq ptr %2, null
@@ -658,7 +658,7 @@ find_nls.exit:                                    ; preds = %37, %41, %.loopexit
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unload_nls(ptr noundef readonly captures(address_is_null) %0) #2 align 16 {
+define dso_local void @unload_nls(ptr noundef readonly %0) #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

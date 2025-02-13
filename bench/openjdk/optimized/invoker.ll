@@ -2388,7 +2388,7 @@ define hidden zeroext i8 @invoker_isEnabled(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @invoker_detach(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @invoker_detach(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3

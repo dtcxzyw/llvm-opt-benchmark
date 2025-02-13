@@ -1434,7 +1434,7 @@ declare void @xmlXPathFreeObject(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_xpath(ptr noundef captures(address_is_null) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @_handle_xpath(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = tail call ptr @xmlXPathEvalExpression(ptr noundef nonnull %4, ptr noundef nonnull %3) #11
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %53, label %8
@@ -1834,7 +1834,7 @@ declare i32 @dt_dev_modulegroups_get(ptr noundef) local_unnamed_addr #2
 declare void @dt_image_synch_xmp(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lrop(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc void @_lrop(ptr noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca float, align 4
   %10 = alloca ptr, align 8

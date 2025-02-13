@@ -918,7 +918,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %10, %3, %9, %_ZN4ll
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef nonnull captures(address) %0, ptr readonly captures(none) %.0.val, i64 %.8.val, i32 noundef %1) unnamed_addr #13 {
+define internal fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef nonnull %0, ptr readonly captures(none) %.0.val, i64 %.8.val, i32 noundef %1) unnamed_addr #13 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

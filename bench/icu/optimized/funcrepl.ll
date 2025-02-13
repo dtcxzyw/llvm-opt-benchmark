@@ -189,7 +189,7 @@ lpad:                                             ; preds = %new.notnull
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7516FunctionReplacer10toReplacerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7516FunctionReplacer10toReplacerEv(ptr noundef nonnull readnone align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr

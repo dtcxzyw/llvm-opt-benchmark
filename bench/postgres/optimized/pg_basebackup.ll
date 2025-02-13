@@ -3109,7 +3109,7 @@ declare i32 @umask(i32 noundef) local_unnamed_addr #5
 declare i32 @PQserverVersion(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verify_dir_is_empty_or_create(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @verify_dir_is_empty_or_create(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = tail call i32 @pg_check_dir(ptr noundef %0) #18
   switch i32 %4, label %14 [
     i32 0, label %5

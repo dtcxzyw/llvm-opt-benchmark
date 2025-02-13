@@ -2529,7 +2529,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento10ExprEngine6isHugeEPNS_19An
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine18examineStackFramesEPKNS_4DeclEPKNS_15LocationContextERbRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine18examineStackFramesEPKNS_4DeclEPKNS_15LocationContextERbRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %3, align 1, !tbaa !182
   store i32 0, ptr %4, align 4, !tbaa !420
   %.not32 = icmp eq ptr %2, null

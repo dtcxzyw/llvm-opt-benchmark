@@ -10513,7 +10513,7 @@ _ZN12_GLOBAL__N_112AccessTarget20SavedInstanceContextD2Ev.exit: ; preds = %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL22IsDerivedFromInclusivePKN5clang13CXXRecordDeclES2_(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL22IsDerivedFromInclusivePKN5clang13CXXRecordDeclES2_(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.1158", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %_ZL18MightInstantiateToPKN5clang13CXXRecordDeclES2_.exit.thread88, label %5

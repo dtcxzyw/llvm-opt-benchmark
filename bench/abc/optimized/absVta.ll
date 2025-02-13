@@ -3761,7 +3761,7 @@ Vec_IntFreeP.exit53:                              ; preds = %Vec_IntFreeP.exit50
 declare void @sat_solver2_delete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Vta_ManUnsatCore(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define ptr @Vta_ManUnsatCore(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
 Abc_Clock.exit:
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -3847,7 +3847,7 @@ declare i32 @sat_solver2_solve(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare ptr @Sat_ProofCore(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not118 = icmp eq ptr %1, null
   br i1 %.not118, label %.critedge.thread, label %8
 

@@ -227,14 +227,14 @@ declare void @json_message_parser_feed(ptr noundef, ptr noundef, i64 noundef) lo
 declare void @json_message_parser_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_fd_vsend_fds(i32 noundef %fd, ptr noundef captures(address_is_null) %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #0 {
+define dso_local void @qmp_fd_vsend_fds(i32 noundef %fd, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @_qmp_fd_vsend_fds(i32 noundef %fd, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_qmp_fd_vsend_fds(i32 noundef %fd, ptr noundef readonly captures(address_is_null) %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) unnamed_addr #0 {
+define internal fastcc void @_qmp_fd_vsend_fds(i32 noundef %fd, ptr noundef readonly %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) unnamed_addr #0 {
 entry:
   %msg.i = alloca %struct.msghdr, align 8
   %control.i = alloca [80 x i8], align 16

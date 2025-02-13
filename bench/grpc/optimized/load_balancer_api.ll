@@ -200,7 +200,7 @@ grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit: ; preds = %grpc_lb_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core29GrpcLbLoadReportRequestCreateEllllPKN4absl12lts_2023080213InlinedVectorINS_17GrpcLbClientStats14DropTokenCountELm10ESaIS4_EEEP9upb_Arena(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %num_calls_started, i64 noundef %num_calls_finished, i64 noundef %num_calls_finished_with_client_failed_to_send, i64 noundef %num_calls_finished_known_received, ptr noundef readonly captures(address_is_null) %drop_token_counts, ptr noundef %arena) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core29GrpcLbLoadReportRequestCreateEllllPKN4absl12lts_2023080213InlinedVectorINS_17GrpcLbClientStats14DropTokenCountELm10ESaIS4_EEEP9upb_Arena(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %num_calls_started, i64 noundef %num_calls_finished, i64 noundef %num_calls_finished_with_client_failed_to_send, i64 noundef %num_calls_finished_known_received, ptr noundef readonly %drop_token_counts, ptr noundef %arena) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i.i = alloca ptr, align 8
   %buf_length.i = alloca i64, align 8

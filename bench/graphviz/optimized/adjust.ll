@@ -91,7 +91,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.52 = private unnamed_addr constant [6 x i8] c"%f,%f\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @Ndim, align 4
   %7 = tail call i32 @agnnodes(ptr noundef %0) #19
   %8 = mul nsw i32 %7, %6

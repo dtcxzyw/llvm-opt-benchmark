@@ -40,7 +40,7 @@ define range(i32 -1, 2) i32 @sat_solver3_get_var_value(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @sat_solver3_set_var_activity(ptr noundef captures(none) initializes((120, 128)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @sat_solver3_set_var_activity(ptr noundef captures(none) initializes((120, 128)) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 8, !tbaa !23
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -742,7 +742,7 @@ veci_push.exit73:                                 ; preds = %301, %333
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @Sat_MemAppend(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc i32 @Sat_MemAppend(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4302,7 +4302,7 @@ order_update.exit:                                ; preds = %107, %115, %..crite
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @sat_solver3_addclause(ptr noundef initializes((644, 648)) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @sat_solver3_addclause(ptr noundef initializes((644, 648)) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 644
   store i32 0, ptr %5, align 4, !tbaa !34
@@ -8993,7 +8993,7 @@ define void @sat_solver3_set_resource_limits(ptr noundef captures(none) initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @sat_solver3_solve(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 {
+define range(i32 -128, 128) i32 @sat_solver3_solve(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %9 = load i32, ptr %8, align 8, !tbaa !177
   %.not = icmp eq i32 %9, 0

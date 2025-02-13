@@ -781,7 +781,7 @@ mcaoption.exit:                                   ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -13, 1) i32 @parse_env(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) #0 {
+define internal range(i32 -13, 1) i32 @parse_env(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2467,7 +2467,7 @@ define internal range(i32 0, 101) i32 @detect_proxy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @allow_run_as_root(ptr noundef readonly captures(address) %0) #0 {
+define internal void @allow_run_as_root(ptr noundef readonly %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.09.i.i = load ptr, ptr %3, align 8

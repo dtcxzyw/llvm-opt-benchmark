@@ -138,7 +138,7 @@ php_dom_get_namednodemap_length.exit:             ; preds = %.preheader.i, %2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @php_dom_named_node_map_get_named_item(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden ptr @php_dom_named_node_map_get_named_item(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %4
 
@@ -195,7 +195,7 @@ declare ptr @create_notation(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @xmlHasProp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %php_dom_named_node_map_get_named_item.exit.thread, label %4
 
@@ -295,7 +295,7 @@ declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_
 declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @php_dom_named_node_map_get_item(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @php_dom_named_node_map_get_item(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -361,7 +361,7 @@ declare ptr @php_dom_libxml_hash_iter(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @php_dom_libxml_notation_iter(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_dom_named_node_map_get_item_into_zval(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @php_dom_named_node_map_get_item_into_zval(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %php_dom_named_node_map_get_item.exit.thread, label %4
 

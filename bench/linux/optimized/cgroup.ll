@@ -1285,7 +1285,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_cgroup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
+define internal void @trace_event_raw_event_cgroup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1348,7 +1348,7 @@ define internal void @trace_event_raw_event_cgroup(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_cgroup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
+define internal void @perf_trace_cgroup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
@@ -1429,7 +1429,7 @@ define internal void @perf_trace_cgroup(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_cgroup_migrate(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i1 zeroext %4) #1 align 16 {
+define internal void @trace_event_raw_event_cgroup_migrate(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i1 zeroext %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #30
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1510,7 +1510,7 @@ define internal void @trace_event_raw_event_cgroup_migrate(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_cgroup_migrate(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i1 zeroext %4) #1 align 16 {
+define internal void @perf_trace_cgroup_migrate(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i1 zeroext %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
@@ -1609,7 +1609,7 @@ define internal void @perf_trace_cgroup_migrate(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_cgroup_event(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_cgroup_event(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1674,7 +1674,7 @@ define internal void @trace_event_raw_event_cgroup_event(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_cgroup_event(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_cgroup_event(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #30
@@ -1778,7 +1778,7 @@ define dso_local zeroext i1 @cgroup_on_dfl(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @cgroup_e_css(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 16 {
+define dso_local ptr @cgroup_e_css(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 156
   br i1 %3, label %.split.us, label %.split
@@ -1829,7 +1829,7 @@ define dso_local ptr @cgroup_e_css(ptr noundef %0, ptr noundef readonly captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @cgroup_get_e_css(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define dso_local ptr @cgroup_get_e_css(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
   tail call void @__rcu_read_lock() #30
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 156
@@ -2003,7 +2003,7 @@ define dso_local ptr @cgroup_get_e_css(ptr noundef %0, ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @__cgroup_task_count(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 align 16 {
+define dso_local i32 @__cgroup_task_count(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -2027,7 +2027,7 @@ define dso_local i32 @__cgroup_task_count(ptr noundef readonly captures(address)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cgroup_task_count(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 align 16 {
+define dso_local i32 @cgroup_task_count(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @css_set_lock) #30
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
@@ -2379,7 +2379,7 @@ define dso_local void @cgroup_free_root(ptr noundef %0) local_unnamed_addr #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local ptr @task_cgroup_from_root(ptr noundef %0, ptr noundef readnone captures(address, ret: address, provenance) %1) local_unnamed_addr #8 align 16 {
+define dso_local ptr @task_cgroup_from_root(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2272
   %4 = load volatile ptr, ptr %3, align 32
   %5 = icmp eq ptr %4, @init_css_set
@@ -5631,7 +5631,7 @@ define dso_local ptr @cgroup_taskset_next(ptr noundef captures(none) %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local range(i32 -95, 1) i32 @cgroup_migrate_vet_dst(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 -95, 1) i32 @cgroup_migrate_vet_dst(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @cgrp_dfl_root
@@ -5725,7 +5725,7 @@ define dso_local range(i32 -95, 1) i32 @cgroup_migrate_vet_dst(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cgroup_migrate_finish(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @cgroup_migrate_finish(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @css_set_lock) #30
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
@@ -6047,7 +6047,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cgroup_migrate_prepare_dst(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @find_css_set(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @find_css_set(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca [14 x ptr], align 16
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #30
@@ -7870,7 +7870,7 @@ declare dso_local void @kernfs_show(ptr noundef, i1 noundef zeroext) local_unnam
 declare dso_local void @kernfs_put(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @css_next_descendant_pre(ptr noundef %0, ptr noundef readnone captures(address, ret: address, provenance) %1) #5 align 16 {
+define dso_local ptr @css_next_descendant_pre(ptr noundef %0, ptr noundef readnone %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit5, label %4
 
@@ -12229,7 +12229,7 @@ define internal range(i32 0, 2) i32 @cgroup_favordynmods_setup(ptr noundef %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @css_tryget_online_from_dir(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @css_tryget_online_from_dir(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = tail call ptr @kernfs_node_from_dentry(ptr noundef %0) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -16149,7 +16149,7 @@ define internal ptr @cgroup_procs_start(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @cgroup_procs_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null) %2) #1 align 16 {
+define internal ptr @cgroup_procs_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -18168,7 +18168,7 @@ cgroup_kn_unlock.exit:                            ; preds = %100, %75, %3
 declare dso_local ptr @override_creds(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cgroup_attach_permissions(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @cgroup_attach_permissions(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %8 = load ptr, ptr %7, align 8
@@ -18400,7 +18400,7 @@ declare dso_local i32 @send_sig(i32 noundef, ptr noundef, i32 noundef) local_unn
 declare dso_local void @cgroup_base_stat_cputime_show(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @cgroup_tryget_css(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @cgroup_tryget_css(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   tail call void @__rcu_read_lock() #30
   %3 = icmp eq ptr %1, null
   br i1 %3, label %11, label %4

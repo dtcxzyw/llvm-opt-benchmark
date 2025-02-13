@@ -2234,7 +2234,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont5
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4D3MF12D3MFExporter9writeMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(1224) %this, ptr noundef captures(address_is_null) %mesh) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp4D3MF12D3MFExporter9writeMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(1224) %this, ptr noundef %mesh) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %mesh, null
   br i1 %cmp, label %return, label %if.end
@@ -2310,7 +2310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4D3MF12D3MFExporter10writeFacesEP6aiMeshj(ptr noundef nonnull align 8 dereferenceable(1224) %this, ptr noundef readonly captures(address_is_null) %mesh, i32 noundef %matIdx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4D3MF12D3MFExporter10writeFacesEP6aiMeshj(ptr noundef nonnull align 8 dereferenceable(1224) %this, ptr noundef readonly %mesh, i32 noundef %matIdx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %os.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

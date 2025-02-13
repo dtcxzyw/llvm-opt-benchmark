@@ -795,7 +795,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @close_midx(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local void @close_midx(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %2
 
@@ -1035,7 +1035,7 @@ declare ptr @add_packed_git(ptr noundef, ptr noundef, i64 noundef, i32 noundef) 
 declare void @install_packed_git(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @nth_midxed_pack(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @nth_midxed_pack(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not22.i = icmp eq ptr %0, null
   br i1 %.not22.i, label %.critedge18.i, label %.lr.ph.i
 
@@ -1273,7 +1273,7 @@ define dso_local i32 @bsearch_one_midx(ptr noundef %0, ptr noundef readonly capt
 declare i32 @bsearch_hash(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @bsearch_midx(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @bsearch_midx(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -1336,7 +1336,7 @@ bsearch_one_midx.exit:                            ; preds = %.lr.ph, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @midx_has_oid(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @midx_has_oid(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not7.i = icmp eq ptr %0, null
   br i1 %.not7.i, label %bsearch_midx.exit, label %bsearch_one_midx.exit.us.i
 
@@ -1368,7 +1368,7 @@ bsearch_midx.exit:                                ; preds = %bsearch_one_midx.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @nth_midxed_object_oid(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @nth_midxed_object_oid(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %5 = load i32, ptr %4, align 4, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -1463,7 +1463,7 @@ oidread.exit:                                     ; preds = %41, %.split.loop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nth_midxed_offset(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local i64 @nth_midxed_offset(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not18.i = icmp eq ptr %0, null
   br i1 %.not18.i, label %.critedge15.i, label %.lr.ph.i
 
@@ -1597,7 +1597,7 @@ midx_for_object.exit:                             ; preds = %.critedge.i
 declare void @die(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nth_midxed_pack_int_id(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @nth_midxed_pack_int_id(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not18.i = icmp eq ptr %0, null
   br i1 %.not18.i, label %.critedge15.i, label %.lr.ph.i
 
@@ -1872,7 +1872,7 @@ define dso_local i32 @cmp_idx_or_pack_name(ptr noundef readonly captures(none) %
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @midx_contains_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @midx_contains_pack(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %midx_contains_pack_1.exit, label %.lr.ph
 

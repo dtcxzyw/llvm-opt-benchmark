@@ -1380,7 +1380,7 @@ if.end17:                                         ; preds = %if.then16, %trace_u
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_child_detach(ptr noundef readonly captures(none) %port1, ptr noundef readnone captures(address) %dev) #0 {
+define internal void @ohci_child_detach(ptr noundef readonly captures(none) %port1, ptr noundef readnone %dev) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8

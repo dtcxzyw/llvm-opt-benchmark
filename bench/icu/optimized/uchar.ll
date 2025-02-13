@@ -2401,7 +2401,7 @@ return:                                           ; preds = %entry, %if.else7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @u_getUnicodeVersion_75(ptr noundef writeonly captures(address_is_null) %versionArray) local_unnamed_addr #3 {
+define void @u_getUnicodeVersion_75(ptr noundef writeonly %versionArray) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %versionArray, null
   br i1 %cmp.not, label %if.end, label %do.body
@@ -2482,7 +2482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @u_charAge_75(i32 noundef %c, ptr noundef writeonly captures(address_is_null) %versionArray) local_unnamed_addr #3 {
+define void @u_charAge_75(i32 noundef %c, ptr noundef writeonly %versionArray) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %versionArray, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2560,7 +2560,7 @@ if.end:                                           ; preds = %u_getUnicodePropert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 65536) i32 @uscript_getScript_75(i32 noundef %c, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #4 {
+define range(i32 -1, 65536) i32 @uscript_getScript_75(i32 noundef %c, ptr noundef %pErrorCode) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2758,7 +2758,7 @@ return:                                           ; preds = %if.end8, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @uscript_getScriptExtensions_75(i32 noundef %c, ptr noundef writeonly captures(address_is_null) %scripts, i32 noundef %capacity, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #5 {
+define i32 @uscript_getScriptExtensions_75(i32 noundef %c, ptr noundef writeonly %scripts, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false

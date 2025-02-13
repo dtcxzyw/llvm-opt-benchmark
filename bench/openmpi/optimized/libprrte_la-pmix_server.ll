@@ -1292,7 +1292,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lost_connection_hdlr(i64 %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3, i64 %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
+define internal void @lost_connection_hdlr(i64 %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3, i64 %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
   %.027 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 1416), align 8
   %.not28 = icmp eq ptr %.027, getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 1296)
   br i1 %.not28, label %.loopexit, label %.lr.ph
@@ -5287,7 +5287,7 @@ define internal fastcc void @send_error(i32 noundef %0, ptr noundef %1, ptr noun
 declare i32 @PMIx_server_dmodex_request(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @modex_resp(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal void @modex_resp(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) #0 {
   fence acquire
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %6 = load i8, ptr %5, align 8

@@ -10209,7 +10209,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_113ItaniumCXXABI31getVTableAddressPointInStructorERN5clang7CodeGen15CodeGenFunctionEPKNS1_13CXXRecordDeclENS1_13BaseSubobjectES7_(ptr noundef nonnull align 8 dereferenceable(195) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef readnone captures(address_is_null) %5) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_113ItaniumCXXABI31getVTableAddressPointInStructorERN5clang7CodeGen15CodeGenFunctionEPKNS1_13CXXRecordDeclENS1_13BaseSubobjectES7_(ptr noundef nonnull align 8 dereferenceable(195) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef readnone %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.clang::CodeGen::CGPointerAuthInfo", align 8
@@ -12259,7 +12259,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread28: ; preds = %72, %55, %_ZNK5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI24EmitThreadLocalInitFuncsERN5clang7CodeGen13CodeGenModuleEN4llvm8ArrayRefIPKNS1_7VarDeclEEENS6_IPNS5_8FunctionEEESA_(ptr noundef nonnull align 8 dereferenceable(195) %0, ptr noundef nonnull align 8 dereferenceable(3608) %1, ptr readonly captures(address) %2, i64 %3, ptr readonly captures(none) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.977") align 8 captures(none) %6) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI24EmitThreadLocalInitFuncsERN5clang7CodeGen13CodeGenModuleEN4llvm8ArrayRefIPKNS1_7VarDeclEEENS6_IPNS5_8FunctionEEESA_(ptr noundef nonnull align 8 dereferenceable(195) %0, ptr noundef nonnull align 8 dereferenceable(3608) %1, ptr readonly %2, i64 %3, ptr readonly captures(none) %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.977") align 8 captures(none) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::InsertPosition", align 8

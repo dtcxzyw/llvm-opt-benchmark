@@ -2385,7 +2385,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp13DeboneProcess10UpdateNodeEP6aiNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef captures(address) %pNode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp13DeboneProcess10UpdateNodeEP6aiNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %pNode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %pNode, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8

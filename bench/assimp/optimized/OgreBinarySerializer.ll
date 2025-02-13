@@ -2386,7 +2386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer18ReadBoneAssignmentEPNS0_10VertexDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef captures(address_is_null) %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer18ReadBoneAssignmentEPNS0_10VertexDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %dest, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -4016,7 +4016,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %vertexData) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %vertexData) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %influencedVertices = alloca %"class.std::set", align 8
   %tobool.not = icmp eq ptr %vertexData, null

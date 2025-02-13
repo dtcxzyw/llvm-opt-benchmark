@@ -4204,7 +4204,7 @@ define dso_local zeroext i1 @intel_engine_can_store_dword(ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_dump_active_requests(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_dump_active_requests(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.loopexit, label %.preheader

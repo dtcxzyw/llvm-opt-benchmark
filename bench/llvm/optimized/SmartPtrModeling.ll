@@ -378,7 +378,7 @@ _ZN5clang4ento8smartptr13isStdSmartPtrEPKNS_13CXXRecordDeclE.exit: ; preds = %1,
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento8smartptr13isStdSmartPtrEPKNS_13CXXRecordDeclE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento8smartptr13isStdSmartPtrEPKNS_13CXXRecordDeclE(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit21, label %2
 
@@ -516,7 +516,7 @@ _ZN5clang4ento8smartptr13isStdSmartPtrEPKNS_13CXXRecordDeclE.exit: ; preds = %1,
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento8smartptr14isNullSmartPtrEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionE(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento8smartptr14isNullSmartPtrEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionE(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !26

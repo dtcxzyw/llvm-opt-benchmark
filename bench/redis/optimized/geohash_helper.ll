@@ -61,7 +61,7 @@ return:                                           ; preds = %entry, %if.end11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr noundef readonly captures(none) %shape, ptr noundef writeonly captures(address_is_null) %bounds) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr noundef readonly captures(none) %shape, ptr noundef writeonly %bounds) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %bounds, null
   br i1 %tobool.not, label %return, label %if.end

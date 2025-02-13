@@ -32,7 +32,7 @@ define void @_ZN5boost13serialization14no_rtti_system28extended_type_info_no_rtt
 declare void @_ZN5boost13serialization18extended_type_infoC2EjPKc(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5boost13serialization14no_rtti_system28extended_type_info_no_rtti_012is_less_thanERKNS0_18extended_type_infoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK5boost13serialization14no_rtti_system28extended_type_info_no_rtti_012is_less_thanERKNS0_18extended_type_infoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %11, label %4
 
@@ -54,7 +54,7 @@ define noundef zeroext i1 @_ZNK5boost13serialization14no_rtti_system28extended_t
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5boost13serialization14no_rtti_system28extended_type_info_no_rtti_08is_equalERKNS0_18extended_type_infoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK5boost13serialization14no_rtti_system28extended_type_info_no_rtti_08is_equalERKNS0_18extended_type_infoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %15, label %4
 

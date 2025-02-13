@@ -139,7 +139,7 @@ define internal noundef ptr @file_query(ptr readnone captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @file_unquery(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #3 {
+define internal noundef i32 @file_unquery(ptr readnone captures(none) %0, ptr noundef %1) #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

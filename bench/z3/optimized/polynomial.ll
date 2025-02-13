@@ -921,7 +921,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial11lex_compareEPKNS_8monomialES2_(ptr noundef readonly captures(address) %m1, ptr noundef readonly captures(address) %m2) local_unnamed_addr #5 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial11lex_compareEPKNS_8monomialES2_(ptr noundef readonly %m1, ptr noundef readonly %m2) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %m1, %m2
   br i1 %cmp, label %return, label %if.end
@@ -986,7 +986,7 @@ return:                                           ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial12lex_compare2EPKNS_8monomialES2_j(ptr noundef readonly captures(address) %m1, ptr noundef readonly captures(address) %m2, i32 noundef %min_var) local_unnamed_addr #5 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial12lex_compare2EPKNS_8monomialES2_j(ptr noundef readonly %m1, ptr noundef readonly %m2, i32 noundef %min_var) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %m1, %m2
   br i1 %cmp, label %return, label %if.end
@@ -1122,7 +1122,7 @@ return:                                           ; preds = %entry, %if.end47, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial18graded_lex_compareEPKNS_8monomialES2_(ptr noundef readonly captures(address) %m1, ptr noundef readonly captures(address) %m2) local_unnamed_addr #5 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial18graded_lex_compareEPKNS_8monomialES2_(ptr noundef readonly %m1, ptr noundef readonly %m2) local_unnamed_addr #5 {
 entry:
   %m_total_degree.i = getelementptr inbounds nuw i8, ptr %m1, i64 8
   %0 = load i32, ptr %m_total_degree.i, align 4
@@ -1263,7 +1263,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial15rev_lex_compareEPKNS_8monomialES2_(ptr noundef readonly captures(address) %m1, ptr noundef readonly captures(address) %m2) local_unnamed_addr #5 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial15rev_lex_compareEPKNS_8monomialES2_(ptr noundef readonly %m1, ptr noundef readonly %m2) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %m1, %m2
   br i1 %cmp, label %return, label %if.end
@@ -1327,7 +1327,7 @@ return:                                           ; preds = %while.end.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial22graded_rev_lex_compareEPKNS_8monomialES2_(ptr noundef readonly captures(address) %m1, ptr noundef readonly captures(address) %m2) local_unnamed_addr #5 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial22graded_rev_lex_compareEPKNS_8monomialES2_(ptr noundef readonly %m1, ptr noundef readonly %m2) local_unnamed_addr #5 {
 entry:
   %m_total_degree.i = getelementptr inbounds nuw i8, ptr %m1, i64 8
   %0 = load i32, ptr %m_total_degree.i, align 4
@@ -1777,7 +1777,7 @@ _ZN10polynomial7manager7inc_refEPNS_10polynomialE.exit: ; preds = %_ZN6vectorIjL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(address_is_null) %p) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef %p) local_unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3920,7 +3920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10polynomial7manager13remove_del_ehEPNS0_6del_ehE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(address) %eh) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN10polynomial7manager13remove_del_ehEPNS0_6del_ehE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone %eh) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_del_eh.i = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -3986,7 +3986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10polynomial7manager7inc_refEPNS_8monomialE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(address_is_null) %m) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10polynomial7manager7inc_refEPNS_8monomialE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef %m) local_unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %m, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -5252,7 +5252,7 @@ _ZN10polynomial7manager3imp3mulEPKNS_8monomialES4_.exit: ; preds = %entry, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN10polynomial7manager3divEPKNS_8monomialES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address) %m1, ptr noundef readonly captures(address) %m2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN10polynomial7manager3divEPKNS_8monomialES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %m1, ptr noundef readonly %m2) local_unnamed_addr #5 align 2 {
 entry:
   %m_total_degree.i.i.i = getelementptr inbounds nuw i8, ptr %m1, i64 8
   %0 = load i32, ptr %m_total_degree.i.i.i, align 4
@@ -5568,7 +5568,7 @@ _ZN10polynomial7manager3imp5unifyEPKNS_8monomialES4_RPS2_S6_.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10polynomial7manager2pwEPKNS_8monomialEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(ret: address, provenance) %m, i32 noundef %k) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN10polynomial7manager2pwEPKNS_8monomialEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %m, i32 noundef %k) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_monomial_manager.i.i = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -27111,7 +27111,7 @@ if.end11:                                         ; preds = %if.then4, %for.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z7convertRN10polynomial7managerEPNS_10polynomialES1_jj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %sm, ptr noundef readonly captures(ret: address, provenance) %p, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %tm, i32 noundef %x, i32 noundef %max_d) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z7convertRN10polynomial7managerEPNS_10polynomialES1_jj(ptr noundef nonnull readonly align 8 dereferenceable(8) %sm, ptr noundef readonly %p, ptr noundef nonnull readonly align 8 dereferenceable(8) %tm, i32 noundef %x, i32 noundef %max_d) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %ms = alloca %class.ptr_buffer, align 8
   %as = alloca %class._scoped_numeral_buffer, align 8

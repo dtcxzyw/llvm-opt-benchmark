@@ -1391,7 +1391,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @fw_cfg_add_extra_pci_roots(ptr noundef readonly captures(address_is_null) %bus, ptr noundef %s) local_unnamed_addr #1 {
+define dso_local void @fw_cfg_add_extra_pci_roots(ptr noundef readonly %bus, ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %bus, null
   br i1 %tobool.not, label %if.end9, label %if.end

@@ -816,7 +816,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(n
 declare dso_local ptr @xprt_create_transport(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpc_clnt_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @rpc_clnt_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #0 align 16 {
   tail call void @__rcu_read_lock() #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %6 = load volatile ptr, ptr %5, align 8
@@ -2960,7 +2960,7 @@ define dso_local ptr @rpc_call_null(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpc_clnt_test_and_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 align 16 {
+define dso_local i32 @rpc_clnt_test_and_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   %6 = alloca %struct.rpc_task_setup, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 456

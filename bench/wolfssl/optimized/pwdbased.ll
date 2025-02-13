@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sp_int = type { i32, i32, [129 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %key, i32 noundef %keyLen, ptr noundef writeonly captures(address_is_null) %iv, i32 noundef %ivLen, ptr noundef %passwd, i32 noundef %passwdLen, ptr noundef %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %hashType, ptr noundef %heap) local_unnamed_addr #0 {
+define i32 @wc_PBKDF1_ex(ptr noundef writeonly %key, i32 noundef %keyLen, ptr noundef writeonly %iv, i32 noundef %ivLen, ptr noundef %passwd, i32 noundef %passwdLen, ptr noundef %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %hashType, ptr noundef %heap) local_unnamed_addr #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %hash = alloca [1 x %union.wc_HashAlg], align 16
@@ -177,7 +177,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PBKDF1(ptr noundef captures(address_is_null) %output, ptr noundef %passwd, i32 noundef %pLen, ptr noundef %salt, i32 noundef %sLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType) local_unnamed_addr #0 {
+define i32 @wc_PBKDF1(ptr noundef %output, ptr noundef %passwd, i32 noundef %pLen, ptr noundef %salt, i32 noundef %sLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_PBKDF1_ex(ptr noundef %output, i32 noundef %kLen, ptr noundef null, i32 noundef 0, ptr noundef %passwd, i32 noundef %pLen, ptr noundef %salt, i32 noundef %sLen, i32 noundef %iterations, i32 noundef %hashType, ptr noundef null)
   ret i32 %call
@@ -391,14 +391,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_PBKDF(ptr noundef captures(address_is_null) %output, ptr noundef readonly captures(none) %passwd, i32 noundef %passLen, ptr noundef readonly captures(none) %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_PBKDF(ptr noundef %output, ptr noundef readonly captures(none) %passwd, i32 noundef %passLen, ptr noundef readonly captures(none) %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_PKCS12_PBKDF_ex(ptr noundef %output, ptr noundef %passwd, i32 noundef %passLen, ptr noundef %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id, ptr poison)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %output, ptr noundef readonly captures(none) %passwd, i32 noundef %passLen, ptr noundef readonly captures(none) %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly %output, ptr noundef readonly captures(none) %passwd, i32 noundef %passLen, ptr noundef readonly captures(none) %salt, i32 noundef %saltLen, i32 noundef %iterations, i32 noundef %kLen, i32 noundef %hashType, i32 noundef %id, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %hash.i = alloca [1 x %union.wc_HashAlg], align 16
   %staticBuffer = alloca [1024 x i8], align 16

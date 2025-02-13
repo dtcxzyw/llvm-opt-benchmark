@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [45 x i8] c"COMPARE-PMIX-VALUE: UNSUPPORTED TYPE %s (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %0, align 8
   %4 = load i16, ptr %1, align 8
   %.not = icmp eq i16 %3, %4
@@ -656,7 +656,7 @@ cmp_byte_object.exit:                             ; preds = %252, %246, %239, %1
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 3) i32 @cmp_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @cmp_string(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = and i1 %3, %4
@@ -805,7 +805,7 @@ define internal fastcc range(i32 0, 3) i32 @cmp_proc_info(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i32 @cmp_darray(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond854 = and i1 %3, %4
@@ -1519,7 +1519,7 @@ cmp_resunit.exit.thread:                          ; preds = %7, %18, %19, %25, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %.not30 = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3

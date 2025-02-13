@@ -67,7 +67,7 @@ declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @public_key_verify_signature(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
+define dso_local i32 @public_key_verify_signature(ptr noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
@@ -239,7 +239,7 @@ declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(n
 declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -65, 1) i32 @software_key_determine_akcipher(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -65, 1) i32 @software_key_determine_akcipher(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 align 16 {
   store i8 1, ptr %4, align 1
   %7 = icmp eq ptr %1, null
   br i1 %7, label %95, label %8
@@ -848,7 +848,7 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @public_key_verify_signature_2(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
+define internal i32 @public_key_verify_signature_2(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @public_key_verify_signature(ptr noundef %4, ptr noundef %1)

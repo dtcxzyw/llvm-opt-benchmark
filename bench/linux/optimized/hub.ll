@@ -218,7 +218,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_usb_hub_find
 @llvm.compiler.used = appending global [30 x ptr] [ptr @__UNIQUE_ID___addressable_ehci_cf_port_reset_rwsem425, ptr @__UNIQUE_ID___addressable_usb_disable_lpm467, ptr @__UNIQUE_ID___addressable_usb_disable_ltm463, ptr @__UNIQUE_ID___addressable_usb_enable_lpm469, ptr @__UNIQUE_ID___addressable_usb_enable_ltm464, ptr @__UNIQUE_ID___addressable_usb_ep0_reinit471, ptr @__UNIQUE_ID___addressable_usb_hub_claim_port434, ptr @__UNIQUE_ID___addressable_usb_hub_clear_tt_buffer429, ptr @__UNIQUE_ID___addressable_usb_hub_find_child478, ptr @__UNIQUE_ID___addressable_usb_hub_release_port435, ptr @__UNIQUE_ID___addressable_usb_queue_reset_device477, ptr @__UNIQUE_ID___addressable_usb_reset_device476, ptr @__UNIQUE_ID___addressable_usb_root_hub_lost_power466, ptr @__UNIQUE_ID___addressable_usb_set_device_state437, ptr @__UNIQUE_ID___addressable_usb_unlocked_disable_lpm468, ptr @__UNIQUE_ID___addressable_usb_unlocked_enable_lpm470, ptr @__UNIQUE_ID___addressable_usb_wakeup_enabled_descendants465, ptr @__UNIQUE_ID___addressable_usb_wakeup_notification428, ptr @__UNIQUE_ID_blinkenlights418, ptr @__UNIQUE_ID_blinkenlightstype417, ptr @__UNIQUE_ID_initial_descriptor_timeout420, ptr @__UNIQUE_ID_initial_descriptor_timeouttype419, ptr @__UNIQUE_ID_old_scheme_first422, ptr @__UNIQUE_ID_old_scheme_firsttype421, ptr @__UNIQUE_ID_use_both_schemes424, ptr @__UNIQUE_ID_use_both_schemestype423, ptr @__param_blinkenlights, ptr @__param_initial_descriptor_timeout, ptr @__param_old_scheme_first, ptr @__param_use_both_schemes], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @usb_hub_to_struct_hub(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @usb_hub_to_struct_hub(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -364,7 +364,7 @@ define dso_local range(i32 -2147483648, 8) i32 @usb_hub_port_status(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 8) i32 @hub_ext_port_status(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 8) i32 @hub_ext_port_status(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) unnamed_addr #1 align 16 {
   %7 = icmp ne i32 %2, 0
   %8 = select i1 %7, i32 8, i32 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -440,7 +440,7 @@ define internal fastcc range(i32 -2147483648, 8) i32 @hub_ext_port_status(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @usb_kick_hub_wq(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @usb_kick_hub_wq(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -548,7 +548,7 @@ define internal fastcc void @kick_hub_wq(ptr noundef %0) unnamed_addr #1 align 1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @usb_wakeup_notification(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #1 align 16 {
+define dso_local void @usb_wakeup_notification(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -778,7 +778,7 @@ declare dso_local i32 @usb_autopm_get_interface(ptr noundef) local_unnamed_addr 
 declare dso_local void @usb_autopm_put_interface(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @usb_hub_claim_port(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @usb_hub_claim_port(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #5 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %18, label %5
 
@@ -840,7 +840,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_hub_claim_port(ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @usb_hub_release_port(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @usb_hub_release_port(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2) #5 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %18, label %5
 
@@ -902,7 +902,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_hub_release_port(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @usb_hub_release_all_ports(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 align 16 {
+define dso_local void @usb_hub_release_all_ports(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 
@@ -1150,7 +1150,7 @@ define dso_local void @usb_set_device_state(ptr noundef %0, i32 noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @recursively_mark_NOTATTACHED(ptr noundef captures(address_is_null) %0) unnamed_addr #1 align 16 {
+define internal fastcc void @recursively_mark_NOTATTACHED(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -2124,7 +2124,7 @@ define dso_local void @usb_enable_ltm(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @usb_wakeup_enabled_descendants(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define dso_local i32 @usb_wakeup_enabled_descendants(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -4691,7 +4691,7 @@ define dso_local void @usb_queue_reset_device(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @usb_get_intf(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @usb_hub_find_child(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
+define dso_local ptr @usb_hub_find_child(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 
@@ -4741,7 +4741,7 @@ define dso_local ptr @usb_hub_find_child(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @usb_hub_adjust_deviceremovable(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 align 16 {
+define dso_local void @usb_hub_adjust_deviceremovable(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #9 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -4870,7 +4870,7 @@ define dso_local void @usb_hub_adjust_deviceremovable(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @usb_get_hub_port_acpi_handle(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local ptr @usb_get_hub_port_acpi_handle(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -8805,7 +8805,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @usb_get_device_descriptor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %5 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %4, ptr noundef dereferenceable(18) %1, i64 18)
   %6 = icmp eq i32 %5, 0
@@ -8972,7 +8972,7 @@ declare dso_local i32 @__printk_ratelimit(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @usb_alloc_dev(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hub_port_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @hub_port_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80

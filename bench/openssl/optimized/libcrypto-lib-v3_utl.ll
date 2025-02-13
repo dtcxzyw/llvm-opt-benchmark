@@ -1311,7 +1311,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_check_host(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, ptr noundef captures(address_is_null) %peername) local_unnamed_addr #0 {
+define i32 @X509_check_host(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, ptr noundef %peername) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %chk, null
   br i1 %cmp, label %return, label %if.end
@@ -1360,7 +1360,7 @@ return:                                           ; preds = %if.else, %entry, %i
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef range(i32 1, 8) %check_type, ptr noundef captures(address_is_null) %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef range(i32 1, 8) %check_type, ptr noundef %peername) unnamed_addr #0 {
 entry:
   %astr.i49 = alloca ptr, align 8
   %astr.i = alloca ptr, align 8
@@ -2843,7 +2843,7 @@ return:                                           ; preds = %skip_prefix.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef range(i32 -1, 23) %cmp_type, ptr noundef readonly captures(none) %equal, i32 noundef %flags, ptr noundef nonnull %b, i64 noundef %blen, ptr noundef writeonly captures(address_is_null) %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef range(i32 -1, 23) %cmp_type, ptr noundef readonly captures(none) %equal, i32 noundef %flags, ptr noundef nonnull %b, i64 noundef %blen, ptr noundef writeonly %peername) unnamed_addr #0 {
 entry:
   %astr = alloca ptr, align 8
   %data = getelementptr inbounds nuw i8, ptr %a, i64 8

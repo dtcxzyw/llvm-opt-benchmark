@@ -130,7 +130,7 @@ define i32 @H5IM_find_palette(i64 noundef %0) local_unnamed_addr #0 {
 declare i32 @H5Aiterate2(i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @find_palette(i64 %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 {
+define internal range(i32 -1, 2) i32 @find_palette(i64 %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %9, label %6
 

@@ -180,7 +180,7 @@ ossl_mac_key_free.exit:                           ; preds = %entry, %CRYPTO_DOWN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_get_params(ptr noundef captures(address_is_null) %key, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @key_to_params(ptr noundef %key, ptr noundef null, ptr noundef %params)
   ret i32 %call
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_has(ptr noundef readonly captures(address_is_null) %keydata, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @mac_has(ptr noundef readonly %keydata, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp ne i32 %call, 0
@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_export(ptr noundef captures(address_is_null) %keydata, i32 noundef %selection, ptr noundef readonly captures(none) %param_cb, ptr noundef %cbarg) #0 {
+define internal i32 @mac_export(ptr noundef %keydata, i32 noundef %selection, ptr noundef readonly captures(none) %param_cb, ptr noundef %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -470,7 +470,7 @@ if.end:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_gen_set_params(ptr noundef writeonly captures(address_is_null) %genctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_gen_set_params(ptr noundef writeonly %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -806,7 +806,7 @@ entry:
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef readonly captures(address_is_null) %key, ptr noundef %tmpl, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef readonly %key, ptr noundef %tmpl, ptr noundef %params) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end

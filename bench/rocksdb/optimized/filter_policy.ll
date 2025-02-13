@@ -5694,7 +5694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { ptr, i64 } @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder6FinishEPSt10unique_ptrIA_KcSt14default_deleteIS4_EEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(292) %this, ptr noundef captures(none) %buf, ptr noundef captures(address) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal { ptr, i64 } @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder6FinishEPSt10unique_ptrIA_KcSt14default_deleteIS4_EEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(292) %this, ptr noundef captures(none) %buf, ptr noundef %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
@@ -6401,7 +6401,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit68: ; preds = %_ZNSt10uniq
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBuilder15MaybePostVerifyERKNS_5SliceE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %filter_content) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBuilder15MaybePostVerifyERKNS_5SliceE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %filter_content) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -10517,7 +10517,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_128Standard128RibbonBitsBuilder15MaybePostVerifyERKNS_5SliceE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %filter_content) unnamed_addr #3 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_128Standard128RibbonBitsBuilder15MaybePostVerifyERKNS_5SliceE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %filter_content) unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 472
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440

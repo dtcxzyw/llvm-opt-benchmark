@@ -305,7 +305,7 @@ declare void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 d
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net23CachedNetworkParameters16default_instanceEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18SourceAddressTokenC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18SourceAddressTokenC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(56) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %this, align 8
   %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -339,7 +339,7 @@ lpad:                                             ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %from) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(56) %from) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %if.then, label %if.end
@@ -1306,7 +1306,7 @@ if.end15:                                         ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18SourceAddressToken21CheckTypeAndMergeFromERKN6google8protobuf11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %from) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net18SourceAddressToken21CheckTypeAndMergeFromERKN6google8protobuf11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %from) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from)
   ret void
@@ -1358,7 +1358,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18SourceAddressToken8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %from) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net18SourceAddressToken8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -1386,7 +1386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net18SourceAddressToken4SwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this, ptr noundef captures(address) %other) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN3net18SourceAddressToken4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %other) local_unnamed_addr #12 align 2 {
 entry:
   %cmp = icmp eq ptr %other, %this
   br i1 %cmp, label %return, label %if.end
@@ -2356,7 +2356,7 @@ _ZN6google8protobuf8internal17AllAreInitializedINS0_16RepeatedPtrFieldIN3net18So
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net19SourceAddressTokens4SwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this, ptr noundef captures(address) %other) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net19SourceAddressTokens4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %other) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %other, %this
   br i1 %cmp, label %return, label %_ZN3net19SourceAddressTokens12InternalSwapEPS0_.exit
@@ -2405,7 +2405,7 @@ return:                                           ; preds = %entry, %_ZN3net19So
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net19SourceAddressTokens12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this, ptr noundef captures(address) %other) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net19SourceAddressTokens12InternalSwapEPS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %other) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp9.i = icmp eq ptr %this, %other
   br i1 %cmp9.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE15UnsafeArenaSwapEPS4_.exit, label %if.end.i

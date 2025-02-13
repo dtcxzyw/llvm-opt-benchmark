@@ -663,7 +663,7 @@ dlm_name_handler.exit:                            ; preds = %3, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_create_lock_msg(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_create_lock_msg(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_dlm_cookie, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef 24, i32 noundef 8, i32 noundef 0) #4

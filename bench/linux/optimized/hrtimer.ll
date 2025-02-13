@@ -1298,7 +1298,7 @@ __hrtimer_get_next_event.exit:                    ; preds = %68, %71
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_without(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_without(ptr noundef readnone %0) local_unnamed_addr #5 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @hrtimer_bases) #14, !srcloc !54
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #13
@@ -2086,7 +2086,7 @@ enqueue_hrtimer.exit:                             ; preds = %149, %155
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 0, -9223372036854775808) i64 @hrtimer_update_next_event(ptr noundef captures(address) %0) unnamed_addr #5 align 16 {
+define internal fastcc range(i64 0, -9223372036854775808) i64 @hrtimer_update_next_event(ptr noundef %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 16
   %4 = and i8 %3, 8
@@ -3543,7 +3543,7 @@ define internal void @hrtimer_run_softirq(ptr readnone captures(none) %0) #5 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range_clock(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #5 section ".sched.text" align 16 {
+define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range_clock(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #5 section ".sched.text" align 16 {
   %5 = alloca %struct.hrtimer_sleeper, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #13
   %6 = icmp eq ptr %0, null
@@ -3624,13 +3624,13 @@ define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range_clock(ptr nounde
 declare dso_local void @schedule() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) #5 section ".sched.text" align 16 {
+define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout_range(ptr noundef %0, i64 noundef %1, i32 noundef %2) #5 section ".sched.text" align 16 {
   %4 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef 1), !range !107
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout(ptr noundef captures(address_is_null) %0, i32 noundef %1) #5 section ".sched.text" align 16 {
+define dso_local range(i32 -4, 1) i32 @schedule_hrtimeout(ptr noundef %0, i32 noundef %1) #5 section ".sched.text" align 16 {
   %3 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %0, i64 noundef 0, i32 noundef %1, i32 noundef 1), !range !107
   ret i32 %3
 }

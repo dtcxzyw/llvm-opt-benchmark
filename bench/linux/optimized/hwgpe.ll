@@ -257,7 +257,7 @@ define dso_local i32 @acpi_hw_clear_gpe(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_hw_get_gpe_status(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_hw_get_gpe_status(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = icmp eq ptr %1, null

@@ -1171,7 +1171,7 @@ return:                                           ; preds = %entry, %trace_tpm_e
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %wanted_size, ptr noundef writeonly captures(address_is_null) %actual_size) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %wanted_size, ptr noundef writeonly %actual_size) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [8 x i8], align 16

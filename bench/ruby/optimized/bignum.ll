@@ -8971,7 +8971,7 @@ bigtrunc.exit:                                    ; preds = %271, %291, %289, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_absint_size(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i64 @rb_absint_size(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = tail call i64 @rb_to_int(i64 noundef %0) #25
   %5 = and i64 %4, 1
@@ -9080,7 +9080,7 @@ BIGNUM_LEN.exit:                                  ; preds = %18, %23
 declare i64 @rb_to_int(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_absint_numwords(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i64 @rb_absint_numwords(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i32], align 8
   %5 = alloca [3 x i32], align 8
   %6 = alloca [2 x i32], align 8
@@ -11325,7 +11325,7 @@ define dso_local i64 @rb_cstr_to_inum(ptr noundef nonnull %0, i32 noundef %1, i3
 declare void @rb_invalid_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i64 0, ptr %8, align 8
@@ -12156,7 +12156,7 @@ define internal fastcc void @invalid_radix(i32 noundef %0) unnamed_addr #7 {
 declare i64 @ruby_scan_digits(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @str2big_poweroftwo(i32 noundef range(i32 0, 2) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i32 noundef range(i32 0, 33) %4) unnamed_addr #0 {
+define internal fastcc i64 @str2big_poweroftwo(i32 noundef range(i32 0, 2) %0, ptr noundef readnone %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef range(i32 0, 33) %4) unnamed_addr #0 {
   %6 = alloca [6 x i64], align 16
   %7 = alloca i64, align 8
   %8 = lshr i64 %3, 5
@@ -12289,7 +12289,7 @@ BIGNUM_DIGITS.exit:                               ; preds = %43, %45
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @str2big_gmp(i32 noundef range(i32 0, 2) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i64 @str2big_gmp(i32 noundef range(i32 0, 2) %0, ptr noundef readonly %1, ptr noundef readnone %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca [6 x i64], align 16
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -12436,7 +12436,7 @@ BIGNUM_DIGITS.exit33:                             ; preds = %59, %61
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @str2big_normal(i32 noundef range(i32 0, 2) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @str2big_normal(i32 noundef range(i32 0, 2) %0, ptr noundef readonly %1, ptr noundef readnone %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [6 x i64], align 16
   %7 = alloca i64, align 8
   %8 = load i64, ptr @rb_cInteger, align 8
@@ -12577,7 +12577,7 @@ BIGNUM_DIGITS.exit:                               ; preds = %35, %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @str2big_karatsuba(i32 noundef range(i32 0, 2) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i64 @str2big_karatsuba(i32 noundef range(i32 0, 2) %0, ptr noundef readnone %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [6 x i64], align 16
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -30209,7 +30209,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 declare i32 @__gmpz_set_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

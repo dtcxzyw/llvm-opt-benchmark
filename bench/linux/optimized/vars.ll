@@ -630,7 +630,7 @@ define dso_local i32 @efivar_entry_set_get_size(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @efivar_entry_iter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @efivar_entry_iter(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @efivar_lock() #14
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %18

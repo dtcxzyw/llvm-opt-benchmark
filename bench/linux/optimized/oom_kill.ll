@@ -1720,7 +1720,7 @@ define dso_local i64 @oom_badness(ptr noundef readonly captures(none) %0, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local zeroext i1 @process_shares_mm(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 16 {
+define dso_local zeroext i1 @process_shares_mm(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

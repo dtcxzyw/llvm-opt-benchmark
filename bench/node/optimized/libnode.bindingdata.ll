@@ -10837,7 +10837,7 @@ if.end:                                           ; preds = %_ZN4node13OneByteSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData33set_endpoint_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %tmpl.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData33set_endpoint_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %tmpl.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %endpoint_constructor_template_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10901,7 +10901,7 @@ _ZN4node17PersistentToLocal7DefaultIN2v816FunctionTemplateEEENS2_5LocalIT_EEPNS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData34set_logstream_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %tmpl.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData34set_logstream_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %tmpl.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %logstream_constructor_template_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10965,7 +10965,7 @@ _ZN4node17PersistentToLocal7DefaultIN2v816FunctionTemplateEEENS2_5LocalIT_EEPNS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData31set_packet_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %tmpl.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData31set_packet_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %tmpl.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %packet_constructor_template_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11029,7 +11029,7 @@ _ZN4node17PersistentToLocal7DefaultIN2v816FunctionTemplateEEENS2_5LocalIT_EEPNS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData32set_session_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %tmpl.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData32set_session_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %tmpl.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_constructor_template_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11093,7 +11093,7 @@ _ZN4node17PersistentToLocal7DefaultIN2v816FunctionTemplateEEENS2_5LocalIT_EEPNS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData31set_stream_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %tmpl.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData31set_stream_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %tmpl.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %stream_constructor_template_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11157,7 +11157,7 @@ _ZN4node17PersistentToLocal7DefaultIN2v816FunctionTemplateEEENS2_5LocalIT_EEPNS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData28set_udp_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %tmpl.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData28set_udp_constructor_templateEN2v85LocalINS2_16FunctionTemplateEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %tmpl.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %udp_constructor_template_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11221,7 +11221,7 @@ _ZN4node17PersistentToLocal7DefaultIN2v816FunctionTemplateEEENS2_5LocalIT_EEPNS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData27set_endpoint_close_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData27set_endpoint_close_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %endpoint_close_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11254,7 +11254,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData24set_session_new_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData24set_session_new_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_new_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11287,7 +11287,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData26set_session_close_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData26set_session_close_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_close_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11320,7 +11320,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData29set_session_datagram_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData29set_session_datagram_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_datagram_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11353,7 +11353,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData36set_session_datagram_status_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData36set_session_datagram_status_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_datagram_status_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11386,7 +11386,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData30set_session_handshake_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData30set_session_handshake_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_handshake_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11419,7 +11419,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData27set_session_ticket_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData27set_session_ticket_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_ticket_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11452,7 +11452,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData40set_session_version_negotiation_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData40set_session_version_negotiation_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_version_negotiation_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11485,7 +11485,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData36set_session_path_validation_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData36set_session_path_validation_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %session_path_validation_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11518,7 +11518,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData25set_stream_close_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData25set_stream_close_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %stream_close_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11551,7 +11551,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData27set_stream_created_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData27set_stream_created_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %stream_created_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11584,7 +11584,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData25set_stream_reset_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData25set_stream_reset_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %stream_reset_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11617,7 +11617,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData27set_stream_headers_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData27set_stream_headers_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %stream_headers_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11650,7 +11650,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData27set_stream_blocked_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData27set_stream_blocked_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %stream_blocked_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11683,7 +11683,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11BindingData28set_stream_trailers_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly captures(address_is_null) %fn.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11BindingData28set_stream_trailers_callbackEN2v85LocalINS2_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(992) %this, ptr readonly %fn.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %stream_trailers_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16

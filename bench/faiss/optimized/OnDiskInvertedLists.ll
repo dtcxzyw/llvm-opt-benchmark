@@ -5027,7 +5027,7 @@ _ZN5faiss10LockLevels6lock_2Ev.exit:              ; preds = %32, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss19OnDiskInvertedLists9free_slotEmm(ptr noundef nonnull align 8 captures(address) dereferenceable(156) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss19OnDiskInvertedLists9free_slotEmm(ptr noundef nonnull align 8 dereferenceable(156) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.faiss::OnDiskInvertedLists::Slot", align 8
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %61, label %6

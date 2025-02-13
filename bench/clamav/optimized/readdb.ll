@@ -2297,7 +2297,7 @@ declare i32 @cli_bm_init(ptr noundef) local_unnamed_addr #3
 declare ptr @fuzzy_hashmap_new() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_dbgets(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define ptr @cli_dbgets(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -3404,7 +3404,7 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare i32 @cli_strbcasestr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadyara(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadyara(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.cli_ytable, align 8
   %7 = alloca %struct.cli_lsig_tdb, align 8
   %8 = alloca [2 x i32], align 4
@@ -4736,7 +4736,7 @@ load_oneyara.exit:                                ; preds = %338, %._crit_edge.i
 declare i32 @cli_cvdload(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @cli_loadcrt(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @cli_loadcrt(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca [20 x i8], align 16
   %5 = alloca [20 x i8], align 16
   %6 = alloca [8192 x i8], align 16
@@ -5101,7 +5101,7 @@ set_sha1.exit52.thread:                           ; preds = %118, %115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadhash(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 0, 4) %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadhash(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 4) %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [6 x ptr], align 16
   %9 = alloca [8192 x i8], align 16
   %10 = alloca ptr, align 8
@@ -5436,7 +5436,7 @@ sub_0:                                            ; preds = %71, %69, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadndb(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i16 noundef zeroext range(i16 0, 2) %3, i32 noundef %4, ptr noundef captures(none) %5) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadndb(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 2) %3, i32 noundef %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = alloca [7 x ptr], align 16
   %8 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #21
@@ -5740,7 +5740,7 @@ sub_0:                                            ; preds = %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadldb(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadldb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca [32769 x i8], align 16
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 32769, ptr nonnull %6) #21
@@ -5880,7 +5880,7 @@ define internal fastcc i32 @cli_loadldb(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadcbc(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadcbc(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [4096 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -6192,7 +6192,7 @@ define internal fastcc i32 @cli_loadcbc(ptr noundef %0, ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @cli_loadmd(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 1, 3) %3, i32 noundef %4, ptr noundef captures(none) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @cli_loadmd(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3, i32 noundef %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = alloca [10 x ptr], align 16
   %8 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #21
@@ -6664,7 +6664,7 @@ sub_043:                                          ; preds = %.tail38.thread, %.t
 declare i32 @cli_dconf_load(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @cli_loadinfo(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @cli_loadinfo(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4 x ptr], align 16
   %6 = alloca [8192 x i8], align 16
   %7 = alloca [32 x i8], align 16
@@ -6994,7 +6994,7 @@ define internal fastcc i32 @cli_loadpdb(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadftm(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadftm(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca [9 x ptr], align 16
   %7 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #21
@@ -7265,7 +7265,7 @@ define internal fastcc i32 @cli_loadftm(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_loadign(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+define internal fastcc i32 @cli_loadign(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca [4 x ptr], align 16
   %5 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
@@ -7473,7 +7473,7 @@ define internal fastcc i32 @cli_loadign(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca [5 x ptr], align 16
   %7 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
@@ -8262,7 +8262,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadidb(ptr noundef captures(ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @cli_loadcdb(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @cli_loadcdb(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca [13 x ptr], align 16
   %7 = alloca [8192 x i8], align 16
   %8 = alloca i32, align 4
@@ -8978,7 +8978,7 @@ define internal fastcc range(i32 0, 5) i32 @cli_loadopenioc(ptr noundef captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 23) i32 @cli_loadpwdb(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 23) i32 @cli_loadpwdb(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca [5 x ptr], align 16
   %7 = alloca [8192 x i8], align 16
   %8 = alloca %struct.cli_lsig_tdb, align 8
@@ -10400,7 +10400,7 @@ define noundef nonnull ptr @cl_retdbdir() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cl_statinidir(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cl_statinidir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %3
 
@@ -10757,7 +10757,7 @@ cl_statfree.exit:                                 ; preds = %15, %13, %._crit_ed
 declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @cl_statfree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @cl_statfree(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -10801,7 +10801,7 @@ declare ptr @cli_safer_realloc_or_free(ptr noundef, i64 noundef) local_unnamed_a
 declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cl_statchkdir(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cl_statchkdir(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #21
   %.not = icmp eq ptr %0, null
@@ -13154,7 +13154,7 @@ declare void @mpool_flush(ptr noundef) local_unnamed_addr #3
 declare i32 @cli_bytecode_prepare2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @cl_engine_addref(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @cl_engine_addref(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -13176,7 +13176,7 @@ define range(i32 0, 3) i32 @cl_engine_addref(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @cl_countsigs(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @cl_countsigs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #21
@@ -14222,7 +14222,7 @@ define internal fastcc range(i32 0, 21) i32 @ytable_add_attrib(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ytable_delete(ptr captures(address_is_null) %.0.val, i32 %.8.val) unnamed_addr #0 {
+define internal fastcc void @ytable_delete(ptr %.0.val, i32 %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %9, label %.preheader
 
@@ -15364,7 +15364,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 declare i32 @hm_addhash_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @load_oneldb(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc noundef i32 @load_oneldb(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca [68 x ptr], align 16
   %11 = alloca %struct.cli_lsig_tdb, align 8
   %12 = alloca [2 x i32], align 4

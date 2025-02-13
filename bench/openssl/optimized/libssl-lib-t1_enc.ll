@@ -545,7 +545,7 @@ return:                                           ; preds = %if.else, %do.body, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr noundef readonly captures(none) %label, i64 noundef %llen, ptr noundef readonly captures(address_is_null) %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_export_keying_material(ptr noundef %s, ptr noundef %out, i64 noundef %olen, ptr noundef readonly captures(none) %label, i64 noundef %llen, ptr noundef readonly %context, i64 noundef %contextlen, i32 noundef %use_context) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %contextlen, 65535
   br i1 %cmp, label %if.then, label %if.end

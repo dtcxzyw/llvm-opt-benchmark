@@ -122,7 +122,7 @@ define internal ptr @H5G__node_get_shared(ptr noundef %0, ptr readnone captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__node_create(ptr noundef %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(none) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__node_create(ptr noundef %0, i32 %1, ptr noundef writeonly %2, ptr readnone captures(none) %3, ptr noundef writeonly %4, ptr noundef captures(none) %5) #0 {
   %7 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5G_node_t_reg_free_list) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13

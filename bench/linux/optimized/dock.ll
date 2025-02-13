@@ -68,7 +68,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_is_dock_devi
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_is_dock_device319, ptr @__UNIQUE_ID_immediate_undock318, ptr @__UNIQUE_ID_immediate_undocktype317, ptr @__param_immediate_undock], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @register_dock_dependent_device(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @register_dock_dependent_device(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
   br label %3
 
 3:                                                ; preds = %7, %2
@@ -139,7 +139,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @is_dock_device(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @is_dock_device(ptr noundef readonly %0) #0 align 16 {
   %2 = load i32, ptr @dock_station_count, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.loopexit, label %4
@@ -186,7 +186,7 @@ define dso_local noundef range(i32 0, 2) i32 @is_dock_device(ptr noundef readonl
 declare dso_local zeroext i1 @acpi_dock_match(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [13 x i8], align 1
   %4 = alloca [2 x ptr], align 16
   %5 = alloca i64, align 8
@@ -589,7 +589,7 @@ declare dso_local i32 @acpi_evaluate_lck(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i32 @acpi_update_all_gpes() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @handle_eject_request(ptr noundef captures(address) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @handle_eject_request(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.acpi_object_list, align 8
   %4 = alloca %union.acpi_object, align 8

@@ -1740,7 +1740,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 4, 6) i32 @_ZN13bool_rewriter11mk_not_coreEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(address) %t, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN13bool_rewriter11mk_not_coreEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly %t, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %class.obj_ref, align 8
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
@@ -7957,7 +7957,7 @@ _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %cleanup, %if.end.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13bool_rewriter8simp_argEP4exprR13ast_fast_markILj1EERS2_ILj2EERb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(ret: address, provenance) %arg, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %neg_lits, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %pos_lits, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %modified) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN13bool_rewriter8simp_argEP4exprR13ast_fast_markILj1EERS2_ILj2EERb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly %arg, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %neg_lits, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(144) %pos_lits, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %modified) local_unnamed_addr #6 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -8944,7 +8944,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13bool_rewriter12push_new_argEP4exprR10ref_vectorIS0_11ast_managerER13ast_fast_markILj1EERS6_ILj2EE(ptr nonnull readonly align 8 captures(none) %this, ptr noundef %arg, ptr noundef nonnull align 8 dereferenceable(16) %new_args, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %neg_lits, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %pos_lits) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13bool_rewriter12push_new_argEP4exprR10ref_vectorIS0_11ast_managerER13ast_fast_markILj1EERS6_ILj2EE(ptr nonnull readonly align 8 captures(none) %this, ptr noundef %arg, ptr noundef nonnull align 8 dereferenceable(16) %new_args, ptr noundef nonnull align 8 dereferenceable(144) %neg_lits, ptr noundef nonnull align 8 dereferenceable(144) %pos_lits) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4

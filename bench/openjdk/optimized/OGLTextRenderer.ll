@@ -166,7 +166,7 @@ declare void @OGLVertexCache_FlushVertexCache(...) #1
 declare void @OGLVertexCache_RestoreColorState(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLTR_DrawGlyphList(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, float noundef %8, float noundef %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef readonly captures(address_is_null) %11) local_unnamed_addr #0 {
+define hidden void @OGLTR_DrawGlyphList(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, float noundef %8, float noundef %9, ptr noundef readonly %10, ptr noundef readonly %11) local_unnamed_addr #0 {
   %13 = icmp eq ptr %1, null
   %14 = icmp eq ptr %2, null
   %or.cond = or i1 %13, %14

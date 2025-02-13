@@ -1906,21 +1906,21 @@ entry:
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal3smt10Assertions14getAssumptionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal3smt10Assertions14getAssumptionsEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_assumptions = getelementptr inbounds nuw i8, ptr %this, i64 248
   ret ptr %d_assumptions
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal3smt10Assertions16getAssertionListEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal3smt10Assertions16getAssertionListEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_assertionList = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %d_assertionList
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal3smt10Assertions27getAssertionListDefinitionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal3smt10Assertions27getAssertionListDefinitionsEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_assertionListDefs = getelementptr inbounds nuw i8, ptr %this, i64 96
   ret ptr %d_assertionListDefs

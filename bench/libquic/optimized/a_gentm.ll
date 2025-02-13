@@ -403,14 +403,14 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ASN1_GENERALIZEDTIME_set(ptr noundef captures(address_is_null, ret: address, provenance) %s, i64 noundef %t) local_unnamed_addr #0 {
+define hidden ptr @ASN1_GENERALIZEDTIME_set(ptr noundef %s, i64 noundef %t) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef %s, i64 noundef %t, i32 noundef 0, i64 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef captures(address_is_null, ret: address, provenance) %s, i64 noundef %t, i32 noundef %offset_day, i64 noundef %offset_sec) local_unnamed_addr #0 {
+define hidden ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef %s, i64 noundef %t, i32 noundef %offset_day, i64 noundef %offset_sec) local_unnamed_addr #0 {
 entry:
   %t.addr = alloca i64, align 8
   %data = alloca %struct.tm, align 8

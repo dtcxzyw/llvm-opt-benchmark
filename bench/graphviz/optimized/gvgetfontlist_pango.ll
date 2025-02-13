@@ -143,7 +143,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.114 = private unnamed_addr constant [18 x i8] c" [%d] %s => \22%s\22\0A\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define noundef ptr @strcasestr(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @strcasestr(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %.critedge.thread, label %4

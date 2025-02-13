@@ -859,21 +859,21 @@ declare i32 @BIO_ADDR_family(ptr noundef) local_unnamed_addr #1
 declare void @BIO_ADDR_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_quic_channel_get_reactor(ptr noundef readnone captures(ret: address, provenance) %ch) local_unnamed_addr #4 {
+define nonnull ptr @ossl_quic_channel_get_reactor(ptr noundef readnone %ch) local_unnamed_addr #4 {
 entry:
   %rtor = getelementptr inbounds nuw i8, ptr %ch, i64 64
   ret ptr %rtor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_quic_channel_get_qsm(ptr noundef readnone captures(ret: address, provenance) %ch) local_unnamed_addr #4 {
+define nonnull ptr @ossl_quic_channel_get_qsm(ptr noundef readnone %ch) local_unnamed_addr #4 {
 entry:
   %qsm = getelementptr inbounds nuw i8, ptr %ch, i64 888
   ret ptr %qsm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_quic_channel_get_statm(ptr noundef readnone captures(ret: address, provenance) %ch) local_unnamed_addr #4 {
+define nonnull ptr @ossl_quic_channel_get_statm(ptr noundef readnone %ch) local_unnamed_addr #4 {
 entry:
   %statm = getelementptr inbounds nuw i8, ptr %ch, i64 1024
   ret ptr %statm
@@ -890,7 +890,7 @@ entry:
 declare ptr @ossl_quic_stream_map_get_by_id(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_is_active(ptr noundef readonly captures(address_is_null) %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_active(ptr noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %ch, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -945,7 +945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_channel_get_terminate_cause(ptr noundef readonly captures(ret: address, provenance) %ch) local_unnamed_addr #5 {
+define ptr @ossl_quic_channel_get_terminate_cause(ptr noundef readonly %ch) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %ch, i64 1616
   %ch.val.i = load i64, ptr %0, align 8
@@ -1805,7 +1805,7 @@ return:                                           ; preds = %if.end8, %lor.lhs.f
 declare i32 @ossl_ackm_on_handshake_confirmed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_on_remote_conn_close(ptr noundef captures(address_is_null) %ch, ptr noundef readonly captures(none) %f) local_unnamed_addr #0 {
+define void @ossl_quic_channel_on_remote_conn_close(ptr noundef %ch, ptr noundef readonly captures(none) %f) local_unnamed_addr #0 {
 entry:
   %tcause = alloca %struct.quic_terminate_cause_st, align 8
   %0 = getelementptr inbounds nuw i8, ptr %tcause, i64 32
@@ -2178,7 +2178,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_restore_err_state(ptr noundef readonly captures(address_is_null) %ch) local_unnamed_addr #0 {
+define void @ossl_quic_channel_restore_err_state(ptr noundef readonly %ch) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ch, null
   br i1 %cmp, label %return, label %if.end

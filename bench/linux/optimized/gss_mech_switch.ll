@@ -206,7 +206,7 @@ define dso_local void @gss_mech_unregister(ptr noundef captures(none) %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @gss_mech_get(ptr noundef readonly returned captures(ret: address, provenance) %0) #0 align 16 {
+define dso_local noundef ptr @gss_mech_get(ptr noundef readonly returned %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @__module_get(ptr noundef %3) #14
@@ -604,7 +604,7 @@ define dso_local i32 @gss_mech_info2flavor(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gss_mech_put(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define dso_local void @gss_mech_put(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

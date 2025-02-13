@@ -2599,7 +2599,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9Proo
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal16ProofNodeUpdater15checkMergeProofERSt10shared_ptrINS0_9ProofNodeEERKSt3mapINS0_12NodeTemplateILb1EEES4_St4lessIS8_ESaISt4pairIKS8_S4_EEERSt13unordered_mapIPKS3_bSt4hashISK_ESt8equal_toISK_ESaISB_IKSK_bEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(58) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cur, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %resCache, ptr noundef nonnull align 8 dereferenceable(56) %cfaMap) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal16ProofNodeUpdater15checkMergeProofERSt10shared_ptrINS0_9ProofNodeEERKSt3mapINS0_12NodeTemplateILb1EEES4_St4lessIS8_ESaISt4pairIKS8_S4_EEERSt13unordered_mapIPKS3_bSt4hashISK_ESt8equal_toISK_ESaISB_IKSK_bEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(58) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cur, ptr noundef nonnull readonly align 8 dereferenceable(48) %resCache, ptr noundef nonnull align 8 dereferenceable(56) %cfaMap) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %d_mergeSubproofs = getelementptr inbounds nuw i8, ptr %this, i64 56

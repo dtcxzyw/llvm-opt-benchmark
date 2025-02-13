@@ -159,7 +159,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13basic_factory14get_some_valueEP4sort(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone captures(address) %s) unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN13basic_factory14get_some_valueEP4sort(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone %s) unnamed_addr #7 align 2 {
 entry:
   %m_manager = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_manager, align 8
@@ -187,7 +187,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN13basic_factory15get_some_valuesEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone captures(address) %s, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v2) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN13basic_factory15get_some_valuesEP4sortR7obj_refI4expr11ast_managerES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone %s, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %v2) unnamed_addr #8 align 2 {
 entry:
   %m_manager = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_manager, align 8
@@ -535,7 +535,7 @@ if.end9:                                          ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZNK17user_sort_factory18get_known_universeEP4sort(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(136) %this, ptr noundef readonly captures(address) %s) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZNK17user_sort_factory18get_known_universeEP4sort(ptr noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef readonly %s) local_unnamed_addr #10 align 2 {
 entry:
   %m_sort2value_set = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12

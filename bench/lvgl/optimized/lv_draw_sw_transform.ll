@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_color16a_t = type { i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_transform(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readnone captures(none) %7, i32 noundef %8, ptr noundef captures(address) %9) local_unnamed_addr #0 {
+define void @lv_draw_sw_transform(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readnone captures(none) %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72

@@ -2996,13 +2996,13 @@ define internal fastcc void @"_ZN15actix_multipart6server14InnerMultipart4poll28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN15actix_multipart6server5Field7headers17h63966b65b5426305E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN15actix_multipart6server5Field7headers17h63966b65b5426305E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(88) ptr @_ZN15actix_multipart6server5Field12content_type17h48500a8363a43f96E(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
+define noundef align 8 dereferenceable_or_null(88) ptr @_ZN15actix_multipart6server5Field12content_type17h48500a8363a43f96E(ptr noundef nonnull readonly align 8 %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !202, !noundef !4
   %3 = icmp eq i64 %2, 2
   %. = select i1 %3, ptr null, ptr %0
@@ -3010,7 +3010,7 @@ define noundef align 8 dereferenceable_or_null(88) ptr @_ZN15actix_multipart6ser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN15actix_multipart6server5Field19content_disposition17h6f7b820acfcd906dE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN15actix_multipart6server5Field19content_disposition17h6f7b820acfcd906dE(ptr noundef nonnull readnone align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
@@ -4824,7 +4824,7 @@ define void @_ZN15actix_multipart6server6Safety3new17h2c31dc11856b044dE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15actix_multipart6server6Safety5clone17hfcca6ee5fc69adf9E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15actix_multipart6server6Safety5clone17hfcca6ee5fc69adf9E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr, { { { { ptr, [1 x i64] } } }, {} }, i64 }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.val.i = load i64, ptr %4, align 8, !noundef !4

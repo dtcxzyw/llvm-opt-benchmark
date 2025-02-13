@@ -462,7 +462,7 @@ entry:
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 3) i32 @dmg_probe(ptr readnone captures(none) %buf, i32 %buf_size, ptr noundef readonly captures(address_is_null) %filename) #3 {
+define internal range(i32 0, 3) i32 @dmg_probe(ptr readnone captures(none) %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
 entry:
   %tobool.not = icmp eq ptr %filename, null
   br i1 %tobool.not, label %return, label %if.end

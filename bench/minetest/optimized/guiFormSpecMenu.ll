@@ -5100,7 +5100,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i64 @_ZN15GUIFormSpecMenu17getElementBasePosEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef readonly captures(address_is_null) %v_pos) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZN15GUIFormSpecMenu17getElementBasePosEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef readonly %v_pos) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %padding = getelementptr inbounds nuw i8, ptr %this, i64 560
   %pos_offset = getelementptr inbounds nuw i8, ptr %this, i64 592
@@ -8593,7 +8593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %if.
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu23parseScrollContainerEndEPNS_10parserDataE(ptr noundef nonnull align 8 captures(address) dereferenceable(2228) %this, ptr noundef captures(none) %data) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu23parseScrollContainerEndEPNS_10parserDataE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef captures(none) %data) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_parent = getelementptr inbounds nuw i8, ptr %data, i64 128
   %0 = load ptr, ptr %current_parent, align 8, !tbaa !322
@@ -95862,7 +95862,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader

@@ -265,7 +265,7 @@ define range(i32 -1, 1) i32 @mca_base_component_parse_requested(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @use_component(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @use_component(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %34, label %6
 
@@ -360,7 +360,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit42, label %.preheader
 

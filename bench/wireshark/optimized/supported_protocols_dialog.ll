@@ -79,7 +79,7 @@ $_ZN9QtPrivate11QSlotObjectIM24SupportedProtocolsDialogFvvENS_4ListIJEEEvE4implE
 @_ZN24SupportedProtocolsDialogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN24SupportedProtocolsDialogD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SupportedProtocolsDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24SupportedProtocolsDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca %class.QString, align 8

@@ -6761,7 +6761,7 @@ if.end20:                                         ; preds = %if.else13, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUITable14setOpenedTreesERKSt3setIiSt4lessIiESaIiEE(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %opened_trees) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUITable14setOpenedTreesERKSt3setIiSt4lessIiESaIiEE(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %opened_trees) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %totalheight.i = alloca i32, align 4
   %scrollmax.i = alloca i32, align 4
@@ -10135,7 +10135,7 @@ cleanup67:                                        ; preds = %if.then.i143, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK8GUITable16doesRowStartWithEPKNS_3RowERKN3irr4core6stringIwEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(608) %this, ptr noundef readonly captures(address_is_null) %row, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK8GUITable16doesRowStartWithEPKNS_3RowERKN3irr4core6stringIwEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(608) %this, ptr noundef readonly %row, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %cmp = icmp eq ptr %row, null

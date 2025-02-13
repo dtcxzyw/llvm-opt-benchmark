@@ -153,7 +153,7 @@ define hidden noundef ptr @php_dom_libxml_notation_iter(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @php_dom_iterator_current_data(ptr noundef readnone captures(ret: address, provenance) %0) #4 {
+define hidden nonnull ptr @php_dom_iterator_current_data(ptr noundef readnone %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }

@@ -555,7 +555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @stbte_get_tile(ptr noundef readnone captures(ret: address, provenance) %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #10 {
+define ptr @stbte_get_tile(ptr noundef readnone %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #10 {
 entry:
   %or.cond = icmp ugt i32 %x, 199
   %0 = icmp ugt i32 %y, 199
@@ -568,7 +568,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @stbte_get_properties(ptr noundef readnone captures(ret: address, provenance) %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #10 {
+define ptr @stbte_get_properties(ptr noundef readnone %tm, i32 noundef %x, i32 noundef %y) local_unnamed_addr #10 {
 entry:
   %or.cond = icmp ugt i32 %x, 199
   %0 = icmp ugt i32 %y, 199
@@ -4104,7 +4104,7 @@ return:                                           ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @stbte__float_control(i32 noundef %x0, i32 noundef %y0, i32 noundef %w, float noundef %minv, float noundef %maxv, float noundef %scale, ptr noundef readonly captures(address_is_null) %fmt, ptr noundef captures(none) %value, i32 noundef %colormode, i32 noundef %id) local_unnamed_addr #14 {
+define range(i32 0, 4) i32 @stbte__float_control(i32 noundef %x0, i32 noundef %y0, i32 noundef %w, float noundef %minv, float noundef %maxv, float noundef %scale, ptr noundef readonly %fmt, ptr noundef captures(none) %value, i32 noundef %colormode, i32 noundef %id) local_unnamed_addr #14 {
 entry:
   %text = alloca [32 x i8], align 16
   %add = add nsw i32 %w, %x0

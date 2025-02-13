@@ -191,7 +191,7 @@ define internal noundef i32 @tikz_declare_color(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @tikz_box(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 %8) #7 {
+define internal void @tikz_box(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, i32 %8) #7 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [20 x i8], align 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -272,7 +272,7 @@ define internal void @tikz_line(ptr noundef readonly captures(none) %0, i32 %1, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @tikz_text(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 %8) #7 {
+define internal void @tikz_text(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 %8) #7 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %1, align 8

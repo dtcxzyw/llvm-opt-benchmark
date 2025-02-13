@@ -48981,7 +48981,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies13sequence_itemEED2Ev.exit61
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE12PrivateOpNewJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE12PrivateOpNewJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ33test_submodule_copy_move_policiesRN8pybind117module_EE12PrivateOpNew, ptr %4, align 8
@@ -50113,7 +50113,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue1JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue1JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ33test_submodule_copy_move_policiesRN8pybind117module_EE10MoveIssue1, ptr %4, align 8
@@ -51252,7 +51252,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ33test_submodule_copy_move_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue1JEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue1JEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -51396,7 +51396,7 @@ _ZN8pybind117capsuleD2Ev.exit:                    ; preds = %1, %39, %_ZN8pybind
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue2JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue2JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ33test_submodule_copy_move_policiesRN8pybind117module_EE10MoveIssue2, ptr %4, align 8
@@ -51979,7 +51979,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ33test_submodule_copy_move_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue2JEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue2JEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3

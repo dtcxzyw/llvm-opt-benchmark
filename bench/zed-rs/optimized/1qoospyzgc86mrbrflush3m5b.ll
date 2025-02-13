@@ -20107,7 +20107,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.6633197745336603733.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$node_runtime..NodeRuntimeTrait$GT$$GT$17h30829b0ad3e05e4fE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$node_runtime..NodeRuntimeTrait$GT$$GT$17h30829b0ad3e05e4fE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !15
@@ -44705,7 +44705,7 @@ define void @_ZN9languages8tailwind23server_binary_arguments17h46b7948aa481c447E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN9languages8tailwind18TailwindLspAdapter3new17h601c210590dad27aE(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #16 {
+define hidden noundef nonnull ptr @_ZN9languages8tailwind18TailwindLspAdapter3new17h601c210590dad27aE(ptr noundef nonnull readnone returned %0) unnamed_addr #16 {
   ret ptr %0
 }
 

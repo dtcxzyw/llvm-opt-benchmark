@@ -222,7 +222,7 @@ do.body:                                          ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_uas_cancel_io(ptr noundef %dev, ptr noundef readnone captures(address) %p) #0 {
+define internal void @usb_uas_cancel_io(ptr noundef %dev, ptr noundef readnone %p) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 137, ptr noundef nonnull @__func__.USB_UAS) #9
   %status2 = getelementptr inbounds nuw i8, ptr %call.i, i64 6056

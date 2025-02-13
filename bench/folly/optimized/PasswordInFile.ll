@@ -440,7 +440,7 @@ declare noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef) local_unnamed_addr #4
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14PasswordInFileD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14PasswordInFileD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly14PasswordInFileE, i64 16), ptr %this, align 8, !tbaa !7
   %password_ = getelementptr inbounds nuw i8, ptr %this, i64 40

@@ -58,7 +58,7 @@ define hidden ptr @CandumpParserAlloc(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @CandumpParserFinalize(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @CandumpParserFinalize(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %0, align 8
   %3 = icmp ugt ptr %.promoted, %2
@@ -108,7 +108,7 @@ CandumpParserFinalize.exit:                       ; preds = %4, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CandumpParser(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, i64 %2, i64 %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden void @CandumpParser(ptr noundef initializes((16, 24)) %0, i32 noundef %1, i64 %2, i64 %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %union.YYMINORTYPE, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %7, align 8

@@ -556,7 +556,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl10StringPropC2ERKS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) initializes((0, 10), (12, 16)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl10StringPropC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 10), (12, 16)) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -614,7 +614,7 @@ lpad:                                             ; preds = %if.end14.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl10StringPropaSERKS2_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %other) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl10StringPropaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end
@@ -718,7 +718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl10StringPropaSEOS2_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_756number4impl10StringPropaSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %this, %src
   br i1 %cmp, label %return, label %if.end

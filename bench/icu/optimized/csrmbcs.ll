@@ -118,7 +118,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 101) i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef readonly captures(address_is_null) %commonChars, i32 noundef %commonCharsLen) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 101) i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef readonly %commonChars, i32 noundef %commonCharsLen) local_unnamed_addr #6 align 2 {
 entry:
   %iter = alloca %"class.icu_75::IteratedChar", align 4
   call void @_ZN6icu_7512IteratedCharC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %iter)

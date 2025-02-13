@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_co_queue_wait_impl(ptr noundef captures(none) %queue, ptr noundef readonly captures(address_is_null) %lock, i32 noundef %flags) #1 {
+define dso_local void @qemu_co_queue_wait_impl(ptr noundef captures(none) %queue, ptr noundef readonly %lock, i32 noundef %flags) #1 {
 entry:
   %call = tail call ptr @qemu_coroutine_self() #9
   %and = and i32 %flags, 1
@@ -134,7 +134,7 @@ declare zeroext i1 @qemu_in_coroutine() local_unnamed_addr #2
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qemu_co_enter_next_impl(ptr noundef %queue, ptr noundef readonly captures(address_is_null) %lock) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @qemu_co_enter_next_impl(ptr noundef %queue, ptr noundef readonly %lock) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %tobool.not = icmp ne ptr %0, null
@@ -208,7 +208,7 @@ qemu_co_enter_next_impl.exit:                     ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_co_enter_all_impl(ptr noundef %queue, ptr noundef readonly captures(address_is_null) %lock) local_unnamed_addr #1 {
+define dso_local void @qemu_co_enter_all_impl(ptr noundef %queue, ptr noundef readonly %lock) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %tobool.not.i.not1 = icmp eq ptr %0, null

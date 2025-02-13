@@ -236,7 +236,7 @@ define void @lv_gradient_cleanup(ptr noundef %0) local_unnamed_addr #0 {
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_gradient_init_stops(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #3 {
+define void @lv_gradient_init_stops(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = icmp slt i32 %4, 3
   br i1 %6, label %7, label %.preheader
 

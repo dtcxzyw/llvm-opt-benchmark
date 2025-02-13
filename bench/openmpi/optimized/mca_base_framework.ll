@@ -230,7 +230,7 @@ declare i32 @mca_base_framework_var_register(ptr noundef, ptr noundef, ptr nound
 declare i32 @mca_base_framework_components_register(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_framework_register_list(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define noundef i32 @mca_base_framework_register_list(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -361,7 +361,7 @@ declare i32 @mca_base_var_group_set_var_flag(i32 noundef, i32 noundef, i1 nounde
 declare i32 @mca_base_framework_components_open(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_framework_open_list(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define noundef i32 @mca_base_framework_open_list(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -649,7 +649,7 @@ declare i32 @mca_base_framework_components_close(ptr noundef, ptr noundef) local
 declare void @mca_base_component_unload(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_framework_close_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define i32 @mca_base_framework_close_list(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

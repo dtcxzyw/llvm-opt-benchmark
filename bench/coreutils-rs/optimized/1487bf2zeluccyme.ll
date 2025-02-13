@@ -4096,7 +4096,7 @@ _ZN7uu_sort13FieldSelector18parse_with_options17h6d08f08160314d92E.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(6) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(6) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i32, align 4
@@ -4539,7 +4539,7 @@ define void @_ZN7uu_sort13FieldSelector3new17hebe188195e28d027E(ptr noalias noun
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN7uu_sort13FieldSelector13get_selection17h263590ce3580e847E(ptr noalias noundef writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) %4, i64 noundef %5) unnamed_addr #2 {
+define hidden void @_ZN7uu_sort13FieldSelector13get_selection17h263590ce3580e847E(ptr noalias noundef writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #2 {
   %7 = alloca { i8, [15 x i8] }, align 8
   %8 = alloca { i32, i32, i8, [3 x i8] }, align 4
   %9 = alloca { { i64, i8, [7 x i8] }, { i64, i64 } }, align 8
@@ -4771,7 +4771,7 @@ _ZN7uu_sort17general_f64_parse17hb990126e0b838fdfE.exit: ; preds = %94, %98, %10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range17hb4cdee14e7586f82E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) %3, i64 %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range17hb4cdee14e7586f82E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 %3, i64 %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca [0 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4941,7 +4941,7 @@ default.unreachable:                              ; preds = %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(address_is_null) %2, i64 %3, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 %2, i64 %3, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.not = icmp ne ptr %2, null
   %6 = load i64, ptr %4, align 8
   %7 = icmp ult i64 %3, %6

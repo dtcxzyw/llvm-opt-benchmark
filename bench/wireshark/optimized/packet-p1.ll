@@ -3736,7 +3736,7 @@ define hidden void @p1_initialize_content_globals(ptr noundef captures(none) ini
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @p1_get_last_oraddress(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @p1_get_last_oraddress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 

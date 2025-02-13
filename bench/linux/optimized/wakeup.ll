@@ -267,7 +267,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_register_wakeup_handler(i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_unregister_wakeup_handler(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #0 align 16 {
+define dso_local void @acpi_unregister_wakeup_handler(ptr noundef readnone %0, ptr noundef readnone %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
   %3 = load ptr, ptr @acpi_wakeup_handler_head, align 8
   %4 = icmp eq ptr %3, @acpi_wakeup_handler_head

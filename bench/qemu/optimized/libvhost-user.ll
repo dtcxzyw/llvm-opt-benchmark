@@ -1671,7 +1671,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vu_queue_get_avail_bytes(ptr noundef %dev, ptr noundef captures(none) %vq, ptr noundef writeonly captures(address_is_null) %in_bytes, ptr noundef writeonly captures(address_is_null) %out_bytes, i32 noundef %max_in_bytes, i32 noundef %max_out_bytes) local_unnamed_addr #2 {
+define dso_local void @vu_queue_get_avail_bytes(ptr noundef %dev, ptr noundef captures(none) %vq, ptr noundef writeonly %in_bytes, ptr noundef writeonly %out_bytes, i32 noundef %max_in_bytes, i32 noundef %max_out_bytes) local_unnamed_addr #2 {
 entry:
   %desc_buf = alloca [1024 x %struct.vring_desc], align 16
   %broken = getelementptr inbounds nuw i8, ptr %dev, i64 1408

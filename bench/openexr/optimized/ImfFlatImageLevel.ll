@@ -1118,14 +1118,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZN7Imf_3_214FlatImageLevel3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
+define nonnull ptr @_ZN7Imf_3_214FlatImageLevel3endEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %add.ptr.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK7Imf_3_214FlatImageLevel3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
+define nonnull ptr @_ZNK7Imf_3_214FlatImageLevel3endEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %add.ptr.i.i

@@ -25014,7 +25014,7 @@ eh.resume:                                        ; preds = %lpad10, %ehcleanup1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter15rewriteIneqToBvENS0_4kind6Kind_tERKSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS2_8rewriter14TermComparatorESaISt4pairIKS8_S9_EEERSD_(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, i32 noundef %kind, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %sum, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ineq) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter15rewriteIneqToBvENS0_4kind6Kind_tERKSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS2_8rewriter14TermComparatorESaISt4pairIKS8_S9_EEERSD_(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, i32 noundef %kind, ptr noundef nonnull readonly align 8 dereferenceable(48) %sum, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ineq) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i213 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i214 = alloca %"class.cvc5::internal::NodeTemplate.12", align 8

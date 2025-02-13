@@ -158,7 +158,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbsp_vsprintfcb(ptr noundef readonly captures(address_is_null) %callback, ptr noundef %user, ptr noundef %buf, ptr noundef %fmt, ptr noundef captures(none) %va) local_unnamed_addr #3 {
+define i32 @stbsp_vsprintfcb(ptr noundef readonly %callback, ptr noundef %user, ptr noundef %buf, ptr noundef %fmt, ptr noundef captures(none) %va) local_unnamed_addr #3 {
 entry:
   %num = alloca [512 x i8], align 16
   %num1064 = ptrtoint ptr %num to i64
@@ -3363,7 +3363,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @stbsp__clamp_callback(ptr noundef readonly captures(address) %buf, ptr noundef captures(ret: address, provenance) %user, i32 noundef %len) #5 {
+define ptr @stbsp__clamp_callback(ptr noundef readonly %buf, ptr noundef %user, i32 noundef %len) #5 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %user, i64 12
   %0 = load i32, ptr %length, align 4
@@ -3436,7 +3436,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @stbsp__count_clamp_callback(ptr readnone captures(none) %buf, ptr noundef captures(ret: address, provenance) %user, i32 noundef %len) #6 {
+define nonnull ptr @stbsp__count_clamp_callback(ptr readnone captures(none) %buf, ptr noundef %user, i32 noundef %len) #6 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %user, i64 12
   %0 = load i32, ptr %length, align 4

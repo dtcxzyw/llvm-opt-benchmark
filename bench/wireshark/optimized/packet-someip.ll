@@ -3122,7 +3122,7 @@ clean_all_hashtables_with_empty_uat.exit:         ; preds = %81, %76, %1
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #14
@@ -3247,7 +3247,7 @@ define internal void @reset_someip_service_cb() #0 {
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_generic_two_id_string_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_generic_two_id_string_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #14
@@ -3572,7 +3572,7 @@ define internal void @reset_someip_client_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_list_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 28), (32, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_list_cb(ptr noundef returned writeonly initializes((0, 28), (32, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3956,7 +3956,7 @@ define internal void @reset_someip_parameter_list_cb() #0 {
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_array_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 28), (32, 60)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_array_cb(ptr noundef returned writeonly initializes((0, 4), (8, 28), (32, 60)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4296,7 +4296,7 @@ define internal void @reset_someip_parameter_array_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_struct_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 36), (40, 64)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_struct_cb(ptr noundef returned writeonly initializes((0, 4), (8, 36), (40, 64)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4675,7 +4675,7 @@ define internal void @reset_someip_parameter_struct_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_union_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 36), (40, 64)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_union_cb(ptr noundef returned writeonly initializes((0, 4), (8, 36), (40, 64)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5042,7 +5042,7 @@ define internal void @reset_someip_parameter_union_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_enum_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 40)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_enum_cb(ptr noundef returned writeonly initializes((0, 4), (8, 40)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5309,7 +5309,7 @@ define internal void @reset_someip_parameter_enum_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_base_type_list_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 36)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_base_type_list_cb(ptr noundef returned writeonly initializes((0, 4), (8, 36)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5494,7 +5494,7 @@ define internal void @reset_someip_parameter_base_type_list_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_string_list_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 44)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_string_list_cb(ptr noundef returned writeonly initializes((0, 4), (8, 44)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5678,7 +5678,7 @@ define internal void @reset_someip_parameter_string_list_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_typedef_list_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_typedef_list_cb(ptr noundef returned writeonly initializes((0, 4), (8, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5854,7 +5854,7 @@ test_someip.exit.thread:                          ; preds = %10, %7, %4, %test_s
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @someip_messages_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #0 {
+define internal noundef i32 @someip_messages_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %3, null
@@ -6916,7 +6916,7 @@ get_parameter_config.exit.thread:                 ; preds = %7, %get_parameter_c
 declare ptr @proto_tree_add_text_internal(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -7296,7 +7296,7 @@ define internal fastcc void @expert_someip_payload_config_error(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef range(i32 -1, 1) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 -1, 1) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca i32, align 4
@@ -9236,7 +9236,7 @@ declare void @proto_add_deregistered_data(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @update_dynamic_hf_entry(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @update_dynamic_hf_entry(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8

@@ -731,7 +731,7 @@ spgprocesspending.exit:                           ; preds = %.lr.ph.i82.i, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @spgvacuumcleanup(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
+define dso_local ptr @spgvacuumcleanup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.spgBulkDeleteState, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8

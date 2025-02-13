@@ -99,7 +99,7 @@ declare void @abort() local_unnamed_addr #3
 declare zeroext i1 @safe_strcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @restart_get_kv(ptr noundef captures(none) %ctx, ptr noundef writeonly captures(address_is_null) %key, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @restart_get_kv(ptr noundef captures(none) %ctx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %line = alloca ptr, align 8
   %len = alloca i64, align 8

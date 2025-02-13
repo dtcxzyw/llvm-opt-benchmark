@@ -18,7 +18,7 @@ define noundef zeroext i1 @_RNvXCs7oQ2vmvFkJi_9hashbrownReINtB2_10EquivalentBq_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_RNvXNtCs1LoaDTb72WA_4core6borrowReINtB2_6BorrowBu_E6borrowCsjIaN6dkKMFO_12turborepo_ci.llvm.10869397207528611942(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_RNvXNtCs1LoaDTb72WA_4core6borrowReINtB2_6BorrowBu_E6borrowCsjIaN6dkKMFO_12turborepo_ci.llvm.10869397207528611942(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

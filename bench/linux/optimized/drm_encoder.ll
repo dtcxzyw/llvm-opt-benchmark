@@ -34,7 +34,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drmm_encoder
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable___drmm_encoder_alloc380, ptr @__UNIQUE_ID___addressable_drm_encoder_cleanup373, ptr @__UNIQUE_ID___addressable_drm_encoder_init372, ptr @__UNIQUE_ID___addressable_drmm_encoder_init381], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_encoder_register_all(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @drm_encoder_register_all(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   br label %3
 
@@ -82,7 +82,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local void @drm_debugfs_encoder_add(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_encoder_unregister_all(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_encoder_unregister_all(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2

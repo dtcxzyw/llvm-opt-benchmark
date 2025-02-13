@@ -671,7 +671,7 @@ _opal_progress_register.exit:                     ; preds = %opal_progress_find_
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -13, 1) i32 @opal_progress_unregister(ptr noundef readnone captures(address) %0) local_unnamed_addr #7 {
+define range(i32 -13, 1) i32 @opal_progress_unregister(ptr noundef readnone %0) local_unnamed_addr #7 {
   %2 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
   br i1 %3, label %opal_atomic_lock.exit, label %.preheader.i

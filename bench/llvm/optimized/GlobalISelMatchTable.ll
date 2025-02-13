@@ -2750,7 +2750,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %113, %115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi23getNameForFeatureBitsetB5cxx11ENS_8ArrayRefIPKNS_6RecordEEEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(address) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm2gi23getNameForFeatureBitsetB5cxx11ENS_8ArrayRefIPKNS_6RecordEEEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 {
 ._crit_edge.i.i:
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -3599,7 +3599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable7CommentENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable7CommentENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   store i32 -1, ptr %0, align 8, !tbaa !74
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3659,7 +3659,7 @@ _ZN4llvm2gi16MatchTableRecordC2ESt8optionalIjENS_9StringRefEjj.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable6OpcodeENS_9StringRefEi(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable6OpcodeENS_9StringRefEi(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, ptr readonly %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   store i32 -1, ptr %0, align 8, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3725,7 +3725,7 @@ _ZN4llvm2gi16MatchTableRecordC2ESt8optionalIjENS_9StringRefEjj.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1, ptr readonly captures(address_is_null) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   store i32 -1, ptr %0, align 8, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5414,7 +5414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable10buildTableENS_8ArrayRefIPNS0_7MatcherEEEbb(ptr dead_on_unwind noalias writable sret(%"class.llvm::gi::MatchTable") align 8 %0, ptr readonly captures(address) %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable10buildTableENS_8ArrayRefIPNS0_7MatcherEEEbb(ptr dead_on_unwind noalias writable sret(%"class.llvm::gi::MatchTable") align 8 %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::gi::MatchTable", align 8
   %7 = alloca %"struct.llvm::gi::MatchTableRecord", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #32
@@ -7298,7 +7298,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2gi13SwitchMatcher24isSupportedPred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi13SwitchMatcher25candidateConditionMatchesERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi13SwitchMatcher25candidateConditionMatchesERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::gi::RecordAndValue", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !33
@@ -10977,7 +10977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11RuleMatcher26addRequiredSimplePredicateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11RuleMatcher26addRequiredSimplePredicateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -11103,7 +11103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm2gi11RuleMatcher27getRequiredSimplePredicatesB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(472) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm2gi11RuleMatcher27getRequiredSimplePredicatesB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(472) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   ret ptr %2
 }
@@ -11202,7 +11202,7 @@ _ZNSt8_Rb_treeIPN4llvm2gi18InstructionMatcherESt4pairIKS3_jESt10_Select1stIS6_ES
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef i32 @_ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(472) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(160) %1) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE(ptr noundef nonnull readonly align 8 dereferenceable(472) %0, ptr noundef nonnull readnone align 8 dereferenceable(160) %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !149
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -11638,7 +11638,7 @@ _ZN4llvm9MapVectorIPKNS_6RecordEPNS_2gi14OperandMatcherENS_13SmallDenseMapIS3_jL
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZNK4llvm2gi11RuleMatcher21getInstructionMatcherENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(472) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #15 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZNK4llvm2gi11RuleMatcher21getInstructionMatcherENS_9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(472) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -11675,7 +11675,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread17:       ; preds = %8, %_ZN4llvmeqENS_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(153) ptr @_ZNK4llvm2gi11RuleMatcher24getPhysRegOperandMatcherEPKNS_6RecordE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(472) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(153) ptr @_ZNK4llvm2gi11RuleMatcher24getPhysRegOperandMatcherEPKNS_6RecordE(ptr noundef nonnull readonly align 8 dereferenceable(472) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -26308,7 +26308,7 @@ _ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi19CopyPhysRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(472) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi19CopyPhysRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(472) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !1833
@@ -26839,7 +26839,7 @@ _ZN4llvm2gi16MatchTableRecordD2Ev.exit45:         ; preds = %_ZNKSt7__cxx1112bas
 declare { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi25CopyConstantAsImmRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(472) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi25CopyConstantAsImmRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 dereferenceable(472) %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"struct.llvm::gi::MatchTableRecord", align 8
@@ -27186,7 +27186,7 @@ _ZN4llvm2gi16MatchTableRecordD2Ev.exit28:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi28CopyFConstantAsFPImmRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(472) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi28CopyFConstantAsFPImmRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 dereferenceable(472) %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"struct.llvm::gi::MatchTableRecord", align 8
@@ -28836,7 +28836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZNK4llvm18CodeGenSubRegIndex16getQualifiedNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11ImmRenderer10emitAddImmERNS0_10MatchTableERNS0_11RuleMatcherEjlNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, i64 noundef %3, ptr readonly captures(address_is_null) %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11ImmRenderer10emitAddImmERNS0_10MatchTableERNS0_11RuleMatcherEjlNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, i64 noundef %3, ptr readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
 ._crit_edge.i.i.i.i.i.i:
   %6 = alloca i64, align 8
   %7 = alloca %"struct.llvm::gi::MatchTableRecord", align 8
@@ -30233,7 +30233,7 @@ _ZN4llvm2gi16MatchTableRecordD2Ev.exit18:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi14CustomRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(472) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi14CustomRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 dereferenceable(472) %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -31438,7 +31438,7 @@ _ZN4llvm2gi16MatchTableRecordD2Ev.exit51:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi13BuildMIAction9canMutateERNS0_11RuleMatcherEPKNS0_18InstructionMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi13BuildMIAction9canMutateERNS0_11RuleMatcherEPKNS0_18InstructionMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -41437,7 +41437,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12GroupMatcher8optimizeEvE3$_0EEEvT_SG_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12GroupMatcher8optimizeEvE3$_0EEEvT_SG_T0_"(ptr %0, ptr readnone %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %4 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %5 = alloca %"class.llvm::gi::LLTCodeGen", align 8
@@ -43014,7 +43014,7 @@ _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6ve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_12GroupMatcher8optimizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef writeonly captures(ret: address, provenance) %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_12GroupMatcher8optimizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %7 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %8 = icmp ne ptr %0, %1
@@ -43155,7 +43155,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPPN4llvm2gi7MatcherEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_12GroupMatcher8optimizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr writeonly captures(ret: address, provenance) %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIPPN4llvm2gi7MatcherEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_12GroupMatcher8optimizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr writeonly %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %7 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %8 = icmp ne ptr %0, %1
@@ -43354,7 +43354,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13SwitchMatcher8finalizeEvE3$_0EEEvT_SG_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13SwitchMatcher8finalizeEvE3$_0EEEvT_SG_T0_"(ptr %0, ptr readnone %1) unnamed_addr #0 {
   %3 = alloca %"struct.llvm::gi::RecordAndValue", align 8
   %4 = alloca %"struct.llvm::gi::RecordAndValue", align 8
   %5 = alloca %"struct.llvm::gi::RecordAndValue", align 8
@@ -44610,7 +44610,7 @@ _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6ve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_13SwitchMatcher8finalizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef writeonly captures(ret: address, provenance) %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNS3_13SwitchMatcher8finalizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::gi::RecordAndValue", align 8
   %7 = alloca %"struct.llvm::gi::RecordAndValue", align 8
   %8 = icmp ne ptr %0, %1
@@ -44736,7 +44736,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPPN4llvm2gi7MatcherEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_13SwitchMatcher8finalizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr writeonly captures(ret: address, provenance) %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIPPN4llvm2gi7MatcherEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNS1_13SwitchMatcher8finalizeEvE3$_0EEET0_T_SH_SH_SH_SG_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr writeonly %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::gi::RecordAndValue", align 8
   %7 = alloca %"struct.llvm::gi::RecordAndValue", align 8
   %8 = icmp ne ptr %0, %1
@@ -48561,7 +48561,7 @@ _ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit:
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_T0_"(ptr %0, ptr readnone %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 

@@ -665,7 +665,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
+define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8
@@ -1247,7 +1247,7 @@ zbee_gp_decrypt_payload.exit:                     ; preds = %.zbee_gp_make_nonce
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
+define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca [13 x i8], align 4
   %7 = alloca %struct.key_record_t, align 8
@@ -2204,7 +2204,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #0
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_zbee_nwk_heur_gp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_zbee_nwk_heur_gp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.thread, label %6
 
@@ -2266,7 +2266,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #0
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @zbee_gp_security_parse_key(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @zbee_gp_security_parse_key(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5

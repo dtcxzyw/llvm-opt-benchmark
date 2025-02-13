@@ -154,7 +154,7 @@ declare dso_local zeroext i1 @in_task_stack(ptr noundef, ptr noundef, ptr nounde
 declare dso_local zeroext i1 @in_entry_stack(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @get_stack_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @get_stack_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %9
 

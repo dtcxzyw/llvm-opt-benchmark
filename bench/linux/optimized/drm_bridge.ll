@@ -461,7 +461,7 @@ define dso_local void @drm_bridge_chain_mode_set(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_bridge_chain_disable(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_atomic_bridge_chain_disable(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -714,7 +714,7 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

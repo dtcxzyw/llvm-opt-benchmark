@@ -1123,7 +1123,7 @@ declare noundef ptr @_ZNK4llvm14MachineOperand18getTargetIndexNameEv(ptr noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_12MachineInstrEbbb(ptr noundef nonnull align 8 captures(address) dereferenceable(70) %0, i1 noundef zeroext %1, i1 zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_12MachineInstrEbbb(ptr noundef nonnull align 8 dereferenceable(70) %0, i1 noundef zeroext %1, i1 zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca [3 x i64], align 16
   %6 = alloca %"class.llvm::SmallVector.205", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
@@ -1623,7 +1623,7 @@ _ZN4llvm11SmallVectorImLj16EED2Ev.exit:           ; preds = %.loopexit, %253
 declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_17MachineBasicBlockE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(288) %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_17MachineBasicBlockE(ptr noundef nonnull readonly align 8 dereferenceable(288) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallVector.124", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1715,7 +1715,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_15MachineFunctionE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1065) %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_15MachineFunctionE(ptr noundef nonnull readonly align 8 dereferenceable(1065) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallVector.124", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16

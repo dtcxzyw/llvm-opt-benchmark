@@ -19,7 +19,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @rb_Digest_SHA256_Init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @rb_Digest_SHA256_Init(ptr noundef writeonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -283,7 +283,7 @@ define void @rb_Digest_SHA256_Update(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_SHA256_Finish(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef i32 @rb_Digest_SHA256_Finish(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -365,7 +365,7 @@ define noundef i32 @rb_Digest_SHA256_Finish(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @rb_Digest_SHA256_End(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #4 {
+define ptr @rb_Digest_SHA256_End(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca [32 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %51, label %4
@@ -480,7 +480,7 @@ rb_Digest_SHA256_Finish.exit:                     ; preds = %33
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @rb_Digest_SHA256_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #4 {
+define ptr @rb_Digest_SHA256_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct._SHA256_CTX, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @sha256_initial_hash_value, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -530,7 +530,7 @@ rb_Digest_SHA256_Update.exit:                     ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @rb_Digest_SHA512_Init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @rb_Digest_SHA512_Init(ptr noundef writeonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -885,7 +885,7 @@ define void @rb_Digest_SHA512_Last(ptr noundef captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_SHA512_Finish(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef i32 @rb_Digest_SHA512_Finish(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -974,7 +974,7 @@ rb_Digest_SHA512_Last.exit:                       ; preds = %19, %30, %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @rb_Digest_SHA512_End(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #4 {
+define ptr @rb_Digest_SHA512_End(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca [64 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %55, label %4
@@ -1097,7 +1097,7 @@ rb_Digest_SHA512_Finish.exit:                     ; preds = %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @rb_Digest_SHA512_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #4 {
+define ptr @rb_Digest_SHA512_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct._SHA512_CTX, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) @sha512_initial_hash_value, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1108,7 +1108,7 @@ define ptr @rb_Digest_SHA512_Data(ptr noundef readonly captures(none) %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @rb_Digest_SHA384_Init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @rb_Digest_SHA384_Init(ptr noundef writeonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1130,7 +1130,7 @@ define void @rb_Digest_SHA384_Update(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_SHA384_Finish(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef i32 @rb_Digest_SHA384_Finish(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -1219,7 +1219,7 @@ rb_Digest_SHA512_Last.exit:                       ; preds = %19, %30, %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @rb_Digest_SHA384_End(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #4 {
+define ptr @rb_Digest_SHA384_End(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca [48 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %55, label %4
@@ -1342,7 +1342,7 @@ rb_Digest_SHA384_Finish.exit:                     ; preds = %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @rb_Digest_SHA384_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #4 {
+define ptr @rb_Digest_SHA384_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct._SHA512_CTX, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) @sha384_initial_hash_value, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64

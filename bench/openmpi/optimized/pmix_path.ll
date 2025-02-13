@@ -33,7 +33,7 @@ define zeroext i1 @pmix_path_is_absolute(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @pmix_path_find(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define noalias ptr @pmix_path_find(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 {
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 47
   br i1 %6, label %8, label %.preheader
@@ -248,7 +248,7 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly c
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @pmix_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define noalias ptr @pmix_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -610,7 +610,7 @@ declare ptr @getmntent_r(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @endmntent(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.statfs, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null

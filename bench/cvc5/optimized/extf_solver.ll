@@ -1840,7 +1840,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory7strings10ExtfSolver15isActiveInModelENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(408) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory7strings10ExtfSolver15isActiveInModelENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(408) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #7 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -15249,7 +15249,7 @@ declare void @_ZN4cvc58internal6theory7strings10CoreSolver15getNormalStringENS0_
 declare void @_ZN4cvc58internal6theory7strings10BaseSolver21explainBestContentEqcENS0_12NodeTemplateILb1EEES5_RSt6vectorIS5_SaIS5_EE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(292), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal6theory7strings10ExtfSolver7getInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(408) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal6theory7strings10ExtfSolver7getInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(408) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_extfInfoTmp = getelementptr inbounds nuw i8, ptr %this, i64 200
   ret ptr %d_extfInfoTmp

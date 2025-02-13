@@ -996,7 +996,7 @@ FNT_Face_Done.exit:                               ; preds = %432, %431, %434, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @FNT_Face_Done(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @FNT_Face_Done(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %2
 

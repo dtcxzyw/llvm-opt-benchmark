@@ -1181,7 +1181,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList17FindExpiredTimersEN9grpc_core9TimestampEPS3_(ptr noalias sret(%"class.std::vector.12") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %now.coerce, ptr noundef captures(address_is_null) %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerList17FindExpiredTimersEN9grpc_core9TimestampEPS3_(ptr noalias sret(%"class.std::vector.12") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %now.coerce, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_min_deadline = alloca %"class.grpc_core::Timestamp", align 8
   %min_timer_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1386,7 +1386,7 @@ _ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList10TimerCheckEPN9grpc_core9TimestampE(ptr noalias writeonly sret(%"class.std::optional") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef captures(address_is_null) %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerList10TimerCheckEPN9grpc_core9TimestampE(ptr noalias writeonly sret(%"class.std::optional") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %run = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8

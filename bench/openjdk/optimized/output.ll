@@ -4593,7 +4593,7 @@ define hidden noundef zeroext i1 @_ZNK11PhaseOutput13starts_bundleEPK4Node(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11PhaseOutput17contains_as_ownerEP13GrowableArrayIP12MonitorValueEP11ObjectValue(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(700) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11PhaseOutput17contains_as_ownerEP13GrowableArrayIP12MonitorValueEP11ObjectValue(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(700) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #4 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -8250,7 +8250,7 @@ _ZNK10Node_ArrayixEj.exit46:                      ; preds = %_ZNK10Node_ArrayixE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Scheduling18DecrementUseCountsEP4NodePK5Block(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Scheduling18DecrementUseCountsEP4NodePK5Block(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %.not23 = icmp eq i32 %5, 0
@@ -8347,7 +8347,7 @@ define hidden void @_ZN10Scheduling18DecrementUseCountsEP4NodePK5Block(ptr nound
 declare noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Scheduling15AddNodeToBundleEP4NodePK5Block(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Scheduling15AddNodeToBundleEP4NodePK5Block(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %.not102 = icmp eq i32 %5, 0
@@ -8928,7 +8928,7 @@ _ZN10Scheduling18DecrementUseCountsEP4NodePK5Block.exit: ; preds = %339, %288
 declare void @_ZN12Pipeline_Use9add_usageERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Scheduling15ComputeUseCountEPK5Block(ptr noundef nonnull align 8 dereferenceable(472) initializes((56, 60), (88, 92), (200, 208)) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Scheduling15ComputeUseCountEPK5Block(ptr noundef nonnull align 8 dereferenceable(472) initializes((56, 60), (88, 92), (200, 208)) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -10795,7 +10795,7 @@ _ZN10Node_Array3mapEjP4Node.exit:                 ; preds = %_ZN9Node_List4pushE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Scheduling13cleanup_pinchEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(472) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Scheduling13cleanup_pinchEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(472) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32

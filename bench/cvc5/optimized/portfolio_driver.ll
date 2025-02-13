@@ -18053,7 +18053,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4cvc54main12_GLOBAL__N_120PortfolioProcessPoolD2Ev(ptr %this.16.val, ptr readnone captures(address) %this.24.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc54main12_GLOBAL__N_120PortfolioProcessPoolD2Ev(ptr %this.16.val, ptr readnone %this.24.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not3.i.i.i.i = icmp eq ptr %this.16.val, %this.24.val
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i

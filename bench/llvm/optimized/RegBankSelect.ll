@@ -1444,7 +1444,7 @@ define dso_local void @_ZN4llvm13RegBankSelect11MappingCost14ImpossibleCostEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13RegBankSelect14computeMappingERNS_12MachineInstrERKNS_16RegisterBankInfo18InstructionMappingERNS_15SmallVectorImplINS0_18RepairingPlacementEEEPKNS0_11MappingCostE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::RegBankSelect::MappingCost") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelect14computeMappingERNS_12MachineInstrERKNS_16RegisterBankInfo18InstructionMappingERNS_15SmallVectorImplINS0_18RepairingPlacementEEEPKNS0_11MappingCostE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::RegBankSelect::MappingCost") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef readonly %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::RegBankSelect::MappingCost", align 8
   %8 = alloca %"class.llvm::RegBankSelect::RepairingPlacement", align 8
   %9 = alloca %"class.llvm::RegBankSelect::RepairingPlacement", align 8

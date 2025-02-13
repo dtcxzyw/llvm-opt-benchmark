@@ -658,7 +658,7 @@ entry:
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SRP_VBASE_get_by_user(ptr noundef readonly captures(address_is_null) %vb, ptr noundef readonly captures(none) %username) local_unnamed_addr #0 {
+define noundef ptr @SRP_VBASE_get_by_user(ptr noundef readonly %vb, ptr noundef readonly captures(none) %username) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %vb, null
   br i1 %cmp.i, label %find_user.exit, label %for.cond.preheader.i
@@ -691,7 +691,7 @@ find_user.exit:                                   ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SRP_VBASE_get1_by_user(ptr noundef readonly captures(address_is_null) %vb, ptr noundef %username) local_unnamed_addr #0 {
+define ptr @SRP_VBASE_get1_by_user(ptr noundef readonly %vb, ptr noundef %username) local_unnamed_addr #0 {
 entry:
   %digv = alloca [20 x i8], align 16
   %digs = alloca [20 x i8], align 16
@@ -926,7 +926,7 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @SRP_create_verifier_ex(ptr noundef %user, ptr noundef %pass, ptr noundef captures(address_is_null) %salt, ptr noundef writeonly captures(address_is_null) %verifier, ptr noundef %N, ptr noundef %g, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @SRP_create_verifier_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef writeonly %verifier, ptr noundef %N, ptr noundef %g, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %v = alloca ptr, align 8
@@ -1186,7 +1186,7 @@ return:                                           ; preds = %if.end, %while.end,
 declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr noundef %pass, ptr noundef captures(address_is_null) %salt, ptr noundef writeonly captures(address_is_null) %verifier, ptr noundef %N, ptr noundef %g, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef writeonly %verifier, ptr noundef %N, ptr noundef %g, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %tmp2 = alloca [2500 x i8], align 16
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %libctx) #7
@@ -1347,7 +1347,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @SRP_create_verifier(ptr noundef %user, ptr noundef %pass, ptr noundef captures(address_is_null) %salt, ptr noundef captures(address_is_null) %verifier, ptr noundef %N, ptr noundef %g) local_unnamed_addr #0 {
+define ptr @SRP_create_verifier(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @SRP_create_verifier_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g, ptr noundef null, ptr noundef null)
   ret ptr %call
@@ -1364,7 +1364,7 @@ declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SRP_create_verifier_BN(ptr noundef %user, ptr noundef %pass, ptr noundef captures(address_is_null) %salt, ptr noundef captures(address_is_null) %verifier, ptr noundef %N, ptr noundef %g) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_create_verifier_BN(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr noundef %pass, ptr noundef %salt, ptr noundef %verifier, ptr noundef %N, ptr noundef %g, ptr noundef null, ptr noundef null)
   ret i32 %call

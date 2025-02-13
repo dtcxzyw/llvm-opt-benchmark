@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_Bitmap_ = type { i32, i32, i32, ptr, i16, i8, i8, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FT_Bitmap_Init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @FT_Bitmap_Init(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -22,7 +22,7 @@ define void @FT_Bitmap_Init(ptr noundef writeonly captures(address_is_null) %0) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FT_Bitmap_New(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @FT_Bitmap_New(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -35,7 +35,7 @@ define void @FT_Bitmap_New(ptr noundef writeonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Bitmap_Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #2 {
+define i32 @FT_Bitmap_Copy(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 0, ptr %4, align 4, !tbaa !3
@@ -166,7 +166,7 @@ declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Bitmap_Embolden(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define i32 @FT_Bitmap_Embolden(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.FT_Bitmap_, align 8
   %.not = icmp eq ptr %0, null
@@ -751,7 +751,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Bitmap_Convert(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @FT_Bitmap_Convert(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 0, ptr %5, align 4, !tbaa !3
@@ -1270,7 +1270,7 @@ ft_gray_for_premultiplied_srgb_bgra.exit:         ; preds = %.lr.ph, %217
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 34) i32 @FT_Bitmap_Done(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 0, 34) i32 @FT_Bitmap_Done(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -1292,7 +1292,7 @@ define range(i32 0, 34) i32 @FT_Bitmap_Done(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Bitmap_Blend(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 %2, i64 %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, i32 %6) local_unnamed_addr #2 {
+define i32 @FT_Bitmap_Blend(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr noundef %5, i32 %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.FT_Bitmap_, align 8
   %.sroa.2.0.extract.shift = lshr i32 %6, 8
@@ -1751,7 +1751,7 @@ FT_Bitmap_Done.exit281:                           ; preds = %FT_Bitmap_Done.exit
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.FT_Bitmap_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3

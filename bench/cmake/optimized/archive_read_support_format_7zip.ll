@@ -1465,7 +1465,7 @@ define internal noundef i32 @archive_read_support_format_7zip_capabilities(ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @archive_read_format_7zip_has_encrypted_entries(ptr noundef readonly captures(address_is_null) %0) #5 {
+define internal i32 @archive_read_format_7zip_has_encrypted_entries(ptr noundef readonly %0) #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -7469,7 +7469,7 @@ define internal fastcc i64 @folder_uncompressed_size(ptr noundef readonly captur
 declare void @archive_entry_set_is_metadata_encrypted(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0, ptr noundef initializes((296, 312)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0, ptr noundef initializes((296, 312)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.lzma_options_delta, align 8
   %6 = alloca [4 x %struct.lzma_filter], align 16
   %7 = load i64, ptr %2, align 8, !tbaa !95

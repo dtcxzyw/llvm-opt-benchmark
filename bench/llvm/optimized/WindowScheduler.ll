@@ -5798,7 +5798,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm15WindowScheduler11getOriStageEPNS_12MachineInstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6436) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm15WindowScheduler11getOriStageEPNS_12MachineInstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6436) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6416
   %5 = load i32, ptr %4, align 8, !tbaa !217
   %6 = icmp eq i32 %2, %5

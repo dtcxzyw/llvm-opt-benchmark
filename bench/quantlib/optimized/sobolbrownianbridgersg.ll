@@ -243,7 +243,7 @@ ehcleanup35:                                      ; preds = %if.then.i.i.i12, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib22SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(480) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib22SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 dereferenceable(480) %this) local_unnamed_addr #3 align 2 {
 entry:
   ret ptr %this
 }
@@ -339,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib32Burley2020SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(504) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib32Burley2020SobolBrownianBridgeRsg12lastSequenceEv(ptr noundef nonnull readnone returned align 8 dereferenceable(504) %this) local_unnamed_addr #3 align 2 {
 entry:
   ret ptr %this
 }

@@ -12,7 +12,7 @@ define hidden ptr @lexbor_mem_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 10) i32 @lexbor_mem_init(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 10) i32 @lexbor_mem_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4
 
@@ -109,7 +109,7 @@ define hidden ptr @lexbor_mem_chunk_make(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_mem_clean(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @lexbor_mem_clean(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
@@ -196,7 +196,7 @@ lexbor_mem_chunk_destroy.exit:                    ; preds = %.preheader, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mem_chunk_destroy(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mem_chunk_destroy(ptr noundef readnone %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %4

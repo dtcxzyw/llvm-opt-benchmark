@@ -821,7 +821,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef readonly captures(address_is_null) %testname, ptr noundef %par) unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef readonly %testname, ptr noundef %par) unnamed_addr #3 align 2 {
 entry:
   %name = alloca ptr, align 8
   %status = alloca i32, align 4

@@ -4961,7 +4961,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_756Region13getRegionCodeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK6icu_756Region13getRegionCodeEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) local_unnamed_addr #7 align 2 {
 entry:
   %id = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %id

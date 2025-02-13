@@ -100,7 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [10 x i8] c"Assembler\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i8 noundef zeroext %2, ptr readonly captures(address_is_null) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i8 noundef zeroext %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !9

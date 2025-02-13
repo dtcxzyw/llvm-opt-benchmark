@@ -83,7 +83,7 @@ define hidden i32 @list_length(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @delete_from_list(ptr noundef captures(none) %0, ptr noundef readnone captures(address, ret: address, provenance) %1) local_unnamed_addr #6 {
+define hidden noundef ptr @delete_from_list(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -148,7 +148,7 @@ define hidden void @delete_list(ptr noundef captures(none) %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @delete_list_destroying(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden void @delete_list_destroying(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -183,7 +183,7 @@ define hidden void @delete_list_destroying(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @first_in_list(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define hidden ptr @first_in_list(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -205,7 +205,7 @@ define hidden ptr @first_in_list(ptr noundef captures(address_is_null) %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @next_in_list(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define hidden ptr @next_in_list(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -232,7 +232,7 @@ define hidden ptr @next_in_list(ptr noundef captures(address_is_null) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @list_is_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @list_is_empty(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

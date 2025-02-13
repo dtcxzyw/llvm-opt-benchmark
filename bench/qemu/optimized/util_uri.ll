@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef captures(address_is_null) %uri, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @rfc3986_parse_uri_reference(ptr noundef %uri, ptr noundef %str) unnamed_addr #0 {
 entry:
   %cur.i29.i = alloca ptr, align 8
   %cur.i.i9 = alloca ptr, align 8
@@ -698,7 +698,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 2) i32 @uri_parse_into(ptr noundef captures(address_is_null) %uri, ptr noundef %str) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @uri_parse_into(ptr noundef %uri, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @rfc3986_parse_uri_reference(ptr noundef %uri, ptr noundef %str)
   ret i32 %call
@@ -741,7 +741,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @uri_to_string(ptr noundef readonly captures(address_is_null) %uri) local_unnamed_addr #0 {
+define dso_local ptr @uri_to_string(ptr noundef readonly %uri) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %if.end
@@ -1682,7 +1682,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @uri_clean(ptr noundef captures(address_is_null) %uri) unnamed_addr #0 {
+define internal fastcc void @uri_clean(ptr noundef %uri) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %if.end
@@ -1728,7 +1728,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @uri_string_unescape(ptr noundef readonly captures(address_is_null) %str, i32 noundef %len, ptr noundef captures(address_is_null, ret: address, provenance) %target) local_unnamed_addr #0 {
+define dso_local ptr @uri_string_unescape(ptr noundef readonly %str, i32 noundef %len, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %str, null
   br i1 %cmp, label %return, label %if.end
@@ -3284,7 +3284,7 @@ return:                                           ; preds = %next, %entry, %lor.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_query(ptr noundef captures(address_is_null) %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp160.not = icmp eq ptr %uri, null
@@ -3506,7 +3506,7 @@ if.end203:                                        ; preds = %lor.lhs.false21.us,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_fragment(ptr noundef captures(address_is_null) %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp168.not = icmp eq ptr %uri, null
@@ -3747,7 +3747,7 @@ if.end222:                                        ; preds = %lor.lhs.false21.us,
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_authority(ptr noundef captures(address_is_null) %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_authority(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %cur.i = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8
@@ -4214,7 +4214,7 @@ return:                                           ; preds = %while.body.i20, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_path_absolute(ptr noundef captures(address_is_null) %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %cur = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8

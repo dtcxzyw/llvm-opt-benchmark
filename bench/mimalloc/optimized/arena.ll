@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @mi_arena_area(i32 noundef %arena_id, ptr noundef writeonly captures(address_is_null) %size) local_unnamed_addr #6 {
+define ptr @mi_arena_area(i32 noundef %arena_id, ptr noundef writeonly %size) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %size, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1033,7 +1033,7 @@ mi_arenas_unsafe_destroy.exit:                    ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone captures(address) %p) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone %p) local_unnamed_addr #7 {
 entry:
   %0 = load atomic i64, ptr @mi_arena_count monotonic, align 64
   %cmp8.not = icmp eq i64 %0, 0
@@ -1075,7 +1075,7 @@ return:                                           ; preds = %land.lhs.true4, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %start, i64 noundef %size, i1 noundef zeroext %is_committed, i1 noundef zeroext %is_large, i1 noundef zeroext %is_zero, i32 noundef %numa_node, i1 noundef zeroext %exclusive, ptr noundef captures(address_is_null) %arena_id) local_unnamed_addr #2 {
+define noundef zeroext i1 @mi_manage_os_memory_ex(ptr noundef %start, i64 noundef %size, i1 noundef zeroext %is_committed, i1 noundef zeroext %is_large, i1 noundef zeroext %is_zero, i32 noundef %numa_node, i1 noundef zeroext %exclusive, ptr noundef %arena_id) local_unnamed_addr #2 {
 entry:
   %memid = alloca %struct.mi_memid_s, align 8
   %frombool = zext i1 %is_committed to i8
@@ -1095,7 +1095,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %start, i64 noundef %size, i1 noundef zeroext %is_large, i32 noundef %numa_node, i1 noundef zeroext %exclusive, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %memid, ptr noundef writeonly captures(address_is_null) %arena_id) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %start, i64 noundef %size, i1 noundef zeroext %is_large, i32 noundef %numa_node, i1 noundef zeroext %exclusive, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %memid, ptr noundef writeonly %arena_id) unnamed_addr #2 {
 entry:
   %meta_memid = alloca %struct.mi_memid_s, align 8
   %frombool = zext i1 %is_large to i8
@@ -1235,7 +1235,7 @@ return:                                           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i1 noundef zeroext %exclusive, ptr noundef captures(address_is_null) %arena_id) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_os_memory_ex(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i1 noundef zeroext %exclusive, ptr noundef %arena_id) local_unnamed_addr #2 {
 entry:
   %memid = alloca %struct.mi_memid_s, align 8
   %cmp.not = icmp eq ptr %arena_id, null
@@ -1384,7 +1384,7 @@ for.end:                                          ; preds = %mi_debug_show_bitma
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs, i1 noundef zeroext %exclusive, ptr noundef captures(address_is_null) %arena_id) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %timeout_msecs, i1 noundef zeroext %exclusive, ptr noundef %arena_id) local_unnamed_addr #2 {
 entry:
   %hsize = alloca i64, align 8
   %pages_reserved = alloca i64, align 8
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %if.end18, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %pages, double noundef %max_secs, ptr noundef writeonly captures(address_is_null) %pages_reserved) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %pages, double noundef %max_secs, ptr noundef writeonly %pages_reserved) local_unnamed_addr #2 {
 entry:
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.12) #11
   %cmp.not = icmp eq ptr %pages_reserved, null

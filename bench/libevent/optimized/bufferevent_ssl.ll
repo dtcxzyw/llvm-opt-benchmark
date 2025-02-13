@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %sw.bb, %sw.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @bufferevent_ssl_upcast(ptr noundef readonly captures(ret: address, provenance) %bev) local_unnamed_addr #2 {
+define dso_local ptr @bufferevent_ssl_upcast(ptr noundef readonly %bev) local_unnamed_addr #2 {
 entry:
   %be_ops = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops, align 8

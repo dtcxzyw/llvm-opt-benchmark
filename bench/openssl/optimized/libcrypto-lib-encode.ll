@@ -690,7 +690,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef captures(address_is_null) %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outl, ptr noundef readonly captures(none) %in, i32 noundef %inl) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outl, ptr noundef readonly captures(none) %in, i32 noundef %inl) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %enc_data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -869,7 +869,7 @@ end:                                              ; preds = %for.body, %if.then7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 3, 1) i32 @evp_decodeblock_int(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef writeonly captures(none) %t, ptr noundef readonly captures(none) %f, i32 noundef %n) unnamed_addr #7 {
+define internal fastcc range(i32 3, 1) i32 @evp_decodeblock_int(ptr noundef readonly %ctx, ptr noundef writeonly captures(none) %t, ptr noundef readonly captures(none) %f, i32 noundef %n) unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.else, label %land.lhs.true
@@ -1051,7 +1051,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef captures(address_is_null) %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) initializes((0, 4)) %outl) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef %ctx, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) initializes((0, 4)) %outl) local_unnamed_addr #7 {
 entry:
   store i32 0, ptr %outl, align 4
   %0 = load i32, ptr %ctx, align 4

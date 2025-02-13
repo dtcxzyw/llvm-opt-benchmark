@@ -2398,7 +2398,7 @@ entry:
 declare noundef zeroext i1 @_ZN3smt12theory_array23instantiate_axiom2b_forEi(ptr noundef nonnull align 8 dereferenceable(444), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_full15set_prop_upwardEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef readonly captures(address) %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt17theory_array_full15set_prop_upwardEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef readonly %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   %m_decl.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16

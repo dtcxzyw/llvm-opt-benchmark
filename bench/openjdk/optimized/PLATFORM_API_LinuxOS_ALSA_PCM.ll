@@ -735,7 +735,7 @@ declare i32 @snd_pcm_prepare(ptr noundef) local_unnamed_addr #1
 declare i32 @snd_pcm_status_malloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DAUDIO_Close(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @DAUDIO_Close(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 

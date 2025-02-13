@@ -3140,7 +3140,7 @@ thread-pre-split:                                 ; preds = %103, %109, %111, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_find_key_val(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_find_key_val(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

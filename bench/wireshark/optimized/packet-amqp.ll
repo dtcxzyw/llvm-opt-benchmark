@@ -2629,7 +2629,7 @@ define internal void @message_decode_topic_more_info_tostr_cb(ptr noundef readon
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @amqp_message_decode_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 16), (24, 48)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @amqp_message_decode_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16), (24, 48)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

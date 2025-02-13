@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK18btStaticPlaneShape15getLocalScalingEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK18btStaticPlaneShape15getLocalScalingEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) unnamed_addr #7 align 2 {
 entry:
   %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %m_localScaling

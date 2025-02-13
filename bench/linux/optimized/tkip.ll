@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ge
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_p1k_iv2956, ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_p2k2958, ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_rx_p1k2957, ptr @__UNIQUE_ID___addressable_ieee80211_tkip_add_iv2955, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace804, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void803, ptr @trace_drv_update_tkip_key.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1140, ptr @trace_drv_update_tkip_key.__UNIQUE_ID___addressable___SCK__tp_func_drv_update_tkip_key1139], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = lshr i64 %2, 8
   %5 = trunc i64 %4 to i8
   %6 = getelementptr i8, ptr %0, i64 1

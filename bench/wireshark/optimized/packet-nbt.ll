@@ -834,7 +834,7 @@ add_name_and_type.exit83:                         ; preds = %69, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %170, label %6
 

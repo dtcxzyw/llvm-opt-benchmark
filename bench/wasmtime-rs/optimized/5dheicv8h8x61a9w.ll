@@ -6088,7 +6088,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(1912) ptr @_ZN16wasmtime_environ14module_environ17ModuleTranslation9get_types17h32fec2005a682a2cE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #0 {
+define noundef nonnull align 8 dereferenceable(1912) ptr @_ZN16wasmtime_environ14module_environ17ModuleTranslation9get_types17h32fec2005a682a2cE(ptr noundef nonnull readonly align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %3 = load i64, ptr %2, align 8, !range !25, !noundef !11
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -14390,7 +14390,7 @@ common.resume:                                    ; preds = %134, %121, %147, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(1256) ptr @_ZN16wasmtime_environ9component9translate12pre_inlining25PreInliningComponentTypes3new17hba9223da8317536fE(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(1256) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(1256) ptr @_ZN16wasmtime_environ9component9translate12pre_inlining25PreInliningComponentTypes3new17hba9223da8317536fE(ptr noalias noundef readnone returned align 8 dereferenceable(1256) %0) unnamed_addr #8 {
   ret ptr %0
 }
 

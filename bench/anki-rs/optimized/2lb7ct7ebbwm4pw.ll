@@ -259,12 +259,12 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h13f4164c8314a23eE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h13f4164c8314a23eE"(ptr readnone returned align 8 %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h5b147a3dd44ec57eE"(ptr readonly align 8 captures(address_is_null) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h5b147a3dd44ec57eE"(ptr readonly align 8 %0, ptr readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ne ptr %1, null

@@ -636,7 +636,7 @@ is_andclause.exit.thread:                         ; preds = %.lr.ph76, %26, %is_
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @choose_bitmap_and(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @choose_bitmap_and(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.BitmapHeapPath, align 8
   %5 = alloca %struct.BitmapHeapPath, align 8
   %6 = alloca double, align 8
@@ -1635,13 +1635,13 @@ declare zeroext i1 @contain_mutable_functions(ptr noundef) local_unnamed_addr #2
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @relation_has_unique_index_for(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @relation_has_unique_index_for(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @relation_has_unique_index_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null)
   ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @relation_has_unique_index_ext(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @relation_has_unique_index_ext(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -2308,7 +2308,7 @@ declare ptr @pull_varnos(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, ptr noundef nonnull captures(none) %9) unnamed_addr #0 {
+define internal fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef readonly %7, i32 noundef %8, ptr noundef nonnull captures(none) %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge59, label %.lr.ph58
@@ -2611,7 +2611,7 @@ define internal fastcc void @get_join_index_paths(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i1 noundef zeroext %4, i32 noundef range(i32 1, 3) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i1 noundef zeroext %4, i32 noundef range(i32 1, 3) %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %10, label %14

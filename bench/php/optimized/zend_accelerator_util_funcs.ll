@@ -1549,7 +1549,7 @@ declare ptr @zend_mangle_property_name(ptr noundef, i64 noundef, ptr noundef, i6
 declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = and i32 %0, 65535
   %5 = lshr i32 %0, 16
   %6 = icmp ugt i32 %2, 5551

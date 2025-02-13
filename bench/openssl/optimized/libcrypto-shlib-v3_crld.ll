@@ -806,7 +806,7 @@ if.end40:                                         ; preds = %if.then38, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef captures(address_is_null) %dpn, ptr noundef %iname) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef %dpn, ptr noundef %iname) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dpn, null
   br i1 %cmp, label %return, label %lor.lhs.false

@@ -1283,7 +1283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncUDPSocket11appendCmsgsERKSt3mapINS_15SocketOptionKeyEiSt4lessIS2_ESaISt4pairIKS2_iEEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %cmsgs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncUDPSocket11appendCmsgsERKSt3mapINS_15SocketOptionKeyEiSt4lessIS2_ESaISt4pairIKS2_iEEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %cmsgs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.215", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.152", align 1
@@ -1370,7 +1370,7 @@ _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEEixERS5_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncUDPSocket21appendNontrivialCmsgsERKSt3mapINS_15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %nontrivialCmsgs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncUDPSocket21appendNontrivialCmsgsERKSt3mapINS_15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %nontrivialCmsgs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.215", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.152", align 1
@@ -3588,7 +3588,7 @@ _ZNK5folly6netops19DispatcherContainerptEv.exit:  ; preds = %cond.false.i.i, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14AsyncUDPSocket9writeImplENS_5RangeIPKNS_13SocketAddressEEEPKSt10unique_ptrINS_5IOBufESt14default_deleteIS7_EEmP7mmsghdrPKNS0_12WriteOptionsEPc(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef readonly captures(none) %bufs, i64 noundef %count, ptr noundef %msgvec, ptr noundef captures(address_is_null) %options, ptr noundef %control) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5folly14AsyncUDPSocket9writeImplENS_5RangeIPKNS_13SocketAddressEEEPKSt10unique_ptrINS_5IOBufESt14default_deleteIS7_EEmP7mmsghdrPKNS0_12WriteOptionsEPc(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef readonly captures(none) %bufs, i64 noundef %count, ptr noundef %msgvec, ptr noundef %options, ptr noundef %control) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i = alloca %struct.Initializer, align 1
   %ref.tmp.i.i.i = alloca %class.anon.190, align 1
@@ -7185,7 +7185,7 @@ declare noundef ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull ali
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #23
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncUDPSocket10fillMsgVecENS_5RangeIPNS0_21full_sockaddr_storageEEEPKSt10unique_ptrINS_5IOBufESt14default_deleteIS6_EEmP7mmsghdrP5iovecmPKNS0_12WriteOptionsEPc(ptr noundef nonnull readonly align 16 captures(address) dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef readonly captures(none) %bufs, i64 noundef %count, ptr noundef captures(none) %msgvec, ptr noundef %iov, i64 noundef %iov_count, ptr noundef readonly captures(address_is_null) %options, ptr noundef %control) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncUDPSocket10fillMsgVecENS_5RangeIPNS0_21full_sockaddr_storageEEEPKSt10unique_ptrINS_5IOBufESt14default_deleteIS6_EEmP7mmsghdrP5iovecmPKNS0_12WriteOptionsEPc(ptr noundef nonnull readonly align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef readonly captures(none) %bufs, i64 noundef %count, ptr noundef captures(none) %msgvec, ptr noundef %iov, i64 noundef %iov_count, ptr noundef readonly %options, ptr noundef %control) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %addrs.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %addrs.coerce0 to i64

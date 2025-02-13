@@ -48,7 +48,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_audit_tree_init458], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @audit_tree_path(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 align 16 {
+define dso_local nonnull ptr @audit_tree_path(ptr noundef readnone %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
@@ -152,7 +152,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -434,7 +434,7 @@ declare dso_local void @path_put(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @iterate_mounts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @compare_root(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 align 16 {
+define internal range(i32 0, 2) i32 @compare_root(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1904,7 +1904,7 @@ define dso_local void @audit_kill_trees(ptr noundef %0) local_unnamed_addr #1 al
 declare dso_local void @audit_ctl_lock() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kill_rules(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 16 {
+define internal fastcc void @kill_rules(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3

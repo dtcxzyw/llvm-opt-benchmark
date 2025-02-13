@@ -3970,7 +3970,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK5ceres8internal14DoglegStrategy32FindMinimumOnTrustRegionBoundaryEPN5Eigen6MatrixIdLi2ELi1ELi2ELi2ELi1EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(264) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK5ceres8internal14DoglegStrategy32FindMinimumOnTrustRegionBoundaryEPN5Eigen6MatrixIdLi2ELi1ELi2ELi2ELi1EEE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef writeonly %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::LogMessageFatal", align 8
   %4 = alloca %"class.Eigen::Matrix", align 8
   %5 = alloca %"class.Eigen::Matrix", align 8
@@ -4271,7 +4271,7 @@ define hidden void @_ZNK5ceres8internal14DoglegStrategy43MakePolynomialForBounda
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK5ceres8internal14DoglegStrategy27ComputeSubspaceStepFromRootEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.12") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(264) %1, double noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5ceres8internal14DoglegStrategy27ComputeSubspaceStepFromRootEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix.12") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(264) %1, double noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Eigen::Matrix.996", align 2
   %5 = alloca %"struct.Eigen::internal::evaluator.977", align 16
   %6 = alloca %"class.Eigen::PartialPivLU", align 16

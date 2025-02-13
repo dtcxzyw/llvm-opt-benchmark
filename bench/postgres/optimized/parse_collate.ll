@@ -84,7 +84,7 @@ assign_list_collations.exit:                      ; preds = %.lr.ph15.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_list_collations(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @assign_list_collations(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null

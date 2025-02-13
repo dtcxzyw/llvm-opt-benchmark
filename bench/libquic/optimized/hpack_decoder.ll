@@ -308,7 +308,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN3net16HpackInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(33)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net12HpackDecoder33HandleControlFrameHeadersCompleteEPm(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef writeonly captures(address_is_null) %compressed_len) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net12HpackDecoder33HandleControlFrameHeadersCompleteEPm(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef writeonly %compressed_len) unnamed_addr #0 align 2 {
 entry:
   %cmp.not = icmp eq ptr %compressed_len, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -358,7 +358,7 @@ return:                                           ; preds = %if.end, %if.end8
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZNK3net12HpackDecoder13decoded_blockEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(480) %this) unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZNK3net12HpackDecoder13decoded_blockEv(ptr noundef nonnull readnone align 8 dereferenceable(480) %this) unnamed_addr #6 align 2 {
 entry:
   %decoded_block_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   ret ptr %decoded_block_

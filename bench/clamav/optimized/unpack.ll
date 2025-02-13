@@ -14216,7 +14216,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %10, %.loopexit.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, ptr noundef captures(ret: address, provenance) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr noundef nonnull align 8 captures(none) dereferenceable(59688) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr %3, align 4, !tbaa !309
   switch i8 %5, label %.loopexit [
     i8 1, label %6

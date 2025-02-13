@@ -1471,7 +1471,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decode_mcu(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal noundef i32 @decode_mcu(ptr noundef %0, ptr noundef readonly %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368

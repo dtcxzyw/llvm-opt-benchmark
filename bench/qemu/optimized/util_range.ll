@@ -260,7 +260,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @range_inverse_array(ptr noundef readonly captures(address_is_null) %in, ptr noundef captures(none) %rev, i64 noundef %low, i64 noundef %high) local_unnamed_addr #0 {
+define dso_local void @range_inverse_array(ptr noundef readonly %in, ptr noundef captures(none) %rev, i64 noundef %low, i64 noundef %high) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rev, align 8
   %tobool.not171 = icmp eq ptr %in, null

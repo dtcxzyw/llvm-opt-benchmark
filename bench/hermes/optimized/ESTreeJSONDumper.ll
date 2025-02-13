@@ -27467,7 +27467,7 @@ do.end99:                                         ; preds = %if.then64, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %list) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumper8dumpNodeERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %list) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN6hermes11JSONEmitter9openArrayEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7

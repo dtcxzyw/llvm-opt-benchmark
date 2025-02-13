@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [36 x i8] c"Unexpected error in %s() at %s:%d:\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_set_internal(ptr noundef captures(address) %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %err_class, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @error_set_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %err_class, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -62,7 +62,7 @@ error_setv.exit:                                  ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_setg_internal(ptr noundef captures(address) %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @error_setg_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -102,7 +102,7 @@ error_setv.exit:                                  ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_setg_errno_internal(ptr noundef captures(address) %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %os_errno, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @error_setg_errno_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %os_errno, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @__errno_location() #11
@@ -169,14 +169,14 @@ declare ptr @__errno_location() local_unnamed_addr #1
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_setg_file_open_internal(ptr noundef captures(address) %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %os_errno, ptr noundef %filename) local_unnamed_addr #0 {
+define dso_local void @error_setg_file_open_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %os_errno, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef %src, i32 noundef %line, ptr noundef %func, i32 noundef %os_errno, ptr noundef nonnull @.str, ptr noundef %filename)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_vprepend(ptr noundef readonly captures(address_is_null) %errp, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #0 {
+define dso_local void @error_vprepend(ptr noundef readonly %errp, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %errp, null
   br i1 %tobool.not, label %return, label %if.end
@@ -210,7 +210,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_prepend(ptr noundef readonly captures(address_is_null) %errp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @error_prepend(ptr noundef readonly %errp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -237,7 +237,7 @@ error_vprepend.exit:                              ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_append_hint(ptr noundef readonly captures(address) %errp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @error_append_hint(ptr noundef readonly %errp, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @__errno_location() #11
@@ -524,7 +524,7 @@ warn_report_err.exit:                             ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_free_or_abort(ptr noundef captures(address_is_null) %errp) local_unnamed_addr #0 {
+define dso_local void @error_free_or_abort(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %errp, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -557,7 +557,7 @@ error_free.exit:                                  ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_propagate(ptr noundef captures(address) %dst_errp, ptr noundef %local_err) local_unnamed_addr #0 {
+define dso_local void @error_propagate(ptr noundef %dst_errp, ptr noundef %local_err) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %local_err, null
   br i1 %tobool.not, label %return, label %if.end
@@ -571,7 +571,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @error_handle(ptr noundef captures(address) %errp, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc void @error_handle(ptr noundef %errp, ptr noundef %err) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %errp, @error_abort
   br i1 %cmp, label %if.then, label %if.end5
@@ -680,7 +680,7 @@ if.end16:                                         ; preds = %if.end.i, %if.else1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @error_propagate_prepend(ptr noundef captures(address) %dst_errp, ptr noundef %err, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @error_propagate_prepend(ptr noundef %dst_errp, ptr noundef %err, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %dst_errp, null

@@ -110,7 +110,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7517StringEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef writeonly captures(address_is_null) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6icu_7517StringEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef writeonly %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #9 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
@@ -258,7 +258,7 @@ if.end25:                                         ; preds = %if.then18, %if.else
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7517StringEnumeration5unextEPiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef writeonly captures(address_is_null) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6icu_7517StringEnumeration5unextEPiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef writeonly %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #9 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
@@ -860,7 +860,7 @@ entry:
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL17ucharstrenum_nextP12UEnumerationPiP10UErrorCode(ptr noundef captures(none) %en, ptr noundef writeonly captures(address_is_null) %resultLength, ptr readnone captures(none) %0) #15 {
+define internal noundef ptr @_ZL17ucharstrenum_nextP12UEnumerationPiP10UErrorCode(ptr noundef captures(none) %en, ptr noundef writeonly %resultLength, ptr readnone captures(none) %0) #15 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %en, i64 56
   %1 = load i32, ptr %index, align 8
@@ -900,7 +900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL18ucharstrenum_unextP12UEnumerationPiP10UErrorCode(ptr noundef captures(none) %en, ptr noundef writeonly captures(address_is_null) %resultLength, ptr readnone captures(none) %0) #9 {
+define internal noundef ptr @_ZL18ucharstrenum_unextP12UEnumerationPiP10UErrorCode(ptr noundef captures(none) %en, ptr noundef writeonly %resultLength, ptr readnone captures(none) %0) #9 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %en, i64 56
   %1 = load i32, ptr %index, align 8

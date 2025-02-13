@@ -1197,7 +1197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal3Env12getLogicInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(576) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal3Env12getLogicInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(576) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_logic = getelementptr inbounds nuw i8, ptr %this, i64 56
   ret ptr %d_logic
@@ -1212,7 +1212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal3Env10getOptionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(576) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal3Env10getOptionsEv(ptr noundef nonnull readnone align 8 dereferenceable(576) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_options = getelementptr inbounds nuw i8, ptr %this, i64 152
   ret ptr %d_options

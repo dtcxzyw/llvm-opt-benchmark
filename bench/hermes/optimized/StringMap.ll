@@ -91,7 +91,7 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly captures(address) %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
@@ -207,7 +207,7 @@ return:                                           ; preds = %land.rhs.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr readonly captures(address) %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
@@ -286,7 +286,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(address) %V) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef %V) local_unnamed_addr #2 align 2 {
 entry:
   %ItemSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %ItemSize, align 4
@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN4llvh13StringMapImpl9RemoveKeyENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly captures(address) %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN4llvh13StringMapImpl9RemoveKeyENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %NumBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets.i, align 8

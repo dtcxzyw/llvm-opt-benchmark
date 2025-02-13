@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Unpublish_name = weak alias i32 (ptr, ptr, ptr), ptr @PMPI_Unpublish_name
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Unpublish_name(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) #0 {
+define i32 @PMPI_Unpublish_name(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct.pmix_info, align 8

@@ -311,7 +311,7 @@ define internal ptr @mca_pml_bsend_alloc_segment(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -30, 1) i32 @mca_pml_base_bsend_detach(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_pml_base_bsend_detach(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @opal_uses_threads, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7

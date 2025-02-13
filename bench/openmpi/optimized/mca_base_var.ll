@@ -1888,7 +1888,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_var_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define i32 @mca_base_var_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = tail call fastcc i32 @register_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef -1, ptr noundef %11)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %.loopexit, label %15
@@ -2003,7 +2003,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @mca_base_var_get_value(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_base_var_get_value(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = call fastcc i32 @var_get(i32 noundef %0, ptr noundef nonnull %5, i1 noundef zeroext true)
   %.not = icmp eq i32 %6, 0
@@ -2069,7 +2069,7 @@ mca_base_var_source_file.exit:                    ; preds = %21, %24, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 1) i32 @var_get(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @var_get(i32 noundef %0, ptr noundef writeonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -2897,7 +2897,7 @@ define range(i32 -5, 1) i32 @mca_base_var_set_flag(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @mca_base_var_get(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_base_var_get(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %4, label %3
 
@@ -3320,7 +3320,7 @@ declare i32 @opal_argv_append(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @register_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) unnamed_addr #0 {
+define internal fastcc i32 @register_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) unnamed_addr #0 {
   %14 = alloca [4 x ptr], align 16
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
@@ -3986,7 +3986,7 @@ opal_pointer_array_get_item.exit.thread:          ; preds = %opal_pointer_array_
 declare ptr @mca_base_alias_lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_component_var_register(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define i32 @mca_base_component_var_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -4025,7 +4025,7 @@ mca_base_var_register.exit:                       ; preds = %.lr.ph.i, %10, %17,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_framework_var_register(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define i32 @mca_base_framework_var_register(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -4942,7 +4942,7 @@ declare i32 @mca_base_var_group_add_var(i32 noundef, i32 noundef) local_unnamed_
 declare i32 @opal_hash_table_set_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @compare_strings(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #15 {
+define internal fastcc i32 @compare_strings(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %sub_0
 
@@ -4976,7 +4976,7 @@ sub_0:                                            ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -18, 1) i32 @var_set_initial(ptr noundef captures(none) initializes((112, 116)) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @var_set_initial(ptr noundef captures(none) initializes((112, 116)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null

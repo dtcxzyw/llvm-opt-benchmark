@@ -1143,7 +1143,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_Pj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_Pj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #2 align 2 {
   %4 = load i32, ptr %0, align 4, !tbaa !3
   %5 = icmp eq i32 %4, 0
   %6 = icmp eq i32 %1, 0
@@ -1186,7 +1186,7 @@ _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_Pj.exit: ; preds = %3, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_Pj(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_Pj(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 align 2 {
   %4 = icmp eq i32 %0, 0
   %5 = icmp eq i32 %1, 0
   %or.cond = or i1 %4, %5

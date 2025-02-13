@@ -3268,7 +3268,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList17ReleaseSuccessorsEPN4llvm5SUnitE(ptr noundef nonnull align 8 captures(address) dereferenceable(3460) %0, ptr readonly captures(address) %.120.val, i32 %.128.val) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList17ReleaseSuccessorsEPN4llvm5SUnitE(ptr noundef nonnull align 8 dereferenceable(3460) %0, ptr readonly %.120.val, i32 %.128.val) unnamed_addr #1 align 2 {
   %2 = zext i32 %.128.val to i64
   %3 = getelementptr inbounds nuw %"class.llvm::SDep", ptr %.120.val, i64 %2
   %.not1 = icmp eq i32 %.128.val, 0

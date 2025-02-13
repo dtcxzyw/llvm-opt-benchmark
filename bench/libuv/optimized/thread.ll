@@ -195,7 +195,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) %tid, ptr noundef readonly captures(none) %cpumask, ptr noundef writeonly captures(address_is_null) %oldmask, i64 noundef %mask_size) local_unnamed_addr #0 {
+define i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) %tid, ptr noundef readonly captures(none) %cpumask, ptr noundef writeonly %oldmask, i64 noundef %mask_size) local_unnamed_addr #0 {
 entry:
   %cpuset.i = alloca %struct.cpu_set_t, align 8
   %cpuset = alloca %struct.cpu_set_t, align 8

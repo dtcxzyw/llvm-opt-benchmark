@@ -136,7 +136,7 @@ define i32 @b64_ntop(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
+define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   br label %.outer.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %.outer.outer.outer

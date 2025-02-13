@@ -976,7 +976,7 @@ switch.edge:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [20 x i8], align 16
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.7) #20
   %.not = icmp eq ptr %1, null

@@ -85,7 +85,7 @@ define zeroext i1 @"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h75f86c9006979a30E"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #1 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h75f86c9006979a30E"(ptr readnone returned align 8 %0) unnamed_addr #1 {
   ret ptr %0
 }
 

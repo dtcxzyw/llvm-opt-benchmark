@@ -108,7 +108,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.1 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN14JavaAssertions10OptionList5countEPS0_(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14JavaAssertions10OptionList5countEPS0_(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -550,7 +550,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JavaAssertions14fillJavaArraysEPKNS_10OptionListEi14objArrayHandle15typeArrayHandleP10JavaThread(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14JavaAssertions14fillJavaArraysEPKNS_10OptionListEi14objArrayHandle15typeArrayHandleP10JavaThread(ptr noundef readonly %0, i32 noundef %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit._crit_edge, label %.lr.ph
 

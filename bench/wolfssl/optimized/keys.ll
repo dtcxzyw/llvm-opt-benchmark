@@ -85,7 +85,7 @@ if.end48:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -500, 1) i32 @GetCipherSpec(i16 noundef zeroext %side, i8 noundef zeroext %cipherSuite0, i8 noundef zeroext %cipherSuite, ptr noundef %specs, ptr noundef captures(address_is_null) %opts) local_unnamed_addr #0 {
+define range(i32 -500, 1) i32 @GetCipherSpec(i16 noundef zeroext %side, i8 noundef zeroext %cipherSuite0, i8 noundef zeroext %cipherSuite, ptr noundef %specs, ptr noundef %opts) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i16 %side, 1
   br i1 %cmp, label %if.then, label %if.end5

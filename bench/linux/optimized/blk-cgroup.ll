@@ -128,7 +128,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_bio_clone_bl
 @llvm.compiler.used = appending global [23 x ptr] [ptr @__UNIQUE_ID___addressable___blkg_prfill_u64473, ptr @__UNIQUE_ID___addressable_bio_associate_blkg503, ptr @__UNIQUE_ID___addressable_bio_associate_blkg_from_css502, ptr @__UNIQUE_ID___addressable_bio_blkcg_css453, ptr @__UNIQUE_ID___addressable_bio_clone_blkg_association504, ptr @__UNIQUE_ID___addressable_blkcg_activate_policy483, ptr @__UNIQUE_ID___addressable_blkcg_deactivate_policy484, ptr @__UNIQUE_ID___addressable_blkcg_policy_register489, ptr @__UNIQUE_ID___addressable_blkcg_policy_unregister492, ptr @__UNIQUE_ID___addressable_blkcg_print_blkgs472, ptr @__UNIQUE_ID___addressable_blkcg_root451, ptr @__UNIQUE_ID___addressable_blkcg_root_css452, ptr @__UNIQUE_ID___addressable_blkg_conf_exit476, ptr @__UNIQUE_ID___addressable_blkg_conf_init474, ptr @__UNIQUE_ID___addressable_blkg_conf_prep475, ptr @__UNIQUE_ID___addressable_io_cgrp_subsys482, ptr @__UNIQUE_ID_blkcg_debug_stats509, ptr @__UNIQUE_ID_blkcg_debug_statstype508, ptr @__param_blkcg_debug_stats, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched21, ptr @blk_cgroup_bio_start.__UNIQUE_ID___addressable___SCK__preempt_schedule507, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @radix_tree_preload_end.__UNIQUE_ID___addressable___SCK__preempt_schedule159], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @bio_blkcg_css(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define dso_local ptr @bio_blkcg_css(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -171,7 +171,7 @@ define dso_local ptr @blkg_dev_name(ptr noundef readonly captures(none) %0) loca
 declare dso_local ptr @bdi_dev_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blkcg_print_blkgs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i1 noundef zeroext %5) #1 align 16 {
+define dso_local void @blkcg_print_blkgs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #1 align 16 {
   tail call void @__rcu_read_lock() #16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %8 = load volatile ptr, ptr %7, align 8
@@ -408,7 +408,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blkg_conf_prep(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) #1 align 16 {
+define dso_local i32 @blkg_conf_prep(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = tail call i32 @blkg_conf_open_bdev(ptr noundef %2), !range !11
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %167
@@ -1714,7 +1714,7 @@ define dso_local void @blkcg_exit_disk(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @blkcg_css_alloc(ptr noundef readnone captures(address_is_null) %0) #1 align 16 {
+define internal noundef ptr @blkcg_css_alloc(ptr noundef readnone %0) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @blkcg_pol_mutex) #16
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
@@ -1977,7 +1977,7 @@ define internal void @blkcg_exit(ptr noundef captures(none) %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @blkcg_activate_policy(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @blkcg_activate_policy(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -2314,7 +2314,7 @@ declare dso_local void @blk_mq_freeze_queue(ptr noundef) local_unnamed_addr #2
 declare dso_local void @blk_mq_unfreeze_queue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blkcg_deactivate_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define dso_local void @blkcg_deactivate_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -2595,7 +2595,7 @@ declare dso_local i32 @cgroup_add_dfl_cftypes(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @cgroup_add_legacy_cftypes(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blkcg_policy_unregister(ptr noundef readonly captures(address) %0) #1 align 16 {
+define dso_local void @blkcg_policy_unregister(ptr noundef readonly %0) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @blkcg_pol_register_mutex) #16
   %2 = load i32, ptr %0, align 8
   %3 = sext i32 %2 to i64
@@ -3415,7 +3415,7 @@ select.unfold18:                                  ; preds = %72, %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_associate_blkg(ptr noundef captures(address_is_null) %0) #1 align 16 {
+define dso_local void @bio_associate_blkg(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 254
@@ -3466,7 +3466,7 @@ define dso_local void @bio_associate_blkg(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_clone_blkg_association(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define dso_local void @bio_clone_blkg_association(ptr noundef captures(none) %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

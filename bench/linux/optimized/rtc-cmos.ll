@@ -191,7 +191,7 @@ declare dso_local ptr @platform_get_resource(ptr noundef, i32 noundef, i32 nound
 declare dso_local i32 @platform_get_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.nvmem_config, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8

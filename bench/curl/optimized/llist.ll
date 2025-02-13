@@ -136,7 +136,7 @@ Curl_llist_insert_next.exit:                      ; preds = %10, %22, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @Curl_node_take_elem(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define hidden ptr @Curl_node_take_elem(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %2
 
@@ -213,7 +213,7 @@ define hidden ptr @Curl_node_take_elem(ptr noundef captures(address) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_node_uremove(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden void @Curl_node_uremove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %3
 
@@ -293,7 +293,7 @@ Curl_node_take_elem.exit:                         ; preds = %22, %20, %13, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_node_remove(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define hidden void @Curl_node_remove(ptr noundef %0) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Curl_node_uremove.exit, label %2
 
@@ -373,7 +373,7 @@ Curl_node_uremove.exit:                           ; preds = %1, %2, %Curl_node_t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_llist_destroy(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden void @Curl_llist_destroy(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

@@ -240,7 +240,7 @@ define dso_local i64 @__ia32_sys_mmap(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.vm_unmapped_area_info, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %8 = inttoptr i64 %7 to ptr
@@ -418,7 +418,7 @@ declare dso_local ptr @find_vma(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare dso_local i64 @vm_unmapped_area(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.vm_unmapped_area_info, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %8 = inttoptr i64 %7 to ptr

@@ -2144,7 +2144,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang11PPCallbacks17EmbedFile
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks14EmbedDirectiveEN5clang14SourceLocationEN4llvm9StringRefEbNS1_20CustomizableOptionalINS1_12FileEntryRefEEERKNS1_24LexEmbedParametersResultE(ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr readonly captures(address_is_null) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %6) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks14EmbedDirectiveEN5clang14SourceLocationEN4llvm9StringRefEbNS1_20CustomizableOptionalINS1_12FileEntryRefEEERKNS1_24LexEmbedParametersResultE(ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr readonly %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::SmallString.304", align 8
   %9 = alloca %"class.llvm::SmallString.304", align 8
   %10 = alloca %"class.llvm::SmallString.304", align 8
@@ -4412,7 +4412,7 @@ define linkonce_odr hidden void @_ZN5clang11PPCallbacks21PragmaOpenCLExtensionEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks13PragmaWarningEN5clang14SourceLocationENS1_11PPCallbacks22PragmaWarningSpecifierEN4llvm8ArrayRefIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %0, i32 %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks13PragmaWarningEN5clang14SourceLocationENS1_11PPCallbacks22PragmaWarningSpecifierEN4llvm8ArrayRefIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %0, i32 %1, i32 noundef %2, ptr readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::PresumedLoc", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16

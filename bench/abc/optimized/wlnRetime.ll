@@ -2045,7 +2045,7 @@ define void @Wln_RetMarkChanges_rec(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_RetMarkChanges(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define void @Wln_RetMarkChanges(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %.preheader
 
@@ -2977,7 +2977,7 @@ Wln_ObjFanin0.exit:                               ; preds = %66, %74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @Wln_RetHeadToTail(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #13 {
+define noundef ptr @Wln_RetHeadToTail(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #13 {
   %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %.pre = load i32, ptr %1, align 4, !tbaa !13
@@ -4091,7 +4091,7 @@ Wln_RetInsertOneFanin.exit:                       ; preds = %124, %.lr.ph.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_RetAddToMoves(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @Wln_RetAddToMoves(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %12
 

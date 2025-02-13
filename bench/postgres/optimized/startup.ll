@@ -1592,7 +1592,7 @@ define internal zeroext i1 @singlestep_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @fetch_count_substitute_hook(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) #0 {
+define internal ptr @fetch_count_substitute_hook(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -1617,7 +1617,7 @@ define internal noundef zeroext i1 @histfile_hook(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @histsize_substitute_hook(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) #0 {
+define internal ptr @histsize_substitute_hook(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -1666,7 +1666,7 @@ define internal zeroext i1 @ignoreeof_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @echo_substitute_hook(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) #0 {
+define internal ptr @echo_substitute_hook(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -1788,7 +1788,7 @@ define internal noundef zeroext i1 @on_error_rollback_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @comp_keyword_case_substitute_hook(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) #0 {
+define internal ptr @comp_keyword_case_substitute_hook(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -1848,7 +1848,7 @@ define internal noundef zeroext i1 @comp_keyword_case_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @histcontrol_substitute_hook(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) #0 {
+define internal ptr @histcontrol_substitute_hook(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -1932,7 +1932,7 @@ define internal noundef zeroext i1 @prompt3_hook(ptr noundef %0) #13 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @verbosity_substitute_hook(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) #0 {
+define internal ptr @verbosity_substitute_hook(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -1993,7 +1993,7 @@ define internal zeroext i1 @show_all_results_hook(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @show_context_substitute_hook(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) #0 {
+define internal ptr @show_context_substitute_hook(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 

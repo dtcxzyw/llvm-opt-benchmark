@@ -108,7 +108,7 @@ declare void @METHOD_unref(ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @RSA_additional_prime_free(ptr noundef captures(address_is_null) %ap) #0 {
+define hidden void @RSA_additional_prime_free(ptr noundef %ap) #0 {
 entry:
   %cmp = icmp eq ptr %ap, null
   br i1 %cmp, label %return, label %if.end

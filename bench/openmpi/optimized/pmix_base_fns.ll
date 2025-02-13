@@ -819,7 +819,7 @@ define range(i32 -13, 1) i32 @opal_pmix_convert_jobid(ptr noundef %0, i32 nounde
 declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 
@@ -1433,7 +1433,7 @@ declare i32 @opal_cond_init(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Job_control_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup_cbfunc(i32 noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef initializes((116, 120)) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @cleanup_cbfunc(i32 noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef initializes((116, 120)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   fence release
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7

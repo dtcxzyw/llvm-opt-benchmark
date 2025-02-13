@@ -4254,13 +4254,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9DbiStream16hasNewFpoRecordsEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4llvm3pdb9DbiStream16getNewFpoRecordsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1224) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4llvm3pdb9DbiStream16getNewFpoRecordsEv(ptr noundef nonnull readnone align 8 dereferenceable(1224) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(352) ptr @_ZNK4llvm3pdb9DbiStream7modulesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1224) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(352) ptr @_ZNK4llvm3pdb9DbiStream7modulesEv(ptr noundef nonnull readnone align 8 dereferenceable(1224) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   ret ptr %2
 }

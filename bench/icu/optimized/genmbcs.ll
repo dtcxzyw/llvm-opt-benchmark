@@ -2945,7 +2945,7 @@ return:                                           ; preds = %if.end214, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef nonnull ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull returned writeonly captures(ret: address, provenance) %buffer, ptr noundef readonly captures(none) %bytes, i32 noundef range(i32 -128, 128) %length) unnamed_addr #9 {
+define internal fastcc noundef nonnull ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull returned writeonly %buffer, ptr noundef readonly captures(none) %bytes, i32 noundef range(i32 -128, 128) %length) unnamed_addr #9 {
 entry:
   %cmp11 = icmp sgt i32 %length, 0
   br i1 %cmp11, label %while.body, label %while.end

@@ -839,7 +839,7 @@ define dso_local i64 @nfs_reqs_to_commit(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_scan_commit_list(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @nfs_scan_commit_list(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = icmp eq ptr %5, %0
@@ -3278,7 +3278,7 @@ define dso_local i32 @nfs_commit_inode(ptr noundef %0, i32 noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__nfs_commit_inode(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__nfs_commit_inode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_bit_queue_entry, align 8
   %5 = alloca %struct.list_head, align 8
   %6 = alloca %struct.nfs_commit_info, align 8
@@ -3450,7 +3450,7 @@ define internal fastcc i32 @__nfs_commit_inode(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_write_inode(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
+define dso_local i32 @nfs_write_inode(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

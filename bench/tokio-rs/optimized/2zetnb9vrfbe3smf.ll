@@ -3287,7 +3287,7 @@ define noundef zeroext i1 @"_ZN77_$LT$tokio..net..unix..socketaddr..SocketAddr$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN5tokio7process3imp4reap23Reaper$LT$W$C$Q$C$S$GT$5inner17h5e4e8dd8c64bc674E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN5tokio7process3imp4reap23Reaper$LT$W$C$Q$C$S$GT$5inner17h5e4e8dd8c64bc674E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !range !627, !noundef !19
   %4 = icmp eq i32 %3, 2
@@ -3302,7 +3302,7 @@ define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN5tokio7proces
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN5tokio7process3imp4reap23Reaper$LT$W$C$Q$C$S$GT$9inner_mut17h8c72288844da89adE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN5tokio7process3imp4reap23Reaper$LT$W$C$Q$C$S$GT$9inner_mut17h8c72288844da89adE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !range !627, !noundef !19
   %4 = icmp eq i32 %3, 2
@@ -9194,7 +9194,7 @@ define hidden void @_ZN5tokio7runtime7runtime7Runtime10from_parts17hab5312bea321
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5tokio7runtime7runtime7Runtime6handle17hc5352ddb6143e96dE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5tokio7runtime7runtime7Runtime6handle17hc5352ddb6143e96dE(ptr noundef nonnull readnone align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }

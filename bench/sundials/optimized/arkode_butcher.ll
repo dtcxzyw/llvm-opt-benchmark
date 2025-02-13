@@ -281,7 +281,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @ARKodeButcherTable_Free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %2
 
@@ -366,7 +366,7 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6) local_unnamed_addr #0 {
   %8 = icmp slt i32 %0, 1
   br i1 %8, label %.loopexit, label %9
 
@@ -449,7 +449,7 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -550,7 +550,7 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ARKodeButcherTable_Space(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
+define void @ARKodeButcherTable_Space(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   store i64 0, ptr %1, align 8
   store i64 0, ptr %2, align 8
   %4 = icmp eq ptr %0, null
@@ -578,7 +578,7 @@ define void @ARKodeButcherTable_Space(ptr noundef readonly captures(address_is_n
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define void @ARKodeButcherTable_Write(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -773,7 +773,7 @@ define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef rea
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   %5 = icmp eq ptr %0, null
@@ -2166,7 +2166,7 @@ thread-pre-split1071:                             ; preds = %__rowsum.exit975, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order3a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order3a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #9 {
   %5 = sext i32 %3 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
   %7 = icmp eq ptr %1, null
@@ -2229,7 +2229,7 @@ __dot.exit:                                       ; preds = %17, %25, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order3b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order3b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #9 {
   %5 = sext i32 %3 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
   %7 = icmp eq ptr %1, null
@@ -2305,7 +2305,7 @@ __dot.exit:                                       ; preds = %22, %30, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order4a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2395,7 +2395,7 @@ __dot.exit:                                       ; preds = %28, %36, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order4b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2496,7 +2496,7 @@ __dot.exit:                                       ; preds = %39, %__mv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order4c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2599,7 +2599,7 @@ __dot.exit:                                       ; preds = %32, %40, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order4d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order4d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
@@ -2715,7 +2715,7 @@ __dot.exit:                                       ; preds = %37, %45, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -2827,7 +2827,7 @@ __dot.exit:                                       ; preds = %37, %45, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -2955,7 +2955,7 @@ __dot.exit:                                       ; preds = %49, %__mv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3099,7 +3099,7 @@ __dot.exit:                                       ; preds = %48, %56, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3222,7 +3222,7 @@ __dot.exit:                                       ; preds = %48, %__vv.exit44, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5e(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3352,7 +3352,7 @@ __dot.exit:                                       ; preds = %42, %50, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5f(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3488,7 +3488,7 @@ __dot.exit:                                       ; preds = %53, %__vv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5g(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3631,7 +3631,7 @@ __dot.exit:                                       ; preds = %47, %55, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5h(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3777,7 +3777,7 @@ __dot.exit:                                       ; preds = %46, %54, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order5i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order5i(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -3933,7 +3933,7 @@ __dot.exit:                                       ; preds = %51, %59, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6a(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4067,7 +4067,7 @@ __dot.exit:                                       ; preds = %46, %54, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6b(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4217,7 +4217,7 @@ __dot.exit:                                       ; preds = %58, %__mv.exit, %__
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6c(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4384,7 +4384,7 @@ __dot.exit:                                       ; preds = %57, %65, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6d(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4537,7 +4537,7 @@ __dot.exit:                                       ; preds = %59, %__vv.exit68, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6e(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4708,7 +4708,7 @@ __dot.exit:                                       ; preds = %64, %__mv.exit72, %
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6f(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -4893,7 +4893,7 @@ __dot.exit:                                       ; preds = %62, %70, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6g(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5045,7 +5045,7 @@ __dot.exit:                                       ; preds = %51, %59, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6h(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5210,7 +5210,7 @@ __dot.exit:                                       ; preds = %56, %64, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6i(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5378,7 +5378,7 @@ __dot.exit:                                       ; preds = %55, %63, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6j(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6j(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5556,7 +5556,7 @@ __dot.exit:                                       ; preds = %60, %68, %__vv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6k(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6k(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5708,7 +5708,7 @@ __dot.exit:                                       ; preds = %51, %59, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6l(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6l(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -5873,7 +5873,7 @@ __dot.exit:                                       ; preds = %56, %64, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6m(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6m(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6058,7 +6058,7 @@ __dot.exit:                                       ; preds = %62, %70, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6n(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6n(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6226,7 +6226,7 @@ __dot.exit:                                       ; preds = %55, %63, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6o(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6o(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6404,7 +6404,7 @@ __dot.exit:                                       ; preds = %60, %68, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6p(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6p(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6573,7 +6573,7 @@ __dot.exit:                                       ; preds = %55, %63, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6q(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6q(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6755,7 +6755,7 @@ __dot.exit:                                       ; preds = %60, %68, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6r(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6r(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #15
@@ -6940,7 +6940,7 @@ __dot.exit:                                       ; preds = %59, %67, %__mv.exit
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @__order6s(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @__order6s(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #15
@@ -7326,7 +7326,7 @@ __vp.exit:                                        ; preds = %38, %.loopexit, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.sroa.05613 = alloca ptr, align 16
   %.sroa.118 = alloca ptr, align 8
   %.sroa.05496 = alloca ptr, align 16

@@ -200,7 +200,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanin(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanin(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4, !tbaa !9
   %5 = icmp sgt i32 %4, 0
@@ -238,7 +238,7 @@ define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanin(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanout(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanout(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8, !tbaa !23
   %5 = icmp sgt i32 %4, 0
@@ -411,7 +411,7 @@ define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Nwk_ObjDeleteFanin(ptr noundef captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
+define void @Nwk_ObjDeleteFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -501,7 +501,7 @@ define void @Nwk_ObjDeleteFanin(ptr noundef captures(address) %0, ptr noundef ca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ObjPatchFanin(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Nwk_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = icmp sgt i32 %5, 0
@@ -638,7 +638,7 @@ Nwk_ObjFindFanin.exit:                            ; preds = %12
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ObjTransferFanout(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Nwk_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !44

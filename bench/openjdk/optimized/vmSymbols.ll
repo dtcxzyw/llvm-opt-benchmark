@@ -255,7 +255,7 @@ _ZN16SerializeClosure7do_ptrsEPPvm.exit6:         ; preds = %.lr.ph.i2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone %0) local_unnamed_addr #5 align 2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4), align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %3

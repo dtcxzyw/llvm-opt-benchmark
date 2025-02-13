@@ -19,7 +19,7 @@ entry:
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ok_write(ptr noundef %b, ptr noundef readonly captures(address) %in, i32 noundef %inl) #2 {
+define internal i32 @ok_write(ptr noundef %b, ptr noundef readonly %in, i32 noundef %inl) #2 {
 entry:
   %cmp = icmp slt i32 %inl, 1
   br i1 %cmp, label %return, label %if.end
@@ -251,7 +251,7 @@ return:                                           ; preds = %if.end37, %sig_out.
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ok_read(ptr noundef %b, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %outl) #2 {
+define internal i32 @ok_read(ptr noundef %b, ptr noundef writeonly %out, i32 noundef %outl) #2 {
 entry:
   %tmp.i54 = alloca [64 x i8], align 16
   %tmp.i = alloca [64 x i8], align 16

@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12BufferHandleaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %other) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12BufferHandleaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %other) local_unnamed_addr #1 align 2 {
 entry:
   %node = getelementptr inbounds nuw i8, ptr %this, i64 16
   %node2 = getelementptr inbounds nuw i8, ptr %other, i64 16
@@ -686,7 +686,7 @@ _ZNSt10unique_ptrIN6duckdb10FileBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb21BufferPoolReservationaSEOS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 8)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %src) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb21BufferPoolReservationaSEOS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %src) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %src, align 8, !tbaa !62
   store i64 %0, ptr %this, align 8, !tbaa !62
@@ -3319,7 +3319,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10BufferPool11EvictBlocksEmmPNS_10unique_ptrINS_10FileBufferESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.duckdb::BufferPool::EvictionResult") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(76) %this, i64 noundef %extra_memory, i64 noundef %memory_limit, ptr noundef captures(address_is_null) %buffer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10BufferPool11EvictBlocksEmmPNS_10unique_ptrINS_10FileBufferESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.duckdb::BufferPool::EvictionResult") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(76) %this, i64 noundef %extra_memory, i64 noundef %memory_limit, ptr noundef %buffer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.sroa.0.i = alloca ptr, align 8
   %node = alloca %"struct.duckdb::BufferEvictionNode", align 8

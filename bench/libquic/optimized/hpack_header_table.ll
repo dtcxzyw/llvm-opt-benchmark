@@ -127,7 +127,7 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net16HpackHeaderTable9EntriesEqclEPKNS_10HpackEntryES4_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(address_is_null) %lhs, ptr noundef readonly captures(address_is_null) %rhs) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net16HpackHeaderTable9EntriesEqclEPKNS_10HpackEntryES4_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly %lhs, ptr noundef readonly %rhs) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp6 = alloca %"class.base::BasicStringPiece", align 8

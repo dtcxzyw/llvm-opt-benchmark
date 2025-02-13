@@ -372,7 +372,7 @@ define void @assert_dbl_far(double noundef %0, double noundef %1, double noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_null(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @assert_null(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
 
@@ -385,7 +385,7 @@ define void @assert_null(ptr noundef readnone captures(address_is_null) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @assert_not_null(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @assert_not_null(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

@@ -210,7 +210,7 @@ JLI_MemAlloc.exit5:                               ; preds = %JLI_MemAlloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @JLI_List_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define hidden void @JLI_List_free(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 

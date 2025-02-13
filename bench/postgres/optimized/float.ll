@@ -174,7 +174,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4in(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca ptr, align 8
   %7 = load i8, ptr %0, align 1
   %.not67 = icmp eq i8 %7, 0
@@ -451,7 +451,7 @@ define dso_local i64 @float8in(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca ptr, align 8
   %7 = load i8, ptr %0, align 1
   %.not67 = icmp eq i8 %7, 0

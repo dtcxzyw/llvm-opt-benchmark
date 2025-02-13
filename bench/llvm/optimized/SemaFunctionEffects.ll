@@ -1293,7 +1293,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema29performFunctionEffectAnalysisEPNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema29performFunctionEffectAnalysisEPNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.(anonymous namespace)::CallableInfo", align 8
   %4 = alloca %"struct.(anonymous namespace)::CallableInfo", align 8
   %5 = alloca ptr, align 8
@@ -10734,7 +10734,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare { ptr, i64 } @_ZNK5clang14FunctionEffect4nameEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_18Analyzer15emitDiagnosticsEN4llvm8ArrayRefINS_9ViolationEEERKNS_12CallableInfoEENKUlPKN5clang4DeclERKS3_E_clESB_SD_(ptr readonly captures(none) %.0.val, ptr noundef readonly captures(address_is_null) %0, i64 %.8.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_18Analyzer15emitDiagnosticsEN4llvm8ArrayRefINS_9ViolationEEERKNS_12CallableInfoEENKUlPKN5clang4DeclERKS3_E_clESB_SD_(ptr readonly captures(none) %.0.val, ptr noundef readonly %0, i64 %.8.val) unnamed_addr #3 align 2 {
   %2 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %3 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8

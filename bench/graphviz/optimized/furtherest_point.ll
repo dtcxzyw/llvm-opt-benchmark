@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @furtherest_point(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, double noundef %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #0 {
+define void @furtherest_point(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4, double noundef %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.preheader.i, label %.preheader
 
@@ -711,7 +711,7 @@ declare void @QuadTree_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @QuadTree_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @furtherest_point_in_list(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
+define void @furtherest_point_in_list(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %.preheader210
 

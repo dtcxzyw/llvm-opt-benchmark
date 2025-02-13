@@ -114,7 +114,7 @@ define i32 @lv_animimg_get_repeat_count(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @lv_anim_get_repeat_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_animimg_get_anim(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_animimg_get_anim(ptr noundef readnone %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }

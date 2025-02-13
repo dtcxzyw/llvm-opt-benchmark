@@ -3378,7 +3378,7 @@ define void @_ZN4text7locator7Locator6assign17hf621a69a45213e37E(ptr noalias nou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4text7locator7Locator7between17h4d60a64baa4d7ba9E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(address) dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(address) dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN4text7locator7Locator7between17h4d60a64baa4d7ba9E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8, !alias.scope !652, !noalias !655, !noundef !16

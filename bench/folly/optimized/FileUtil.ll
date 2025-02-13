@@ -907,14 +907,14 @@ _ZN5folly15fileutil_detail9wrapvFullIPFliPK5iovecilEJlEEElT_iPS2_iDpT0_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions14setPermissionsEj(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(40) initializes((0, 4)) %this, i32 noundef %_permissions) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions14setPermissionsEj(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) initializes((0, 4)) %this, i32 noundef %_permissions) local_unnamed_addr #9 align 2 {
 entry:
   store i32 %_permissions, ptr %this, align 8, !tbaa !46
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions11setSyncTypeENS_8SyncTypeE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(40) initializes((4, 8)) %this, i32 noundef %_syncType) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions11setSyncTypeENS_8SyncTypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) initializes((4, 8)) %this, i32 noundef %_syncType) local_unnamed_addr #9 align 2 {
 entry:
   %syncType = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %_syncType, ptr %syncType, align 4, !tbaa !51
@@ -922,7 +922,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions21setTemporaryDirectoryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(40) %this, ptr noundef %_temporaryDirectory) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions21setTemporaryDirectoryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr noundef %_temporaryDirectory) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temporaryDirectory = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %temporaryDirectory, align 8, !tbaa !52

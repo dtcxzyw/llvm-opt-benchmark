@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal7Minisat6SolverC2ERNS0_3EnvEPNS0_4prop11TheoryProxyEPNS_7context7ContextEPNS8_11UserContextEPNS0_16ProofNodeManagerEb(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %proxy, ptr noundef %context, ptr readnone captures(none) %userContext, ptr noundef readnone captures(address_is_null) %pnm, i1 noundef zeroext %enableIncremental) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal7Minisat6SolverC2ERNS0_3EnvEPNS0_4prop11TheoryProxyEPNS_7context7ContextEPNS8_11UserContextEPNS0_16ProofNodeManagerEb(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %proxy, ptr noundef %context, ptr readnone captures(none) %userContext, ptr noundef readnone %pnm, i1 noundef zeroext %enableIncremental) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont67:
   %ref.tmp121.i10 = alloca %"class.cvc5::internal::prop::SatLiteral", align 8
   %ref.tmp121.i = alloca %"class.cvc5::internal::prop::SatLiteral", align 8

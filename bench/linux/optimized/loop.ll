@@ -3860,7 +3860,7 @@ define internal fastcc void @loop_config_discard(ptr %.96.val, ptr initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @loop_update_rotational(ptr readonly captures(address_is_null) %.96.val.216.val.0.val.40.val.200.val, ptr %.256.val) unnamed_addr #3 align 16 {
+define internal fastcc void @loop_update_rotational(ptr readonly %.96.val.216.val.0.val.40.val.200.val, ptr %.256.val) unnamed_addr #3 align 16 {
   %1 = icmp eq ptr %.96.val.216.val.0.val.40.val.200.val, null
   br i1 %1, label %9, label %2
 

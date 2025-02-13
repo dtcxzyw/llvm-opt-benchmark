@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @environ = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @block_is_single(ptr readnone captures(address) %0, ptr readnone captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @block_is_single(ptr readnone %0, ptr readnone %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp eq ptr %0, %1
   %5 = select i1 %3, i1 %4, i1 false
@@ -91,7 +91,7 @@ define { ptr, ptr } @gen_noop() local_unnamed_addr #0 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @block_is_noop(ptr readnone captures(address_is_null) %0, ptr readnone captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @block_is_noop(ptr readnone %0, ptr readnone %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = select i1 %3, i1 %4, i1 false
@@ -247,7 +247,7 @@ define { ptr, ptr } @gen_op_pushk_under(i64 %0, ptr %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @block_is_const(ptr readonly captures(address) %0, ptr readnone captures(address) %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @block_is_const(ptr readonly %0, ptr readnone %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ne ptr %0, %1
   %.not5 = select i1 %3, i1 true, i1 %4
@@ -705,7 +705,7 @@ define void @block_append(ptr noundef captures(none) %0, ptr %1, ptr %2) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr readonly %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = or i32 %2, 1024
   %.not13 = icmp eq ptr %0, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -740,7 +740,7 @@ define range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr readonly capt
 declare ptr @opcode_describe(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @block_has_only_binders(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @block_has_only_binders(ptr readonly %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = and i32 %2, -3073
   %5 = or disjoint i32 %4, 1024
   %.not11 = icmp eq ptr %0, null
@@ -773,7 +773,7 @@ define range(i32 0, 2) i32 @block_has_only_binders(ptr readonly captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @block_bind_library(ptr readnone captures(none) %0, ptr %1, ptr %2, ptr %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 {
+define { ptr, ptr } @block_bind_library(ptr readnone captures(none) %0, ptr %1, ptr %2, ptr %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = or i32 %4, 1024
   %9 = icmp eq ptr %5, null
@@ -992,7 +992,7 @@ block_take_last.exit:                             ; preds = %block_join.exit, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @block_drop_unreferenced(ptr %0, ptr captures(address) %1) local_unnamed_addr #1 {
+define { ptr, ptr } @block_drop_unreferenced(ptr %0, ptr %1) local_unnamed_addr #1 {
   tail call fastcc void @block_mark_referenced(ptr %1)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %block_take.exit, label %.lr.ph
@@ -1054,7 +1054,7 @@ block_take.exit:                                  ; preds = %block_join.exit, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @block_mark_referenced(ptr readonly captures(address) %0) unnamed_addr #12 {
+define internal fastcc void @block_mark_referenced(ptr readonly %0) unnamed_addr #12 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -1252,7 +1252,7 @@ declare { i64, ptr } @jv_array() local_unnamed_addr #3
 declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @block_list_funcs(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
+define { i64, ptr } @block_list_funcs(ptr readonly %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call { i64, ptr } @jv_object() #17
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -1429,7 +1429,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i
 declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @block_module_meta(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
+define { i64, ptr } @block_module_meta(ptr readonly %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -3982,7 +3982,7 @@ block_join.exit210:                               ; preds = %178, %166
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @block_has_main(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @block_has_main(ptr readonly %0, ptr readnone captures(none) %1) local_unnamed_addr #13 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -4004,7 +4004,7 @@ define range(i32 0, 2) i32 @block_has_main(ptr readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @block_is_funcdef(ptr readonly captures(address_is_null) %0, ptr readnone captures(none) %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @block_is_funcdef(ptr readonly %0, ptr readnone captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -5882,7 +5882,7 @@ define i32 @block_compile(ptr %0, ptr %1, ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @count_cfunctions(ptr readonly captures(address_is_null) %0) unnamed_addr #14 {
+define internal fastcc i32 @count_cfunctions(ptr readonly %0) unnamed_addr #14 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -6565,7 +6565,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i284, %.loop
 declare void @bytecode_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @block_bind_subblock_inner(ptr noundef nonnull writeonly captures(none) %0, ptr %1, ptr captures(address_is_null) %2, i32 noundef range(i32 1024, 5) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @block_bind_subblock_inner(ptr noundef nonnull writeonly captures(none) %0, ptr %1, ptr %2, i32 noundef range(i32 1024, 5) %3, i32 noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %1, ptr %6, align 8
   %.not1 = icmp eq ptr %2, null
@@ -6726,7 +6726,7 @@ declare void @locfile_free(ptr noundef) local_unnamed_addr #3
 declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @block_get_unbound_vars(ptr readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #1 {
+define internal fastcc void @block_get_unbound_vars(ptr readonly %0, ptr noundef nonnull captures(none) %1) unnamed_addr #1 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 

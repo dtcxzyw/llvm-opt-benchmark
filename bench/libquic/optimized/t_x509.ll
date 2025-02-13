@@ -701,7 +701,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 declare i32 @x509_print_rsa_pss_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly captures(address_is_null) %v) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [80 x i8], align 16
   %cmp = icmp eq ptr %v, null

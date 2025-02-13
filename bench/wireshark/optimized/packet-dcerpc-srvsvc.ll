@@ -5071,7 +5071,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr502(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @srvsvc_dissect_enum_SESSION_INFO_LEVEL(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @srvsvc_dissect_enum_SESSION_INFO_LEVEL(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -5305,7 +5305,7 @@ srvsvc_dissect_element_NetSessInfoCtr_ctr.exit:   ; preds = %76, %78, %81, %84, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @srvsvc_dissect_enum_ShareType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @srvsvc_dissect_enum_ShareType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -7152,7 +7152,7 @@ srvsvc_dissect_element_NetShareInfoCtr_ctr.exit:  ; preds = %74, %76, %79, %82, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @srvsvc_dissect_enum_PlatformId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @srvsvc_dissect_enum_PlatformId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null

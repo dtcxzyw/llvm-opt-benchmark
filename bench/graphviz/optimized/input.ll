@@ -2132,7 +2132,7 @@ declare i32 @agisdirected(ptr noundef) local_unnamed_addr #5
 declare ptr @agmemconcat(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @agxbuse(ptr noundef nonnull captures(ret: address, provenance) %0) unnamed_addr #3 {
+define internal fastcc ptr @agxbuse(ptr noundef nonnull %0) unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %2, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1

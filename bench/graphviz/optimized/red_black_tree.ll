@@ -405,7 +405,7 @@ LeftRotate.exit60:                                ; preds = %151, %152
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @TreeSuccessor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
+define ptr @TreeSuccessor(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -442,7 +442,7 @@ define ptr @TreeSuccessor(ptr noundef readonly captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @TreePredecessor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
+define ptr @TreePredecessor(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -494,7 +494,7 @@ define void @RBTreeDestroy(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TreeDestHelper(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #3 {
+define internal fastcc void @TreeDestHelper(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, %4
@@ -707,7 +707,7 @@ TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RBDeleteFixUp(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #5 {
+define internal fastcc void @RBDeleteFixUp(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24

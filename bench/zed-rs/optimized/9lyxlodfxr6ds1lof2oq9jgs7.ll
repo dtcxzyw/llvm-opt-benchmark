@@ -1963,7 +1963,7 @@ define hidden void @_ZN4core6option6Option4Some17h0e397ffb2a78467bE.llvm.1066437
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h57d67069be67922bE.llvm.10664376490798366725"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h57d67069be67922bE.llvm.10664376490798366725"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -24447,7 +24447,7 @@ define hidden noundef i64 @"_ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN8sum_tree3sum17h2de1bbdcb7933cebE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef nonnull readnone captures(address) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN8sum_tree3sum17h2de1bbdcb7933cebE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [72 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @"_ZN65_$LT$worktree..EntrySummary$u20$as$u20$core..default..Default$GT$7default17hbb3022ccdcff02c6E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %4)

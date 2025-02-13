@@ -101,7 +101,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9onc
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17hb9cda39b17385b18E.llvm.12242758339832591459"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #1 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17hb9cda39b17385b18E.llvm.12242758339832591459"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %4 = icmp eq i32 %3, 4
@@ -110,7 +110,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9onc
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17hec7ceedb8bcb1ec3E.llvm.12242758339832591459"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #1 {
+define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17hec7ceedb8bcb1ec3E.llvm.12242758339832591459"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %4 = icmp eq i32 %3, 4

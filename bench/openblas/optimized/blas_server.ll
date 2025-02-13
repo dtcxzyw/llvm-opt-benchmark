@@ -546,7 +546,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -585,7 +585,7 @@ define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @blas_server_avail, align 128, !tbaa !3
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7, !prof !35

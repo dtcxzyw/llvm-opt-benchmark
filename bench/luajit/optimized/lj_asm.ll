@@ -16667,7 +16667,7 @@ if.end88:                                         ; preds = %emit_rmro.exit154, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @asm_stack_check(ptr noundef nonnull captures(none) %as, i32 noundef %topslot, ptr noundef readonly captures(address_is_null) %irp, i32 noundef range(i32 0, 49136) %allow, i32 noundef %exitno) unnamed_addr #7 {
+define internal fastcc void @asm_stack_check(ptr noundef nonnull captures(none) %as, i32 noundef %topslot, ptr noundef readonly %irp, i32 noundef range(i32 0, 49136) %allow, i32 noundef %exitno) unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %irp, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -18358,7 +18358,7 @@ if.end122:                                        ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_comp(ptr noundef nonnull %as, ptr noundef readonly captures(address) %ir) unnamed_addr #0 {
+define internal fastcc void @asm_comp(ptr noundef nonnull %as, ptr noundef readonly %ir) unnamed_addr #0 {
 entry:
   %imm = alloca i32, align 4
   %o = getelementptr inbounds nuw i8, ptr %ir, i64 5

@@ -62,7 +62,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tsearch_readline_state, align 8
   store i32 0, ptr %1, align 8
   %.not = icmp eq ptr %0, null

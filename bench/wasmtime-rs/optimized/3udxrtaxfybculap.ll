@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.b1e91a9c31174b728d7a348c152950f4.24 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.b1e91a9c31174b728d7a348c152950f4.23, [8 x i8] c"\01\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc8c98b807ca78985E"(ptr writeonly sret({ { i64, [3 x i64] }, {} }) align 8 captures(none) %0, ptr readnone align 1 captures(none) %1, ptr readonly align 1 captures(address_is_null) %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc8c98b807ca78985E"(ptr writeonly sret({ { i64, [3 x i64] }, {} }) align 8 captures(none) %0, ptr readnone align 1 captures(none) %1, ptr readonly align 1 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = icmp ne ptr %2, null

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.col_item_t = type { i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -142,7 +142,7 @@ declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 declare i32 @get_column_resolved(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 

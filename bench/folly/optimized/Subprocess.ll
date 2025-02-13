@@ -958,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5folly17ProcessReturnCodeaSEOS0_(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(4) initializes((0, 4)) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %p) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5folly17ProcessReturnCodeaSEOS0_(ptr noundef nonnull returned writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %p) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %p, align 4, !tbaa !17
   store i32 %0, ptr %this, align 4, !tbaa !17
@@ -2682,7 +2682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SubprocessC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKNS0_7OptionsEPKcPSA_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %argv, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %executable, ptr noundef captures(address_is_null) %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SubprocessC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKNS0_7OptionsEPKcPSA_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %argv, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %executable, ptr noundef %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   store i32 -1, ptr %this, align 8, !tbaa !102
@@ -2882,7 +2882,7 @@ unreachable:                                      ; preds = %invoke.cont
 declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS4_EES3_RKNS0_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef captures(none) %argv, ptr noundef %executable, ptr noundef nonnull align 8 dereferenceable(240) %optionsIn, ptr noundef captures(address_is_null) %env) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS4_EES3_RKNS0_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef captures(none) %argv, ptr noundef %executable, ptr noundef nonnull align 8 dereferenceable(240) %optionsIn, ptr noundef %env) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %"class.folly::Subprocess::Options", align 8
   %errFds = alloca [2 x i32], align 4
@@ -3152,7 +3152,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 declare void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SubprocessC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsEPKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %cmd, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef captures(address_is_null) %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SubprocessC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsEPKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %cmd, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i65 = alloca i64, align 8
   %argv = alloca %"class.std::vector.15", align 8
@@ -5018,7 +5018,7 @@ _ZN5boost9container8flat_mapIiiSt4lessIiEvED2Ev.exit: ; preds = %if.then.i.i.i.i
 declare i32 @pipe2(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS4_EES3_RNS0_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readonly captures(none) %argv, ptr noundef %executable, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef readonly captures(address_is_null) %env, i32 noundef %errFd) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS4_EES3_RNS0_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readonly captures(none) %argv, ptr noundef %executable, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef readonly %env, i32 noundef %errFd) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost9container8flat_mapIiiSt4lessIiEvE3endEv.exit:
   %r = alloca i32, align 4
   %fds = alloca [2 x i32], align 4
@@ -6406,7 +6406,7 @@ if.end:                                           ; preds = %"_ZN5folly6detail14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev"(ptr readonly captures(address) %this.8.val.0.val, ptr readnone captures(address) %this.8.val.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEiE3$_0Lb1EED2Ev"(ptr readonly %this.8.val.0.val, ptr readnone %this.8.val.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8.i.i = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp.i.i = alloca { i64, i64 }, align 8

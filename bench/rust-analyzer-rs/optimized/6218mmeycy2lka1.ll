@@ -7478,7 +7478,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h02cd095811ce507fE"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h02cd095811ce507fE"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3064)
@@ -7531,7 +7531,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb353a518526a6b38E.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h073f660fea8e80b5E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h073f660fea8e80b5E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3079)
@@ -7688,7 +7688,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3f5308003563e459E.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13e95c5fe284c858E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13e95c5fe284c858E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3109)
@@ -7788,7 +7788,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hc44148c5a343cb4fE.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1947010f4ec17b82E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1947010f4ec17b82E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3133)
@@ -8341,7 +8341,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb2efa0dc43cfe5d7E.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6711ca9ec973977aE"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6711ca9ec973977aE"(ptr noalias noundef align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = tail call { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he49aa2725af99fd9E.llvm.17651247297929507582"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr poison)
   ret { ptr, ptr } %6
@@ -9045,7 +9045,7 @@ define hidden noundef ptr @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9eb96feccbcef3e1E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9eb96feccbcef3e1E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3374)
@@ -9383,7 +9383,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc0f9f76c945cc469E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc0f9f76c945cc469E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3450)
@@ -9468,7 +9468,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc9bd89ab03c41a01E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc9bd89ab03c41a01E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3474)
@@ -9693,7 +9693,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h37f5641e186ca15dE.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he49aa2725af99fd9E.llvm.17651247297929507582"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr readnone captures(none) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he49aa2725af99fd9E.llvm.17651247297929507582"(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr readnone captures(none) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.013.i.i.sroa.5.i = alloca [63 x i8], align 1
   %6 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   %7 = alloca { { ptr, ptr }, { { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } } }, align 8
@@ -9809,7 +9809,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hbaf22bfd0c13e957E.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he84f4fa430ac28afE"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he84f4fa430ac28afE"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3564)
@@ -9862,7 +9862,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h41f1224dd405344eE.llvm.1765124
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heae9204b582a51a9E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heae9204b582a51a9E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3579)
@@ -10236,7 +10236,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hd00845018e47a13eE.llvm.17651247297929507582"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define hidden noundef nonnull ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hd00845018e47a13eE.llvm.17651247297929507582"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -18495,7 +18495,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h09
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0a59b2834beaa4d2E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0a59b2834beaa4d2E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18638,7 +18638,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1283621e4b70e6b6E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1283621e4b70e6b6E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18960,7 +18960,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h37
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3f170276df694a03E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3f170276df694a03E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19098,7 +19098,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h41f1224dd405344eE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h41f1224dd405344eE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19241,7 +19241,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h56
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5686f954d3341bfcE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5686f954d3341bfcE.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19430,7 +19430,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h61
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7198c37f18d6cb65E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7198c37f18d6cb65E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19481,7 +19481,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h71
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h735e88a21e99af56E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h735e88a21e99af56E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20367,7 +20367,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb28eebe3cfdc5924E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb28eebe3cfdc5924E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20464,7 +20464,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb353a518526a6b38E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 captures(address_is_null) dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb353a518526a6b38E.llvm.17651247297929507582(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noundef readnone captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21199,7 +21199,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfd
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2d59e787ff737529E"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2d59e787ff737529E"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h151f18283330eabaE.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21292,7 +21292,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.4743249442795103037.ex
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4976733a3f9d24d0E"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4976733a3f9d24d0E"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h9ef217987b8ed5b1E.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21321,7 +21321,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h708ac6b9c26b9fffE"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h708ac6b9c26b9fffE"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h97e6547907c00843E.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21350,7 +21350,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8c24a3d344a781b0E"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8c24a3d344a781b0E"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h5d7beabe1ba0f695E.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21379,7 +21379,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h93b27dc15cd89dbdE"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h93b27dc15cd89dbdE"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17hdc02ed9930abd797E.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21408,7 +21408,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb27df0ab9d886316E"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb27df0ab9d886316E"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h2d316ddc1ed69d16E.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21437,7 +21437,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda58d06c7857212dE"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda58d06c7857212dE"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h9f7b327c901cebf2E.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21466,7 +21466,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf30b50ae89f367a5E"(ptr readnone captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.16.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(128) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf30b50ae89f367a5E"(ptr readnone %.0.val, ptr readonly %.16.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(128) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   %5 = icmp ne ptr %.16.val, null
   tail call void @llvm.assume(i1 %5)
@@ -21500,7 +21500,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf6727244690fbd79E"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf6727244690fbd79E"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h27ad855a4b3477ffE.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -21529,7 +21529,7 @@ define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf91b37443cf3a2acE"(ptr nonnull readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf91b37443cf3a2acE"(ptr nonnull readonly %.0.val, ptr noundef %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   invoke void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h9fd532c212d962cdE.llvm.17651247297929507582"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %5 unwind label %10
@@ -37414,7 +37414,7 @@ define hidden noalias noundef ptr @"_ZN95_$LT$core..ops..control_flow..ControlFl
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1e98796f98a70114E.llvm.17651247297929507582"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define hidden noundef ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1e98796f98a70114E.llvm.17651247297929507582"(ptr noundef readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -38554,7 +38554,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.17651247297929507582.exit:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape10as_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h77d9aa036f1791a8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape10as_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h77d9aa036f1791a8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.62.i.i = alloca [7 x i8], align 1
@@ -38746,7 +38746,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h16dd7d71fe639de6E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h16dd7d71fe639de6E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -38963,7 +38963,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h2c903fa9f50e50d0E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h2c903fa9f50e50d0E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -39180,7 +39180,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h38cd5fdcfe5c926cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h38cd5fdcfe5c926cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -39397,7 +39397,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h5002087037c4963eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h5002087037c4963eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -39614,7 +39614,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h6354123daaed7052E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h6354123daaed7052E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -39831,7 +39831,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h80c0f729a0f5b3f8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h80c0f729a0f5b3f8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -40048,7 +40048,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h9244d56af90f4b00E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h9244d56af90f4b00E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -40265,7 +40265,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h9b220b5020d15546E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h9b220b5020d15546E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -40484,7 +40484,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h9ce6278c1df527b8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17h9ce6278c1df527b8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -40701,7 +40701,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17hd2ee0d8023d46b8cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17hd2ee0d8023d46b8cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -40920,7 +40920,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17hf62528826b8b1bb1E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map28_$u7b$$u7b$closure$u7d$$u7d$17hf62528826b8b1bb1E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -41137,7 +41137,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12VariantShap
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro8AdtShape10as_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h3322622c75b25175E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro8AdtShape10as_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h3322622c75b25175E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.62.i.i = alloca [7 x i8], align 1
@@ -64044,7 +64044,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit277: ; preds = %266
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h3356221939f51a70E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h3356221939f51a70E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -64618,7 +64618,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h4bead73c337d11e3E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h4bead73c337d11e3E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -65192,7 +65192,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h63a2197ae82aa7b0E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h63a2197ae82aa7b0E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -65766,7 +65766,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h74d19377cc7d1798E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h74d19377cc7d1798E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -66340,7 +66340,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h76f4d9385ece0f0eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17h76f4d9385ece0f0eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -66914,7 +66914,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17hb479392819f96fc2E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17hb479392819f96fc2E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -67488,7 +67488,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17he11d54458fd66582E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17he11d54458fd66582E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -68062,7 +68062,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17he9d3c08545f828b9E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17he9d3c08545f828b9E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -68636,7 +68636,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17hf866bc15570f902bE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simple_derive28_$u7b$$u7b$closure$u7d$$u7d$17hf866bc15570f902bE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -69210,7 +69210,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro20expand_simp
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12clone_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha532df2b0e22a6aaE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12clone_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha532df2b0e22a6aaE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -69855,7 +69855,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit34: ; preds = %59
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12clone_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb03b3e60652ea92cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12clone_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb03b3e60652ea92cE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -70323,7 +70323,7 @@ define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro12clone_expan
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro14default_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdced27b2e3c440a2E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro14default_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdced27b2e3c440a2E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -71726,7 +71726,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit146: ; preds = %151
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro14default_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h31308a7031daaebfE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro14default_expand28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h31308a7031daaebfE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %.sroa.0.i = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -79233,7 +79233,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit201: ; preds = %147
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro23self_and_other_patterns28_$u7b$$u7b$closure$u7d$$u7d$17h1bb033ecd83554f9E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro23self_and_other_patterns28_$u7b$$u7b$closure$u7d$$u7d$17h1bb033ecd83554f9E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.17651247297929507582.exit:
   %.sroa.0.i9 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -79382,7 +79382,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.17651247297929507582.exit:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro23self_and_other_patterns28_$u7b$$u7b$closure$u7d$$u7d$17h7181bd8f42fe7578E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10hir_expand20builtin_derive_macro23self_and_other_patterns28_$u7b$$u7b$closure$u7d$$u7d$17h7181bd8f42fe7578E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.17651247297929507582.exit:
   %.sroa.0.i9 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8

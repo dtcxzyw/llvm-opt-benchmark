@@ -753,7 +753,7 @@ return:                                           ; preds = %if.end39, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @gzgets(ptr noundef %file, ptr noundef writeonly captures(address, ret: address, provenance) %buf, i32 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @gzgets(ptr noundef %file, ptr noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   %cmp1 = icmp eq ptr %buf, null

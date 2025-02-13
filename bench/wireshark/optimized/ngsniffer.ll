@@ -995,7 +995,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef writeonly captures(address_is_null) %2, i16 %.0.val, i16 %.2.val, ptr noundef initializes((0, 8), (232, 240)) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef writeonly %2, i16 %.0.val, i16 %.2.val, ptr noundef initializes((0, 8), (232, 240)) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.frame2_rec, align 2
   %9 = alloca %struct.frame4_rec, align 4
   %10 = alloca %struct.frame6_rec, align 2

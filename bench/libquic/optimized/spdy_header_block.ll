@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEOS1_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(41) initializes((0, 41)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((40, 41)) %other) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEOS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((40, 41)) %other) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -225,7 +225,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(41) %this, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull returned align 8 dereferenceable(41) %this, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i2 = alloca %"class.base::BasicStringPiece", align 8
   %s.i3 = alloca %"class.base::BasicStringPiece", align 8
@@ -547,7 +547,7 @@ _ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net15SpdyHeaderBlockD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15SpdyHeaderBlockD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %storage_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %storage_, align 8
@@ -631,7 +631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net15SpdyHeaderBlock5CloneEv(ptr noalias sret(%"class.net::SpdyHeaderBlock") align 8 initializes((32, 40)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net15SpdyHeaderBlock5CloneEv(ptr noalias sret(%"class.net::SpdyHeaderBlock") align 8 initializes((32, 40)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i64 0, ptr %0, align 8
@@ -733,7 +733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net15SpdyHeaderBlockeqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK3net15SpdyHeaderBlockeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i64, ptr %_M_size.i.i.i.i.i, align 8
@@ -778,7 +778,7 @@ land.end:                                         ; preds = %for.inc.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net15SpdyHeaderBlockneERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK3net15SpdyHeaderBlockneERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i64, ptr %_M_size.i.i.i.i.i.i, align 8
@@ -823,7 +823,7 @@ _ZNK3net15SpdyHeaderBlockeqERKS0_.exit:           ; preds = %for.body.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net15SpdyHeaderBlock11DebugStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net15SpdyHeaderBlock11DebugStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.12", align 1
   %ref.tmp2 = alloca %"class.std::allocator.12", align 1

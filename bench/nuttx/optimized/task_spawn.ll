@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sched_param = type { i32 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.sched_param, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %8

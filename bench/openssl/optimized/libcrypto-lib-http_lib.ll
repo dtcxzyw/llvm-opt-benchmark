@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [9 x i8] c"NO_PROXY\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_parse_url(ptr noundef %url, ptr noundef captures(address_is_null) %pscheme, ptr noundef captures(address_is_null) %puser, ptr noundef captures(address_is_null) %phost, ptr noundef captures(address_is_null) %pport, ptr noundef writeonly captures(address_is_null) %pport_num, ptr noundef captures(address_is_null) %ppath, ptr noundef captures(address_is_null) %pquery, ptr noundef captures(address_is_null) %pfrag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_parse_url(ptr noundef %url, ptr noundef %pscheme, ptr noundef %puser, ptr noundef %phost, ptr noundef %pport, ptr noundef writeonly %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag) local_unnamed_addr #0 {
 entry:
   %portnum = alloca i32, align 4
   %cmp.not.i = icmp eq ptr %pscheme, null
@@ -439,7 +439,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_HTTP_parse_url(ptr noundef %url, ptr noundef writeonly captures(address_is_null) %pssl, ptr noundef captures(address_is_null) %puser, ptr noundef captures(address_is_null) %phost, ptr noundef writeonly captures(address_is_null) %pport, ptr noundef captures(address_is_null) %pport_num, ptr noundef captures(address_is_null) %ppath, ptr noundef captures(address_is_null) %pquery, ptr noundef captures(address_is_null) %pfrag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_parse_url(ptr noundef %url, ptr noundef writeonly %pssl, ptr noundef %puser, ptr noundef %phost, ptr noundef writeonly %pport, ptr noundef %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag) local_unnamed_addr #0 {
 entry:
   %scheme = alloca ptr, align 8
   %port = alloca ptr, align 8
@@ -611,7 +611,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @OSSL_HTTP_adapt_proxy(ptr noundef readonly captures(address_is_null, ret: address, provenance) %proxy, ptr noundef readonly %no_proxy, ptr noundef readonly captures(address_is_null) %server, i32 noundef %use_ssl) local_unnamed_addr #0 {
+define noundef ptr @OSSL_HTTP_adapt_proxy(ptr noundef readonly %proxy, ptr noundef readonly %no_proxy, ptr noundef readonly %server, i32 noundef %use_ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %proxy, null
   br i1 %cmp, label %if.end, label %lor.lhs.false

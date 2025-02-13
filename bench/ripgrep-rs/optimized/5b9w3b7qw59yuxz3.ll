@@ -106,7 +106,7 @@ define void @_ZN12grep_printer4json11JSONBuilder3new17h3410cbfcd6342ec5E(ptr noa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder6pretty17h9ecc214dc111e692E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((16, 17)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder6pretty17h9ecc214dc111e692E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((16, 17)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -114,7 +114,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder11max_matches17ha523cd8b36d994a5E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder11max_matches17ha523cd8b36d994a5E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -122,7 +122,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder16always_begin_end17h1890e283b3494f8bE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((17, 18)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder16always_begin_end17h1890e283b3494f8bE(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((17, 18)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -130,7 +130,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 captures(address) %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = icmp eq i64 %4, 1
   br i1 %7, label %8, label %20

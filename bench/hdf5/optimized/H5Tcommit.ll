@@ -2420,7 +2420,7 @@ define ptr @H5T_get_named_type(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5T_get_actual_type(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @H5T_get_actual_type(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

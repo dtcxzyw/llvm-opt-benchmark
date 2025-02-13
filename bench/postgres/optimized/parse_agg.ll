@@ -1430,7 +1430,7 @@ list_length.exit:                                 ; preds = %.lr.ph, %32, %.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @expand_grouping_sets(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @expand_grouping_sets(ptr noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread134, label %.preheader139
 
@@ -2150,7 +2150,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_aggregate_transfn_expr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #0 {
+define dso_local void @build_aggregate_transfn_expr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
   %11 = zext i1 %3 to i8
   %12 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %12, align 4

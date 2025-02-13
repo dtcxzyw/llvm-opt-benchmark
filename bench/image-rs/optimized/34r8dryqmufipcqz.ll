@@ -16129,7 +16129,7 @@ define hidden noundef i64 @"_ZN4core5clone5impls54_$LT$impl$u20$core..clone..Clo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469"(ptr noalias noundef sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469"(ptr noalias noundef sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
@@ -16888,7 +16888,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h5948ed1a10b9a487E.ll
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h7771b73c7bdfb992E.llvm.10740287948243559469"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(328) %0) unnamed_addr #11 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h7771b73c7bdfb992E.llvm.10740287948243559469"(ptr noalias noundef readonly align 8 dereferenceable(328) %0) unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !range !146, !noundef !19
   %3 = icmp eq i64 %2, 0
   tail call void @llvm.assume(i1 %3)
@@ -16924,7 +16924,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.10740287948243559469.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5image6codecs3bmp7encoder14get_pixel_info17hd51fcfa922cafc42E(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, i8 noundef %1, ptr noalias noundef readonly align 1 captures(address_is_null) %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5image6codecs3bmp7encoder14get_pixel_info17hd51fcfa922cafc42E(ptr noalias noundef writeonly sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %0, i8 noundef %1, ptr noalias noundef readonly align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8

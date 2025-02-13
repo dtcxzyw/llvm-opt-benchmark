@@ -7491,7 +7491,7 @@ define noundef zeroext i1 @_ZN7glslang16TOutputTraverser11visitSwitchENS_6TVisit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TIntermediate6outputER9TInfoSinkb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TIntermediate6outputER9TInfoSinkb(ptr noundef nonnull readonly align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.glslang::TOutputTraverser", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.800) #14

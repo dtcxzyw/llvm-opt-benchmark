@@ -709,7 +709,7 @@ Fxu_CreateCoversFirstCube.exit62:                 ; preds = %69, %70, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 {
+define internal fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readnone %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %6, ptr %7, align 8, !tbaa !83

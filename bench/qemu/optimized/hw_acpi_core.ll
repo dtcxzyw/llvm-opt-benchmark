@@ -226,7 +226,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @acpi_table_install(ptr noundef readonly captures(address_is_null) %blob, i64 noundef %bloblen, i1 noundef zeroext %has_header, ptr noundef readonly captures(none) %hdrs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @acpi_table_install(ptr noundef readonly %blob, i64 noundef %bloblen, i1 noundef zeroext %has_header, ptr noundef readonly captures(none) %hdrs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   br i1 %has_header, label %if.then, label %if.end2
 

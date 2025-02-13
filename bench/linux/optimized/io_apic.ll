@@ -4861,7 +4861,7 @@ declare dso_local void @irq_complete_move(ptr noundef) local_unnamed_addr #10
 declare dso_local void @__SCT__apic_call_eoi() local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @io_apic_level_ack_pending(ptr noundef readonly captures(address) %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef zeroext i1 @io_apic_level_ack_pending(ptr noundef readonly %0) unnamed_addr #3 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ioapic_lock) #25
   br label %3
 

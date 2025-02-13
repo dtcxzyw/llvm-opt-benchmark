@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [63 x i8] c"info change after png_start_read_image or png_read_update_info\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_bgr(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @png_set_bgr(ptr noalias noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -27,7 +27,7 @@ define void @png_set_bgr(ptr noalias noundef captures(address_is_null) %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_swap(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @png_set_swap(ptr noalias noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -49,7 +49,7 @@ define void @png_set_swap(ptr noalias noundef captures(address_is_null) %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_packing(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @png_set_packing(ptr noalias noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -73,7 +73,7 @@ define void @png_set_packing(ptr noalias noundef captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_packswap(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @png_set_packswap(ptr noalias noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -95,7 +95,7 @@ define void @png_set_packswap(ptr noalias noundef captures(address_is_null) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_shift(ptr noalias noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define void @png_set_shift(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -116,7 +116,7 @@ define void @png_set_shift(ptr noalias noundef captures(address_is_null) %0, ptr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 1, 8) i32 @png_set_interlace_handling(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 1, 8) i32 @png_set_interlace_handling(ptr noalias noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -301,7 +301,7 @@ png_set_filler.exit:                              ; preds = %23, %24, %32, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_swap_alpha(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @png_set_swap_alpha(ptr noalias noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -317,7 +317,7 @@ define void @png_set_swap_alpha(ptr noalias noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_invert_alpha(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @png_set_invert_alpha(ptr noalias noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -333,7 +333,7 @@ define void @png_set_invert_alpha(ptr noalias noundef captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_invert_mono(ptr noalias noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @png_set_invert_mono(ptr noalias noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -458,7 +458,7 @@ define void @png_do_swap(ptr noundef readonly captures(none) %0, ptr noundef cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @png_do_packswap(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 {
+define void @png_do_packswap(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = load i8, ptr %3, align 1
   %5 = icmp ult i8 %4, 8
@@ -1004,7 +1004,7 @@ define void @png_set_user_transform_info(ptr noalias noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @png_get_user_transform_ptr(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @png_get_user_transform_ptr(ptr noalias noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1019,7 +1019,7 @@ define ptr @png_get_user_transform_ptr(ptr noalias noundef readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @png_get_current_row_number(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @png_get_current_row_number(ptr noalias noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1034,7 +1034,7 @@ define i32 @png_get_current_row_number(ptr noalias noundef readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @png_get_current_pass_number(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define zeroext i8 @png_get_current_pass_number(ptr noalias noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

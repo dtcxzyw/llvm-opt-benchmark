@@ -687,7 +687,7 @@ declare ptr @pmix_bfrops_base_get_available_modules() local_unnamed_addr #1
 declare ptr @pmix_gds_base_get_available_modules() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_server_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @PMIx_server_init(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.pmix_info, align 8
   %6 = alloca [3 x %struct.pmix_info], align 16
@@ -4615,7 +4615,7 @@ pmix_obj_run_destructors.exit331:                 ; preds = %.lr.ph.i328, %503
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Store_internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @PMIx_Store_internal(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #16
   %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %6 = trunc i8 %5 to i1
@@ -4976,7 +4976,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @debugger_aggregator(i64 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
+define internal void @debugger_aggregator(i64 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
   %10 = alloca %struct.pmix_proc, align 4
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2716), align 4
   %or.cond30 = icmp ult i32 %11, 64
@@ -5186,7 +5186,7 @@ declare void @event_active(ptr noundef, i32 noundef, i16 noundef signext) local_
 declare i32 @PMIx_tool_set_server(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @notification_fn(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
+define internal void @notification_fn(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2716), align 4
   %or.cond = icmp ult i32 %10, 64
   br i1 %or.cond, label %11, label %18
@@ -11936,7 +11936,7 @@ define i32 @PMIx_generate_ppn(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @PMIx_server_setup_application(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @PMIx_server_setup_application(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #16
   %7 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %8 = trunc i8 %7 to i1
@@ -12435,7 +12435,7 @@ pmix_obj_run_destructors.exit120:                 ; preds = %.lr.ph.i117, %177
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_server_setup_local_support(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @PMIx_server_setup_local_support(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pmix_lock_t, align 8
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #16
   %8 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
@@ -18269,7 +18269,7 @@ pmix_obj_new_tma.exit:                            ; preds = %21
 declare i32 @pmix_server_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @get_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.pmix_buffer_t, align 8
   store i32 %0, ptr %7, align 4
@@ -20034,7 +20034,7 @@ declare i32 @pmix_server_unpublish(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @pmix_server_spawn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @spawn_cbfunc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
+define internal void @spawn_cbfunc(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_shift_caddy_t_class, i64 56), align 8
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #22
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -21125,7 +21125,7 @@ pmix_obj_run_destructors.exit117:                 ; preds = %.lr.ph.i114, %209
 declare i32 @pmix_server_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @query_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @query_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %0, ptr %7, align 4
@@ -21693,7 +21693,7 @@ declare i32 @pmix_server_log(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 declare i32 @pmix_server_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @alloc_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @alloc_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %0, ptr %7, align 4
@@ -22341,7 +22341,7 @@ pmix_obj_run_destructors.exit199:                 ; preds = %.lr.ph.i196, %328
 declare i32 @pmix_server_job_ctrl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @jctrl_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @jctrl_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %0, ptr %7, align 4
@@ -22988,7 +22988,7 @@ pmix_obj_run_destructors.exit199:                 ; preds = %.lr.ph.i196, %327
 declare i32 @pmix_server_monitor(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @monitor_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @monitor_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %0, ptr %7, align 4
@@ -25435,7 +25435,7 @@ declare i32 @pmix_server_grpdestruct(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @pmix_server_fabric_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @fabric_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @fabric_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %0, ptr %7, align 4
@@ -26084,7 +26084,7 @@ declare i32 @pmix_server_fabric_update(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @pmix_server_device_dists(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dist_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @dist_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %0, ptr %7, align 4
@@ -27176,7 +27176,7 @@ pmix_obj_run_destructors.exit179:                 ; preds = %.lr.ph.i176, %232
 declare i32 @pmix_server_session_ctrl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sessctrl_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @sessctrl_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 %0, ptr %7, align 4

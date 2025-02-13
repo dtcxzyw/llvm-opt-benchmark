@@ -103,7 +103,7 @@ define hidden void @bagDestroyBag(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @bagFind(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
+define hidden noundef ptr @bagFind(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -186,7 +186,7 @@ define hidden ptr @bagAdd(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @bagDelete(ptr noundef captures(none) %0, ptr noundef writeonly captures(address) %1) local_unnamed_addr #5 {
+define hidden void @bagDelete(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1

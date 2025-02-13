@@ -1749,7 +1749,7 @@ _ZN4cvc57context3CDOINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSERKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser10SymManager14Implementation16getLastSynthNameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(584) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser10SymManager14Implementation16getLastSynthNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(584) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   ret ptr %d_data.i
@@ -4286,7 +4286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser10SymManager8getLogicB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser10SymManager8getLogicB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_logic = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %d_logic

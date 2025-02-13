@@ -114,7 +114,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 ptr @"_ZN107_$LT$bincode..config..WithOtherLimit$LT$O$C$L$GT$$u20$as$u20$bincode..config..internal..InternalOptions$GT$5limit17h14b622ba12d8f2edE.llvm.8537221261273048587"(ptr noalias noundef nonnull readnone returned align 1 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 1 ptr @"_ZN107_$LT$bincode..config..WithOtherLimit$LT$O$C$L$GT$$u20$as$u20$bincode..config..internal..InternalOptions$GT$5limit17h14b622ba12d8f2edE.llvm.8537221261273048587"(ptr noalias noundef nonnull readnone returned align 1 %0) unnamed_addr #2 {
   ret ptr %0
 }
 
@@ -1050,7 +1050,7 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN14cargo_metadata15MetadataCommand13manifest_path17h3bb8f5ddd0277032E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(152) initializes((88, 96)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN14cargo_metadata15MetadataCommand13manifest_path17h3bb8f5ddd0277032E(ptr noalias noundef returned align 8 dereferenceable(152) initializes((88, 96)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %4 = load i64, ptr %3, align 8, !range !90, !alias.scope !174, !noundef !12
@@ -1989,7 +1989,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN50_$LT$T$u20$as$u20$core..convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hcd9ad3dd8ff6fb90E.llvm.8537221261273048587"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hcd9ad3dd8ff6fb90E.llvm.8537221261273048587"(ptr noalias noundef readonly returned align 8 dereferenceable(48) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

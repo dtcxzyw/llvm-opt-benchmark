@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Key_RC = internal unnamed_addr constant [5 x [4 x i32]] [[4 x i32] [i32 1367130551, i32 656542356, i32 -32265240, i32 -90542368], [4 x i32] [i32 1840335564, i32 -1641953248, i32 -14110251, i32 -279059792], [4 x i32] [i32 -611174627, i32 556198256, i32 52729717, i32 82364686], [4 x i32] [i32 1367130551, i32 656542356, i32 -32265240, i32 -90542368], [4 x i32] [i32 1840335564, i32 -1641953248, i32 -14110251, i32 -279059792]], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_aria_encrypt(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #0 {
+define void @ossl_aria_encrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
   %cmp1 = icmp eq ptr %out, null
@@ -657,7 +657,7 @@ do.end633:                                        ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly captures(address_is_null) %userKey, i32 noundef %bits, ptr noundef writeonly %key) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef writeonly %key) local_unnamed_addr #1 {
 entry:
   %add = add nsw i32 %bits, 256
   %div = sdiv i32 %add, 32
@@ -1488,7 +1488,7 @@ return:                                           ; preds = %if.end263, %if.end1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef captures(address_is_null) %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key)
   %cmp.not = icmp eq i32 %call, 0

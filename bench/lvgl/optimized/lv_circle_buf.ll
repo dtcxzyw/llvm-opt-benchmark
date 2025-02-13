@@ -81,7 +81,7 @@ circle_buf_prepare_empty.exit:                    ; preds = %.lr.ph.i, %6
 declare void @lv_array_init_from_buf(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @lv_circle_buf_create_from_array(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define nonnull ptr @lv_circle_buf_create_from_array(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -176,7 +176,7 @@ declare void @lv_array_deinit(ptr noundef) local_unnamed_addr #1
 declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_circle_buf_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_circle_buf_size(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -227,7 +227,7 @@ lv_circle_buf_size.exit:                          ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_circle_buf_is_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_circle_buf_is_empty(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_circle_buf_size.exit
 
@@ -433,7 +433,7 @@ lv_circle_buf_capacity.exit:                      ; preds = %lv_circle_buf_is_fu
 declare i32 @lv_array_assign(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_circle_buf_fill(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @lv_circle_buf_fill(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -491,7 +491,7 @@ lv_circle_buf_tail.exit:                          ; preds = %lv_circle_buf_is_fu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @lv_circle_buf_skip(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @lv_circle_buf_skip(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_circle_buf_is_empty.exit
 

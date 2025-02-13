@@ -1308,7 +1308,7 @@ define dso_local void @ResetTupleHashTable(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -1548,7 +1548,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %50, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTupleHashEntryHash(ptr noundef captures(none) initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTupleHashEntryHash(ptr noundef captures(none) initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8

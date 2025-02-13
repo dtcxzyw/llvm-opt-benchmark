@@ -6651,7 +6651,7 @@ _ZN4llvm15VerifierSupportD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12verifyModuleERKNS_6ModuleEPNS_11raw_ostreamEPb(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm12verifyModuleERKNS_6ModuleEPNS_11raw_ostreamEPb(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca %"class.(anonymous namespace)::Verifier", align 8
   call void @llvm.lifetime.start.p0(i64 2248, ptr nonnull %4) #27
   %.not = icmp eq ptr %2, null
@@ -17629,7 +17629,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_4UserEEEDcPT0_.exit.thread: ; preds = %31, %1
 declare void @_ZNK4llvm5Value14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier22verifyFunctionMetadataEN4llvm8ArrayRefISt4pairIjPNS1_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier22verifyFunctionMetadataEN4llvm8ArrayRefISt4pairIjPNS1_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr readonly %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -19832,7 +19832,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23verifyRangeLikeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeENS0_21RangeLikeMetadataKindE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2, ptr noundef readonly captures(address) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23verifyRangeLikeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeENS0_21RangeLikeMetadataKindE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2, ptr noundef readonly %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #1 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -35209,7 +35209,7 @@ _ZNK4llvm17DIGenericSubrange12getRawStrideEv.exit: ; preds = %87, %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef readnone %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -41565,7 +41565,7 @@ _ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJEEEvRKT_DpRKT0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEvT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr readnone captures(address) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEEEvT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr readnone %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -52745,7 +52745,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %4,
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL13getSubprogramPN4llvm8MetadataE(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) unnamed_addr #15 {
+define internal fastcc noundef ptr @_ZL13getSubprogramPN4llvm8MetadataE(ptr noundef readonly %0) unnamed_addr #15 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit, %1
@@ -59261,7 +59261,7 @@ _ZN4llvm15VerifierSupport11CheckFailedINS_11InstructionEJPNS_8MetadataEEEEvRKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPN4llvm6MDNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(2248) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPN4llvm6MDNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(2248) %0, ptr noundef nonnull readonly %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -76282,7 +76282,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit: ; p
 declare noundef zeroext i1 @_ZNK4llvm8Argument12hasInRegAttrEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseEENK3$_3clEPNS1_15FixedVectorTypeE"(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseEENK3$_3clEPNS1_15FixedVectorTypeE"(ptr noundef readonly %0) unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -88426,7 +88426,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm13IntrinsicInstEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_SB_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #19 {
+define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm13IntrinsicInstEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_SB_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #19 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader18
 
@@ -90176,7 +90176,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18VerifierESt14default_deleteIS1_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118VerifierLegacyPass14doFinalizationERN4llvm6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1) unnamed_addr #1 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118VerifierLegacyPass14doFinalizationERN4llvm6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef nonnull readonly align 8 dereferenceable(841) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.011.015 = load ptr, ptr %3, align 8, !tbaa !289

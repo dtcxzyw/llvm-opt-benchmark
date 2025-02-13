@@ -479,7 +479,7 @@ define i32 @opal_free_list_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80

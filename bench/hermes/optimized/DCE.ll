@@ -33,7 +33,7 @@ $_ZN6hermes3DCED0Ev = comdat any
 @.str = private unnamed_addr constant [4 x i8] c"DCE\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes3DCE11runOnModuleEPNS_6ModuleE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %M) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes3DCE11runOnModuleEPNS_6ModuleE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %M) unnamed_addr #0 align 2 {
 entry:
   %PO.i = alloca %"class.hermes::PostOrderAnalysis", align 8
   %toDestroy = alloca %"class.llvh::SmallVector", align 8

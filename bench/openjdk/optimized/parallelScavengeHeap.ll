@@ -683,7 +683,7 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap12max_capacityEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -715,7 +715,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(264) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(264) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
@@ -746,7 +746,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap17requires_barriersEP17stackChunkOopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap17requires_barriersEP17stackChunkOopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8

@@ -837,7 +837,7 @@ Vec_PtrGrow.exit.i70:                             ; preds = %145, %143
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManWindowCollectPos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManWindowCollectPos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !39

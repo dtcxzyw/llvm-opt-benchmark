@@ -76,7 +76,7 @@ $_ZN7QString6appendEPKc = comdat any
 @_ZN28ConversationHashTablesDialogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN28ConversationHashTablesDialogD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN28ConversationHashTablesDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN28ConversationHashTablesDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8

@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dtoa_alloc_done(ptr noundef readonly captures(address) %dalloc) local_unnamed_addr #1 {
+define hidden void @dtoa_alloc_done(ptr noundef readonly %dalloc) local_unnamed_addr #1 {
 entry:
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   %0 = load i32, ptr %used_heap.i, align 4
@@ -82,7 +82,7 @@ dalloc_done.exit:                                 ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @hermes_g_strtod(ptr noundef %s00, ptr noundef writeonly captures(address_is_null) %se) local_unnamed_addr #1 {
+define hidden double @hermes_g_strtod(ptr noundef %s00, ptr noundef writeonly %se) local_unnamed_addr #1 {
 entry:
   %bbits.i.i = alloca i32, align 4
   %p2.i.i = alloca i32, align 4
@@ -2756,7 +2756,7 @@ Bfree.exit:                                       ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @g_dtoa(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly captures(address_is_null) %rve) local_unnamed_addr #1 {
+define hidden nonnull ptr @g_dtoa(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #1 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -5108,7 +5108,7 @@ return:                                           ; preds = %if.end15, %if.end
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @mult(ptr noundef %dalloc, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #5 {
+define internal fastcc ptr @mult(ptr noundef %dalloc, ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #5 {
 entry:
   %wds = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %wds, align 4
@@ -5645,7 +5645,7 @@ if.end20:                                         ; preds = %if.end, %do.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem(ptr noundef captures(none) %b, ptr noundef readonly captures(address) %S) unnamed_addr #7 {
+define internal fastcc i32 @quorem(ptr noundef captures(none) %b, ptr noundef readonly %S) unnamed_addr #7 {
 entry:
   %wds = getelementptr inbounds nuw i8, ptr %S, i64 20
   %0 = load i32, ptr %wds, align 4
@@ -5836,7 +5836,7 @@ return:                                           ; preds = %if.then7.i, %cmp.ex
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @diff(ptr noundef %dalloc, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #5 {
+define internal fastcc ptr @diff(ptr noundef %dalloc, ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #5 {
 entry:
   %wds.i = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %wds.i, align 4
@@ -6086,7 +6086,7 @@ return:                                           ; preds = %while.end36, %Ballo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @dtoa_fixedpoint(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly captures(address_is_null) %rve) local_unnamed_addr #1 {
+define hidden nonnull ptr @dtoa_fixedpoint(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #1 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -7992,7 +7992,7 @@ declare i32 @llvm.get.rounding() #10
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly captures(address) %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #12 {
+define internal fastcc double @b2d(ptr noundef readonly %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #12 {
 entry:
   %x.ptr = getelementptr inbounds nuw i8, ptr %a, i64 24
   %wds = getelementptr inbounds nuw i8, ptr %a, i64 20

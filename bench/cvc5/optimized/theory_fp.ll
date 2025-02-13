@@ -1219,7 +1219,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory2fp8TheoryFp17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(10432) %this) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory2fp8TheoryFp17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(10432) %this) unnamed_addr #8 align 2 {
 entry:
   %d_rewriter = getelementptr inbounds nuw i8, ptr %this, i64 584
   ret ptr %d_rewriter
@@ -15716,7 +15716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp8TheoryFp18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(10432) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %termSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp8TheoryFp18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(10432) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 dereferenceable(48) %termSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %nb.i330 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i331 = alloca %"class.cvc5::internal::NodeTemplate.65", align 8

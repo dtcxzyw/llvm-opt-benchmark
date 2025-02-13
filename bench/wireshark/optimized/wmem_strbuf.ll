@@ -29,7 +29,7 @@ define noalias noundef ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %1
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @wmem_strbuf_new_len(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @wmem_strbuf_new_len(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %2, 1
   br label %5
 
@@ -72,7 +72,7 @@ define noalias noundef ptr @wmem_strbuf_new_len(ptr noundef %0, ptr noundef read
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split4.preheader, label %.split
 
@@ -158,7 +158,7 @@ define noalias noundef ptr @wmem_strbuf_dup(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @wmem_strbuf_append(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %3
 
@@ -222,7 +222,7 @@ wmem_strbuf_grow.exit:                            ; preds = %6, %20, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_strbuf_append_len(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @wmem_strbuf_append_len(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne i64 %2, 0
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %4
@@ -1215,7 +1215,7 @@ define void @wmem_strbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1225,7 +1225,7 @@ define zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp slt i64 %1, 1
   br i1 %5, label %6, label %8

@@ -329,7 +329,7 @@ Hop_TableFind.exit:                               ; preds = %107
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Hop_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #3 {
+define void @Hop_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %3, align 8, !tbaa !16
   %4 = getelementptr i8, ptr %0, i64 112

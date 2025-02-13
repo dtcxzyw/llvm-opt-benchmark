@@ -160,7 +160,7 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dar_BalanceCone_rec(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define void @Dar_BalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %2, i64 4
   %5 = getelementptr i8, ptr %0, i64 24
   br label %tailrecurse

@@ -117,7 +117,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(322) %that) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 dereferenceable(322) %that) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756FormatE, i64 16), ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this, %that
@@ -137,7 +137,7 @@ _ZN6icu_756FormataSERKS0_.exit:                   ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(322) ptr @_ZN6icu_756FormataSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(322) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(322) %that) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(322) ptr @_ZN6icu_756FormataSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(322) %this, ptr noundef nonnull readonly align 8 dereferenceable(322) %that) local_unnamed_addr #6 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %that
   br i1 %cmp.not, label %if.end, label %if.then
@@ -196,7 +196,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Format6formatERKNS_11FormattableERNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Format6formatERKNS_11FormattableERNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readnone returned align 8 dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #9 align 2 {
 entry:
   %2 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %2, 1

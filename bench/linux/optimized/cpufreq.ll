@@ -342,7 +342,7 @@ define dso_local zeroext i1 @have_governor_per_policy() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @get_governor_parent_kobj(ptr noundef readnone captures(ret: address, provenance) %0) #2 align 16 {
+define dso_local ptr @get_governor_parent_kobj(ptr noundef readnone %0) #2 align 16 {
   %2 = load ptr, ptr @cpufreq_driver, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i16, ptr %3, align 8
@@ -3157,7 +3157,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_register_governor(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cpufreq_unregister_governor(ptr noundef captures(address_is_null) %0) #0 align 16 {
+define dso_local void @cpufreq_unregister_governor(ptr noundef %0) #0 align 16 {
   %2 = icmp ne ptr %0, null
   %3 = load i32, ptr @off, align 4
   %4 = icmp eq i32 %3, 0
@@ -3217,7 +3217,7 @@ define dso_local void @cpufreq_unregister_governor(ptr noundef captures(address_
 declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @cpufreq_get_policy(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cpufreq_get_policy(ptr noundef writeonly %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %26, label %4
 
@@ -3758,7 +3758,7 @@ define internal noundef i32 @cpuhp_cpufreq_offline(i32 noundef %0) #0 align 16 {
 declare dso_local void @subsys_interface_unregister(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cpufreq_unregister_driver(ptr noundef readnone captures(address) %0) #0 align 16 {
+define dso_local void @cpufreq_unregister_driver(ptr noundef readnone %0) #0 align 16 {
   %2 = load ptr, ptr @cpufreq_driver, align 8
   %3 = icmp eq ptr %2, null
   %4 = icmp ne ptr %2, %0

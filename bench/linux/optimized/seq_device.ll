@@ -74,7 +74,7 @@ define dso_local void @snd_seq_device_load_drivers() #0 align 16 {
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_seq_device_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_seq_device_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) #0 align 16 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %8, label %7
 

@@ -1279,7 +1279,7 @@ define internal ptr @mipi_exec_send_packet(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @mipi_exec_delay(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #0 align 16 {
+define internal noundef ptr @mipi_exec_delay(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq ptr %3, null
@@ -1302,7 +1302,7 @@ define internal noundef ptr @mipi_exec_delay(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @mipi_exec_gpio(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #0 align 16 {
+define internal noundef ptr @mipi_exec_gpio(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load ptr, ptr %4, align 8
@@ -2004,7 +2004,7 @@ define internal ptr @mipi_exec_i2c(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @mipi_exec_spi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #0 align 16 {
+define internal ptr @mipi_exec_spi(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -2026,7 +2026,7 @@ define internal ptr @mipi_exec_spi(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @mipi_exec_pmic(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1) #0 align 16 {
+define internal noundef ptr @mipi_exec_pmic(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5

@@ -246,7 +246,7 @@ Vec_IntFree.exit:                                 ; preds = %47, %50
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClassesCopyReprs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define void @Fra_ClassesCopyReprs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr i8, ptr %3, i64 32
   %.val30 = load ptr, ptr %4, align 8, !tbaa !13
@@ -1319,7 +1319,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Fra_RefineClassOne(ptr noundef readonly captures(none) %0, ptr noundef captures(ret: address, provenance) %1) local_unnamed_addr #6 {
+define ptr @Fra_RefineClassOne(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %cond89 = icmp eq ptr %4, null
@@ -1790,7 +1790,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Fra_ClassesRefine1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @Fra_ClassesRefine1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr i8, ptr %5, i64 4

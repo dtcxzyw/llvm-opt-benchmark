@@ -10752,7 +10752,7 @@ ehcleanup657:                                     ; preds = %ehcleanup656, %lpad
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter15GetBoneUniqueIdB5cxx11EPK6aiBone(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef captures(address_is_null) %bone) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp15ColladaExporter15GetBoneUniqueIdB5cxx11EPK6aiBone(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef %bone) local_unnamed_addr #1 align 2 {
 entry:
   %mScene = getelementptr inbounds nuw i8, ptr %this, i64 1088
   %0 = load ptr, ptr %mScene, align 8
@@ -16285,7 +16285,7 @@ return:                                           ; preds = %for.inc6, %_ZNK8aiS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6Assimp12findBoneNodeEPK6aiNodePK6aiBone(ptr noundef readonly captures(address_is_null, ret: address, provenance) %aNode, ptr noundef readonly captures(address_is_null) %bone) local_unnamed_addr #12 {
+define hidden noundef ptr @_ZN6Assimp12findBoneNodeEPK6aiNodePK6aiBone(ptr noundef readonly %aNode, ptr noundef readonly %bone) local_unnamed_addr #12 {
 entry:
   %tobool = icmp ne ptr %aNode, null
   %tobool1 = icmp ne ptr %bone, null
@@ -16341,7 +16341,7 @@ return:                                           ; preds = %if.then9, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6Assimp20findSkeletonRootNodeEPK7aiScenePK6aiMesh(ptr noundef readonly captures(none) %scene, ptr noundef readonly captures(address_is_null) %mesh) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN6Assimp20findSkeletonRootNodeEPK7aiScenePK6aiMesh(ptr noundef readonly captures(none) %scene, ptr noundef readonly %mesh) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %topParentBoneNodes = alloca %"class.std::set", align 8
   %0 = getelementptr inbounds nuw i8, ptr %topParentBoneNodes, i64 8

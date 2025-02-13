@@ -270,7 +270,7 @@ declare ptr @pgstat_get_kind_info(i32 noundef) local_unnamed_addr #1
 declare ptr @dsa_get_address(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.PgStat_HashKey, align 8
   %7 = alloca %struct.PgStat_HashKey, align 8
   %8 = alloca i8, align 1

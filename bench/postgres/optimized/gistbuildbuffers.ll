@@ -669,7 +669,7 @@ define dso_local void @gistFreeBuildBuffers(ptr noundef readonly captures(none) 
 declare void @BufFileClose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8

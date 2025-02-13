@@ -3605,7 +3605,7 @@ _ZN10VNRelinker6relinkEP7AstNode.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull returned align 8 dereferenceable(152) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull returned align 8 dereferenceable(152) %0, ptr noundef writeonly %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3857,7 +3857,7 @@ define dso_local void @_ZNK10VNRelinker4dumpERSo(ptr noundef nonnull readonly al
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN7AstNode20unlinkFrBackWithNextEP10VNRelinker(ptr noundef nonnull returned align 8 dereferenceable(152) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZN7AstNode20unlinkFrBackWithNextEP10VNRelinker(ptr noundef nonnull returned align 8 dereferenceable(152) %0, ptr noundef writeonly %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4021,7 +4021,7 @@ define dso_local noundef nonnull ptr @_ZN7AstNode20unlinkFrBackWithNextEP10VNRel
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7AstNode6relinkEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7AstNode6relinkEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef i32 @_ZL5debugv()
   %5 = icmp sgt i32 %4, 8
@@ -7120,7 +7120,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode6dtypepEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7AstNode13checkTreeIterEPKS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readnone captures(address) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7AstNode13checkTreeIterEPKS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readnone %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8177,7 +8177,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7AstNode15dumpTreeFileGdbEPKS_PKc(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7AstNode15dumpTreeFileGdbEPKS_PKc(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

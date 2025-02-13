@@ -80,7 +80,7 @@ define hidden void @_ZN3vas20KalmanFilterNoOpencvC2ERKN2cv5Rect_IfEE(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3vas20KalmanFilterNoOpencv22kalmanfilter1d32i_initEPNS0_17kalmanfilter1d32iEPii(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(284) %0, ptr noundef writeonly captures(none) initializes((0, 68)) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN3vas20KalmanFilterNoOpencv22kalmanfilter1d32i_initEPNS0_17kalmanfilter1d32iEPii(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(284) %0, ptr noundef writeonly captures(none) initializes((0, 68)) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %1, i8 0, i64 68, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5

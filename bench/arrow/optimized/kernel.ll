@@ -2167,7 +2167,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow7compute9InputType6EqualsERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %other) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5arrow7compute9InputType6EqualsERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end
@@ -2284,7 +2284,7 @@ return:                                           ; preds = %entry, %sw.bb3.i2, 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Datum4typeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow7compute9InputType4typeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow7compute9InputType4typeEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %type_
@@ -2341,14 +2341,14 @@ return:                                           ; preds = %_ZNKSt8functionIFN5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow7compute10OutputType4typeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow7compute10OutputType4typeEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
 entry:
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %type_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow7compute10OutputType8resolverEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow7compute10OutputType8resolverEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
 entry:
   %resolver_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %resolver_

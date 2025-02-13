@@ -477,7 +477,7 @@ define dso_local void @intel_pasid_tear_down_entry(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_pasid_get_entry(ptr readonly captures(address_is_null) %.704.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_pasid_get_entry(ptr readonly %.704.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.704.val, null
   br i1 %2, label %.thread1, label %3
 

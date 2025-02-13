@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::pair" = type { ptr, ptr }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc17traverseFunctionsEPNS_6ModuleESt8functionIFbPNS_8FunctionEEES3_IFvN4llvh9StringRefEEESB_b(ptr noundef readonly captures(address) %M, ptr noundef %shouldVisitFunction, ptr noundef %traversal, ptr noundef %functionSourceTraversal, i1 noundef zeroext %stripFunctionNames) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes3hbc17traverseFunctionsEPNS_6ModuleESt8functionIFbPNS_8FunctionEEES3_IFvN4llvh9StringRefEEESB_b(ptr noundef readonly %M, ptr noundef %shouldVisitFunction, ptr noundef %traversal, ptr noundef %functionSourceTraversal, i1 noundef zeroext %stripFunctionNames) local_unnamed_addr #0 {
 entry:
   %__args.i10 = alloca %"class.llvh::StringRef", align 8
   %__args.i = alloca %"class.llvh::StringRef", align 8
@@ -168,7 +168,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 declare void @_ZNK6hermes8Function26getSourceRepresentationStrEv(ptr sret(%"class.llvh::Optional") align 8, ptr noundef nonnull align 8 dereferenceable(304)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc22traverseCJSModuleNamesEPNS_6ModuleESt8functionIFbPNS_8FunctionEEES3_IFvN4llvh9StringRefEEE(ptr noundef readonly captures(address) %M, ptr noundef %shouldVisitFunction, ptr noundef %traversal) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes3hbc22traverseCJSModuleNamesEPNS_6ModuleESt8functionIFbPNS_8FunctionEEES3_IFvN4llvh9StringRefEEE(ptr noundef readonly %M, ptr noundef %shouldVisitFunction, ptr noundef %traversal) local_unnamed_addr #0 {
 entry:
   %__args.i = alloca %"class.llvh::StringRef", align 8
   %__args.addr.i = alloca ptr, align 8
@@ -295,7 +295,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc22traverseLiteralStringsEPNS_6ModuleESt8functionIFbPNS_8FunctionEEES3_IFvN4llvh9StringRefEbEE(ptr noundef readonly captures(address) %M, ptr noundef %shouldVisitFunction, ptr noundef %traversal) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes3hbc22traverseLiteralStringsEPNS_6ModuleESt8functionIFbPNS_8FunctionEEES3_IFvN4llvh9StringRefEbEE(ptr noundef readonly %M, ptr noundef %shouldVisitFunction, ptr noundef %traversal) local_unnamed_addr #0 {
 entry:
   %__args.i29 = alloca %"class.llvh::StringRef", align 8
   %__args.addr.i30 = alloca i8, align 1

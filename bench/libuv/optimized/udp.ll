@@ -539,7 +539,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__udp_send(ptr noundef %req, ptr noundef %handle, ptr noundef readonly captures(none) %bufs, i32 noundef %nbufs, ptr noundef readonly captures(address_is_null) %addr, i32 noundef %addrlen, ptr noundef %send_cb) local_unnamed_addr #0 {
+define hidden i32 @uv__udp_send(ptr noundef %req, ptr noundef %handle, ptr noundef readonly captures(none) %bufs, i32 noundef %nbufs, ptr noundef readonly %addr, i32 noundef %addrlen, ptr noundef %send_cb) local_unnamed_addr #0 {
 entry:
   %taddr.i = alloca %union.uv__sockaddr, align 4
   %tobool.not = icmp eq ptr %addr, null

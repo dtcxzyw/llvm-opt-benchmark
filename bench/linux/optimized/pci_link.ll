@@ -141,7 +141,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_pci_link_allocate_irq(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 align 16 {
+define dso_local i32 @acpi_pci_link_allocate_irq(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #2 align 16 {
   %6 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9

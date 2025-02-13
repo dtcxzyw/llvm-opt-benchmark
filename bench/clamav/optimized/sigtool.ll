@@ -5159,7 +5159,7 @@ declare zeroext i1 @script2cdiff(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @sha256file(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @sha256file(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
@@ -7717,7 +7717,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @matchsig(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #0 {
+define internal fastcc void @matchsig(ptr noundef %0, ptr noundef readnone %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.cli_ctx_tag, align 8
@@ -8573,7 +8573,7 @@ declare i32 @cli_scan_fmap(ptr noundef, i32 noundef, i1 noundef zeroext, ptr nou
 declare void @cl_engine_set_clcb_vba(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -1, 1) i32 @vba_callback(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr readnone captures(none) %2) #20 {
+define internal range(i32 -1, 1) i32 @vba_callback(ptr noundef readonly %0, i64 noundef %1, ptr readnone captures(none) %2) #20 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %.preheader
 

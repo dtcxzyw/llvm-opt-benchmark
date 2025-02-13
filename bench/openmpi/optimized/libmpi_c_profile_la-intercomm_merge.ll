@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Intercomm_merge = weak alias i32 (ptr, i32, ptr), ptr @PMPI_Intercomm_merge
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Intercomm_merge(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
+define i32 @PMPI_Intercomm_merge(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr @ompi_mpi_comm_null, ptr %4, align 8

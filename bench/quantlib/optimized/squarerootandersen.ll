@@ -1103,7 +1103,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18SquareRootAndersen14stateVariablesEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(192) %this) unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18SquareRootAndersen14stateVariablesEv(ptr noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #10 align 2 {
 entry:
   %v_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load double, ptr %v_, align 8, !tbaa !43

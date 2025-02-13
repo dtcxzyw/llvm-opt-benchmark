@@ -1342,7 +1342,7 @@ ehcleanup94:                                      ; preds = %lpad.split, %lpad.s
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110ParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6Assimp3FBX7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef readonly captures(address_is_null) %element) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110ParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6Assimp3FBX7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef readonly %element) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %element, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2209,7 +2209,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI10aiVector3tIfESaIS3_EERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI10aiVector3tIfESaIS3_EERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i96 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i97 = alloca %"class.std::allocator.5", align 1
@@ -3220,7 +3220,7 @@ if.end:                                           ; preds = %if.end20.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.5", align 1
@@ -3262,7 +3262,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN6Assimp3FBX18GetRequiredElementERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(48) %sc, ptr noundef nonnull align 8 dereferenceable(32) %index, ptr noundef captures(address_is_null) %element) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN6Assimp3FBX18GetRequiredElementERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(48) %sc, ptr noundef nonnull align 8 dereferenceable(32) %index, ptr noundef %element) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3457,7 +3457,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI9aiColor4tIfESaIS3_EERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI9aiColor4tIfESaIS3_EERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i93 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i94 = alloca %"class.std::allocator.5", align 1
@@ -4387,7 +4387,7 @@ if.end:                                           ; preds = %_ZNSt6vectorI9aiCol
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI10aiVector2tIfESaIS3_EERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI10aiVector2tIfESaIS3_EERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i127 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i128 = alloca %"class.std::allocator.5", align 1
@@ -5282,7 +5282,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIiSaIiEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIiSaIiEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i74 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i75 = alloca %"class.std::allocator.5", align 1
@@ -5977,7 +5977,7 @@ if.end:                                           ; preds = %_ZN6Assimp8strtol10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIfSaIfEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIfSaIfEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i60 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i61 = alloca %"class.std::allocator.5", align 1
@@ -6590,7 +6590,7 @@ for.end95:                                        ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIjSaIjEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIjSaIjEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i79 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i80 = alloca %"class.std::allocator.5", align 1
@@ -7222,7 +7222,7 @@ for.end96:                                        ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorImSaImEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorImSaImEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i74 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i75 = alloca %"class.std::allocator.5", align 1
@@ -7873,7 +7873,7 @@ if.end:                                           ; preds = %if.end9.i, %if.end6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIlSaIlEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIlSaIlEERKNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(40) %el) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i74 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i75 = alloca %"class.std::allocator.5", align 1
@@ -8532,7 +8532,7 @@ if.end:                                           ; preds = %if.end9.i, %if.end6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX10ReadMatrixERKNS0_7ElementE(ptr noalias writeonly sret(%class.aiMatrix4x4t) align 4 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %element) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX10ReadMatrixERKNS0_7ElementE(ptr noalias writeonly sret(%class.aiMatrix4x4t) align 4 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %element) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %values = alloca %"class.std::vector.34", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8886,7 +8886,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %el, i32 noundef %index) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %el, i32 noundef %index) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.Assimp::Formatter::basic_formatter", align 8

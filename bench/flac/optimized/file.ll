@@ -110,7 +110,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__file_change_stats(ptr noundef rea
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @grabbag__file_are_same(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @grabbag__file_are_same(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #9

@@ -3094,7 +3094,7 @@ define internal range(i32 0, 2) i32 @device_is_not_random(ptr readnone captures(
 declare dso_local void @disk_update_readahead(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @dm_table_get_devices(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #12 align 16 {
+define dso_local nonnull ptr @dm_table_get_devices(ptr noundef readnone %0) local_unnamed_addr #12 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   ret ptr %2
 }
@@ -3107,7 +3107,7 @@ define dso_local i32 @dm_table_get_mode(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_table_presuspend_targets(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dm_table_presuspend_targets(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -3150,7 +3150,7 @@ define dso_local void @dm_table_presuspend_targets(ptr noundef readonly captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_table_presuspend_undo_targets(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dm_table_presuspend_undo_targets(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -3193,7 +3193,7 @@ define dso_local void @dm_table_presuspend_undo_targets(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_table_postsuspend_targets(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dm_table_postsuspend_targets(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

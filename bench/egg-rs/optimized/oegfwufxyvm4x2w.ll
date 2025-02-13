@@ -487,7 +487,7 @@ define { i32, i32 } @_ZN3egg5subst5Subst6insert17h001a6dccb19c8f51E(ptr noalias 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
-define noundef align 4 dereferenceable_or_null(4) ptr @_ZN3egg5subst5Subst3get17hdcba89d3859ff93bE(ptr noalias noundef readonly align 8 captures(address, ret: address, provenance) dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define noundef align 4 dereferenceable_or_null(4) ptr @_ZN3egg5subst5Subst3get17hdcba89d3859ff93bE(ptr noalias noundef readonly align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %0, align 8, !alias.scope !69, !noalias !72, !noundef !4
   %5 = icmp ugt i64 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

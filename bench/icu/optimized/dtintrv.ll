@@ -59,7 +59,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7512DateIntervalC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512DateIntervalC2ERKS0_(ptr noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512DateIntervalE, i64 16), ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this, %other
@@ -81,7 +81,7 @@ _ZN6icu_7512DateIntervalaSERKS0_.exit:            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7512DateIntervalaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %other) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7512DateIntervalaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) local_unnamed_addr #4 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end, label %if.then

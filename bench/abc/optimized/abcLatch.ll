@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [70 x i8] c"Cannot process logic network with don't-care init values. Run \22zero\22.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Abc_NtkLatchIsSelfFeed_rec(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkLatchIsSelfFeed_rec(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %19, %2
@@ -86,7 +86,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Abc_NtkLatchIsSelfFeed(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkLatchIsSelfFeed(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.val11 = load ptr, ptr %0, align 8, !tbaa !3
   %2 = getelementptr i8, ptr %0, i64 32
   %.val12 = load ptr, ptr %2, align 8, !tbaa !13
@@ -836,7 +836,7 @@ switch.lookup:                                    ; preds = %16
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NtkInsertLatchValues(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define void @Abc_NtkInsertLatchValues(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr i8, ptr %4, i64 4

@@ -2416,7 +2416,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr readnone captures(address_is_null) %_ptr.0.val) unnamed_addr #0 {
+define internal fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr readnone %_ptr.0.val) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %_ptr.0.val, null
   br i1 %tobool.not.i, label %glib_autoptr_clear_RCUReadAuto.exit, label %if.then.i

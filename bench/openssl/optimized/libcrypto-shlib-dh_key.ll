@@ -445,7 +445,7 @@ declare i32 @DH_set0_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %dh, ptr noundef captures(address_is_null) %pbuf_out, i64 noundef %size, i32 noundef %alloc) local_unnamed_addr #0 {
+define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %dh, ptr noundef %pbuf_out, i64 noundef %size, i32 noundef %alloc) local_unnamed_addr #0 {
 entry:
   %pubkey = alloca ptr, align 8
   %p = alloca ptr, align 8

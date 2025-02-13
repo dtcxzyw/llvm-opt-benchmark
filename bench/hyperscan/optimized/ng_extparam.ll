@@ -4103,7 +4103,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly captures(address) %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce0, ptr nonnull readonly captures(none) %func.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce0, ptr nonnull readonly captures(none) %func.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -5332,7 +5332,7 @@ _ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16pruneUnmatchableERNS_8NGHolderERKSt6vectorINS_11DepthMinMaxESaIS3_EERKNS_13ReportManagerENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %depths, ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr readonly captures(address) %accept.coerce0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16pruneUnmatchableERNS_8NGHolderERKSt6vectorINS_11DepthMinMaxESaIS3_EERKNS_13ReportManagerENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %depths, ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr readonly %accept.coerce0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %m_header.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %accept.coerce0, i64 112
   %__begin1.sroa.0.0141 = load ptr, ptr %m_header.i.i.i.i.i, align 8
@@ -5723,7 +5723,7 @@ declare void @_ZN3ue214calcBidiDepthsERKNS_8NGHolderE(ptr sret(%"class.std::vect
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly captures(address) %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -6495,7 +6495,7 @@ _ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly captures(address) %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -7190,7 +7190,7 @@ if.end:                                           ; preds = %if.end.i11, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly captures(address) %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -7465,7 +7465,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i.i.i.i
 declare void @_ZN3ue210calcDepthsERKNS_8NGHolderE(ptr sret(%"class.std::vector.285") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26removeUnneededOffsetBoundsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly captures(address) %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr readonly captures(none) %func.0.val, ptr %func.16.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26removeUnneededOffsetBoundsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr readonly captures(none) %func.0.val, ptr %func.16.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8

@@ -88,7 +88,7 @@ declare dso_local void @copy_xstate_to_uabi_buf(ptr, i64, ptr noundef, i32 nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @xfpregs_set(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfpregs_set(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
   %7 = alloca %struct.fxregs_state, align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 3008
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #12
@@ -286,7 +286,7 @@ declare dso_local i32 @copy_uabi_from_kernel_to_xstate(ptr noundef, ptr noundef,
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @convert_from_fxsr(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
+define dso_local void @convert_from_fxsr(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3024
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -295,7 +295,7 @@ define dso_local void @convert_from_fxsr(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__convert_from_fxsr(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 16 {
+define internal fastcc void @__convert_from_fxsr(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i16, ptr %2, align 16
   %6 = zext i16 %5 to i32
@@ -556,7 +556,7 @@ define dso_local i32 @fpregs_get(ptr noundef %0, ptr noundef readnone captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef captures(address) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 align 16 {
   %7 = alloca %struct.user_i387_ia32_struct, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 3008
   call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %7) #12

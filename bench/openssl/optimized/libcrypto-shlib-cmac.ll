@@ -470,7 +470,7 @@ return:                                           ; preds = %while.body60, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(address_is_null) %poutlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %ctx, ptr noundef %out, ptr noundef writeonly %poutlen) local_unnamed_addr #0 {
 entry:
   %nlast_block = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load i32, ptr %nlast_block, align 8

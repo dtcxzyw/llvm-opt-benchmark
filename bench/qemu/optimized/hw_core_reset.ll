@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_unregister_reset(ptr noundef readnone captures(address) %func, ptr noundef readnone captures(address) %opaque) local_unnamed_addr #0 {
+define dso_local void @qemu_unregister_reset(ptr noundef readnone %func, ptr noundef readnone %opaque) local_unnamed_addr #0 {
 entry:
   %re.015 = load ptr, ptr @reset_handlers, align 8
   %tobool.not16 = icmp eq ptr %re.015, null

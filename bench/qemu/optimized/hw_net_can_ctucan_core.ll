@@ -899,7 +899,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, 275) i64 @ctucan_receive(ptr noundef captures(none) %client, ptr noundef readonly captures(address_is_null) %frames, i64 noundef %frames_cnt) #0 {
+define dso_local range(i64 -1, 275) i64 @ctucan_receive(ptr noundef captures(none) %client, ptr noundef readonly %frames, i64 noundef %frames_cnt) #0 {
 entry:
   %cmp = icmp eq i64 %frames_cnt, 0
   br i1 %cmp, label %return, label %if.end

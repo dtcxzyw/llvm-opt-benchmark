@@ -1514,7 +1514,7 @@ define dso_local noalias noundef ptr @GUC_yyalloc(i64 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @GUC_yy_delete_buffer(ptr noundef captures(address) %0) local_unnamed_addr #3 {
+define dso_local void @GUC_yy_delete_buffer(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1561,7 +1561,7 @@ define dso_local void @GUC_yyfree(ptr noundef captures(none) %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @GUC_yy_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #5 {
+define dso_local void @GUC_yy_flush_buffer(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

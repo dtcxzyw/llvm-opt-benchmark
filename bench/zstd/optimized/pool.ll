@@ -398,7 +398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @POOL_sizeof(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #4 {
+define i64 @POOL_sizeof(ptr noundef readonly %ctx) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end

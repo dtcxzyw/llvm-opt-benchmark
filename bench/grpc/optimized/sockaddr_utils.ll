@@ -91,7 +91,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_(ptr noundef readonly captures(address) %resolved_addr, ptr noundef writeonly captures(address) %resolved_addr4_out) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_(ptr noundef readonly %resolved_addr, ptr noundef writeonly %resolved_addr4_out) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %resolved_addr, %resolved_addr4_out
   br i1 %cmp.not, label %if.then, label %do.end
@@ -145,7 +145,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_to_v4mappedPK21grpc_resolved_addressPS_(ptr noundef readonly captures(address) %resolved_addr, ptr noundef writeonly captures(address) %resolved_addr6_out) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_to_v4mappedPK21grpc_resolved_addressPS_(ptr noundef readonly %resolved_addr, ptr noundef writeonly %resolved_addr6_out) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %resolved_addr, %resolved_addr6_out
   br i1 %cmp.not, label %if.then, label %do.end

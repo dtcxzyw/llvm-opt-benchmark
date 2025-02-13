@@ -54,7 +54,7 @@ define noundef range(i32 1, -2147483647) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 {
+define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) local_unnamed_addr #1 align 2 {
   %7 = fcmp ogt float %1, 0.000000e+00
   %8 = fcmp ole float %2, 0.000000e+00
   %or.cond44 = and i1 %7, %8

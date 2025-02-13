@@ -642,7 +642,7 @@ image_to_relgrid.exit.us:                         ; preds = %.lr.ph.split.us, %1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dt_bilateral_blur(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @dt_bilateral_blur(ptr noundef readonly %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %blur_line_z.exit, label %2
 
@@ -1344,7 +1344,7 @@ image_to_grid.exit.us:                            ; preds = %.preheader.us, %ima
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @dt_bilateral_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #12 {
+define void @dt_bilateral_free(ptr noundef %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

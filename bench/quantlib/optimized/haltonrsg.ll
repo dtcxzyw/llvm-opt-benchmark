@@ -982,7 +982,7 @@ _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit:  ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib9HaltonRsg12nextSequenceEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib9HaltonRsg12nextSequenceEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
   %sequenceCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %sequenceCounter_, align 8, !tbaa !19

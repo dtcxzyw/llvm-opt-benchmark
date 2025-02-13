@@ -445,7 +445,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr noundef readonly %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.gmx::InconsistentInputError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.gmx::ExceptionInfo", align 8

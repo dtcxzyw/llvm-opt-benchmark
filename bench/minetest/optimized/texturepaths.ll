@@ -632,7 +632,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 declare noundef zeroext i1 @_ZN2fs10PathExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14getTexturePathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef writeonly captures(address_is_null) %is_base_pack) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14getTexturePathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef writeonly %is_base_pack) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i329 = alloca i64, align 8
   %__dnew.i.i.i172 = alloca i64, align 8

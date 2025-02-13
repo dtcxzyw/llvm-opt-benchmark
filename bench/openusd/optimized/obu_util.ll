@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.aom_read_bit_buffer = type { ptr, ptr, i32, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 9) i32 @aom_read_obu_header(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 9) i32 @aom_read_obu_header(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.aom_read_bit_buffer, align 8
   %7 = icmp ne i64 %1, 0
   %8 = icmp ne ptr %2, null
@@ -39,7 +39,7 @@ define hidden range(i32 0, 9) i32 @aom_read_obu_header(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9) i32 @read_obu_header(ptr noundef nonnull %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @read_obu_header(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %39, label %4
 
@@ -110,7 +110,7 @@ define internal fastcc range(i32 0, 9) i32 @read_obu_header(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 9) i32 @aom_read_obu_header_and_size(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 9) i32 @aom_read_obu_header_and_size(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8

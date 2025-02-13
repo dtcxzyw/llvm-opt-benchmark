@@ -803,7 +803,7 @@ return:                                           ; preds = %if.end6, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @pci_bus_bypass_iommu(ptr noundef readonly captures(address) %bus) local_unnamed_addr #0 {
+define dso_local zeroext i1 @pci_bus_bypass_iommu(ptr noundef readonly %bus) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 120
   %bus.val = load i32, ptr %0, align 8
@@ -3161,7 +3161,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_for_each_bus_depth_first(ptr noundef %bus, ptr noundef captures(address_is_null) %begin, ptr noundef captures(address_is_null) %end, ptr noundef %parent_state) local_unnamed_addr #0 {
+define dso_local void @pci_for_each_bus_depth_first(ptr noundef %bus, ptr noundef %begin, ptr noundef %end, ptr noundef %parent_state) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %bus, null
   br i1 %tobool.not, label %if.end7, label %if.end

@@ -4501,7 +4501,7 @@ declare noundef i64 @_ZNK6casadi8Function5sz_iwEv(ptr noundef nonnull align 8 de
 declare noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN6casadi10casadi_addIyEEvxPKT_PS1_(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #11 {
+define hidden void @_ZN6casadi10casadi_addIyEEvxPKT_PS1_(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #11 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5

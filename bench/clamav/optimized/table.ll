@@ -23,7 +23,7 @@ define noalias noundef ptr @tableCreate() local_unnamed_addr #0 {
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @tableDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @tableDestroy(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -65,7 +65,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @tableInsert(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define i32 @tableInsert(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %5
 
@@ -196,7 +196,7 @@ tableFind.exit.thread:                            ; preds = %11, %.preheader.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tableFind(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define i32 @tableFind(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -251,7 +251,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #6
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @tableUpdate(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define i32 @tableUpdate(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -300,7 +300,7 @@ define i32 @tableUpdate(ptr noundef captures(address_is_null) %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tableRemove(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define void @tableRemove(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -351,7 +351,7 @@ define void @tableRemove(ptr noundef captures(address_is_null) %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tableIterate(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @tableIterate(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %.preheader
 

@@ -3254,7 +3254,7 @@ define i32 @bb_build_bb_script(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_write_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @bb_write_file(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @unlink(ptr noundef %0) #17
   %4 = tail call i32 @creat(ptr noundef %0, i32 noundef 384) #17
   %5 = icmp slt i32 %4, 0
@@ -3678,7 +3678,7 @@ _bb_job_del2.exit:                                ; preds = %27, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define void @bb_job_log(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @bb_job_log(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -4105,7 +4105,7 @@ bb_find_user_rec.exit:                            ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_post_persist_create(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define i32 @bb_post_persist_create(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurmdb_reservation_rec_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %6 = load i32, ptr %5, align 8
@@ -4424,7 +4424,7 @@ define i32 @bb_post_persist_delete(ptr noundef readonly captures(none) %0, ptr n
 declare i32 @acct_storage_g_remove_reservation(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @bb_test_size_limit(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @bb_test_size_limit(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

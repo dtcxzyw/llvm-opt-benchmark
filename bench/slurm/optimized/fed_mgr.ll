@@ -4028,7 +4028,7 @@ fed_mgr_get_cluster_by_name.exit:                 ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_persist_callback_fini(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @_persist_callback_fini(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %2
 
@@ -4826,7 +4826,7 @@ define dso_local range(i32 -1, 1) i32 @fed_mgr_job_allocate(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_features(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_features(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %5 = icmp ne ptr %4, null
@@ -8348,7 +8348,7 @@ fed_mgr_is_origin_job.exit.thread:                ; preds = %40, %43, %34, %fed_
 declare void @sched_info(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_names(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_names(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.198) #17
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -9466,7 +9466,7 @@ define dso_local noundef zeroext i1 @fed_mgr_sibs_synced() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_list_find_not_synced_sib(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #9 {
+define internal range(i32 0, 2) i32 @_list_find_not_synced_sib(ptr noundef readonly %0, ptr readnone captures(none) %1) #9 {
   %3 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not = icmp eq ptr %0, %3
   br i1 %.not, label %15, label %4

@@ -6449,7 +6449,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15TransferContentERKNS_9TfWeakPtrIS0_EE(ptr noundef nonnull align 8 dereferenceable(557), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdUtils_WritableLocalizationDelegate22GetLayerUsedForWritingERKNS_8TfRefPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.90") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdUtils_WritableLocalizationDelegate22GetLayerUsedForWritingERKNS_8TfRefPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.90") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(304) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1

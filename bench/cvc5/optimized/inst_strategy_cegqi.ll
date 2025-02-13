@@ -9163,7 +9163,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqi16checkCompleteForENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(544) %this, ptr noundef readonly captures(none) %q) unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqi16checkCompleteForENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(544) %this, ptr noundef readonly captures(none) %q) unnamed_addr #11 align 2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

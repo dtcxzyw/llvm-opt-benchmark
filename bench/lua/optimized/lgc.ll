@@ -435,7 +435,7 @@ if.end50:                                         ; preds = %cond.false, %entry,
 declare hidden ptr @luaT_gettm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sweeptolive(ptr noundef %L, ptr noundef captures(address, ret: address, provenance) %p) unnamed_addr #2 {
+define internal fastcc ptr @sweeptolive(ptr noundef %L, ptr noundef %p) unnamed_addr #2 {
 entry:
   %l_G.i = getelementptr inbounds nuw i8, ptr %L, i64 24
   br label %do.body
@@ -3121,7 +3121,7 @@ clearbykeys.exit173:                              ; preds = %for.inc17.i165, %cl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @atomic2gen(ptr noundef %L, ptr noundef captures(none) initializes((101, 102), (136, 176)) %g) unnamed_addr #2 {
+define internal fastcc void @atomic2gen(ptr noundef %L, ptr noundef initializes((101, 102), (136, 176)) %g) unnamed_addr #2 {
 entry:
   %gray.i = getelementptr inbounds nuw i8, ptr %g, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %gray.i, i8 0, i64 40, i1 false)
@@ -3380,7 +3380,7 @@ sweep2old.exit72:                                 ; preds = %if.end29.i57, %swee
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clearbyvalues(ptr noundef captures(none) %g, ptr noundef %l, ptr noundef readnone captures(address) %f) unnamed_addr #2 {
+define internal fastcc void @clearbyvalues(ptr noundef captures(none) %g, ptr noundef %l, ptr noundef readnone %f) unnamed_addr #2 {
 entry:
   %cmp.not43 = icmp eq ptr %l, %f
   br i1 %cmp.not43, label %for.end41, label %for.body
@@ -4799,7 +4799,7 @@ declare hidden i32 @luaH_realasize(ptr noundef) local_unnamed_addr #3
 declare hidden void @luaD_shrinkstack(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finishgencycle(ptr noundef %L, ptr noundef captures(none) %g) unnamed_addr #2 {
+define internal fastcc void @finishgencycle(ptr noundef %L, ptr noundef %g) unnamed_addr #2 {
 entry:
   %grayagain.i = getelementptr inbounds nuw i8, ptr %g, i64 144
   %call.i = tail call fastcc ptr @correctgraylist(ptr noundef nonnull %grayagain.i)
@@ -4878,7 +4878,7 @@ if.end:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @correctgraylist(ptr noundef captures(ret: address, provenance) %p) unnamed_addr #5 {
+define internal fastcc ptr @correctgraylist(ptr noundef %p) unnamed_addr #5 {
 entry:
   %.pr18 = load ptr, ptr %p, align 8
   %cmp.not1619 = icmp eq ptr %.pr18, null

@@ -1281,7 +1281,7 @@ declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #2
 declare void @lv_style_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spangroup_delete_span(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define void @lv_spangroup_delete_span(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1349,7 +1349,7 @@ declare void @lv_style_reset(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_span_set_text(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_span_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1415,7 +1415,7 @@ declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_span_set_text_static(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_span_set_text_static(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1617,7 +1617,7 @@ define void @lv_spangroup_set_max_lines(ptr noundef initializes((64, 68)) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_span_get_style(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_span_get_style(ptr noundef readnone %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -2336,7 +2336,7 @@ declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unna
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spangroup_get_span_coords(ptr dead_on_unwind noalias writable sret(%struct._lv_span_coords_t) align 4 %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define void @lv_spangroup_get_span_coords(ptr dead_on_unwind noalias writable sret(%struct._lv_span_coords_t) align 4 %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = tail call i32 @lv_obj_get_content_width(ptr noundef %1) #8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -2398,7 +2398,7 @@ declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_span_coords(ptr dead_on_unwind noalias writable align 4 initializes((0, 48)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i64 %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @make_span_coords(ptr dead_on_unwind noalias writable align 4 initializes((0, 48)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i64 %4, i32 noundef %5) unnamed_addr #0 {
   %.sroa.024.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.11.0.extract.shift = lshr i64 %4, 32
   %.sroa.11.0.extract.trunc = trunc nuw i64 %.sroa.11.0.extract.shift to i32
@@ -2487,7 +2487,7 @@ define internal fastcc void @make_span_coords(ptr dead_on_unwind noalias writabl
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_spangroup_get_span_by_point(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @lv_spangroup_get_span_by_point(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_point_t, align 4
   %4 = alloca %struct._lv_span_coords_t, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80

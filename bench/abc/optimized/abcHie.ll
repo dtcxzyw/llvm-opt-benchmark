@@ -3782,7 +3782,7 @@ define i32 @Abc_NtkCompareNames(ptr noundef readonly captures(none) %0, ptr noun
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkPrintBoxInfo(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define void @Abc_NtkPrintBoxInfo(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !78
   %4 = icmp eq ptr %3, null

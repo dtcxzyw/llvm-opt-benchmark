@@ -278,7 +278,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_NAME_get0_der(ptr noundef %nm, ptr noundef writeonly captures(address_is_null) %pder, ptr noundef writeonly captures(address_is_null) %pderlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_NAME_get0_der(ptr noundef %nm, ptr noundef writeonly %pder, ptr noundef writeonly %pderlen) local_unnamed_addr #1 {
 entry:
   %call1.i = tail call i32 @ASN1_item_i2d(ptr noundef %nm, ptr noundef null, ptr noundef nonnull @X509_NAME_it.local_it) #6
   %cmp = icmp slt i32 %call1.i, 1
@@ -359,7 +359,7 @@ return:                                           ; preds = %entry, %if.then9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @x509_name_ex_free(ptr noundef captures(address_is_null) %pval, ptr readnone captures(none) %it) #1 {
+define internal void @x509_name_ex_free(ptr noundef %pval, ptr readnone captures(none) %it) #1 {
 entry:
   %cmp = icmp eq ptr %pval, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %if.end49, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %val, ptr noundef captures(address_is_null) %out, ptr readnone captures(none) %it, i32 %tag, i32 %aclass) #1 {
+define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %val, ptr noundef %out, ptr readnone captures(none) %it, i32 %tag, i32 %aclass) #1 {
 entry:
   %intname.i = alloca %union.anon.1, align 8
   %p.i = alloca ptr, align 8

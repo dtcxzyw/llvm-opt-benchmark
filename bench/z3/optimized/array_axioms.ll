@@ -8002,7 +8002,7 @@ _ZN7sbufferIiLj16EED2Ev.exit:                     ; preds = %for.end49, %if.end.
 declare void @_ZN5array6solver16collect_defaultsEv(ptr noundef nonnull align 8 dereferenceable(536)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5array6solver19collect_shared_varsER7sbufferIiLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %roots) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5array6solver19collect_shared_varsER7sbufferIiLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %this, ptr noundef nonnull align 8 dereferenceable(80) %roots) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %to_unmark = alloca %class.ptr_buffer.258, align 8
   %m_initial_buffer.i.i = getelementptr inbounds nuw i8, ptr %to_unmark, i64 16
@@ -8412,7 +8412,7 @@ _ZN6bufferIiLb0ELj16EED2Ev.exit:                  ; preds = %entry, %if.end.i.i.
 declare noundef zeroext i1 @_ZNK3euf6solver9is_sharedEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(9136), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN5array6solver13is_shared_argEPN3euf5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %this, ptr noundef readonly captures(address) %r) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN5array6solver13is_shared_argEPN3euf5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %this, ptr noundef readonly %r) local_unnamed_addr #6 align 2 {
 entry:
   %m_parents.i = getelementptr inbounds nuw i8, ptr %r, i64 48
   %0 = load ptr, ptr %m_parents.i, align 8

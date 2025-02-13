@@ -1681,7 +1681,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13CoalescerPair4flipEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm13CoalescerPair13isCoalescableEPKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm13CoalescerPair13isCoalescableEPKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit, label %3
 
@@ -8091,7 +8091,7 @@ _ZN4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer20copyCoalesceWorkListEN4llvm15MutableArrayRefIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr captures(address) %1, i64 %2) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer20copyCoalesceWorkListEN4llvm15MutableArrayRefIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::SmallPtrSet.506", align 8
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
@@ -8450,7 +8450,7 @@ declare noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9Q
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117RegisterCoalescer17applyTerminalRuleERKN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(70) %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117RegisterCoalescer17applyTerminalRuleERKN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0, ptr noundef nonnull readonly align 8 dereferenceable(70) %1) unnamed_addr #1 align 2 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL15UseTerminalRule, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit
@@ -8826,7 +8826,7 @@ _ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL13isTerminalRegN4llvm8RegisterERKNS_12MachineInstrEPKNS_19MachineRegisterInfoE(i32 %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(70) %1, ptr readonly captures(none) %.48.val, ptr readonly captures(none) %.296.val) unnamed_addr #17 {
+define internal fastcc noundef zeroext i1 @_ZL13isTerminalRegN4llvm8RegisterERKNS_12MachineInstrEPKNS_19MachineRegisterInfoE(i32 %0, ptr noundef nonnull readnone align 8 dereferenceable(70) %1, ptr readonly captures(none) %.48.val, ptr readonly captures(none) %.296.val) unnamed_addr #17 {
   %3 = icmp slt i32 %0, 0
   %4 = and i32 %0, 2147483647
   %5 = zext nneg i32 %4 to i64
@@ -20027,7 +20027,7 @@ _ZNK4llvm19MachineRegisterInfo15use_nodbg_beginENS_8RegisterE.exit: ; preds = %.
 declare noundef zeroext i1 @_ZN4llvm13LiveRangeEdit21checkRematerializableEPNS_6VNInfoEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL14definesFullRegRKN4llvm12MachineInstrENS_8RegisterE(ptr readonly captures(address) %.32.val, i24 %.40.val, i32 %0) unnamed_addr #19 {
+define internal fastcc noundef zeroext i1 @_ZL14definesFullRegRKN4llvm12MachineInstrENS_8RegisterE(ptr readonly %.32.val, i24 %.40.val, i32 %0) unnamed_addr #19 {
   %2 = zext i24 %.40.val to i64
   %3 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %2
   %.not1.i.i.i.i.i = icmp eq i24 %.40.val, 0
@@ -22603,7 +22603,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9SlotIndexELb1EE9push_backES1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18JoinVals11eraseInstrsERN4llvm15SmallPtrSetImplIPNS1_12MachineInstrEEERNS1_15SmallVectorImplINS1_8RegisterEEEPNS1_12LiveIntervalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18JoinVals11eraseInstrsERN4llvm15SmallPtrSetImplIPNS1_12MachineInstrEEERNS1_15SmallVectorImplINS1_8RegisterEEEPNS1_12LiveIntervalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef readonly %3) unnamed_addr #1 align 2 {
   %.sroa.087 = alloca i64, align 8
   %.sroa.086 = alloca i64, align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !810
@@ -25578,7 +25578,7 @@ common.ret15:                                     ; preds = %3, %10, %14, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsE(ptr readonly captures(address) %.432.val, i32 %.448.val, i32 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer32checkMergingChangesDbgValuesImplEN4llvm8RegisterERNS1_9LiveRangeES4_RNS_8JoinValsE(ptr readonly %.432.val, i32 %.448.val, i32 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %3) unnamed_addr #1 align 2 {
   %5 = icmp eq i32 %.448.val, 0
   br i1 %5, label %.loopexit.i, label %6
 
@@ -26049,7 +26049,7 @@ declare void @_ZN4llvm9LiveRange13removeSegmentENS_9SlotIndexES1_b(ptr noundef n
 declare noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70), i32, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer20hasOtherReachingDefsERN4llvm12LiveIntervalES3_PNS1_6VNInfoES5_(ptr nonnull %.40.val, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer20hasOtherReachingDefsERN4llvm12LiveIntervalES3_PNS1_6VNInfoES5_(ptr nonnull %.40.val, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #1 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK4llvm13LiveIntervals10hasPHIKillERKNS_12LiveIntervalEPKNS_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(440) %.40.val, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %2) #26
   br i1 %5, label %.critedge, label %6
 
@@ -26377,7 +26377,7 @@ _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 258) i16 @_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr readonly captures(address) %.0.val, i32 %.8.val, ptr noundef readnone captures(address) %2) unnamed_addr #1 {
+define internal fastcc range(i16 0, 258) i16 @_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr readonly %.0.val, i32 %.8.val, ptr noundef readnone %2) unnamed_addr #1 {
   %4 = alloca %"struct.llvm::LiveRange::Segment", align 8
   %5 = zext i32 %.8.val to i64
   %6 = getelementptr inbounds nuw %"struct.llvm::LiveRange::Segment", ptr %.0.val, i64 %5

@@ -4818,7 +4818,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit137.i.i.i.i: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @_ZN4absl19str_format_internal12_GLOBAL__N_125PrintFractionalDigitsFastENS_7uint128EPcim(i64 %v.coerce0, i64 %v.coerce1, ptr noundef nonnull captures(ret: address, provenance) %start, i32 noundef range(i32 1, -2147483648) %exp, i64 noundef %precision) unnamed_addr #8 {
+define internal fastcc noundef nonnull ptr @_ZN4absl19str_format_internal12_GLOBAL__N_125PrintFractionalDigitsFastENS_7uint128EPcim(i64 %v.coerce0, i64 %v.coerce1, ptr noundef nonnull %start, i32 noundef range(i32 1, -2147483648) %exp, i64 noundef %precision) unnamed_addr #8 {
 entry:
   %sub = sub nsw i32 128, %exp
   %coerce.sroa.2.0.insert.ext.i.i = zext i64 %v.coerce1 to i128

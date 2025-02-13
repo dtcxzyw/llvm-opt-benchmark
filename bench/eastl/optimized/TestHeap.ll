@@ -34,7 +34,7 @@ $__clang_call_terminate = comdat any
 @.str.12 = private unnamed_addr constant [24 x i8] c"is_heap(heap, heap + 5)\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z11VerifyHeapsPjS_j(ptr noundef readonly captures(address) %pArray2, ptr noundef readonly captures(address) %pArray3, i32 noundef %nArraySize) local_unnamed_addr #0 {
+define dso_local noundef i32 @_Z11VerifyHeapsPjS_j(ptr noundef readonly %pArray2, ptr noundef readonly %pArray3, i32 noundef %nArraySize) local_unnamed_addr #0 {
 entry:
   %nErrorCount = alloca i32, align 4
   store i32 0, ptr %nErrorCount, align 4

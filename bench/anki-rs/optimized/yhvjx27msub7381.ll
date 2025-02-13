@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1fd0f21b59ebd390a4b6844ce9c4a3aa.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1fd0f21b59ebd390a4b6844ce9c4a3aa.4, [16 x i8] c"\1A\00\00\00\00\00\00\00\F2\00\00\00I\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h39c9d34820ec298aE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h39c9d34820ec298aE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = icmp ne ptr %1, null

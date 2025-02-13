@@ -2122,7 +2122,7 @@ define dso_local void @LWLockReleaseAll() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @LWLockHeldByMe(ptr noundef readnone captures(address) %0) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @LWLockHeldByMe(ptr noundef readnone %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @num_held_lwlocks, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
@@ -2187,7 +2187,7 @@ define dso_local noundef zeroext i1 @LWLockAnyHeldByMe(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @LWLockHeldByMeInMode(ptr noundef readnone captures(address) %0, i32 noundef %1) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @LWLockHeldByMeInMode(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @num_held_lwlocks, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge

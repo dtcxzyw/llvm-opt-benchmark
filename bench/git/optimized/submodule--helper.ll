@@ -9036,7 +9036,7 @@ declare ptr @repo_get_submodule_ref_store(ptr noundef, ptr noundef) local_unname
 declare i32 @refs_head_ref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @handle_submodule_head_ref(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 %3, ptr noundef writeonly captures(none) %4) #12 {
+define internal noundef i32 @handle_submodule_head_ref(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly %2, i32 %3, ptr noundef writeonly captures(none) %4) #12 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %6
 

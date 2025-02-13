@@ -51,7 +51,7 @@ $_ZN4llvm8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfo
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm37convertUsersOfConstantsToInstructionsENS_8ArrayRefIPNS_8ConstantEEEPNS_8FunctionEbb(ptr readonly captures(address) %0, i64 %1, ptr noundef readnone captures(address) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm37convertUsersOfConstantsToInstructionsENS_8ArrayRefIPNS_8ConstantEEEPNS_8FunctionEbb(ptr readonly %0, i64 %1, ptr noundef readnone %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::InsertPosition", align 8
   %7 = alloca i32, align 4
   %8 = alloca %"class.llvm::Twine", align 8

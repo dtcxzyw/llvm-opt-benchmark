@@ -3500,7 +3500,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
 declare float @llvm.fmuladd.f32(float, float, float) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Nbnxm4Grid17calcColumnIndicesERKNS0_10DimensionsEPKN3gmx15UpdateGroupsCogENS4_5RangeIiEENS4_8ArrayRefIKNS4_11BasicVectorIfEEEEiPKiiiNSA_IiEESH_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(68) %0, ptr noundef readonly captures(address_is_null) %1, i64 %2, ptr readonly captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly byval(%"class.gmx::ArrayRef.31") align 8 captures(none) %9, ptr noundef readonly byval(%"class.gmx::ArrayRef.31") align 8 captures(none) %10) local_unnamed_addr #19 align 2 {
+define void @_ZN5Nbnxm4Grid17calcColumnIndicesERKNS0_10DimensionsEPKN3gmx15UpdateGroupsCogENS4_5RangeIiEENS4_8ArrayRefIKNS4_11BasicVectorIfEEEEiPKiiiNSA_IiEESH_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(68) %0, ptr noundef readonly %1, i64 %2, ptr readonly captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly byval(%"class.gmx::ArrayRef.31") align 8 captures(none) %9, ptr noundef readonly byval(%"class.gmx::ArrayRef.31") align 8 captures(none) %10) local_unnamed_addr #19 align 2 {
   %.sroa.0110.0.extract.trunc = trunc i64 %2 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i32, ptr %12, align 4

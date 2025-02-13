@@ -2023,7 +2023,7 @@ jv_copy.exit:                                     ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @jv_string_value(i64 %0, ptr readnone captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define nonnull ptr @jv_string_value(i64 %0, ptr readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   ret ptr %3
 }
@@ -4901,7 +4901,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone captures(ret: address, provenance) %1, ptr captures(none) %2) unnamed_addr #17 {
+define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone %1, ptr captures(none) %2) unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 1
@@ -5017,7 +5017,7 @@ jvp_string_hash.exit:                             ; preds = %7, %49
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: address, provenance) %0, ptr captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #18 {
+define internal fastcc ptr @jvp_object_find_slot(ptr readonly %0, ptr captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #18 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 1
@@ -5351,7 +5351,7 @@ jvp_object_free.exit:                             ; preds = %2, %._crit_edge.i46
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @jvp_object_add_slot(i64 %0, ptr captures(ret: address, provenance) %1, i64 %2, ptr %3, ptr noundef captures(none) %4) unnamed_addr #19 {
+define internal fastcc ptr @jvp_object_add_slot(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef captures(none) %4) unnamed_addr #19 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.sroa.1.0.extract.shift.i = lshr i64 %0, 32

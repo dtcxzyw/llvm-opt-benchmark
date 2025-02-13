@@ -659,7 +659,7 @@ define ptr @dt_image_cache_testget(ptr noundef %0, i32 noundef %1, i8 noundef si
 declare ptr @dt_cache_testget(ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_image_cache_read_release(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @dt_image_cache_read_release(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 

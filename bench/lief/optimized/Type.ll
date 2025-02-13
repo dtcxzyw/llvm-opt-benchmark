@@ -991,7 +991,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN4LIEF3DEX4Type9primiti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3DEX4Type21underlying_array_typeEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3DEX4Type21underlying_array_typeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 3
@@ -1015,7 +1015,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3DEX4Type21unde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF3DEX4Type21underlying_array_typeEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF3DEX4Type21underlying_array_typeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 3

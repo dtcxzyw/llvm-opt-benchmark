@@ -33,7 +33,7 @@ define hidden ptr @edited_profile_list() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @get_profile_parent(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @edited_profiles, align 8
   %3 = tail call ptr @g_list_first(ptr noundef %2) #5
   %4 = load ptr, ptr @edited_profiles, align 8

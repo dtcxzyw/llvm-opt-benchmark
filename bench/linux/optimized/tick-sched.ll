@@ -118,7 +118,7 @@ define dso_local zeroext i1 @tick_nohz_tick_stopped_cpu(i32 noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idle_time_us(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #5 align 16 {
+define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idle_time_us(i32 noundef %0, ptr noundef writeonly %1) #5 align 16 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
@@ -222,7 +222,7 @@ define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idl
 declare dso_local i32 @nr_iowait_cpu(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_iowait_time_us(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #5 align 16 {
+define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_iowait_time_us(i32 noundef %0, ptr noundef writeonly %1) #5 align 16 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8

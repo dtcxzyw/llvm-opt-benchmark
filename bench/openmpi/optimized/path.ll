@@ -30,7 +30,7 @@ define zeroext i1 @opal_path_is_absolute(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @opal_path_find(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define noalias ptr @opal_path_find(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.stat, align 8
   %7 = alloca %struct.stat, align 8
@@ -369,7 +369,7 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @opal_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define noalias ptr @opal_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -617,7 +617,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @opal_path_nfs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define noundef zeroext i1 @opal_path_nfs(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.statfs, align 8
   %4 = alloca %struct.statvfs, align 8
   %5 = tail call noalias ptr @strdup(ptr noundef %0) #14
@@ -848,7 +848,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @opal_path_df(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @opal_path_df(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.statfs, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null

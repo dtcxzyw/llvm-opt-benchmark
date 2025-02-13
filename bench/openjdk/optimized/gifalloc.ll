@@ -26,7 +26,7 @@ define hidden range(i32 1, 10) i32 @GifBitSize(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @GifMakeMapObject(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @GifMakeMapObject(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -103,7 +103,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @GifFreeMapObject(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define hidden void @GifFreeMapObject(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -398,7 +398,7 @@ define hidden void @GifApplyTranslation(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 {
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -488,7 +488,7 @@ define hidden void @GifFreeExtensions(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @FreeLastSavedImage(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden void @FreeLastSavedImage(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %GifFreeExtensions.exit, label %3
 
@@ -565,7 +565,7 @@ GifFreeExtensions.exit:                           ; preds = %._crit_edge.i, %21,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @GifMakeSavedImage(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define hidden ptr @GifMakeSavedImage(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -747,7 +747,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @GifFreeSavedImages(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden void @GifFreeSavedImages(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
 

@@ -2050,7 +2050,7 @@ declare void @arena_set(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @base_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @arena_bin_choose(ptr noundef readonly captures(address_is_null) %tsdn, ptr noundef readnone captures(ret: address, provenance) %arena, i32 noundef %binind, ptr noundef writeonly captures(address_is_null) %binshard_p) local_unnamed_addr #5 {
+define hidden ptr @arena_bin_choose(ptr noundef readonly %tsdn, ptr noundef readnone %arena, i32 noundef %binind, ptr noundef writeonly %binshard_p) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %tsdn, null
   br i1 %cmp.i, label %do.end, label %lor.lhs.false
@@ -6868,7 +6868,7 @@ declare void @bitmap_init(ptr noundef, ptr noundef, i1 noundef zeroext) local_un
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @arena_choose(ptr noundef %tsd, ptr noundef readnone captures(address_is_null, ret: address, provenance) %arena) unnamed_addr #0 {
+define internal fastcc ptr @arena_choose(ptr noundef %tsd, ptr noundef readnone %arena) unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %arena, null
   br i1 %cmp.not.i, label %if.end.i, label %arena_choose_impl.exit

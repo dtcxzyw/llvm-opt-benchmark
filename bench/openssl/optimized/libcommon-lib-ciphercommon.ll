@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_cipher_generic_reset_ctx(ptr noundef captures(address_is_null) %ctx) local_unnamed_addr #1 {
+define void @ossl_cipher_generic_reset_ctx(ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -422,14 +422,14 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cipher_generic_einit(ptr noundef initializes((96, 104), (160, 164)) %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef captures(address_is_null) %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_einit(ptr noundef initializes((96, 104), (160, 164)) %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cipher_generic_init_internal(ptr noundef initializes((96, 104), (160, 164)) %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly captures(address_is_null) %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @cipher_generic_init_internal(ptr noundef initializes((96, 104), (160, 164)) %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #1 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %ctx, i64 160
   store i32 0, ptr %num, align 8
@@ -549,7 +549,7 @@ return:                                           ; preds = %ossl_cipher_generic
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cipher_generic_dinit(ptr noundef initializes((96, 104), (160, 164)) %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef captures(address_is_null) %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_generic_dinit(ptr noundef initializes((96, 104), (160, 164)) %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @cipher_generic_init_internal(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call

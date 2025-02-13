@@ -99,7 +99,7 @@ return:                                           ; preds = %entry, %if.end11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, 2) i64 @can_bus_client_send(ptr noundef readonly captures(address) %client, ptr noundef %frames, i64 noundef %frames_cnt) local_unnamed_addr #2 {
+define dso_local range(i64 -1, 2) i64 @can_bus_client_send(ptr noundef readonly %client, ptr noundef %frames, i64 noundef %frames_cnt) local_unnamed_addr #2 {
 entry:
   %bus1 = getelementptr inbounds nuw i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8

@@ -2541,7 +2541,7 @@ define hidden void @_ZN6anyhow5error11object_drop17h2493c14de0db9429E(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h000bd36f4cadf26cE(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h000bd36f4cadf26cE(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 {
   %4 = icmp eq i64 %1, -2299629450670853033
   %5 = icmp eq i64 %2, 4589023466475880565
   %or.cond = and i1 %4, %5
@@ -2551,7 +2551,7 @@ define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h000bd36f4cadf26cE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc9d111a747d4db05E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hc9d111a747d4db05E(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 {
   %4 = icmp eq i64 %1, 5962721588263145200
   %5 = icmp eq i64 %2, -8094728195918912621
   %or.cond = and i1 %4, %5

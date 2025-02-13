@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_asid_add_inherit(ptr noundef captures(address_is_null) %asid, i32 noundef %which) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_add_inherit(ptr noundef %asid, i32 noundef %which) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %return, label %if.end
@@ -254,7 +254,7 @@ return:                                           ; preds = %if.then3, %if.end, 
 declare ptr @ASN1_NULL_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_asid_add_id_or_range(ptr noundef captures(address_is_null) %asid, i32 noundef %which, ptr noundef %min, ptr noundef %max) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_add_id_or_range(ptr noundef %asid, i32 noundef %which, ptr noundef %min, ptr noundef %max) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %return, label %if.end
@@ -446,7 +446,7 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_asid_is_canonical(ptr noundef readonly captures(address_is_null) %asid) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_is_canonical(ptr noundef readonly %asid) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -469,7 +469,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_is_canonical(ptr noundef readonly captures(address_is_null) %choice) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_is_canonical(ptr noundef readonly %choice) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -656,7 +656,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_asid_canonize(ptr noundef readonly captures(address_is_null) %asid) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_canonize(ptr noundef readonly %asid) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -679,7 +679,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noundef captures(address_is_null) %choice) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noundef %choice) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1225,7 +1225,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @X509v3_asid_inherits(ptr noundef readonly captures(address_is_null) %asid) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @X509v3_asid_inherits(ptr noundef readonly %asid) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %asid, null
   br i1 %cmp.not, label %land.end9, label %land.rhs
@@ -1258,7 +1258,7 @@ land.end9:                                        ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509v3_asid_subset(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_subset(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %a, %b
@@ -1496,7 +1496,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asid_validate_path_internal(ptr noundef %ctx, ptr noundef %chain, ptr noundef readonly captures(address_is_null) %ext) unnamed_addr #1 {
+define internal fastcc i32 @asid_validate_path_internal(ptr noundef %ctx, ptr noundef %chain, ptr noundef readonly %ext) unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %chain, null
   br i1 %cmp.not, label %if.then, label %land.rhs
@@ -1966,7 +1966,7 @@ return:                                           ; preds = %do.body260, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509v3_asid_validate_resource_set(ptr noundef %chain, ptr noundef captures(address_is_null) %ext, i32 noundef %allow_inheritance) local_unnamed_addr #1 {
+define i32 @X509v3_asid_validate_resource_set(ptr noundef %chain, ptr noundef %ext, i32 noundef %allow_inheritance) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ext, null
   br i1 %cmp, label %return, label %if.end
@@ -2063,7 +2063,7 @@ declare ptr @s2i_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef readonly captures(address_is_null) %choice, i32 noundef %indent, ptr noundef %msg) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef readonly %choice, i32 noundef %indent, ptr noundef %msg) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %if.end

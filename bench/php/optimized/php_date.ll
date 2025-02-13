@@ -5958,7 +5958,7 @@ define noundef ptr @php_date_instantiate(ptr noundef %0, ptr noundef returned %1
 declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @php_date_initialize(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @php_date_initialize(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timeval, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8

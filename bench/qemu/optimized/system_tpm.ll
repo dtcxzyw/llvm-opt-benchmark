@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.TPM_IF_CLASS = private unnamed_addr constant [13 x i8] c"TPM_IF_CLASS\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_find_tpm_be(ptr noundef readonly captures(address_is_null) %id) local_unnamed_addr #0 {
+define dso_local ptr @qemu_find_tpm_be(ptr noundef readonly %id) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %id, null
   %drv.05 = load ptr, ptr @tpm_backends, align 8

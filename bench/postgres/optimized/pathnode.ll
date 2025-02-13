@@ -3074,7 +3074,7 @@ define dso_local noundef ptr @create_foreignscan_path(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_foreign_join_path(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef %6, ptr noundef readnone captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #2 {
+define dso_local noundef ptr @create_foreign_join_path(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef %6, ptr noundef readnone %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #2 {
   %12 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 272, ptr %12, align 4
   %13 = icmp eq ptr %7, null
@@ -5568,7 +5568,7 @@ create_memoize_path.exit:                         ; preds = %204, %228
 declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

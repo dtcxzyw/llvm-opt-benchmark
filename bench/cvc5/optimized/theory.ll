@@ -2775,7 +2775,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory6Theory20collectAssertedTermsERSt3setINS0_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EEbRKS3_INS0_4kind6Kind_tES6_ISC_ESaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(48) %termSet, i1 noundef zeroext %includeShared, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %irrKinds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory6Theory20collectAssertedTermsERSt3setINS0_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EEbRKS3_INS0_4kind6Kind_tES6_ISC_ESaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(48) %termSet, i1 noundef zeroext %includeShared, ptr noundef nonnull align 8 dereferenceable(48) %irrKinds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp14 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -2821,7 +2821,7 @@ if.end:                                           ; preds = %for.body13, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, ptr noundef readonly captures(none) %n, ptr noundef nonnull align 8 dereferenceable(48) %termSet, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %irrKinds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory6Theory12collectTermsENS0_12NodeTemplateILb0EEERSt3setINS3_ILb1EEESt4lessIS6_ESaIS6_EERKS5_INS0_4kind6Kind_tES7_ISD_ESaISD_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, ptr noundef readonly captures(none) %n, ptr noundef nonnull align 8 dereferenceable(48) %termSet, ptr noundef nonnull readonly align 8 dereferenceable(48) %irrKinds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %visit = alloca %"class.std::vector", align 8
   %ref.tmp26 = alloca %"class.cvc5::internal::NodeTemplate.355", align 8

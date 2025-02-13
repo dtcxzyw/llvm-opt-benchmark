@@ -259,7 +259,7 @@ declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_method_store_remove_all_provided(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef readonly captures(address_is_null) %loader) local_unnamed_addr #1 {
+define ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef readonly %loader) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %loader, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -287,7 +287,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_LOADER_get0_properties(ptr noundef readonly captures(address_is_null) %loader) local_unnamed_addr #1 {
+define ptr @OSSL_STORE_LOADER_get0_properties(ptr noundef readonly %loader) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %loader, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -309,7 +309,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_store_loader_get_number(ptr noundef readonly captures(address_is_null) %loader) local_unnamed_addr #1 {
+define i32 @ossl_store_loader_get_number(ptr noundef readonly %loader) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %loader, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -413,7 +413,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_LOADER_names_do_all(ptr noundef readonly captures(address_is_null) %loader, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #1 {
+define i32 @OSSL_STORE_LOADER_names_do_all(ptr noundef readonly %loader, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %loader, null
   br i1 %cmp, label %return, label %if.end

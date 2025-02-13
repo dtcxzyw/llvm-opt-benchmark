@@ -15340,7 +15340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @hb_subset_plan_reference(ptr noundef returned captures(address_is_null, ret: address, provenance) %plan) local_unnamed_addr #5 {
+define dso_local noundef ptr @hb_subset_plan_reference(ptr noundef returned %plan) local_unnamed_addr #5 {
 entry:
   %tobool.not.i.i = icmp eq ptr %plan, null
   br i1 %tobool.not.i.i, label %_ZL19hb_object_referenceI16hb_subset_plan_tEPT_S2_.exit, label %lor.lhs.false.i
@@ -15360,7 +15360,7 @@ _ZL19hb_object_referenceI16hb_subset_plan_tEPT_S2_.exit: ; preds = %entry, %lor.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hb_subset_plan_set_user_data(ptr noundef captures(address_is_null) %plan, ptr noundef %key, ptr noundef %data, ptr noundef %destroy, i32 noundef %replace) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_subset_plan_set_user_data(ptr noundef %plan, ptr noundef %key, ptr noundef %data, ptr noundef %destroy, i32 noundef %replace) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %plan, null
   br i1 %tobool.not.i, label %_ZL23hb_object_set_user_dataI16hb_subset_plan_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %lor.lhs.false.i
@@ -15415,7 +15415,7 @@ _ZL23hb_object_set_user_dataI16hb_subset_plan_tEbPT_P18hb_user_data_key_tPvPFvS5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @hb_subset_plan_get_user_data(ptr noundef readonly captures(address_is_null) %plan, ptr noundef readnone captures(address) %key) local_unnamed_addr #0 {
+define dso_local ptr @hb_subset_plan_get_user_data(ptr noundef readonly %plan, ptr noundef readnone %key) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %plan, null
   br i1 %tobool.not.i, label %_ZL23hb_object_get_user_dataIK16hb_subset_plan_tEPvPT_P18hb_user_data_key_t.exit, label %lor.lhs.false.i

@@ -10912,7 +10912,7 @@ ZSTD_decompressSequencesLong_body.exit:           ; preds = %do.body53.i, %do.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op, ptr noundef %oend, ptr noundef readonly byval(%struct.seq_t) align 8 captures(none) %sequence, ptr noundef nonnull captures(none) %litPtr, ptr noundef %litLimit, ptr noundef %prefixStart, ptr noundef %virtualStart, ptr noundef readonly captures(address) %dictEnd) unnamed_addr #13 {
+define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %op, ptr noundef %oend, ptr noundef readonly byval(%struct.seq_t) align 8 captures(none) %sequence, ptr noundef nonnull captures(none) %litPtr, ptr noundef %litLimit, ptr noundef %prefixStart, ptr noundef %virtualStart, ptr noundef readonly %dictEnd) unnamed_addr #13 {
 entry:
   %0 = load i64, ptr %sequence, align 8
   %add.ptr = getelementptr inbounds i8, ptr %op, i64 %0

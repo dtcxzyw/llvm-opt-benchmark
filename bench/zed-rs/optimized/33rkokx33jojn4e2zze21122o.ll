@@ -21541,7 +21541,7 @@ define hidden void @_ZN4gpui7element7Element8into_any17hfb6667f32c2f545fE(ptr de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(1048) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h6bab1136858b5836E.llvm.2269275415539677948"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(1048) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(1048) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h6bab1136858b5836E.llvm.2269275415539677948"(ptr noalias noundef readonly returned align 8 dereferenceable(1048) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

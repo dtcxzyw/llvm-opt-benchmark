@@ -1601,7 +1601,7 @@ if.end44:                                         ; preds = %_ZNK12btDbvtAabbMm7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull captures(none) %pdbvt, ptr noundef readonly captures(address) %leaf) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull captures(none) %pdbvt, ptr noundef readonly %leaf) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pdbvt, align 8
   %cmp = icmp eq ptr %leaf, %0
@@ -2881,7 +2881,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6btDbvt8maxdepthEPK10btDbvtNode(ptr noundef readonly captures(address_is_null) %node) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZN6btDbvt8maxdepthEPK10btDbvtNode(ptr noundef readonly %node) local_unnamed_addr #8 align 2 {
 entry:
   %depth = alloca i32, align 4
   store i32 0, ptr %depth, align 4

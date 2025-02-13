@@ -157,7 +157,7 @@ define internal i32 @rtl8139_init_module() #1 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
+define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly %1) #2 align 16 {
   %3 = alloca [3 x i16], align 2
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #14
   %4 = icmp eq ptr %0, null
@@ -2420,7 +2420,7 @@ declare dso_local zeroext i1 @napi_schedule_prep(ptr noundef) local_unnamed_addr
 declare dso_local void @__napi_schedule(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8139_weird_interrupt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 0, 65535) %3, i32 noundef range(i32 0, 2049) %4) unnamed_addr #2 align 16 {
+define internal fastcc void @rtl8139_weird_interrupt(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 65535) %3, i32 noundef range(i32 0, 2049) %4) unnamed_addr #2 align 16 {
   %6 = alloca i16, align 2
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %10, !prof !5

@@ -7107,7 +7107,7 @@ declare void @diff_flush(ptr noundef) local_unnamed_addr #4
 declare ptr @mem_pool_strdup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @path_msg(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 28) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7, ...) unnamed_addr #0 {
+define internal void @path_msg(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 28) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7, ...) unnamed_addr #0 {
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = alloca %struct.strbuf, align 8
   %11 = alloca %struct.strbuf, align 8
@@ -8321,7 +8321,7 @@ declare ptr @lookup_commit_reference(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @repo_in_merge_bases(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_first_merges(ptr noundef nonnull %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull initializes((0, 16)) %4) unnamed_addr #0 {
+define internal fastcc i32 @find_first_merges(ptr noundef nonnull %0, ptr noundef readnone %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull initializes((0, 16)) %4) unnamed_addr #0 {
   %6 = alloca %struct.object_array, align 8
   %7 = alloca [66 x i8], align 16
   %8 = alloca [6 x ptr], align 16

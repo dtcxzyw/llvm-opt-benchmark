@@ -12380,7 +12380,7 @@ unreachable:                                      ; preds = %invoke.cont24
 declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode9isIntegerEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory5arith13ArithIteUtils10findIteCndENS0_12NodeTemplateILb0EEES5_(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(504) %this, ptr noundef nonnull %tb, ptr noundef %fb) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory5arith13ArithIteUtils10findIteCndENS0_12NodeTemplateILb0EEES5_(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(504) %this, ptr noundef nonnull %tb, ptr noundef %fb) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %negtb = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %negfb = alloca %"class.cvc5::internal::NodeTemplate", align 8

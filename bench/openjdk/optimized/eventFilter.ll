@@ -77,7 +77,7 @@ declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -702,7 +702,7 @@ declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #1
 declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilter(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilter(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 0, ptr %3, align 1
   %6 = load i32, ptr %5, align 8
@@ -879,7 +879,7 @@ patternStringMatch.exit.thread:                   ; preds = %23, %patternStringM
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0

@@ -3763,7 +3763,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal4expr16containsSubproofEPNS0_9ProofNodeES3_(ptr noundef %pn, ptr noundef captures(address) %pnc) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal4expr16containsSubproofEPNS0_9ProofNodeES3_(ptr noundef %pn, ptr noundef %pnc) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %visited = alloca %"class.std::unordered_set.85", align 8
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %visited, i64 48
@@ -3816,7 +3816,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal4expr16containsSubproofEPNS0_9ProofNodeES3_RSt13unordered_setIPKS2_St4hashIS6_ESt8equal_toIS6_ESaIS6_EE(ptr noundef %pn, ptr noundef readnone captures(address) %pnc, ptr noundef nonnull align 8 dereferenceable(56) %visited) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal4expr16containsSubproofEPNS0_9ProofNodeES3_RSt13unordered_setIPKS2_St4hashIS6_ESt8equal_toIS6_ESaIS6_EE(ptr noundef %pn, ptr noundef readnone %pnc, ptr noundef nonnull align 8 dereferenceable(56) %visited) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %cur = alloca ptr, align 8

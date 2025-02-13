@@ -14668,7 +14668,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers6Parser10ParseTableERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr noalias sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %ovalue) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers6Parser10ParseTableERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr noalias sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef %value, ptr noundef writeonly %ovalue) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1393 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i1221 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -36489,7 +36489,7 @@ if.end:                                           ; preds = %"_ZSt25__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11flatbuffers7EnumDef16RemoveDuplicatesEv(ptr noundef nonnull align 8 captures(address) dereferenceable(312) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers7EnumDef16RemoveDuplicatesEv(ptr noundef nonnull align 8 dereferenceable(312) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vec = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %vec, align 8
@@ -36703,7 +36703,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers6Parser9ParseEnumEbPPNS_7EnumDefEPKc(ptr noalias sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, i1 noundef zeroext %is_union, ptr noundef writeonly captures(address_is_null) %dest, ptr noundef %filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers6Parser9ParseEnumEbPPNS_7EnumDefEPKc(ptr noalias sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, i1 noundef zeroext %is_union, ptr noundef writeonly %dest, ptr noundef %filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %enum_comment = alloca %"class.std::vector", align 8
@@ -38268,7 +38268,7 @@ ehcleanup732:                                     ; preds = %ehcleanup730, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers6Parser9StartEnumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPPNS_7EnumDefE(ptr noalias writeonly sret(%"class.flatbuffers::CheckedError") align 1 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %is_union, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers6Parser9StartEnumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPPNS_7EnumDefE(ptr noalias writeonly sret(%"class.flatbuffers::CheckedError") align 1 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i1 noundef zeroext %is_union, ptr noundef writeonly %dest) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %qualified_name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -49839,7 +49839,7 @@ eh.resume:                                        ; preds = %lpad22.body, %lpad.
 declare noundef zeroext i1 @_ZN11flatbuffers10FileExistsEPKc(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN11flatbuffers12_GLOBAL__N_18HashFileEPKcS2_(ptr noundef %source_filename, ptr noundef readonly captures(address_is_null) %source) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN11flatbuffers12_GLOBAL__N_18HashFileEPKcS2_(ptr noundef %source_filename, ptr noundef readonly %source) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -54069,7 +54069,7 @@ cond.end24:                                       ; preds = %cond.end24.sink.spl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser) local_unnamed_addr #4 align 2 {
+define dso_local i32 @_ZNK11flatbuffers10Definition19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser) local_unnamed_addr #4 align 2 {
 entry:
   %attributes = getelementptr inbounds nuw i8, ptr %this, i64 88
   %call = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %attributes, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser)
@@ -56667,7 +56667,7 @@ _ZN10reflection12FieldBuilder14add_deprecatedEb.exit: ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers4Type11DeserializeERKNS_6ParserEPKN10reflection4TypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(26) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1784) %parser, ptr noundef readonly captures(address_is_null) %type) local_unnamed_addr #16 align 2 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers4Type11DeserializeERKNS_6ParserEPKN10reflection4TypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(26) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1784) %parser, ptr noundef readonly %type) local_unnamed_addr #16 align 2 {
 entry:
   %cmp = icmp eq ptr %type, null
   br i1 %cmp, label %return, label %if.end
@@ -59358,7 +59358,7 @@ return:                                           ; preds = %_ZNSt3mapINSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK11flatbuffers7EnumVal19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 captures(address) dereferenceable(168) %this, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser) local_unnamed_addr #4 align 2 {
+define dso_local i32 @_ZNK11flatbuffers7EnumVal19SerializeAttributesEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser) local_unnamed_addr #4 align 2 {
 entry:
   %attributes = getelementptr inbounds nuw i8, ptr %this, i64 88
   %call = tail call fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(72) %attributes, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser)
@@ -59366,7 +59366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %attributes, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc i32 @_ZN11flatbuffersL25SerializeAttributesCommonERKNS_11SymbolTableINS_5ValueEEEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull readonly align 8 dereferenceable(72) %attributes, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.414", align 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %attributes, i64 24
@@ -91361,7 +91361,7 @@ return:                                           ; preds = %if.end, %if.then4.i
 declare float @strtof_l(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_124CompareSerializedScalarsEPKhS2_RKNS_8FieldDefE(ptr noundef readonly captures(address_is_null) %a, ptr noundef readonly captures(address_is_null) %b, ptr noundef nonnull align 8 dereferenceable(312) %key) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_124CompareSerializedScalarsEPKhS2_RKNS_8FieldDefE(ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef nonnull align 8 dereferenceable(312) %key) unnamed_addr #4 {
 entry:
   %end.i.i276 = alloca ptr, align 8
   %end.i.i = alloca ptr, align 8
@@ -93297,7 +93297,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumValESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7EnumDef11SortByValueEvE3$_0EEEvT_SF_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumValESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7EnumDef11SortByValueEvE3$_0EEEvT_SF_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader
@@ -93888,7 +93888,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumValESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7EnumDef11SortByValueEvE3$_1EEEvT_SF_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumValESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7EnumDef11SortByValueEvE3$_1EEEvT_SF_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader

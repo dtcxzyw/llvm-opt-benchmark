@@ -2651,7 +2651,7 @@ _ZNSt6vectorIN4llvm9InlineAsm14ConstraintInfoESaIS2_EED2Ev.exit: ; preds = %_ZSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15makeStringErrorPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL15makeStringErrorPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23

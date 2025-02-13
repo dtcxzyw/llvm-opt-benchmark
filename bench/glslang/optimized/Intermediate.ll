@@ -13067,7 +13067,7 @@ define void @_ZN7glslang13TIntermediate20addSymbolLinkageNodeERPNS_16TIntermAggr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TIntermediate14addToCallGraphER9TInfoSinkRKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEESB_(ptr noundef nonnull align 8 captures(address) dereferenceable(2024) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TIntermediate14addToCallGraphER9TInfoSinkRKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEESB_(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not15 = icmp eq ptr %6, %5
@@ -16293,7 +16293,7 @@ _ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEEC2EmRKS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang16TIntermAggregate14setPragmaTableERKNS_12TPragmaTableE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(364) initializes((304, 312)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang16TIntermAggregate14setPragmaTableERKNS_12TPragmaTableE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(364) initializes((304, 312)) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, glslang::pool_allocator<std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>>::_Reuse_or_alloc_node", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #17
   %5 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef 56) #17

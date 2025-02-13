@@ -1474,7 +1474,7 @@ _ZN5QListI29FilterNameParameterValuesPairED2Ev.exit: ; preds = %_ZN5QListI29Filt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12MeshDocument16meshDocStateDataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12MeshDocument16meshDocStateDataEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   ret ptr %2
 }
@@ -1487,7 +1487,7 @@ declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK12MeshDocument7getMeshEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK12MeshDocument7getMeshEj(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %4
 
@@ -1513,7 +1513,7 @@ define noundef ptr @_ZNK12MeshDocument7getMeshEj(ptr noundef nonnull readonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
+define noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %4
 
@@ -1607,7 +1607,7 @@ define void @_ZN12MeshDocument10setVisibleEib(ptr noundef nonnull align 8 derefe
 declare void @_ZN12MeshDocument14meshSetChangedEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN12MeshDocument9getRasterEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
+define noundef ptr @_ZN12MeshDocument9getRasterEj(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %4
 
@@ -1633,7 +1633,7 @@ define noundef ptr @_ZN12MeshDocument9getRasterEj(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12MeshDocument16setCurrentRasterEi(ptr noundef nonnull align 8 captures(address) dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #15 align 2 {
+define void @_ZN12MeshDocument16setCurrentRasterEi(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #15 align 2 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %_ZN12MeshDocument9getRasterEj.exit, label %4
 
@@ -1708,7 +1708,7 @@ _ZN12MeshDocument14setCurrentMeshEi.exit:         ; preds = %6, %_ZN12MeshDocume
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12MeshDocument10setCurrentEP11RasterModel(ptr noundef nonnull align 8 captures(address) dereferenceable(192) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 align 2 {
+define void @_ZN12MeshDocument10setCurrentEP11RasterModel(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -1742,7 +1742,7 @@ _ZN12MeshDocument16setCurrentRasterEi.exit:       ; preds = %8, %2, %.split.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN12MeshDocument15nextVisibleMeshEP9MeshModel(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN12MeshDocument15nextVisibleMeshEP9MeshModel(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef readnone %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
   %.fr = freeze i64 %4
@@ -1823,7 +1823,7 @@ _ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread: ; preds = %_ZN12MeshDocument
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN12MeshDocument8nextMeshEP9MeshModel(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN12MeshDocument8nextMeshEP9MeshModel(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef readnone %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8
@@ -1864,7 +1864,7 @@ define noundef ptr @_ZN12MeshDocument8nextMeshEP9MeshModel(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN12MeshDocument10nextRasterEP11RasterModel(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN12MeshDocument10nextRasterEP11RasterModel(ptr noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef readnone %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i64, ptr %4, align 8
@@ -3742,7 +3742,7 @@ _ZN12MeshDocument14setCurrentMeshEi.exit:         ; preds = %_ZN9QtPrivate8RefCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12MeshDocument27getMeshesLoadedFromSameFileB5cxx11ER9MeshModel(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.168") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(1288) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12MeshDocument27getMeshesLoadedFromSameFileB5cxx11ER9MeshModel(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.168") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(1288) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4376,7 +4376,7 @@ _ZNSt7__cxx114listI11RasterModelSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK12MeshDocument2vnEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK12MeshDocument2vnEv(ptr noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.05.08 = load ptr, ptr %2, align 8
   %.not9 = icmp eq ptr %.sroa.05.08, %2
@@ -4398,7 +4398,7 @@ define noundef i32 @_ZNK12MeshDocument2vnEv(ptr noundef nonnull readonly align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK12MeshDocument2fnEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK12MeshDocument2fnEv(ptr noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.05.08 = load ptr, ptr %2, align 8
   %.not9 = icmp eq ptr %.sroa.05.08, %2
@@ -4420,7 +4420,7 @@ define noundef i32 @_ZNK12MeshDocument2fnEv(ptr noundef nonnull readonly align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12MeshDocument4bboxEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Box3") align 4 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12MeshDocument4bboxEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Box3") align 4 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store float 1.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float -1.000000e+00, ptr %3, align 4
@@ -5599,7 +5599,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147:     ; preds = %3, %8, %656, %654, 
 declare float @llvm.fmuladd.f32(float, float, float) #21
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK12MeshDocument15hasBeenModifiedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK12MeshDocument15hasBeenModifiedEv(ptr noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %3
 
@@ -5628,7 +5628,7 @@ define ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull readonly align 8 c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define nonnull ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
@@ -5641,7 +5641,7 @@ define ptr @_ZN12MeshDocument11rasterBeginEv(ptr noundef nonnull readonly align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define nonnull ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   ret ptr %2
 }
@@ -5654,7 +5654,7 @@ define ptr @_ZNK12MeshDocument9meshBeginEv(ptr noundef nonnull readonly align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK12MeshDocument7meshEndEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define nonnull ptr @_ZNK12MeshDocument7meshEndEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
@@ -5667,28 +5667,28 @@ define ptr @_ZNK12MeshDocument11rasterBeginEv(ptr noundef nonnull readonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK12MeshDocument9rasterEndEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define nonnull ptr @_ZNK12MeshDocument9rasterEndEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull readnone returned align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK12MeshDocument12meshIteratorEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZNK12MeshDocument12meshIteratorEv(ptr noundef nonnull readnone returned align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12MeshDocument14rasterIteratorEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN12MeshDocument14rasterIteratorEv(ptr noundef nonnull readnone returned align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK12MeshDocument14rasterIteratorEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZNK12MeshDocument14rasterIteratorEv(ptr noundef nonnull readnone returned align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   ret ptr %0
 }
 

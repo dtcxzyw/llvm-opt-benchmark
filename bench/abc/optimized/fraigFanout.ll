@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fraig_NodeAddFaninFanout(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
@@ -68,7 +68,7 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef captures(address) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fraig_NodeRemoveFaninFanout(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
+define void @Fraig_NodeRemoveFaninFanout(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
@@ -113,7 +113,7 @@ define void @Fraig_NodeRemoveFaninFanout(ptr noundef captures(address) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fraig_NodeTransferFanout(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.027 = load ptr, ptr %3, align 8, !tbaa !15
   %.not28 = icmp eq ptr %.027, null
@@ -183,7 +183,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef captures(address) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Fraig_NodeGetFanoutNum(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
+define i32 @Fraig_NodeGetFanoutNum(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.089 = load ptr, ptr %2, align 8, !tbaa !15
   %.not10 = icmp eq ptr %.089, null

@@ -163,7 +163,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @messageDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @messageDestroy(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -177,7 +177,7 @@ define void @messageDestroy(ptr noundef captures(address_is_null) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @messageReset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @messageReset(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %41, label %3
 
@@ -293,7 +293,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @messageSetMimeType(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @messageSetMimeType(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -861,7 +861,7 @@ pop.exit:                                         ; preds = %compare.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @messageGetMimeType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @messageGetMimeType(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -880,7 +880,7 @@ define i32 @messageGetMimeType(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @messageSetMimeSubtype(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @messageSetMimeSubtype(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -928,7 +928,7 @@ define nonnull ptr @messageGetMimeSubtype(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @messageSetDispositionType(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @messageSetDispositionType(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1010,7 +1010,7 @@ define nonnull ptr @messageGetDispositionType(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define void @messageAddArgument(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @messageAddArgument(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1569,7 +1569,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @messageAddArguments(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @messageAddArguments(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, ptr noundef %1) #21
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %.preheader131
@@ -1793,7 +1793,7 @@ declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define ptr @messageFindArgument(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define ptr @messageFindArgument(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1904,7 +1904,7 @@ messageGetArgument.exit51:                        ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @messageGetFilename(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @messageGetFilename(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call ptr @messageFindArgument(ptr noundef %0, ptr noundef nonnull @.str.18)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1919,7 +1919,7 @@ define ptr @messageGetFilename(ptr noundef captures(address_is_null) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @messageHasFilename(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @messageHasFilename(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call fastcc i32 @messageHasArgument(ptr noundef %0, ptr noundef nonnull @.str.18)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %5
@@ -1934,7 +1934,7 @@ define range(i32 0, 2) i32 @messageHasFilename(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @messageHasArgument(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @messageHasArgument(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -2189,7 +2189,7 @@ declare ptr @__ctype_tolower_loc() local_unnamed_addr #7
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define i32 @messageGetEncoding(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @messageGetEncoding(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -2214,7 +2214,7 @@ define i32 @messageGetEncoding(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @messageAddLine(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @messageAddLine(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2389,7 +2389,7 @@ define internal fastcc void @messageIsEncoding(ptr noundef captures(none) %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @messageAddStr(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @messageAddStr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2726,7 +2726,7 @@ define internal fastcc void @messageDedup(ptr noundef nonnull captures(none) %0)
 declare ptr @lineCreate(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @messageMoveText(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @messageMoveText(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = icmp eq ptr %5, null
@@ -2865,7 +2865,7 @@ declare ptr @lineUnlink(ptr noundef) local_unnamed_addr #5
 declare ptr @textMove(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @messageGetBody(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define ptr @messageGetBody(ptr noundef readonly %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -2880,7 +2880,7 @@ define ptr @messageGetBody(ptr noundef readonly captures(address_is_null) %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @base64Flush(ptr noundef captures(none) %0, ptr noundef captures(ret: address, provenance) %1) local_unnamed_addr #3 {
+define ptr @base64Flush(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8, !tbaa !19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.58, i32 noundef %4) #21
@@ -2899,7 +2899,7 @@ define ptr @base64Flush(ptr noundef captures(none) %0, ptr noundef captures(ret:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decode(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(ret: address, provenance) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc ptr @decode(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !19
   switch i32 %7, label %16 [
@@ -4720,7 +4720,7 @@ declare i32 @blobAddData(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare ptr @textToBlob(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @messageToText(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @messageToText(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [4 x i8], align 4
   %4 = icmp eq ptr %0, null
@@ -5169,7 +5169,7 @@ define ptr @binhexBegin(ptr noundef readonly captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @decodeLine(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 {
+define ptr @decodeLine(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [77 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 77, ptr nonnull %6) #21
   %7 = icmp eq ptr %0, null

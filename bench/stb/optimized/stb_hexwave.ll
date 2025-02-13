@@ -885,7 +885,7 @@ return:                                           ; preds = %entry, %if.end239
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @hexwave_shutdown(ptr noundef readnone captures(address_is_null) %user_buffer) local_unnamed_addr #8 {
+define void @hexwave_shutdown(ptr noundef readnone %user_buffer) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %user_buffer, null
   br i1 %cmp.not, label %if.end, label %if.then

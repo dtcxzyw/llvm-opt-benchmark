@@ -18,14 +18,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @o_sig_init_ossl_ret_ = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OBJ_find_sigid_algs(i32 noundef %signid, ptr noundef captures(address_is_null) %pdig_nid, ptr noundef captures(address_is_null) %ppkey_nid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_find_sigid_algs(i32 noundef %signid, ptr noundef %pdig_nid, ptr noundef %ppkey_nid) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef %pdig_nid, ptr noundef %ppkey_nid, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef writeonly captures(address_is_null) %pdig_nid, ptr noundef writeonly captures(address_is_null) %ppkey_nid, i32 noundef range(i32 0, 2) %lock) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef writeonly %pdig_nid, ptr noundef writeonly %ppkey_nid, i32 noundef range(i32 0, 2) %lock) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.nid_triple, align 4
   %cmp = icmp eq i32 %signid, 0
@@ -116,7 +116,7 @@ return:                                           ; preds = %if.end29, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly captures(address_is_null) %psignid, i32 noundef %dig_nid, i32 noundef %pkey_nid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly %psignid, i32 noundef %dig_nid, i32 noundef %pkey_nid) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.nid_triple, align 4
   %t = alloca ptr, align 8

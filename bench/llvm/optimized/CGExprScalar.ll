@@ -42694,7 +42694,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter19ConstrainShiftValueEPN4llvm5ValueES3_RKNS1_5TwineE(ptr readonly captures(none) %.8.val, ptr captures(address_is_null) %.8.val1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter19ConstrainShiftValueEPN4llvm5ValueES3_RKNS1_5TwineE(ptr readonly captures(none) %.8.val, ptr %.8.val1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %.8.val1, i64 8
@@ -42827,7 +42827,7 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr readonly captures(address_is_null) %.8.val, ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter21GetMaximumShiftAmountEPN4llvm5ValueES3_b(ptr readonly %.8.val, ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %5 = load i32, ptr %4, align 8

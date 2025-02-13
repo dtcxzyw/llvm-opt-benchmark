@@ -2241,7 +2241,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing16TraceInterpreter24getSourceHashToBundleMapEOSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS6_EESaIS9_EERKNS1_10SynthTraceERKNS2_14ExecuteOptionsEPbSJ_(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %codeBufs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %trace, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %options, ptr noundef writeonly captures(address_is_null) %codeIsMmapped, ptr noundef writeonly captures(address_is_null) %isBytecode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing16TraceInterpreter24getSourceHashToBundleMapEOSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS6_EESaIS9_EERKNS1_10SynthTraceERKNS2_14ExecuteOptionsEPbSJ_(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %codeBufs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %trace, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %options, ptr noundef writeonly %codeIsMmapped, ptr noundef writeonly %isBytecode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::array", align 8
   %msg.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23743,7 +23743,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing16TraceInterpreter16createHostObjectEmE14FakeHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #23 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing16TraceInterpreter16createHostObjectEmE14FakeHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #23 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag

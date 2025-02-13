@@ -87,7 +87,7 @@ define i64 @Java_sun_font_NullFontScaler_getNullScalerContext(ptr noundef readno
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @isNullScalerContext(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @isNullScalerContext(ptr noundef readnone %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @theNullScalerContext, align 8
   %3 = icmp eq ptr %2, %0
   %4 = zext i1 %3 to i32

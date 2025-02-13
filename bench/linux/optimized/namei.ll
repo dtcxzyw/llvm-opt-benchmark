@@ -1037,7 +1037,7 @@ define internal fastcc i32 @htree_dirblock_to_tree(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address, ret: address, provenance) initializes((0, 72)) %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef initializes((0, 72)) %3) unnamed_addr #0 align 16 {
   %5 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #13
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -1793,7 +1793,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_find_dest_de(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ext4_insert_dentry(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_insert_dentry(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %7 = load i8, ptr %6, align 2
   %8 = zext i8 %7 to i32
@@ -1929,7 +1929,7 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly captures(address_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -117, 1) i32 @ext4_generic_delete_entry(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -117, 1) i32 @ext4_generic_delete_entry(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2014,7 +2014,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_generic_delete_entry(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ext4_init_dot_dotdot(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 4), (6, 7)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local ptr @ext4_init_dot_dotdot(ptr noundef readonly captures(none) %0, ptr noundef writeonly initializes((0, 4), (6, 7)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
@@ -7258,7 +7258,7 @@ declare dso_local i32 @ext4fs_dirhash(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local void @__ext4_warning(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 536870912) i32 @dx_node_limit(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 0, 536870912) i32 @dx_node_limit(ptr noundef readonly %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -7336,7 +7336,7 @@ define internal fastcc range(i32 0, 536870912) i32 @dx_node_limit(ptr noundef re
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__ext4_find_entry(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__ext4_find_entry(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = alloca [3 x %struct.dx_frame], align 16
   %6 = alloca [8 x ptr], align 16
   %7 = alloca i32, align 4

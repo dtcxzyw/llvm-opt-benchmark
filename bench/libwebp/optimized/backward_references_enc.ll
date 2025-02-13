@@ -2833,7 +2833,7 @@ declare void @VP8LHistogramCreate(ptr noundef, ptr noundef, i32 noundef) local_u
 declare float @VP8LHistogramEstimateBits(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BackwardRefsClone(ptr readonly captures(address_is_null) %.8.val, ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @BackwardRefsClone(ptr readonly %.8.val, ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

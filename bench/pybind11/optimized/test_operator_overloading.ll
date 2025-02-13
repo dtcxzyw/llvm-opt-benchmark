@@ -44220,7 +44220,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7Vector2EE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ24test_submodule_operatorsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESJ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readnone captures(address_is_null) %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7Vector2EE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ24test_submodule_operatorsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESJ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readnone %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct._Guard.375, align 8
   %3 = alloca %"class.std::allocator", align 1
   %.not.i.i.i = icmp eq ptr %.16.val, null
@@ -46391,7 +46391,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %"_ZNO8pybind116deta
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE9NestABaseJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE9NestABaseJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_operatorsRN8pybind117module_EE9NestABase, ptr %4, align 8
@@ -47066,7 +47066,7 @@ declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #6
 declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE9NestABaseJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE9NestABaseJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -47822,7 +47822,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %3, %7, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestAJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestAJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_operatorsRN8pybind117module_EE5NestA, ptr %4, align 8
@@ -48149,7 +48149,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef nonnull align 4 dereferenceable(8) ptr @_ZN8pybind116detail7op_implILNS0_5op_idE27ELNS0_7op_typeE0EZ24test_submodule_operatorsRNS_7module_EE5NestAS6_iE7executeERS6_RKi(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
+define internal noundef nonnull align 4 dereferenceable(8) ptr @_ZN8pybind116detail7op_implILNS0_5op_idE27ELNS0_7op_typeE0EZ24test_submodule_operatorsRNS_7module_EE5NestAS6_iE7executeERS6_RKi(ptr noundef nonnull returned align 4 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -48553,7 +48553,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %23
 declare i32 @PyModule_AddObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestBJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestBJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_operatorsRN8pybind117module_EE5NestB, ptr %4, align 8
@@ -48884,7 +48884,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef nonnull align 4 dereferenceable(12) ptr @_ZN8pybind116detail7op_implILNS0_5op_idE28ELNS0_7op_typeE0EZ24test_submodule_operatorsRNS_7module_EE5NestBS6_iE7executeERS6_RKi(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
+define internal noundef nonnull align 4 dereferenceable(12) ptr @_ZN8pybind116detail7op_implILNS0_5op_idE28ELNS0_7op_typeE0EZ24test_submodule_operatorsRNS_7module_EE5NestBS6_iE7executeERS6_RKi(ptr noundef nonnull returned align 4 dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
@@ -49302,7 +49302,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ24test_submodule_operatorsR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestBJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestBJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -49556,7 +49556,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestCJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestCJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_operatorsRN8pybind117module_EE5NestC, ptr %4, align 8
@@ -49889,7 +49889,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef nonnull align 4 dereferenceable(16) ptr @_ZN8pybind116detail7op_implILNS0_5op_idE29ELNS0_7op_typeE0EZ24test_submodule_operatorsRNS_7module_EE5NestCS6_iE7executeERS6_RKi(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
+define internal noundef nonnull align 4 dereferenceable(16) ptr @_ZN8pybind116detail7op_implILNS0_5op_idE29ELNS0_7op_typeE0EZ24test_submodule_operatorsRNS_7module_EE5NestCS6_iE7executeERS6_RKi(ptr noundef nonnull returned align 4 dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #22 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -50306,7 +50306,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ24test_submodule_operatorsR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestCJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE5NestCJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -50560,7 +50560,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE10ComparableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE10ComparableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_operatorsRN8pybind117module_EE10Comparable, ptr %4, align 8
@@ -51063,7 +51063,7 @@ _ZZN8pybind1112cpp_function10initializeIRPFbRKZ24test_submodule_operatorsRNS_7mo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE8HashableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE8HashableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_operatorsRN8pybind117module_EE8Hashable, ptr %4, align 8
@@ -51671,7 +51671,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1ImZ24test_submodule_operatorsRNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE9Hashable2JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_operatorsRNS_7module_EE9Hashable2JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_operatorsRN8pybind117module_EE9Hashable2, ptr %4, align 8

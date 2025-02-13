@@ -1329,7 +1329,7 @@ declare dso_local ptr @inet_bind2_bucket_find(ptr noundef, ptr noundef, i16 noun
 declare dso_local ptr @inet_bind2_bucket_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @inet_csk_bind_conflict(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @inet_csk_bind_conflict(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = tail call i32 @sock_i_uid(ptr noundef %0) #12
   tail call void @__rcu_read_lock() #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -2526,7 +2526,7 @@ define dso_local noundef ptr @inet_csk_reqsk_queue_add(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @inet_child_forget(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @inet_child_forget(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -3382,7 +3382,7 @@ declare dso_local ptr @inet_bhash2_addr_any_hashbucket(ptr noundef, ptr noundef,
 declare dso_local zeroext i1 @inet_bind2_bucket_match_addr_any(ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readonly captures(address) %0, ptr noundef nonnull %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readonly %0, ptr noundef nonnull %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, %1
   br i1 %7, label %65, label %8
 

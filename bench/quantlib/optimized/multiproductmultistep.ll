@@ -894,7 +894,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit26:                  ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib21MultiProductMultiStep9evolutionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(160) %this) unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib21MultiProductMultiStep9evolutionEv(ptr noundef nonnull readnone align 8 dereferenceable(160) %this) unnamed_addr #6 align 2 {
 entry:
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %evolution_

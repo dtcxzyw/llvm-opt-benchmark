@@ -474,7 +474,7 @@ declare void @qemu_cond_init(ptr noundef) local_unnamed_addr #1
 declare ptr @g_tree_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @page_request_addr_cmp(ptr noundef readnone captures(address) %ap, ptr noundef readnone captures(address) %bp) #4 {
+define internal range(i32 -1, 2) i32 @page_request_addr_cmp(ptr noundef readnone %ap, ptr noundef readnone %bp) #4 {
 entry:
   %cmp = icmp ugt ptr %ap, %bp
   %conv = zext i1 %cmp to i32
@@ -3067,7 +3067,7 @@ if.end:                                           ; preds = %for.body, %entry
 declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_migrate_incoming(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef captures(address_is_null) %channels, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_migrate_incoming(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef %channels, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   %.compoundliteral = alloca %struct.YankInstance, align 8
@@ -3123,7 +3123,7 @@ declare zeroext i1 @runstate_check(i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @yank_register_instance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef readonly captures(address_is_null) %channels, ptr noundef nonnull %errp) unnamed_addr #0 {
+define internal fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef readonly %channels, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %channel = alloca ptr, align 8
   store ptr null, ptr %channel, align 8
@@ -3463,7 +3463,7 @@ declare i32 @migrate_mode() local_unnamed_addr #1
 declare zeroext i1 @qemu_savevm_state_blocked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_migrate(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef readonly captures(address_is_null) %channels, i1 noundef zeroext %has_blk, i1 noundef zeroext %blk, i1 noundef zeroext %has_inc, i1 noundef zeroext %inc, i1 noundef zeroext %has_detach, i1 noundef zeroext %detach, i1 noundef zeroext %has_resume, i1 noundef zeroext %resume, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_migrate(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef readonly %channels, i1 noundef zeroext %has_blk, i1 noundef zeroext %blk, i1 noundef zeroext %has_inc, i1 noundef zeroext %inc, i1 noundef zeroext %has_detach, i1 noundef zeroext %detach, i1 noundef zeroext %has_resume, i1 noundef zeroext %resume, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %local_err.i = alloca ptr, align 8
   %local_err = alloca ptr, align 8

@@ -2840,7 +2840,7 @@ declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) 
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z12SetupMappingP10aiMaterial16aiTextureMappingRK10aiVector3tIfE(ptr noundef captures(address_is_null) %mat, i32 noundef %mode, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %axis) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z12SetupMappingP10aiMaterial16aiTextureMappingRK10aiVector3tIfE(ptr noundef %mat, i32 noundef %mode, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %axis) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %mat, null
   br i1 %cmp, label %cleanup.cont, label %if.end

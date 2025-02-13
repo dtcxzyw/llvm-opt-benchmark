@@ -693,7 +693,7 @@ lpad:                                             ; preds = %cond.true.i
 declare void @_ZN6icu_7513BasicTimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(224) ptr @_ZN6icu_7513OlsonTimeZoneaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(224) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %other) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(224) ptr @_ZN6icu_7513OlsonTimeZoneaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 dereferenceable(224) %other) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end
@@ -1934,7 +1934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513OlsonTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513OlsonTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %dynamic_cast.notnull
@@ -2089,7 +2089,7 @@ return:                                           ; preds = %if.end58, %land.lhs
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10arrayEqualPKvS0_i(ptr noundef readonly captures(address) %a1, ptr noundef readonly captures(address) %a2, i32 noundef %size) unnamed_addr #12 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10arrayEqualPKvS0_i(ptr noundef readonly %a1, ptr noundef readonly %a2, i32 noundef %size) unnamed_addr #12 {
 entry:
   %cmp = icmp eq ptr %a1, null
   %cmp1 = icmp eq ptr %a2, null

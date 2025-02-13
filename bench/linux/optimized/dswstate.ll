@@ -315,7 +315,7 @@ define dso_local void @acpi_ds_obj_stack_pop_and_delete(i32 noundef %0, ptr noun
 declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @acpi_ds_get_current_walk_state(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 align 16 {
+define dso_local ptr @acpi_ds_get_current_walk_state(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

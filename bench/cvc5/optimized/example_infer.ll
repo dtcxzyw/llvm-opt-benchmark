@@ -3555,7 +3555,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 declare void @_ZN4cvc58internal6theory13QuantPhaseReq17getEntailPolarityENS0_12NodeTemplateILb1EEEmbbRbS5_(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer11hasExamplesENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer11hasExamplesENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #6 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -3648,7 +3648,7 @@ return:                                           ; preds = %_ZNKSt3mapIN4cvc58i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer14getNumExamplesENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer14getNumExamplesENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #6 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -3707,7 +3707,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer10getExampleENS0_12NodeTemplateILb1EEEjRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %this, ptr noundef readonly captures(none) %f, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(24) %ex) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer10getExampleENS0_12NodeTemplateILb1EEEjRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef readonly captures(none) %f, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(24) %ex) local_unnamed_addr #5 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -3771,7 +3771,7 @@ if.end:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer15getExampleTermsENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %this, ptr noundef readonly captures(none) %f, ptr noundef nonnull align 8 dereferenceable(24) %exTerms) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer15getExampleTermsENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef readonly captures(none) %f, ptr noundef nonnull align 8 dereferenceable(24) %exTerms) local_unnamed_addr #5 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -3832,7 +3832,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer13getExampleOutENS0_12NodeTemplateILb1EEEj(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %this, ptr noundef readonly captures(none) %f, i32 noundef %i) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer13getExampleOutENS0_12NodeTemplateILb1EEEj(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef readonly captures(none) %f, i32 noundef %i) local_unnamed_addr #5 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -3939,7 +3939,7 @@ return:                                           ; preds = %if.then13.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer14hasExamplesOutENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(304) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers12ExampleInfer14hasExamplesOutENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(304) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #6 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8

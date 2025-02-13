@@ -3699,7 +3699,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp11MDLImporter10IsPosValidEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(158) %this, ptr noundef readnone captures(address) %szPos) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp11MDLImporter10IsPosValidEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(158) %this, ptr noundef readnone %szPos) local_unnamed_addr #11 align 2 {
 entry:
   %tobool.not = icmp eq ptr %szPos, null
   br i1 %tobool.not, label %land.end, label %land.lhs.true
@@ -3722,7 +3722,7 @@ land.end:                                         ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(158) %this, ptr noundef readnone captures(address) %szPos) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(158) %this, ptr noundef readnone %szPos) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i = icmp eq ptr %szPos, null
   br i1 %tobool.not.i, label %if.then, label %_ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit
@@ -3759,7 +3759,7 @@ if.end:                                           ; preds = %_ZNK6Assimp11MDLImp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKvPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(158) %this, ptr noundef readnone captures(address) %szPos, ptr noundef %szFile, i32 noundef %iLine) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MDLImporter9SizeCheckEPKvPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(158) %this, ptr noundef readnone %szPos, ptr noundef %szFile, i32 noundef %iLine) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %szBuffer = alloca [1024 x i8], align 16
   %tobool.not.i = icmp eq ptr %szPos, null

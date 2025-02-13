@@ -941,7 +941,7 @@ define internal void @bool_dealloc(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @bool_repr(ptr noundef readnone captures(address) %0) #0 {
+define internal nonnull ptr @bool_repr(ptr noundef readnone %0) #0 {
   %2 = icmp eq ptr %0, @_Py_TrueStruct
   %3 = select i1 %2, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36224), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35968)
   ret ptr %3

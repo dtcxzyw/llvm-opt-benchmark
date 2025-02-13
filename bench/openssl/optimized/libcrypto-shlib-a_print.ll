@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 19, 23) i32 @ASN1_PRINTABLE_type(ptr noundef readonly captures(address_is_null) %s, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 19, 23) i32 @ASN1_PRINTABLE_type(ptr noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %if.end
@@ -179,7 +179,7 @@ return:                                           ; preds = %lor.lhs.false12, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly captures(address_is_null) %v) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [80 x i8], align 16
   %cmp = icmp eq ptr %v, null

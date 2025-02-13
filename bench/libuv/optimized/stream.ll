@@ -1702,7 +1702,7 @@ uv_try_write2.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_try_write2(ptr noundef readonly captures(none) %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef captures(address_is_null) %send_handle) local_unnamed_addr #0 {
+define i32 @uv_try_write2(ptr noundef readonly captures(none) %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %send_handle) local_unnamed_addr #0 {
 entry:
   %connect_req = getelementptr inbounds nuw i8, ptr %stream, i64 120
   %0 = load ptr, ptr %connect_req, align 8
@@ -1738,7 +1738,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @uv__try_write(ptr noundef readonly captures(none) %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef readonly captures(address_is_null) %send_handle) unnamed_addr #0 {
+define internal fastcc i32 @uv__try_write(ptr noundef readonly captures(none) %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef readonly %send_handle) unnamed_addr #0 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %cmsg = alloca %union.uv__cmsg, align 8

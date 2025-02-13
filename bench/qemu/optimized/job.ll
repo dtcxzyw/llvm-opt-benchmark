@@ -448,7 +448,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @job_next_locked(ptr noundef readonly captures(address_is_null) %job) local_unnamed_addr #6 {
+define dso_local ptr @job_next_locked(ptr noundef readonly %job) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %job, null
   %job_list = getelementptr inbounds nuw i8, ptr %job, i64 240
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @job_next(ptr noundef readonly captures(address_is_null) %job) local_unnamed_addr #0 {
+define dso_local ptr @job_next(ptr noundef readonly %job) local_unnamed_addr #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -1032,7 +1032,7 @@ entry:
 declare void @progress_increase_remaining(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @job_enter_cond_locked(ptr noundef %job, ptr noundef readonly captures(address_is_null) %fn) local_unnamed_addr #0 {
+define dso_local void @job_enter_cond_locked(ptr noundef %job, ptr noundef readonly %fn) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %job, i64 16
   %job.val = load ptr, ptr %0, align 8
@@ -2791,7 +2791,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @job_finish_sync_locked(ptr noundef %job, ptr noundef readonly captures(address_is_null) %finish, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @job_finish_sync_locked(ptr noundef %job, ptr noundef readonly %finish, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8

@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @chacha20_initkey(ptr noundef writeonly captures(none) %bctx, ptr noundef readonly captures(address_is_null) %key, i64 %keylen) #1 {
+define internal noundef i32 @chacha20_initkey(ptr noundef writeonly captures(none) %bctx, ptr noundef readonly %key, i64 %keylen) #1 {
 entry:
   %cmp.not = icmp eq ptr %key, null
   br i1 %cmp.not, label %if.end, label %for.cond.preheader

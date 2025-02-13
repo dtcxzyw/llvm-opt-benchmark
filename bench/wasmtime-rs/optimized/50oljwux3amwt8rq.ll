@@ -118,7 +118,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc18141
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3026b8080ed7cda5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3026b8080ed7cda5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -132,7 +132,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h364393726025997dE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #0 {
+define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h364393726025997dE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1, ptr readonly align 8 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -203,7 +203,7 @@ define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h86ed7c34583b93b7E"(ptr readnone align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null, ret: address, provenance) %1) unnamed_addr #1 {
+define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h86ed7c34583b93b7E"(ptr readnone align 8 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #1 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = load i64, ptr %1, align 8, !range !5, !noundef !3
@@ -216,7 +216,7 @@ define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h954671ff0480a5d0E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #0 {
+define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h954671ff0480a5d0E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1, ptr readonly align 8 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -249,7 +249,7 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha49c087b5ca14a10E"(ptr sret({ [3 x i64], i64, [2 x i64] }) align 8 %0, ptr readonly align 8 captures(none) %1, ptr readnone align 8 captures(address_is_null) %2, ptr align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha49c087b5ca14a10E"(ptr sret({ [3 x i64], i64, [2 x i64] }) align 8 %0, ptr readonly align 8 captures(none) %1, ptr readnone align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
@@ -311,7 +311,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h2931dd6d6039beefE"(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, ptr }) align 8 captures(none) initializes((0, 32)) %0, ptr readnone align 1 captures(none) %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h2931dd6d6039beefE"(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, ptr }) align 8 captures(none) initializes((0, 32)) %0, ptr readnone align 1 captures(none) %1, ptr readonly align 8 %2) unnamed_addr #0 {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -369,7 +369,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define { i64, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc1bf1c269ff5a84eE"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 captures(address_is_null) %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #1 {
+define { i64, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc1bf1c269ff5a84eE"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 %1, ptr readonly align 8 %2) unnamed_addr #1 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %2, null
@@ -397,7 +397,7 @@ define { i64, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..func
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf787cc1ca4eb2248E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #1 {
+define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf787cc1ca4eb2248E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #1 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr i8, ptr %1, i64 8
@@ -620,7 +620,7 @@ default.unreachable10:                            ; preds = %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr readonly align 8 captures(address_is_null) %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr readonly align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1542,7 +1542,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden align 8 ptr @"_ZN20wasmtime_wit_bindgen23resolve_type_in_package28_$u7b$$u7b$closure$u7d$$u7d$17ha4d8a11f8e918c9cE"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 captures(none) %1, ptr readonly align 8 captures(ret: address, provenance) %2) unnamed_addr #3 {
+define hidden align 8 ptr @"_ZN20wasmtime_wit_bindgen23resolve_type_in_package28_$u7b$$u7b$closure$u7d$$u7d$17ha4d8a11f8e918c9cE"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 captures(none) %1, ptr readonly align 8 %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp eq i64 %5, 1
@@ -1551,7 +1551,7 @@ define hidden align 8 ptr @"_ZN20wasmtime_wit_bindgen23resolve_type_in_package28
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden align 8 ptr @"_ZN20wasmtime_wit_bindgen23resolve_type_in_package28_$u7b$$u7b$closure$u7d$$u7d$17hdf1f67cd43cc86fdE"(ptr readnone align 1 captures(none) %0, ptr readnone returned align 8 captures(ret: address, provenance) %1) unnamed_addr #4 {
+define hidden align 8 ptr @"_ZN20wasmtime_wit_bindgen23resolve_type_in_package28_$u7b$$u7b$closure$u7d$$u7d$17hdf1f67cd43cc86fdE"(ptr readnone align 1 captures(none) %0, ptr readnone returned align 8 %1) unnamed_addr #4 {
   ret ptr %1
 }
 

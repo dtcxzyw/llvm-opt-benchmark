@@ -4129,7 +4129,7 @@ return:                                           ; preds = %entry, %if.end, %sw
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUFv06_decodeStreamX4(ptr noundef %p, ptr noundef nonnull captures(none) %bitDPtr, ptr noundef readnone captures(address) %pEnd, ptr noundef readonly captures(none) %dt, i32 noundef %dtLog) unnamed_addr #10 {
+define internal fastcc void @HUFv06_decodeStreamX4(ptr noundef %p, ptr noundef nonnull captures(none) %bitDPtr, ptr noundef readnone %pEnd, ptr noundef readonly captures(none) %dt, i32 noundef %dtLog) unnamed_addr #10 {
 entry:
   %bitsConsumed.i = getelementptr inbounds nuw i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -7
@@ -8406,7 +8406,7 @@ return:                                           ; preds = %entry, %ZSTDv06_cre
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i64 @ZBUFFv06_freeDCtx(ptr noundef captures(address_is_null) %zbd) local_unnamed_addr #16 {
+define noundef i64 @ZBUFFv06_freeDCtx(ptr noundef %zbd) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %zbd, null
   br i1 %cmp, label %return, label %if.end

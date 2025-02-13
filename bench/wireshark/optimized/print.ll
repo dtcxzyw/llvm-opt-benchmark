@@ -410,7 +410,7 @@ get_field_data.exit.thread:                       ; preds = %68, %54, %63, %get_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @write_pdml_preamble(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @write_pdml_preamble(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = tail call i64 @time(ptr noundef null) #18
   store i64 %4, ptr %3, align 8
@@ -463,7 +463,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare ptr @get_doc_dir() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_escaped_xml(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @print_escaped_xml(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1348,7 +1348,7 @@ print_indent.exit180:                             ; preds = %314, %316
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_specified_fields(i32 noundef range(i32 0, 4) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @write_specified_fields(i32 noundef range(i32 0, 4) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.write_field_data_t, align 8
   %7 = alloca ptr, align 8
   store ptr %1, ptr %6, align 8
@@ -2052,7 +2052,7 @@ define internal fastcc void @proto_tree_write_node_ek(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @write_fields_proto_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @write_fields_proto_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @write_specified_fields(i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef null)
   ret void
 }
@@ -2797,7 +2797,7 @@ define void @write_pdml_finale(ptr noundef captures(none) %0) local_unnamed_addr
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @write_psml_preamble(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @write_psml_preamble(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 39, i64 1, ptr %1)
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #18
   %5 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 12, i64 1, ptr %1)
@@ -2841,7 +2841,7 @@ define void @write_psml_preamble(ptr noundef readonly captures(none) %0, ptr nou
 declare i32 @get_column_visible(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @write_psml_columns(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @write_psml_columns(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -4155,7 +4155,7 @@ define noalias ptr @get_node_field_value(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @get_field_hex_value(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @get_field_hex_value(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4425,7 +4425,7 @@ declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_json_proto_node_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @write_json_proto_node_list(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [240 x i8], align 16
   %4 = alloca [240 x i8], align 16
   %5 = alloca ptr, align 8

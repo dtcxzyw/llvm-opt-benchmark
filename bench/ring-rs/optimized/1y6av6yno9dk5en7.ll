@@ -3331,7 +3331,7 @@ define hidden void @_ZN4ring3rsa14public_modulus13PublicModulus5value17h10adeedc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ring3rsa14public_modulus13PublicModulus5oneRR17ha0e65fdcd64a4180E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ring3rsa14public_modulus13PublicModulus5oneRR17ha0e65fdcd64a4180E(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }

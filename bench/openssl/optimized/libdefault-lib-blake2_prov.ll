@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_blake2s_get_ctx_params(ptr noundef readonly captures(address_is_null) %vctx, ptr noundef %params) #1 {
+define range(i32 0, 2) i32 @ossl_blake2s_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end
@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_blake2b_get_ctx_params(ptr noundef readonly captures(address_is_null) %vctx, ptr noundef %params) #1 {
+define range(i32 0, 2) i32 @ossl_blake2b_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end

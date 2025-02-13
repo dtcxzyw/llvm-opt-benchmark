@@ -2423,7 +2423,7 @@ define hidden noundef ptr @tcapsrt_razinfo() local_unnamed_addr #2 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden void @tcapsrt_close(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %108, label %3
 

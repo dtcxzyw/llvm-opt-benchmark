@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_obj_itypename = external hidden local_unnamed_addr constant [14 x ptr], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(address) %d, ptr noundef readonly captures(address) %s, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr noundef readonly captures(none) %cts, ptr noundef readonly %d, ptr noundef readonly %s, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and61 = and i32 %flags, 1
   %tobool.not62 = icmp ne i32 %and61, 0
@@ -1594,7 +1594,7 @@ sw.epilog:                                        ; preds = %if.end12, %sw.bb27,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly captures(address) %d, ptr noundef readonly captures(none) %o) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly %d, ptr noundef readonly captures(none) %o) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %d, align 8
   %and = and i32 %0, -67108864

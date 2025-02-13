@@ -1066,7 +1066,7 @@ _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17SettingsHierarchy14onLayerRemovedEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %this, i32 noundef %layer) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN17SettingsHierarchy14onLayerRemovedEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %layer) local_unnamed_addr #10 align 2 {
 entry:
   %conv = sext i32 %layer to i64
   %0 = load ptr, ptr %this, align 8, !tbaa !4
@@ -1086,7 +1086,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN8Settings11createLayerE13SettingsLayerSt17basic_string_viewIcSt11char_traitsIcEE(i32 noundef %sl, i64 %end_tag.coerce0, ptr captures(address_is_null) %end_tag.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN8Settings11createLayerE13SettingsLayerSt17basic_string_viewIcSt11char_traitsIcEE(i32 noundef %sl, i64 %end_tag.coerce0, ptr %end_tag.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #30
   invoke void @_ZN8SettingsC2ESt17basic_string_viewIcSt11char_traitsIcEEP17SettingsHierarchyi(ptr noundef nonnull align 8 dereferenceable(236) %call, i64 %end_tag.coerce0, ptr %end_tag.coerce1, ptr noundef nonnull @_ZL11g_hierarchy, i32 noundef %sl)
@@ -1119,7 +1119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8SettingsC2ESt17basic_string_viewIcSt11char_traitsIcEEP17SettingsHierarchyi(ptr noundef nonnull align 8 dereferenceable(236) %this, i64 %end_tag.coerce0, ptr readonly captures(address_is_null) %end_tag.coerce1, ptr noundef %h, i32 noundef %settings_layer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8SettingsC2ESt17basic_string_viewIcSt11char_traitsIcEEP17SettingsHierarchyi(ptr noundef nonnull align 8 dereferenceable(236) %this, i64 %end_tag.coerce0, ptr readonly %end_tag.coerce1, ptr noundef %h, i32 noundef %settings_layer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2083,7 +2083,7 @@ return:                                           ; preds = %if.end19.i.i, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8Settings12getMultilineB5cxx11ERSiPm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef writeonly captures(address_is_null) %num_lines) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8Settings12getMultilineB5cxx11ERSiPm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef writeonly %num_lines) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %line = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -4791,7 +4791,7 @@ declare noundef zeroext i1 @_ZN2fs15safeWriteToFileERKNSt7__cxx1112basic_stringI
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN8Settings16parseCommandLineEiPPcRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ValueSpecSt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(236) %this, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %allowed_options) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN8Settings16parseCommandLineEiPPcRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ValueSpecSt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(236) %this, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef nonnull readonly align 8 dereferenceable(48) %allowed_options) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i183 = alloca i64, align 8
   %__dnew.i.i.i.i = alloca i64, align 8
@@ -7125,7 +7125,7 @@ entry:
 declare { <2 x float>, float } @_Z10str_to_v3fSt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK8Settings10getFlagStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK8FlagDescPj(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %flagdesc, ptr noundef captures(address_is_null) %flagmask) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK8Settings10getFlagStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK8FlagDescPj(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %flagdesc, ptr noundef %flagmask) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i45 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8

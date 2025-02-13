@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.9ee16fec61cf2b2efbe4723636dd01b0.2 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.9ee16fec61cf2b2efbe4723636dd01b0.0, [16 x i8] c"'\00\00\00\00\00\00\00*\00\00\00%\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h56cf55ccce5a1359E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h56cf55ccce5a1359E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -30,7 +30,7 @@ define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hffd7697688181f2bE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hffd7697688181f2bE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)

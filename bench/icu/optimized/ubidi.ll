@@ -62,7 +62,7 @@ ubidi_openSized_75.exit:                          ; preds = %if.end9.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ubidi_openSized_75(i32 noundef %maxLength, i32 noundef %maxRunCount, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @ubidi_openSized_75(i32 noundef %maxLength, i32 noundef %maxRunCount, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -319,7 +319,7 @@ declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_setInverse_75(ptr noundef writeonly captures(address_is_null) %pBiDi, i8 noundef signext %isInverse) local_unnamed_addr #5 {
+define void @ubidi_setInverse_75(ptr noundef writeonly %pBiDi, i8 noundef signext %isInverse) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %pBiDi, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -338,7 +338,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ubidi_isInverse_75(ptr noundef readonly captures(address_is_null) %pBiDi) local_unnamed_addr #6 {
+define signext i8 @ubidi_isInverse_75(ptr noundef readonly %pBiDi) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %pBiDi, null
   br i1 %cmp.not, label %return, label %if.then
@@ -354,7 +354,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_setReorderingMode_75(ptr noundef writeonly captures(address_is_null) %pBiDi, i32 noundef %reorderingMode) local_unnamed_addr #5 {
+define void @ubidi_setReorderingMode_75(ptr noundef writeonly %pBiDi, i32 noundef %reorderingMode) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ne ptr %pBiDi, null
   %0 = icmp ult i32 %reorderingMode, 7
@@ -375,7 +375,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ubidi_getReorderingMode_75(ptr noundef readonly captures(address_is_null) %pBiDi) local_unnamed_addr #6 {
+define i32 @ubidi_getReorderingMode_75(ptr noundef readonly %pBiDi) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %pBiDi, null
   br i1 %cmp.not, label %return, label %if.then
@@ -391,7 +391,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_setReorderingOptions_75(ptr noundef writeonly captures(address_is_null) %pBiDi, i32 noundef %reorderingOptions) local_unnamed_addr #5 {
+define void @ubidi_setReorderingOptions_75(ptr noundef writeonly %pBiDi, i32 noundef %reorderingOptions) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %pBiDi, null
   br i1 %cmp.not, label %if.end4, label %if.then2
@@ -410,7 +410,7 @@ if.end4:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ubidi_getReorderingOptions_75(ptr noundef readonly captures(address_is_null) %pBiDi) local_unnamed_addr #6 {
+define i32 @ubidi_getReorderingOptions_75(ptr noundef readonly %pBiDi) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %pBiDi, null
   br i1 %cmp.not, label %return, label %if.then
@@ -545,7 +545,7 @@ for.end.thread:                                   ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_setContext_75(ptr noundef writeonly captures(address_is_null) %pBiDi, ptr noundef %prologue, i32 noundef %proLength, ptr noundef %epilogue, i32 noundef %epiLength, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define void @ubidi_setContext_75(ptr noundef writeonly %pBiDi, ptr noundef %prologue, i32 noundef %proLength, ptr noundef %epilogue, i32 noundef %epiLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -4808,7 +4808,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_orderParagraphsLTR_75(ptr noundef writeonly captures(address_is_null) %pBiDi, i8 noundef signext %orderParagraphsLTR) local_unnamed_addr #5 {
+define void @ubidi_orderParagraphsLTR_75(ptr noundef writeonly %pBiDi, i8 noundef signext %orderParagraphsLTR) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %pBiDi, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4823,7 +4823,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ubidi_isOrderParagraphsLTR_75(ptr noundef readonly captures(address_is_null) %pBiDi) local_unnamed_addr #6 {
+define signext i8 @ubidi_isOrderParagraphsLTR_75(ptr noundef readonly %pBiDi) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %pBiDi, null
   br i1 %cmp.not, label %return, label %if.then
@@ -4839,7 +4839,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getDirection_75(ptr noundef readonly captures(address) %pBiDi) local_unnamed_addr #7 {
+define i32 @ubidi_getDirection_75(ptr noundef readonly %pBiDi) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -4869,7 +4869,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ubidi_getText_75(ptr noundef readonly captures(address) %pBiDi) local_unnamed_addr #7 {
+define ptr @ubidi_getText_75(ptr noundef readonly %pBiDi) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -4899,7 +4899,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getLength_75(ptr noundef readonly captures(address) %pBiDi) local_unnamed_addr #7 {
+define i32 @ubidi_getLength_75(ptr noundef readonly %pBiDi) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -4929,7 +4929,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getProcessedLength_75(ptr noundef readonly captures(address) %pBiDi) local_unnamed_addr #7 {
+define i32 @ubidi_getProcessedLength_75(ptr noundef readonly %pBiDi) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -4959,7 +4959,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getResultLength_75(ptr noundef readonly captures(address) %pBiDi) local_unnamed_addr #7 {
+define i32 @ubidi_getResultLength_75(ptr noundef readonly %pBiDi) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -4989,7 +4989,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @ubidi_getParaLevel_75(ptr noundef readonly captures(address) %pBiDi) local_unnamed_addr #7 {
+define zeroext i8 @ubidi_getParaLevel_75(ptr noundef readonly %pBiDi) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -5019,7 +5019,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_countParagraphs_75(ptr noundef readonly captures(address) %pBiDi) local_unnamed_addr #7 {
+define i32 @ubidi_countParagraphs_75(ptr noundef readonly %pBiDi) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -5049,7 +5049,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ubidi_getParagraphByIndex_75(ptr noundef readonly captures(address) %pBiDi, i32 noundef %paraIndex, ptr noundef writeonly captures(address_is_null) %pParaStart, ptr noundef writeonly captures(address_is_null) %pParaLimit, ptr noundef writeonly captures(address_is_null) %pParaLevel, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #10 {
+define void @ubidi_getParagraphByIndex_75(ptr noundef readonly %pBiDi, i32 noundef %paraIndex, ptr noundef writeonly %pParaStart, ptr noundef writeonly %pParaLimit, ptr noundef writeonly %pParaLevel, ptr noundef %pErrorCode) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %if.end45, label %lor.lhs.false
@@ -5200,7 +5200,7 @@ if.end45:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ubidi_getParagraph_75(ptr noundef readonly captures(address) %pBiDi, i32 noundef %charIndex, ptr noundef writeonly captures(address_is_null) %pParaStart, ptr noundef writeonly captures(address_is_null) %pParaLimit, ptr noundef writeonly captures(address_is_null) %pParaLevel, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #10 {
+define i32 @ubidi_getParagraph_75(ptr noundef readonly %pBiDi, i32 noundef %charIndex, ptr noundef writeonly %pParaStart, ptr noundef writeonly %pParaLimit, ptr noundef writeonly %pParaLevel, ptr noundef %pErrorCode) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -5392,7 +5392,7 @@ return:                                           ; preds = %cond.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ubidi_setClassCallback_75(ptr noundef captures(address_is_null) %pBiDi, ptr noundef %newFn, ptr noundef %newContext, ptr noundef writeonly captures(address_is_null) %oldFn, ptr noundef writeonly captures(address_is_null) %oldContext, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #11 {
+define void @ubidi_setClassCallback_75(ptr noundef %pBiDi, ptr noundef %newFn, ptr noundef %newContext, ptr noundef writeonly %oldFn, ptr noundef writeonly %oldContext, ptr noundef %pErrorCode) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -5442,7 +5442,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ubidi_getClassCallback_75(ptr noundef readonly captures(address_is_null) %pBiDi, ptr noundef writeonly captures(address_is_null) %fn, ptr noundef writeonly captures(address_is_null) %context) local_unnamed_addr #11 {
+define void @ubidi_getClassCallback_75(ptr noundef readonly %pBiDi, ptr noundef writeonly %fn, ptr noundef writeonly %context) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %pBiDi, null
   br i1 %cmp, label %if.end5, label %if.end
@@ -5976,7 +5976,7 @@ declare i32 @u_getBidiPairedBracket_75(i32 noundef) local_unnamed_addr #4
 declare i32 @ubidi_getPairedBracketType_75(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL17bracketAddOpeningP11BracketDataDsi(ptr noundef nonnull captures(address) %bd, i16 noundef zeroext %match, i32 noundef %position) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL17bracketAddOpeningP11BracketDataDsi(ptr noundef nonnull %bd, i16 noundef zeroext %match, i32 noundef %position) unnamed_addr #0 {
 entry:
   %isoRuns = getelementptr inbounds nuw i8, ptr %bd, i64 504
   %isoRunLast = getelementptr inbounds nuw i8, ptr %bd, i64 500

@@ -1545,7 +1545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly11AsyncSocket21SendMsgParamsCallback16getAncillaryDataENS_10WriteFlagsEPvRKNS0_15WriteRequestTagEb(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %data, ptr noundef nonnull align 8 dereferenceable(8) %writeTag, i1 noundef zeroext %byteEventsEnabled) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11AsyncSocket21SendMsgParamsCallback16getAncillaryDataENS_10WriteFlagsEPvRKNS0_15WriteRequestTagEb(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %flags, ptr noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(8) %writeTag, i1 noundef zeroext %byteEventsEnabled) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i61 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp.i62 = alloca %"struct.google::CheckOpString", align 8
@@ -24519,7 +24519,7 @@ terminate.handler:                                ; preds = %ehcleanup9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11AsyncSocketC2EPNS_9EventBaseENS_13NetworkSocketEjPKNS_13SocketAddressENS_8OptionalINSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEEE(ptr noundef nonnull align 8 dereferenceable(1113) initializes((0, 13), (16, 100)) %this, ptr noundef %evb, i32 %fd.coerce, i32 noundef %zeroCopyBufId, ptr noundef readonly captures(address_is_null) %peerAddress, ptr noundef captures(none) %maybeConnectionEstablishTime) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11AsyncSocketC2EPNS_9EventBaseENS_13NetworkSocketEjPKNS_13SocketAddressENS_8OptionalINSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEEE(ptr noundef nonnull align 8 dereferenceable(1113) initializes((0, 13), (16, 100)) %this, ptr noundef %evb, i32 %fd.coerce, i32 noundef %zeroCopyBufId, ptr noundef readonly %peerAddress, ptr noundef captures(none) %maybeConnectionEstablishTime) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp37 = alloca %"class.google::LogMessage", align 8
   %guardCount_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8

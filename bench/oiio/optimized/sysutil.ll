@@ -970,7 +970,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #1
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_07Sysutil4TermC2ERKSo(ptr noundef nonnull align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8) %stream) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07Sysutil4TermC2ERKSo(ptr noundef nonnull align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, ptr noundef nonnull readnone align 8 dereferenceable(8) %stream) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %TERM = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

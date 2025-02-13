@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @std_img_oda_blue = global [8 x [8 x i8]] zeroinitializer, align 16
 
 ; Function Attrs: nofree nounwind uwtable
-define void @initInverseGrayLut(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @initInverseGrayLut(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit56, label %4
 
@@ -118,7 +118,7 @@ define void @initInverseGrayLut(ptr noundef readonly captures(none) %0, i32 noun
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @freeICMColorData(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden void @freeICMColorData(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 

@@ -137,7 +137,7 @@ define dso_local void @mei_dma_ring_reset(ptr noundef readonly captures(none) %0
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mei_dma_ring_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @mei_dma_ring_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 3296
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

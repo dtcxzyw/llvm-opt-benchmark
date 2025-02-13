@@ -1825,7 +1825,7 @@ declare void @php_info_print_table_end() local_unnamed_addr #0
 declare void @display_ini_entries(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_register_extensions(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @php_register_extensions(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds ptr, ptr %0, i64 %3
   %5 = icmp sgt i32 %1, 0

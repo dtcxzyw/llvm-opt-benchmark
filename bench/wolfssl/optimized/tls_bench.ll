@@ -169,7 +169,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.142 = private unnamed_addr constant [75 x i8] c"%-6s  %-33s  %-25s  %11d  %9d  %9.3f  %9.3f  %9.3f  %9.3f  %17.3f  %15.3f\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bench_tls(ptr noundef captures(address_is_null) %args) local_unnamed_addr #0 {
+define dso_local i32 @bench_tls(ptr noundef %args) local_unnamed_addr #0 {
 entry:
   %ciphers.i = alloca [4096 x i8], align 16
   %cli_comb = alloca %struct.stats_t, align 8

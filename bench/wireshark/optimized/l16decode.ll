@@ -44,7 +44,7 @@ define internal range(i32 1, 0) i32 @codec_l16_get_frequency(ptr noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i64 @codec_l16_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) #5 {
+define internal i64 @codec_l16_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #5 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %spec.select = tail call i32 @llvm.umax.i32(i32 %7, i32 1)

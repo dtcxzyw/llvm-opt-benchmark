@@ -921,7 +921,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15debugger_detail20GlobalThreadPoolList20unregisterThreadPoolEPNS_18ThreadPoolListHookE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef captures(address) %threadPoolId) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15debugger_detail20GlobalThreadPoolList20unregisterThreadPoolEPNS_18ThreadPoolListHookE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %threadPoolId) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i = alloca i32, align 4
   %state.i.i.i.i.i.i = alloca i32, align 4
@@ -1001,7 +1001,7 @@ lpad:                                             ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl20unregisterThreadPoolEPNS_18ThreadPoolListHookE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readnone captures(address) %threadPoolId) local_unnamed_addr #4 align 2 {
+define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl20unregisterThreadPoolEPNS_18ThreadPoolListHookE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readnone %threadPoolId) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !13
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1238,7 +1238,7 @@ lpad22:                                           ; preds = %invoke.cont23
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl24registerThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone captures(address) %threadPoolId, i64 %threadId.coerce, i64 noundef %osThreadId) local_unnamed_addr #4 align 2 {
+define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl24registerThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone %threadPoolId, i64 %threadId.coerce, i64 noundef %osThreadId) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !13
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2446,7 +2446,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 2 dereferenceable(4)) local_unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15debugger_detail20GlobalThreadPoolList26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef readnone captures(address) %threadPoolId, i64 %threadId.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15debugger_detail20GlobalThreadPoolList26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef readnone %threadPoolId, i64 %threadId.coerce) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i = alloca i32, align 4
   %state.i.i.i.i.i.i = alloca i32, align 4
@@ -2587,7 +2587,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedINS_15debugger_detail24GlobalThreadPoolList
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone captures(address) %threadPoolId, i64 %threadId.coerce) local_unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone %threadPoolId, i64 %threadId.coerce) local_unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !13
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3582,7 +3582,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18ThreadPoolListHookD2Ev(ptr noundef nonnull align 1 captures(address) dereferenceable(1) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18ThreadPoolListHookD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN5folly15debugger_detail20GlobalThreadPoolList8instanceEvE3ret acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

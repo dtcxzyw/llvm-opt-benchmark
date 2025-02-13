@@ -3243,7 +3243,7 @@ define internal fastcc void @table_list_free() unnamed_addr #0 {
 declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_handler(ptr noundef captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @free_handler(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %.preheader
 

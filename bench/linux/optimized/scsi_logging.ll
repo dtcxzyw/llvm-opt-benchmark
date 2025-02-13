@@ -131,7 +131,7 @@ declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr nou
 declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scmd_printk(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ...) #0 align 16 {
+define dso_local void @scmd_printk(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ...) #0 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   %5 = icmp eq ptr %1, null

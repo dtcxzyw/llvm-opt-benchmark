@@ -91,7 +91,7 @@ declare void @_ZN14HSpaceCountersC1EPKcS1_imm(ptr noundef nonnull align 8 derefe
 declare void @_ZN17CollectorCountersC1EPKci(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN23XServiceabilityCounters18collector_countersEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN23XServiceabilityCounters18collector_countersEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
@@ -224,19 +224,19 @@ define hidden void @_ZN15XServiceability10initializeEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN15XServiceability11memory_poolEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN15XServiceability11memory_poolEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN15XServiceability20cycle_memory_managerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN15XServiceability20cycle_memory_managerEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN15XServiceability20pause_memory_managerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN15XServiceability20pause_memory_managerEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   ret ptr %2
 }

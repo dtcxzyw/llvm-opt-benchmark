@@ -1043,7 +1043,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23expr_context_simplifier10reduce_recEP3appR7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef readonly captures(address) %a, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23expr_context_simplifier10reduce_recEP3appR7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef readonly %a, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp1 = alloca %class.obj_ref, align 8
   %tmp2 = alloca %class.obj_ref, align 8
@@ -1992,7 +1992,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK23expr_context_simplifier7is_trueEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(161) %this, ptr noundef readonly captures(address) %e) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK23expr_context_simplifier7is_trueEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(161) %this, ptr noundef readonly %e) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -2038,7 +2038,7 @@ lor.end:                                          ; preds = %land.rhs.i.i, %lor.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK23expr_context_simplifier8is_falseEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(161) %this, ptr noundef readonly captures(address) %e) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK23expr_context_simplifier8is_falseEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(161) %this, ptr noundef readonly %e) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_false.i = getelementptr inbounds nuw i8, ptr %0, i64 864

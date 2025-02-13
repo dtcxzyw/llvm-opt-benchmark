@@ -611,7 +611,7 @@ select.unfold:                                    ; preds = %77, %75, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.RCVLN, align 8

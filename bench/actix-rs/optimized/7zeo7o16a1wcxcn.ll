@@ -4298,7 +4298,7 @@ define void @"_ZN86_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN90_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h5659f56999650136E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #5 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN90_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h5659f56999650136E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

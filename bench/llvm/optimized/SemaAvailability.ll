@@ -324,7 +324,7 @@ define dso_local void @_ZN5clang4Sema30handleDelayedAvailabilityCheckERNS_4sema1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25DoEmitAvailabilityWarningRN5clang4SemaENS_18AvailabilityResultEPNS_4DeclEPKNS_9NamedDeclES7_N4llvm9StringRefENS8_8ArrayRefINS_14SourceLocationEEEPKNS_17ObjCInterfaceDeclEPKNS_16ObjCPropertyDeclEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr readonly captures(none) %.0.val1, i64 %.8.val3, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @_ZL25DoEmitAvailabilityWarningRN5clang4SemaENS_18AvailabilityResultEPNS_4DeclEPKNS_9NamedDeclES7_N4llvm9StringRefENS8_8ArrayRefINS_14SourceLocationEEEPKNS_17ObjCInterfaceDeclEPKNS_16ObjCPropertyDeclEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr readonly captures(none) %.0.val1, i64 %.8.val3, ptr noundef readonly %5, ptr noundef readonly %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %10 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %11 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -5304,7 +5304,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare noundef ptr @_ZN5clang4Decl13getAsFunctionEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal void @_ZN12_GLOBAL__N_129DiagnoseUnguardedAvailabilityD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_129DiagnoseUnguardedAvailabilityD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_129DiagnoseUnguardedAvailabilityE, i64 16), ptr %0, align 8, !tbaa !689
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !693
@@ -16977,7 +16977,7 @@ define internal void @_ZN12_GLOBAL__N_113StmtUSEFinderD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_113StmtUSEFinder9VisitStmtEPN5clang4StmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(address) %1) unnamed_addr #7 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_113StmtUSEFinder9VisitStmtEPN5clang4StmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !1536
   %5 = icmp ne ptr %1, %4

@@ -857,7 +857,7 @@ define dso_local void @ExecEndHash(ptr noundef readonly captures(none) %0) local
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.AttStatsSlot, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -2717,7 +2717,7 @@ ExecParallelHashPushTuple.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecHashGetHashValue(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecHashGetHashValue(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8

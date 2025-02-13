@@ -313,7 +313,7 @@ declare ptr @compiler_find_or_create_module(ptr noundef, ptr noundef) local_unna
 declare void @sema_analyze_stage(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
+define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

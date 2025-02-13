@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"../openssl/crypto/packet.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %allocbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
   %subs.i = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs.i, align 8
@@ -123,7 +123,7 @@ return:                                           ; preds = %if.then15.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr noundef readonly captures(none) %pkt, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %allocbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr noundef readonly captures(none) %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes) local_unnamed_addr #0 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -230,7 +230,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef captures(address_is_null) %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_sub_allocate_bytes__(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lenchars.i)
@@ -440,7 +440,7 @@ return:                                           ; preds = %cond.false, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr noundef readonly captures(none) %pkt, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr noundef readonly captures(none) %pkt, i64 noundef %len, ptr noundef writeonly %allocbytes, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %endfirst = getelementptr inbounds nuw i8, ptr %pkt, i64 48
   %bf.load = load i8, ptr %endfirst, align 8
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %WPACKET_close.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @WPACKET_get_total_written(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly captures(address_is_null) %written) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @WPACKET_get_total_written(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly %written) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %written, null
   br i1 %cmp.not, label %return, label %if.end
@@ -1512,7 +1512,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @WPACKET_get_length(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @WPACKET_get_length(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly %len) local_unnamed_addr #8 {
 entry:
   %subs = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %0 = load ptr, ptr %subs, align 8
@@ -1734,7 +1734,7 @@ WPACKET_start_quic_sub_packet_bound.exit:         ; preds = %if.then15.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef captures(address_is_null) %allocbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_quic_sub_allocate_bytes(ptr noundef captures(none) %pkt, i64 noundef %len, ptr noundef %allocbytes) local_unnamed_addr #0 {
 entry:
   %lenchars.i.i = alloca ptr, align 8
   %cmp.i.i = icmp ult i64 %len, 64

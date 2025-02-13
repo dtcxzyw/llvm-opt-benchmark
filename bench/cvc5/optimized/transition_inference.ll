@@ -386,7 +386,7 @@ return:                                           ; preds = %for.end, %_ZN4cvc58
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers8DetTrace12DetTraceTrie16constructFormulaERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EEj(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vars, i32 noundef %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers8DetTrace12DetTraceTrie16constructFormulaERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EEj(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vars, i32 noundef %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.73", align 8
   %nb.i65 = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -1171,7 +1171,7 @@ return:                                           ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers8DetTrace16constructFormulaERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vars) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers8DetTrace16constructFormulaERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vars) local_unnamed_addr #3 align 2 {
 entry:
   %d_trie = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN4cvc58internal6theory11quantifiers8DetTrace12DetTraceTrie16constructFormulaERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EEj(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %d_trie, ptr noundef nonnull align 8 dereferenceable(24) %vars, i32 noundef 0)
@@ -10827,7 +10827,7 @@ return:                                           ; preds = %if.then13.i.i8, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers19TransitionInference21constructFormulaTraceERNS2_8DetTraceE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %dt) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers19TransitionInference21constructFormulaTraceERNS2_8DetTraceE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %this, ptr noundef nonnull align 8 dereferenceable(72) %dt) local_unnamed_addr #3 align 2 {
 entry:
   %d_vars = getelementptr inbounds nuw i8, ptr %this, i64 24
   %d_trie.i = getelementptr inbounds nuw i8, ptr %dt, i64 24

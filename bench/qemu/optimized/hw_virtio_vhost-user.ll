@@ -3216,7 +3216,7 @@ declare i32 @virtio_queue_set_host_notifier_mr(ptr noundef, i32 noundef, ptr nou
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_user_host_notifier_free(ptr noundef captures(address_is_null) %n) #0 {
+define internal void @vhost_user_host_notifier_free(ptr noundef %n) #0 {
 entry:
   %tobool.not = icmp eq ptr %n, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true

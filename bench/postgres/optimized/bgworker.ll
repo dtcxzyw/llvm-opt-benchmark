@@ -1125,7 +1125,7 @@ declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @IsUnderPostmaster, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %54

@@ -497,7 +497,7 @@ _ffc_pairwise_consistency_test.exit:              ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhGenerateKeyPair(ptr noundef %key, ptr noundef %rng, ptr noundef %priv, ptr noundef captures(address_is_null) %privSz, ptr noundef %pub, ptr noundef captures(address_is_null) %pubSz) local_unnamed_addr #1 {
+define i32 @wc_DhGenerateKeyPair(ptr noundef %key, ptr noundef %rng, ptr noundef %priv, ptr noundef %privSz, ptr noundef %pub, ptr noundef %pubSz) local_unnamed_addr #1 {
 entry:
   %x.i.i = alloca [1 x %struct.sp_int], align 16
   %y.i.i = alloca [1 x %struct.sp_int], align 16
@@ -794,7 +794,7 @@ return:                                           ; preds = %GeneratePublicDh.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_DhAgree(ptr noundef %key, ptr noundef %agree, ptr noundef writeonly captures(address_is_null) %agreeSz, ptr noundef %priv, i32 noundef %privSz, ptr noundef %otherPub, i32 noundef %pubSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_DhAgree(ptr noundef %key, ptr noundef %agree, ptr noundef writeonly %agreeSz, ptr noundef %priv, i32 noundef %privSz, ptr noundef %otherPub, i32 noundef %pubSz) local_unnamed_addr #1 {
 entry:
   %y.i = alloca [1 x %struct.sp_int], align 16
   %x.i = alloca [1 x %struct.sp_int], align 16
@@ -1115,7 +1115,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %name, ptr noundef writeonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %g, ptr noundef writeonly captures(address_is_null) %q) local_unnamed_addr #5 {
+define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %name, ptr noundef writeonly %p, ptr noundef writeonly %g, ptr noundef writeonly %q) local_unnamed_addr #5 {
 entry:
   %cond = icmp eq i32 %name, 256
   %spec.select = zext i1 %cond to i32
@@ -1148,7 +1148,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_DhCopyNamedKey(i32 noundef %name, ptr noundef writeonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %pSz, ptr noundef writeonly captures(address_is_null) %g, ptr noundef writeonly captures(address_is_null) %gSz, ptr noundef readnone captures(none) %q, ptr noundef writeonly captures(address_is_null) %qSz) local_unnamed_addr #6 {
+define noundef i32 @wc_DhCopyNamedKey(i32 noundef %name, ptr noundef writeonly %p, ptr noundef writeonly %pSz, ptr noundef writeonly %g, ptr noundef writeonly %gSz, ptr noundef readnone captures(none) %q, ptr noundef writeonly %qSz) local_unnamed_addr #6 {
 entry:
   %cond = icmp eq i32 %name, 256
   br i1 %cond, label %sw.epilog, label %if.end

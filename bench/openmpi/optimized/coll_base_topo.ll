@@ -344,7 +344,7 @@ condstore.split:                                  ; preds = %23, %26
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @ompi_coll_base_topo_destroy_tree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define noundef i32 @ompi_coll_base_topo_destroy_tree(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

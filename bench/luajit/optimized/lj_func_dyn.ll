@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_func_closeuv(ptr noundef captures(none) %L, ptr noundef readnone captures(address) %level) local_unnamed_addr #0 {
+define hidden void @lj_func_closeuv(ptr noundef captures(none) %L, ptr noundef readnone %level) local_unnamed_addr #0 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8

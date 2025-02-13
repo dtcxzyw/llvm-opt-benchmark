@@ -288,7 +288,7 @@ out:                                              ; preds = %if.end4, %if.end11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @raw_reopen_commit(ptr noundef captures(address) %state) #0 {
+define internal void @raw_reopen_commit(ptr noundef %state) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %state, i64 56
   %0 = load ptr, ptr %opaque, align 8
@@ -326,7 +326,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @raw_reopen_abort(ptr noundef captures(address) %state) #0 {
+define internal void @raw_reopen_abort(ptr noundef %state) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %state, i64 56
   %0 = load ptr, ptr %opaque, align 8
@@ -2552,7 +2552,7 @@ declare i32 @fstatfs64(i32 noundef, ptr noundef) local_unnamed_addr #9
 declare i32 @qemu_create(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @raw_apply_lock_bytes(ptr noundef captures(address_is_null) %s, i32 noundef %fd, i64 noundef %perm_lock_bits, i64 noundef %shared_perm_lock_bits, i1 noundef zeroext %unlock, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @raw_apply_lock_bytes(ptr noundef %s, i32 noundef %fd, i64 noundef %perm_lock_bits, i64 noundef %shared_perm_lock_bits, i1 noundef zeroext %unlock, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %if.end6, label %if.end6.thread

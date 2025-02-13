@@ -2280,7 +2280,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14grammar_parser13print_grammarEP8_IO_FILERKNS_11parse_stateE(ptr noundef captures(none) %file, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %state) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN14grammar_parser13print_grammarEP8_IO_FILERKNS_11parse_stateE(ptr noundef captures(none) %file, ptr noundef nonnull readonly align 8 dereferenceable(72) %state) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::__cxx11::basic_string", align 8

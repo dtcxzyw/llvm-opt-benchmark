@@ -56,7 +56,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_it
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_iter_chan_contexts_atomic3147, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @trace_drv_add_chanctx.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1828, ptr @trace_drv_add_chanctx.__UNIQUE_ID___addressable___SCK__tp_func_drv_add_chanctx1827, ptr @trace_drv_change_chanctx.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1856, ptr @trace_drv_change_chanctx.__UNIQUE_ID___addressable___SCK__tp_func_drv_change_chanctx1855, ptr @trace_drv_remove_chanctx.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1842, ptr @trace_drv_remove_chanctx.__UNIQUE_ID___addressable___SCK__tp_func_drv_remove_chanctx1841, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ieee80211_chanctx_refcount(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_chanctx_refcount(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %4
 
@@ -86,7 +86,7 @@ define dso_local i32 @ieee80211_chanctx_refcount(ptr noundef readnone captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 align 16 {
+define dso_local void @ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = tail call fastcc i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6
@@ -105,7 +105,7 @@ define dso_local void @ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noun
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.cfg80211_chan_def, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -481,7 +481,7 @@ ieee80211_get_max_required_bw.exit:               ; preds = %85, %47, %146, %141
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 312
@@ -4511,7 +4511,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #4
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull %3, ptr noundef captures(address) %4) unnamed_addr #1 align 16 {
+define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [

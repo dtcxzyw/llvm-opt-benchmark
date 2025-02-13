@@ -19,7 +19,7 @@ $_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEE
 $_ZN4llvh8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS3_EEE4growEj = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes25InstructionEscapeAnalysis8addRangeEN4llvh14iterator_rangeINS1_14ilist_iteratorINS1_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvEELb0ELb0EEEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr %range.coerce0, ptr readnone captures(address) %range.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes25InstructionEscapeAnalysis8addRangeEN4llvh14iterator_rangeINS1_14ilist_iteratorINS1_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvEELb0ELb0EEEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr %range.coerce0, ptr readnone %range.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %__tmp.i.i = alloca %"struct.hermes::InstructionEscapeAnalysis::Prefix", align 4
   %escapes = alloca %"class.llvh::DenseMap.0", align 8
@@ -740,7 +740,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK6hermes25InstructionEscapeAnalysis13longestPrefixEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK6hermes25InstructionEscapeAnalysis13longestPrefixEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #4 align 2 {
 entry:
   %longest = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %longest

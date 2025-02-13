@@ -1793,7 +1793,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lua_resume(ptr noundef %L, ptr noundef readonly captures(address_is_null) %from, i32 noundef %nargs, ptr noundef writeonly captures(none) %nresults) local_unnamed_addr #0 {
+define dso_local i32 @lua_resume(ptr noundef %L, ptr noundef readonly %from, i32 noundef %nargs, ptr noundef writeonly captures(none) %nresults) local_unnamed_addr #0 {
 entry:
   %nargs.addr = alloca i32, align 4
   store i32 %nargs, ptr %nargs.addr, align 4

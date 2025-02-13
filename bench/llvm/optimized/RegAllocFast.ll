@@ -9827,7 +9827,7 @@ _ZN12_GLOBAL__N_116RegAllocFastImpl18markRegUsedInInstrEt.exit: ; preds = %_ZN4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_116RegAllocFastImpl21isClobberedByRegMasksEt(ptr readonly captures(address) %.1152.val, i32 %.1160.val, i16 noundef zeroext %0) unnamed_addr #13 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_116RegAllocFastImpl21isClobberedByRegMasksEt(ptr readonly %.1152.val, i32 %.1160.val, i16 noundef zeroext %0) unnamed_addr #13 align 2 {
   %2 = zext i32 %.1160.val to i64
   %.idx1.i = shl nuw nsw i64 %2, 3
   %3 = getelementptr inbounds nuw i8, ptr %.1152.val, i64 %.idx1.i
@@ -11415,7 +11415,7 @@ declare void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(p
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %2) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_T0_"(ptr noundef %0, ptr noundef readnone %1, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 

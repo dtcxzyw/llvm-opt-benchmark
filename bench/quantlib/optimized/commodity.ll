@@ -117,14 +117,14 @@ entry:
 declare void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK8QuantLib9Commodity20secondaryCostAmountsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK8QuantLib9Commodity20secondaryCostAmountsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #5 align 2 {
 entry:
   %secondaryCostAmounts_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %secondaryCostAmounts_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib9Commodity13pricingErrorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib9Commodity13pricingErrorsEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #5 align 2 {
 entry:
   %pricingErrors_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %pricingErrors_
@@ -159,7 +159,7 @@ _ZNSt6vectorIN8QuantLib12PricingErrorESaIS1_EE12emplace_backIJRNS1_5LevelERKNSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5MoneyESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %secondaryCostAmounts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5MoneyESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 dereferenceable(48) %secondaryCostAmounts) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %currencyCode = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %currencyCode) #21

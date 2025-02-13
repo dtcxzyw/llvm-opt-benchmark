@@ -721,7 +721,7 @@ _dt_full_locale_name.exit:                        ; preds = %.lr.ph.i
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sort_languages(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal i32 @sort_languages(ptr noundef readonly %0, ptr noundef readonly %1) #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %dt_l10n_get_name.exit, label %3
 
@@ -761,7 +761,7 @@ dt_l10n_get_name.exit9:                           ; preds = %dt_l10n_get_name.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @dt_l10n_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @dt_l10n_get_name(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

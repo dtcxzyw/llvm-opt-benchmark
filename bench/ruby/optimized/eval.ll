@@ -2889,7 +2889,7 @@ define dso_local void @ruby_stop(i32 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @ruby_executable_node(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ruby_executable_node(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   switch i64 %3, label %5 [
     i64 20, label %10
@@ -3878,7 +3878,7 @@ define dso_local void @rb_need_block() local_unnamed_addr #0 {
 declare void @rb_vm_localjump_error(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_rescue2(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ...) local_unnamed_addr #0 {
+define dso_local i64 @rb_rescue2(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = call i64 @rb_vrescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %5)
@@ -3887,7 +3887,7 @@ define dso_local i64 @rb_rescue2(ptr noundef readonly captures(none) %0, i64 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_vrescue2(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @rb_vrescue2(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -4128,14 +4128,14 @@ declare void @rb_vm_rewind_cfp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_rescue(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i64 @rb_rescue(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load i64, ptr @rb_eStandardError, align 8
   %6 = tail call i64 (ptr, i64, ptr, i64, ...) @rb_rescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %5, i64 noundef 0)
   ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_protect(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i64 @rb_protect(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8

@@ -2235,7 +2235,7 @@ define hidden range(i32 0, 5) i32 @zend_optimizer_classify_function(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2836,7 +2836,7 @@ define hidden void @zend_optimizer_shift_jump(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -3439,7 +3439,7 @@ define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden ptr @zend_optimizer_get_loop_var_def(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #8 {
+define hidden ptr @zend_optimizer_get_loop_var_def(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88

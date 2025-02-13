@@ -600,7 +600,7 @@ declare void @usb_packet_skip(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @scsi_req_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_msd_request_cancelled(ptr noundef readonly captures(address) %req) local_unnamed_addr #0 {
+define dso_local void @usb_msd_request_cancelled(ptr noundef readonly %req) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %req, align 8
@@ -872,7 +872,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_msd_cancel_io(ptr noundef %dev, ptr noundef readnone captures(address) %p) #0 {
+define internal void @usb_msd_cancel_io(ptr noundef %dev, ptr noundef readnone %p) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 49, ptr noundef nonnull @__func__.USB_STORAGE_DEV) #7
   %packet = getelementptr inbounds nuw i8, ptr %call.i, i64 6048

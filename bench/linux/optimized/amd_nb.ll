@@ -219,7 +219,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly captures(ret: address, provenance) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly %0) local_unnamed_addr #1 align 16 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %2, label %25 [
     i8 9, label %3

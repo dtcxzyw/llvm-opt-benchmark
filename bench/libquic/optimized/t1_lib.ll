@@ -2933,7 +2933,7 @@ return:                                           ; preds = %lor.lhs.false13, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ext_sigalgs_parse_serverhello(ptr readnone captures(none) %ssl, ptr noundef writeonly captures(none) %out_alert, ptr noundef readnone captures(address_is_null) %contents) #0 {
+define internal range(i32 0, 2) i32 @ext_sigalgs_parse_serverhello(ptr readnone captures(none) %ssl, ptr noundef writeonly captures(none) %out_alert, ptr noundef readnone %contents) #0 {
 entry:
   %cmp.not = icmp eq ptr %contents, null
   br i1 %cmp.not, label %return, label %if.then

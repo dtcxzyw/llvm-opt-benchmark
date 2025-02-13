@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @get_octopus_merge_bases(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @get_octopus_merge_bases(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -381,7 +381,7 @@ define dso_local range(i32 -1, 1) i32 @repo_get_merge_bases_many_dirty(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @repo_is_descendant_of(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @repo_is_descendant_of(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8, !tbaa !15
@@ -425,7 +425,7 @@ define dso_local range(i32 -1, 2) i32 @repo_is_descendant_of(ptr noundef %0, ptr
 declare i32 @generation_numbers_enabled(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @can_all_from_reach(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @can_all_from_reach(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.object_array, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -877,7 +877,7 @@ repo_is_descendant_of.exit:                       ; preds = %.preheader.i, %16, 
 declare ptr @commit_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @reduce_heads(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @reduce_heads(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
@@ -1656,7 +1656,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @commit_contains(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @commit_contains(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2979,7 +2979,7 @@ declare void @repo_clear_commit_marks(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @prio_queue_peek(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tips_reachable_from_bases(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @tips_reachable_from_bases(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   store ptr null, ptr %6, align 8, !tbaa !12
@@ -3790,7 +3790,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @load_commit_graph_info(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @contains_test(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, i64 noundef range(i64 0, -9223372036854775808) %3) unnamed_addr #0 {
+define internal fastcc i32 @contains_test(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i64 noundef range(i64 0, -9223372036854775808) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 64
   %.val = load i32, ptr %5, align 8, !tbaa !73
   %6 = load i32, ptr %2, align 8, !tbaa !74

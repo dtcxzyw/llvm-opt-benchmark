@@ -406,7 +406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKS0_NS_4spanIKNS_8TypeDescELln1EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(20) initializes((0, 20)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(20) %src, ptr %channeltypes.coerce0, i64 %channeltypes.coerce1) unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKS0_NS_4spanIKNS_8TypeDescELln1EEE(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(20) %src, ptr %channeltypes.coerce0, i64 %channeltypes.coerce1) unnamed_addr #5 align 2 {
 entry:
   %agg.tmp6 = alloca %"class.OpenImageIO_v2_6_0::span.30", align 8
   %m_npixels = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -513,7 +513,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN18OpenImageIO_v2_6_08DeepDataaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(20) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %d) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN18OpenImageIO_v2_6_08DeepDataaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(20) %this, ptr noundef nonnull readonly align 8 dereferenceable(20) %d) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %this, %d
   br i1 %cmp.not, label %if.end14, label %if.then
@@ -9437,7 +9437,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef nonnull %__first, ptr noundef nonnull readnone captures(address) %__last, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %__comp) unnamed_addr #15 {
+define internal fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef nonnull %__first, ptr noundef nonnull readnone %__last, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %__comp) unnamed_addr #15 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader
@@ -12279,7 +12279,7 @@ if.end26:                                         ; preds = %if.else14.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr noundef writeonly captures(ret: address, provenance) %__result, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %__comp) unnamed_addr #15 {
+define internal fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr noundef writeonly %__result, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %__comp) unnamed_addr #15 {
 entry:
   %cmp24 = icmp ne ptr %__first1, %__last1
   %cmp125 = icmp ne ptr %__first2, %__last2

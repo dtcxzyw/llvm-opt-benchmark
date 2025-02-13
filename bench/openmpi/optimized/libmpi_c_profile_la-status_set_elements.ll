@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Status_set_elements = weak alias i32 (ptr, ptr, i32), ptr @PMPI_Status_set_elements
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @PMPI_Status_set_elements(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 {
+define range(i32 0, 4) i32 @PMPI_Status_set_elements(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
   %6 = trunc i8 %5 to i1

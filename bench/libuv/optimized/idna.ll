@@ -114,7 +114,7 @@ return:                                           ; preds = %if.end48.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @uv__idna_toascii(ptr noundef %s, ptr noundef %se, ptr noundef %d, ptr noundef captures(address) %de) local_unnamed_addr #1 {
+define hidden i64 @uv__idna_toascii(ptr noundef %s, ptr noundef %se, ptr noundef %d, ptr noundef %de) local_unnamed_addr #1 {
 entry:
   %d.addr = alloca ptr, align 8
   store ptr %d, ptr %d.addr, align 8
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end48.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %s, ptr noundef %se, ptr noundef nonnull captures(none) %d, ptr noundef readnone captures(address) %de) unnamed_addr #1 {
+define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %s, ptr noundef %se, ptr noundef nonnull captures(none) %d, ptr noundef readnone %de) unnamed_addr #1 {
 entry:
   %cmp302 = icmp ult ptr %s, %se
   br i1 %cmp302, label %while.body.lr.ph, label %if.end23
@@ -1245,7 +1245,7 @@ while.end:                                        ; preds = %if.end18, %uv__get_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -105, 1) i32 @uv_utf16_to_wtf8(ptr noundef readonly captures(none) %w_source_ptr, i64 noundef %w_source_len, ptr noundef captures(address_is_null) %target_ptr, ptr noundef captures(address_is_null) %target_len_ptr) local_unnamed_addr #4 {
+define hidden range(i32 -105, 1) i32 @uv_utf16_to_wtf8(ptr noundef readonly captures(none) %w_source_ptr, i64 noundef %w_source_len, ptr noundef %target_ptr, ptr noundef %target_len_ptr) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %target_ptr, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

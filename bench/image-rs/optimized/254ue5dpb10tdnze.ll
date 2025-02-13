@@ -41627,7 +41627,7 @@ define hidden i48 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h4fc4ce097d90310fE"(ptr noalias noundef nonnull readonly returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h4fc4ce097d90310fE"(ptr noalias noundef nonnull readonly returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -41647,7 +41647,7 @@ define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN67_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h9f9fa98395655ed2E"(ptr noalias noundef nonnull readonly returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h9f9fa98395655ed2E"(ptr noalias noundef nonnull readonly returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -41667,7 +41667,7 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd6e3087ca151e8f1E"(ptr noalias noundef nonnull readonly returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd6e3087ca151e8f1E"(ptr noalias noundef nonnull readonly returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -41687,7 +41687,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE"(ptr noalias noundef nonnull readnone returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h147503325cbd2d9aE"(ptr noalias noundef nonnull readnone returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -41707,7 +41707,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN67_$LT$image.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h4c1a6a92d1e3bb7eE"(ptr noalias noundef nonnull readnone returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h4c1a6a92d1e3bb7eE"(ptr noalias noundef nonnull readnone returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -41727,7 +41727,7 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN67_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h95e3ec36eac00ddaE"(ptr noalias noundef nonnull readnone returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h95e3ec36eac00ddaE"(ptr noalias noundef nonnull readnone returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -42526,7 +42526,7 @@ define hidden noundef i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$ima
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h7ebaaf18df5e9954E"(ptr noalias noundef nonnull readonly returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h7ebaaf18df5e9954E"(ptr noalias noundef nonnull readonly returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -42546,7 +42546,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17haef71c82f66097daE"(ptr noalias noundef nonnull readonly returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17haef71c82f66097daE"(ptr noalias noundef nonnull readonly returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -42566,7 +42566,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd49b74ed0fa367bdE"(ptr noalias noundef nonnull readonly returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd49b74ed0fa367bdE"(ptr noalias noundef nonnull readonly returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -42586,7 +42586,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h0e86b050bf9bbd0fE"(ptr noalias noundef nonnull readnone returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h0e86b050bf9bbd0fE"(ptr noalias noundef nonnull readnone returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -42606,7 +42606,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h1e378f2bd0a6fb68E"(ptr noalias noundef nonnull readnone returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h1e378f2bd0a6fb68E"(ptr noalias noundef nonnull readnone returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -42626,7 +42626,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h88481c7491465770E"(ptr noalias noundef nonnull readnone returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h88481c7491465770E"(ptr noalias noundef nonnull readnone returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43000,7 +43000,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h5d8c9c9b25ecb948E"(ptr noalias noundef nonnull readonly returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h5d8c9c9b25ecb948E"(ptr noalias noundef nonnull readonly returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43020,7 +43020,7 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h65b7115c728bd9a1E"(ptr noalias noundef nonnull readonly returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h65b7115c728bd9a1E"(ptr noalias noundef nonnull readonly returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43040,7 +43040,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hba199bf6e4cc5889E"(ptr noalias noundef nonnull readonly returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hba199bf6e4cc5889E"(ptr noalias noundef nonnull readonly returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43060,7 +43060,7 @@ define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h11346d83fdc06e51E"(ptr noalias noundef nonnull readnone returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h11346d83fdc06e51E"(ptr noalias noundef nonnull readnone returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43080,7 +43080,7 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN68_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3ecb10ad974cc5b8E"(ptr noalias noundef nonnull readnone returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3ecb10ad974cc5b8E"(ptr noalias noundef nonnull readnone returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43100,7 +43100,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN68_$LT$image.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h5108e8d1b274d1b2E"(ptr noalias noundef nonnull readnone returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h5108e8d1b274d1b2E"(ptr noalias noundef nonnull readnone returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43934,7 +43934,7 @@ define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h552eb641dd499454E"(ptr noalias noundef nonnull readonly returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h552eb641dd499454E"(ptr noalias noundef nonnull readonly returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43954,7 +43954,7 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h7ea7fc86772e16aaE"(ptr noalias noundef nonnull readonly returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h7ea7fc86772e16aaE"(ptr noalias noundef nonnull readonly returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43974,7 +43974,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN69_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd46b13c08ebeca64E"(ptr noalias noundef nonnull readonly returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd46b13c08ebeca64E"(ptr noalias noundef nonnull readonly returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43994,7 +43994,7 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h27a974e38348630eE"(ptr noalias noundef nonnull readnone returned align 2 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h27a974e38348630eE"(ptr noalias noundef nonnull readnone returned align 2 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -44014,7 +44014,7 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN69_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3124687b7093d148E"(ptr noalias noundef nonnull readnone returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h3124687b7093d148E"(ptr noalias noundef nonnull readnone returned align 1 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -44034,7 +44034,7 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN69_$LT$image..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h823f106ab2afb0d0E"(ptr noalias noundef nonnull readnone returned align 4 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$14from_slice_mut17h823f106ab2afb0d0E"(ptr noalias noundef nonnull readnone returned align 4 %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

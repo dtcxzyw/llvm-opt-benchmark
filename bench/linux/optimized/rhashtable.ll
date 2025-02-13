@@ -2331,7 +2331,7 @@ define dso_local noundef range(i32 -22, 1) i32 @rhltable_init(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 align 16 {
+define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96

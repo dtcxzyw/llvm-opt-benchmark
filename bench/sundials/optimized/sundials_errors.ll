@@ -63,7 +63,7 @@ define range(i32 -9988, 1) i32 @SUNErrHandler_Create(ptr noundef %0, ptr noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SUNErrHandler_Destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @SUNErrHandler_Destroy(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

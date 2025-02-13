@@ -594,7 +594,7 @@ define dso_local noundef range(i32 -113, 1) i32 @usb_hcd_link_urb_to_ep(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -43, 1) i32 @usb_hcd_check_unlink_urb(ptr readnone captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2) #6 align 16 {
+define dso_local noundef range(i32 -43, 1) i32 @usb_hcd_check_unlink_urb(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #6 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2084,7 +2084,7 @@ define dso_local void @usb_hcd_flush_endpoint(ptr noundef readonly captures(none
 declare dso_local void @usb_kill_urb(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 304
@@ -2967,7 +2967,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local void @usb_kick_hub_wq(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @usb_hcd_is_primary_hcd(ptr noundef readonly captures(address) %0) #10 align 16 {
+define dso_local range(i32 0, 2) i32 @usb_hcd_is_primary_hcd(ptr noundef readonly %0) #10 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

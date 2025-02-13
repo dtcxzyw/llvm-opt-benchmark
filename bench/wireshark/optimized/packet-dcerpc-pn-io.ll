@@ -8563,7 +8563,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i, %decode_A
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -9075,7 +9075,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AlarmCRBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc void @dissect_AlarmCRBlockReq_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
@@ -15831,7 +15831,7 @@ pnio_ar_find_by_aruuid.exit.thread:               ; preds = %68, %37, %pnio_ar_f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_IOCRBlockRes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc void @dissect_IOCRBlockRes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -15964,7 +15964,7 @@ define internal fastcc void @dissect_IOCRBlockRes_block(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_AlarmCRBlockRes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc void @dissect_AlarmCRBlockRes_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2

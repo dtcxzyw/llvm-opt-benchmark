@@ -392,7 +392,7 @@ return:                                           ; preds = %entry, %inet_ntop6.
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %af, ptr noundef %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #1 {
+define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %af, ptr noundef %src, ptr noundef writeonly %dst) local_unnamed_addr #1 {
 entry:
   %tmp.i.i = alloca [4 x i8], align 4
   %tmp.i13 = alloca [16 x i8], align 16

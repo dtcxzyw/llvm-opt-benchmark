@@ -708,7 +708,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN2os11native_pathEPc(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN2os11native_pathEPc(ptr noundef readnone returned %0) local_unnamed_addr #8 align 2 {
   ret ptr %0
 }
 
@@ -1895,7 +1895,7 @@ declare noundef zeroext i1 @_ZN2os5Linux28adjustStackSizeForGuardPagesEv() local
 declare i32 @pthread_attr_getdetachstate(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1981,7 +1981,7 @@ define hidden noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef readonly captures(n
 declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #11 align 2 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %0, null

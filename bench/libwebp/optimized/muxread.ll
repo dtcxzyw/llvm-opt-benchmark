@@ -84,7 +84,7 @@ declare i32 @VP8GetInfo(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr 
 declare ptr @ChunkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.WebPData, align 8
   %5 = alloca %struct.WebPChunk, align 8
   %6 = alloca [11 x ptr], align 16
@@ -568,7 +568,7 @@ declare ptr @MuxImageDelete(ptr noundef) local_unnamed_addr #1
 declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -586,7 +586,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @kChunks, align 16
@@ -705,7 +705,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @WebPMuxGetFeatures(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @WebPMuxGetFeatures(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -721,7 +721,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetFeatures(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -838,7 +838,7 @@ declare i32 @ChunkGetTagFromFourCC(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
@@ -950,7 +950,7 @@ MuxGetFrameInternal.exit:                         ; preds = %MuxGetFrameInternal
 declare i32 @MuxImageGetNth(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -990,7 +990,7 @@ MuxGet.exit.thread:                               ; preds = %5, %10, %2, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @WebPMuxNumChunks(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @WebPMuxNumChunks(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

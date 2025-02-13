@@ -30,7 +30,7 @@ define hidden i32 @getMidiDeviceCount(i32 noundef %0) local_unnamed_addr #0 {
 declare void @initAlsaSupport(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [16 x i8], align 16
@@ -638,7 +638,7 @@ declare i32 @snd_rawmidi_close(ptr noundef) local_unnamed_addr #1
 declare i32 @snd_midi_event_new(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @closeMidiDevice(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i32 @closeMidiDevice(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -670,7 +670,7 @@ define hidden i32 @closeMidiDevice(ptr noundef captures(address_is_null) %0) loc
 declare void @snd_midi_event_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i64 @getMidiTimestamp(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define hidden i64 @getMidiTimestamp(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = alloca %struct.timeval, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3

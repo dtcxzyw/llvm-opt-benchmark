@@ -431,7 +431,7 @@ hd_context_free.exit:                             ; preds = %16, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_deflate_change_table_size(ptr noundef captures(address_is_null) initializes((48, 56), (1104, 1105)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @nghttp2_hd_deflate_change_table_size(ptr noundef initializes((48, 56), (1104, 1105)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load i64, ptr %3, align 8, !tbaa !47
   %. = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
@@ -449,7 +449,7 @@ define dso_local noundef i32 @nghttp2_hd_deflate_change_table_size(ptr noundef c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hd_context_shrink_table_size(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @hd_context_shrink_table_size(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -694,7 +694,7 @@ define dso_local void @nghttp2_hd_table_get(ptr dead_on_unwind noalias writable 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca %struct.nghttp2_hd_nv, align 8
   %7 = alloca [16 x i8], align 16
@@ -1392,7 +1392,7 @@ deflate_nv.exit:                                  ; preds = %emit_indexed_block.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nghttp2_hd_deflate_hd(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @nghttp2_hd_deflate_hd(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nghttp2_bufs, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1434,7 +1434,7 @@ declare i64 @nghttp2_bufs_len(ptr noundef) local_unnamed_addr #2
 declare void @nghttp2_bufs_wrap_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nghttp2_hd_deflate_hd_vec(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @nghttp2_hd_deflate_hd_vec(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nghttp2_bufs, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3953,7 +3953,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr noundef readonly 
 declare i32 @nghttp2_rcbuf_new2(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = load ptr, ptr %1, align 8, !tbaa !13

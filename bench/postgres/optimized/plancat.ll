@@ -2095,7 +2095,7 @@ declare ptr @list_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @predicate_implied_by(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_rel_data_width(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @get_rel_data_width(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 116
@@ -2227,7 +2227,7 @@ declare i32 @get_typavgwidth(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @clamp_width_est(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_relation_data_width(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @get_relation_data_width(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @table_open(i32 noundef %0, i32 noundef 0) #10
   %4 = tail call i32 @get_rel_data_width(ptr noundef %3, ptr noundef %1)
   tail call void @table_close(ptr noundef %3, i32 noundef 0) #10

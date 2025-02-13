@@ -1329,7 +1329,7 @@ return:                                           ; preds = %if.then17, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_socket_readv(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef captures(address_is_null) %fds, ptr noundef captures(address_is_null) %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_socket_readv(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %control = alloca [80 x i8], align 16

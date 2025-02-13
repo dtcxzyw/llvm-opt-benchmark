@@ -3289,7 +3289,7 @@ declare noundef zeroext i1 @_ZN3irr5video11CNullDriver8endSceneEv(ptr noundef no
 declare void @glFlush() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video13COpenGLDriver12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4344) %this, i32 noundef %state) unnamed_addr #9 align 2 {
+define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video13COpenGLDriver12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull readnone align 8 dereferenceable(4344) %this, i32 noundef %state) unnamed_addr #9 align 2 {
 entry:
   %Matrices = getelementptr inbounds nuw i8, ptr %this, i64 3088
   %idxprom = zext i32 %state to i64
@@ -7101,7 +7101,7 @@ _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_4rectIiEEPSC_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %texture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %destPos, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect, ptr noundef readonly captures(address_is_null) %clipRect, i32 %color.coerce, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_4rectIiEEPSC_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %texture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %destPos, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect, ptr noundef readonly %clipRect, i32 %color.coerce, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %texture, null
   br i1 %tobool.not, label %cleanup.cont, label %if.end
@@ -7693,7 +7693,7 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %texture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %destRect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect, ptr noundef readonly captures(address_is_null) %clipRect, ptr noundef readonly captures(address_is_null) %colors, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %texture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %destRect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect, ptr noundef readonly %clipRect, ptr noundef readonly %colors, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %texture, null
   br i1 %tobool.not, label %cleanup.cont, label %if.end
@@ -8533,7 +8533,7 @@ return:                                           ; preds = %if.end46, %lor.lhs.
 declare void @glLoadIdentity() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriver16draw2DImageBatchEPKNS0_8ITextureERKNS_4core5arrayINS5_8vector2dIiEEEERKNS6_INS5_4rectIiEEEEPKSD_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %texture, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %positions, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %sourceRects, ptr noundef readonly captures(address_is_null) %clipRect, i32 %color.coerce, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriver16draw2DImageBatchEPKNS0_8ITextureERKNS_4core5arrayINS5_8vector2dIiEEEERKNS6_INS5_4rectIiEEEEPKSD_NS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %texture, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %positions, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %sourceRects, ptr noundef readonly %clipRect, i32 %color.coerce, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %texture, null
   br i1 %tobool.not, label %cleanup.cont323, label %if.end
@@ -9163,7 +9163,7 @@ cleanup.cont323:                                  ; preds = %for.inc, %if.end63,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriver15draw2DRectangleENS0_6SColorERKNS_4core4rectIiEEPS6_(ptr noundef nonnull align 8 dereferenceable(4344) %this, i32 %color.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %position, ptr noundef readonly captures(address_is_null) %clip) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriver15draw2DRectangleENS0_6SColorERKNS_4core4rectIiEEPS6_(ptr noundef nonnull align 8 dereferenceable(4344) %this, i32 %color.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %position, ptr noundef readonly %clip) unnamed_addr #0 align 2 {
 entry:
   %MaxTextureUnits.i = getelementptr inbounds nuw i8, ptr %this, i64 1731
   %0 = load i8, ptr %MaxTextureUnits.i, align 1, !tbaa !151
@@ -9532,7 +9532,7 @@ declare void @glColor4ub(i8 noundef zeroext, i8 noundef zeroext, i8 noundef zero
 declare void @glRectf(float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriver15draw2DRectangleERKNS_4core4rectIiEENS0_6SColorES7_S7_S7_PS5_(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %position, i32 %colorLeftUp.coerce, i32 %colorRightUp.coerce, i32 %colorLeftDown.coerce, i32 %colorRightDown.coerce, ptr noundef readonly captures(address_is_null) %clip) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriver15draw2DRectangleERKNS_4core4rectIiEENS0_6SColorES7_S7_S7_PS5_(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %position, i32 %colorLeftUp.coerce, i32 %colorRightUp.coerce, i32 %colorLeftDown.coerce, i32 %colorRightDown.coerce, ptr noundef readonly %clip) unnamed_addr #0 align 2 {
 entry:
   %pos.sroa.0.0.copyload = load i32, ptr %position, align 4, !tbaa !129
   %pos.sroa.9.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %position, i64 4
@@ -17379,13 +17379,13 @@ _ZN3irr5video13COpenGLDriver26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SH
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN3irr5video13COpenGLDriver14getVideoDriverEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(4344) %this) unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZN3irr5video13COpenGLDriver14getVideoDriverEv(ptr noundef nonnull readnone returned align 8 dereferenceable(4344) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn1168_N3irr5video13COpenGLDriver14getVideoDriverEv(ptr noundef readnone captures(ret: address, provenance) %this) unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZThn1168_N3irr5video13COpenGLDriver14getVideoDriverEv(ptr noundef readnone %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1168
   ret ptr %0
@@ -19024,7 +19024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(178) ptr @_ZNK3irr5video13COpenGLDriver18getCurrentMaterialEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4344) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(178) ptr @_ZNK3irr5video13COpenGLDriver18getCurrentMaterialEv(ptr noundef nonnull readnone align 8 dereferenceable(4344) %this) local_unnamed_addr #9 align 2 {
 entry:
   %Material = getelementptr inbounds nuw i8, ptr %this, i64 3576
   ret ptr %Material

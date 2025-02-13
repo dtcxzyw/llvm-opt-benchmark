@@ -123,7 +123,7 @@ if.end6:                                          ; preds = %if.then.i, %if.then
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fd_read(ptr noundef %b, ptr noundef captures(address_is_null) %out, i32 noundef %outl) #1 {
+define internal noundef i32 @fd_read(ptr noundef %b, ptr noundef %out, i32 noundef %outl) #1 {
 entry:
   %cmp.not = icmp eq ptr %out, null
   br i1 %cmp.not, label %if.end13, label %if.then
@@ -209,7 +209,7 @@ fd_write.exit:                                    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fd_gets(ptr noundef %bp, ptr noundef captures(address) %buf, i32 noundef %size) #1 {
+define internal i32 @fd_gets(ptr noundef %bp, ptr noundef %buf, i32 noundef %size) #1 {
 entry:
   %idx.ext = sext i32 %size to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
@@ -250,7 +250,7 @@ if.end12:                                         ; preds = %if.then9, %while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef captures(address_is_null) %ptr) #1 {
+define internal i64 @fd_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
   switch i32 %cmd, label %sw.default [
     i32 1, label %sw.bb
@@ -384,7 +384,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_null) %a) #1 {
+define internal range(i32 0, 2) i32 @fd_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

@@ -17920,7 +17920,7 @@ define noundef i64 @_ZN3lsp14LanguageServer9server_id17h0e7105aed701486aE(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3lsp14LanguageServer9root_path17h933739eb28ce4801E(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3lsp14LanguageServer9root_path17h933739eb28ce4801E(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #9 {
   ret ptr %0
 }
 

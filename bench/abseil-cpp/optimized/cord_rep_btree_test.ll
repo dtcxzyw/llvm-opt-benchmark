@@ -31724,7 +31724,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly captures(address) %tree, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %edges) unnamed_addr #3 {
+define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdgesEPKNS0_12CordRepBtreeERSt6vectorIPNS0_7CordRepESaIS7_EE(ptr noundef readonly %tree, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %edges) unnamed_addr #3 {
 entry:
   %storage.i = getelementptr inbounds nuw i8, ptr %tree, i64 13
   %0 = load i8, ptr %storage.i, align 1
@@ -47166,7 +47166,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_110CreateTreeENS_4SpanIKPNS0_7CordRepEEE(ptr readonly captures(address) %reps.coerce0, i64 %reps.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_110CreateTreeENS_4SpanIKPNS0_7CordRepEEE(ptr readonly %reps.coerce0, i64 %reps.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %reps.coerce0, align 8
   %tag.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -85152,7 +85152,7 @@ declare noundef ptr @_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_(ptr noun
 declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZN4absl15cordrep_testing13CordVisitRepsIRZNS_13cord_internal12_GLOBAL__N_129CordRepBtreeTest_Rebuild_Test8TestBodyEvE3$_0EEvPNS2_7CordRepEOT_"(ptr noundef readonly captures(address) %rep, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %fn) unnamed_addr #20 {
+define internal fastcc void @"_ZN4absl15cordrep_testing13CordVisitRepsIRZNS_13cord_internal12_GLOBAL__N_129CordRepBtreeTest_Rebuild_Test8TestBodyEvE3$_0EEvPNS2_7CordRepEOT_"(ptr noundef readonly %rep, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %fn) unnamed_addr #20 {
 entry:
   %tag.i = getelementptr inbounds nuw i8, ptr %rep, i64 12
   %0 = load i8, ptr %tag.i, align 4
@@ -92567,7 +92567,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE16GetTestSuiteNameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) unnamed_addr #14 align 2 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE16GetTestSuiteNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) unnamed_addr #14 align 2 {
 entry:
   %test_suite_name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %test_suite_name_
@@ -93958,7 +93958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE16GetTestSuiteNameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) unnamed_addr #14 align 2 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE16GetTestSuiteNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) unnamed_addr #14 align 2 {
 entry:
   %test_suite_name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %test_suite_name_
@@ -95306,7 +95306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE16GetTestSuiteNameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) unnamed_addr #14 align 2 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE16GetTestSuiteNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) unnamed_addr #14 align 2 {
 entry:
   %test_suite_name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %test_suite_name_

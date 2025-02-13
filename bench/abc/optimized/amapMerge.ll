@@ -1100,7 +1100,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Amap_ManMergeNodeChoice(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define void @Amap_ManMergeNodeChoice(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not25 = icmp eq ptr %1, null
   br i1 %.not25, label %._crit_edge29, label %.lr.ph28
 
@@ -1785,7 +1785,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Amap_ManMergeNodeCuts(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define void @Amap_ManMergeNodeCuts(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8, !tbaa !64
   %4 = getelementptr i8, ptr %1, i64 24

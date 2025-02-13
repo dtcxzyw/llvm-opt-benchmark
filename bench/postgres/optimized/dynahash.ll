@@ -841,7 +841,7 @@ define dso_local range(i64 848, 841) i64 @hash_get_shared_size(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hash_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @hash_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -873,7 +873,7 @@ define dso_local i32 @get_hash_value(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hash_search(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @hash_search(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -884,7 +884,7 @@ define dso_local ptr @hash_search(ptr noundef captures(address) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hash_search_with_hash_value(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local ptr @hash_search_with_hash_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 816
   %8 = load i64, ptr %7, align 8
@@ -2061,7 +2061,7 @@ deregister_seq_scan.exit:                         ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hash_freeze(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @hash_freeze(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

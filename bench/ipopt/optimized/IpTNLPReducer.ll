@@ -1145,7 +1145,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer6eval_gEiPKdbiPd(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer10eval_jac_gEiPKdbiiPiS3_Pd(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 %4, i32 %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer10eval_jac_gEiPKdbiiPiS3_Pd(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 %4, i32 %5, ptr noundef writeonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %80, label %10
 

@@ -652,7 +652,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_reset_75(ptr noundef captures(address_is_null) %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define void @ucfpos_reset_75(ptr noundef %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -682,7 +682,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_constrainCategory_75(ptr noundef captures(address_is_null) %ptr, i32 noundef %category, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define void @ucfpos_constrainCategory_75(ptr noundef %ptr, i32 noundef %category, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -714,7 +714,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_constrainField_75(ptr noundef captures(address_is_null) %ptr, i32 noundef %category, i32 noundef %field, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define void @ucfpos_constrainField_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -748,7 +748,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ucfpos_getCategory_75(ptr noundef readonly captures(address_is_null) %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define i32 @ucfpos_getCategory_75(ptr noundef readonly %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -779,7 +779,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ucfpos_getField_75(ptr noundef readonly captures(address_is_null) %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define i32 @ucfpos_getField_75(ptr noundef readonly %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -810,7 +810,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_getIndexes_75(ptr noundef readonly captures(address_is_null) %ptr, ptr noundef writeonly captures(none) %pStart, ptr noundef writeonly captures(none) %pLimit, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define void @ucfpos_getIndexes_75(ptr noundef readonly %ptr, ptr noundef writeonly captures(none) %pStart, ptr noundef writeonly captures(none) %pLimit, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -844,7 +844,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ucfpos_getInt64IterationContext_75(ptr noundef readonly captures(address_is_null) %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define i64 @ucfpos_getInt64IterationContext_75(ptr noundef readonly %ptr, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -875,7 +875,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_setInt64IterationContext_75(ptr noundef captures(address_is_null) %ptr, i64 noundef %context, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define void @ucfpos_setInt64IterationContext_75(ptr noundef %ptr, i64 noundef %context, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -905,7 +905,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext range(i8 0, 2) i8 @ucfpos_matchesField_75(ptr noundef readonly captures(address_is_null) %ptr, i32 noundef %category, i32 noundef %field, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
+define signext range(i8 0, 2) i8 @ucfpos_matchesField_75(ptr noundef readonly %ptr, i32 noundef %category, i32 noundef %field, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -965,7 +965,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucfpos_setState_75(ptr noundef captures(address_is_null) %ptr, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
+define void @ucfpos_setState_75(ptr noundef %ptr, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit, ptr noundef captures(none) %ec) local_unnamed_addr #15 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -1023,7 +1023,7 @@ delete.end:                                       ; preds = %if.end2.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ufmtval_getString_75(ptr noundef readonly captures(address_is_null) %ufmtval, ptr noundef writeonly captures(address_is_null) %pLength, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @ufmtval_getString_75(ptr noundef readonly %ufmtval, ptr noundef writeonly %pLength, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %readOnlyAlias = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %ec, align 4
@@ -1104,7 +1104,7 @@ return:                                           ; preds = %return.sink.split.i
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ufmtval_nextPosition_75(ptr noundef readonly captures(address_is_null) %ufmtval, ptr noundef %ucfpos, ptr noundef %ec) local_unnamed_addr #1 {
+define noundef signext i8 @ufmtval_nextPosition_75(ptr noundef readonly %ufmtval, ptr noundef %ucfpos, ptr noundef %ec) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1

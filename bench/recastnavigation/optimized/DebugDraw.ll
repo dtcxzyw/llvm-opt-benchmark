@@ -138,7 +138,7 @@ define void @_Z10duIntToColiPf(i32 noundef %0, ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z15duCalcBoxColorsPjjj(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @_Z15duCalcBoxColorsPjjj(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %58, label %4
 

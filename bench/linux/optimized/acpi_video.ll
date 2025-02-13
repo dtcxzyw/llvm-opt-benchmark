@@ -160,7 +160,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_video_get_edid455, ptr @__UNIQUE_ID___addressable_acpi_video_get_levels454, ptr @__UNIQUE_ID___addressable_acpi_video_handles_brightness_key_presses459, ptr @__UNIQUE_ID___addressable_acpi_video_init461, ptr @__UNIQUE_ID___addressable_acpi_video_register456, ptr @__UNIQUE_ID___addressable_acpi_video_register_backlight458, ptr @__UNIQUE_ID___addressable_acpi_video_unregister457, ptr @__UNIQUE_ID_allow_duplicatestype447, ptr @__UNIQUE_ID_author442, ptr @__UNIQUE_ID_brightness_switch_enabledtype446, ptr @__UNIQUE_ID_description443, ptr @__UNIQUE_ID_device_id_schemetype452, ptr @__UNIQUE_ID_file444, ptr @__UNIQUE_ID_hw_changes_brightness451, ptr @__UNIQUE_ID_hw_changes_brightnesstype450, ptr @__UNIQUE_ID_license445, ptr @__UNIQUE_ID_only_lcdtype453, ptr @__UNIQUE_ID_report_key_events449, ptr @__UNIQUE_ID_report_key_eventstype448, ptr @__exitcall_acpi_video_exit, ptr @__param_allow_duplicates, ptr @__param_brightness_switch_enabled, ptr @__param_device_id_scheme, ptr @__param_hw_changes_brightness, ptr @__param_only_lcd, ptr @__param_report_key_events, ptr @acpi_video_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -430,7 +430,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = alloca %struct.acpi_buffer, align 8
   %6 = alloca %union.acpi_object, align 8
   %7 = alloca %struct.acpi_object_list, align 8

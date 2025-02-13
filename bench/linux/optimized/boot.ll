@@ -1099,7 +1099,7 @@ declare dso_local i32 @pci_acpi_init() #3 section ".init.text"
 declare dso_local i32 @acpi_parse_spcr(i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @parse_acpi(ptr noundef readonly captures(address_is_null) %0) #9 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @parse_acpi(ptr noundef readonly %0) #9 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -1181,7 +1181,7 @@ define internal noundef i32 @parse_acpi_bgrt(ptr readnone captures(none) %0) #7 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @parse_pci(ptr noundef readonly captures(address_is_null) %0) #9 section ".init.text" align 16 {
+define internal noundef i32 @parse_pci(ptr noundef readonly %0) #9 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -1217,7 +1217,7 @@ define internal noundef i32 @parse_acpi_use_timer_override(ptr readnone captures
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @setup_acpi_sci(ptr noundef readonly captures(address_is_null) %0) #11 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @setup_acpi_sci(ptr noundef readonly %0) #11 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -2368,7 +2368,7 @@ declare dso_local void @mp_save_irq(ptr noundef) local_unnamed_addr #1
 declare dso_local void @acpi_penalize_sci_irq(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #4 align 16 {
+define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #4 align 16 {
   %5 = alloca %struct.mpc_intsrc, align 8
   %6 = alloca %struct.irq_alloc_info, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #18

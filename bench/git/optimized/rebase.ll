@@ -4517,7 +4517,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @parse_opt_passthru_argv(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_am(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @parse_opt_am(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   %.not = icmp eq i32 %2, 0
@@ -4553,7 +4553,7 @@ define internal noundef i32 @parse_opt_am(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_merge(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @parse_opt_merge(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   %.not = icmp eq i32 %2, 0
@@ -4589,7 +4589,7 @@ define internal noundef i32 @parse_opt_merge(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_interactive(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @parse_opt_interactive(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   %.not = icmp eq i32 %2, 0
@@ -4688,7 +4688,7 @@ parse_empty_value.exit:                           ; preds = %3, %7, %9, %_.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_keep_empty(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @parse_opt_keep_empty(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -6012,7 +6012,7 @@ declare ptr @null_oid() local_unnamed_addr #3
 declare void @free_commit_list(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_linear_history(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_linear_history(ptr noundef readnone %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %1, %0
   %5 = and i1 %3, %4

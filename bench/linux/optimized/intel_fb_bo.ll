@@ -182,7 +182,7 @@ declare dso_local i32 @intel_fb_modifier_to_tiling(i64 noundef) local_unnamed_ad
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 16 {
+define dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %5 = load i32, ptr %4, align 4
   tail call void @__rcu_read_lock() #4

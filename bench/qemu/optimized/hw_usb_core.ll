@@ -659,7 +659,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 declare ptr @usb_device_find_device(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_handle_packet(ptr noundef readonly captures(address) %dev, ptr noundef %p) local_unnamed_addr #1 {
+define dso_local void @usb_handle_packet(ptr noundef readonly %dev, ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dev, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2098,7 +2098,7 @@ for.end64:                                        ; preds = %for.inc62
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @usb_ep_get(ptr noundef readnone captures(address_is_null, ret: address, provenance) %dev, i32 noundef %pid, i32 noundef %ep) local_unnamed_addr #1 {
+define dso_local ptr @usb_ep_get(ptr noundef readnone %dev, i32 noundef %pid, i32 noundef %ep) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %dev, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -2148,7 +2148,7 @@ return:                                           ; preds = %if.end13, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @usb_ep_get_type(ptr noundef readonly captures(address_is_null) %dev, i32 noundef %pid, i32 noundef %ep) local_unnamed_addr #1 {
+define dso_local zeroext i8 @usb_ep_get_type(ptr noundef readonly %dev, i32 noundef %pid, i32 noundef %ep) local_unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %dev, null
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -2200,7 +2200,7 @@ usb_ep_get.exit:                                  ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ep_set_type(ptr noundef writeonly captures(address_is_null) %dev, i32 noundef %pid, i32 noundef %ep, i8 noundef zeroext %type) local_unnamed_addr #1 {
+define dso_local void @usb_ep_set_type(ptr noundef writeonly %dev, i32 noundef %pid, i32 noundef %ep, i8 noundef zeroext %type) local_unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %dev, null
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -2252,7 +2252,7 @@ usb_ep_get.exit:                                  ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ep_set_ifnum(ptr noundef writeonly captures(address_is_null) %dev, i32 noundef %pid, i32 noundef %ep, i8 noundef zeroext %ifnum) local_unnamed_addr #1 {
+define dso_local void @usb_ep_set_ifnum(ptr noundef writeonly %dev, i32 noundef %pid, i32 noundef %ep, i8 noundef zeroext %ifnum) local_unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %dev, null
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -2304,7 +2304,7 @@ usb_ep_get.exit:                                  ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ep_set_max_packet_size(ptr noundef writeonly captures(address_is_null) %dev, i32 noundef %pid, i32 noundef %ep, i16 noundef zeroext %raw) local_unnamed_addr #1 {
+define dso_local void @usb_ep_set_max_packet_size(ptr noundef writeonly %dev, i32 noundef %pid, i32 noundef %ep, i16 noundef zeroext %raw) local_unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %dev, null
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -2365,7 +2365,7 @@ usb_ep_get.exit:                                  ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ep_set_max_streams(ptr noundef writeonly captures(address_is_null) %dev, i32 noundef %pid, i32 noundef %ep, i8 noundef zeroext %raw) local_unnamed_addr #1 {
+define dso_local void @usb_ep_set_max_streams(ptr noundef writeonly %dev, i32 noundef %pid, i32 noundef %ep, i8 noundef zeroext %raw) local_unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %dev, null
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -2422,7 +2422,7 @@ usb_ep_get.exit:                                  ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ep_set_halted(ptr noundef writeonly captures(address_is_null) %dev, i32 noundef %pid, i32 noundef %ep, i1 noundef zeroext %halted) local_unnamed_addr #1 {
+define dso_local void @usb_ep_set_halted(ptr noundef writeonly %dev, i32 noundef %pid, i32 noundef %ep, i1 noundef zeroext %halted) local_unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %dev, null
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -2475,7 +2475,7 @@ usb_ep_get.exit:                                  ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @usb_ep_find_packet_by_id(ptr noundef readonly captures(address_is_null) %dev, i32 noundef %pid, i32 noundef %ep, i64 noundef %id) local_unnamed_addr #1 {
+define dso_local ptr @usb_ep_find_packet_by_id(ptr noundef readonly %dev, i32 noundef %pid, i32 noundef %ep, i64 noundef %id) local_unnamed_addr #1 {
 entry:
   %cmp.not.i = icmp eq ptr %dev, null
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i

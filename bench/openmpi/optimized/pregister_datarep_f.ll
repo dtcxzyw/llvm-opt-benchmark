@@ -55,7 +55,7 @@ define internal void @intercept_extra_state_constructor(ptr noundef writeonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
+define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_intercept_extra_state_t_class, i64 56), align 8
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #8

@@ -656,7 +656,7 @@ switch.lookup:                                    ; preds = %59
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i32 0, 4) i32 @ts_tagger_tag(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i32 0, 4) i32 @ts_tagger_tag(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [0 x { ptr, ptr }], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -1298,7 +1298,7 @@ define void @ts_tags_buffer_delete(ptr noundef nonnull %0) unnamed_addr #0 perso
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @ts_tags_buffer_tags(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define noundef nonnull ptr @ts_tags_buffer_tags(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -1329,7 +1329,7 @@ _ZN16tree_sitter_tags5c_lib10unwrap_ptr17h086719d47c2c2cdbE.exit: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @ts_tags_buffer_tags_len(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define noundef i32 @ts_tags_buffer_tags_len(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -1361,7 +1361,7 @@ _ZN16tree_sitter_tags5c_lib10unwrap_ptr17h086719d47c2c2cdbE.exit: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @ts_tags_buffer_docs(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define noundef nonnull ptr @ts_tags_buffer_docs(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -1392,7 +1392,7 @@ _ZN16tree_sitter_tags5c_lib10unwrap_ptr17h086719d47c2c2cdbE.exit: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @ts_tags_buffer_docs_len(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define noundef i32 @ts_tags_buffer_docs_len(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -1424,7 +1424,7 @@ _ZN16tree_sitter_tags5c_lib10unwrap_ptr17h086719d47c2c2cdbE.exit: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @ts_tags_buffer_found_parse_error(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define noundef zeroext i1 @ts_tags_buffer_found_parse_error(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -1456,7 +1456,7 @@ _ZN16tree_sitter_tags5c_lib10unwrap_ptr17h086719d47c2c2cdbE.exit: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @ts_tagger_syntax_kinds_for_scope_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef ptr @ts_tagger_syntax_kinds_for_scope_name(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8

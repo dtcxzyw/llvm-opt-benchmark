@@ -2192,7 +2192,7 @@ define void @Llb_ManResultPrint(ptr noundef %0, ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val39 = load i32, ptr %3, align 8, !tbaa !14
   %4 = getelementptr i8, ptr %1, i64 32
@@ -2934,7 +2934,7 @@ define range(i32 0, 2) i32 @Llb_ManFlowVerifyCut(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Llb_ManFlow(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Llb_ManFlow(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   tail call void @Aig_ManCleanData(ptr noundef %0) #22
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #22
   %4 = getelementptr i8, ptr %1, i64 4

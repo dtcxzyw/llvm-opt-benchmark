@@ -1397,7 +1397,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Assimp12BaseImporter12HasExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3setIS6_St4lessIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %extensions) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6Assimp12BaseImporter12HasExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3setIS6_St4lessIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef nonnull readonly align 8 dereferenceable(48) %extensions) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file = alloca %"class.std::__cxx11::basic_string", align 8
   %dotExt = alloca %"class.std::__cxx11::basic_string", align 8

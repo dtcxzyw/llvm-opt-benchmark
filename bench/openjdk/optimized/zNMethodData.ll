@@ -27,25 +27,25 @@ define hidden void @_ZN12ZNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN12ZNMethodData4lockEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN12ZNMethodData4lockEv(ptr noundef nonnull readnone align 8 dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN12ZNMethodData7ic_lockEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN12ZNMethodData7ic_lockEv(ptr noundef nonnull readnone align 8 dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12ZNMethodData8barriersEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK12ZNMethodData8barriersEv(ptr noundef nonnull readnone align 8 dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12ZNMethodData14immediate_oopsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK12ZNMethodData14immediate_oopsEv(ptr noundef nonnull readnone align 8 dereferenceable(153) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   ret ptr %2
 }

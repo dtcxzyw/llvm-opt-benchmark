@@ -148,7 +148,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 declare noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12GetTimeOfDayEP7timevalP9timezone_b(ptr noundef captures(address_is_null) %pTV, ptr noundef captures(address_is_null) %pTZ, i1 noundef zeroext %bUTC) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12GetTimeOfDayEP7timevalP9timezone_b(ptr noundef %pTV, ptr noundef %pTZ, i1 noundef zeroext %bUTC) local_unnamed_addr #3 {
 entry:
   %tz = alloca %struct.timezone_, align 4
   %tv = alloca %struct.timeval, align 8
@@ -1634,7 +1634,7 @@ return:                                           ; preds = %if.then39, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC8StrftimeEPcmPKcPK2tmPKNS0_10TimeLocaleE(ptr noalias noundef %pTimeString, i64 noundef %timeStringCapacity, ptr noalias noundef readonly captures(none) %pFormat, ptr noalias noundef %pTM, ptr noalias noundef readonly captures(address_is_null) %pTimeLocale) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN2EA4StdC8StrftimeEPcmPKcPK2tmPKNS0_10TimeLocaleE(ptr noalias noundef %pTimeString, i64 noundef %timeStringCapacity, ptr noalias noundef readonly captures(none) %pFormat, ptr noalias noundef %pTM, ptr noalias noundef readonly %pTimeLocale) local_unnamed_addr #0 {
 entry:
   %jan3rd1970.i = alloca i64, align 8
   %tmGM.i = alloca %struct.tm, align 8
@@ -4103,7 +4103,7 @@ return:                                           ; preds = %if.then419, %sw.bb3
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN2EA4StdC8StrptimeEPKcS2_P2tmPKNS0_10TimeLocaleE(ptr noalias noundef %pTimeString, ptr noalias noundef readonly captures(none) %pFormat, ptr noalias noundef %pTM, ptr noalias noundef readonly captures(address_is_null) %pTimeLocale) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN2EA4StdC8StrptimeEPKcS2_P2tmPKNS0_10TimeLocaleE(ptr noalias noundef %pTimeString, ptr noalias noundef readonly captures(none) %pFormat, ptr noalias noundef %pTM, ptr noalias noundef readonly %pTimeLocale) local_unnamed_addr #0 {
 entry:
   %formatBuffer.i271 = alloca [256 x i8], align 16
   %formatBuffer.i = alloca [256 x i8], align 16

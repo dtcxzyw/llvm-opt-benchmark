@@ -246,7 +246,7 @@ return:                                           ; preds = %while.end21.i, %whi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_log_unlock(ptr noundef captures(address_is_null) %logfile) local_unnamed_addr #2 {
+define dso_local void @qemu_log_unlock(ptr noundef %logfile) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %logfile, null
   br i1 %tobool.not, label %if.end3, label %if.then

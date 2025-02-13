@@ -4775,7 +4775,7 @@ _reset_period_str.exit:                           ; preds = %815, %switch.lookup
 declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_write_group_header(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #7 {
+define internal fastcc void @_write_group_header(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %3
 

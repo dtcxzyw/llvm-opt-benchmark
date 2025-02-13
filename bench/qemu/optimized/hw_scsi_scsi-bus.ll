@@ -1841,7 +1841,7 @@ scsi_req_ref.exit:                                ; preds = %scsi_req_enqueue_in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @scsi_req_ref(ptr noundef returned captures(ret: address, provenance) %req) local_unnamed_addr #0 {
+define dso_local noundef ptr @scsi_req_ref(ptr noundef returned %req) local_unnamed_addr #0 {
 entry:
   %refcount = getelementptr inbounds nuw i8, ptr %req, i64 24
   %0 = load i32, ptr %refcount, align 8
@@ -4724,7 +4724,7 @@ declare ptr @qdev_fw_name(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @scsi_bus_is_address_free(ptr noundef readonly captures(none) %bus, i32 noundef %channel, i32 noundef %target, i32 noundef %lun, ptr noundef writeonly captures(address_is_null) %p_dev) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scsi_bus_is_address_free(ptr noundef readonly captures(none) %bus, i32 noundef %channel, i32 noundef %target, i32 noundef %lun, ptr noundef writeonly %p_dev) unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
   %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12

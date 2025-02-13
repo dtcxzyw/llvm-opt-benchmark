@@ -433,7 +433,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qdev_init_gpio_in(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aplic_request(ptr noundef captures(address_is_null) %opaque, i32 noundef %irq, i32 noundef %level) #0 {
+define internal void @riscv_aplic_request(ptr noundef %opaque, i32 noundef %irq, i32 noundef %level) #0 {
 entry:
   %cmp = icmp sgt i32 %irq, 0
   br i1 %cmp, label %land.lhs.true.lr.ph, label %if.else
@@ -2165,7 +2165,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_aplic_msi_send(ptr noundef readonly captures(address_is_null) %aplic, i32 noundef %hart_idx, i32 noundef range(i32 0, 64) %guest_idx, i32 noundef range(i32 0, 2048) %eiid) unnamed_addr #0 {
+define internal fastcc void @riscv_aplic_msi_send(ptr noundef readonly %aplic, i32 noundef %hart_idx, i32 noundef range(i32 0, 64) %guest_idx, i32 noundef range(i32 0, 2048) %eiid) unnamed_addr #0 {
 entry:
   %result = alloca i32, align 4
   %tobool.not41 = icmp eq ptr %aplic, null

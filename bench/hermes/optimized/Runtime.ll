@@ -5997,7 +5997,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN6hermes2vm6GCBase22printAllCollectedStatsERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(741), ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7Runtime21getIOTrackingInfoJSONERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(36) %os) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7Runtime21getIOTrackingInfoJSONERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(36) %os) local_unnamed_addr #0 align 2 {
 entry:
   %json = alloca %"class.hermes::JSONEmitter", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 16
@@ -7507,14 +7507,14 @@ declare void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallV
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamENS1_8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(36), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %this) local_unnamed_addr #11 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull readnone align 8 dereferenceable(9832) %this) local_unnamed_addr #11 align 2 {
 entry:
   %global_ = getelementptr inbounds nuw i8, ptr %this, i64 696
   ret ptr %global_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7Runtime12getEpiloguesEv(ptr noalias sret(%"class.std::vector.353") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7Runtime12getEpiloguesEv(ptr noalias sret(%"class.std::vector.353") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %runtimeModuleList_ = getelementptr inbounds nuw i8, ptr %this, i64 9416

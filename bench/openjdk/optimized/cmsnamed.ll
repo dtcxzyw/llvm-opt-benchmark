@@ -49,7 +49,7 @@ declare ptr @_cmsCalloc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUsetASCII(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsMLUsetASCII(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %7 = trunc i64 %6 to i32
@@ -274,7 +274,7 @@ GrowMLUtable.exit.thread:                         ; preds = %45, %.lr.ph, %12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUsetUTF8(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsMLUsetUTF8(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
@@ -458,7 +458,7 @@ decodeUTF8.exit41:                                ; preds = %87, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUsetWide(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsMLUsetWide(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %strTo16.exit, label %6
 
@@ -518,7 +518,7 @@ mywcslen.exit:                                    ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsMLUdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @cmsMLUdup(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %cmsMLUalloc.exit.thread, label %3
 
@@ -676,7 +676,7 @@ define hidden void @cmsMLUfree(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 1073741825) i32 @cmsMLUgetASCII(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 1073741825) i32 @cmsMLUgetASCII(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
 
@@ -838,7 +838,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @cmsMLUgetUTF8(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden i32 @cmsMLUgetUTF8(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
 
@@ -982,7 +982,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @encodeUTF8(ptr noundef writeonly captures(address) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 1073741824) %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 1073741824) %2, i32 noundef %3) unnamed_addr #6 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp ne i32 %5, 0
   %7 = icmp ne i32 %2, 0
@@ -1138,7 +1138,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly captures(address) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @cmsMLUgetWide(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden i32 @cmsMLUgetWide(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
 
@@ -1284,7 +1284,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUgetTranslation(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @cmsMLUgetTranslation(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
 
@@ -1418,7 +1418,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsMLUtranslationsCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden i32 @cmsMLUtranslationsCount(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1433,7 +1433,7 @@ define hidden i32 @cmsMLUtranslationsCount(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUtranslationsCodes(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @cmsMLUtranslationsCodes(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #8 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %27, label %6
 
@@ -1586,7 +1586,7 @@ define hidden void @cmsFreeNamedColorList(ptr noundef %0) local_unnamed_addr #0 
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsDupNamedColorList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @cmsDupNamedColorList(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %46, label %3
 
@@ -1689,7 +1689,7 @@ cmsFreeNamedColorList.exit:                       ; preds = %.loopexit.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsAppendNamedColor(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsAppendNamedColor(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %GrowNamedColorList.exit.thread, label %6
 
@@ -1829,7 +1829,7 @@ GrowNamedColorList.exit.thread:                   ; preds = %21, %20, %4, %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsNamedColorCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden i32 @cmsNamedColorCount(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1843,7 +1843,7 @@ define hidden i32 @cmsNamedColorCount(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsNamedColorInfo(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @cmsNamedColorInfo(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #10 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %41, label %cmsNamedColorCount.exit
 
@@ -1919,7 +1919,7 @@ cmsNamedColorCount.exit:                          ; preds = %7
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsNamedColorIndex(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @cmsNamedColorIndex(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %cmsNamedColorCount.exit
 
@@ -1958,7 +1958,7 @@ cmsNamedColorCount.exit:                          ; preds = %2
 declare i32 @cmsstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsStageAllocNamedColor(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @_cmsStageAllocNamedColor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -2169,7 +2169,7 @@ cmsFreeNamedColorList.exit:                       ; preds = %1, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @cmsGetNamedColorList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
+define hidden ptr @cmsGetNamedColorList(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -2399,7 +2399,7 @@ cmsMLUfree.exit34:                                ; preds = %45, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -2628,7 +2628,7 @@ cmsMLUfree.exit30:                                ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @_cmsMallocZero(ptr noundef %7, i32 noundef 40) #13
@@ -2744,7 +2744,7 @@ cmsDictAlloc.exit.thread:                         ; preds = %7, %1, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsDictGetEntryList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden ptr @cmsDictGetEntryList(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2758,7 +2758,7 @@ define hidden ptr @cmsDictGetEntryList(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsDictNextEntry(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden ptr @cmsDictNextEntry(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 

@@ -1526,7 +1526,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @totalNumberOfBlockingKeys(ptr noundef writeonly captures(address_is_null) %blocking_keys, ptr noundef writeonly captures(address_is_null) %bloking_keys_on_nokey) local_unnamed_addr #3 {
+define dso_local void @totalNumberOfBlockingKeys(ptr noundef writeonly %blocking_keys, ptr noundef writeonly %bloking_keys_on_nokey) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3776), align 8
   %cmp10 = icmp sgt i32 %0, 0

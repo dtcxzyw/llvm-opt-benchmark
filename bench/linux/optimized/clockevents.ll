@@ -1287,7 +1287,7 @@ define internal fastcc i32 @tick_broadcast_init_sysfs() unnamed_addr #4 section 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @current_device_show(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @current_device_show(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @clockevents_lock) #11
   %4 = icmp eq ptr %0, @tick_bc_dev
   br i1 %4, label %5, label %7

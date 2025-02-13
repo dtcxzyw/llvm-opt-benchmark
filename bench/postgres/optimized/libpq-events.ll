@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PGEventResultCreate = type { ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PGEventRegister, align 8
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %0, null
@@ -159,7 +159,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -200,7 +200,7 @@ define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @PQinstanceData(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define ptr @PQinstanceData(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -241,7 +241,7 @@ define ptr @PQinstanceData(ptr noundef readonly captures(address_is_null) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -282,7 +282,7 @@ define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @PQresultInstanceData(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define ptr @PQresultInstanceData(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

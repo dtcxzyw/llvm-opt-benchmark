@@ -2272,7 +2272,7 @@ define linkonce_odr hidden void @_ZN16PhaseMacroExpand12replace_nodeEP4NodeS1_(p
 declare noundef ptr @_ZN4Node13find_out_withEi(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK21CardTableBarrierSetC226use_ReduceInitialCardMarksEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %4 = icmp eq ptr %1, null
   %or.cond.not = or i1 %4, %3

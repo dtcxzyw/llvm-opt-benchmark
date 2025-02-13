@@ -295,7 +295,7 @@ declare void @g_test_skip(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_device_init(ptr noundef captures(address_is_null) %dev, ptr noundef %bus, ptr noundef readonly captures(none) %addr) local_unnamed_addr #0 {
+define dso_local void @qpci_device_init(ptr noundef %dev, ptr noundef %bus, ptr noundef readonly captures(none) %addr) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %dev, null
   br i1 %tobool.not.i, label %if.else.i, label %qpci_device_set.exit
@@ -882,7 +882,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i8 } @qpci_iomap(ptr noundef readonly captures(none) %dev, i32 noundef %barno, ptr noundef writeonly captures(address_is_null) %sizeptr) local_unnamed_addr #0 {
+define dso_local { i64, i8 } @qpci_iomap(ptr noundef readonly captures(none) %dev, i32 noundef %barno, ptr noundef writeonly %sizeptr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %or.cond = icmp ult i32 %barno, 6
@@ -1629,7 +1629,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @add_qpci_address(ptr noundef writeonly captures(address_is_null) %opts, ptr noundef %addr) local_unnamed_addr #0 {
+define dso_local void @add_qpci_address(ptr noundef writeonly %opts, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %addr, null
   br i1 %tobool.not, label %if.else, label %do.body1

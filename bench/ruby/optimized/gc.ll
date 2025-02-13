@@ -4458,7 +4458,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %164
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @ruby_stack_length(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @ruby_stack_length(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -5516,7 +5516,7 @@ define hidden void @rb_obj_info_dump_loc(i64 noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_gc_remove_weak(i64 noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #14 {
+define hidden void @rb_gc_remove_weak(i64 noundef %0, ptr noundef readnone %1) local_unnamed_addr #14 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1304
   %5 = load ptr, ptr %4, align 8
@@ -7539,7 +7539,7 @@ ruby_xmalloc_body.exit:                           ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_gc_unregister_address(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @rb_gc_unregister_address(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1304
   %4 = load ptr, ptr %3, align 8
@@ -16690,7 +16690,7 @@ ractor_cache_allocate_slot.exit48:                ; preds = %ractor_cache_alloca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gc_continue(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @gc_continue(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.rb_trace_arg_struct, align 8
   %5 = alloca %struct.rusage, align 8
   %6 = alloca %struct.timespec, align 8
@@ -20369,7 +20369,7 @@ shrink_stack_chunk_cache.exit:                    ; preds = %pop_mark_stack.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gc_mark_roots(ptr noundef initializes((1480, 1488)) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @gc_mark_roots(ptr noundef initializes((1480, 1488)) %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %union.anon.64, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
@@ -20746,7 +20746,7 @@ declare i32 @llvm.eh.sjlj.setjmp(ptr) #39
 declare void @rb_exec_event_hooks(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @gc_sweep_step(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gc_sweep_step(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca %struct.rusage, align 8
@@ -22343,7 +22343,7 @@ declare void @llvm.assume(i1 noundef) #40
 declare void @rb_mv_generic_ivar(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gc_compact_plane(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, i64 noundef %3, i64 noundef range(i64 1, 0) %4, i16 %.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gc_compact_plane(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 1, 0) %4, i16 %.0.val) unnamed_addr #0 {
   %6 = alloca [6 x i64], align 16
   %7 = alloca i64, align 8
   %8 = alloca %struct.gc_sweep_context, align 8
@@ -22994,7 +22994,7 @@ gc_is_moveable_obj.exit.thread:                   ; preds = %50, %34, %34, %34, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @gc_compact_destination_pool(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @gc_compact_destination_pool(ptr noundef readnone %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -24453,7 +24453,7 @@ define internal fastcc i32 @ROBJECT_IV_COUNT(i64 noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @heap_pages_free_unused_pages(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @heap_pages_free_unused_pages(ptr noundef %0) unnamed_addr #0 {
   %invariant.gep = getelementptr i8, ptr %0, i64 192
   br label %4
 
@@ -27168,7 +27168,7 @@ declare void @rb_print_backtrace(ptr noundef) local_unnamed_addr #2
 declare void @ruby_debug_breakpoint() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gc_verify_heap_pages_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @gc_verify_heap_pages_(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.pn69 = load ptr, ptr %1, align 8
   %.not71 = icmp eq ptr %.pn69, %1
   br i1 %.not71, label %._crit_edge77, label %.lr.ph76

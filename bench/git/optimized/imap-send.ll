@@ -2448,7 +2448,7 @@ define internal fastcc ptr @next_arg(ptr noundef nonnull captures(none) %0) unna
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @parse_response_code(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 3) i32 @parse_response_code(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #10 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2893,7 +2893,7 @@ next_arg.exit106.thread136:                       ; preds = %._crit_edge.i88, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @imap_exec(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal range(i32 0, 3) i32 @imap_exec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -3372,7 +3372,7 @@ declare ptr @__errno_location() local_unnamed_addr #16
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @issue_imap_cmd(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc ptr @issue_imap_cmd(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.strbuf, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !50
@@ -3576,7 +3576,7 @@ define internal fastcc ptr @issue_imap_cmd(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @get_cmd_result(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @get_cmd_result(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4540,7 +4540,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -3, 1) i32 @imap_exec_m(ptr noundef nonnull %0, ptr noundef nonnull captures(address_is_null) %1, ptr readnone captures(none) %2, ...) unnamed_addr #0 {
+define internal range(i32 -3, 1) i32 @imap_exec_m(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr readnone captures(none) %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   call void @llvm.va_start.p0(ptr nonnull %4)

@@ -1147,7 +1147,7 @@ define dso_local void @ttm_resource_manager_debug(ptr noundef %0, ptr noundef %1
 declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local ptr @ttm_resource_manager_first(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #9 align 16 {
+define dso_local ptr @ttm_resource_manager_first(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %1, align 4
   br label %8
@@ -1176,7 +1176,7 @@ define dso_local ptr @ttm_resource_manager_first(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local ptr @ttm_resource_manager_next(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 align 16 {
+define dso_local ptr @ttm_resource_manager_next(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1214,7 +1214,7 @@ define dso_local ptr @ttm_resource_manager_next(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef ptr @ttm_kmap_iter_iomap_init(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local noundef ptr @ttm_kmap_iter_iomap_init(ptr noundef returned writeonly initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   store ptr @ttm_kmap_iter_io_ops, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -1228,7 +1228,7 @@ define dso_local noundef ptr @ttm_kmap_iter_iomap_init(ptr noundef returned writ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ttm_kmap_iter_linear_io_init(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local ptr @ttm_kmap_iter_linear_io_init(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
   %4 = tail call i32 @ttm_mem_io_reserve(ptr noundef %1, ptr noundef %2) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %48

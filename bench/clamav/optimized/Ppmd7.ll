@@ -321,7 +321,7 @@ define internal fastcc void @RestartModel(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #5 {
+define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8, !tbaa !32
   %5 = load i16, ptr %4, align 4, !tbaa !35
   %.not = icmp eq i16 %5, 256

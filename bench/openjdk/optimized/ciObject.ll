@@ -600,7 +600,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 declare noundef zeroext i1 @_ZN5ciEnv8is_in_vmEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8ciObject6equalsEPS_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN8ciObject6equalsEPS_(ptr noundef nonnull readnone align 8 dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }

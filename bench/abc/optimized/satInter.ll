@@ -53,7 +53,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define nonnull ptr @Int_ManSetGlobalVars(ptr noundef writeonly captures(ret: address, provenance) initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define nonnull ptr @Int_ManSetGlobalVars(ptr noundef writeonly initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %3, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

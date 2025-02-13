@@ -104,7 +104,7 @@ define hidden i32 @tm_get_exhaustive_search_flag() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tm_free_tree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden void @tm_free_tree(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
@@ -144,7 +144,7 @@ free_non_constraint_tree.exit:                    ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_constraint_tree(ptr noundef captures(address_is_null) %0) unnamed_addr #2 {
+define internal fastcc void @free_constraint_tree(ptr noundef %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %.preheader
 
@@ -659,7 +659,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 declare hidden ptr @tm_kpartition_build_tree_from_topology(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_list_child(ptr noundef captures(address_is_null) %0) unnamed_addr #2 {
+define internal fastcc void @free_list_child(ptr noundef %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %.preheader
 
@@ -703,7 +703,7 @@ define internal fastcc void @free_list_child(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_tab_child(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #2 {
+define internal fastcc void @free_tab_child(ptr noundef readonly %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret3, label %2
 
@@ -725,7 +725,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 declare hidden i32 @tm_int_cmp_inc(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_level_topology(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483648, 2147483647) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #2 {
+define internal fastcc ptr @build_level_topology(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483648, 2147483647) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -3676,7 +3676,7 @@ define internal range(i32 -1, 2) i32 @group_list_id(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @delete_group_list(ptr noundef captures(address_is_null) %0) unnamed_addr #2 {
+define internal fastcc void @delete_group_list(ptr noundef %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret4, label %2
 

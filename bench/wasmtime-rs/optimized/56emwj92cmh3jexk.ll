@@ -102,12 +102,12 @@ default.unreachable8:                             ; preds = %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN3std2io5error14repr_bitpacked4Repr4data28_$u7b$$u7b$closure$u7d$$u7d$17h8f08a0173b986b08E"(ptr readnone returned captures(ret: address, provenance) %0) unnamed_addr #1 {
+define align 8 ptr @"_ZN3std2io5error14repr_bitpacked4Repr4data28_$u7b$$u7b$closure$u7d$$u7d$17h8f08a0173b986b08E"(ptr readnone returned %0) unnamed_addr #1 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define nonnull align 8 ptr @"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h8875512af1610c9aE"(ptr readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #2 {
+define nonnull align 8 ptr @"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h8875512af1610c9aE"(ptr readnone returned %0) unnamed_addr #2 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0

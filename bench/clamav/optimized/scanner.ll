@@ -95,7 +95,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [32 x i8] c"instream(local)\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @msg_callback(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local void @msg_callback(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %5
 
@@ -218,7 +218,7 @@ declare i32 @conn_reply_virus(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scan_callback(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.cb_context, align 8

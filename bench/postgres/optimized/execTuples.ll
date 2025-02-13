@@ -2133,7 +2133,7 @@ define dso_local void @ExecSetSlotDescriptor(ptr noundef %0, ptr noundef %1) loc
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecStoreHeapTuple(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @ExecStoreHeapTuple(ptr noundef %0, ptr noundef returned %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsHeapTuple
@@ -2201,7 +2201,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecStoreBufferHeapTuple(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @ExecStoreBufferHeapTuple(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsBufferHeapTuple
@@ -2273,7 +2273,7 @@ tts_buffer_heap_store_tuple.exit:                 ; preds = %18, %30, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecStorePinnedBufferHeapTuple(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @ExecStorePinnedBufferHeapTuple(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsBufferHeapTuple
@@ -2348,7 +2348,7 @@ tts_buffer_heap_store_tuple.exit:                 ; preds = %31, %32, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecStoreMinimalTuple(ptr noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @ExecStoreMinimalTuple(ptr noundef %0, ptr noundef returned %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsMinimalTuple
@@ -2567,7 +2567,7 @@ declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #4
 declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @ExecStoreVirtualTuple(ptr noundef returned captures(ret: address, provenance) initializes((6, 8)) %0) local_unnamed_addr #6 {
+define dso_local noundef ptr @ExecStoreVirtualTuple(ptr noundef returned initializes((6, 8)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, -3
@@ -2782,7 +2782,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   br i1 %1, label %4, label %9
 
 4:                                                ; preds = %3
@@ -2833,7 +2833,7 @@ define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -3553,7 +3553,7 @@ define dso_local ptr @ExecCleanTypeFromTL(ptr noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecTypeFromExprList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local ptr @ExecTypeFromExprList(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit.thread, label %.lr.ph
 
@@ -3607,7 +3607,7 @@ declare void @TupleDescInitEntryCollation(ptr noundef, i16 noundef signext, i32 
 declare i32 @exprCollation(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not = icmp eq ptr %1, null

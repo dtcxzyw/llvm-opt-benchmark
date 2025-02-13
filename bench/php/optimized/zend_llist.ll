@@ -593,7 +593,7 @@ define i64 @zend_llist_count(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_first_ex(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define ptr @zend_llist_get_first_ex(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -606,7 +606,7 @@ define ptr @zend_llist_get_first_ex(ptr noundef captures(none) %0, ptr noundef w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_last_ex(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define ptr @zend_llist_get_last_ex(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -620,7 +620,7 @@ define ptr @zend_llist_get_last_ex(ptr noundef captures(none) %0, ptr noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_next_ex(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
+define ptr @zend_llist_get_next_ex(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -642,7 +642,7 @@ define ptr @zend_llist_get_next_ex(ptr noundef captures(none) %0, ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_prev_ex(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
+define ptr @zend_llist_get_prev_ex(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1

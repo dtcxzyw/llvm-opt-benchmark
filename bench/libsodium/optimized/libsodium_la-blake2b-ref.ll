@@ -85,7 +85,7 @@ declare void @sodium_misuse() local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr noundef captures(none) %S, i8 noundef zeroext %outlen, ptr noundef readonly captures(address_is_null) %salt, ptr noundef readonly captures(address_is_null) %personal) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr noundef captures(none) %S, i8 noundef zeroext %outlen, ptr noundef readonly %salt, ptr noundef readonly %personal) local_unnamed_addr #1 {
 entry:
   %P = alloca [1 x %struct.blake2b_param_], align 16
   %0 = add i8 %outlen, -65
@@ -155,7 +155,7 @@ _sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init_key(ptr noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly captures(address_is_null) %key, i8 noundef zeroext %keylen) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b_init_key(ptr noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly %key, i8 noundef zeroext %keylen) local_unnamed_addr #1 {
 entry:
   %P = alloca [1 x %struct.blake2b_param_], align 16
   %block = alloca [128 x i8], align 16
@@ -335,7 +335,7 @@ while.end:                                        ; preds = %if.end, %if.end.thr
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly captures(address_is_null) %key, i8 noundef zeroext %keylen, ptr noundef readonly captures(address_is_null) %salt, ptr noundef readonly captures(address_is_null) %personal) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly %key, i8 noundef zeroext %keylen, ptr noundef readonly %salt, ptr noundef readonly %personal) local_unnamed_addr #1 {
 entry:
   %P = alloca [1 x %struct.blake2b_param_], align 16
   %block = alloca [128 x i8], align 16
@@ -599,7 +599,7 @@ return:                                           ; preds = %if.end, %blake2b_se
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b(ptr noundef writeonly captures(address_is_null) %out, ptr noundef readonly captures(address_is_null) %in, ptr noundef captures(address_is_null) %key, i8 noundef zeroext %outlen, i64 noundef %inlen, i8 noundef zeroext %keylen) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b(ptr noundef writeonly %out, ptr noundef readonly %in, ptr noundef %key, i8 noundef zeroext %outlen, i64 noundef %inlen, i8 noundef zeroext %keylen) local_unnamed_addr #1 {
 entry:
   %P.i = alloca [1 x %struct.blake2b_param_], align 16
   %S = alloca [1 x %struct.blake2b_state], align 64
@@ -753,7 +753,7 @@ _sodium_blake2b_update.exit:                      ; preds = %if.end36, %if.end.t
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_salt_personal(ptr noundef writeonly captures(address_is_null) %out, ptr noundef readonly captures(address_is_null) %in, ptr noundef captures(address_is_null) %key, i8 noundef zeroext %outlen, i64 noundef %inlen, i8 noundef zeroext %keylen, ptr noundef captures(address_is_null) %salt, ptr noundef captures(address_is_null) %personal) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b_salt_personal(ptr noundef writeonly %out, ptr noundef readonly %in, ptr noundef %key, i8 noundef zeroext %outlen, i64 noundef %inlen, i8 noundef zeroext %keylen, ptr noundef %salt, ptr noundef %personal) local_unnamed_addr #1 {
 entry:
   %P.i = alloca [1 x %struct.blake2b_param_], align 16
   %S = alloca [1 x %struct.blake2b_state], align 64

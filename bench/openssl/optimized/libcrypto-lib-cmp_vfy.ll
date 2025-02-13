@@ -663,7 +663,7 @@ return:                                           ; preds = %entry, %end
 declare i32 @ossl_cmp_ctx_set1_validatedSrvCert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %ctx, ptr noundef %msg, ptr noundef readonly captures(address_is_null) %cb, i32 noundef %cb_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %ctx, ptr noundef %msg, ptr noundef readonly %cb, i32 noundef %cb_arg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %ctx, null
   %cmp1 = icmp ne ptr %msg, null
@@ -1003,7 +1003,7 @@ declare i32 @OSSL_CMP_CTX_set1_transactionID(ptr noundef, ptr noundef) local_unn
 declare i32 @ossl_cmp_ctx_set1_recipNonce(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_verify_popo(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(address_is_null) %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_verify_popo(ptr noundef readonly captures(none) %ctx, ptr noundef readonly %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %return, label %land.rhs

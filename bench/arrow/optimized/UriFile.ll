@@ -240,14 +240,14 @@ uriFilenameToUriStringA.exit:                     ; preds = %entry, %if.then77.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @uriUriStringToUnixFilenameA(ptr noundef captures(address_is_null) %uriString, ptr noundef %filename) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @uriUriStringToUnixFilenameA(ptr noundef %uriString, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uriUriStringToFilenameA(ptr noundef %uriString, ptr noundef %filename, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @uriUriStringToFilenameA(ptr noundef readonly captures(address_is_null) %uriString, ptr noundef %filename, i32 noundef range(i32 0, 2) %toUnix) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @uriUriStringToFilenameA(ptr noundef readonly %uriString, ptr noundef %filename, i32 noundef range(i32 0, 2) %toUnix) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uriString, null
   %cmp1 = icmp eq ptr %filename, null
@@ -341,7 +341,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef captures(address_is_null) %uriString, ptr noundef %filename) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef %uriString, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uriUriStringToFilenameA(ptr noundef %uriString, ptr noundef %filename, i32 noundef 0)
   ret i32 %call

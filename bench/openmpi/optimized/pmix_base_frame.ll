@@ -82,7 +82,7 @@ declare i32 @mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @mca_base_framework_components_open(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @opal_get_proc_hostname_using_pmix(ptr noundef readonly captures(address) %0) #0 {
+define internal ptr @opal_get_proc_hostname_using_pmix(ptr noundef readonly %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.pmix_proc, align 4
   %4 = alloca ptr, align 8

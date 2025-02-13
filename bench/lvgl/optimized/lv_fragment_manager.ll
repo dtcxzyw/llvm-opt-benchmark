@@ -251,7 +251,7 @@ item_create_obj.exit:                             ; preds = %28, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_fragment_manager_remove(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @lv_fragment_manager_remove(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -634,7 +634,7 @@ lv_fragment_manager_add.exit:                     ; preds = %31, %item_create_ob
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_fragment_manager_find_by_container(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define ptr @lv_fragment_manager_find_by_container(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -748,7 +748,7 @@ define range(i64 0, 4294967296) i64 @lv_fragment_manager_get_stack_size(ptr noun
 declare i32 @lv_ll_get_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_fragment_manager_get_parent_fragment(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @lv_fragment_manager_get_parent_fragment(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

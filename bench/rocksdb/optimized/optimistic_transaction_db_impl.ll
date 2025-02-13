@@ -729,7 +729,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_7OptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(1508) %options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef writeonly captures(none) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_7OptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1508) %options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef writeonly captures(none) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %db_options = alloca %"struct.rocksdb::DBOptions", align 8
   %cf_options = alloca %"struct.rocksdb::ColumnFamilyOptions", align 8
@@ -1094,7 +1094,7 @@ declare void @_ZN7rocksdb9DBOptionsC1ERKNS_7OptionsE(ptr noundef nonnull align 8
 declare void @_ZN7rocksdb19ColumnFamilyOptionsC1ERKNS_7OptionsE(ptr noundef nonnull align 8 dereferenceable(820), ptr noundef nonnull align 8 dereferenceable(1508)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_22ColumnFamilyDescriptorESaISD_EEPSC_IPNS_18ColumnFamilyHandleESaISJ_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %column_families, ptr noundef %handles, ptr noundef writeonly captures(none) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_22ColumnFamilyDescriptorESaISD_EEPSC_IPNS_18ColumnFamilyHandleESaISJ_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %column_families, ptr noundef %handles, ptr noundef writeonly captures(none) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.rocksdb::OptimisticTransactionDBOptions", align 8
   store i32 1, ptr %ref.tmp, align 8
@@ -2439,7 +2439,7 @@ _ZNSt10shared_ptrIN7rocksdb11RateLimiterEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_9DBOptionsERKNS_30OptimisticTransactionDBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_22ColumnFamilyDescriptorESaISG_EEPSF_IPNS_18ColumnFamilyHandleESaISM_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr noundef nonnull align 8 dereferenceable(24) %occ_options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %column_families, ptr noundef %handles, ptr noundef writeonly captures(none) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_9DBOptionsERKNS_30OptimisticTransactionDBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_22ColumnFamilyDescriptorESaISG_EEPSF_IPNS_18ColumnFamilyHandleESaISM_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr noundef nonnull align 8 dereferenceable(24) %occ_options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %column_families, ptr noundef %handles, ptr noundef writeonly captures(none) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %db = alloca ptr, align 8
   %column_families_copy = alloca %"class.std::vector.139", align 8

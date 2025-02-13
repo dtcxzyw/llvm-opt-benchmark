@@ -12554,7 +12554,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef captures(address) %n, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %mdl, ptr noundef nonnull align 8 dereferenceable(16) %values) unnamed_addr #3 align 2 {
+define hidden void @_ZN8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %n, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %mdl, ptr noundef nonnull align 8 dereferenceable(16) %values) unnamed_addr #3 align 2 {
 entry:
   %m_is_plugin = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load i8, ptr %m_is_plugin, align 8
@@ -12574,7 +12574,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8intblast6solver16add_value_pluginEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef readonly captures(address) %n, ptr nonnull readnone align 8 captures(none) %mdl, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8intblast6solver16add_value_pluginEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef readonly %n, ptr nonnull readnone align 8 captures(none) %mdl, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %value = alloca %class.obj_ref, align 8
@@ -13874,7 +13874,7 @@ return:                                           ; preds = %.noexc.i94, %_ZN10r
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn32_N8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef %this, ptr noundef captures(address) %n, ptr nonnull readnone align 8 captures(none) %mdl, ptr noundef nonnull align 8 dereferenceable(16) %values) unnamed_addr #6 align 2 {
+define hidden void @_ZThn32_N8intblast6solver9add_valueEPN3euf5enodeER5modelR10ref_vectorI4expr11ast_managerE(ptr noundef %this, ptr noundef %n, ptr nonnull readnone align 8 captures(none) %mdl, ptr noundef nonnull align 8 dereferenceable(16) %values) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   %m_is_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -14324,7 +14324,7 @@ declare void @_ZN5arith11arith_valueC1ERN3euf6solverE(ptr noundef nonnull align 
 declare noundef zeroext i1 @_ZN5arith11arith_value9get_valueEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8intblast6solver10unsat_coreEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(328) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8intblast6solver10unsat_coreEv(ptr noundef nonnull readnone align 8 dereferenceable(328) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_core = getelementptr inbounds nuw i8, ptr %this, i64 256
   ret ptr %m_core
@@ -16977,7 +16977,7 @@ if.end:                                           ; preds = %while.body.i37, %"_
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #19 {
+define internal fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_"(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #19 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader
@@ -18799,7 +18799,7 @@ if.end:                                           ; preds = %while.body.i37, %"_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #19 {
+define internal fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_"(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #19 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
   %7 = icmp eq ptr %6, null

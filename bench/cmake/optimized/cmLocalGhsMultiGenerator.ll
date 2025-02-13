@@ -283,7 +283,7 @@ declare void @_ZN25cmGhsMultiTargetGenerator8GenerateEv(ptr noundef nonnull alig
 declare void @_ZN25cmGhsMultiTargetGeneratorD1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24cmLocalGhsMultiGenerator22ComputeObjectFilenamesERSt3mapIPK12cmSourceFileNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS3_ESaISt4pairIKS3_S9_EEEPK17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24cmLocalGhsMultiGenerator22ComputeObjectFilenamesERSt3mapIPK12cmSourceFileNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS3_ESaISt4pairIKS3_S9_EEEPK17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair.407"], align 8
   %5 = alloca [2 x %"struct.std::pair.407"], align 8
   %6 = alloca [4 x %"struct.std::pair.407"], align 8

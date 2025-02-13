@@ -3249,7 +3249,7 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr readnone captures(address, ret: address, provenance) %range.coerce0, ptr readnone captures(address, ret: address, provenance) %range.coerce1) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr readnone %range.coerce0, ptr readnone %range.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp eq ptr %range.coerce1, %range.coerce0
   %add.ptr = getelementptr inbounds i8, ptr %range.coerce1, i64 -1
@@ -5363,7 +5363,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #3 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #3 {
 entry:
   %__val = alloca %"class.hermes::SourceErrorManager::BufferedMessage", align 8
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce

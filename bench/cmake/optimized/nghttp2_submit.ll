@@ -21,7 +21,7 @@ define dso_local i32 @nghttp2_submit_trailer(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext range(i8 0, 34) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext range(i8 0, 34) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.nghttp2_priority_spec, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
@@ -193,7 +193,7 @@ define dso_local i32 @nghttp2_submit_ping(ptr noundef %0, i8 noundef zeroext %1,
 declare i32 @nghttp2_session_add_ping(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_submit_priority(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_submit_priority(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nghttp2_priority_spec, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2528
@@ -825,7 +825,7 @@ declare void @nghttp2_frame_priority_update_init(ptr noundef, i32 noundef, ptr n
 declare void @nghttp2_frame_priority_update_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %8 = load i8, ptr %7, align 4, !tbaa !45
   %.not = icmp eq i8 %8, 0
@@ -881,7 +881,7 @@ set_request_flags.exit:                           ; preds = %21, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %18, label %7
 

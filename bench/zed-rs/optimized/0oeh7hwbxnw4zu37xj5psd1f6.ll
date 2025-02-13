@@ -5035,7 +5035,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$anyhow..wrapper..MessageError$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN77_$LT$rsa..key..RsaPrivateKey$u20$as$u20$rsa..traits..keys..PublicKeyParts$GT$1n17h198e9e81c7eeb1a9E.llvm.13569294421708396703"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(296) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN77_$LT$rsa..key..RsaPrivateKey$u20$as$u20$rsa..traits..keys..PublicKeyParts$GT$1n17h198e9e81c7eeb1a9E.llvm.13569294421708396703"(ptr noalias noundef readonly align 8 dereferenceable(296) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   ret ptr %2
 }

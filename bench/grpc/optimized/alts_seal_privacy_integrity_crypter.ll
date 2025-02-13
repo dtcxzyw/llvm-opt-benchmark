@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg.1 = private unnamed_addr constant [77 x i8] c"data_allocated_size is smaller than sum of data_size and num_overhead_bytes.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 10) i32 @_Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc(ptr noundef %gc, i1 noundef zeroext %is_client, i64 noundef %overflow_size, ptr noundef writeonly captures(address_is_null) %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
+define noundef range(i32 0, 10) i32 @_Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc(ptr noundef %gc, i1 noundef zeroext %is_client, i64 noundef %overflow_size, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %crypter, null
   br i1 %cmp, label %if.then, label %if.end

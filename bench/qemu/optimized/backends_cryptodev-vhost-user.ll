@@ -275,7 +275,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -3, 1) i32 @cryptodev_vhost_user_create_session(ptr noundef %backend, ptr noundef %sess_info, i32 noundef %queue_index, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %opaque) #0 {
+define internal range(i32 -3, 1) i32 @cryptodev_vhost_user_create_session(ptr noundef %backend, ptr noundef %sess_info, i32 noundef %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %session_id.i = alloca i64, align 8
   %local_error = alloca ptr, align 8
@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end4, %if.then6,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cryptodev_vhost_user_close_session(ptr noundef %backend, i64 noundef %session_id, i32 noundef %queue_index, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %opaque) #0 {
+define internal noundef i32 @cryptodev_vhost_user_close_session(ptr noundef %backend, i64 noundef %session_id, i32 noundef %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %conf = getelementptr inbounds nuw i8, ptr %backend, i64 48
   %idxprom = zext i32 %queue_index to i64

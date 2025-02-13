@@ -2000,7 +2000,7 @@ define dso_local range(i32 -1, 1) i32 @named_datatype_free(ptr noundef captures(
 declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i64], align 16
   %7 = alloca %struct.H5_timer_t, align 8
   %8 = alloca %struct.H5_timevals_t, align 8

@@ -17560,7 +17560,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow7compute8internalL16GetInputTimezoneB5cxx11ERKNS_8DataTypeE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(72) %type) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow7compute8internalL16GetInputTimezoneB5cxx11ERKNS_8DataTypeE(ptr noundef nonnull readonly align 8 dereferenceable(72) %type) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.10", align 1
   %0 = load atomic i8, ptr @_ZGVZN5arrow7compute8internalL16GetInputTimezoneB5cxx11ERKNS_8DataTypeEE11no_timezoneB5cxx11 acquire, align 8

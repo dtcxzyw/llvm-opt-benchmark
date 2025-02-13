@@ -85,7 +85,7 @@ define dso_local noundef ptr @archive_entry_clear(ptr noundef returned %0) local
 declare void @archive_mstring_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_entry_copy_mac_metadata(ptr noundef captures(none) initializes((856, 864)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @archive_entry_copy_mac_metadata(ptr noundef captures(none) initializes((856, 864)) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   tail call void @free(ptr noundef %5) #21
@@ -3074,7 +3074,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 declare void @abort() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local ptr @archive_entry_digest(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #17 {
+define dso_local ptr @archive_entry_digest(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #17 {
   switch i32 %1, label %15 [
     i32 1, label %3
     i32 2, label %5
@@ -3160,7 +3160,7 @@ define dso_local range(i32 -20, 1) i32 @archive_entry_set_digest(ptr noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @archive_entry_acl(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #17 {
+define dso_local nonnull ptr @archive_entry_acl(ptr noundef readnone %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   ret ptr %2
 }

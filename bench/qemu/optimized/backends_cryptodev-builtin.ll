@@ -225,7 +225,7 @@ for.end19:                                        ; preds = %for.inc17, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -3, 1) i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr noundef captures(none) %sess_info, i32 %queue_index, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %opaque) #0 {
+define internal range(i32 -3, 1) i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr noundef captures(none) %sess_info, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %opts.i = alloca %struct.QCryptoAkCipherOptions, align 4
   %local_error = alloca ptr, align 8
@@ -551,7 +551,7 @@ return:                                           ; preds = %if.end8, %if.then10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cryptodev_builtin_close_session(ptr noundef %backend, i64 noundef %session_id, i32 %queue_index, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %opaque) #0 {
+define internal noundef i32 @cryptodev_builtin_close_session(ptr noundef %backend, i64 noundef %session_id, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
   %cmp = icmp ult i64 %session_id, 256

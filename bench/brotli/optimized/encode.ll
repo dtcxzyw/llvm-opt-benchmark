@@ -539,7 +539,7 @@ BrotliEncoderCreateInstance.exit.thread:          ; preds = %25, %BrotliEncoderM
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BrotliEncoderCompressStream(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliEncoderCompressStream(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 6972

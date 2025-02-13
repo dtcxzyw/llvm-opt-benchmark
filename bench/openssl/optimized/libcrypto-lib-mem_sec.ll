@@ -1025,7 +1025,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @CRYPTO_secure_allocated(ptr noundef readnone captures(address) %ptr) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CRYPTO_secure_allocated(ptr noundef readnone %ptr) local_unnamed_addr #2 {
 entry:
   %.b = load i1, ptr @secure_mem_initialized, align 4
   br i1 %.b, label %if.end, label %return

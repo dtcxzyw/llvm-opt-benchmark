@@ -419,7 +419,7 @@ define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h06e7c1b46b693b9eE.llvm.979910700339791004(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #1 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h06e7c1b46b693b9eE.llvm.979910700339791004(ptr noundef nonnull readnone returned %0) unnamed_addr #1 {
   ret ptr %0
 }
 
@@ -803,7 +803,7 @@ define hidden void @_ZN8smallvec10infallible17h990bf60cff8d81d6E.llvm.9799107003
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h6b545d2b50b994e7E.llvm.979910700339791004(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #1 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h6b545d2b50b994e7E.llvm.979910700339791004(ptr noundef nonnull readnone returned %0) unnamed_addr #1 {
   ret ptr %0
 }
 
@@ -1089,12 +1089,12 @@ _ZN8smallvec12layout_array17h06fe27d022e08321E.exit.thread: ; preds = %22, %25, 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h093ef9fa0b69735bE.llvm.979910700339791004"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #1 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h093ef9fa0b69735bE.llvm.979910700339791004"(ptr noundef readnone returned %0) unnamed_addr #1 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hbe0c91c8eac548f1E.llvm.979910700339791004"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #1 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hbe0c91c8eac548f1E.llvm.979910700339791004"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

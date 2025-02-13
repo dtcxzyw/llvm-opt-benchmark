@@ -941,7 +941,7 @@ Vec_IntFree.exit61:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_NtkMuxTree3DecsFree(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define void @Wlc_NtkMuxTree3DecsFree(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
@@ -7785,7 +7785,7 @@ Vec_IntFree.exit:                                 ; preds = %Wlc_BlastAdder.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastMultiplier3(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #2 {
+define void @Wlc_BlastMultiplier3(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = add nsw i32 %4, %3
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %13 = add i32 %11, -1
@@ -9369,7 +9369,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Wlc_BlastDecoder2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef returned captures(ret: address, provenance) initializes((4, 8)) %4) local_unnamed_addr #2 {
+define noundef ptr @Wlc_BlastDecoder2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef returned initializes((4, 8)) %4) local_unnamed_addr #2 {
   %6 = tail call ptr @Wlc_BlastDecoder2_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %7, align 4, !tbaa !23
@@ -9472,7 +9472,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntAppend.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastBooth(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef %9) local_unnamed_addr #2 {
+define void @Wlc_BlastBooth(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = add nsw i32 %4, %3
   %12 = add nsw i32 %11, 3
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
@@ -10320,7 +10320,7 @@ Vec_IntPush.exit9:                                ; preds = %Vec_IntPush.exit9.s
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_NtkBitBlast(ptr noundef initializes((756, 760)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define ptr @Wlc_NtkBitBlast(ptr noundef initializes((756, 760)) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

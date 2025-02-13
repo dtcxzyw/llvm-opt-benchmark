@@ -387,7 +387,7 @@ define dso_local noundef ptr @statext_dependencies_serialize(ptr noundef readonl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @statext_dependencies_deserialize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @statext_dependencies_deserialize(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -837,7 +837,7 @@ define dso_local i64 @pg_dependencies_send(ptr noundef %0) local_unnamed_addr #0
 declare i64 @byteasend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @dependencies_clauselist_selectivity(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
+define dso_local double @dependencies_clauselist_selectivity(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1980,7 +1980,7 @@ list_length.exit.thread:                          ; preds = %.lr.ph93, %82, %71,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dependency_is_compatible_expression(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dependency_is_compatible_expression(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 4
   %6 = icmp eq i32 %5, 302

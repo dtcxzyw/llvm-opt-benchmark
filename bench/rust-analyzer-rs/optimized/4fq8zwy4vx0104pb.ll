@@ -13745,19 +13745,19 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17he71d9ccf36d2c6ecE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17he71d9ccf36d2c6ecE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hf1f40901046c7b0eE"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hf1f40901046c7b0eE"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hf46790bc36bc4041E"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$salsa..derived..slot..Slot$LT$Q$C$MP$GT$$u20$as$u20$salsa..lru..LruNode$GT$9lru_index17hf46790bc36bc4041E"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }

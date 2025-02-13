@@ -779,7 +779,7 @@ declare i32 @ENGINE_finish(ptr noundef) local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get0_info(ptr noundef writeonly captures(address_is_null) %ppkey_id, ptr noundef writeonly captures(address_is_null) %pflags, ptr noundef readonly captures(none) %meth) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get0_info(ptr noundef writeonly %ppkey_id, ptr noundef writeonly %pflags, ptr noundef readonly captures(none) %meth) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %ppkey_id, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3651,7 +3651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_paramgen(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pparamgen_init, ptr noundef writeonly captures(address_is_null) %pparamgen) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_paramgen(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pparamgen_init, ptr noundef writeonly %pparamgen) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pparamgen_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3677,7 +3677,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_keygen(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pkeygen_init, ptr noundef writeonly captures(address_is_null) %pkeygen) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_keygen(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pkeygen_init, ptr noundef writeonly %pkeygen) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pkeygen_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3703,7 +3703,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_sign(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %psign_init, ptr noundef writeonly captures(address_is_null) %psign) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_sign(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %psign_init, ptr noundef writeonly %psign) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %psign_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3729,7 +3729,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_verify(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pverify_init, ptr noundef writeonly captures(address_is_null) %pverify) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_verify(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pverify_init, ptr noundef writeonly %pverify) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pverify_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3755,7 +3755,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_verify_recover(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pverify_recover_init, ptr noundef writeonly captures(address_is_null) %pverify_recover) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_verify_recover(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pverify_recover_init, ptr noundef writeonly %pverify_recover) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pverify_recover_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3781,7 +3781,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_signctx(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %psignctx_init, ptr noundef writeonly captures(address_is_null) %psignctx) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_signctx(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %psignctx_init, ptr noundef writeonly %psignctx) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %psignctx_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3807,7 +3807,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_verifyctx(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pverifyctx_init, ptr noundef writeonly captures(address_is_null) %pverifyctx) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_verifyctx(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pverifyctx_init, ptr noundef writeonly %pverifyctx) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pverifyctx_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3833,7 +3833,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_encrypt(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pencrypt_init, ptr noundef writeonly captures(address_is_null) %pencryptfn) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_encrypt(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pencrypt_init, ptr noundef writeonly %pencryptfn) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pencrypt_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3859,7 +3859,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_decrypt(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pdecrypt_init, ptr noundef writeonly captures(address_is_null) %pdecrypt) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_decrypt(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pdecrypt_init, ptr noundef writeonly %pdecrypt) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pdecrypt_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3885,7 +3885,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_derive(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pderive_init, ptr noundef writeonly captures(address_is_null) %pderive) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_derive(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pderive_init, ptr noundef writeonly %pderive) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pderive_init, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3911,7 +3911,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_ctrl(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pctrl, ptr noundef writeonly captures(address_is_null) %pctrl_str) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_ctrl(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pctrl, ptr noundef writeonly %pctrl_str) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %pctrl, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3937,7 +3937,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_digestsign(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %digestsign) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_digestsign(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %digestsign) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %digestsign, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3953,7 +3953,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_digestverify(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %digestverify) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_digestverify(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %digestverify) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %digestverify, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3969,7 +3969,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_check(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pcheck) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_check(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pcheck) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %pcheck, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3985,7 +3985,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_public_check(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pcheck) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_public_check(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pcheck) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %pcheck, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4001,7 +4001,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_param_check(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pcheck) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_param_check(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pcheck) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %pcheck, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4017,7 +4017,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_digest_custom(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly captures(address_is_null) %pdigest_custom) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_digest_custom(ptr noundef readonly captures(none) %pmeth, ptr noundef writeonly %pdigest_custom) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %pdigest_custom, null
   br i1 %cmp.not, label %if.end, label %if.then

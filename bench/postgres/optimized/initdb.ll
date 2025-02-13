@@ -4696,7 +4696,7 @@ define internal fastcc void @writefile(ptr noundef nonnull %0, ptr noundef captu
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @replace_token(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @replace_token(ptr noundef returned %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %.not41 = icmp eq ptr %4, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph

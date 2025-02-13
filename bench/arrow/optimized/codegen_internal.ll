@@ -1271,7 +1271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal23EnsureDictionaryDecodedEPNS_10TypeHolderEm(ptr noundef captures(address) %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal23EnsureDictionaryDecodedEPNS_10TypeHolderEm(ptr noundef %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %count
   %cmp.not30 = icmp eq i64 %count, 0
@@ -2616,7 +2616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %replacement, ptr noundef captures(address) %begin, i64 noundef %count) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal12ReplaceTypesERKNS_10TypeHolderEPS2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %replacement, ptr noundef %begin, i64 noundef %count) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %count
   %cmp.not4 = icmp eq i64 %count, 0
@@ -3324,7 +3324,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int16Ev() loc
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4int8Ev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute8internal24CommonTemporalResolutionEPKNS_10TypeHolderEmPNS_8TimeUnit4typeE(ptr noundef readonly captures(address) %begin, i64 noundef %count, ptr noundef writeonly captures(none) initializes((0, 4)) %finest_unit) local_unnamed_addr #8 {
+define noundef zeroext i1 @_ZN5arrow7compute8internal24CommonTemporalResolutionEPKNS_10TypeHolderEmPNS_8TimeUnit4typeE(ptr noundef readonly %begin, i64 noundef %count, ptr noundef writeonly captures(none) initializes((0, 4)) %finest_unit) local_unnamed_addr #8 {
 entry:
   store i32 0, ptr %finest_unit, align 4
   %add.ptr = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %count
@@ -3396,7 +3396,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal14CommonTemporalEPKNS_10TypeHolderEm(ptr noalias writeonly sret(%"struct.arrow::TypeHolder") align 8 captures(none) %agg.result, ptr noundef readonly captures(address) %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal14CommonTemporalEPKNS_10TypeHolderEm(ptr noalias writeonly sret(%"struct.arrow::TypeHolder") align 8 captures(none) %agg.result, ptr noundef readonly %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp56 = alloca %"class.std::shared_ptr", align 8
@@ -3696,7 +3696,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date64Ev() lo
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date32Ev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal12CommonBinaryEPKNS_10TypeHolderEm(ptr noalias writeonly sret(%"struct.arrow::TypeHolder") align 8 captures(none) %agg.result, ptr noundef readonly captures(address) %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal12CommonBinaryEPKNS_10TypeHolderEm(ptr noalias writeonly sret(%"struct.arrow::TypeHolder") align 8 captures(none) %agg.result, ptr noundef readonly %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %count
   %cmp.not155 = icmp eq i64 %count, 0
@@ -5278,7 +5278,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef captures(address) %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %begin, i64 noundef %count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %common_precision = alloca i32, align 4

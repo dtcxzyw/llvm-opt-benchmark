@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20toVectorizedStructTyEPNS_10StructTypeENS_12ElementCountE(ptr noundef readonly captures(ret: address, provenance) %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN4llvm20toVectorizedStructTyEPNS_10StructTypeENS_12ElementCountE(ptr noundef readonly %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = and i64 %1, 8589934591
   %.not10.not = icmp eq i64 %4, 1

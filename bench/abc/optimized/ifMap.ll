@@ -330,7 +330,7 @@ define float @If_CutDelaySpecial(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @If_CutArrTimeProfile(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define nonnull ptr @If_CutArrTimeProfile(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i64, ptr %3, align 4
   %4 = and i64 %.val9, 4278190080
@@ -4566,7 +4566,7 @@ Abc_Tt4Check2.exit53.thread:                      ; preds = %80, %78, %Abc_Tt4Ch
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef nonnull readonly captures(address) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1073741824, 1073741824) %2) unnamed_addr #17 {
+define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1073741824, 1073741824) %2) unnamed_addr #17 {
   %4 = alloca [64 x i64], align 16
   %5 = alloca [64 x i64], align 16
   %.sroa.0 = alloca i32, align 4

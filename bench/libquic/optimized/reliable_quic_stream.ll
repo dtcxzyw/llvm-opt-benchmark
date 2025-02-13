@@ -1393,7 +1393,7 @@ if.end5:                                          ; preds = %entry, %if.then4, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net18ReliableQuicStream15HasBufferedDataEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(377) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net18ReliableQuicStream15HasBufferedDataEv(ptr noundef nonnull readonly align 8 dereferenceable(377) %this) local_unnamed_addr #7 align 2 {
 entry:
   %queued_data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %queued_data_, align 8

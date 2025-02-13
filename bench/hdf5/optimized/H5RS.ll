@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [12 x i8] c"str_buf_blk\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5RS_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias ptr @H5RS_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5RS_str_t_reg_free_list) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %8
@@ -698,7 +698,7 @@ define range(i32 -1, 1) i32 @H5RS_incr(ptr noundef captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @H5RS_dup(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
+define noundef ptr @H5RS_dup(ptr noundef returned %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

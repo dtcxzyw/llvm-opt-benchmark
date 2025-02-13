@@ -567,7 +567,7 @@ declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_select_filter_select_and_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @gres_select_filter_select_and_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
@@ -4915,7 +4915,7 @@ _get_sorted_topo_by_least_loaded.exit:            ; preds = %55, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pick_shared_gres_topo(ptr noundef nonnull readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull captures(none) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc void @_pick_shared_gres_topo(ptr noundef nonnull readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull captures(none) %6, ptr noundef readonly %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8

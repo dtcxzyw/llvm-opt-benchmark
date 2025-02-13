@@ -127,7 +127,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define ptr @Extra_FileNameExtension(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @Extra_FileNameExtension(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   br label %4
@@ -182,7 +182,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_FileNameCorrectPath(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
+define void @Extra_FileNameCorrectPath(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -208,7 +208,7 @@ define void @Extra_FileNameCorrectPath(ptr noundef captures(address_is_null) %0)
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define ptr @Extra_FileNameWithoutPath(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @Extra_FileNameWithoutPath(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   br label %4
@@ -232,7 +232,7 @@ define ptr @Extra_FileNameWithoutPath(ptr noundef readonly captures(address, ret
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Extra_FilePathWithoutName(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef ptr @Extra_FilePathWithoutName(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
@@ -575,7 +575,7 @@ define noalias noundef ptr @Extra_FileReadContents2(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Extra_FileIsType(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @Extra_FileIsType(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #15 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %6 = trunc i64 %5 to i32
   %.not = icmp eq ptr %1, null

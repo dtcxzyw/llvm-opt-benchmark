@@ -48,7 +48,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @mspack_valid_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @kwajd_open(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal ptr @kwajd_open(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %171, label %4
@@ -402,7 +402,7 @@ kwajd_close.exit:                                 ; preds = %151, %153
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @kwajd_close(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal void @kwajd_close(ptr noundef %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %3
 
@@ -443,7 +443,7 @@ define internal void @kwajd_close(ptr noundef captures(address_is_null) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kwajd_extract(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
+define internal i32 @kwajd_extract(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %76, label %4
 
@@ -631,7 +631,7 @@ lzh_free.exit:                                    ; preds = %63, %58, %.split66,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kwajd_decompress(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @kwajd_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %4
 
@@ -687,7 +687,7 @@ kwajd_close.exit:                                 ; preds = %9, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @kwajd_error(ptr noundef readonly captures(address_is_null) %0) #3 {
+define internal i32 @kwajd_error(ptr noundef readonly %0) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

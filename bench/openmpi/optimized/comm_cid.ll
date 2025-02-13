@@ -145,7 +145,7 @@ define noundef i32 @ompi_comm_cid_init() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_nextcid_nb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #3 {
+define i32 @ompi_comm_nextcid_nb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #3 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.pmix_info, align 8
   %11 = alloca ptr, align 8
@@ -614,7 +614,7 @@ ompi_comm_nextcid_ext_nb.exit:                    ; preds = %.loopexit.i, %ompi_
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mca_comm_cid_context_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #3 {
+define internal fastcc noundef ptr @mca_comm_cid_context_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #3 {
   %9 = zext i1 %6 to i8
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_comm_cid_context_t_class, i64 56), align 8
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #15
@@ -963,7 +963,7 @@ define internal i32 @ompi_comm_allreduce_getnextcid(ptr noundef %0) #3 {
 declare void @ompi_comm_request_start(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_nextcid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #3 {
+define i32 @ompi_comm_nextcid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = alloca ptr, align 8
   %9 = call i32 @ompi_comm_nextcid_nb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0
@@ -1239,7 +1239,7 @@ opal_thread_compare_exchange_strong_ptr.exit13:   ; preds = %53, %46, %.opal_thr
 declare void @ompi_comm_request_return(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_activate_nb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #3 {
+define i32 @ompi_comm_activate_nb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #3 {
   %9 = alloca ptr, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = tail call fastcc ptr @mca_comm_cid_context_alloc(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.7, i1 noundef zeroext %5, i32 noundef %6)
@@ -1613,7 +1613,7 @@ ompi_comm_activate_complete.exit:                 ; preds = %ompi_comm_set_disjo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_activate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #3 {
+define i32 @ompi_comm_activate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = alloca ptr, align 8
   %9 = call i32 @ompi_comm_activate_nb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull %8)
   %.not = icmp eq i32 %9, 0

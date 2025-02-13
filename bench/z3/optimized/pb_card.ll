@@ -228,7 +228,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK2pb4card10get_rewardERKNS_16solver_interfaceERN3sat16literal_occs_funE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(8) %literal_occs) unnamed_addr #6 align 2 {
+define hidden noundef double @_ZNK2pb4card10get_rewardERKNS_16solver_interfaceERN3sat16literal_occs_funE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(8) %literal_occs) unnamed_addr #6 align 2 {
 entry:
   %m_k.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %0 = load i32, ptr %m_k.i, align 4
@@ -344,7 +344,7 @@ return:                                           ; preds = %sw.bb, %sw.bb.us, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2pb4card7displayERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2pb4card7displayERSo(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8
@@ -916,19 +916,19 @@ declare noundef zeroext i1 @_ZNK2pb10constraint10is_watchedERKNS_16solver_interf
 declare void @_ZN2pb10constraint13watch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN2pb10constraint7to_cardEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(64) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN2pb10constraint7to_cardEv(ptr noundef nonnull readnone returned align 8 dereferenceable(64) %this) local_unnamed_addr #7 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2pb10constraint7to_cardEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(64) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2pb10constraint7to_cardEv(ptr noundef nonnull readnone returned align 8 dereferenceable(64) %this) local_unnamed_addr #7 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2pb4card18is_extended_binaryER7svectorIN3sat7literalEjE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %r) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK2pb4card18is_extended_binaryER7svectorIN3sat7literalEjE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %r) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8
@@ -1067,7 +1067,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERKNS_16solver_interfaceE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERKNS_16solver_interfaceE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8
@@ -1125,7 +1125,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERK7svectorI5lbooljE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %m) unnamed_addr #8 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERK7svectorI5lbooljE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %m) unnamed_addr #8 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8
@@ -1250,7 +1250,7 @@ for.end:                                          ; preds = %_ZN3sat12ext_use_li
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2pb4card10is_blockedERN3sat10simplifierENS1_7literalE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %sim, i32 %lit.coerce) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK2pb4card10is_blockedERN3sat10simplifierENS1_7literalE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %sim, i32 %lit.coerce) unnamed_addr #8 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8

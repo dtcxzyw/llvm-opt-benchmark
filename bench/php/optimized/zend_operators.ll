@@ -7298,7 +7298,7 @@ zend_binary_strcasecmp.exit:                      ; preds = %55, %50, %49, %47, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -255, 256) i32 @zend_binary_strcasecmp(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #8 {
+define range(i32 -255, 256) i32 @zend_binary_strcasecmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #8 {
   %5 = icmp eq ptr %0, %2
   br i1 %5, label %27, label %6
 
@@ -7344,7 +7344,7 @@ define range(i32 -255, 256) i32 @zend_binary_strcasecmp(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @zend_binary_strcmp(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #9 {
+define i32 @zend_binary_strcmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #9 {
   %5 = icmp eq ptr %0, %2
   br i1 %5, label %11, label %6
 
@@ -8604,7 +8604,7 @@ zend_binary_strcmp.exit:                          ; preds = %.thread, %44, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_zendi_convert_scalar_to_number_silent(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @_zendi_convert_scalar_to_number_silent(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %52 [
@@ -8901,7 +8901,7 @@ define noundef i32 @is_smaller_or_equal_function(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @zend_class_implements_interface(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @zend_class_implements_interface(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
@@ -8939,7 +8939,7 @@ define noundef zeroext i1 @zend_class_implements_interface(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @instanceof_function_slow(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @instanceof_function_slow(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #11 {
   %3 = icmp ne ptr %0, %1
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -8990,7 +8990,7 @@ define noundef zeroext i1 @instanceof_function_slow(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @zend_string_only_has_ascii_alphanumeric(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define noundef zeroext i1 @zend_string_only_has_ascii_alphanumeric(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -9536,7 +9536,7 @@ increment_string.exit.thread:                     ; preds = %188, %58, %175, %in
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 6) i8 @is_numeric_str_function(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define zeroext range(i8 0, 6) i8 @is_numeric_str_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 1
   %6 = icmp sgt i8 %5, 57
@@ -9977,7 +9977,7 @@ define void @zend_reset_lc_ctype_locale() local_unnamed_addr #1 {
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @zend_str_tolower_copy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #14 {
+define noundef ptr @zend_str_tolower_copy(ptr noundef returned writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp ugt i64 %2, 15
   br i1 %5, label %.preheader, label %.loopexit
@@ -10023,7 +10023,7 @@ define noundef ptr @zend_str_tolower_copy(ptr noundef returned writeonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @zend_str_toupper_copy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #14 {
+define noundef ptr @zend_str_toupper_copy(ptr noundef returned writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp ugt i64 %2, 15
   br i1 %5, label %.preheader, label %.loopexit
@@ -10069,7 +10069,7 @@ define noundef ptr @zend_str_toupper_copy(ptr noundef returned writeonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @zend_str_tolower_dup(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #15 {
+define noalias ptr @zend_str_tolower_dup(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = add i64 %1, 1
   %4 = tail call noalias ptr @_emalloc(i64 noundef %3) #29
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -10120,7 +10120,7 @@ zend_str_tolower_copy.exit:                       ; preds = %.lr.ph.i, %.loopexi
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @zend_str_toupper_dup(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #15 {
+define noalias ptr @zend_str_toupper_dup(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = add i64 %1, 1
   %4 = tail call noalias ptr @_emalloc(i64 noundef %3) #29
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -10168,7 +10168,7 @@ zend_str_toupper_copy.exit:                       ; preds = %.lr.ph.i, %.loopexi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zend_str_tolower(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #14 {
+define void @zend_str_tolower(ptr noundef %0, i64 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %4 = icmp ugt i64 %1, 15
   br i1 %4, label %.preheader, label %.loopexit
@@ -10209,7 +10209,7 @@ define void @zend_str_tolower(ptr noundef captures(address) %0, i64 noundef %1) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zend_str_toupper(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #14 {
+define void @zend_str_toupper(ptr noundef %0, i64 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %4 = icmp ugt i64 %1, 15
   br i1 %4, label %.preheader, label %.loopexit
@@ -10817,7 +10817,7 @@ define noundef ptr @zend_string_toupper_ex(ptr noundef %0, i1 noundef zeroext %1
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @zend_binary_strncmp(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #9 {
+define i32 @zend_binary_strncmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #9 {
   %6 = icmp eq ptr %0, %2
   br i1 %6, label %17, label %7
 
@@ -10843,7 +10843,7 @@ define i32 @zend_binary_strncmp(ptr noundef readonly captures(address) %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -255, 256) i32 @zend_binary_strncasecmp(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #8 {
+define range(i32 -255, 256) i32 @zend_binary_strncasecmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #8 {
   %6 = icmp eq ptr %0, %2
   br i1 %6, label %33, label %7
 
@@ -10895,7 +10895,7 @@ define range(i32 -255, 256) i32 @zend_binary_strncasecmp(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @zend_binary_strcasecmp_l(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #17 {
+define i32 @zend_binary_strcasecmp_l(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #17 {
   %5 = icmp eq ptr %0, %2
   br i1 %5, label %23, label %6
 
@@ -10940,7 +10940,7 @@ define i32 @zend_binary_strcasecmp_l(ptr noundef readonly captures(address) %0, 
 declare i32 @tolower(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @zend_binary_strncasecmp_l(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #17 {
+define i32 @zend_binary_strncasecmp_l(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #17 {
   %6 = icmp eq ptr %0, %2
   br i1 %6, label %29, label %7
 
@@ -11416,7 +11416,7 @@ define ptr @zend_i64_to_str(i64 noundef %0) local_unnamed_addr #1 {
 declare ptr @zend_gcvt(double noundef, i32 noundef, i8 noundef signext, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
+define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i1 noundef zeroext %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %.not118 = icmp eq i64 %1, 0
   br i1 %.not118, label %121, label %9
@@ -11953,7 +11953,7 @@ declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #2
 declare void @gc_possible_root(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_function_array(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
+define internal fastcc void @add_function_array(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %0, %1
   %5 = load ptr, ptr %1, align 8
   br i1 %4, label %6, label %9

@@ -13804,7 +13804,7 @@ ehcleanup42:                                      ; preds = %lpad2.body, %lpad
 declare void @_ZN5arrow3ipc21DictionaryFieldMapperC1ERKNS_6SchemaE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr readonly captures(address) %blocks.0.val, ptr readnone captures(address) %blocks.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr readonly %blocks.0.val, ptr readnone %blocks.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not17 = icmp eq ptr %blocks.0.val, %blocks.8.val
   br i1 %cmp.i.not17, label %for.end, label %for.body
@@ -17958,7 +17958,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc8internal23GetSparseTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEEPS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEPlPNS_18SparseTensorFormat4typeE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %metadata, ptr noundef %type, ptr noundef captures(address_is_null) %shape, ptr noundef %dim_names, ptr noundef writeonly captures(address_is_null) %non_zero_length, ptr noundef writeonly captures(address_is_null) %sparse_tensor_format_id) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc8internal23GetSparseTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEEPS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEPlPNS_18SparseTensorFormat4typeE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %metadata, ptr noundef %type, ptr noundef %shape, ptr noundef %dim_names, ptr noundef writeonly %non_zero_length, ptr noundef writeonly %sparse_tensor_format_id) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %verifier.i.i = alloca %"class.arrow_vendored_private::flatbuffers::Verifier", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -19707,7 +19707,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i65, %l
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow6Schema5fieldEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extra_type_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80

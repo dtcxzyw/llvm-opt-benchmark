@@ -2412,7 +2412,7 @@ define dso_local range(i32 0, 256) i32 @lre_get_capture_count(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @lre_get_groupnames(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local ptr @lre_get_groupnames(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp sgt i8 %2, -1
   br i1 %3, label %9, label %4
@@ -4121,7 +4121,7 @@ re_count_captures.exit:                           ; preds = %re_parse_captures.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @re_parse_captures(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc i32 @re_parse_captures(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca [128 x i8], align 16
   store i32 0, ptr %1, align 4

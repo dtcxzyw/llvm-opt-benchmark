@@ -3077,7 +3077,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @TS_execute_locations(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -3848,7 +3848,7 @@ define internal void @SpecialHyphen(ptr noundef readonly captures(none) %0) #10 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.hlCheck, align 8
   %.not = icmp eq ptr %2, null
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4

@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Win_get_info = weak alias i32 (ptr, ptr), ptr @PMPI_Win_get_info
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Win_get_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
+define i32 @PMPI_Win_get_info(ptr noundef %0, ptr noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
   %5 = trunc i8 %4 to i1

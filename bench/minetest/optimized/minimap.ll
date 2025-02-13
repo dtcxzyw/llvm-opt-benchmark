@@ -1147,7 +1147,7 @@ if.end51:                                         ; preds = %if.then41, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN19MinimapUpdateThread6getMapEN3irr4core8vector3dIsEEss(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(352) %this, i48 %pos.coerce, i16 noundef signext %size, i16 noundef signext %height) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN19MinimapUpdateThread6getMapEN3irr4core8vector3dIsEEss(ptr noundef nonnull readonly align 8 dereferenceable(352) %this, i48 %pos.coerce, i16 noundef signext %size, i16 noundef signext %height) local_unnamed_addr #9 align 2 {
 entry:
   %conv2 = sext i16 %size to i32
   %div346 = sdiv i16 %size, 2
@@ -6515,7 +6515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7Minimap12removeMarkerEPP13MinimapMarker(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, ptr noundef captures(none) %m) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7Minimap12removeMarkerEPP13MinimapMarker(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef captures(none) %m) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i = alloca %"class.std::__cxx11::list", align 8
   %m_markers = getelementptr inbounds nuw i8, ptr %this, i64 152

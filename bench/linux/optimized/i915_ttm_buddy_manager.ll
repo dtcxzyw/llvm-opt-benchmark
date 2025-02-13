@@ -498,7 +498,7 @@ define internal void @i915_ttm_buddy_man_free(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i64 %3) #4 align 16 {
+define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 %3) #4 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %20
@@ -564,7 +564,7 @@ define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i64 %3) #4 align 16 {
+define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 %3) #4 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %24

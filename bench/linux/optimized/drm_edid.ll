@@ -234,7 +234,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @drm_edid_are_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
+define dso_local noundef zeroext i1 @drm_edid_are_equal(ptr noundef readonly %0, ptr noundef readonly %1) #2 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp eq ptr %1, null
   %5 = xor i1 %3, %4
@@ -268,7 +268,7 @@ define dso_local noundef zeroext i1 @drm_edid_are_equal(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #3 align 16 {
+define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #3 align 16 {
   %5 = icmp eq i32 %1, 0
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8, !prof !8
@@ -657,7 +657,7 @@ define dso_local noundef zeroext i1 @drm_edid_is_valid(ptr noundef %0) #3 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly captures(address_is_null) %0) #3 align 16 {
+define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly %0) #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread12, label %3
 
@@ -1601,7 +1601,7 @@ define dso_local ptr @drm_do_get_edid(ptr noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @_drm_do_get_edid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #3 align 16 {
+define internal fastcc ptr @_drm_do_get_edid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #3 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
   store i64 128, ptr %5, align 8
@@ -2087,7 +2087,7 @@ select.unfold46:                                  ; preds = %253, %.split92.us, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_edid_raw(ptr noundef readonly captures(address_is_null) %0) #3 align 16 {
+define dso_local ptr @drm_edid_raw(ptr noundef readonly %0) #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -2125,7 +2125,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_edid_dup(ptr noundef readonly captures(address_is_null) %0) #3 align 16 {
+define dso_local noalias noundef ptr @drm_edid_dup(ptr noundef readonly %0) #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %20, label %3
 
@@ -3402,7 +3402,7 @@ define dso_local void @drm_mode_fixup_1366x768(ptr noundef %0) local_unnamed_add
 declare dso_local void @drm_mode_set_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #7 align 16 {
+define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #7 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %226, label %5
 
@@ -4022,7 +4022,7 @@ define dso_local void @drm_edid_get_monitor_name(ptr noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc i32 @get_monitor_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #7 align 16 {
+define internal fastcc i32 @get_monitor_name(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #7 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -9057,7 +9057,7 @@ define dso_local i32 @drm_add_modes_noedid(ptr noundef %0, i32 noundef %1, i32 n
 declare dso_local void @drm_mode_probed_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @drm_set_preferred_mode(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) #12 align 16 {
+define dso_local void @drm_set_preferred_mode(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #12 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -9095,7 +9095,7 @@ define dso_local void @drm_set_preferred_mode(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_hdmi_avi_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_hdmi_avi_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #3 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
@@ -9481,7 +9481,7 @@ drm_match_hdmi_mode.exit15:                       ; preds = %88, %.loopexit.spli
 declare dso_local void @hdmi_avi_infoframe_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_hdmi_avi_infoframe_quant_range(ptr noundef writeonly captures(none) initializes((32, 36), (44, 48)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local void @drm_hdmi_avi_infoframe_quant_range(ptr noundef writeonly captures(none) initializes((32, 36), (44, 48)) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %6 = load i8, ptr %5, align 8, !range !17, !noundef !18
   %7 = icmp eq i8 %6, 0
@@ -9526,7 +9526,7 @@ define dso_local void @drm_hdmi_avi_infoframe_quant_range(ptr noundef writeonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #3 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -9668,7 +9668,7 @@ drm_match_hdmi_mode.exit:                         ; preds = %32, %.loopexit.spli
 declare dso_local i32 @hdmi_vendor_infoframe_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @drm_edid_is_digital(ptr noundef readonly captures(address_is_null) %0) #13 align 16 {
+define dso_local zeroext i1 @drm_edid_is_digital(ptr noundef readonly %0) #13 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -9935,7 +9935,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @drm_for_each_detailed_block(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @drm_for_each_detailed_block(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #3 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit8, label %5
 
@@ -11261,7 +11261,7 @@ default.unreachable5:                             ; preds = %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_mode_std(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
+define internal fastcc ptr @drm_mode_std(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
@@ -12125,7 +12125,7 @@ drm_for_each_detailed_block.exit21:               ; preds = %316
 declare dso_local ptr @drm_gtf_mode(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 -32768, 32768) %2, i32 noundef range(i32 -32768, 32768) %3, i32 noundef range(i32 -32768, 32768) %4) unnamed_addr #3 align 16 {
+define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 -32768, 32768) %2, i32 noundef range(i32 -32768, 32768) %3, i32 noundef range(i32 -32768, 32768) %4) unnamed_addr #3 align 16 {
   %6 = tail call ptr @drm_gtf_mode(ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, i32 noundef 0) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %613, label %8
@@ -13071,7 +13071,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc range(i32 0, 511) i32 @drm_gtf2_hbreak(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #17 align 16 {
+define internal fastcc range(i32 0, 511) i32 @drm_gtf2_hbreak(ptr noundef readonly %0) unnamed_addr #17 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread11, label %3
 
@@ -14121,7 +14121,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mode_in_range(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef zeroext i1 @mode_in_range(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8

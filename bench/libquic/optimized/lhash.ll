@@ -49,7 +49,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @lh_strhash(ptr noundef readonly captures(address_is_null) %c) #4 {
+define hidden i32 @lh_strhash(ptr noundef readonly %c) #4 {
 entry:
   %cmp = icmp eq ptr %c, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -94,7 +94,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lh_free(ptr noundef captures(address_is_null) %lh) local_unnamed_addr #5 {
+define hidden void @lh_free(ptr noundef %lh) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %lh, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -507,7 +507,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lh_doall(ptr noundef captures(address_is_null) %lh, ptr noundef readonly captures(none) %func) local_unnamed_addr #5 {
+define hidden void @lh_doall(ptr noundef %lh, ptr noundef readonly captures(none) %func) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %lh, null
   br i1 %cmp.i, label %lh_doall_internal.exit, label %if.end.i
@@ -585,7 +585,7 @@ lh_doall_internal.exit:                           ; preds = %entry, %if.end20.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lh_doall_arg(ptr noundef captures(address_is_null) %lh, ptr noundef readonly captures(address_is_null) %func, ptr noundef %arg) local_unnamed_addr #5 {
+define hidden void @lh_doall_arg(ptr noundef %lh, ptr noundef readonly %func, ptr noundef %arg) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %lh, null
   br i1 %cmp.i, label %lh_doall_internal.exit, label %if.end.i

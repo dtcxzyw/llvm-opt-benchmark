@@ -5451,7 +5451,7 @@ land.end:                                         ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp17FieldConstantNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(address) %field) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp17FieldConstantNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly %field) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %field_name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -14451,7 +14451,7 @@ return:                                           ; preds = %_ZNK6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp18AnnotatedAccessorsEPKNS0_15FieldDescriptorEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEESt8optionalINS0_2io19AnnotationCollector8SemanticEE(ptr noalias sret(%"class.std::vector.205") align 8 initializes((0, 24)) %agg.result, ptr noundef %field, ptr readonly captures(address) %prefixes.coerce0, i64 %prefixes.coerce1, i64 %semantic.coerce) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp18AnnotatedAccessorsEPKNS0_15FieldDescriptorEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEESt8optionalINS0_2io19AnnotationCollector8SemanticEE(ptr noalias sret(%"class.std::vector.205") align 8 initializes((0, 24)) %agg.result, ptr noundef %field, ptr readonly %prefixes.coerce0, i64 %prefixes.coerce1, i64 %semantic.coerce) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %field_name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.google::protobuf::io::Printer::Sub", align 8
@@ -25588,7 +25588,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf8compiler3SCCESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_3cpp29TopologicalSortMessagesInFileEPKNS3_14FileDescriptorERNSF_18MessageSCCAnalyzerEE3$_0EEEvT_SN_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf8compiler3SCCESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNS4_3cpp29TopologicalSortMessagesInFileEPKNS3_14FileDescriptorERNSF_18MessageSCCAnalyzerEE3$_0EEEvT_SN_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader

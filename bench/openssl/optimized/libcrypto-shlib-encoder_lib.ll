@@ -75,7 +75,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
+define i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -462,7 +462,7 @@ if.end:                                           ; preds = %bio_from_file.exit.
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %ctx, ptr noundef captures(address_is_null) %pdata, ptr noundef captures(address_is_null) %pdata_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %ctx, ptr noundef %pdata, ptr noundef %pdata_len) local_unnamed_addr #0 {
 entry:
   %data.i = alloca %struct.encoder_process_data_st, align 8
   %buf = alloca ptr, align 8
@@ -598,7 +598,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_selection(ptr noundef writeonly captures(address_is_null) %ctx, i32 noundef %selection) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_selection(ptr noundef writeonly %ctx, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -629,7 +629,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_output_type(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %output_type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_output_type(ptr noundef writeonly %ctx, ptr noundef %output_type) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   %cmp5.not = icmp eq ptr %output_type, null
@@ -653,7 +653,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_output_structure(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %output_structure) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_output_structure(ptr noundef writeonly %ctx, ptr noundef %output_structure) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   %cmp5.not = icmp eq ptr %output_structure, null
@@ -714,7 +714,7 @@ declare void @OSSL_ENCODER_free(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_add_encoder(ptr noundef captures(address_is_null) %ctx, ptr noundef %encoder) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_add_encoder(ptr noundef %ctx, ptr noundef %encoder) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   %cmp5.not = icmp eq ptr %encoder, null
@@ -884,7 +884,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %construct) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef writeonly %ctx, ptr noundef %construct) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -906,7 +906,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %construct_data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef writeonly %ctx, ptr noundef %construct_data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -928,7 +928,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_cleanup(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %cleanup) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_cleanup(ptr noundef writeonly %ctx, ptr noundef %cleanup) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -950,7 +950,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef readonly captures(address_is_null) %encoder_inst) local_unnamed_addr #5 {
+define ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef readonly %encoder_inst) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %encoder_inst, null
   br i1 %cmp, label %return, label %if.end
@@ -965,7 +965,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_ENCODER_INSTANCE_get_encoder_ctx(ptr noundef readonly captures(address_is_null) %encoder_inst) local_unnamed_addr #5 {
+define ptr @OSSL_ENCODER_INSTANCE_get_encoder_ctx(ptr noundef readonly %encoder_inst) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %encoder_inst, null
   br i1 %cmp, label %return, label %if.end
@@ -981,7 +981,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_ENCODER_INSTANCE_get_output_type(ptr noundef readonly captures(address_is_null) %encoder_inst) local_unnamed_addr #5 {
+define ptr @OSSL_ENCODER_INSTANCE_get_output_type(ptr noundef readonly %encoder_inst) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %encoder_inst, null
   br i1 %cmp, label %return, label %if.end
@@ -997,7 +997,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_ENCODER_INSTANCE_get_output_structure(ptr noundef readonly captures(address_is_null) %encoder_inst) local_unnamed_addr #5 {
+define ptr @OSSL_ENCODER_INSTANCE_get_output_structure(ptr noundef readonly %encoder_inst) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %encoder_inst, null
   br i1 %cmp, label %return, label %if.end

@@ -423,7 +423,7 @@ define hidden void @zim_Closure_call(ptr noundef %0, ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_valid_closure_binding(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @zend_valid_closure_binding(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8388608
@@ -555,7 +555,7 @@ define internal fastcc noundef zeroext i1 @zend_valid_closure_binding(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_create_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define void @zend_create_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 8388608
@@ -707,7 +707,7 @@ thread-pre-split:                                 ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_closure_bind(ptr noundef %0, ptr captures(none) %.0.val, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @do_closure_bind(ptr noundef %0, ptr captures(none) %.0.val, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
@@ -1185,7 +1185,7 @@ define noalias noundef ptr @zend_get_closure_invoke_method(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @zend_get_closure_method_def(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define nonnull ptr @zend_get_closure_method_def(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -1509,7 +1509,7 @@ define internal i32 @zend_closure_compare(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_closure_clone(ptr noundef captures(address_is_null) %0) #0 {
+define internal ptr @zend_closure_clone(ptr noundef %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1943,7 +1943,7 @@ define internal ptr @zend_closure_get_gc(ptr noundef %0, ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = load ptr, ptr @zend_ce_closure, align 8
   %8 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef %7) #13
   %9 = load ptr, ptr %0, align 8
@@ -2300,7 +2300,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_create_fake_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define void @zend_create_fake_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true)
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60

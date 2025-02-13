@@ -9323,7 +9323,7 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17heb9a1a1439d406daE"(ptr d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN8async_io14Async$LT$T$GT$7get_ref17hafc11220cd85a648E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN8async_io14Async$LT$T$GT$7get_ref17hafc11220cd85a648E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !noundef !14
   %4 = icmp eq i32 %3, -1

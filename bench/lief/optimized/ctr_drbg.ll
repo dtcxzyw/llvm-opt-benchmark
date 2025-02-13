@@ -319,13 +319,13 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ctr_drbg_reseed(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ctr_drbg_reseed(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = tail call fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef range(i64 0, 2147483648) %3) unnamed_addr #2 {
+define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef range(i64 0, 2147483648) %3) unnamed_addr #2 {
   %5 = alloca [48 x i8], align 16
   %6 = alloca [384 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -466,7 +466,7 @@ ctr_drbg_update_internal.exit.thread:             ; preds = %45, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -513,7 +513,7 @@ declare void @mbedtls_aes_init(ptr noundef) local_unnamed_addr #3
 declare i32 @mbedtls_aes_setkey_enc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [48 x i8], align 16
   %7 = alloca [48 x i8], align 16
   %8 = alloca [48 x i8], align 16

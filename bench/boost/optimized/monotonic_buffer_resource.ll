@@ -494,7 +494,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resource13do_deallocateEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5boost9container3pmr25monotonic_buffer_resource11do_is_equalERKNS1_15memory_resourceE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(64) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8) %1) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK5boost9container3pmr25monotonic_buffer_resource11do_is_equalERKNS1_15memory_resourceE(ptr noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef nonnull readnone align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }

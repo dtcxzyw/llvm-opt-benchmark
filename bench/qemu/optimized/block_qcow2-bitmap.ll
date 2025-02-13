@@ -640,7 +640,7 @@ return:                                           ; preds = %if.end, %fail, %for
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef %bs, ptr noundef writeonly captures(address_is_null) %header_updated, ptr noundef %errp) #0 {
+define dso_local noundef zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef %bs, ptr noundef writeonly %header_updated, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1020,7 +1020,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_readonly_helper(ptr noundef %bitmap, ptr noundef readnone captures(address_is_null) %value) #0 {
+define internal void @set_readonly_helper(ptr noundef %bitmap, ptr noundef readnone %value) #0 {
 entry:
   %tobool = icmp ne ptr %value, null
   tail call void @bdrv_dirty_bitmap_set_readonly(ptr noundef %bitmap, i1 noundef zeroext %tobool) #13
@@ -1638,7 +1638,7 @@ return:                                           ; preds = %while.end.i, %bitma
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @update_ext_header_and_dir(ptr noundef %bs, ptr noundef readonly captures(address_is_null) %bm_list) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @update_ext_header_and_dir(ptr noundef %bs, ptr noundef readonly %bm_list) unnamed_addr #0 {
 entry:
   %new_offset = alloca i64, align 8
   %new_size = alloca i64, align 8

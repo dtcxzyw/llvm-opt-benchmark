@@ -78,7 +78,7 @@ define void @_ZN10ColorUtilsC2EP7QObject(ptr noundef nonnull align 8 dereference
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 align 2 {
+define { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef readonly %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.QColor, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4

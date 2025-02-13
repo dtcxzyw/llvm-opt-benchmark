@@ -402,7 +402,7 @@ Abc_SclHashLookup.exit.thread:                    ; preds = %35, %29, %46, %.lr.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_SclClassCellNum(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
+define i32 @Abc_SclClassCellNum(ptr noundef readonly %0) local_unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -3461,7 +3461,7 @@ define range(i32 0, 2) i32 @Abc_SclComputeParametersCell(ptr noundef readnone ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclComputeParametersClass(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, float noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #15 {
+define void @Abc_SclComputeParametersClass(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, float noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #15 {
   %6 = alloca %struct.SC_Pair_, align 8
   %7 = alloca %struct.SC_Pair_, align 8
   %8 = alloca %struct.SC_Pair_, align 8
@@ -3639,7 +3639,7 @@ Abc_SclComputeParametersCell.exit:                ; preds = %Abc_SclComputeParam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclComputeParametersClassPin(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, float noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #15 {
+define void @Abc_SclComputeParametersClassPin(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #15 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #31
@@ -3698,7 +3698,7 @@ define float @Abc_SclComputeDelayCellPin(ptr noundef readnone captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define float @Abc_SclComputeDelayClassPin(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #15 {
+define float @Abc_SclComputeDelayClassPin(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #15 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = fpext float %4 to double
@@ -3748,7 +3748,7 @@ define float @Abc_SclComputeDelayClassPin(ptr noundef readnone captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @Abc_SclComputeAreaClass(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
+define float @Abc_SclComputeAreaClass(ptr noundef readonly %0) local_unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %1, %10
@@ -6370,7 +6370,7 @@ Vec_StrFree.exit:                                 ; preds = %1, %8
 declare ptr @Mio_LibraryRead(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SclProduceGenlibStr(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #10 {
+define noundef ptr @Abc_SclProduceGenlibStr(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #10 {
   %7 = alloca %struct.SC_Pair_, align 8
   %8 = alloca %struct.SC_Pair_, align 8
   %9 = alloca %struct.SC_Pair_, align 8
@@ -8982,7 +8982,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SclProduceGenlibStrProfile(ptr noundef readonly captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #10 {
+define noundef ptr @Abc_SclProduceGenlibStrProfile(ptr noundef readonly captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #10 {
   %7 = alloca %struct.SC_Pair_, align 8
   %8 = alloca %struct.SC_Pair_, align 8
   %9 = alloca %struct.SC_Pair_, align 8
@@ -10477,7 +10477,7 @@ declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @Mio_GateReadProfile(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclDumpGenlib(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #10 {
+define void @Abc_SclDumpGenlib(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca i32, align 4
   %7 = alloca [1000 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #31

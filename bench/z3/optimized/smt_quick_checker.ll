@@ -539,7 +539,7 @@ _ZN14core_hashtableI18default_hash_entryIN3smt13quick_checker9collector5entryEE8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(address_is_null) %f, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt13quick_checker9collector9check_argEPNS_5enodeEP9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(none) %n, ptr noundef readonly %f, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %f, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -652,7 +652,7 @@ return:                                           ; preds = %land.lhs.true11, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt13quick_checker9collector12collect_coreEP3appP9func_declj(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(address_is_null) %p, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt13quick_checker9collector12collect_coreEP3appP9func_declj(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(none) %n, ptr noundef readonly %p, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %tmp.i176 = alloca ptr, align 8
   %tmp.i = alloca ptr, align 8

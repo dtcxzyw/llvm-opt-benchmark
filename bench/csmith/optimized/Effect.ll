@@ -462,7 +462,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK6Effect7is_readEPK8Variable(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK6Effect7is_readEPK8Variable(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %0, ptr noundef readonly %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -788,7 +788,7 @@ _ZNK6Effect10is_writtenEPK8Variable.exit:         ; preds = %13, %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK6Effect10is_writtenEPK8Variable(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK6Effect10is_writtenEPK8Variable(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %0, ptr noundef readonly %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1115,7 +1115,7 @@ _ZNK6Effect10is_writtenEPK8Variable.exit:         ; preds = %71, %_ZNSt6vectorIP
 declare noundef zeroext i1 @_Z20add_variables_to_setRSt6vectorIPK8VariableSaIS2_EERKS4_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(74) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(74) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull readonly align 8 dereferenceable(74) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %54, label %4
 
@@ -1213,7 +1213,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaIS5_EE(ptr noundef nonnull align 8 captures(address) dereferenceable(74) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(74) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull readonly align 8 dereferenceable(74) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 align 2 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %90, label %5
 

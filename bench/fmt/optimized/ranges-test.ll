@@ -6239,13 +6239,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN3adl5beginERKNS_3boxE(ptr noundef nonnull readnone returned align 4 captures(ret: address, provenance) dereferenceable(4) %b) local_unnamed_addr #8 {
+define hidden noundef nonnull ptr @_ZN3adl5beginERKNS_3boxE(ptr noundef nonnull readnone returned align 4 dereferenceable(4) %b) local_unnamed_addr #8 {
 entry:
   ret ptr %b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN3adl3endERKNS_3boxE(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %b) local_unnamed_addr #8 {
+define hidden noundef nonnull ptr @_ZN3adl3endERKNS_3boxE(ptr noundef nonnull readnone align 4 dereferenceable(4) %b) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %b, i64 4
   ret ptr %add.ptr

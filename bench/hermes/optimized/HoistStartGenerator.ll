@@ -18,7 +18,7 @@ $_ZN6hermes19HoistStartGeneratorD0Ev = comdat any
 @.str = private unnamed_addr constant [20 x i8] c"HoistStartGenerator\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes19HoistStartGenerator13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes19HoistStartGenerator13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 16
   %0 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8

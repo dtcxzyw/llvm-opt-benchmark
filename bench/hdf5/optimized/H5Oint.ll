@@ -3399,7 +3399,7 @@ define zeroext i8 @H5O_get_oh_version(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O_get_rc_and_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5O_get_rc_and_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = tail call ptr @H5O_protect(ptr noundef %0, i32 noundef 128, i1 noundef zeroext false)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %9

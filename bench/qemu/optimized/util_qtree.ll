@@ -122,7 +122,7 @@ return:                                           ; preds = %q_tree_new_full.exi
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @q_tree_ref(ptr noundef returned captures(address_is_null, ret: address, provenance) %tree) local_unnamed_addr #0 {
+define dso_local noundef ptr @q_tree_ref(ptr noundef returned %tree) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -430,7 +430,7 @@ return:                                           ; preds = %q_tree_remove_all.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @q_tree_insert(ptr noundef captures(address_is_null) %tree, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local void @q_tree_insert(ptr noundef %tree, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %tree, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
@@ -448,7 +448,7 @@ q_tree_insert_node.exit:                          ; preds = %if.else.i, %do.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @q_tree_replace(ptr noundef captures(address_is_null) %tree, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local void @q_tree_replace(ptr noundef %tree, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %tree, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
@@ -466,7 +466,7 @@ q_tree_replace_node.exit:                         ; preds = %if.else.i, %do.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @q_tree_remove(ptr noundef captures(address_is_null) %tree, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @q_tree_remove(ptr noundef %tree, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -955,7 +955,7 @@ return:                                           ; preds = %if.else17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @q_tree_steal(ptr noundef captures(address_is_null) %tree, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @q_tree_steal(ptr noundef %tree, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -974,7 +974,7 @@ return:                                           ; preds = %do.end, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @q_tree_lookup(ptr noundef readonly captures(address_is_null) %tree, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local ptr @q_tree_lookup(ptr noundef readonly %tree, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %tree, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
@@ -1039,7 +1039,7 @@ cond.end:                                         ; preds = %if.then5.i.i, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @q_tree_lookup_extended(ptr noundef readonly captures(address_is_null) %tree, ptr noundef %lookup_key, ptr noundef writeonly captures(address_is_null) %orig_key, ptr noundef writeonly captures(address_is_null) %value) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @q_tree_lookup_extended(ptr noundef readonly %tree, ptr noundef %lookup_key, ptr noundef writeonly %orig_key, ptr noundef writeonly %value) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -1118,7 +1118,7 @@ return:                                           ; preds = %if.else9.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @q_tree_foreach(ptr noundef readonly captures(address_is_null) %tree, ptr noundef readonly captures(none) %func, ptr noundef %user_data) local_unnamed_addr #0 {
+define dso_local void @q_tree_foreach(ptr noundef readonly %tree, ptr noundef readonly captures(none) %func, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -1193,7 +1193,7 @@ while.end:                                        ; preds = %q_tree_node_next.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @q_tree_search(ptr noundef readonly captures(address_is_null) %tree, ptr noundef readonly captures(none) %search_func, ptr noundef %user_data) local_unnamed_addr #0 {
+define dso_local ptr @q_tree_search(ptr noundef readonly %tree, ptr noundef readonly captures(none) %search_func, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %tree, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
@@ -1252,7 +1252,7 @@ cond.end:                                         ; preds = %if.else7.i.i, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @q_tree_height(ptr noundef readonly captures(address_is_null) %tree) local_unnamed_addr #0 {
+define dso_local i32 @q_tree_height(ptr noundef readonly %tree) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %if.end9, %while.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @q_tree_nnodes(ptr noundef readonly captures(address_is_null) %tree) local_unnamed_addr #0 {
+define dso_local i32 @q_tree_nnodes(ptr noundef readonly %tree) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end

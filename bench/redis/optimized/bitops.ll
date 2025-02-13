@@ -491,7 +491,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 2) i32 @checkUnsignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly captures(address_is_null) %limit) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @checkUnsignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq i64 %bits, 64
   %notmask = shl nsw i64 -1, %bits
@@ -551,7 +551,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 2) i32 @checkSignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly captures(address_is_null) %limit) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 2) i32 @checkSignedBitfieldOverflow(i64 noundef %value, i64 noundef %incr, i64 noundef %bits, i32 noundef %owtype, ptr noundef writeonly %limit) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ne i64 %bits, 64
   %sub = add i64 %bits, -1
@@ -853,7 +853,7 @@ return:                                           ; preds = %if.end27, %if.then2
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lookupStringForBitCommand(ptr noundef %c, i64 noundef %maxbit, ptr noundef writeonly captures(address_is_null) %dirty) local_unnamed_addr #1 {
+define dso_local ptr @lookupStringForBitCommand(ptr noundef %c, i64 noundef %maxbit, ptr noundef writeonly %dirty) local_unnamed_addr #1 {
 entry:
   %shr = lshr i64 %maxbit, 3
   %db = getelementptr inbounds nuw i8, ptr %c, i64 32
@@ -1016,7 +1016,7 @@ declare ptr @dbUnshareStringValue(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @sdsgrowzero(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getObjectReadOnlyString(ptr noundef readonly captures(address_is_null) %o, ptr noundef writeonly captures(address_is_null) %len, ptr noundef %llbuf) local_unnamed_addr #1 {
+define dso_local ptr @getObjectReadOnlyString(ptr noundef readonly %o, ptr noundef writeonly %len, ptr noundef %llbuf) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %o, null
   br i1 %tobool.not, label %if.else19, label %lor.rhs

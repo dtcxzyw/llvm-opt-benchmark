@@ -4362,7 +4362,7 @@ declare i32 @dissect_ber_length(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct._asn1_ctx_t, align 8
   %.not = icmp eq ptr %5, null

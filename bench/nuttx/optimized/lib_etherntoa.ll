@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ether_ntoa.buffer = internal global [20 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @ether_ntoa_r(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define noundef ptr @ether_ntoa_r(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1

@@ -647,7 +647,7 @@ delete_key_from_bucket.exit:                      ; preds = %39, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dshash_delete_entry(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local void @dshash_delete_entry(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 -16
   %4 = getelementptr i8, ptr %1, i64 -8
   %5 = load i32, ptr %4, align 8

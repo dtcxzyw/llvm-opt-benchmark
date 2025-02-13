@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [13 x i32] [i32 37, i32 46, i32 42, i32 108, i32 115, i32 40, i32 37, i32 117, i32 41, i32 37, i32 108, i32 115, i32 0], align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z10FileCreateP11CommandDataP4FilePwmPblP7RarTimeb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z10FileCreateP11CommandDataP4FilePwmPblP7RarTimeb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %9
 

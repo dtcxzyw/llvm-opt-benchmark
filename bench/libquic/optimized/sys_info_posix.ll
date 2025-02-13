@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoERKN4base8FilePathEPlS4_(ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef writeonly captures(address_is_null) %available_bytes, ptr noundef writeonly captures(address_is_null) %total_bytes) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoERKN4base8FilePathEPlS4_(ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef writeonly %available_bytes, ptr noundef writeonly %total_bytes) unnamed_addr #1 {
 entry:
   %stats.i = alloca %struct.statfs, align 8
   %stats = alloca %struct.statvfs, align 8

@@ -717,7 +717,7 @@ define dso_local void @_ZN4llvm9Legalizer4initERNS_15MachineFunctionE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i8, ptr } @_ZN4llvm9Legalizer23legalizeMachineFunctionERNS_15MachineFunctionERKNS_13LegalizerInfoENS_8ArrayRefIPNS_19GISelChangeObserverEEERNS_20LostDebugLocObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE(ptr noundef nonnull align 8 dereferenceable(1065) %0, ptr noundef nonnull align 8 dereferenceable(125504) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %6) local_unnamed_addr #1 align 2 {
+define dso_local { i8, ptr } @_ZN4llvm9Legalizer23legalizeMachineFunctionERNS_15MachineFunctionERKNS_13LegalizerInfoENS_8ArrayRefIPNS_19GISelChangeObserverEEERNS_20LostDebugLocObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE(ptr noundef nonnull align 8 dereferenceable(1065) %0, ptr noundef nonnull align 8 dereferenceable(125504) %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %6) local_unnamed_addr #1 align 2 {
   %8 = alloca i32, align 4
   %9 = alloca %"struct.std::pair.404", align 8
   %10 = alloca i32, align 4

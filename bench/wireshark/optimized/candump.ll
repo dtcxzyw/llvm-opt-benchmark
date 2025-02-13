@@ -72,7 +72,7 @@ define hidden range(i32 -1, 2) i32 @candump_open(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @candump_parse(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @candump_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.candump_state_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 0, i64 160, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -151,7 +151,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @candump_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) #0 {
+define internal range(i32 0, 2) i32 @candump_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.msg_t, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = call fastcc i32 @candump_parse(ptr noundef %8, ptr noundef nonnull %7, ptr noundef %5, ptr noundef %3, ptr noundef %4)
@@ -222,7 +222,7 @@ declare i32 @run_candump_parser(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @candump_gen_packet(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24

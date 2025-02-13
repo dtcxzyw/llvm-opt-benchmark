@@ -876,7 +876,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_processor_setup_cpuidle_dev(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_processor_setup_cpuidle_dev(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 256

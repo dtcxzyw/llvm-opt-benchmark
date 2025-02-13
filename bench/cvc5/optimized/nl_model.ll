@@ -3112,7 +3112,7 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %if.then.i, %if.else
 declare noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl7NlModel19hasLinearModelValueENS0_12NodeTemplateILb0EEERNS5_ILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(369) %this, ptr noundef readonly captures(none) %v, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %val) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl7NlModel19hasLinearModelValueENS0_12NodeTemplateILb0EEERNS5_ILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(369) %this, ptr noundef readonly captures(none) %v, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %val) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %v, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -14328,7 +14328,7 @@ cleanup.done:                                     ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl7NlModel20simpleCheckModelMsumERKSt3mapINS0_12NodeTemplateILb1EEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEb(ptr noundef nonnull align 8 dereferenceable(369) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %msum, i1 noundef zeroext %pol) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl7NlModel20simpleCheckModelMsumERKSt3mapINS0_12NodeTemplateILb1EEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEb(ptr noundef nonnull align 8 dereferenceable(369) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %msum, i1 noundef zeroext %pol) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %nb.i2863 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.93", align 8

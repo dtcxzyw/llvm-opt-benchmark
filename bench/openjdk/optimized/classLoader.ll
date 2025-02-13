@@ -585,7 +585,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -1031,7 +1031,7 @@ define hidden void @_ZN19ClassPathImageEntry12close_jimageEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ClassPathImageEntryC2EP10JImageFilePKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ClassPathImageEntryC2EP10JImageFilePKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef readnone %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr null, ptr %4, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19ClassPathImageEntry, i64 16), ptr %0, align 8
@@ -2274,7 +2274,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %92, %94
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN11ClassLoader23is_in_patch_mod_entriesEP6Symbol(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11ClassLoader23is_in_patch_mod_entriesEP6Symbol(ptr noundef readnone %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZN11ClassLoader18_patch_mod_entriesE, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -3448,7 +3448,7 @@ define hidden noundef ptr @_ZN11ClassLoader24file_name_for_class_nameEPKci(ptr n
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11ClassLoader21search_module_entriesEP10JavaThreadPK13GrowableArrayIP19ModuleClassPathListEP12PackageEntryPKc(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11ClassLoader21search_module_entriesEP10JavaThreadPK13GrowableArrayIP19ModuleClassPathListEP12PackageEntryPKc(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %.not26 = icmp eq ptr %2, null
   br i1 %.not26, label %8, label %5
 
@@ -3602,7 +3602,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %53, %42, %_ZL21find
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntrybP10JavaThread(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntrybP10JavaThread(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.HandleMark, align 8
   %6 = alloca %class.EventMarkWithLogFunction, align 8
   %7 = alloca %class.ClassLoadInfo, align 8
@@ -3778,7 +3778,7 @@ declare noundef ptr @_ZN12KlassFactory18create_from_streamEP15ClassFileStreamP6S
 declare void @_ZN13InstanceKlass19set_classpath_indexEs(ptr noundef nonnull align 8 dereferenceable(464), i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN11ClassLoader17skip_uri_protocolEPc(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN11ClassLoader17skip_uri_protocolEPc(ptr noundef readonly %0) local_unnamed_addr #3 align 2 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.42, i64 noundef 5) #22
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.preheader, label %10

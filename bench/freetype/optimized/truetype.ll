@@ -2031,7 +2031,7 @@ define internal i32 @tt_size_select(ptr noundef initializes((240, 248)) %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @TT_New_Context(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @TT_New_Context(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #22
   %.not = icmp eq ptr %0, null
@@ -10808,7 +10808,7 @@ declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnam
 declare ptr @FT_Get_Module(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @TT_Set_MM_Blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #2 {
+define internal i32 @TT_Set_MM_Blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef %2) #2 {
   %4 = tail call fastcc i32 @tt_set_mm_blend(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret i32 %4
 }
@@ -10902,7 +10902,7 @@ define internal i32 @TT_Get_MM_Blend(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @TT_Get_MM_Var(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #2 {
+define internal i32 @TT_Get_MM_Var(ptr noundef %0, ptr noundef writeonly %1) #2 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.GX_FVar_Head_, align 8
@@ -12776,7 +12776,7 @@ define internal void @tt_var_done_delta_set_index_map(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_get_var_blend(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) #9 {
+define internal noundef i32 @tt_get_var_blend(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #9 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %7 = load ptr, ptr %6, align 8, !tbaa !100
   %.not = icmp eq ptr %7, null
@@ -13017,7 +13017,7 @@ define internal void @tt_done_blend(ptr noundef readonly captures(none) %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_set_mm_blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
+define internal fastcc i32 @tt_set_mm_blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef readonly %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca %struct.GX_GVar_Head_, align 8
@@ -15365,7 +15365,7 @@ declare hidden zeroext i16 @FT_Stream_ReadUShort(ptr noundef, ptr noundef) local
 declare hidden i32 @FT_Stream_Skip(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc ptr @ft_var_get_value_pointer(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #5 {
+define internal fastcc ptr @ft_var_get_value_pointer(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #5 {
   switch i64 %1, label %138 [
     i64 1735618608, label %3
     i64 1735618609, label %10

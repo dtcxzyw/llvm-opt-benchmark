@@ -785,7 +785,7 @@ _ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE9push_backERKS4_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29TamaProto3addEPK3NFAjjRKSt3mapISt4pairIS3_jEjSt4lessIS6_ESaIS5_IKS6_jEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readnone captures(address) %n, i32 noundef %id, i32 noundef %top, ptr noundef nonnull align 8 dereferenceable(48) %out_top_remap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29TamaProto3addEPK3NFAjjRKSt3mapISt4pairIS3_jEjSt4lessIS6_ESaIS5_IKS6_jEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readnone %n, i32 noundef %id, i32 noundef %top, ptr noundef nonnull align 8 dereferenceable(48) %out_top_remap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair.30", align 8
   %retval.sroa.2.0.insert.ext.i = zext i32 %top to i64

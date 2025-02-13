@@ -1143,7 +1143,7 @@ define hidden noundef ptr @_ZN12LinkResolver27lookup_method_in_interfacesERK8Lin
 declare noundef ptr @_ZNK13InstanceKlass31lookup_method_in_all_interfacesEP6SymbolS1_N5Klass18DefaultsLookupModeE(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12LinkResolver25lookup_polymorphic_methodERK8LinkInfoP6HandleP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12LinkResolver25lookup_polymorphic_methodERK8LinkInfoP6HandleP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogTargetImpl, align 1
   %5 = alloca %class.LogStream, align 8
   %6 = alloca %class.Handle, align 8
@@ -3714,7 +3714,7 @@ declare void @_ZN3Jfr13on_resolutionERK8CallInfoP10JavaThread(ptr noundef nonnul
 declare void @_ZNK6Method19print_external_nameEP12outputStream(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver20resolve_special_callER8CallInfo6HandleRK8LinkInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver20resolve_special_callER8CallInfo6HandleRK8LinkInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.methodHandle, align 8
   %6 = tail call noundef ptr @_ZN12LinkResolver31linktime_resolve_special_methodERK8LinkInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %2, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4003,7 +4003,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %131, %129, %110, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver30runtime_resolve_special_methodER8CallInfoRK8LinkInfoRK12methodHandle6HandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver30runtime_resolve_special_methodER8CallInfoRK8LinkInfoRK12methodHandle6HandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr readonly %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.methodHandle, align 8
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.stringStream, align 8
@@ -4511,7 +4511,7 @@ declare noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZNK13InstanceKlass27is_same_or_direct_interfaceEP5Klass(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver20resolve_virtual_callER8CallInfo6HandleP5KlassRK8LinkInfobP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver20resolve_virtual_callER8CallInfo6HandleP5KlassRK8LinkInfobP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.methodHandle, align 8
   %8 = tail call noundef ptr @_ZN12LinkResolver31linktime_resolve_virtual_methodERK8LinkInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %3, ptr noundef %5)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4698,7 +4698,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %61, %59, %42, %40, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver30runtime_resolve_virtual_methodER8CallInfoRK12methodHandleP5Klass6HandleS6_bbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr readnone captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver30runtime_resolve_virtual_methodER8CallInfoRK12methodHandleP5Klass6HandleS6_bbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr readnone %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %class.methodHandle, align 8
   %10 = alloca %class.methodHandle, align 8
   %11 = alloca %class.methodHandle, align 8
@@ -5124,7 +5124,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %85, %87
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver22resolve_interface_callER8CallInfo6HandleP5KlassRK8LinkInfobP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver22resolve_interface_callER8CallInfo6HandleP5KlassRK8LinkInfobP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(51) %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.methodHandle, align 8
   %8 = tail call noundef ptr @_ZN12LinkResolver24resolve_interface_methodERK8LinkInfoN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(51) %3, i32 noundef 185, ptr noundef %5)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5195,7 +5195,7 @@ define hidden noundef ptr @_ZN12LinkResolver33linktime_resolve_interface_methodE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver32runtime_resolve_interface_methodER8CallInfoRK12methodHandleP5Klass6HandleS6_bbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr readnone captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver32runtime_resolve_interface_methodER8CallInfoRK12methodHandleP5Klass6HandleS6_bbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr readnone %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %class.methodHandle, align 8
   %10 = alloca [200 x i8], align 16
   %11 = alloca %class.methodHandle, align 8
@@ -5982,7 +5982,7 @@ _ZNK8CallInfo15selected_methodEv.exit:            ; preds = %19, %15, %10, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver14resolve_invokeER8CallInfo6HandleRK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver14resolve_invokeER8CallInfo6HandleRK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.LinkInfo, align 8
   %8 = alloca %class.LinkInfo, align 8
   %9 = alloca %class.LinkInfo, align 8
@@ -6156,7 +6156,7 @@ define hidden void @_ZN12LinkResolver20resolve_invokestaticER8CallInfoRK18consta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver21resolve_invokespecialER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver21resolve_invokespecialER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.LinkInfo, align 8
   call void @_ZN8LinkInfoC2ERK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef 183, ptr noundef %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6175,7 +6175,7 @@ define hidden void @_ZN12LinkResolver21resolve_invokespecialER8CallInfo6HandleRK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver21resolve_invokevirtualER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver21resolve_invokevirtualER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.LinkInfo, align 8
   call void @_ZN8LinkInfoC2ERK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef 182, ptr noundef %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6472,7 +6472,7 @@ _ZN19PerfTraceTimedEventD2Ev.exit:                ; preds = %46, %51, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LinkResolver23resolve_invokeinterfaceER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12LinkResolver23resolve_invokeinterfaceER8CallInfo6HandleRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.LinkInfo, align 8
   call void @_ZN8LinkInfoC2ERK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(51) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef 185, ptr noundef %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8

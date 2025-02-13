@@ -4421,7 +4421,7 @@ _ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9V3Options15checkParametersEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1560) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9V3Options15checkParametersEv(ptr noundef nonnull readonly align 8 dereferenceable(1560) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 600

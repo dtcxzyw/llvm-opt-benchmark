@@ -509,7 +509,7 @@ declare i32 @ossl_cmp_ctx_set1_newChain(ptr noundef, ptr noundef) local_unnamed_
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @OSSL_CMP_try_certreq(ptr noundef %ctx, i32 noundef %req_type, ptr noundef %crm, ptr noundef captures(address_is_null) %checkAfter) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @OSSL_CMP_try_certreq(ptr noundef %ctx, i32 noundef %req_type, ptr noundef %crm, ptr noundef %checkAfter) local_unnamed_addr #0 {
 entry:
   %PKIconf.i = alloca ptr, align 8
   %rep = alloca ptr, align 8
@@ -608,7 +608,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, -2147483648) %rid, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %rep, ptr noundef writeonly captures(address_is_null) %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, -2147483648) %rid, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %rep, ptr noundef writeonly %checkAfter) unnamed_addr #0 {
 entry:
   %prep = alloca ptr, align 8
   %check_after = alloca i64, align 8
@@ -807,7 +807,7 @@ return:                                           ; preds = %if.else73, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, 1) %rid, ptr noundef nonnull captures(none) %resp, ptr noundef captures(address_is_null) %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, 1) %rid, ptr noundef nonnull captures(none) %resp, ptr noundef %checkAfter) unnamed_addr #0 {
 entry:
   %buf.i = alloca [1024 x i8], align 16
   %txt = alloca ptr, align 8

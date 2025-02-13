@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_mpi_abort(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @ompi_mpi_abort(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %.b21 = load i1, ptr @have_been_invoked, align 1

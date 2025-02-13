@@ -1064,7 +1064,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef range(i32 -19, 1) i32 @net_failover_slave_pre_unregister(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #8 align 16 {
+define internal noundef range(i32 -19, 1) i32 @net_failover_slave_pre_unregister(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = getelementptr i8, ptr %1, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0

@@ -1582,7 +1582,7 @@ define linkonce_odr hidden noundef zeroext i16 @_ZN14StackMapStream6get_u2EP10Ja
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapReader4chopEP16VerificationTypeii(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapReader4chopEP16VerificationTypeii(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %6
 
@@ -1625,7 +1625,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapRead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN14StackMapReader23parse_verification_typeEPhP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN14StackMapReader23parse_verification_typeEPhP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

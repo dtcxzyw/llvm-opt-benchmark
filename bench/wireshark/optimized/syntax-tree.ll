@@ -777,7 +777,7 @@ _node_tostr.exit:                                 ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @log_node_full(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden void @log_node_full(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call zeroext i1 @ws_log_msg_is_active(ptr noundef nonnull @.str.41, i32 noundef %0) #13
   br i1 %7, label %8, label %15
 
@@ -1121,7 +1121,7 @@ stnode_type_id.exit80.thread:                     ; preds = %stnode_type_id.exit
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @log_syntax_tree(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden void @log_syntax_tree(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i1 @ws_log_msg_is_active(ptr noundef nonnull @.str.41, i32 noundef %0) #13
   br i1 %5, label %6, label %11
 

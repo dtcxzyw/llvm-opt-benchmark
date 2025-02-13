@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @str_to_cnt(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define i32 @str_to_cnt(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %3 = trunc i64 %2 to i32
   %sext = shl i64 %2, 32

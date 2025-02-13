@@ -1101,7 +1101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CipherUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl, ptr noundef %in, i32 noundef %inl) local_unnamed_addr #0 {
+define i32 @EVP_CipherUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i32 noundef %inl) local_unnamed_addr #0 {
 entry:
   %encrypt = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %encrypt, align 8
@@ -1122,7 +1122,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl, ptr noundef %in, i32 noundef %inl) local_unnamed_addr #0 {
+define i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i32 noundef %inl) local_unnamed_addr #0 {
 entry:
   %soutl = alloca i64, align 8
   %conv = sext i32 %inl to i64
@@ -1218,7 +1218,7 @@ return:                                           ; preds = %if.end49, %if.end66
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl, ptr noundef %in, i32 noundef %inl) local_unnamed_addr #0 {
+define i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i32 noundef %inl) local_unnamed_addr #0 {
 entry:
   %soutl = alloca i64, align 8
   %conv = sext i32 %inl to i64
@@ -1528,7 +1528,7 @@ return:                                           ; preds = %if.end143, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CipherFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl) local_unnamed_addr #0 {
+define i32 @EVP_CipherFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl) local_unnamed_addr #0 {
 entry:
   %encrypt = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %encrypt, align 8
@@ -1549,7 +1549,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_EncryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(address_is_null) %outl) local_unnamed_addr #0 {
+define i32 @EVP_EncryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly %outl) local_unnamed_addr #0 {
 entry:
   %soutl = alloca i64, align 8
   %cmp.not = icmp eq ptr %outl, null
@@ -1722,7 +1722,7 @@ return:                                           ; preds = %if.then53, %cond.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly captures(address_is_null) %outl) local_unnamed_addr #0 {
+define i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef writeonly %outl) local_unnamed_addr #0 {
 entry:
   %soutl = alloca i64, align 8
   %cmp.not = icmp eq ptr %outl, null
@@ -1947,7 +1947,7 @@ return:                                           ; preds = %if.then42, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CipherFinal(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl) local_unnamed_addr #0 {
+define i32 @EVP_CipherFinal(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl) local_unnamed_addr #0 {
 entry:
   %encrypt = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %encrypt, align 8
@@ -1968,14 +1968,14 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_EncryptFinal(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl) local_unnamed_addr #0 {
+define i32 @EVP_EncryptFinal(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_EncryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DecryptFinal(ptr noundef %ctx, ptr noundef %out, ptr noundef captures(address_is_null) %outl) local_unnamed_addr #0 {
+define i32 @EVP_DecryptFinal(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr noundef %outl)
   ret i32 %call
@@ -2939,7 +2939,7 @@ declare i32 @evp_do_ciph_ctx_getparams(ptr noundef, ptr noundef, ptr noundef) lo
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_get_params(ptr noundef readonly captures(address_is_null) %cipher, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_CIPHER_get_params(ptr noundef readonly %cipher, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cipher, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -3092,7 +3092,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_CIPHER_CTX_settable_params(ptr noundef readonly captures(address_is_null) %cctx) local_unnamed_addr #0 {
+define ptr @EVP_CIPHER_CTX_settable_params(ptr noundef readonly %cctx) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cctx, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -3121,7 +3121,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_CIPHER_CTX_gettable_params(ptr noundef readonly captures(address_is_null) %cctx) local_unnamed_addr #0 {
+define ptr @EVP_CIPHER_CTX_gettable_params(ptr noundef readonly %cctx) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cctx, null
   br i1 %cmp.not, label %return, label %land.lhs.true

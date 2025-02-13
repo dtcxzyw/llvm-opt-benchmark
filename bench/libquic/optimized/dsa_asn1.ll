@@ -605,7 +605,7 @@ return:                                           ; preds = %lor.lhs.false18, %i
 declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %out_sig, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSA_SIG(ptr noundef %out_sig, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -675,7 +675,7 @@ declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAPublicKey(ptr noundef captures(address_is_null) %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAPublicKey(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -735,7 +735,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAPrivateKey(ptr noundef captures(address_is_null) %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAPrivateKey(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -795,7 +795,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAparams(ptr noundef captures(address_is_null) %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAparams(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0

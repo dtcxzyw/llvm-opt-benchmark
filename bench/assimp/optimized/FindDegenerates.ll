@@ -121,7 +121,7 @@ entry:
 declare noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp22FindDegeneratesProcess7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %this, ptr noundef captures(address_is_null) %pScene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp22FindDegeneratesProcess7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %this, ptr noundef %pScene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %meshMap = alloca %"class.std::unordered_map", align 8
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()

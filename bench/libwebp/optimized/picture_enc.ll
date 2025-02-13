@@ -291,7 +291,7 @@ WebPPictureFree.exit:                             ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @WebPPictureFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @WebPPictureFree(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -385,7 +385,7 @@ define range(i32 0, 2) i32 @WebPMemoryWrite(ptr noundef readonly captures(none) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @WebPMemoryWriterClear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @WebPMemoryWriterClear(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -400,7 +400,7 @@ define void @WebPMemoryWriterClear(ptr noundef captures(address_is_null) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
@@ -492,7 +492,7 @@ Encode.exit:                                      ; preds = %6, %11, %36, %38
 declare i32 @WebPPictureImportRGB(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
@@ -584,7 +584,7 @@ Encode.exit:                                      ; preds = %6, %11, %36, %38
 declare i32 @WebPPictureImportRGBA(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
@@ -676,7 +676,7 @@ Encode.exit:                                      ; preds = %6, %11, %36, %38
 declare i32 @WebPPictureImportBGR(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
@@ -768,7 +768,7 @@ Encode.exit:                                      ; preds = %6, %11, %36, %38
 declare i32 @WebPPictureImportBGRA(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
@@ -858,7 +858,7 @@ Encode.exit:                                      ; preds = %5, %10, %35, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
@@ -948,7 +948,7 @@ Encode.exit:                                      ; preds = %5, %10, %35, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
@@ -1038,7 +1038,7 @@ Encode.exit:                                      ; preds = %5, %10, %35, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8

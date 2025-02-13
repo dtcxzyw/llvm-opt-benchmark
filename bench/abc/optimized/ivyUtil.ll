@@ -1930,7 +1930,7 @@ common.ret9:                                      ; preds = %1, %3, %9
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_ObjPrintVerbose(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #10 {
+define void @Ivy_ObjPrintVerbose(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %.val79 = load i32, ptr %1, align 8, !tbaa !26
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.val79)
   %.val76 = load i32, ptr %1, align 8, !tbaa !26

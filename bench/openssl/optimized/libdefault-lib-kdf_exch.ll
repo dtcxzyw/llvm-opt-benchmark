@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_init(ptr noundef captures(address_is_null) %vpkdfctx, ptr noundef %vkdf, ptr noundef %params) #0 {
+define internal i32 @kdf_init(ptr noundef %vpkdfctx, ptr noundef %vkdf, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool = icmp eq i32 %call, 0

@@ -1758,7 +1758,7 @@ define internal fastcc i32 @pack_sg_list_p(ptr noundef captures(none) %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @handle_rerror(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #12 align 16 {
+define internal fastcc void @handle_rerror(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #12 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8

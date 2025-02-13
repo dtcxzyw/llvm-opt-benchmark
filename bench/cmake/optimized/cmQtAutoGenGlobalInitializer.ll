@@ -3002,7 +3002,7 @@ _ZNSt3mapIP16cmLocalGeneratorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN28cmQtAutoGenGlobalInitializer19GetCompilerFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN11cmQtAutoGen12ConfigStringERS5_bb(ptr dead_on_unwind noalias writable sret(%"class.cmQtAutoGen::ConfigStrings.552") align 8 %0, ptr noundef nonnull align 8 dereferenceable(680) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28cmQtAutoGenGlobalInitializer19GetCompilerFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN11cmQtAutoGen12ConfigStringERS5_bb(ptr dead_on_unwind noalias writable sret(%"class.cmQtAutoGen::ConfigStrings.552") align 8 %0, ptr noundef nonnull align 8 dereferenceable(680) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca [10 x %"struct.std::pair.659"], align 8
   %9 = alloca %class.cmAlphaNum, align 8
   %10 = alloca %class.cmAlphaNum, align 8
@@ -5993,7 +5993,7 @@ _ZNSt12__shared_ptrIN11cmQtAutoGen16CompilerFeaturesELN9__gnu_cxx12_Lock_policyE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN28cmQtAutoGenGlobalInitializer23InitializeCustomTargetsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(680) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN28cmQtAutoGenGlobalInitializer23InitializeCustomTargetsEv(ptr noundef nonnull readonly align 8 dereferenceable(680) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8

@@ -7281,7 +7281,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @de_gmm_rai(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) #1 {
+define noundef zeroext i16 @de_gmm_rai(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, i32 noundef %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %9 = and i8 %8, 15
   %10 = zext nneg i8 %9 to i32
@@ -9184,7 +9184,7 @@ define hidden noundef zeroext i16 @de_sm_cause(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
+define noundef zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %9 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %10 = shl i32 %3, 3
@@ -9892,7 +9892,7 @@ define internal noundef zeroext i16 @de_gmm_cause(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_gmm_rai2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_gmm_rai2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, i32 noundef %6) #1 {
   %8 = tail call zeroext i16 @de_gmm_rai(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 poison, ptr noundef %5, i32 noundef %6)
   ret i16 6
 }

@@ -1593,7 +1593,7 @@ declare void @_ZN6duckdb20ColumnDataCollection5ResetEv(ptr noundef nonnull align
 declare void @_ZN6duckdb20ColumnDataCollection7CombineERS0_(ptr noundef nonnull align 8 dereferenceable(97), ptr noundef nonnull align 8 dereferenceable(97)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb20PhysicalRecursiveCTE25ExecuteRecursivePipelinesERNS_16ExecutionContextE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(208) %this, ptr nonnull readnone align 8 captures(none) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb20PhysicalRecursiveCTE25ExecuteRecursivePipelinesERNS_16ExecutionContextE(ptr noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nonnull readnone align 8 captures(none) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.106", align 1
@@ -3338,7 +3338,7 @@ if.end8:                                          ; preds = %if.then6, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb11PhysicalCTE25ExecuteRecursivePipelinesERNS_16ExecutionContextE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %this, ptr nonnull readnone align 8 captures(none) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb11PhysicalCTE25ExecuteRecursivePipelinesERNS_16ExecutionContextE(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nonnull readnone align 8 captures(none) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.106", align 1

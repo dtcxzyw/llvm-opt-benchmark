@@ -13582,7 +13582,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7xgboost3gbm6GBTree12GetPredictorEbPKNS_16HostDeviceVectorIfEEPNS_7DMatrixE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(640) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7xgboost3gbm6GBTree12GetPredictorEbPKNS_16HostDeviceVectorIfEEPNS_7DMatrixE(ptr noundef nonnull readonly align 8 dereferenceable(640) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.xgboost::BatchIterator", align 8
   %7 = alloca %"class.xgboost::BatchSet", align 8

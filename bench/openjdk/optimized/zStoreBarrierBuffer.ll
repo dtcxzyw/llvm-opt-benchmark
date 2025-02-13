@@ -999,7 +999,7 @@ _ZN8ZBarrier8rememberEPV8zpointer.exit:           ; preds = %57, %59, %_ZN8ZBarr
 declare void @_ZN19VMErrorCallbackMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN19ZStoreBarrierBuffer5is_inEPV8zpointer(ptr noundef readnone captures(address) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN19ZStoreBarrierBuffer5is_inEPV8zpointer(ptr noundef readnone %0) local_unnamed_addr #1 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %4 = load i8, ptr @ZBufferStoreBarriers, align 1

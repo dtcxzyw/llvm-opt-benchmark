@@ -142,7 +142,7 @@ define internal noundef i32 @H5O__shmesg_encode(ptr noundef %0, i1 zeroext %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__shmesg_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) #0 {
+define internal noundef ptr @H5O__shmesg_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 

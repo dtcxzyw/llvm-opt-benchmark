@@ -202,7 +202,7 @@ define range(i32 -1, 1) i32 @mca_common_sm_module_unlink(ptr noundef %0) local_u
 declare i32 @opal_shmem_unlink(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @mca_common_sm_local_proc_reorder(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @mca_common_sm_local_proc_reorder(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %4

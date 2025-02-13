@@ -2423,7 +2423,7 @@ switch.hole_check:                                ; preds = %101
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @php_is_stream_path(ptr noundef readonly captures(address) %0) unnamed_addr #10 {
+define internal fastcc zeroext i1 @php_is_stream_path(ptr noundef readonly %0) unnamed_addr #10 {
   br label %2
 
 2:                                                ; preds = %.critedge, %1

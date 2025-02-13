@@ -428,7 +428,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %outp, ptr noundef readonly captures(address_is_null) %in) local_unnamed_addr #0 {
+define hidden i32 @BN_hex2bn(ptr noundef %outp, ptr noundef readonly %in) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %in, null
   br i1 %cmp.i, label %bn_x2bn.exit, label %lor.lhs.false.i
@@ -741,7 +741,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %outp, ptr noundef readonly captures(address_is_null) %in) local_unnamed_addr #0 {
+define hidden i32 @BN_dec2bn(ptr noundef %outp, ptr noundef readonly %in) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %in, null
   br i1 %cmp.i, label %bn_x2bn.exit, label %lor.lhs.false.i
@@ -869,7 +869,7 @@ bn_x2bn.exit:                                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %outp, ptr noundef captures(address_is_null) %in) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef %outp, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %in, align 1
   %cmp = icmp eq i8 %0, 45
@@ -1046,7 +1046,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %in, ptr noundef captures(address_is_null) %out) local_unnamed_addr #0 {
+define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %in, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %in) #8
   %conv = zext i32 %call to i64

@@ -1229,7 +1229,7 @@ define dso_local void @snd_seq_queue_remove_cells(i32 noundef %0, ptr noundef %1
 declare dso_local void @snd_seq_prioq_remove_events(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_seq_control_queue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_control_queue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.snd_seq_event, align 4
   %5 = alloca %struct.snd_seq_event, align 4
   %6 = alloca %struct.snd_seq_event, align 4

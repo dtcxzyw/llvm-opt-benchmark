@@ -261,7 +261,7 @@ cleanup:                                          ; preds = %cleanup.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaL_optlstring(ptr noundef %L, i32 noundef %narg, ptr noundef readonly captures(address_is_null, ret: address, provenance) %def, ptr noundef %len) local_unnamed_addr #0 {
+define dso_local ptr @luaL_optlstring(ptr noundef %L, i32 noundef %narg, ptr noundef readonly %def, ptr noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef %narg) #17
   %cmp = icmp slt i32 %call, 1
@@ -1525,7 +1525,7 @@ declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnam
 declare i32 @lua_load(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef ptr @getF(ptr readnone captures(none) %L, ptr noundef captures(ret: address, provenance) %ud, ptr noundef writeonly captures(none) %size) #8 {
+define internal noundef ptr @getF(ptr readnone captures(none) %L, ptr noundef %ud, ptr noundef writeonly captures(none) %size) #8 {
 entry:
   %0 = load i32, ptr %ud, align 8, !tbaa !32
   %tobool.not = icmp eq i32 %0, 0

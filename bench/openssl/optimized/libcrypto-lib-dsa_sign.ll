@@ -62,7 +62,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %psig, ptr noundef %ppin, i64 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @d2i_DSA_SIG(ptr noundef %psig, ptr noundef %ppin, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -156,7 +156,7 @@ declare ptr @BN_new() local_unnamed_addr #1
 declare i64 @ossl_decode_der_dsa_sig(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2d_DSA_SIG(ptr noundef readonly captures(none) %sig, ptr noundef captures(address_is_null) %ppout) local_unnamed_addr #0 {
+define i32 @i2d_DSA_SIG(ptr noundef readonly captures(none) %sig, ptr noundef %ppout) local_unnamed_addr #0 {
 entry:
   %encoded_len = alloca i64, align 8
   %pkt = alloca %struct.wpacket_st, align 8
@@ -321,7 +321,7 @@ if.end5:                                          ; preds = %i2d_DSA_SIG.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @DSA_SIG_get0(ptr noundef readonly captures(none) %sig, ptr noundef writeonly captures(address_is_null) %pr, ptr noundef writeonly captures(address_is_null) %ps) local_unnamed_addr #2 {
+define void @DSA_SIG_get0(ptr noundef readonly captures(none) %sig, ptr noundef writeonly %pr, ptr noundef writeonly %ps) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %pr, null
   br i1 %cmp.not, label %if.end, label %if.then

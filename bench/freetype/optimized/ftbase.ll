@@ -302,7 +302,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Load_Glyph(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Load_Glyph(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %FT_Outline_Check.exit, label %4
 
@@ -1042,7 +1042,7 @@ define hidden range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Hypo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Vector_Length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Vector_Length(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -1264,7 +1264,7 @@ define i64 @FT_DivFix(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @FT_Matrix_Multiply(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #6 {
+define void @FT_Matrix_Multiply(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1364,7 +1364,7 @@ define void @FT_Matrix_Multiply(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 7) i32 @FT_Matrix_Invert(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 7) i32 @FT_Matrix_Invert(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %56, label %2
 
@@ -1447,7 +1447,7 @@ FT_DivFix.exit36:                                 ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @FT_Matrix_Multiply_Scaled(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden void @FT_Matrix_Multiply_Scaled(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1659,7 +1659,7 @@ FT_MulDiv.exit91:                                 ; preds = %FT_MulDiv.exit83.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext range(i8 0, 2) i8 @FT_Matrix_Check(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden zeroext range(i8 0, 2) i8 @FT_Matrix_Check(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %42, label %2
 
@@ -1727,7 +1727,7 @@ define hidden zeroext range(i8 0, 2) i8 @FT_Matrix_Check(ptr noundef readonly ca
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @FT_Vector_Transform_Scaled(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden void @FT_Vector_Transform_Scaled(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2085,7 +2085,7 @@ define hidden i32 @FT_MulAddFix(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 36) i32 @FT_Palette_Data_Get(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define range(i32 0, 36) i32 @FT_Palette_Data_Get(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -2118,7 +2118,7 @@ define range(i32 0, 36) i32 @FT_Palette_Data_Get(ptr noundef readonly captures(a
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Palette_Select(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @FT_Palette_Select(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %4
 
@@ -2165,7 +2165,7 @@ define i32 @FT_Palette_Select(ptr noundef %0, i16 noundef zeroext %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 36) i32 @FT_Palette_Set_Foreground_Color(ptr noundef captures(address_is_null) %0, i32 %1) local_unnamed_addr #6 {
+define range(i32 0, 36) i32 @FT_Palette_Set_Foreground_Color(ptr noundef %0, i32 %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -2194,7 +2194,7 @@ define noalias noundef ptr @FT_Error_String(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @FT_Get_Font_Format(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @FT_Get_Font_Format(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -2217,7 +2217,7 @@ define ptr @FT_Get_Font_Format(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @FT_Get_X11_Font_Format(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @FT_Get_X11_Font_Format(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -3526,7 +3526,7 @@ FT_GlyphLoader_Adjust_Subglyphs.exit:             ; preds = %FT_GlyphLoader_Adju
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @FT_GlyphLoader_Add(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define hidden void @FT_GlyphLoader_Add(ptr noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %63, label %2
 
@@ -3689,7 +3689,7 @@ hash_init.exit:                                   ; preds = %2, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ft_hash_str_free(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @ft_hash_str_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %3
 
@@ -4172,7 +4172,7 @@ define noundef i32 @FT_Library_SetLcdFilter(ptr noundef readnone captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 34) i32 @FT_Library_SetLcdGeometry(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define range(i32 0, 34) i32 @FT_Library_SetLcdGeometry(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -4191,7 +4191,7 @@ define range(i32 0, 34) i32 @FT_Library_SetLcdGeometry(ptr noundef writeonly cap
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @ft_service_list_lookup(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define hidden ptr @ft_service_list_lookup(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4258,7 +4258,7 @@ define hidden void @ft_validator_error(ptr noundef %0, i32 noundef %1) local_unn
 declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @FT_Stream_New(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden i32 @FT_Stream_New(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8, !tbaa !240
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ft_mem_alloc.exit, label %4
@@ -4483,7 +4483,7 @@ ft_mem_free.exit:                                 ; preds = %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8, !tbaa !124
@@ -4823,7 +4823,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i98, %37, %4
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @FT_Get_Module(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define noundef ptr @FT_Get_Module(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4864,7 +4864,7 @@ define noundef ptr @FT_Get_Module(ptr noundef readonly captures(address) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @FT_Outline_Get_CBox(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define void @FT_Outline_Get_CBox(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -5039,7 +5039,7 @@ ft_mem_alloc.exit:                                ; preds = %ft_mem_qalloc.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @FT_New_GlyphSlot(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @FT_New_GlyphSlot(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %62, label %3
 
@@ -5517,7 +5517,7 @@ ft_mem_free.exit:                                 ; preds = %20, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @FT_Set_Transform(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #20 {
+define void @FT_Set_Transform(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %4
 
@@ -5596,7 +5596,7 @@ define void @FT_Set_Transform(ptr noundef readonly captures(address_is_null) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @FT_Get_Transform(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #20 {
+define void @FT_Get_Transform(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %4
 
@@ -5627,7 +5627,7 @@ define void @FT_Get_Transform(ptr noundef readonly captures(address_is_null) %0,
 declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 21) i32 @FT_Outline_Check(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
+define range(i32 0, 21) i32 @FT_Outline_Check(ptr noundef readonly %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -5766,7 +5766,7 @@ define internal fastcc void @ft_glyphslot_grid_fit_metrics(ptr noundef nonnull c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @FT_Outline_Transform(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #11 {
+define void @FT_Outline_Transform(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #11 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -5850,7 +5850,7 @@ FT_Vector_Transform.exit:                         ; preds = %FT_Vector_Transform
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @FT_Outline_Translate(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
+define void @FT_Outline_Translate(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -5885,7 +5885,7 @@ define void @FT_Outline_Translate(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @FT_Vector_Transform(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define void @FT_Vector_Transform(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -5973,7 +5973,7 @@ define i32 @FT_Render_Glyph(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Load_Char(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Load_Char(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %4
 
@@ -6008,7 +6008,7 @@ FT_Get_Char_Index.exit:                           ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Get_Char_Index(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define i32 @FT_Get_Char_Index(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 
@@ -6038,7 +6038,7 @@ define i32 @FT_Get_Char_Index(ptr noundef readonly captures(address_is_null) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_New_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @FT_New_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.FT_Open_Args_, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #34
   %.not = icmp eq ptr %1, null
@@ -6060,7 +6060,7 @@ define i32 @FT_New_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca [9 x ptr], align 16
   %8 = alloca [9 x i64], align 16
@@ -6993,7 +6993,7 @@ FT_Stream_Free.exit168:                           ; preds = %373, %ft_mem_free.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_New_Memory_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @FT_New_Memory_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FT_Open_Args_, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #34
   %.not = icmp eq ptr %1, null
@@ -7017,7 +7017,7 @@ define i32 @FT_New_Memory_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Open_Face(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @FT_Open_Face(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext 1)
   ret i32 %5
 }
@@ -7097,7 +7097,7 @@ FT_Attach_Stream.exit:                            ; preds = %FT_Attach_Stream.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Attach_Stream(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @FT_Attach_Stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
   %.not = icmp eq ptr %0, null
@@ -7175,7 +7175,7 @@ FT_Stream_Free.exit:                              ; preds = %ft_mem_free.exit.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 36) i32 @FT_Reference_Face(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define range(i32 0, 36) i32 @FT_Reference_Face(ptr noundef readonly %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -7277,7 +7277,7 @@ FT_List_Find.exit.thread:                         ; preds = %19, %12, %5, %ft_me
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @FT_List_Find(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #21 {
+define ptr @FT_List_Find(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -7305,7 +7305,7 @@ define ptr @FT_List_Find(ptr noundef readonly captures(address_is_null) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @FT_List_Remove(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #22 {
+define void @FT_List_Remove(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #22 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -7621,7 +7621,7 @@ ft_mem_free.exit48:                               ; preds = %108, %ft_mem_free.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_New_Size(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @FT_New_Size(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.split33, label %3
 
@@ -7778,7 +7778,7 @@ define hidden ptr @ft_mem_qalloc(ptr noundef %0, i64 noundef %1, ptr noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @FT_List_Add(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #22 {
+define void @FT_List_Add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #22 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -7942,7 +7942,7 @@ FT_List_Find.exit.thread:                         ; preds = %14, %7, %destroy_si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !68
   %7 = and i64 %6, 2
@@ -8604,7 +8604,7 @@ FT_MulDiv.exit122:                                ; preds = %111, %113
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Select_Size(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @FT_Select_Size(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %3
 
@@ -8653,7 +8653,7 @@ define i32 @FT_Select_Size(ptr noundef readonly captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Request_Size(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @FT_Request_Size(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
   %.not = icmp eq ptr %0, null
@@ -8733,7 +8733,7 @@ define i32 @FT_Request_Size(ptr noundef captures(address_is_null) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Char_Size(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @FT_Set_Char_Size(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FT_Size_RequestRec_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #34
   %.not = icmp eq i64 %1, 0
@@ -8766,7 +8766,7 @@ define i32 @FT_Set_Char_Size(ptr noundef captures(address_is_null) %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Pixel_Sizes(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Set_Pixel_Sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.FT_Size_RequestRec_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #34
   %5 = icmp eq i32 %1, 0
@@ -8942,7 +8942,7 @@ define i32 @FT_Get_Track_Kerning(ptr noundef %0, i64 noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 39) i32 @FT_Select_Charmap(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 39) i32 @FT_Select_Charmap(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %find_unicode_charmap.exit, label %3
 
@@ -9061,7 +9061,7 @@ find_unicode_charmap.exit:                        ; preds = %.preheader.i, %48, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 39) i32 @FT_Set_Charmap(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 39) i32 @FT_Set_Charmap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TT_CMapInfo_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
@@ -9188,7 +9188,7 @@ define i64 @FT_Get_CMap_Format(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @FT_Get_Charmap_Index(ptr noundef readonly captures(address) %0) local_unnamed_addr #21 {
+define i32 @FT_Get_Charmap_Index(ptr noundef readonly %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -9432,7 +9432,7 @@ ft_mem_free.exit:                                 ; preds = %13, %12, %21, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @FT_CMap_New(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden i32 @FT_CMap_New(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -9582,7 +9582,7 @@ ft_cmap_done_internal.exit:                       ; preds = %58, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @FT_Get_First_Char(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @FT_Get_First_Char(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %FT_Get_Next_Char.exit, label %4
@@ -9658,7 +9658,7 @@ FT_Get_Next_Char.exit:                            ; preds = %30, %19, %FT_Get_Ch
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @FT_Get_Next_Char(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @FT_Get_Next_Char(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %5
@@ -9715,7 +9715,7 @@ define range(i64 0, 4294967296) i64 @FT_Get_Next_Char(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 8) i32 @FT_Face_Properties(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #11 {
+define range(i32 0, 8) i32 @FT_Face_Properties(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #11 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond = or i1 %4, %5
@@ -9800,7 +9800,7 @@ define range(i32 0, 8) i32 @FT_Face_Properties(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Face_GetCharVariantIndex(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Face_GetCharVariantIndex(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.TT_CMapInfo_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %find_variant_selector_charmap.exit.thread, label %5
@@ -9912,7 +9912,7 @@ find_variant_selector_charmap.exit.thread:        ; preds = %46, %15, %12, %find
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Face_GetCharVariantIsDefault(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Face_GetCharVariantIsDefault(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.TT_CMapInfo_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %find_variant_selector_charmap.exit.thread, label %5
@@ -10011,7 +10011,7 @@ find_variant_selector_charmap.exit.thread:        ; preds = %39, %8, %5, %find_v
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @FT_Face_GetVariantSelectors(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @FT_Face_GetVariantSelectors(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TT_CMapInfo_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %find_variant_selector_charmap.exit.thread, label %3
@@ -10110,7 +10110,7 @@ find_variant_selector_charmap.exit.thread:        ; preds = %37, %6, %3, %find_v
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @FT_Face_GetVariantsOfChar(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @FT_Face_GetVariantsOfChar(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TT_CMapInfo_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %find_variant_selector_charmap.exit.thread, label %4
@@ -10210,7 +10210,7 @@ find_variant_selector_charmap.exit.thread:        ; preds = %38, %7, %4, %find_v
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @FT_Face_GetCharsOfVariant(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @FT_Face_GetCharsOfVariant(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TT_CMapInfo_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %find_variant_selector_charmap.exit.thread, label %4
@@ -10694,7 +10694,7 @@ define range(i32 0, 37) i32 @FT_Activate_Size(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @FT_Lookup_Renderer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden ptr @FT_Lookup_Renderer(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 
@@ -10752,7 +10752,7 @@ define hidden ptr @FT_Lookup_Renderer(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @FT_Get_Renderer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #21 {
+define ptr @FT_Get_Renderer(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #21 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %FT_Lookup_Renderer.exit, label %3
 
@@ -10783,7 +10783,7 @@ FT_Lookup_Renderer.exit:                          ; preds = %.lr.ph.i, %11, %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Set_Renderer(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @FT_Set_Renderer(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %FT_List_Find.exit.thread, label %5
 
@@ -10885,7 +10885,7 @@ FT_List_Find.exit.thread:                         ; preds = %14, %.lr.ph, %39, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @FT_List_Up(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #22 {
+define void @FT_List_Up(ptr noundef %0, ptr noundef %1) local_unnamed_addr #22 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -10926,7 +10926,7 @@ define void @FT_List_Up(ptr noundef captures(address_is_null) %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @FT_Render_Glyph_Internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @FT_Render_Glyph_Internal(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.FT_LayerIterator_, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -11524,7 +11524,7 @@ ft_mem_alloc.exit:                                ; preds = %60, %ft_mem_free.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 35) i32 @FT_Remove_Module(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 35) i32 @FT_Remove_Module(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -11880,7 +11880,7 @@ ft_mem_free.exit:                                 ; preds = %54, %1, %.thread44,
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @FT_Get_Module_Interface(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define hidden ptr @FT_Get_Module_Interface(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -11993,7 +11993,7 @@ define hidden ptr @ft_module_get_service(ptr noundef %0, ptr noundef %1, i8 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Property_Set(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @FT_Property_Set(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ft_property_do.exit, label %5
 
@@ -12065,7 +12065,7 @@ ft_property_do.exit:                              ; preds = %4, %5, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Property_Get(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @FT_Property_Get(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ft_property_do.exit, label %5
 
@@ -12138,7 +12138,7 @@ ft_property_do.exit:                              ; preds = %4, %5, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ft_property_string_set(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @ft_property_string_set(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ft_property_do.exit, label %5
 
@@ -12210,7 +12210,7 @@ ft_property_do.exit:                              ; preds = %4, %5, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 34) i32 @FT_Reference_Library(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 34) i32 @FT_Reference_Library(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -12227,7 +12227,7 @@ define range(i32 0, 34) i32 @FT_Reference_Library(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65) i32 @FT_New_Library(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 65) i32 @FT_New_Library(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -12261,7 +12261,7 @@ ft_mem_alloc.exit:                                ; preds = %5, %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @FT_Library_Version(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 {
+define void @FT_Library_Version(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %5
 
@@ -12496,7 +12496,7 @@ ft_mem_free.exit:                                 ; preds = %.lr.ph45, %7, %.pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FT_Set_Debug_Hook(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #18 {
+define void @FT_Set_Debug_Hook(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #18 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -12516,7 +12516,7 @@ define void @FT_Set_Debug_Hook(ptr noundef writeonly captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Get_TrueType_Engine_Type(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define i32 @FT_Get_TrueType_Engine_Type(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %FT_Get_Module.exit.thread, label %2
 
@@ -12570,7 +12570,7 @@ FT_Get_Module.exit.thread:                        ; preds = %7, %FT_Get_Module.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 7) i32 @FT_Get_SubGlyph_Info(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #20 {
+define range(i32 0, 7) i32 @FT_Get_SubGlyph_Info(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %8
 
@@ -12776,7 +12776,7 @@ define zeroext i8 @FT_Get_Colorline_Stops(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Outline_Decompose(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Outline_Decompose(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
   %6 = alloca %struct.FT_Vector_, align 8
@@ -13118,7 +13118,7 @@ select.unfold:                                    ; preds = %121
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Outline_New(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @FT_Outline_New(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #34
   %.not = icmp eq ptr %0, null
@@ -13267,7 +13267,7 @@ FT_Outline_Done.exit:                             ; preds = %ft_mem_free.exit24.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 34) i32 @FT_Outline_Done(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 34) i32 @FT_Outline_Done(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %3
 
@@ -13335,7 +13335,7 @@ ft_mem_free.exit24:                               ; preds = %23, %ft_mem_free.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 21) i32 @FT_Outline_Copy(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #20 {
+define range(i32 0, 21) i32 @FT_Outline_Copy(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #20 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -13413,7 +13413,7 @@ define range(i32 0, 21) i32 @FT_Outline_Copy(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define void @FT_Outline_Reverse(ptr noundef %0) local_unnamed_addr #11 {
   %2 = alloca %struct.FT_Vector_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %.preheader
@@ -13501,7 +13501,7 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Outline_Render(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Outline_Render(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -13655,7 +13655,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i, %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Outline_Get_Bitmap(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @FT_Outline_Get_Bitmap(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.FT_Raster_Params_, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #34
   %.not = icmp eq ptr %2, null
@@ -13688,13 +13688,13 @@ define i32 @FT_Outline_Get_Bitmap(ptr noundef captures(address_is_null) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 21) i32 @FT_Outline_Embolden(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
+define range(i32 0, 21) i32 @FT_Outline_Embolden(ptr noundef %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = tail call i32 @FT_Outline_EmboldenXY(ptr noundef %0, i64 noundef %1, i64 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 21) i32 @FT_Outline_EmboldenXY(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
+define range(i32 0, 21) i32 @FT_Outline_EmboldenXY(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -14114,7 +14114,7 @@ FT_Vector_NormLen.exit.thread:                    ; preds = %225, %222, %48, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 3) i32 @FT_Outline_Get_Orientation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
+define range(i32 0, 3) i32 @FT_Outline_Get_Orientation(ptr noundef readonly %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %FT_Outline_Get_CBox.exit.thread, label %2
 
@@ -15635,7 +15635,7 @@ FT_Stream_Seek.exit:                              ; preds = %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @FT_Get_Sfnt_Name_Count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 65536) i32 @FT_Get_Sfnt_Name_Count(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -15658,7 +15658,7 @@ define range(i32 0, 65536) i32 @FT_Get_Sfnt_Name_Count(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 7) i32 @FT_Get_Sfnt_Name(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @FT_Get_Sfnt_Name(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -15793,7 +15793,7 @@ ft_mem_free.exit:                                 ; preds = %25, %FT_Stream_Seek
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @FT_Get_Sfnt_LangTag(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @FT_Get_Sfnt_LangTag(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -16227,7 +16227,7 @@ ft_mem_free.exit:                                 ; preds = %23, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @FT_Stream_ReleaseFrame(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define hidden void @FT_Stream_ReleaseFrame(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ft_mem_free.exit, label %3
 
@@ -16667,7 +16667,7 @@ define hidden i32 @FT_Stream_ReadULongLE(ptr noundef %0, ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 86) i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 86) i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %159, label %4
 
@@ -17067,7 +17067,7 @@ FT_Vector_Unit.exit:                              ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @FT_Vector_Unit(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #28 {
+define void @FT_Vector_Unit(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %3
 
@@ -17441,7 +17441,7 @@ ft_trig_pseudo_polarize.exit:                     ; preds = %56, %53, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @FT_Vector_Rotate(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 {
+define void @FT_Vector_Rotate(ptr noundef %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i64 %1, 0
   %or.cond = and i1 %3, %4
@@ -17605,7 +17605,7 @@ ft_trig_pseudo_rotate.exit:                       ; preds = %48
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @FT_Vector_Polarize(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define void @FT_Vector_Polarize(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #9 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -17757,7 +17757,7 @@ ft_trig_pseudo_polarize.exit:                     ; preds = %59, %62
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @FT_Vector_From_Polar(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define void @FT_Vector_From_Polar(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 
@@ -17799,7 +17799,7 @@ define range(i64 -11796479, 11796481) i64 @FT_Angle_Diff(i64 noundef %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ft_mem_dup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
+define hidden ptr @ft_mem_dup(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = icmp sgt i64 %2, 0
   br i1 %5, label %6, label %10
 
@@ -17836,7 +17836,7 @@ ft_mem_qalloc.exit:                               ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ft_mem_strdup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden ptr @ft_mem_strdup(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split5, label %.split
 
@@ -17913,7 +17913,7 @@ define hidden range(i32 0, 2) i32 @ft_mem_strcpyn(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @FT_List_Insert(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #22 {
+define void @FT_List_Insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #22 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -17945,7 +17945,7 @@ define void @FT_List_Insert(ptr noundef captures(address_is_null) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_List_Iterate(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @FT_List_Iterate(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -17973,7 +17973,7 @@ define i32 @FT_List_Iterate(ptr noundef readonly captures(address_is_null) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @FT_List_Finalize(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @FT_List_Finalize(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -18376,7 +18376,7 @@ ft_mem_alloc.exit.thread101:                      ; preds = %.preheader.i, %126,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_face_PS_from_sfnt_stream(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483647, 2147483648) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc i32 @open_face_PS_from_sfnt_stream(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483647, 2147483648) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   %7 = alloca [4 x i8], align 1
@@ -18881,7 +18881,7 @@ ft_mem_qalloc.exit.thread41:                      ; preds = %79, %115, %117, %FT
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @open_face_from_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 -2147483647, 65536) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc i32 @open_face_from_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 -2147483647, 65536) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.FT_Open_Args_, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #34
   %8 = load ptr, ptr %0, align 8, !tbaa !241
@@ -19000,7 +19000,7 @@ ft_mem_free.exit9:                                ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 -2147483647, 2147483648) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc i32 @IsMacResource(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef range(i64 -2147483647, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [4 x i8], align 1
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

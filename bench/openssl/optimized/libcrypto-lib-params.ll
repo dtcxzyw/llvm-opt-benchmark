@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.get_string_ptr_internal = private unnamed_addr constant [24 x i8] c"get_string_ptr_internal\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @OSSL_PARAM_locate(ptr noundef readonly captures(address_is_null, ret: address, provenance) %p, ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #0 {
+define noundef ptr @OSSL_PARAM_locate(ptr noundef readonly %p, ptr noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %p, null
   %cmp1 = icmp ne ptr %key, null
@@ -71,7 +71,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @OSSL_PARAM_locate_const(ptr noundef readonly captures(address_is_null, ret: address, provenance) %p, ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #0 {
+define noundef ptr @OSSL_PARAM_locate_const(ptr noundef readonly %p, ptr noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ne ptr %p, null
   %cmp1.i = icmp ne ptr %key, null
@@ -102,7 +102,7 @@ OSSL_PARAM_locate.exit:                           ; preds = %for.body.i, %for.in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_modified(ptr noundef readonly captures(address_is_null) %p) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @OSSL_PARAM_modified(ptr noundef readonly %p) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -120,7 +120,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @OSSL_PARAM_set_all_unmodified(ptr noundef captures(address_is_null) %p) local_unnamed_addr #3 {
+define void @OSSL_PARAM_set_all_unmodified(ptr noundef %p) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %while.cond.preheader
@@ -144,14 +144,14 @@ if.end:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_int(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_int(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_get_int32(ptr noundef %p, ptr noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly %p, ptr noundef writeonly %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %p, null
@@ -307,14 +307,14 @@ return:                                           ; preds = %if.end54, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_int(ptr noundef captures(address_is_null) %p, i32 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_int(ptr noundef %p, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_set_int32(ptr noundef %p, i32 noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is_null) %p, i32 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef %p, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %val.addr = alloca i32, align 4
   store i32 %val, ptr %val.addr, align 4
@@ -454,14 +454,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_uint(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_uint(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_get_uint32(ptr noundef %p, ptr noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly %p, ptr noundef writeonly %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %p, null
@@ -625,14 +625,14 @@ return:                                           ; preds = %if.then31, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_uint(ptr noundef captures(address_is_null) %p, i32 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_uint(ptr noundef %p, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_set_uint32(ptr noundef %p, i32 noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_is_null) %p, i32 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef %p, i32 noundef %val) local_unnamed_addr #4 {
 entry:
   %val.addr = alloca i32, align 4
   store i32 %val, ptr %val.addr, align 4
@@ -775,14 +775,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_long(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_long(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_get_int64(ptr noundef %p, ptr noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly %p, ptr noundef writeonly %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %p, null
@@ -917,14 +917,14 @@ return:                                           ; preds = %if.end45, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_long(ptr noundef captures(address_is_null) %p, i64 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_long(ptr noundef %p, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_set_int64(ptr noundef %p, i64 noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is_null) %p, i64 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef %p, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %val.addr = alloca i64, align 8
   store i64 %val, ptr %val.addr, align 8
@@ -1096,14 +1096,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_ulong(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_ulong(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_get_uint64(ptr noundef %p, ptr noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly %p, ptr noundef writeonly %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %p, null
@@ -1248,14 +1248,14 @@ return:                                           ; preds = %if.end49, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_ulong(ptr noundef captures(address_is_null) %p, i64 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_ulong(ptr noundef %p, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_set_uint64(ptr noundef %p, i64 noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_is_null) %p, i64 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef %p, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %val.addr = alloca i64, align 8
   store i64 %val, ptr %val.addr, align 8
@@ -1900,14 +1900,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_size_t(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_size_t(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_get_uint64(ptr noundef %p, ptr noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_size_t(ptr noundef captures(address_is_null) %p, i64 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_size_t(ptr noundef %p, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_set_uint64(ptr noundef %p, i64 noundef %val)
   ret i32 %call
@@ -1929,14 +1929,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_time_t(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_time_t(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_get_int64(ptr noundef %p, ptr noundef %val)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_time_t(ptr noundef captures(address_is_null) %p, i64 noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_time_t(ptr noundef %p, i64 noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @OSSL_PARAM_set_int64(ptr noundef %p, i64 noundef %val)
   ret i32 %call
@@ -1958,7 +1958,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %p, null
@@ -2030,7 +2030,7 @@ declare ptr @BN_native2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @BN_signed_native2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef captures(address_is_null) %p, ptr noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_BN(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return.sink.split, label %if.end
@@ -2130,7 +2130,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_double(ptr noundef readonly %p, ptr noundef writeonly %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %p, null
@@ -2252,7 +2252,7 @@ return:                                           ; preds = %if.end42, %if.end38
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef captures(address_is_null) %p, double noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_double(ptr noundef %p, double noundef %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2446,7 +2446,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val, i64 noundef %max_len) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef %p, ptr noundef %val, i64 noundef %max_len) local_unnamed_addr #4 {
 entry:
   %max_len.addr = alloca i64, align 8
   store i64 %max_len, ptr %max_len.addr, align 8
@@ -2490,7 +2490,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef readonly captures(address_is_null) %p, ptr noundef captures(address_is_null) %val, ptr noundef nonnull captures(none) %max_len, ptr noundef writeonly captures(address_is_null) %used_len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef readonly %p, ptr noundef %val, ptr noundef nonnull captures(none) %max_len, ptr noundef writeonly %used_len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %used_len, null
@@ -2590,7 +2590,7 @@ return:                                           ; preds = %if.then22, %if.end1
 declare i64 @OPENSSL_strnlen(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val, i64 noundef %max_len, ptr noundef captures(address_is_null) %used_len) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string(ptr noundef %p, ptr noundef %val, i64 noundef %max_len, ptr noundef %used_len) local_unnamed_addr #4 {
 entry:
   %max_len.addr = alloca i64, align 8
   store i64 %max_len, ptr %max_len.addr, align 8
@@ -2599,7 +2599,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_string(ptr noundef captures(address_is_null) %p, ptr noundef readonly captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_string(ptr noundef %p, ptr noundef readonly %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2691,7 +2691,7 @@ return:                                           ; preds = %if.end6, %land.lhs.
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef captures(address_is_null) %p, ptr noundef readonly captures(address_is_null) %val, i64 noundef %len) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef %p, ptr noundef readonly %val, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2796,7 +2796,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef readonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef readonly %p, ptr noundef writeonly %val) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %val, null
   %cmp1.i = icmp eq ptr %p, null
@@ -2834,7 +2834,7 @@ get_ptr_internal.exit:                            ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_ptr(ptr noundef readonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %val, ptr noundef writeonly captures(address_is_null) %used_len) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_ptr(ptr noundef readonly %p, ptr noundef writeonly %val, ptr noundef writeonly %used_len) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %val, null
   %cmp1.i = icmp eq ptr %p, null
@@ -2882,7 +2882,7 @@ get_ptr_internal.exit:                            ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address_is_null) %p, ptr noundef %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2951,7 +2951,7 @@ return:                                           ; preds = %if.then2.i15, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_ptr(ptr noundef captures(address_is_null) %p, ptr noundef %val, i64 noundef %used_len) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_ptr(ptr noundef %p, ptr noundef %val, i64 noundef %used_len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3022,7 +3022,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_param_get1_octet_string(ptr noundef captures(address_is_null) %params, ptr noundef readonly captures(address_is_null) %name, ptr noundef captures(none) %out, ptr noundef captures(none) %out_len) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @ossl_param_get1_octet_string(ptr noundef %params, ptr noundef readonly %name, ptr noundef captures(none) %out, ptr noundef captures(none) %out_len) local_unnamed_addr #4 {
 entry:
   %max_len.addr.i = alloca i64, align 8
   %buf = alloca ptr, align 8
@@ -3090,7 +3090,7 @@ return:                                           ; preds = %for.inc.i.i, %for.c
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_param_get1_concat_octet_string(ptr noundef readonly captures(address_is_null) %params, ptr noundef captures(address_is_null) %name, ptr noundef captures(none) %out, ptr noundef captures(none) %out_len, i64 noundef %maxsize) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @ossl_param_get1_concat_octet_string(ptr noundef readonly %params, ptr noundef %name, ptr noundef captures(none) %out, ptr noundef captures(none) %out_len, i64 noundef %maxsize) local_unnamed_addr #4 {
 entry:
   %sz = alloca i64, align 8
   %cmp.i.i = icmp ne ptr %params, null
@@ -3169,7 +3169,7 @@ return:                                           ; preds = %for.inc.i.i, %for.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnull readonly captures(none) %p, ptr noundef readonly captures(address_is_null) %name, ptr noundef %out, ptr noundef nonnull %outlen) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnull readonly captures(none) %p, ptr noundef readonly %name, ptr noundef %out, ptr noundef nonnull %outlen) unnamed_addr #4 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %cmp = icmp eq ptr %out, null
@@ -3295,7 +3295,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @ERR_set_mark() #13
   %call1 = tail call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef %p, ptr noundef %val)
@@ -3343,7 +3343,7 @@ declare i32 @ERR_set_mark() local_unnamed_addr #6
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef captures(address_is_null) %p, ptr noundef captures(address_is_null) %val, ptr noundef captures(address_is_null) %used_len) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef %p, ptr noundef %val, ptr noundef %used_len) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @ERR_set_mark() #13
   %call1 = tail call i32 @OSSL_PARAM_get_octet_ptr(ptr noundef %p, ptr noundef %val, ptr noundef %used_len)

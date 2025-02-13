@@ -473,7 +473,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %idx, i32 noundef range(i32 1, 5) %en_pad_type, i32 noundef range(i32 1, 5) %de_pad_type, ptr noundef writeonly captures(address_is_null) %ctext_ex, ptr noundef writeonly captures(address_is_null) %clen, ptr noundef writeonly captures(address_is_null) %retkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %idx, i32 noundef range(i32 1, 5) %en_pad_type, i32 noundef range(i32 1, 5) %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
 entry:
   %ptext = alloca [256 x i8], align 16
   %ctext = alloca [256 x i8], align 16

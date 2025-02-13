@@ -2976,7 +2976,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13cord_internal12CordRepBtree7IsValidEPKS1_b(ptr noundef readonly captures(address) %tree, i1 noundef zeroext %shallow) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl13cord_internal12CordRepBtree7IsValidEPKS1_b(ptr noundef readonly %tree, i1 noundef zeroext %shallow) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp77 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp78 = alloca %"class.absl::AlphaNum", align 8
@@ -4594,7 +4594,7 @@ return:                                           ; preds = %_ZN4absl13cord_inte
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree7SubTreeEmm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, i64 noundef %offset, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree7SubTreeEmm(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, i64 noundef %offset, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -5598,7 +5598,7 @@ return:                                           ; preds = %if.end28, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal12CordRepBtree6IsFlatEPSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly captures(address_is_null) %fragment) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal12CordRepBtree6IsFlatEPSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly %fragment) local_unnamed_addr #6 align 2 {
 entry:
   %storage.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   %0 = load i8, ptr %storage.i, align 1
@@ -5669,7 +5669,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal12CordRepBtree6IsFlatEmmPSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i64 noundef %offset, i64 noundef %n, ptr noundef writeonly captures(address_is_null) %fragment) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal12CordRepBtree6IsFlatEmmPSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i64 noundef %offset, i64 noundef %n, ptr noundef writeonly %fragment) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %return, label %if.end

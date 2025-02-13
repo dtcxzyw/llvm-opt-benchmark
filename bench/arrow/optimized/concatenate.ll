@@ -11450,7 +11450,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_118ConcatenateBitmapsERKSt6vectorINS0_6BitmapESaIS2_EEPNS_10MemoryPoolEPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %agg.result, ptr readonly captures(address) %bitmaps.0.val, ptr readnone captures(address) %bitmaps.8.val, ptr noundef %pool, ptr noundef nonnull captures(none) %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_118ConcatenateBitmapsERKSt6vectorINS0_6BitmapESaIS2_EEPNS_10MemoryPoolEPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %agg.result, ptr readonly %bitmaps.0.val, ptr readnone %bitmaps.8.val, ptr noundef %pool, ptr noundef nonnull captures(none) %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.48", align 8
   %cmp.i.not8 = icmp eq ptr %bitmaps.0.val, %bitmaps.8.val

@@ -692,7 +692,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_null) %id) local_unnamed_addr #3 {
+define noundef ptr @SRP_get_default_gN(ptr noundef readonly %id) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %id, null
   br i1 %cmp, label %return, label %for.body

@@ -189,7 +189,7 @@ define i32 @test_for_fifo(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define zeroext i1 @test_for_regular_file(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @test_for_regular_file(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
@@ -561,7 +561,7 @@ declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) lo
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef zeroext i1 @file_exists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @file_exists(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
@@ -2019,7 +2019,7 @@ define noundef nonnull ptr @file_write_error_message(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %3
 

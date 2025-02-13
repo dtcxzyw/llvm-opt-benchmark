@@ -1590,7 +1590,7 @@ _ZN7logging12_GLOBAL__N_111LoggingLockD2Ev.exit:  ; preds = %if.then.i.i4, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7logging6RawLogEiPKc(i32 noundef %level, ptr noundef readonly captures(address_is_null) %message) local_unnamed_addr #0 {
+define dso_local void @_ZN7logging6RawLogEiPKc(i32 noundef %level, ptr noundef readonly %message) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @_ZN7logging12_GLOBAL__N_115g_min_log_levelE, align 4
   %cmp = icmp sge i32 %level, %0

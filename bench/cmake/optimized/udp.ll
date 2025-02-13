@@ -547,7 +547,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__udp_send(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @uv__udp_send(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %union.uv__sockaddr, align 4
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %9

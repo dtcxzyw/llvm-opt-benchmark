@@ -50,7 +50,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eddsa_digest_signverify_init(ptr noundef %vpeddsactx, ptr noundef readonly captures(address_is_null) %mdname, ptr noundef %vedkey, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @eddsa_digest_signverify_init(ptr noundef %vpeddsactx, ptr noundef readonly %mdname, ptr noundef %vedkey, ptr noundef %params) #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %call = tail call i32 @ossl_prov_is_running() #5
@@ -394,7 +394,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eddsa_get_ctx_params(ptr noundef readonly captures(address_is_null) %vpeddsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @eddsa_get_ctx_params(ptr noundef readonly %vpeddsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpeddsactx, null
   br i1 %cmp, label %return, label %if.end

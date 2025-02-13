@@ -188,7 +188,7 @@ return:                                           ; preds = %if.then25.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @bufferevent_socket_get_conn_address_(ptr noundef readnone captures(ret: address, provenance) %bev) local_unnamed_addr #2 {
+define dso_local nonnull ptr @bufferevent_socket_get_conn_address_(ptr noundef readnone %bev) local_unnamed_addr #2 {
 entry:
   %conn_address = getelementptr inbounds nuw i8, ptr %bev, i64 480
   ret ptr %conn_address

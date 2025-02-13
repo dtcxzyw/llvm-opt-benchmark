@@ -163,7 +163,7 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h91540d1d6090de7aE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #1 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h91540d1d6090de7aE"(ptr readnone returned align 8 %0) unnamed_addr #1 {
   ret ptr %0
 }
 

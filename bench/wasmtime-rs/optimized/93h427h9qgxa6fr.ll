@@ -109,12 +109,12 @@ define void @_ZN18cranelift_frontend6switch6Switch9set_entry17h2dc3b4c038ff1c17E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN18cranelift_frontend6switch6Switch7entries17h10652395fe3cd9e0E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN18cranelift_frontend6switch6Switch7entries17h10652395fe3cd9e0E(ptr noalias noundef readonly returned align 8 dereferenceable(48) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 16 captures(address) %3, i64 noundef range(i64 0, 4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 16 %3, i64 noundef range(i64 0, 4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { i8, [15 x i8] }, align 8

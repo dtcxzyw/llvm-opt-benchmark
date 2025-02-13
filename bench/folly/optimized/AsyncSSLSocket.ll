@@ -9703,7 +9703,7 @@ declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncSSLSocket32setSupportedApplicationProtocolsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 captures(address) dereferenceable(1896) %this, ptr noundef nonnull align 8 dereferenceable(24) %supportedProtocols) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket32setSupportedApplicationProtocolsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(1896) %this, ptr noundef nonnull align 8 dereferenceable(24) %supportedProtocols) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #38
@@ -11123,7 +11123,7 @@ declare ptr @SSL_SESSION_get0_hostname(ptr noundef) local_unnamed_addr #0
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN5folly14AsyncSSLSocket13setServerNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(1896) %this, ptr noundef %serverName) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket13setServerNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1896) %this, ptr noundef %serverName) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tlsextHostname_ = getelementptr inbounds nuw i8, ptr %this, i64 1648
   %0 = load ptr, ptr %tlsextHostname_, align 8, !tbaa !173
@@ -26268,7 +26268,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9ena
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN5folly14AsyncSSLSocket27setSSLCertVerificationAlertENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(1896) %this, ptr noundef %alert) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket27setSSLCertVerificationAlertENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1896) %this, ptr noundef %alert) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sslVerificationAlert_ = getelementptr inbounds nuw i8, ptr %this, i64 1784
   %0 = load ptr, ptr %sslVerificationAlert_, align 8, !tbaa !173

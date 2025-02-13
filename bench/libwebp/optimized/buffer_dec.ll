@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kModeBpp = internal unnamed_addr constant [13 x i8] c"\03\04\03\04\04\02\02\04\04\04\02\01\01", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %54, label %3
 
@@ -86,7 +86,7 @@ define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %3, null
@@ -356,7 +356,7 @@ declare i32 @WebPCheckCropDimensions(i32 noundef, i32 noundef, i32 noundef, i32 
 declare i32 @WebPRescalerGetScaledDimensions(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @WebPInitDecBufferInternal(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @WebPInitDecBufferInternal(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %.mask = and i32 %1, -256
   %.not = icmp ne i32 %.mask, 512
   %3 = icmp eq ptr %0, null
@@ -376,7 +376,7 @@ define range(i32 0, 2) i32 @WebPInitDecBufferInternal(ptr noundef writeonly capt
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define void @WebPFreeDecBuffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @WebPFreeDecBuffer(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -404,7 +404,7 @@ define void @WebPFreeDecBuffer(ptr noundef captures(address_is_null) %0) local_u
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @WebPCopyDecBuffer(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden void @WebPCopyDecBuffer(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -432,7 +432,7 @@ define hidden void @WebPCopyDecBuffer(ptr noundef readonly captures(address_is_n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @WebPGrabDecBuffer(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden void @WebPGrabDecBuffer(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -699,7 +699,7 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
 declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1

@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [8 x i8] c"poll(2)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @redisNetClose(ptr noundef captures(address_is_null) %c) local_unnamed_addr #0 {
+define void @redisNetClose(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %c, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -516,7 +516,7 @@ return:                                           ; preds = %if.end5, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr noundef captures(none) %c, ptr noundef readonly captures(address) %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr noundef captures(none) %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %command_timeout = getelementptr inbounds nuw i8, ptr %c, i64 184
   %0 = load ptr, ptr %command_timeout, align 8
@@ -545,7 +545,7 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr noundef captures(none) %c, ptr noundef readonly captures(address) %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr noundef captures(none) %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %connect_timeout = getelementptr inbounds nuw i8, ptr %c, i64 176
   %0 = load ptr, ptr %connect_timeout, align 8
@@ -577,14 +577,14 @@ return:                                           ; preds = %if.then3, %entry, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef captures(address) %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef readonly captures(address) %timeout, ptr noundef %source_addr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef readonly %timeout, ptr noundef %source_addr) unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   %_port = alloca [6 x i8], align 1
@@ -993,14 +993,14 @@ return:                                           ; preds = %end, %if.then212, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectBindTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef captures(address) %timeout, ptr noundef %source_addr) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectBindTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectUnix(ptr noundef %c, ptr noundef %path, ptr noundef readonly captures(address) %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectUnix(ptr noundef %c, ptr noundef %path, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [128 x i8], align 16
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 144

@@ -210,7 +210,7 @@ declare ptr @pg_cryptohash_error(ptr noundef) local_unnamed_addr #2
 declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -334,7 +334,7 @@ define dso_local void @pg_hmac_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @pg_hmac_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local ptr @pg_hmac_error(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

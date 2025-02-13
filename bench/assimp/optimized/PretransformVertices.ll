@@ -370,7 +370,7 @@ for.end16:                                        ; preds = %for.body11, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6Assimp20PretransformVertices11CollectDataEPK7aiScenePK6aiNodejjP6aiMeshPjS9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef readonly captures(none) %pcScene, ptr noundef %pcNode, i32 noundef %iMat, i32 noundef %iVFormat, ptr noundef captures(address) %pcMeshOut, ptr noundef captures(none) %aiCurrent, ptr noundef captures(none) %num_refs) local_unnamed_addr #7 align 2 {
+define void @_ZNK6Assimp20PretransformVertices11CollectDataEPK7aiScenePK6aiNodejjP6aiMeshPjS9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef readonly captures(none) %pcScene, ptr noundef %pcNode, i32 noundef %iMat, i32 noundef %iVFormat, ptr noundef %pcMeshOut, ptr noundef captures(none) %aiCurrent, ptr noundef captures(none) %num_refs) local_unnamed_addr #7 align 2 {
 entry:
   %mWorldIT = alloca %class.aiMatrix4x4t, align 4
   %mTransformation = getelementptr inbounds nuw i8, ptr %pcNode, i64 1028

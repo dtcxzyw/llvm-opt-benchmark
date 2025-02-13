@@ -431,7 +431,7 @@ define i32 @switch_g_alloc_jobinfo(ptr noundef writeonly captures(none) %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_build_jobinfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @switch_g_build_jobinfo(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %15, label %5
@@ -521,7 +521,7 @@ define void @switch_g_free_jobinfo(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_pack_jobinfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @switch_g_pack_jobinfo(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %24, label %5
@@ -730,7 +730,7 @@ define i32 @switch_g_job_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_job_fini(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @switch_g_job_fini(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %3
@@ -781,7 +781,7 @@ define i32 @switch_g_job_postfini(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_job_attach(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @switch_g_job_attach(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %19, label %9
@@ -812,7 +812,7 @@ define i32 @switch_g_job_attach(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_job_step_complete(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @switch_g_job_step_complete(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %4
@@ -843,7 +843,7 @@ define i32 @switch_g_job_step_complete(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_job_step_allocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @switch_g_job_step_allocated(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %4

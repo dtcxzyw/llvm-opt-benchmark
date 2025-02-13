@@ -147,7 +147,7 @@ define dso_local range(i32 0, 2) i32 @reftable_is_block_type(i8 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @reftable_ref_record_val1(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define dso_local ptr @reftable_ref_record_val1(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !17
   switch i32 %3, label %8 [
@@ -169,7 +169,7 @@ define dso_local ptr @reftable_ref_record_val1(ptr noundef readonly captures(ret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @reftable_ref_record_val2(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define dso_local ptr @reftable_ref_record_val2(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !17
   %cond = icmp eq i32 %3, 2

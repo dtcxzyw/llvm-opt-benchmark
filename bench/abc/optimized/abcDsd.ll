@@ -1555,7 +1555,7 @@ declare ptr @Dsd_ManagerReadInput(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @Dsd_TreeCollectNodesDfs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @Dsd_ManagerReadDd(ptr noundef %0) #10
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %7 = tail call ptr @Abc_NtkCreateObj(ptr noundef %2, i32 noundef 7) #10

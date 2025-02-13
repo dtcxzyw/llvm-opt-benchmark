@@ -749,7 +749,7 @@ declare i64 @llvm.read_register.i64(metadata) #3
 declare void @llvm.write_register.i64(metadata, i64) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_property_create_blob(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define dso_local ptr @drm_property_create_blob(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = add i64 %1, -2147483560
   %5 = icmp ult i64 %4, -2147483559
   br i1 %5, label %30, label %6
@@ -865,7 +865,7 @@ define dso_local void @drm_property_blob_put(ptr noundef %0) #0 align 16 {
 declare dso_local void @drm_mode_object_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_property_destroy_user_blobs(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_property_destroy_user_blobs(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -916,7 +916,7 @@ define dso_local ptr @drm_property_lookup_blob(ptr noundef %0, i32 noundef %1) #
 declare dso_local ptr @__drm_mode_object_find(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
+define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %9, !prof !11
 
@@ -1298,7 +1298,7 @@ define dso_local i32 @drm_mode_createblob_ioctl(ptr noundef %0, ptr noundef capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @drm_mode_destroyblob_ioctl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_mode_destroyblob_ioctl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176

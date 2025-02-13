@@ -303,7 +303,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @i8042_remove_filter(ptr noundef readnone captures(address) %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @i8042_remove_filter(ptr noundef readnone %0) #0 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
   %3 = load ptr, ptr @i8042_platform_filter, align 8
   %4 = icmp eq ptr %3, %0
@@ -2254,7 +2254,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__init_swait_queue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @i8042_set_mux_mode(i1 noundef zeroext %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @i8042_set_mux_mode(i1 noundef zeroext %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   %4 = tail call fastcc i32 @i8042_flush(), !range !15
@@ -2389,7 +2389,7 @@ define internal void @i8042_stop(ptr noundef readonly captures(none) %0) #0 alig
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i8042_port_close(ptr noundef readnone captures(address) %0) #0 align 16 {
+define internal void @i8042_port_close(ptr noundef readnone %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 16), align 16
   %3 = icmp eq ptr %2, %0
   %4 = select i1 %3, ptr @.str.32, ptr @.str.33
@@ -3067,7 +3067,7 @@ define internal noundef i32 @i8042_pnp_aux_probe(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @i8042_kbd_bind_notifier(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address) %2) #8 align 16 {
+define internal noundef i32 @i8042_kbd_bind_notifier(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly %2) #8 align 16 {
   %4 = getelementptr i8, ptr %2, i64 -344
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @i8042_ports, align 16

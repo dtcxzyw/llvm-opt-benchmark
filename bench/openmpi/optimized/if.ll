@@ -669,7 +669,7 @@ define zeroext i1 @opal_ifislocal(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -42, 1) i32 @opal_iftupletoaddr(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 -42, 1) i32 @opal_iftupletoaddr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = alloca [4 x i32], align 16
   %6 = alloca ptr, align 8

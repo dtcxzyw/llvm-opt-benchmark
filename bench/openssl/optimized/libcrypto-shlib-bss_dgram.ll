@@ -1017,7 +1017,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dgram_free(ptr noundef captures(address_is_null) %a) #1 {
+define internal range(i32 0, 2) i32 @dgram_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end.i

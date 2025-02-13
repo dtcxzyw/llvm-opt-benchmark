@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PKCS12_get0_mac(ptr noundef %pmac, ptr noundef %pmacalg, ptr noundef writeonly captures(address_is_null) %psalt, ptr noundef writeonly captures(address_is_null) %piter, ptr noundef readonly captures(none) %p12) local_unnamed_addr #1 {
+define void @PKCS12_get0_mac(ptr noundef %pmac, ptr noundef %pmacalg, ptr noundef writeonly %psalt, ptr noundef writeonly %piter, ptr noundef readonly captures(none) %p12) local_unnamed_addr #1 {
 entry:
   %mac = getelementptr inbounds nuw i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
@@ -340,7 +340,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_set_mac(ptr noundef captures(none) %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef captures(address_is_null) %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %md_type) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_set_mac(ptr noundef captures(none) %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %md_type) local_unnamed_addr #1 {
 entry:
   %mac = alloca [64 x i8], align 16
   %maclen = alloca i32, align 4
@@ -402,7 +402,7 @@ return:                                           ; preds = %if.end10, %if.then1
 declare ptr @EVP_sha256() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_setup_mac(ptr noundef captures(none) %p12, i32 noundef %iter, ptr noundef readonly captures(address_is_null) %salt, i32 noundef %saltlen, ptr noundef %md_type) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_setup_mac(ptr noundef captures(none) %p12, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %md_type) local_unnamed_addr #1 {
 entry:
   %macalg = alloca ptr, align 8
   %mac = getelementptr inbounds nuw i8, ptr %p12, i64 8

@@ -1691,7 +1691,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare i32 @pmix_pending_resolve(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_server_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @pmix_server_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -2539,7 +2539,7 @@ declare zeroext i1 @PMIx_Check_key(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @PMIx_Info_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_tracker(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i8 noundef zeroext range(i8 3, 29) %3) unnamed_addr #0 {
+define internal fastcc ptr @get_tracker(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, i8 noundef zeroext range(i8 3, 29) %3) unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2676), align 4
   %or.cond45 = icmp ult i32 %5, 64
   br i1 %or.cond45, label %6, label %13
@@ -11795,7 +11795,7 @@ pmix_obj_run_destructors.exit253:                 ; preds = %.lr.ph.i250, %486
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_server_deregister_events(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @pmix_server_deregister_events(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2700), align 4

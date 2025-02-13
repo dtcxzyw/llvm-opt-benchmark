@@ -87,7 +87,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_attr_hashmap = internal global { { ptr, ptr, ptr, i32, i32, i32, i32, i8, [7 x i8] }, %union.pthread_mutex_t } { { ptr, ptr, ptr, i32, i32, i32, i32, i8, [7 x i8] } { ptr null, ptr @attr_hash_entry_cmp, ptr null, i32 0, i32 0, i32 0, i32 0, i8 1, [7 x i8] zeroinitializer }, %union.pthread_mutex_t zeroinitializer }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @git_attr_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @git_attr_name(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   ret ptr %2
 }
@@ -585,7 +585,7 @@ _.exit:                                           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_attr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 {
+define internal fastcc ptr @parse_attr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #1 {
   %5 = alloca %struct.strbuf, align 8
   %6 = tail call i64 @strcspn(ptr noundef %2, ptr noundef nonnull @blank) #20
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
@@ -917,7 +917,7 @@ declare void @llvm.va_end.p0(ptr) #8
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @attr_check_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local noundef ptr @attr_check_dup(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %copy_array.exit, label %2
 
@@ -1046,7 +1046,7 @@ drop_attr_stack.exit:                             ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @attr_check_free(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define dso_local void @attr_check_free(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %2
 

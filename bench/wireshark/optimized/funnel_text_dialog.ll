@@ -2151,7 +2151,7 @@ declare void @_ZN11QTextCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8
 declare void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @text_window_set_text(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @text_window_set_text(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %.not = icmp eq ptr %0, null
@@ -2228,7 +2228,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %21, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @text_window_append(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @text_window_append(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %.not = icmp eq ptr %0, null
@@ -2312,7 +2312,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %24, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @text_window_prepend(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @text_window_prepend(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %.not = icmp eq ptr %0, null
@@ -2396,7 +2396,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %24, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @text_window_clear(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @text_window_clear(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -2414,7 +2414,7 @@ define void @text_window_clear(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @text_window_get_text(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @text_window_get_text(ptr noundef readonly %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3
@@ -2475,7 +2475,7 @@ _ZN16FunnelTextDialog7getTextEv.exit:             ; preds = %10, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @text_window_set_close_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 {
+define void @text_window_set_close_cb(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -2492,7 +2492,7 @@ define void @text_window_set_close_cb(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @text_window_set_editable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @text_window_set_editable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -2511,7 +2511,7 @@ define void @text_window_set_editable(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @text_window_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @text_window_destroy(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2527,7 +2527,7 @@ define void @text_window_destroy(ptr noundef readonly captures(address_is_null) 
 declare noundef zeroext i1 @_ZN7QWidget5closeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @text_window_add_button(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @text_window_add_button(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %.not = icmp eq ptr %0, null

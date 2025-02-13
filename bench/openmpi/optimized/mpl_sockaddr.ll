@@ -127,7 +127,7 @@ define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr noundef writeonl
 declare i32 @htonl(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_get_sockaddr_iface(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 128)) %1) local_unnamed_addr #1 {
+define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 128)) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %4 = call i32 @getifaddrs(ptr noundef nonnull %3) #12

@@ -237,7 +237,7 @@ declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @latencyResetEvent(ptr noundef readonly captures(address_is_null) %event_to_reset) local_unnamed_addr #2 {
+define dso_local i32 @latencyResetEvent(ptr noundef readonly %event_to_reset) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call = tail call ptr @dictGetSafeIterator(ptr noundef %0) #14

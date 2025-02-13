@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_default_convert_context_8 = hidden local_unnamed_addr constant %struct.pcre2_real_convert_context_8 { %struct.pcre2_memctl { ptr @default_malloc, ptr @default_free, ptr null }, i32 47, i32 92 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_pcre2_memctl_malloc_8(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden ptr @_pcre2_memctl_malloc_8(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %.thread
 
@@ -89,7 +89,7 @@ define ptr @php_pcre2_general_context_create(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_pcre2_compile_context_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @php_pcre2_compile_context_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread.i
 
@@ -122,7 +122,7 @@ _pcre2_memctl_malloc_8.exit.thread:               ; preds = %.thread.i, %3, %_pc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_pcre2_match_context_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @php_pcre2_match_context_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread.i
 
@@ -155,7 +155,7 @@ _pcre2_memctl_malloc_8.exit.thread:               ; preds = %.thread.i, %3, %_pc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_pcre2_convert_context_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @php_pcre2_convert_context_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %.thread.i
 

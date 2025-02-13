@@ -190,7 +190,7 @@ define void @_ZN4LIEF3ELF11DataHandler7HandlerC2Ev(ptr noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF11DataHandler7HandleraSEOS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) initializes((8, 24), (40, 48)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF11DataHandler7HandleraSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(48) initializes((8, 24), (40, 48)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -620,12 +620,12 @@ declare void @_ZNK4LIEF10FileStream7contentEv(ptr dead_on_unwind writable sret(%
 declare noundef zeroext i1 @_ZN4LIEF12MemoryStream7classofERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3ELF11DataHandler7Handler7contentEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3ELF11DataHandler7Handler7contentEv(ptr noundef nonnull readnone returned align 8 dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF3ELF11DataHandler7Handler7contentEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF3ELF11DataHandler7Handler7contentEv(ptr noundef nonnull readnone returned align 8 dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   ret ptr %0
 }
 

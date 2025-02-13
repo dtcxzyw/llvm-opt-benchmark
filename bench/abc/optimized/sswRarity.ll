@@ -895,7 +895,7 @@ transpose64.exit.preheader.us:                    ; preds = %39
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_RarManInitialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define void @Ssw_RarManInitialize(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val61 = load ptr, ptr %0, align 8, !tbaa !33
   %4 = getelementptr i8, ptr %0, i64 40
@@ -1530,7 +1530,7 @@ Ssw_RarManPoIsConst0.exit.thread:                 ; preds = %38, %31, %78, %Abc_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_RarManSimulate(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @Ssw_RarManSimulate(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   tail call void @Ssw_RarManInitialize(ptr noundef %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !105

@@ -103,7 +103,7 @@ define internal range(i32 -1, 2) i32 @gid_cmp(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef range(i32 0, 2) i32 @groups_search(ptr noundef readonly captures(address_is_null) %0, i32 %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @groups_search(ptr noundef readonly %0, i32 %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

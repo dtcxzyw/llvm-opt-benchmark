@@ -1076,7 +1076,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11Environment13line_of_sightEN3irr4core8vector3dIfEES3_PNS2_IsEE(ptr noundef nonnull align 8 dereferenceable(112) %this, <2 x float> %pos1.coerce0, float %pos1.coerce1, <2 x float> %pos2.coerce0, float %pos2.coerce1, ptr noundef writeonly captures(address_is_null) %p) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN11Environment13line_of_sightEN3irr4core8vector3dIfEES3_PNS2_IsEE(ptr noundef nonnull align 8 dereferenceable(112) %this, <2 x float> %pos1.coerce0, float %pos1.coerce1, <2 x float> %pos2.coerce0, float %pos2.coerce1, ptr noundef writeonly %p) local_unnamed_addr #7 align 2 {
 entry:
   %iterator = alloca %"struct.voxalgo::VoxelLineIterator", align 4
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8

@@ -4285,7 +4285,7 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @tcp_read(ptr noundef readonly captures(address_is_null) %c, ptr noundef captures(none) %buf, i64 noundef %count) #0 {
+define internal noundef i64 @tcp_read(ptr noundef readonly %c, ptr noundef captures(none) %buf, i64 noundef %count) #0 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -4301,7 +4301,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @tcp_write(ptr noundef readonly captures(address_is_null) %c, ptr noundef readonly captures(none) %buf, i64 noundef %count) #0 {
+define internal noundef i64 @tcp_write(ptr noundef readonly %c, ptr noundef readonly captures(none) %buf, i64 noundef %count) #0 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.else, label %if.end

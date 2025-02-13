@@ -780,7 +780,7 @@ define ptr @slurm_sprint_node_table(ptr noundef %0, i32 noundef %1) local_unname
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_populate_node_partitions(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @slurm_populate_node_partitions(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

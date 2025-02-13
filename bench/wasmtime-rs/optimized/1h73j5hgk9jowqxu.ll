@@ -852,7 +852,7 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17h1814a67f2e027720E(ptr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h34928ca804769fe9E(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #2 {
+define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h34928ca804769fe9E(ptr readnone align 1 captures(none) %0, ptr readonly align 8 %1, ptr readonly align 8 %2) unnamed_addr #2 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %2, null
@@ -872,7 +872,7 @@ define hidden { i64, ptr } @_ZN4core3ops8function5FnMut8call_mut17h43b64837b3b15
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden { ptr, i64 } @_ZN4core3ops8function5FnMut8call_mut17h4442d4c8df6c119dE(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #2 {
+define hidden { ptr, i64 } @_ZN4core3ops8function5FnMut8call_mut17h4442d4c8df6c119dE(ptr readnone align 1 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #2 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !6, !noundef !3
@@ -884,7 +884,7 @@ define hidden { ptr, i64 } @_ZN4core3ops8function5FnMut8call_mut17h4442d4c8df6c1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef i16 @_ZN4core3ops8function5FnMut8call_mut17h49fe689ed0fcfb5eE(ptr readnone align 1 captures(none) %0, ptr readonly align 2 captures(address_is_null) %1) unnamed_addr #2 {
+define hidden noundef i16 @_ZN4core3ops8function5FnMut8call_mut17h49fe689ed0fcfb5eE(ptr readnone align 1 captures(none) %0, ptr readonly align 2 %1) unnamed_addr #2 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = load i16, ptr %1, align 2, !noundef !3
@@ -904,7 +904,7 @@ define hidden { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17h86e4ce7e1f87e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h963a897d33264533E(ptr readnone align 1 captures(none) %0, ptr readonly align 2 captures(address_is_null) %1, ptr readonly align 2 captures(address_is_null) %2) unnamed_addr #2 {
+define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h963a897d33264533E(ptr readnone align 1 captures(none) %0, ptr readonly align 2 %1, ptr readonly align 2 %2) unnamed_addr #2 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %2, null

@@ -1469,7 +1469,7 @@ declare dso_local i32 @vfs_mkobj(ptr noundef, i16 noundef zeroext, ptr noundef, 
 declare dso_local i32 @current_umask() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mqueue_create_attr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define internal i32 @mqueue_create_attr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -3422,7 +3422,7 @@ declare dso_local void @__audit_mq_notify(i32 noundef, ptr noundef) local_unname
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @do_mq_getsetattr(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @do_mq_getsetattr(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %5
 

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Init = weak alias i32 (ptr, ptr), ptr @PMPI_Init
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define i32 @PMPI_Init(ptr noundef readonly %0, ptr noundef readonly %1) #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str) #7
   %.not = icmp eq ptr %4, null

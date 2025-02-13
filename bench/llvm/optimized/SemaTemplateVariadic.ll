@@ -238,7 +238,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i32 noundef %2, ptr readonly %3, i64 %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -3577,7 +3577,7 @@ declare i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN
 declare noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(23216), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpansionENS_14SourceLocationENS_11SourceRangeEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEERKNS_30MultiLevelTemplateArgumentListERbSK_RSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %6, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %7, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %8) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpansionENS_14SourceLocationENS_11SourceRangeEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEES1_EEERKNS_30MultiLevelTemplateArgumentListERbSK_RSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, i64 %2, ptr readonly %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(117) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %6, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %7, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %8) local_unnamed_addr #2 align 2 {
   %10 = alloca %"class.clang::CharSourceRange", align 8
   %11 = alloca %"class.clang::CharSourceRange", align 8
   %12 = alloca %"class.clang::CanonicalDeclPtr", align 8

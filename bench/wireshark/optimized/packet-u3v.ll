@@ -1578,7 +1578,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_u3v_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_u3v_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %20, label %7
@@ -1738,7 +1738,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %.not = icmp eq i32 %.0.val, 0
   %7 = icmp ult i64 %.32.val, 65536
@@ -1897,7 +1897,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %4 = icmp ult i64 %0, 65536
   br i1 %4, label %5, label %8

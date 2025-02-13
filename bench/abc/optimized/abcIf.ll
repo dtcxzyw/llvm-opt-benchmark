@@ -3326,7 +3326,7 @@ declare void @Abc_SopComplement(ptr noundef) local_unnamed_addr #2
 declare ptr @Abc_RecToHop3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtFlip(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 255) %2) unnamed_addr #5 {
+define internal fastcc void @Abc_TtFlip(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 255) %2) unnamed_addr #5 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %5, label %17
 

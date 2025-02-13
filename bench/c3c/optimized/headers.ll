@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.82 = private unnamed_addr constant [5 x i8] c" %s(\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @header_ensure_member_types_exist(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @header_ensure_member_types_exist(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %4
 
@@ -1781,7 +1781,7 @@ common.ret437:                                    ; preds = %124, %111, %109, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @header_gen_members(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @header_gen_members(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %4
 

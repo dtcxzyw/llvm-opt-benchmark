@@ -121,7 +121,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xstate_get_g
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_cpu_has_xfeatures512, ptr @__UNIQUE_ID___addressable_xfd_update_static_branch598, ptr @__UNIQUE_ID___addressable_xstate_get_guest_group_perm604, ptr @trace_x86_fpu_regs_activated.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace410, ptr @trace_x86_fpu_regs_activated.__UNIQUE_ID___addressable___SCK__tp_func_x86_fpu_regs_activated409], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local range(i32 0, 2) i32 @cpu_has_xfeatures(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @cpu_has_xfeatures(i64 noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   %4 = xor i64 %3, -1
   %5 = and i64 %0, %4
@@ -779,7 +779,7 @@ define dso_local void @fpu__resume_cpu() local_unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @get_xsave_addr(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local ptr @get_xsave_addr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %4 = and i64 %3, 67108864
   %5 = icmp eq i64 %4, 0
@@ -816,7 +816,7 @@ define dso_local ptr @get_xsave_addr(ptr noundef captures(ret: address, provenan
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
@@ -970,7 +970,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_set_user_pkey_access(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0, i64 %1, ptr noundef captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 16 {
+define dso_local void @__copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0, i64 %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 16 {
   %7 = alloca %struct.xstate_header, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -1212,13 +1212,13 @@ define dso_local void @copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @copy_uabi_from_kernel_to_xstate(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @copy_uabi_from_kernel_to_xstate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = tail call fastcc i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.xstate_header, align 8
   %6 = alloca [2 x i32], align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1421,7 +1421,7 @@ define internal fastcc range(i32 -22, 1) i32 @copy_uabi_to_xstate(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @copy_sigframe_from_user_to_xstate(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @copy_sigframe_from_user_to_xstate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3024
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2964
@@ -1530,7 +1530,7 @@ define dso_local void @xrstors(ptr noundef %0, i64 noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xfd_validate_state(ptr noundef readonly captures(address) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 16 {
+define dso_local void @xfd_validate_state(ptr noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 16 {
   %4 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @xfd_state) #14, !srcloc !79
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
@@ -1588,7 +1588,7 @@ define internal noundef i32 @xfd_update_static_branch() #3 section ".init.text" 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fpstate_free(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @fpstate_free(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null
@@ -1609,7 +1609,7 @@ define dso_local void @fpstate_free(ptr noundef readonly captures(address) %0) l
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @__xfd_enable_feature(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @__xfd_enable_feature(i64 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = and i64 %0, 262144
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %11

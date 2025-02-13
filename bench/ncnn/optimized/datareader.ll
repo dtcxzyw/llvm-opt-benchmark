@@ -117,7 +117,7 @@ define hidden void @_ZN4ncnn19DataReaderFromStdioC2ERKS0_(ptr noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn19DataReaderFromStdioaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn19DataReaderFromStdioaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   ret ptr %0
 }
 
@@ -196,7 +196,7 @@ define hidden void @_ZN4ncnn20DataReaderFromMemoryC2ERKS0_(ptr noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn20DataReaderFromMemoryaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn20DataReaderFromMemoryaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   ret ptr %0
 }
 

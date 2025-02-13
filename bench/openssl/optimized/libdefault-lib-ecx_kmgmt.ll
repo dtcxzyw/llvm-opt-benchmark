@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecx_has(ptr noundef readonly captures(address_is_null) %keydata, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @ecx_has(ptr noundef readonly %keydata, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_gen(ptr noundef captures(address_is_null) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
+define internal ptr @x25519_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -633,7 +633,7 @@ ecx_gen_init.exit:                                ; preds = %entry, %if.end7.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_gen(ptr noundef captures(address_is_null) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
+define internal ptr @x448_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -748,7 +748,7 @@ ecx_gen_init.exit:                                ; preds = %entry, %if.end7.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_gen(ptr noundef captures(address_is_null) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
+define internal ptr @ed25519_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -863,7 +863,7 @@ ecx_gen_init.exit:                                ; preds = %entry, %if.end7.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_gen(ptr noundef captures(address_is_null) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
+define internal ptr @ed448_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -1214,7 +1214,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ecx_gen(ptr noundef readonly captures(address_is_null) %gctx) unnamed_addr #0 {
+define internal fastcc ptr @ecx_gen(ptr noundef readonly %gctx) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %gctx, null
   br i1 %cmp, label %return, label %if.end

@@ -174,7 +174,7 @@ define dso_local void @GenerationReset(ptr noundef initializes((104, 112)) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GenerationDelete(ptr noundef captures(address) initializes((104, 112)) %0) local_unnamed_addr #0 {
+define dso_local void @GenerationDelete(ptr noundef initializes((104, 112)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -701,7 +701,7 @@ define dso_local i64 @GenerationGetChunkSpace(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @GenerationIsEmpty(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @GenerationIsEmpty(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
@@ -729,7 +729,7 @@ define dso_local noundef zeroext i1 @GenerationIsEmpty(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GenerationStats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @GenerationStats(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [200 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120

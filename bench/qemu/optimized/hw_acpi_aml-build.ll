@@ -978,7 +978,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_to_hexstring(ptr noundef readonly captures(none) %src, ptr noundef readonly captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_hexstring(ptr noundef readonly captures(none) %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1012,7 +1012,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_to_buffer(ptr noundef readonly captures(none) %src, ptr noundef readonly captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_buffer(ptr noundef readonly captures(none) %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1046,7 +1046,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_to_decimalstring(ptr noundef readonly captures(none) %src, ptr noundef readonly captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_decimalstring(ptr noundef readonly captures(none) %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1098,14 +1098,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_and(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_and(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 123, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @build_opcode_2arg_dst(i8 noundef zeroext range(i8 114, -119) %op, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef readonly captures(address_is_null) %dst) unnamed_addr #0 {
+define internal fastcc noundef ptr @build_opcode_2arg_dst(i8 noundef zeroext range(i8 114, -119) %op, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef readonly %dst) unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1140,7 +1140,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_or(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_or(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 125, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
@@ -1207,7 +1207,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_shiftright(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %count, ptr noundef captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_shiftright(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %count, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 122, ptr noundef %arg1, ptr noundef %count, ptr noundef %dst)
   ret ptr %call
@@ -1232,14 +1232,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_add(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_add(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 114, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_subtract(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef captures(address_is_null) %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_subtract(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 116, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
@@ -2225,7 +2225,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_buffer(i32 noundef %buffer_size, ptr noundef readonly captures(address_is_null) %byte_list) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_buffer(i32 noundef %buffer_size, ptr noundef readonly %byte_list) local_unnamed_addr #0 {
 entry:
   %val.addr.i6 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
@@ -4112,7 +4112,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_concatenate(ptr noundef readonly captures(none) %source1, ptr noundef readonly captures(none) %source2, ptr noundef captures(address_is_null) %target) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_concatenate(ptr noundef readonly captures(none) %source1, ptr noundef readonly captures(none) %source2, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 115, ptr noundef %source1, ptr noundef %source2, ptr noundef %target)
   ret ptr %call

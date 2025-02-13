@@ -489,7 +489,7 @@ declare ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %out_key, ptr noundef %out_certs, ptr noundef %ber_in, ptr noundef readonly captures(address_is_null) %password) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_get_key_and_certs(ptr noundef %out_key, ptr noundef %out_certs, ptr noundef %ber_in, ptr noundef readonly %password) local_unnamed_addr #0 {
 entry:
   %der_bytes = alloca ptr, align 8
   %der_len = alloca i64, align 8
@@ -1521,7 +1521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef ptr @d2i_PKCS12(ptr noundef captures(address_is_null) %out_p12, ptr noundef captures(none) %ber_bytes, i64 noundef %ber_len) local_unnamed_addr #7 {
+define hidden noundef ptr @d2i_PKCS12(ptr noundef %out_p12, ptr noundef captures(none) %ber_bytes, i64 noundef %ber_len) local_unnamed_addr #7 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %tobool.not = icmp eq ptr %call, null
@@ -1574,7 +1574,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @PKCS12_free(ptr noundef captures(address_is_null) %p12) local_unnamed_addr #7 {
+define hidden void @PKCS12_free(ptr noundef %p12) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %p12, null
   br i1 %cmp, label %return, label %if.end
@@ -1590,7 +1590,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %bio, ptr noundef captures(address_is_null) %out_p12) local_unnamed_addr #0 {
+define hidden noundef ptr @d2i_PKCS12_bio(ptr noundef %bio, ptr noundef %out_p12) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #12
   %cmp = icmp eq ptr %call, null
@@ -1709,7 +1709,7 @@ declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @d2i_PKCS12_fp(ptr noundef %fp, ptr noundef captures(address_is_null) %out_p12) local_unnamed_addr #0 {
+define hidden noundef ptr @d2i_PKCS12_fp(ptr noundef %fp, ptr noundef %out_p12) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_new_fp(ptr noundef %fp, i32 noundef 0) #12
   %tobool.not = icmp eq ptr %call, null
@@ -1730,7 +1730,7 @@ declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(none) %p12, ptr noundef captures(address_is_null) %password, ptr noundef %out_pkey, ptr noundef writeonly captures(none) %out_cert, ptr noundef captures(address_is_null) %out_ca_certs) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(none) %p12, ptr noundef %password, ptr noundef %out_pkey, ptr noundef writeonly captures(none) %out_cert, ptr noundef %out_ca_certs) local_unnamed_addr #0 {
 entry:
   %ber_bytes = alloca %struct.cbs_st, align 8
   %cmp.not = icmp eq ptr %out_ca_certs, null
@@ -1866,7 +1866,7 @@ declare ptr @EVP_rc2_40_cbc() #1
 declare ptr @EVP_sha1() #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %ctx, ptr noundef readonly captures(none) %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly captures(address_is_null) %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %is_encrypt) #0 {
+define internal i32 @pkcs12_pbe_keyivgen(ptr noundef %ctx, ptr noundef readonly captures(none) %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly %param, ptr noundef %cipher, ptr noundef %md, i32 noundef %is_encrypt) #0 {
 entry:
   %pbuf = alloca ptr, align 8
   %key = alloca [64 x i8], align 16

@@ -1306,7 +1306,7 @@ _ZN4llvm21ProfileSummaryBuilder8addCountEm.exit:  ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm27SampleProfileSummaryBuilder9addRecordERKNS_10sampleprof15FunctionSamplesEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm27SampleProfileSummaryBuilder9addRecordERKNS_10sampleprof15FunctionSamplesEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i64, align 8
   br i1 %2, label %15, label %5
 
@@ -1409,7 +1409,7 @@ _ZN4llvm21ProfileSummaryBuilder8addCountEm.exit:  ; preds = %29, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21ProfileSummaryBuilder22computeDetailedSummaryEv(ptr noundef nonnull align 8 captures(address) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm21ProfileSummaryBuilder22computeDetailedSummaryEv(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
@@ -1872,7 +1872,7 @@ _ZN4llvm21ProfileSummaryBuilder21getEntryForPercentileERKSt6vectorINS_19ProfileS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm27SampleProfileSummaryBuilder10getSummaryEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.91") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(128) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm27SampleProfileSummaryBuilder10getSummaryEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.91") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm21ProfileSummaryBuilder22computeDetailedSummaryEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2069,7 +2069,7 @@ _ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23InstrProfSummaryBuilder10getSummaryEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.91") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm23InstrProfSummaryBuilder10getSummaryEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.91") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm21ProfileSummaryBuilder22computeDetailedSummaryEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96

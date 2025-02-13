@@ -1161,7 +1161,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 declare void @strbuf_addftime(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @parse_date_basic(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @parse_date_basic(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca ptr, align 8
@@ -2359,7 +2359,7 @@ define dso_local i32 @parse_expiry_date(ptr noundef %0, ptr noundef writeonly ca
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @approxidate_careful(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define dso_local i64 @approxidate_careful(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -4219,7 +4219,7 @@ set_time.exit:                                    ; preds = %.thread76, %26, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 2) i32 @set_date(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #17 {
+define internal fastcc range(i32 -1, 2) i32 @set_date(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #17 {
   %7 = add i32 %1, -1
   %or.cond = icmp ult i32 %7, 12
   %8 = add i32 %2, -1

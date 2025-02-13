@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [26 x i8] c"Leaving _msg_thr_internal\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @slurm_allocation_msg_thr_create(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @slurm_allocation_msg_thr_create(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca %union.pthread_attr_t, align 8

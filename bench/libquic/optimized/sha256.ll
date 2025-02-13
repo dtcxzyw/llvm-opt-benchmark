@@ -62,7 +62,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA224(ptr noundef %data, i64 noundef %len, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %out) local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @SHA224(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
 entry:
   %ctx = alloca %struct.sha256_state_st, align 4
   %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -219,7 +219,7 @@ entry:
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA256(ptr noundef %data, i64 noundef %len, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %out) local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @SHA256(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
 entry:
   %ctx = alloca %struct.sha256_state_st, align 4
   %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 32

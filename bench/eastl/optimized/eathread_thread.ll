@@ -376,7 +376,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN2EA6Thread6ThreadaSERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %t) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN2EA6Thread6ThreadaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %t) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -449,7 +449,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef captures(address_is_null) %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZL19BeginThreadInternalR12EAThreadDataPvS1_PKN2EA6Thread16ThreadParametersES1_PFS1_S1_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef %pTP, ptr noundef %pUserWrapper, ptr noundef nonnull @_ZL24RunnableFunctionInternalPv)
   %tobool.not = icmp eq ptr %pTP, null
@@ -493,7 +493,7 @@ if.end7:                                          ; preds = %if.then.i7, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZL19BeginThreadInternalR12EAThreadDataPvS1_PKN2EA6Thread16ThreadParametersES1_PFS1_S1_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %mThreadData, ptr noundef %pRunnableOrFunction, ptr noundef %pContext, ptr noundef readonly captures(address_is_null) %pTP, ptr noundef %pUserWrapper, ptr noundef %InternalThreadFunction) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZL19BeginThreadInternalR12EAThreadDataPvS1_PKN2EA6Thread16ThreadParametersES1_PFS1_S1_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %mThreadData, ptr noundef %pRunnableOrFunction, ptr noundef %pContext, ptr noundef readonly %pTP, ptr noundef %pUserWrapper, ptr noundef %InternalThreadFunction) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %cpus.i = alloca %struct.cpu_set_t, align 8
   %param.i = alloca %struct.sched_param, align 4
@@ -993,7 +993,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPNS0_9IRunnableEPvPKNS0_16ThreadParametersEPFlS3_S4_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef captures(address_is_null) %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZN2EA6Thread6Thread5BeginEPNS0_9IRunnableEPvPKNS0_16ThreadParametersEPFlS3_S4_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef %pTP, ptr noundef %pUserWrapper) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZL19BeginThreadInternalR12EAThreadDataPvS1_PKN2EA6Thread16ThreadParametersES1_PFS1_S1_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef %pTP, ptr noundef %pUserWrapper, ptr noundef nonnull @_ZL22RunnableObjectInternalPv)
   %tobool.not = icmp eq ptr %pTP, null
@@ -1143,7 +1143,7 @@ _ZN19EAThreadDynamicData7ReleaseEv.exit:          ; preds = %if.end22, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread6Thread10WaitForEndERKNS0_10ThreadTimeEPl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute, ptr noundef writeonly captures(address_is_null) %pThreadReturnValue) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZN2EA6Thread6Thread10WaitForEndERKNS0_10ThreadTimeEPl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute, ptr noundef writeonly %pThreadReturnValue) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp54 = alloca %"struct.EA::Thread::ThreadTime", align 8
   fence seq_cst
@@ -1273,7 +1273,7 @@ return:                                           ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef writeonly captures(address_is_null) %pThreadReturnValue) local_unnamed_addr #16 align 2 {
+define dso_local noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef writeonly %pThreadReturnValue) local_unnamed_addr #16 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1580,7 +1580,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @_ZN2EA6Thread13ThreadFactory15ConstructThreadEPv(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 8)) %pMemory) local_unnamed_addr #10 align 2 {
+define dso_local noundef ptr @_ZN2EA6Thread13ThreadFactory15ConstructThreadEPv(ptr noundef returned writeonly initializes((0, 8)) %pMemory) local_unnamed_addr #10 align 2 {
 entry:
   store ptr null, ptr %pMemory, align 8
   ret ptr %pMemory

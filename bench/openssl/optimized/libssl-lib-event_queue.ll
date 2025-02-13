@@ -172,7 +172,7 @@ if.end2:                                          ; preds = %if.then1, %if.else,
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_event_queue_add_new(ptr noundef readonly captures(address_is_null) %queue, i32 noundef %type, i32 noundef %priority, i64 %when.coerce, ptr noundef %ctx, ptr noundef %payload, i64 noundef %payload_size) local_unnamed_addr #0 {
+define ptr @ossl_event_queue_add_new(ptr noundef readonly %queue, i32 noundef %type, i32 noundef %priority, i64 %when.coerce, ptr noundef %ctx, ptr noundef %payload, i64 noundef %payload_size) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 111) #4
   %cmp = icmp eq ptr %call, null
@@ -226,7 +226,7 @@ return:                                           ; preds = %event_queue_add.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_event_queue_add(ptr noundef readonly captures(address_is_null) %queue, ptr noundef %event, i32 noundef %type, i32 noundef %priority, i64 %when.coerce, ptr noundef %ctx, ptr noundef %payload, i64 noundef %payload_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_event_queue_add(ptr noundef readonly %queue, ptr noundef %event, i32 noundef %type, i32 noundef %priority, i64 %when.coerce, ptr noundef %ctx, ptr noundef %payload, i64 noundef %payload_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %event, null
   %cmp1 = icmp eq ptr %queue, null
@@ -271,7 +271,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_event_queue_remove(ptr noundef readnone captures(none) %queue, ptr noundef captures(address_is_null) %event) local_unnamed_addr #0 {
+define noundef i32 @ossl_event_queue_remove(ptr noundef readnone captures(none) %queue, ptr noundef %event) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %event, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -294,7 +294,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_event_time_until(ptr noundef readonly captures(address_is_null) %event) local_unnamed_addr #0 {
+define i64 @ossl_event_time_until(ptr noundef readonly %event) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %event, null
   br i1 %cmp, label %return, label %if.end
@@ -314,7 +314,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @ossl_time_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_event_queue_time_until_next(ptr noundef readonly captures(address_is_null) %queue) local_unnamed_addr #0 {
+define i64 @ossl_event_queue_time_until_next(ptr noundef readonly %queue) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %queue, null
   br i1 %cmp, label %return, label %if.end

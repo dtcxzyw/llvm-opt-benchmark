@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [8 x i8] c"%s: %d.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %.mask = and i32 %1, -256
   %.not = icmp eq i32 %.mask, 256
@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPAnimEncoderNewInternal(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @WebPAnimEncoderNewInternal(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %.mask = and i32 %3, -256
   %.not = icmp eq i32 %.mask, 256
   br i1 %.not, label %5, label %106
@@ -314,7 +314,7 @@ declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #2
 declare i32 @WebPPictureCopy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @WebPUtilClearPic(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 {
+define internal fastcc void @WebPUtilClearPic(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %32, label %3
 
@@ -476,7 +476,7 @@ declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPAnimEncoderRefineRect(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, float noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @WebPAnimEncoderRefineRect(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #1 {
   %9 = alloca %struct.FrameRectangle, align 4
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
@@ -1828,7 +1828,7 @@ FrameToFullCanvas.exit.thread:                    ; preds = %79, %FrameToFullCan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @WebPAnimEncoderGetError(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
+define ptr @WebPAnimEncoderGetError(ptr noundef readnone %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %.0 = select i1 %2, ptr null, ptr %3
@@ -1836,7 +1836,7 @@ define ptr @WebPAnimEncoderGetError(ptr noundef readnone captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPAnimEncoderSetChunk(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @WebPAnimEncoderSetChunk(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %10, label %6
 
@@ -1854,7 +1854,7 @@ define i32 @WebPAnimEncoderSetChunk(ptr noundef readonly captures(address_is_nul
 declare i32 @WebPMuxSetChunk(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPAnimEncoderGetChunk(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @WebPAnimEncoderGetChunk(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -1872,7 +1872,7 @@ define i32 @WebPAnimEncoderGetChunk(ptr noundef readonly captures(address_is_nul
 declare i32 @WebPMuxGetChunk(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPAnimEncoderDeleteChunk(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define i32 @WebPAnimEncoderDeleteChunk(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 

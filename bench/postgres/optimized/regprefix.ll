@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.colordesc = type { i32, i32, i16, ptr, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 18) i32 @pg_regprefix(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 18) i32 @pg_regprefix(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

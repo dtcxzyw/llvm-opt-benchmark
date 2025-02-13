@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #15
   %.not = icmp eq ptr %0, null

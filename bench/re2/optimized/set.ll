@@ -944,7 +944,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZNK3re23RE23Set5MatchEN4absl7debian211string_viewEPSt6vectorIiSaIiEEPNS1_9ErrorInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr %text.coerce0, i64 %text.coerce1, ptr noundef %v, ptr noundef writeonly captures(address_is_null) %error_info) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK3re23RE23Set5MatchEN4absl7debian211string_viewEPSt6vectorIiSaIiEEPNS1_9ErrorInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr %text.coerce0, i64 %text.coerce1, ptr noundef %v, ptr noundef writeonly %error_info) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %dfa_failed = alloca i8, align 1
@@ -2011,7 +2011,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(pt
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS9_3RE23Set7CompileEvE3$_0EEEvT_SO_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS9_3RE23Set7CompileEvE3$_0EEEvT_SO_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.i = alloca %"struct.std::pair", align 8
   %__val = alloca %"struct.std::pair", align 8

@@ -143,7 +143,7 @@ declare i32 @ossl_ec_GFp_simple_make_affine(ptr noundef, ptr noundef, ptr nounde
 declare i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_GFp_nist_field_mul(ptr noundef readonly captures(address_is_null) %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #2 {
+define range(i32 0, 2) i32 @ossl_ec_GFp_nist_field_mul(ptr noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #2 {
 entry:
   %tobool = icmp ne ptr %group, null
   %tobool1 = icmp ne ptr %r, null
@@ -196,7 +196,7 @@ err:                                              ; preds = %if.end14, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_GFp_nist_field_sqr(ptr noundef readonly captures(address_is_null) %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #2 {
+define range(i32 0, 2) i32 @ossl_ec_GFp_nist_field_sqr(ptr noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #2 {
 entry:
   %tobool = icmp ne ptr %group, null
   %tobool1 = icmp ne ptr %r, null

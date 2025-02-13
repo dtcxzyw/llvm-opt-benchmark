@@ -5862,7 +5862,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 declare noundef i64 @_ZN6Assimp3FBX14ParseTokenAsIDERKNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX8Document15AnimationStacksEv(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(336) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX8Document15AnimationStacksEv(ptr noundef nonnull align 8 dereferenceable(336) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::allocator.14", align 1
@@ -6084,7 +6084,7 @@ return:                                           ; preds = %for.inc, %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK6Assimp3FBX8Document9GetObjectEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(336) %this, i64 noundef %id) local_unnamed_addr #12 align 2 {
+define hidden noundef ptr @_ZNK6Assimp3FBX8Document9GetObjectEm(ptr noundef nonnull readonly align 8 dereferenceable(336) %this, i64 noundef %id) local_unnamed_addr #12 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -6126,7 +6126,7 @@ cond.end:                                         ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 noundef %id, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %conns) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 noundef %id, ptr noundef nonnull readonly align 8 dereferenceable(48) %conns) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %conns, i64 16
@@ -6364,7 +6364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 noundef %id, i1 noundef zeroext %is_src, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %conns, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, i64 noundef %id, i1 noundef zeroext %is_src, ptr noundef nonnull readonly align 8 dereferenceable(48) %conns, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lengths = alloca [6 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %lengths, i8 0, i64 48, i1 false)
@@ -6783,7 +6783,7 @@ _ZNKSt8_Rb_treeImSt4pairIKmPN6Assimp3FBX10LazyObjectEESt10_Select1stIS6_ESt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %this, i64 noundef %source) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %source) local_unnamed_addr #1 align 2 {
 entry:
   %src_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %source, ptr noundef nonnull align 8 dereferenceable(48) %src_connections.i)
@@ -6791,7 +6791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKc(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %this, i64 noundef %src, ptr noundef %classname) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKc(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %src, ptr noundef %classname) local_unnamed_addr #1 align 2 {
 entry:
   %arr = alloca [1 x ptr], align 8
   store ptr %classname, ptr %arr, align 8
@@ -6801,7 +6801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %this, i64 noundef %source, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document31GetConnectionsBySourceSequencedEmPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %source, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
 entry:
   %src_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %source, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %src_connections.i, ptr noundef %classnames, i64 noundef %count)
@@ -6809,7 +6809,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %this, i64 noundef %dest, ptr noundef %classname) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest, ptr noundef %classname) local_unnamed_addr #1 align 2 {
 entry:
   %arr = alloca [1 x ptr], align 8
   store ptr %classname, ptr %arr, align 8
@@ -6819,7 +6819,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %this, i64 noundef %dest, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKPKcm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest, ptr noundef readonly captures(none) %classnames, i64 noundef %count) local_unnamed_addr #1 align 2 {
 entry:
   %dest_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmbRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEEPKPKcm(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %dest, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %dest_connections.i, ptr noundef %classnames, i64 noundef %count)
@@ -6827,7 +6827,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(336) %this, i64 noundef %dest) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEm(ptr noalias sret(%"class.std::vector.184") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %dest) local_unnamed_addr #1 align 2 {
 entry:
   %dest_connections.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNK6Assimp3FBX8Document23GetConnectionsSequencedEmRKSt8multimapImPKNS0_10ConnectionESt4lessImESaISt4pairIKmS5_EEE(ptr sret(%"class.std::vector.184") align 8 %agg.result, ptr nonnull align 8 poison, i64 noundef %dest, ptr noundef nonnull align 8 dereferenceable(48) %dest_connections.i)

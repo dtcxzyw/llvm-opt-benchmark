@@ -263,7 +263,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_hex2bn(ptr noundef captures(address_is_null) %bn, ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #0 {
+define i32 @BN_hex2bn(ptr noundef %bn, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -433,7 +433,7 @@ declare i32 @OPENSSL_hexchar2int(i8 noundef zeroext) local_unnamed_addr #1
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_dec2bn(ptr noundef captures(address_is_null) %bn, ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #0 {
+define i32 @BN_dec2bn(ptr noundef %bn, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -585,7 +585,7 @@ declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %bn, ptr noundef captures(address_is_null) %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_asc2bn(ptr noundef %bn, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %a, align 1
   %cmp = icmp eq i8 %0, 45

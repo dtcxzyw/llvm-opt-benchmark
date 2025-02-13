@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7523UCharsDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly captures(address_is_null) %lengths, ptr noundef writeonly captures(address_is_null) %cpLengths, ptr noundef writeonly captures(address_is_null) %values, ptr noundef writeonly captures(address_is_null) %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7523UCharsDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %uct = alloca %"class.icu_75::UCharsTrie", align 8
   %characters = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly captures(address_is_null) %lengths, ptr noundef writeonly captures(address_is_null) %cpLengths, ptr noundef writeonly captures(address_is_null) %values, ptr noundef writeonly captures(address_is_null) %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bt = alloca %"class.icu_75::BytesTrie", align 8
   %characters = getelementptr inbounds nuw i8, ptr %this, i64 8

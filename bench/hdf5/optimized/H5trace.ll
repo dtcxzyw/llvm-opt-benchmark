@@ -8324,7 +8324,7 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #3
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca %struct.H5_timer_t, align 8
   %6 = alloca %struct.H5_timevals_t, align 8

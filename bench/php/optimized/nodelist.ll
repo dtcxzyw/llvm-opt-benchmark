@@ -266,7 +266,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp slt i64 %1, 0
   %.not = icmp eq ptr %0, null

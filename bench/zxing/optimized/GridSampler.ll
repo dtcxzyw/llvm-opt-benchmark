@@ -552,7 +552,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %34, %32
 declare { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72), double, double) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.0.val.0.val, ptr readnone captures(address) %.0.val.8.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE"(ptr %.0.val.0.val, ptr readnone %.0.val.8.val, i64 %0) unnamed_addr #0 align 2 {
   %.sroa.011.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.3.0.extract.shift = lshr i64 %0, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32

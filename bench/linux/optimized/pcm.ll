@@ -495,13 +495,13 @@ declare dso_local void @snd_pcm_group_init(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
   %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef %5), !range !12
   ret i32 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef writeonly %6) unnamed_addr #1 align 16 {
   %8 = zext i1 %5 to i8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %95, label %10
@@ -677,13 +677,13 @@ snd_pcm_free_stream.exit10:                       ; preds = %88, %92
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
   %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true, ptr noundef %5), !range !12
   ret i32 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %3, null
   %7 = or i1 %5, %6
@@ -954,7 +954,7 @@ define internal fastcc noundef ptr @get_pid(ptr noundef returned %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_pcm_detach_substream(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @snd_pcm_detach_substream(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %37, label %3
 
@@ -1042,7 +1042,7 @@ define internal void @alsa_pcm_exit() #9 section ".exit.text" align 16 {
 declare dso_local i32 @snd_ctl_unregister_ioctl(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
+define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
   switch i32 %2, label %130 [
     i32 -2147199696, label %5
     i32 -1054845647, label %42
@@ -1777,7 +1777,7 @@ snd_pcm_free_stream.exit4:                        ; preds = %52, %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_pcm_dev_register(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define internal i32 @snd_pcm_dev_register(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %81, label %3
 

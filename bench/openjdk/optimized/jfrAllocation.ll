@@ -25,7 +25,7 @@ $_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLev
 @llvm.used = appending global [1 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %_ZL22hook_memory_allocationPKcm.exit
 

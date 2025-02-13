@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759RCEBufferD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(208) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759RCEBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %buffer, align 8
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align 8 captures(address) dereferenceable(208) %this, i32 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_759RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -209,7 +209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759PCEBufferD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(272) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759PCEBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(272) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %buffer, align 8
@@ -250,7 +250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align 8 captures(address) dereferenceable(272) %this, i64 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_759PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, i64 noundef %ce, i32 noundef %ixLow, i32 noundef %ixHigh, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -799,7 +799,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @_ZN6icu_7524CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(292) %this, ptr noundef writeonly captures(address_is_null) %ixLow, ptr noundef writeonly captures(address_is_null) %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 {
+define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(292) %this, ptr noundef writeonly %ixLow, ptr noundef writeonly %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -938,7 +938,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @_ZN6icu_7524CollationElementIterator8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 captures(address) dereferenceable(292) %this, ptr noundef writeonly captures(address_is_null) %ixLow, ptr noundef writeonly captures(address_is_null) %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %this, ptr noundef writeonly %ixLow, ptr noundef writeonly %ixHigh, ptr noundef %status) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rceb = alloca %"struct.icu_75::RCEBuffer", align 8
   %0 = load i32, ptr %status, align 4

@@ -2615,7 +2615,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19UserLabelESt14default_deleteIS1_EED2Ev.exit: ;
 declare noundef ptr @_ZNK4llvm12MachineInstr13getDebugLabelEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm18LiveDebugVariables7LDVImpl18collectDebugValuesERNS_15MachineFunctionEb(ptr noundef nonnull align 8 dereferenceable(1152) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1065) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm18LiveDebugVariables7LDVImpl18collectDebugValuesERNS_15MachineFunctionEb(ptr noundef nonnull align 8 dereferenceable(1152) %0, ptr noundef nonnull readonly align 8 dereferenceable(1065) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.llvm::LiveDebugVariables::LDVImpl::InstrPos", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -8285,7 +8285,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare noundef zeroext i1 @_ZNK4llvm15MachineFunction16useDebugInstrRefEv(ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl16splitPHIRegisterENS_8RegisterENS_8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(1152) %0, i32 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl16splitPHIRegisterENS_8RegisterENS_8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(1152) %0, i32 %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8, !tbaa !624
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -8697,7 +8697,7 @@ _ZNSt6vectorISt4pairIN4llvm8RegisterEjESaIS3_EED2Ev.exit: ; preds = %145, %._cri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl13splitRegisterENS_8RegisterENS_8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(1152) %0, i32 %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl13splitRegisterENS_8RegisterENS_8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(1152) %0, i32 %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::SmallVector.578", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::SmallVector.748", align 8
@@ -11382,7 +11382,7 @@ _ZN4llvm18LiveDebugVariables7LDVImpl10mapVirtRegENS_8RegisterEPN12_GLOBAL__N_19U
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariables13splitRegisterENS_8RegisterENS_8ArrayRefIS1_EERNS_13LiveIntervalsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr captures(address) %2, i64 %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(440) %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariables13splitRegisterENS_8RegisterENS_8ArrayRefIS1_EERNS_13LiveIntervalsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(440) %4) local_unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -11396,7 +11396,7 @@ define dso_local void @_ZN4llvm18LiveDebugVariables13splitRegisterENS_8RegisterE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl15emitDebugValuesEPNS_10VirtRegMapE(ptr noundef nonnull align 8 captures(address) dereferenceable(1152) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl15emitDebugValuesEPNS_10VirtRegMapE(ptr noundef nonnull align 8 dereferenceable(1152) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca ptr, align 8
@@ -14998,7 +14998,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17printExtendedNameRN4llvm11raw_ostreamEPKNS_6DINodeEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL17printExtendedNameRN4llvm11raw_ostreamEPKNS_6DINodeEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #1 {
 _ZNK4llvm6MDNode10getContextEv.exit:
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = load i8, ptr %1, align 4, !tbaa !877
@@ -16560,7 +16560,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116DbgVariableValueC2EN4llvm8ArrayRefIjEEbbRKNS1_12DIExpressionE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8), (16, 24)) %0, ptr readonly captures(address) %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(40) %5) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116DbgVariableValueC2EN4llvm8ArrayRefIjEEbbRKNS1_12DIExpressionE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8), (16, 24)) %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(40) %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::SmallVector.578", align 8
   %8 = alloca [2 x i64], align 8
   %9 = alloca %"class.std::optional", align 8
@@ -19265,7 +19265,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, i32 noundef %2, i64 %3, i64 %4, ptr noundef nonnull readonly captures(address) %5) unnamed_addr #1 align 2 {
+define internal fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, i32 noundef %2, i64 %3, i64 %4, ptr noundef nonnull readonly %5) unnamed_addr #1 align 2 {
   %7 = load i32, ptr %1, align 4, !tbaa !192
   %cond = icmp eq i32 %7, 0
   br i1 %cond, label %55, label %8
@@ -20220,7 +20220,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EN12_GLOBAL__N_116DbgVariableValueELj4EE4copyILj4EEEvRKNS1_IS4_S6_XT_EEEjjj(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EN12_GLOBAL__N_116DbgVariableValueELj4EE4copyILj4EEEvRKNS1_IS4_S6_XT_EEEjjj(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull readonly align 8 dereferenceable(160) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
   %6 = add i32 %4, %2
   %.not13 = icmp eq i32 %4, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph

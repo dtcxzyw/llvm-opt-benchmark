@@ -11925,7 +11925,7 @@ if.end86:                                         ; preds = %if.then85, %for.end
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
-define void @stb_vorbis_close(ptr noundef captures(address_is_null) %p) local_unnamed_addr #26 {
+define void @stb_vorbis_close(ptr noundef %p) local_unnamed_addr #26 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return, label %if.end
@@ -11946,7 +11946,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @vorbis_init(ptr noundef captures(none) initializes((0, 1904)) %p, ptr noundef readonly captures(address_is_null) %z) local_unnamed_addr #30 {
+define void @vorbis_init(ptr noundef captures(none) initializes((0, 1904)) %p, ptr noundef readonly %z) local_unnamed_addr #30 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1904) %p, i8 0, i64 1904, i1 false)
   %tobool.not = icmp eq ptr %z, null
@@ -12376,7 +12376,7 @@ return:                                           ; preds = %if.end244, %if.end1
 declare i32 @crc32_update(i32 noundef, i8 noundef zeroext) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %f, ptr noundef %data, i32 noundef %data_len, ptr noundef writeonly captures(address_is_null) %channels, ptr noundef writeonly captures(none) %output, ptr noundef writeonly captures(none) %samples) local_unnamed_addr #26 {
+define i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %f, ptr noundef %data, i32 noundef %data_len, ptr noundef writeonly %channels, ptr noundef writeonly captures(none) %output, ptr noundef writeonly captures(none) %samples) local_unnamed_addr #26 {
 entry:
   %mode.i = alloca i32, align 4
   %left_end.i = alloca i32, align 4
@@ -12587,7 +12587,7 @@ return:                                           ; preds = %if.end60, %if.end46
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stb_vorbis_open_pushdata(ptr noundef %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %data_used, ptr noundef writeonly captures(none) %error, ptr noundef readonly captures(address_is_null) %alloc) local_unnamed_addr #26 {
+define ptr @stb_vorbis_open_pushdata(ptr noundef %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %data_used, ptr noundef writeonly captures(none) %error, ptr noundef readonly %alloc) local_unnamed_addr #26 {
 entry:
   %p = alloca %struct.stb_vorbis, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1904) %p, i8 0, i64 1904, i1 false)
@@ -12695,7 +12695,7 @@ return:                                           ; preds = %if.else9, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @vorbis_find_page(ptr noundef captures(none) %f, ptr noundef writeonly captures(address_is_null) %end, ptr noundef writeonly captures(address_is_null) %last) local_unnamed_addr #26 {
+define range(i32 0, 2) i32 @vorbis_find_page(ptr noundef captures(none) %f, ptr noundef writeonly %end, ptr noundef writeonly %last) local_unnamed_addr #26 {
 entry:
   %header = alloca [27 x i8], align 16
   %eof = getelementptr inbounds nuw i8, ptr %f, i64 152
@@ -15272,7 +15272,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_vorbis_get_frame_float(ptr noundef %f, ptr noundef writeonly captures(address_is_null) %channels, ptr noundef writeonly captures(address_is_null) %output) local_unnamed_addr #26 {
+define i32 @stb_vorbis_get_frame_float(ptr noundef %f, ptr noundef writeonly %channels, ptr noundef writeonly %output) local_unnamed_addr #26 {
 entry:
   %mode.i = alloca i32, align 4
   %left_end.i = alloca i32, align 4
@@ -15392,7 +15392,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stb_vorbis_open_file_section(ptr noundef %file, i32 noundef %close_on_free, ptr noundef writeonly captures(address_is_null) %error, ptr noundef readonly captures(address_is_null) %alloc, i32 noundef %length) local_unnamed_addr #26 {
+define ptr @stb_vorbis_open_file_section(ptr noundef %file, i32 noundef %close_on_free, ptr noundef writeonly %error, ptr noundef readonly %alloc, i32 noundef %length) local_unnamed_addr #26 {
 entry:
   %mode.i.i = alloca i32, align 4
   %left_end.i.i = alloca i32, align 4
@@ -15539,7 +15539,7 @@ return:                                           ; preds = %if.end12, %vorbis_p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stb_vorbis_open_file(ptr noundef %file, i32 noundef %close_on_free, ptr noundef captures(address_is_null) %error, ptr noundef captures(address_is_null) %alloc) local_unnamed_addr #26 {
+define ptr @stb_vorbis_open_file(ptr noundef %file, i32 noundef %close_on_free, ptr noundef %error, ptr noundef %alloc) local_unnamed_addr #26 {
 entry:
   %call = tail call i64 @ftell(ptr noundef %file)
   %call1 = tail call i32 @fseek(ptr noundef %file, i64 noundef 0, i32 noundef 2)
@@ -15553,7 +15553,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) %filename, ptr noundef captures(address_is_null) %error, ptr noundef captures(address_is_null) %alloc) local_unnamed_addr #26 {
+define ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) %filename, ptr noundef %error, ptr noundef %alloc) local_unnamed_addr #26 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %tobool.not = icmp eq ptr %call, null
@@ -15587,7 +15587,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
-define ptr @stb_vorbis_open_memory(ptr noundef %data, i32 noundef %len, ptr noundef writeonly captures(address_is_null) %error, ptr noundef readonly captures(address_is_null) %alloc) local_unnamed_addr #26 {
+define ptr @stb_vorbis_open_memory(ptr noundef %data, i32 noundef %len, ptr noundef writeonly %error, ptr noundef readonly %alloc) local_unnamed_addr #26 {
 entry:
   %mode.i.i = alloca i32, align 4
   %left_end.i.i = alloca i32, align 4
@@ -17102,7 +17102,7 @@ while.end:                                        ; preds = %if.end12, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_vorbis_decode_filename(ptr noundef readonly captures(none) %filename, ptr noundef writeonly captures(none) %channels, ptr noundef writeonly captures(address_is_null) %sample_rate, ptr noundef writeonly captures(none) %output) local_unnamed_addr #26 {
+define i32 @stb_vorbis_decode_filename(ptr noundef readonly captures(none) %filename, ptr noundef writeonly captures(none) %channels, ptr noundef writeonly %sample_rate, ptr noundef writeonly captures(none) %output) local_unnamed_addr #26 {
 entry:
   %error = alloca i32, align 4
   %call.i = tail call noalias ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
@@ -17223,7 +17223,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #31
 
 ; Function Attrs: nounwind uwtable
-define i32 @stb_vorbis_decode_memory(ptr noundef %mem, i32 noundef %len, ptr noundef writeonly captures(none) %channels, ptr noundef writeonly captures(address_is_null) %sample_rate, ptr noundef writeonly captures(none) %output) local_unnamed_addr #26 {
+define i32 @stb_vorbis_decode_memory(ptr noundef %mem, i32 noundef %len, ptr noundef writeonly captures(none) %channels, ptr noundef writeonly %sample_rate, ptr noundef writeonly captures(none) %output) local_unnamed_addr #26 {
 entry:
   %error = alloca i32, align 4
   %call = call ptr @stb_vorbis_open_memory(ptr noundef %mem, i32 noundef %len, ptr noundef nonnull %error, ptr noundef null)

@@ -276,7 +276,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory5arith2nl19getCountWithDefaultERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEES6_j(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %a, ptr noundef readonly captures(none) %key, i32 noundef %value) local_unnamed_addr #3 {
+define hidden noundef i32 @_ZN4cvc58internal6theory5arith2nl19getCountWithDefaultERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEES6_j(ptr noundef nonnull readonly align 8 dereferenceable(48) %a, ptr noundef readonly captures(none) %key, i32 noundef %value) local_unnamed_addr #3 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -328,7 +328,7 @@ cond.end:                                         ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl12diffMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEESF_(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %b) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl12diffMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEESF_(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %a, ptr noundef nonnull readonly align 8 dereferenceable(48) %b) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.134", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.137", align 1
@@ -651,7 +651,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl14ExpandMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %a) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl14ExpandMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %a) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %a, i64 24
@@ -1820,7 +1820,7 @@ eh.resume:                                        ; preds = %lpad66, %ehcleanup1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl10MonomialDb16isMonomialSubsetENS0_12NodeTemplateILb1EEES6_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(440) %this, ptr noundef readonly captures(none) %am, ptr noundef readonly captures(none) %bm) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl10MonomialDb16isMonomialSubsetENS0_12NodeTemplateILb1EEES6_(ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %am, ptr noundef readonly captures(none) %bm) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %am, align 8
@@ -5235,7 +5235,7 @@ eh.resume:                                        ; preds = %lpad32, %lpad99, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal6theory5arith2nl10MonomialDb22getMonomialExponentMapENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal6theory5arith2nl10MonomialDb22getMonomialExponentMapENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -5419,7 +5419,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory5arith2nl10MonomialDb11getExponentENS0_12NodeTemplateILb1EEES6_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial, ptr noundef readonly captures(none) %v) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory5arith2nl10MonomialDb11getExponentENS0_12NodeTemplateILb1EEES6_(ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial, ptr noundef readonly captures(none) %v) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -5511,7 +5511,7 @@ return:                                           ; preds = %if.end, %_ZNKSt8_Rb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory5arith2nl10MonomialDb15getVariableListENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory5arith2nl10MonomialDb15getVariableListENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -5560,7 +5560,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory5arith2nl10MonomialDb9getDegreeENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory5arith2nl10MonomialDb9getDegreeENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %monomial) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -5818,21 +5818,21 @@ for.end:                                          ; preds = %_ZSt4sortIN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory5arith2nl10MonomialDb22getContainsChildrenMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(440) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory5arith2nl10MonomialDb22getContainsChildrenMapEv(ptr noundef nonnull readnone align 8 dereferenceable(440) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_m_contain_children = getelementptr inbounds nuw i8, ptr %this, i64 248
   ret ptr %d_m_contain_children
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory5arith2nl10MonomialDb20getContainsParentMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(440) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory5arith2nl10MonomialDb20getContainsParentMapEv(ptr noundef nonnull readnone align 8 dereferenceable(440) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_m_contain_parent = getelementptr inbounds nuw i8, ptr %this, i64 296
   ret ptr %d_m_contain_parent
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory5arith2nl10MonomialDb15getContainsDiffENS0_12NodeTemplateILb1EEES6_(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(440) %this, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK4cvc58internal6theory5arith2nl10MonomialDb15getContainsDiffENS0_12NodeTemplateILb1EEES6_(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #4 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -6005,7 +6005,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory5arith2nl10MonomialDb17getContainsDiffNlENS0_12NodeTemplateILb1EEES6_(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(440) %this, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK4cvc58internal6theory5arith2nl10MonomialDb17getContainsDiffNlENS0_12NodeTemplateILb1EEES6_(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #4 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -6178,7 +6178,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory5arith2nl10MonomialDb19mkMonomialRemFactorENS0_12NodeTemplateILb1EEERKSt3mapIS6_jSt4lessIS6_ESaISt4pairIKS6_jEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(440) %this, ptr noundef %n, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %n_exp_rem) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory5arith2nl10MonomialDb19mkMonomialRemFactorENS0_12NodeTemplateILb1EEERKSt3mapIS6_jSt4lessIS6_ESaISt4pairIKS6_jEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef %n, ptr noundef nonnull readonly align 8 dereferenceable(48) %n_exp_rem) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children = alloca %"class.std::vector", align 8
   %v = alloca %"class.cvc5::internal::NodeTemplate", align 8

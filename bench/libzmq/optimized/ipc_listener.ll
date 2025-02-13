@@ -100,7 +100,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14ipc_listener_t6acceptEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1592) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq14ipc_listener_t6acceptEv(ptr noundef nonnull align 8 dereferenceable(1592) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_s = getelementptr inbounds nuw i8, ptr %this, i64 1464
   %0 = load i32, ptr %_s, align 8
@@ -647,7 +647,7 @@ declare void @_ZN3zmq13socket_base_t18event_close_failedERKNS_19endpoint_uri_pai
 declare void @_ZN3zmq13socket_base_t12event_closedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq14ipc_listener_t6filterEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1592) %this, i32 noundef %sock_) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3zmq14ipc_listener_t6filterEi(ptr noundef nonnull readonly align 8 dereferenceable(1592) %this, i32 noundef %sock_) local_unnamed_addr #0 align 2 {
 entry:
   %cred = alloca %struct.ucred, align 4
   %size = alloca i32, align 4

@@ -10276,7 +10276,7 @@ _ZN9grpc_core12_GLOBAL__N_19PickFirst13HealthWatcherD2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_19PickFirst13HealthWatcher25OnConnectivityStateChangeE23grpc_connectivity_stateN4absl12lts_202308026StatusE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %this, i32 noundef %new_state, ptr noundef %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_19PickFirst13HealthWatcher25OnConnectivityStateChangeE23grpc_connectivity_stateN4absl12lts_202308026StatusE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %new_state, ptr noundef %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.grpc_core::RefCountedPtr.197", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

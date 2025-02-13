@@ -1721,7 +1721,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aria_ccm_init_key(ptr noundef %ctx, ptr noundef %key, ptr noundef readonly captures(address_is_null) %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @aria_ccm_init_key(ptr noundef %ctx, ptr noundef %key, ptr noundef readonly %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %tobool = icmp ne ptr %iv, null

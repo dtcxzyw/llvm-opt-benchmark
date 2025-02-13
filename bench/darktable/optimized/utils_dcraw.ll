@@ -107,7 +107,7 @@ define noundef ptr @_ZN6LibRaw6memmemEPcmS0_m(ptr noundef readonly %0, i64 nound
 declare ptr @memmem(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = load i8, ptr %0, align 1, !tbaa !73
   %.not10 = icmp eq i8 %3, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph

@@ -662,7 +662,7 @@ declare void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char
 declare void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIjSaIjEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX18AnimationCurveNodeC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentEPKPKcm(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(336) %doc, ptr noundef readonly captures(address_is_null) %target_prop_whitelist, i64 noundef %whitelist_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX18AnimationCurveNodeC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentEPKPKcm(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(336) %doc, ptr noundef readonly %target_prop_whitelist, i64 noundef %whitelist_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %whitelist = alloca [3 x ptr], align 16
   %ref.tmp = alloca %"class.std::vector.57", align 8
@@ -1829,7 +1829,7 @@ ehcleanup11:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX14AnimationLayer5NodesEPKPKcm(ptr noalias sret(%"class.std::vector.64") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef readonly captures(address_is_null) %target_prop_whitelist, i64 noundef %whitelist_size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp3FBX14AnimationLayer5NodesEPKPKcm(ptr noalias sret(%"class.std::vector.64") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef readonly %target_prop_whitelist, i64 noundef %whitelist_size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.57", align 8
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8

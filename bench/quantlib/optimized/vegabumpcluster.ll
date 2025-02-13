@@ -1680,7 +1680,7 @@ unreachable:                                      ; preds = %invoke.cont25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18VegaBumpCollection8allBumpsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(43) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18VegaBumpCollection8allBumpsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(43) %this) local_unnamed_addr #9 align 2 {
 entry:
   ret ptr %this
 }

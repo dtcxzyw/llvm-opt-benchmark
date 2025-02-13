@@ -462,7 +462,7 @@ _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallbackD2Ev.exit: ; preds = %if.end.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback16getAncillaryDataENS_10WriteFlagsEPvRKNS_11AsyncSocket15WriteRequestTagEb(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 %0, ptr noundef writeonly captures(address_is_null) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %writeTag, i1 zeroext %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback16getAncillaryDataENS_10WriteFlagsEPvRKNS_11AsyncSocket15WriteRequestTagEb(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 %0, ptr noundef writeonly %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %writeTag, i1 zeroext %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp.i = alloca %"struct.google::CheckOpString", align 8

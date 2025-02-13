@@ -505,7 +505,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %pMesh) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %pMesh) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %pMesh, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -767,7 +767,7 @@ if.end113:                                        ; preds = %for.body106, %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(address_is_null) %_mat) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly %_mat) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %_mat, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -1154,7 +1154,7 @@ for.end10:                                        ; preds = %_ZN6Assimp14FlipUVs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(address_is_null) %pMesh) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly %pMesh) local_unnamed_addr #5 align 2 {
 entry:
   %cmp.i = icmp eq ptr %pMesh, null
   br i1 %cmp.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit, label %for.cond.preheader.i

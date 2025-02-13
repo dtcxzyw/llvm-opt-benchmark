@@ -177,7 +177,7 @@ if.end32:                                         ; preds = %if.then30, %ts_stat
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %bio, ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %bio, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

@@ -835,7 +835,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEL
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__45HdGetMergedContributingSampleTimesForIntervalEmPKSt10shared_ptrINS_19HdSampledDataSourceEEffPSt6vectorIfSaIfEE(i64 noundef %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__45HdGetMergedContributingSampleTimesForIntervalEmPKSt10shared_ptrINS_19HdSampledDataSourceEEffPSt6vectorIfSaIfEE(i64 noundef %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, ptr noundef %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector", align 8
   %.not34 = icmp eq i64 %0, 0

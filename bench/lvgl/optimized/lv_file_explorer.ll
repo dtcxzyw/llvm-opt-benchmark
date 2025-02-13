@@ -395,7 +395,7 @@ define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #4 {
+define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   ret ptr %2
 }

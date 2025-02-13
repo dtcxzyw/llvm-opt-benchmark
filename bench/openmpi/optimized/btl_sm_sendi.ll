@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_process_info = external local_unnamed_addr global %struct.opal_process_info_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_btl_sm_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_btl_sm_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %.sroa.22.i.i.i.i.i.i = alloca i64, align 8
@@ -431,7 +431,7 @@ sm_fifo_write_ep.exit:                            ; preds = %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0, i8 noundef zeroext %1, ptr noalias noundef readonly captures(none) %2, i64 noundef %3, ptr noalias noundef readonly captures(address_is_null) %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0, i8 noundef zeroext %1, ptr noalias noundef readonly captures(none) %2, i64 noundef %3, ptr noalias noundef readonly %4, i64 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_sm_component, i64 5944), align 8
   %8 = add i64 %5, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64

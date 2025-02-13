@@ -1703,7 +1703,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 declare i32 @zend_parse_ini_file(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_browscap_parser_cb(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal void @php_browscap_parser_cb(ptr noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = load ptr, ptr %4, align 8

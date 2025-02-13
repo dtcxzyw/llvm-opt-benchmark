@@ -827,7 +827,7 @@ $_ZN4llvm9StringMapImNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairIN
 @_ZN5clang4ento15CheckerRegistryC1ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE = unnamed_addr alias void (ptr, ptr, ptr, i64, ptr, ptr, ptr), ptr @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(15248) %4, ptr noundef nonnull align 8 dereferenceable(488) %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.0") align 8 captures(none) %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(15248) %4, ptr noundef nonnull align 8 dereferenceable(488) %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.0") align 8 captures(none) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"struct.clang::ento::CmdLineOption", align 8
   %10 = alloca %"class.llvm::StringRef", align 8
@@ -12694,7 +12694,7 @@ define dso_local void @_ZNK5clang4ento15CheckerRegistry17initializeManagerERNS0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS_9StringRefES7_RKNS1_15AnalyzerOptionsERNS1_17DiagnosticsEngineE(ptr readonly captures(address) %.0.val, i32 %.8.val, ptr %0, i64 %1, ptr %2, i64 %3, i32 %.196.val, ptr noundef nonnull align 8 dereferenceable(15248) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS_9StringRefES7_RKNS1_15AnalyzerOptionsERNS1_17DiagnosticsEngineE(ptr readonly %.0.val, i32 %.8.val, ptr %0, i64 %1, ptr %2, i64 %3, i32 %.196.val, ptr noundef nonnull align 8 dereferenceable(15248) %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.fr36.i.i.i.i = freeze i64 %3
   %7 = and i32 %.196.val, 512

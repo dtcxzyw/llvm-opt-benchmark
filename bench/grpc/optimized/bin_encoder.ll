@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL13huff_alphabet = internal unnamed_addr constant [64 x %struct.b64_huff_sym] [%struct.b64_huff_sym { i16 33, i8 6 }, %struct.b64_huff_sym { i16 93, i8 7 }, %struct.b64_huff_sym { i16 94, i8 7 }, %struct.b64_huff_sym { i16 95, i8 7 }, %struct.b64_huff_sym { i16 96, i8 7 }, %struct.b64_huff_sym { i16 97, i8 7 }, %struct.b64_huff_sym { i16 98, i8 7 }, %struct.b64_huff_sym { i16 99, i8 7 }, %struct.b64_huff_sym { i16 100, i8 7 }, %struct.b64_huff_sym { i16 101, i8 7 }, %struct.b64_huff_sym { i16 102, i8 7 }, %struct.b64_huff_sym { i16 103, i8 7 }, %struct.b64_huff_sym { i16 104, i8 7 }, %struct.b64_huff_sym { i16 105, i8 7 }, %struct.b64_huff_sym { i16 106, i8 7 }, %struct.b64_huff_sym { i16 107, i8 7 }, %struct.b64_huff_sym { i16 108, i8 7 }, %struct.b64_huff_sym { i16 109, i8 7 }, %struct.b64_huff_sym { i16 110, i8 7 }, %struct.b64_huff_sym { i16 111, i8 7 }, %struct.b64_huff_sym { i16 112, i8 7 }, %struct.b64_huff_sym { i16 113, i8 7 }, %struct.b64_huff_sym { i16 114, i8 7 }, %struct.b64_huff_sym { i16 252, i8 8 }, %struct.b64_huff_sym { i16 115, i8 7 }, %struct.b64_huff_sym { i16 253, i8 8 }, %struct.b64_huff_sym { i16 3, i8 5 }, %struct.b64_huff_sym { i16 35, i8 6 }, %struct.b64_huff_sym { i16 4, i8 5 }, %struct.b64_huff_sym { i16 36, i8 6 }, %struct.b64_huff_sym { i16 5, i8 5 }, %struct.b64_huff_sym { i16 37, i8 6 }, %struct.b64_huff_sym { i16 38, i8 6 }, %struct.b64_huff_sym { i16 39, i8 6 }, %struct.b64_huff_sym { i16 6, i8 5 }, %struct.b64_huff_sym { i16 116, i8 7 }, %struct.b64_huff_sym { i16 117, i8 7 }, %struct.b64_huff_sym { i16 40, i8 6 }, %struct.b64_huff_sym { i16 41, i8 6 }, %struct.b64_huff_sym { i16 42, i8 6 }, %struct.b64_huff_sym { i16 7, i8 5 }, %struct.b64_huff_sym { i16 43, i8 6 }, %struct.b64_huff_sym { i16 118, i8 7 }, %struct.b64_huff_sym { i16 44, i8 6 }, %struct.b64_huff_sym { i16 8, i8 5 }, %struct.b64_huff_sym { i16 9, i8 5 }, %struct.b64_huff_sym { i16 45, i8 6 }, %struct.b64_huff_sym { i16 119, i8 7 }, %struct.b64_huff_sym { i16 120, i8 7 }, %struct.b64_huff_sym { i16 121, i8 7 }, %struct.b64_huff_sym { i16 122, i8 7 }, %struct.b64_huff_sym { i16 123, i8 7 }, %struct.b64_huff_sym { i16 0, i8 5 }, %struct.b64_huff_sym { i16 1, i8 5 }, %struct.b64_huff_sym { i16 2, i8 5 }, %struct.b64_huff_sym { i16 25, i8 6 }, %struct.b64_huff_sym { i16 26, i8 6 }, %struct.b64_huff_sym { i16 27, i8 6 }, %struct.b64_huff_sym { i16 28, i8 6 }, %struct.b64_huff_sym { i16 29, i8 6 }, %struct.b64_huff_sym { i16 30, i8 6 }, %struct.b64_huff_sym { i16 31, i8 6 }, %struct.b64_huff_sym { i16 2043, i8 11 }, %struct.b64_huff_sym { i16 24, i8 6 }], align 16
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25grpc_chttp2_base64_encodeRK10grpc_slice(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %input) local_unnamed_addr #0 {
+define void @_Z25grpc_chttp2_base64_encodeRK10grpc_slice(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %input) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -199,7 +199,7 @@ declare void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8, i64 nounde
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr noalias sret(%struct.grpc_slice) align 8 captures(address) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %input) local_unnamed_addr #0 {
+define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %input) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %0 = load ptr, ptr %input, align 8
@@ -358,7 +358,7 @@ do.end:                                           ; preds = %do.body
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %input, ptr noundef captures(none) initializes((0, 4)) %wire_size) local_unnamed_addr #0 {
+define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %input, ptr noundef captures(none) initializes((0, 4)) %wire_size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null

@@ -1788,7 +1788,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @iov_discard_front_undoable(ptr noundef captures(none) %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes, ptr noundef writeonly captures(address_is_null) %undo) local_unnamed_addr #14 {
+define dso_local i64 @iov_discard_front_undoable(ptr noundef captures(none) %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes, ptr noundef writeonly %undo) local_unnamed_addr #14 {
 entry:
   %tobool.not = icmp eq ptr %undo, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1895,7 +1895,7 @@ iov_discard_front_undoable.exit:                  ; preds = %if.end8.i, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @iov_discard_back_undoable(ptr noundef %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes, ptr noundef writeonly captures(address_is_null) %undo) local_unnamed_addr #9 {
+define dso_local i64 @iov_discard_back_undoable(ptr noundef %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes, ptr noundef writeonly %undo) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %undo, null
   br i1 %tobool.not, label %if.end, label %if.then

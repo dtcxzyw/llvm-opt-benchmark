@@ -673,7 +673,7 @@ _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle32DiagnosticsHandleIsSafeToInspectEPKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %this, ptr noundef readonly captures(address) %handle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle32DiagnosticsHandleIsSafeToInspectEPKS1_(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef readonly %handle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_snapshot_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %is_snapshot_, align 8

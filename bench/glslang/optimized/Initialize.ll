@@ -1844,7 +1844,7 @@ define void @_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr readonly captures(none) %.0.val1, ptr readonly captures(none) %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr readonly captures(address) %.0.val2, i64 %.8.val4) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr readonly captures(none) %.0.val1, ptr readonly captures(none) %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr readonly %.0.val2, i64 %.8.val4) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds %"struct.glslang::(anonymous namespace)::BuiltInFunction", ptr %.0.val2, i64 %.8.val4
   %.not19 = icmp eq i64 %.8.val4, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -3683,7 +3683,7 @@ define void @_ZN7glslang18TBuiltInParseablesC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @_ZN7glslang18TBuiltInParseablesD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(608) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN7glslang18TBuiltInParseablesD2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN7glslang18TBuiltInParseablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -3788,7 +3788,7 @@ _ZN7glslang18TBuiltInParseablesC2Ev.exit:         ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @_ZN7glslang9TBuiltInsD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(876) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN7glslang9TBuiltInsD2Ev(ptr noundef nonnull align 8 dereferenceable(876) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN7glslang18TBuiltInParseablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -27406,7 +27406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile(ptr noundef nonnull align 8 captures(address) dereferenceable(876) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile(ptr noundef nonnull align 8 dereferenceable(876) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = trunc i32 %1 to i16
   %trunc = and i16 %7, -256
@@ -32563,7 +32563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile(ptr noundef nonnull align 8 captures(address) dereferenceable(876) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile(ptr noundef nonnull align 8 dereferenceable(876) %0, i32 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %.fr1308 = freeze i32 %1
@@ -72739,7 +72739,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit5400: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #1 {
+define internal fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #1 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -72834,7 +72834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7glslangL16SpecialQualifierEPKcNS_17TStorageQualifierENS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 3, 31) %1, i32 noundef range(i32 9, 88) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 {
+define internal fastcc void @_ZN7glslangL16SpecialQualifierEPKcNS_17TStorageQualifierENS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly %0, i32 noundef range(i32 3, 31) %1, i32 noundef range(i32 9, 88) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -73012,7 +73012,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7glslangL16RetargetVariableEPKcS1_RNS_12TSymbolTableE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 {
+define internal fastcc void @_ZN7glslangL16RetargetVariableEPKcS1_RNS_12TSymbolTableE(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
@@ -73191,7 +73191,7 @@ define linkonce_odr void @_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7glslangL15BuiltInVariableEPKcS1_NS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 30, 134) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 {
+define internal fastcc void @_ZN7glslangL15BuiltInVariableEPKcS1_NS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 30, 134) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24

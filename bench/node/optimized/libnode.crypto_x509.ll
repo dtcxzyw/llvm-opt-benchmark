@@ -351,7 +351,7 @@ _ZN4node6crypto11ManagedX509aSERKS1_.exit:        ; preds = %_ZNSt10unique_ptrI7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto11ManagedX509aSERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %that) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto11ManagedX509aSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %that) local_unnamed_addr #4 align 2 {
 entry:
   %cert_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cert_.i = getelementptr inbounds nuw i8, ptr %that, i64 8
@@ -4882,7 +4882,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_6crypto11ManagedX509EEEvPKcRKSt10shared_p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto15X509Certificate27X509CertificateTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS5_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISB_EE(ptr noalias writeonly sret(%"class.node::BaseObjectPtrImpl.342") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %env, ptr readonly captures(address_is_null) %context.coerce, ptr readnone captures(none) %self) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node6crypto15X509Certificate27X509CertificateTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS5_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISB_EE(ptr noalias writeonly sret(%"class.node::BaseObjectPtrImpl.342") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %env, ptr readonly %context.coerce, ptr readnone captures(none) %self) unnamed_addr #4 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.292", align 8
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728

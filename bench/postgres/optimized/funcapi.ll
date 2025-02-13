@@ -181,7 +181,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @get_call_result_type(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_call_result_type(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -302,7 +302,7 @@ define dso_local void @end_MultiFuncCall(ptr noundef readonly captures(none) %0,
 declare void @UnregisterExprContextCallback(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.polymorphic_actuals, align 4
   %7 = alloca %struct.polymorphic_actuals, align 4
   %8 = zext i32 %0 to i64
@@ -954,7 +954,7 @@ get_type_func_class.exit.thread:                  ; preds = %234, %select.unfold
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @get_expr_result_type(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_expr_result_type(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge104, label %4
 
@@ -1211,7 +1211,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 declare ptr @lookup_rowtype_tupdesc_copy(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @get_func_result_type(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_func_result_type(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -1258,7 +1258,7 @@ define dso_local ptr @get_expr_result_tupdesc(ptr noundef %0, i1 noundef zeroext
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.polymorphic_actuals, align 4
   %6 = alloca %struct.polymorphic_actuals, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2749,7 +2749,7 @@ declare ptr @relation_openrv(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @TypeGetTupleDesc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @TypeGetTupleDesc(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call signext i8 @get_typtype(i32 noundef %0) #9
   switch i8 %3, label %select.unfold [
     i8 99, label %9

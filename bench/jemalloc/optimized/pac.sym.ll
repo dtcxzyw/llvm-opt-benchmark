@@ -404,7 +404,7 @@ return:                                           ; preds = %entry, %pac_ns_unti
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @pac_retain_grow_limit_get_set(ptr noundef %tsdn, ptr noundef %pac, ptr noundef writeonly captures(address_is_null) %old_limit, ptr noundef readonly captures(address_is_null) %new_limit) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pac_retain_grow_limit_get_set(ptr noundef %tsdn, ptr noundef %pac, ptr noundef writeonly %old_limit, ptr noundef readonly %new_limit) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %new_limit, null
   br i1 %cmp.not, label %if.end4, label %if.then

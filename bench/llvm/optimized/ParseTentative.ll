@@ -5317,7 +5317,7 @@ _ZN5clang6Parser12ConsumeParenEv.exit43:          ; preds = %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6Parser23isCXXFunctionDeclaratorEPbNS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang6Parser23isCXXFunctionDeclaratorEPbNS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.sroa.8 = alloca %"class.clang::PreferredTypeBuilder", align 8
   %.sroa.10 = alloca <{ i32, i32, ptr, i16, i16 }>, align 8
   %4 = alloca i8, align 1
@@ -5739,7 +5739,7 @@ _ZN5clang6Parser14ConsumeBracketEv.exit23:        ; preds = %47, %.sink.split.i1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6Parser21isTentativelyDeclaredEPNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2936) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang6Parser21isTentativelyDeclaredEPNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2936) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %4 = load ptr, ptr %3, align 8, !tbaa !948
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2480

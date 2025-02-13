@@ -67,7 +67,7 @@ return:                                           ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_dopr(ptr noundef nonnull captures(none) %sbuffer, ptr noundef captures(address_is_null) %buffer, ptr noundef nonnull captures(none) %maxlen, ptr noundef nonnull writeonly captures(none) %retlen, ptr noundef nonnull writeonly captures(none) %truncated, ptr noundef readonly captures(none) %format, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_dopr(ptr noundef nonnull captures(none) %sbuffer, ptr noundef %buffer, ptr noundef nonnull captures(none) %maxlen, ptr noundef nonnull writeonly captures(none) %retlen, ptr noundef nonnull writeonly captures(none) %truncated, ptr noundef readonly captures(none) %format, ptr noundef %args) unnamed_addr #0 {
 entry:
   %currlen = alloca i64, align 8
   store i64 0, ptr %currlen, align 8
@@ -1945,7 +1945,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @doapr_outch(ptr noundef nonnull captures(none) %sbuffer, ptr noundef captures(address_is_null) %buffer, ptr noundef nonnull captures(none) %currlen, ptr noundef nonnull captures(none) %maxlen, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @doapr_outch(ptr noundef nonnull captures(none) %sbuffer, ptr noundef %buffer, ptr noundef nonnull captures(none) %currlen, ptr noundef nonnull captures(none) %maxlen, i32 noundef %c) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sbuffer, align 8
   %cmp = icmp ne ptr %0, null
@@ -2040,7 +2040,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fmtint(ptr noundef nonnull captures(none) %sbuffer, ptr noundef captures(address_is_null) %buffer, ptr noundef nonnull captures(none) %currlen, ptr noundef nonnull captures(none) %maxlen, i64 noundef %value, i32 noundef range(i32 8, 17) %base, i32 noundef %min, i32 noundef %max, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fmtint(ptr noundef nonnull captures(none) %sbuffer, ptr noundef %buffer, ptr noundef nonnull captures(none) %currlen, ptr noundef nonnull captures(none) %maxlen, i64 noundef %value, i32 noundef range(i32 8, 17) %base, i32 noundef %min, i32 noundef %max, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %convert = alloca [26 x i8], align 16
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %max, i32 0)
@@ -2222,7 +2222,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fmtfp(ptr noundef nonnull captures(none) %sbuffer, ptr noundef captures(address_is_null) %buffer, ptr noundef nonnull captures(none) %currlen, ptr noundef nonnull captures(none) %maxlen, double noundef %fvalue, i32 noundef %min, i32 noundef %max, i32 noundef %flags, i32 noundef range(i32 0, 3) %style) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fmtfp(ptr noundef nonnull captures(none) %sbuffer, ptr noundef %buffer, ptr noundef nonnull captures(none) %currlen, ptr noundef nonnull captures(none) %maxlen, double noundef %fvalue, i32 noundef %min, i32 noundef %max, i32 noundef %flags, i32 noundef range(i32 0, 3) %style) unnamed_addr #0 {
 entry:
   %iconvert = alloca [20 x i8], align 16
   %fconvert = alloca [20 x i8], align 16

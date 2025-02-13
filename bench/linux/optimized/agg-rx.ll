@@ -243,7 +243,7 @@ declare dso_local ptr @sta_info_get_bss(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @wiphy_work_queue(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef readonly captures(address_is_null) %9) local_unnamed_addr #0 align 16 {
+define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef readonly %9) local_unnamed_addr #0 align 16 {
   %11 = alloca %struct.ieee80211_ampdu_params, align 8
   %12 = zext i1 %8 to i8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80

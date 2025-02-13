@@ -734,7 +734,7 @@ define dso_local noundef range(i32 1000000, 1028531) i32 @intel_dp_bw_fec_overhe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = icmp ult i32 %1, 6
   br i1 %4, label %5, label %12
 
@@ -819,7 +819,7 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext range(i16 0, 256) i16 @intel_dp_dsc_get_max_compressed_bpp(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 align 16 {
+define dso_local noundef zeroext range(i16 0, 256) i16 @intel_dp_dsc_get_max_compressed_bpp(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 align 16 {
   %10 = mul i32 %2, %1
   %11 = mul i32 %8, %10
   %12 = zext i32 %3 to i64
@@ -4030,7 +4030,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #4
 declare dso_local void @lspcon_wait_pcon_mode(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dp_sync_state(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #3 align 16 {
+define dso_local void @intel_dp_sync_state(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
@@ -5890,7 +5890,7 @@ define dso_local void @intel_read_dp_sdp(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_dp_get_active_pipes(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 1)) %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @intel_dp_get_active_pipes(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 1)) %2) local_unnamed_addr #3 align 16 {
   %4 = alloca %struct.drm_connector_list_iter, align 8
   %5 = getelementptr i8, ptr %0, i64 -392
   %6 = load ptr, ptr %5, align 8
@@ -9120,7 +9120,7 @@ declare dso_local void @intel_display_power_flush_work(ptr noundef) local_unname
 declare dso_local void @drm_connector_cleanup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dp_mst_suspend(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @intel_dp_mst_suspend(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 0
@@ -9171,7 +9171,7 @@ declare dso_local zeroext i1 @intel_dp_mst_source_support(ptr noundef) local_unn
 declare dso_local void @drm_dp_mst_topology_mgr_suspend(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dp_mst_resume(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @intel_dp_mst_resume(ptr noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 0
@@ -9229,7 +9229,7 @@ declare dso_local ptr @intel_panel_preferred_fixed_mode(ptr noundef) local_unnam
 declare dso_local zeroext i1 @intel_dsc_source_support(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 256) i32 @intel_dp_force_dsc_pipe_bpp(ptr readonly captures(address_is_null) %.-392.val, i32 %.3188.val, ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 0, 256) i32 @intel_dp_force_dsc_pipe_bpp(ptr readonly %.-392.val, i32 %.3188.val, ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 16 {
   %3 = icmp eq i32 %.3188.val, 0
   br i1 %3, label %45, label %4
 

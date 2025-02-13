@@ -3035,7 +3035,7 @@ return:                                           ; preds = %land.rhs.i.i, %entr
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN7tseitin14theory_checker5equivEP4exprS2_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN7tseitin14theory_checker5equivEP4exprS2_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %return, label %if.end

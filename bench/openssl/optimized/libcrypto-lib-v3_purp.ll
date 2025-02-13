@@ -1314,7 +1314,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32) i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly captures(address_is_null) %akid) local_unnamed_addr #0 {
+define range(i32 0, 32) i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly %akid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %akid, null
   br i1 %cmp, label %return, label %if.end

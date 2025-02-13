@@ -289,7 +289,7 @@ define internal noundef i32 @H5O__ginfo_encode(ptr readnone captures(none) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__ginfo_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) #0 {
+define internal noundef ptr @H5O__ginfo_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 

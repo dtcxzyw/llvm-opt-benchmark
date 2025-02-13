@@ -223,7 +223,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vmdk_reopen_prepare(ptr noundef captures(address_is_null) %state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #0 {
+define internal noundef i32 @vmdk_reopen_prepare(ptr noundef %state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #15
   br i1 %call, label %do.end, label %if.else
@@ -3914,7 +3914,7 @@ return:                                           ; preds = %if.then, %exit
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_create_extent(ptr noundef %filename, i64 noundef %filesize, i1 noundef zeroext %flat, i1 noundef zeroext %compress, i1 noundef zeroext %zeroed_grain, ptr noundef writeonly captures(address_is_null) %pbb, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal i32 @vmdk_create_extent(ptr noundef %filename, i64 noundef %filesize, i1 noundef zeroext %flat, i1 noundef zeroext %compress, i1 noundef zeroext %zeroed_grain, ptr noundef writeonly %pbb, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call i32 @bdrv_co_create_file(ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #15
   %cmp = icmp slt i32 %call, 0
@@ -3960,7 +3960,7 @@ declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -3, 1) i32 @get_cluster_offset(ptr noundef %bs, ptr noundef captures(none) %extent, ptr noundef writeonly captures(address_is_null) %m_data, i64 noundef %offset, i1 noundef zeroext %allocate, ptr noundef writeonly captures(none) %cluster_offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes) #0 {
+define internal range(i32 -3, 1) i32 @get_cluster_offset(ptr noundef %bs, ptr noundef captures(none) %extent, ptr noundef writeonly %m_data, i64 noundef %offset, i1 noundef zeroext %allocate, ptr noundef writeonly captures(none) %cluster_offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %l2_size = getelementptr inbounds nuw i8, ptr %extent, i64 104

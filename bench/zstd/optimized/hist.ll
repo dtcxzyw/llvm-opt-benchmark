@@ -12,7 +12,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @HIST_count_simple(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef readonly captures(address) %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i32 @HIST_count_simple(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %0 = load i32, ptr %maxSymbolValuePtr, align 4
@@ -78,7 +78,7 @@ return:                                           ; preds = %for.body, %if.then
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef captures(address) %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %sourceSize, 1500
   br i1 %cmp, label %if.then, label %if.end
@@ -156,7 +156,7 @@ return:                                           ; preds = %if.then.i, %HIST_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr noundef writeonly captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef readonly captures(address) %source, i64 noundef %sourceSize, i32 noundef range(i32 0, 2) %check, ptr noundef captures(none) %workSpace) unnamed_addr #1 {
+define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr noundef writeonly captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef readonly %source, i64 noundef %sourceSize, i32 noundef range(i32 0, 2) %check, ptr noundef captures(none) %workSpace) unnamed_addr #1 {
 entry:
   %add.ptr.ptr = getelementptr i8, ptr %source, i64 %sourceSize
   %0 = load i32, ptr %maxSymbolValuePtr, align 4
@@ -374,7 +374,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef captures(address) %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %workSpace to i64
   %and = and i64 %0, 3
@@ -458,7 +458,7 @@ return:                                           ; preds = %if.end6.i, %HIST_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef captures(address) %source, i64 noundef %sourceSize) local_unnamed_addr #1 {
+define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize) local_unnamed_addr #1 {
 entry:
   %tmpCounters = alloca [1024 x i32], align 16
   %cmp.i = icmp ult i64 %sourceSize, 1500
@@ -527,7 +527,7 @@ HIST_countFast_wksp.exit:                         ; preds = %if.then.i.i, %HIST_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef captures(address) %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %count, ptr noundef captures(none) %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %tmpCounters = alloca [1024 x i32], align 16
   %0 = load i32, ptr %maxSymbolValuePtr, align 4

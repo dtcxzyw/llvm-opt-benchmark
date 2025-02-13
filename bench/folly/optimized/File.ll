@@ -7875,7 +7875,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(5) ptr @_ZN5folly4FileaSEOS0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(5) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(5) %other) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(5) ptr @_ZN5folly4FileaSEOS0_(ptr noundef nonnull returned align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(5) %other) local_unnamed_addr #7 align 2 {
 entry:
   %ownsFd_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i8, ptr %ownsFd_.i, align 4, !tbaa !13, !range !59, !noundef !60

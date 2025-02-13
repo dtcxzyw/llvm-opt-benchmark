@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.EA_get_flat_size = private unnamed_addr constant [17 x i8] c"EA_get_flat_size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ArrayMetaState, align 8
   %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8388608) #7
   %6 = tail call ptr @MemoryContextAlloc(ptr noundef %5, i64 noundef 136) #7
@@ -298,7 +298,7 @@ define dso_local ptr @DatumGetExpandedArray(i64 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @DatumGetExpandedArrayX(i64 noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define dso_local ptr @DatumGetExpandedArrayX(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 1

@@ -38029,7 +38029,7 @@ define void @SetWindowIcon(ptr noundef readonly byval(%struct.Image) align 8 cap
 declare void @glfwSetWindowIcon(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @SetWindowIcons(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @SetWindowIcons(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 1
   %or.cond = or i1 %3, %4
@@ -43278,7 +43278,7 @@ define { i32, ptr } @LoadShaderFromMemory(ptr noundef %0, ptr noundef %1) local_
 declare void @UnloadFileText(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @IsShaderReady(i32 %0, ptr readnone captures(address_is_null) %1) local_unnamed_addr #12 {
+define zeroext i1 @IsShaderReady(i32 %0, ptr readnone %1) local_unnamed_addr #12 {
   %3 = icmp ne i32 %0, 0
   %4 = icmp ne ptr %1, null
   %5 = select i1 %3, i1 %4, i1 false
@@ -45610,7 +45610,7 @@ define noalias noundef ptr @DecodeDataBase64(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @LoadAutomationEventList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define { i64, ptr } @LoadAutomationEventList(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.AutomationEventList, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca [64 x i8], align 16

@@ -92,7 +92,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 22) i32 @file2string(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 22) i32 @file2string(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.dynbuf, align 8
   %4 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
@@ -227,7 +227,7 @@ declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 declare ptr @curlx_dyn_ptr(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 22) i32 @file2memory_range(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 0, 22) i32 @file2memory_range(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.dynbuf, align 8
   %7 = alloca [4096 x i8], align 16
   %.not = icmp eq ptr %2, null
@@ -354,7 +354,7 @@ define dso_local range(i32 0, 22) i32 @file2memory_range(ptr noundef writeonly c
 declare i64 @curlx_dyn_len(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 22) i32 @file2memory(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 22) i32 @file2memory(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call i32 @file2memory_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef 0, i64 noundef 9223372036854775807)
   ret i32 %4
 }
@@ -606,7 +606,7 @@ str2double.exit.thread:                           ; preds = %2, %str2double.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 16) i32 @proto2num(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define dso_local range(i32 0, 16) i32 @proto2num(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #3 {
   %5 = alloca %struct.dynbuf, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   call void @curlx_dyn_init(ptr noundef nonnull %5, i64 noundef 704) #18
@@ -1335,7 +1335,7 @@ define internal fastcc range(i32 0, 28) i32 @checkpasswd(ptr noundef %0, i64 nou
 declare void @errorf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 5) i32 @str2tls_max(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #15 {
+define dso_local range(i32 0, 5) i32 @str2tls_max(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 

@@ -97,7 +97,7 @@ return:                                           ; preds = %entry, %err_clear.e
 declare ptr @ossl_err_get_state_int() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ERR_set_debug(ptr noundef readonly captures(address_is_null) %file, i32 noundef %line, ptr noundef readonly captures(address_is_null) %func) local_unnamed_addr #0 {
+define void @ERR_set_debug(ptr noundef readonly %file, i32 noundef %line, ptr noundef readonly %func) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_err_get_state_int() #6
   %cmp = icmp eq ptr %call, null

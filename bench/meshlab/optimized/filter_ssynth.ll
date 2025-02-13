@@ -65269,7 +65269,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %65, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12FilterSSynth6ssynthE7QStringiiPFbiPKcE(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12FilterSSynth6ssynthE7QStringiiPFbiPKcE(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QString, align 8
   %8 = alloca %"class.StructureSynth::Model::Rendering::Template", align 8
   %9 = alloca %class.QString, align 8

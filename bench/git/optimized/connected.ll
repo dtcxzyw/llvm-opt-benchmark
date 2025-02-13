@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @check_connected(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @check_connected(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.child_process, align 8
   %5 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #11

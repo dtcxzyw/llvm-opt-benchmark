@@ -3267,7 +3267,7 @@ declare i32 @checkout_fast_forward(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i32 @apply_autostash_ref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finish(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @finish(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.rev_info, align 8
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.pretty_print_context, align 8
@@ -3601,7 +3601,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_tree_trivial(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @merge_trivial(ptr noundef nonnull %0, ptr noundef nonnull captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @merge_trivial(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.object_id, align 4
   %4 = alloca %struct.object_id, align 4
   %5 = alloca ptr, align 8
@@ -4140,7 +4140,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @git_test_write_commit_graph_or_die() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_merge_state(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @write_merge_state(ptr noundef %0) unnamed_addr #0 {
   tail call fastcc void @write_merge_heads(ptr noundef %0)
   %2 = load i64, ptr @merge_msg, align 8, !tbaa !156
   %.not.i.i = icmp eq i64 %2, 0
@@ -4324,7 +4324,7 @@ strbuf_setlen.exit:                               ; preds = %10, %6, %12, %_.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @option_read_message(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @option_read_message(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !221
   %.not = icmp eq ptr %2, null
@@ -4630,7 +4630,7 @@ declare i32 @repo_refresh_and_write_index(ptr noundef, i32 noundef, i32 noundef,
 declare ptr @commit_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prepare_to_commit(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @prepare_to_commit(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
@@ -4957,7 +4957,7 @@ declare void @append_signoff(ptr noundef, i64 noundef, i32 noundef) local_unname
 declare i64 @ignored_log_message_bytes(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_merge_heads(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @write_merge_heads(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.suggest_conflicts.msgbuf, i64 24, i1 false)

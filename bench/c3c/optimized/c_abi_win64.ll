@@ -335,7 +335,7 @@ declare ptr @abi_arg_new_direct_int_ext(ptr noundef) local_unnamed_addr #1
 declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @win64_reclassify_hva_arg(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #0 {
+define dso_local ptr @win64_reclassify_hva_arg(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr null, ptr %4, align 8
@@ -373,7 +373,7 @@ define dso_local ptr @win64_reclassify_hva_arg(ptr noundef captures(none) %0, pt
 declare ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @win64_create_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @win64_create_params(ptr noundef readonly %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 

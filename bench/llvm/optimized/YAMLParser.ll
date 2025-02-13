@@ -4362,7 +4362,7 @@ define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_nb_charEPKc(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_b_breakEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_b_breakEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = icmp eq ptr %1, %4
@@ -4397,7 +4397,7 @@ define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_b_breakEPKc(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = icmp eq ptr %1, %4
@@ -4416,7 +4416,7 @@ define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_s_spaceEPKc(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = icmp eq ptr %1, %4
@@ -4850,7 +4850,7 @@ define dso_local void @_ZN4llvm4yaml7Scanner4skipEj(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner14isBlankOrBreakEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner14isBlankOrBreakEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %5 = icmp eq ptr %1, %4
@@ -4921,7 +4921,7 @@ _ZN4llvm4yaml7Scanner14isBlankOrBreakEPKc.exit.thread: ; preds = %switch.hole_ch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner11isLineEmptyENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner11isLineEmptyENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(344) %0, ptr readonly %1, i64 %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -7826,7 +7826,7 @@ _ZN4llvm4yaml5TokenD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL10wasEscapedPKcS0_(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @_ZL10wasEscapedPKcS0_(ptr noundef readnone %0, ptr noundef %1) unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -1
   %.not7 = icmp ult ptr %3, %0
   br i1 %.not7, label %.critedge, label %.lr.ph
@@ -10450,7 +10450,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml6Stream6failedEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml6Stream10printErrorEPNS0_4NodeERKNS_5TwineENS_9SourceMgr8DiagKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml6Stream10printErrorEPNS0_4NodeERKNS_5TwineENS_9SourceMgr8DiagKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(34) %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::ArrayRef.71", align 8
   %6 = alloca %"class.llvm::SMRange", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29

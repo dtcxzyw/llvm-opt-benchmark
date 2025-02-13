@@ -22246,14 +22246,14 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory7strings10NormalFormESaIS4_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory7strings10CoreSolver14getRelevantDeqEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(600) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory7strings10CoreSolver14getRelevantDeqEv(ptr noundef nonnull readnone align 8 dereferenceable(600) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_rlvDeq = getelementptr inbounds nuw i8, ptr %this, i64 136
   ret ptr %d_rlvDeq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory7strings10CoreSolver13hasNormalFormERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(600) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %n) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory7strings10CoreSolver13hasNormalFormERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(600) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %n) local_unnamed_addr #8 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8

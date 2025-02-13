@@ -10019,7 +10019,7 @@ mapi_dissect_element_Logon_repl_FolderIds.exit129: ; preds = %.preheader131
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_LogonFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_LogonFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -10483,7 +10483,7 @@ define hidden i32 @dissect_EcDoRpcExt_RgbOut(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_MAPISTATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_MAPISTATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -10507,7 +10507,7 @@ define hidden i32 @mapi_dissect_enum_MAPISTATUS(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_MAPITAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_MAPITAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -10586,7 +10586,7 @@ define hidden i32 @mapi_dissect_struct_DATA_BLOB(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_MAPI_OBJTYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_MAPI_OBJTYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -10612,7 +10612,7 @@ define hidden i32 @mapi_dissect_enum_MAPI_OBJTYPE(ptr noundef %0, i32 noundef %1
 declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_ACLRIGHTS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_ACLRIGHTS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -10636,7 +10636,7 @@ define hidden i32 @mapi_dissect_enum_ACLRIGHTS(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_ROP_OPNUM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_ROP_OPNUM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -11167,7 +11167,7 @@ mapi_dissect_element_SPropValue_array_wrap_wrap.exit: ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_ActionType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_ActionType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -11339,7 +11339,7 @@ mapi_dissect_element_RecipientBlock_PropertyValue.exit: ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_BounceCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_BounceCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -12353,7 +12353,7 @@ define hidden i32 @mapi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_ulRowFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_ulRowFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -12423,7 +12423,7 @@ define hidden noundef i32 @mapi_dissect_struct_Release_repl(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_OpenFolder_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_OpenFolder_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -12601,7 +12601,7 @@ mapi_dissect_element_OpenFolder_repl_repl.exit:   ; preds = %21, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_StringType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_StringType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -12695,7 +12695,7 @@ mapi_dissect_element_TypedString_String.exit:     ; preds = %24, %25, %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_OpenMessage_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_OpenMessage_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -12760,7 +12760,7 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_req(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_CODEPAGEID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_CODEPAGEID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -12784,7 +12784,7 @@ define hidden i32 @mapi_dissect_enum_CODEPAGEID(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_ulRecipClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_ulRecipClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -12808,7 +12808,7 @@ define hidden i32 @mapi_dissect_enum_ulRecipClass(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_addr_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_addr_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -14026,7 +14026,7 @@ define hidden i32 @mapi_dissect_struct_DeleteProps_repl(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_SaveFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_SaveFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -14156,7 +14156,7 @@ define hidden noundef i32 @mapi_dissect_struct_RemoveAllRecipients_repl(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_modrecip(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_modrecip(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -14633,7 +14633,7 @@ mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit: ; preds = %mapi_di
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_SetColumnsFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_SetColumnsFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -14657,7 +14657,7 @@ define hidden i32 @mapi_dissect_enum_SetColumnsFlags(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_TableStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_TableStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -14746,7 +14746,7 @@ define hidden i32 @mapi_dissect_struct_SetColumns_repl(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_TBL_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_TBL_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -14770,7 +14770,7 @@ define hidden i32 @mapi_dissect_enum_TBL_FLAGS(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_TABLE_SORT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_TABLE_SORT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -15096,7 +15096,7 @@ define hidden i32 @mapi_dissect_struct_SContentRestriction(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_relMBR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_relMBR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -15157,7 +15157,7 @@ define hidden i32 @mapi_dissect_struct_SBitmaskRestriction(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_CompareRelop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_CompareRelop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -15581,7 +15581,7 @@ define hidden i32 @mapi_dissect_struct_Restrict_repl(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_QueryRowsFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_QueryRowsFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -15781,7 +15781,7 @@ define hidden i32 @mapi_dissect_struct_QueryPosition_repl(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_BOOKMARK(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_BOOKMARK(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -16067,7 +16067,7 @@ mapi_dissect_element_CreateBookmark_repl_bookmark.exit: ; preds = %8, %11, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_FOLDER_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_FOLDER_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -16091,7 +16091,7 @@ define hidden i32 @mapi_dissect_enum_FOLDER_TYPE(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_FOLDER_STRING(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_FOLDER_STRING(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -16115,7 +16115,7 @@ define hidden i32 @mapi_dissect_enum_FOLDER_STRING(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_FOLDER_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_FOLDER_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -16732,7 +16732,7 @@ define hidden noundef i32 @mapi_dissect_struct_GetAttachmentTable_repl(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_OpenAttachmentFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_OpenAttachmentFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -17074,7 +17074,7 @@ define hidden i32 @mapi_dissect_struct_GetReceiveFolder_repl(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_NotificationFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_NotificationFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -17253,7 +17253,7 @@ mapi_dissect_element_GID_GlobalCounter.exit:      ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_RichTableNotificationType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_RichTableNotificationType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -18353,7 +18353,7 @@ mapi_dissect_element_Notify_repl_NotificationData.exit: ; preds = %28, %29, %32,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_OpenStream_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_OpenStream_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -18860,7 +18860,7 @@ define hidden i32 @mapi_dissect_struct_GetSearchCriteria_repl(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_SubmitFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_SubmitFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -20480,7 +20480,7 @@ mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.exit: ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_OpenEmbeddedMessage_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_OpenEmbeddedMessage_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -20628,7 +20628,7 @@ define hidden noundef i32 @mapi_dissect_struct_SetSpooler_repl(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_LockState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_LockState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -20881,7 +20881,7 @@ define hidden i32 @mapi_dissect_struct_FastTransferSourceGetBuffer_req(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_TransferStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_TransferStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -20942,7 +20942,7 @@ define hidden i32 @mapi_dissect_struct_FastTransferSourceGetBuffer_repl(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_FindRow_ulFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_FindRow_ulFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -21220,7 +21220,7 @@ define hidden i32 @mapi_dissect_struct_GetValidAttachments_repl(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_ulKind(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_ulKind(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -22896,7 +22896,7 @@ mapi_dissect_element_OptionsData_repl_HelpFileName.exit: ; preds = %mapi_dissect
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_SynchronizationType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_SynchronizationType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -23459,7 +23459,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncImportDeletes_repl(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_StateProperty(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_StateProperty(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -24465,7 +24465,7 @@ define hidden i32 @mapi_dissect_struct_HardDeleteMessagesAndSubfolders_repl(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_DayOfWeek(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_DayOfWeek(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -24691,7 +24691,7 @@ define hidden i32 @mapi_dissect_struct_RopBufferTooSmall_repl(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -24715,7 +24715,7 @@ define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_1(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -24739,7 +24739,7 @@ define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_2(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_AUX_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_AUX_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -24790,7 +24790,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_REQUESTID(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_ClientMode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_ClientMode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -24814,7 +24814,7 @@ define hidden i32 @mapi_dissect_enum_ClientMode(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_enum_SERVERINFO_ServerType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_enum_SERVERINFO_ServerType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null

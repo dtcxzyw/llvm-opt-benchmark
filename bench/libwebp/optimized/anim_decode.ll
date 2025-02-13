@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.WebPData = type { ptr, i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @WebPAnimDecoderOptionsInitInternal(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPAnimDecoderOptionsInitInternal(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %.mask = and i32 %1, -256
   %.not = icmp eq i32 %.mask, 256
@@ -27,7 +27,7 @@ define range(i32 0, 2) i32 @WebPAnimDecoderOptionsInitInternal(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.WebPBitstreamFeatures, align 4
   %5 = icmp ne ptr %0, null
   %.mask = and i32 %2, -256
@@ -210,7 +210,7 @@ define void @WebPAnimDecoderDelete(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @WebPAnimDecoderGetInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @WebPAnimDecoderGetInfo(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -227,7 +227,7 @@ define range(i32 0, 2) i32 @WebPAnimDecoderGetInfo(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WebPAnimDecoderGetNext(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @WebPAnimDecoderGetNext(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca %struct.WebPIterator, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -564,7 +564,7 @@ ZeroFillFrameRect.exit:                           ; preds = %205, %186, %.loopex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @WebPAnimDecoderHasMoreFrames(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @WebPAnimDecoderHasMoreFrames(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -592,7 +592,7 @@ declare void @WebPDemuxReleaseIterator(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WebPAnimDecoderGetDemuxer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @WebPAnimDecoderGetDemuxer(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 

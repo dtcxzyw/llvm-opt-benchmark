@@ -3702,7 +3702,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit69:                  ; preds = %_ZNSt6vectorIbSaIbE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextb(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %3, i1 noundef zeroext %4) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextb(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %3, i1 noundef zeroext %4) local_unnamed_addr #4 align 2 {
   %6 = tail call noundef i32 @_ZN13Probabilities8get_probE8ProbName(i32 noundef 9)
   %7 = tail call noundef i32 @_ZN13Probabilities8get_probE8ProbName(i32 noundef 8)
   tail call void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextbjj(ptr dead_on_unwind writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(216) %3, i1 noundef zeroext %4, i32 noundef %6, i32 noundef %7)
@@ -3710,7 +3710,7 @@ define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6Acce
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextbjj(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextbjj(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.CVQualifiers, align 8
   %9 = alloca %"class.std::vector", align 8
   %10 = alloca %"class.std::vector", align 8
@@ -4467,7 +4467,7 @@ declare noundef zeroext i1 @_Z12rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_strin
 declare noundef zeroext i1 @_ZN9CGOptions20allow_const_volatileEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4Type(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4Type(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZN13Probabilities8get_probE8ProbName(i32 noundef 9), !noalias !23
   %4 = tail call noundef i32 @_ZN13Probabilities8get_probE8ProbName(i32 noundef 8), !noalias !23
   tail call void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextbjj(ptr dead_on_unwind writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(216) @_ZN9CGContext13empty_contextE, i1 noundef zeroext true, i32 noundef %3, i32 noundef %4)
@@ -4475,7 +4475,7 @@ define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4Type(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4Typejj(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12CVQualifiers17random_qualifiersEPK4Typejj(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   tail call void @_ZN12CVQualifiers17random_qualifiersEPK4TypeN6Effect6AccessERK9CGContextbjj(ptr dead_on_unwind writable sret(%class.CVQualifiers) align 8 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(216) @_ZN9CGContext13empty_contextE, i1 noundef zeroext false, i32 noundef %2, i32 noundef %3)
   ret void
 }

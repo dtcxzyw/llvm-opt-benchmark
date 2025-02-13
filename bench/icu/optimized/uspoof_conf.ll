@@ -632,7 +632,7 @@ declare void @uregex_close_75(ptr noundef) local_unnamed_addr #4
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521ConfusabledataBuilder19buildConfusableDataEPNS_9SpoofImplEPKciPiP11UParseErrorR10UErrorCode(ptr noundef %spImpl, ptr noundef %confusables, i32 noundef %confusablesLen, ptr noundef writeonly captures(address_is_null) %errorType, ptr noundef writeonly captures(none) %pe, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521ConfusabledataBuilder19buildConfusableDataEPNS_9SpoofImplEPKciPiP11UParseErrorR10UErrorCode(ptr noundef %spImpl, ptr noundef %confusables, i32 noundef %confusablesLen, ptr noundef writeonly %errorType, ptr noundef writeonly captures(none) %pe, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.icu_75::ConfusabledataBuilder", align 8
   %0 = load i32, ptr %status, align 4

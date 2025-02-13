@@ -812,7 +812,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10bindexplib9WriteFileEP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN10bindexplib9WriteFileEP8_IO_FILE(ptr noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 9, i64 1, ptr %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !56

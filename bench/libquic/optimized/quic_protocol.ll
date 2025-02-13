@@ -3309,7 +3309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i64 @_ZNK3net17PacketNumberQueue14NumPacketsSlowEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef i64 @_ZNK3net17PacketNumberQueue14NumPacketsSlowEv(ptr noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #12 align 2 {
 entry:
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i, align 8
@@ -3444,7 +3444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @_ZNK3net17PacketNumberQueue3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
+define dso_local nonnull ptr @_ZNK3net17PacketNumberQueue3endEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
 entry:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr.i.i.i
@@ -3471,7 +3471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_17PacketNumberQueueE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %q) local_unnamed_addr #3 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_17PacketNumberQueueE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 dereferenceable(48) %q) local_unnamed_addr #3 {
 entry:
   %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i.i, align 8
@@ -3507,7 +3507,7 @@ for.end13:                                        ; preds = %for.inc11, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_12QuicAckFrameE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(100) %ack_frame) local_unnamed_addr #3 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_12QuicAckFrameE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 dereferenceable(100) %ack_frame) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.30)
   %entropy_hash = getelementptr inbounds nuw i8, ptr %ack_frame, i64 97
@@ -4480,7 +4480,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit3: ; preds = %_ZNSt6vectorIN3ne
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net18QuicVersionManager20GetSupportedVersionsEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net18QuicVersionManager20GetSupportedVersionsEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
@@ -4736,7 +4736,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16SerializedPacketC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 10), (16, 40)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16SerializedPacketC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 10), (16, 40)) %this, ptr noundef nonnull readonly align 8 dereferenceable(96) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %this, ptr noundef nonnull align 8 dereferenceable(10) %other, i64 10, i1 false)
   %retransmittable_frames = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4855,7 +4855,7 @@ _ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit:   ; preds = %lpad9.i, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net16SerializedPacketD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16SerializedPacketD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %listeners = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %listeners, align 8
@@ -4961,7 +4961,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16TransmissionInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16TransmissionInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5077,7 +5077,7 @@ _ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit:   ; preds = %lpad9.i, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net16TransmissionInfoD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16TransmissionInfoD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ack_listeners = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %ack_listeners, align 8

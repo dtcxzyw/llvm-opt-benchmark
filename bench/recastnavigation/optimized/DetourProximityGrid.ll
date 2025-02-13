@@ -313,7 +313,7 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr noundef nonnull align 8 capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef captures(address) %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load float, ptr %8, align 4
   %10 = fmul float %1, %9

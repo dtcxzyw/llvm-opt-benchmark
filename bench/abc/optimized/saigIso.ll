@@ -1019,7 +1019,7 @@ define i32 @Iso_ManNegEdgeNum(ptr noundef captures(none) %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Iso_ManFindMapping(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Iso_ManFindMapping(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   %7 = getelementptr i8, ptr %0, i64 136

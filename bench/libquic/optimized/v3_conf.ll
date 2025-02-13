@@ -569,7 +569,7 @@ declare ptr @X509v3_add_ext(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @X509_EXTENSION_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509V3_EXT_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly captures(address_is_null) %cert) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly %cert) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %cert, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -586,7 +586,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly captures(address_is_null) %crl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef readonly %crl) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %crl, null
   br i1 %tobool.not, label %if.end, label %if.then

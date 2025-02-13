@@ -2794,7 +2794,7 @@ switch.early.test97:                              ; preds = %82
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @secmode_list_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @secmode_list_copy_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8
@@ -3133,7 +3133,7 @@ define internal void @secmode_list_post_update_cb() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @seckey_list_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @seckey_list_copy_cb(ptr noundef returned writeonly initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8
@@ -3220,7 +3220,7 @@ define internal void @seckey_list_post_update_cb() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @identsecret_list_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @identsecret_list_copy_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8
@@ -3572,7 +3572,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_hex_string(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @parse_hex_string(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %.not1926.i = icmp eq ptr %0, null
   br i1 %.not1926.i, label %count_hex_bytes.exit, label %.lr.ph.lr.ph.i
 
@@ -6661,7 +6661,7 @@ define internal fastcc void @validate_c4(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp ne ptr %1, null
   %5 = icmp ugt i32 %3, 1
@@ -6789,7 +6789,7 @@ OALMarshal_UncompressValue.exit:                  ; preds = %.lr.ph.i, %.thread3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -7388,7 +7388,7 @@ ObjectID_DataToString.exit109:                    ; preds = %178, %.thread.i108,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull captures(address_is_null) %0, ptr noundef captures(address_is_null) initializes((0, 2)) %1) unnamed_addr #0 {
+define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull %0, ptr noundef initializes((0, 2)) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i8 91, ptr %1, align 1
   %4 = getelementptr i8, ptr %1, i64 1
@@ -7976,7 +7976,7 @@ DOFObjectID_GetAttributeAtIndex.exit._crit_edge:  ; preds = %245, %DOFObjectID_G
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @ObjectID_DataToString(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #15 {
+define internal fastcc i32 @ObjectID_DataToString(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, ptr noundef writeonly %2) unnamed_addr #15 {
   %.not102 = icmp eq i32 %1, 0
   br i1 %.not102, label %.thread, label %.lr.ph.preheader
 
@@ -10303,7 +10303,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_c2(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @read_c2(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #20
   %.not = icmp sgt i8 %5, -1
   br i1 %.not, label %14, label %6
@@ -10343,7 +10343,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_dsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %dissect_options.exit, label %6
 
@@ -10651,7 +10651,7 @@ define internal range(i32 2, 1) i32 @dissect_ccm_dsp(ptr noundef %0, ptr readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ccm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_ccm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11475,7 +11475,7 @@ declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unn
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decrypt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decrypt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %.sroa.3 = alloca [11 x i8], align 1
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
@@ -11723,7 +11723,7 @@ declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_oap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_oap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._dof_proto_data, align 8
   %6 = alloca i16, align 2
   %7 = alloca [20 x i8], align 16
@@ -12598,7 +12598,7 @@ validate_c2.exit66:                               ; preds = %read_c2.exit64, %78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @oap_1_tree_add_alias(ptr readonly captures(address_is_null) %.16.val, ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 5) %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
+define internal fastcc i32 @oap_1_tree_add_alias(ptr readonly %.16.val, ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 5) %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct._alias_key, align 4
   %9 = zext nneg i8 %4 to i32
@@ -12910,7 +12910,7 @@ declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 declare void @wmem_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sgmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_sgmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca %struct._dof_2008_16_security_4, align 8
   %7 = icmp eq ptr %3, null
@@ -13331,7 +13331,7 @@ define internal noundef i32 @dissect_2008_16_security_7(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_2008_16_security_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef i32 @dissect_2008_16_security_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca %struct._dof_2008_16_security_3_1, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #20
   %7 = zext i8 %6 to i32
@@ -13404,7 +13404,7 @@ define internal noundef i32 @dissect_2008_16_security_5(ptr noundef %0, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_2008_16_security_3_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_2008_16_security_3_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #20
   %.not.i = icmp slt i8 %5, 0
   br i1 %.not.i, label %6, label %13
@@ -14456,7 +14456,7 @@ define internal range(i32 0, 5) i32 @dissect_tep_dsp(ptr noundef %0, ptr readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_2008_16_security_6_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_2008_16_security_6_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca %struct._dof_2008_16_security_4, align 8
   %6 = load i32, ptr @hf_security_6_1_desired_duration, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #20
@@ -14523,7 +14523,7 @@ dissect_2008_16_security_13.exit:                 ; preds = %4, %15
 declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 32774) i32 @dissect_2008_4_tep_2_2_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr readonly captures(address_is_null) %.24.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32774) i32 @dissect_2008_4_tep_2_2_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr readonly %.24.val) unnamed_addr #0 {
   %5 = icmp eq ptr %.24.val, null
   br i1 %5, label %41, label %6
 
@@ -14601,7 +14601,7 @@ validate_c4.exit:                                 ; preds = %31, %28, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_2008_16_security_6_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef i32 @dissect_2008_16_security_6_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca %struct._dof_2008_16_security_4, align 8
   %6 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #20
   %7 = load i32, ptr @hf_security_6_2_responder_request, align 4
@@ -14883,7 +14883,7 @@ declare i32 @gcry_mac_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @gcry_mac_verify(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_trp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_trp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._dof_proto_data, align 8
   %6 = alloca %struct._dof_2008_16_security_4, align 8
   %7 = alloca i32, align 4

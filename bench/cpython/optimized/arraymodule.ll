@@ -4531,7 +4531,7 @@ _Py_NewRef.exit:                                  ; preds = %19, %16, %PyObject_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @array_inplace_repeat(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) #0 {
+define internal ptr @array_inplace_repeat(ptr noundef %0, i64 noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %3, align 8, !tbaa !40
   %4 = icmp sgt i64 %.val, 0
@@ -7516,7 +7516,7 @@ Py_DECREF.exit:                                   ; preds = %20, %17, %15, %1, %
 declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @array_arrayiterator___reduce__(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @array_arrayiterator___reduce__(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

@@ -178,7 +178,7 @@ define internal i32 @ft_outline_glyph_copy(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_outline_glyph_transform(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @ft_outline_glyph_transform(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -374,7 +374,7 @@ define internal i32 @ft_svg_glyph_copy(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_svg_glyph_transform(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @ft_svg_glyph_transform(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct.FT_Matrix_, align 8
   %.sroa.0 = alloca i64, align 8
   %.sroa.4 = alloca i64, align 8
@@ -539,7 +539,7 @@ define internal i32 @ft_svg_glyph_prepare(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Glyph_Copy(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @FT_Glyph_Copy(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %0, null
@@ -655,7 +655,7 @@ define void @FT_Done_Glyph(ptr noundef %0) local_unnamed_addr #0 {
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_New_Glyph(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @FT_New_Glyph(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
@@ -715,7 +715,7 @@ ft_new_glyph.exit:                                ; preds = %13, %18
 declare hidden ptr @FT_Lookup_Renderer(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Get_Glyph(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @FT_Get_Glyph(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %FT_New_Glyph.exit.thread, label %4
@@ -939,7 +939,7 @@ define void @FT_Glyph_Get_CBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Glyph_To_Bitmap(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @FT_Glyph_To_Bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.FT_GlyphSlotRec_, align 8
   %7 = alloca %struct.FT_Slot_InternalRec_, align 8

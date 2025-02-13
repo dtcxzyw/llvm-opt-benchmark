@@ -1013,7 +1013,7 @@ _ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit: ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef writeonly captures(address_is_null) %min, ptr noundef writeonly captures(address_is_null) %max, ptr noundef writeonly captures(address_is_null) %count) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef writeonly %min, ptr noundef writeonly %max, ptr noundef writeonly %count) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %min, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1064,7 +1064,7 @@ if.end12:                                         ; preds = %if.then9, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base20SampleVectorIterator14GetBucketIndexEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef writeonly captures(address_is_null) %index) unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base20SampleVectorIterator14GetBucketIndexEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef writeonly %index) unnamed_addr #9 align 2 {
 entry:
   %cmp.not = icmp eq ptr %index, null
   br i1 %cmp.not, label %if.end, label %if.then

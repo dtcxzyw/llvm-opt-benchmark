@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [29 x i8] c"Error creating the partition\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null

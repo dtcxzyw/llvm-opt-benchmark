@@ -39402,7 +39402,7 @@ declare void @_ZN5Yosys5RTLIL6Module7connectERKSt4pairINS0_7SigSpecES3_E(ptr nou
 declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %5, ptr noundef %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8

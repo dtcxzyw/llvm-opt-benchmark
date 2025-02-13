@@ -255,7 +255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @dummy_rand_newctx(ptr noundef readnone returned captures(ret: address, provenance) %provctx, ptr readnone captures(none) %parent, ptr readnone captures(none) %parent_calls) #3 {
+define internal noundef ptr @dummy_rand_newctx(ptr noundef readnone returned %provctx, ptr readnone captures(none) %parent, ptr readnone captures(none) %parent_calls) #3 {
 entry:
   ret ptr %provctx
 }

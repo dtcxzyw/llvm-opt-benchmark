@@ -487,7 +487,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.54 = private unnamed_addr constant [20 x i8] c"keySize=28, Default\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @wolfcrypt_test(ptr noundef writeonly captures(address_is_null) %args) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @wolfcrypt_test(ptr noundef writeonly %args) local_unnamed_addr #0 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %0 = load ptr, ptr @stdout, align 8
@@ -10790,7 +10790,7 @@ return:                                           ; preds = %if.end65, %if.then5
 declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef %plain, i32 noundef range(i32 0, 33) %plainSz, ptr noundef readonly captures(address_is_null) %cipher, i32 noundef range(i32 0, 33) %cipherSz, ptr noundef %aad, i32 noundef range(i32 0, 17) %aadSz, ptr noundef nonnull readonly captures(none) %tag, i32 noundef range(i32 12, 17) %tagSz) unnamed_addr #0 {
+define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef %plain, i32 noundef range(i32 0, 33) %plainSz, ptr noundef readonly %cipher, i32 noundef range(i32 0, 33) %cipherSz, ptr noundef %aad, i32 noundef range(i32 0, 17) %aadSz, ptr noundef nonnull readonly captures(none) %tag, i32 noundef range(i32 12, 17) %tagSz) unnamed_addr #0 {
 entry:
   %enc = alloca [1 x %struct.Aes], align 16
   %dec = alloca [1 x %struct.Aes], align 16
@@ -14547,7 +14547,7 @@ entry:
 declare i32 @wc_SetTimeCb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i64 @time_cb(ptr noundef writeonly captures(address_is_null) %t) #9 {
+define internal noundef i64 @time_cb(ptr noundef writeonly %t) #9 {
 entry:
   %cmp.not = icmp eq ptr %t, null
   br i1 %cmp.not, label %if.end, label %if.then

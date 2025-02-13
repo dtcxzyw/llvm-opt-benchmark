@@ -229,7 +229,7 @@ declare zeroext i1 @get_attstatsslot(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @mcelem_array_contain_overlap_selec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc double @mcelem_array_contain_overlap_selec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = add i32 %1, 3
   %.not = icmp eq i32 %3, %9
   %spec.select = select i1 %.not, ptr %2, ptr null
@@ -484,7 +484,7 @@ find_next_mcelem.exit.thread:                     ; preds = %106, %find_next_mce
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = icmp ne ptr %2, null
   %11 = add i32 %1, 3
   %.not = icmp eq i32 %3, %11
@@ -1303,7 +1303,7 @@ define dso_local range(i64 4572414629676717179, 4576918229304087676) i64 @arrayc
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address) %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8

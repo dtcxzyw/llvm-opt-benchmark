@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @defaultMemoryManager = local_unnamed_addr global %struct.UriMemoryManagerStruct { ptr @uriDefaultMalloc, ptr @uriDefaultCalloc, ptr @uriDefaultRealloc, ptr @uriDefaultReallocarray, ptr @uriDefaultFree, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uriMemoryManagerIsComplete(ptr noundef readonly captures(address_is_null) %memory) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriMemoryManagerIsComplete(ptr noundef readonly %memory) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %memory, null
   br i1 %tobool.not, label %land.end, label %land.lhs.true
@@ -125,7 +125,7 @@ return:                                           ; preds = %do.end, %if.then3, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 11) i32 @uriCompleteMemoryManager(ptr noundef writeonly captures(address_is_null) %memory, ptr noundef %backend) local_unnamed_addr #4 {
+define range(i32 0, 11) i32 @uriCompleteMemoryManager(ptr noundef writeonly %memory, ptr noundef %backend) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %memory, null
   %cmp1 = icmp eq ptr %backend, null
@@ -163,7 +163,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @uriDecorateMalloc(ptr noundef readonly captures(address_is_null) %memory, i64 noundef %size) #1 {
+define internal ptr @uriDecorateMalloc(ptr noundef readonly %memory, i64 noundef %size) #1 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %if.then, label %if.end
@@ -265,7 +265,7 @@ return:                                           ; preds = %if.end10, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uriDecorateFree(ptr noundef readonly captures(address_is_null) %memory, ptr noundef %ptr) #1 {
+define internal void @uriDecorateFree(ptr noundef readonly %memory, ptr noundef %ptr) #1 {
 entry:
   %cmp = icmp eq ptr %ptr, null
   %cmp1 = icmp eq ptr %memory, null

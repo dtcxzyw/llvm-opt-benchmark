@@ -20,7 +20,7 @@ define hidden range(i64 1, 0) i64 @aom_uleb_size_in_bytes(i64 noundef %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @aom_uleb_decode(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @aom_uleb_decode(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -74,7 +74,7 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_decode(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -1, 1) i32 @aom_uleb_encode(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @aom_uleb_encode(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -126,7 +126,7 @@ aom_uleb_size_in_bytes.exit:                      ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -1, 1) i32 @aom_uleb_encode_fixed_size(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @aom_uleb_encode_fixed_size(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
   %6 = icmp ult i64 %0, 4294967296
   %7 = icmp ne ptr %3, null
   %or.cond = and i1 %6, %7

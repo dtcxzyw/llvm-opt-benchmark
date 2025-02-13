@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431(ptr noundef nonnull readnone captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull readnone captures(address) %2, ptr noundef readonly captures(address) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noundef nonnull readnone %2, ptr noundef readonly %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i": ; preds = %8, %4
@@ -45,7 +45,7 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b742
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h67ab812ead9b7dcdE(ptr noundef nonnull readnone captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull readnone captures(address) %2, ptr noundef readonly captures(address) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h67ab812ead9b7dcdE(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noundef nonnull readnone %2, ptr noundef readonly %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i": ; preds = %8, %4

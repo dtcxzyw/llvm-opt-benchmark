@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [50 x i8] c"Obj =%5d.  Lev =%3d.  Fanout =%5d.  Count = %3d.\0A\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Llb_ManTracePaths_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Llb_ManTracePaths_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val = load i32, ptr %4, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %1, i64 32
@@ -114,7 +114,7 @@ Saig_ObjIsPo.exit:                                ; preds = %Saig_ObjIsPo.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Llb_ManTracePaths(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
+define i32 @Llb_ManTracePaths(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #7
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #7
   %3 = getelementptr i8, ptr %0, i64 104

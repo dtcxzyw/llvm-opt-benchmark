@@ -12645,7 +12645,7 @@ return:                                           ; preds = %if.end, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcess17getIrrelevantArgsENS0_12NodeTemplateILb1EEERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef readonly captures(none) %f, ptr noundef nonnull align 8 dereferenceable(56) %args) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcess17getIrrelevantArgsENS0_12NodeTemplateILb1EEERSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef readonly captures(none) %f, ptr noundef nonnull align 8 dereferenceable(56) %args) local_unnamed_addr #3 align 2 {
 entry:
   %__node_gen.i.i.i = alloca %"struct.std::__detail::_AllocNode.656", align 8
   %i.i = alloca i32, align 4

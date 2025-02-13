@@ -1830,7 +1830,7 @@ declare zeroext i1 @zend_binary_op_produces_error(i32 noundef, ptr noundef, ptr 
 declare i32 @concat_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @zend_ast_list_add(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @zend_ast_list_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 3
@@ -4982,7 +4982,7 @@ define internal fastcc nonnull ptr @zend_ast_tree_copy(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_ast_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not91 = icmp eq ptr %0, null
   br i1 %.not91, label %.loopexit, label %.lr.ph94
 
@@ -12095,7 +12095,7 @@ zend_ast_export_list.exit:                        ; preds = %2645, %tailrecurse.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden noundef ptr @zend_ast_with_attributes(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #9 {
+define hidden noundef ptr @zend_ast_with_attributes(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = load i16, ptr %1, align 8
   %4 = icmp eq i16 %3, 146
   tail call void @llvm.assume(i1 %4)

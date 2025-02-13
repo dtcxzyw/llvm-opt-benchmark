@@ -1354,7 +1354,7 @@ do.end8:                                          ; preds = %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @get_page_addr_code_hostp(ptr noundef %env, i64 noundef returned %addr, ptr noundef writeonly captures(address_is_null) %hostp) local_unnamed_addr #2 {
+define dso_local noundef i64 @get_page_addr_code_hostp(ptr noundef %env, i64 noundef returned %addr, ptr noundef writeonly %hostp) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef 2, i1 noundef zeroext false, i64 noundef 0)
   %cmp = icmp eq i32 %call, 0

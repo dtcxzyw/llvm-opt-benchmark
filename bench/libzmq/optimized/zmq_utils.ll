@@ -160,7 +160,7 @@ declare void @_ZN3zmq8thread_t4stopEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @zmq_z85_encode(ptr noundef writeonly captures(ret: address, provenance) %dest_, ptr noundef readonly captures(none) %data_, i64 noundef %size_) local_unnamed_addr #7 {
+define noundef ptr @zmq_z85_encode(ptr noundef writeonly %dest_, ptr noundef readonly captures(none) %data_, i64 noundef %size_) local_unnamed_addr #7 {
 entry:
   %rem = and i64 %size_, 3
   %cmp.not = icmp eq i64 %rem, 0
@@ -236,7 +236,7 @@ return:                                           ; preds = %while.end16, %if.th
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, provenance) %dest_, ptr noundef readonly captures(none) %string_) local_unnamed_addr #9 {
+define noundef ptr @zmq_z85_decode(ptr noundef writeonly %dest_, ptr noundef readonly captures(none) %string_) local_unnamed_addr #9 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string_) #25
   %cmp = icmp ugt i64 %call, 4

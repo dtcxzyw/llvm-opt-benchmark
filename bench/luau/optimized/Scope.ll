@@ -3195,7 +3195,7 @@ _ZNSt10_HashtableIN4Luau6SymbolESt4pairIKS1_NS0_7BindingEESaIS5_ENSt8__detail10_
 declare { ptr, ptr } @_ZN4Luau13getBaseSymbolERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau14subsumesStrictEPNS_5ScopeES1_(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_ZN4Luau14subsumesStrictEPNS_5ScopeES1_(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -3213,7 +3213,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau14subsumesStrictEPNS_5ScopeES1_(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8subsumesEPNS_5ScopeES1_(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_ZN4Luau8subsumesEPNS_5ScopeES1_(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZN4Luau14subsumesStrictEPNS_5ScopeES1_.exit, label %.preheader
 

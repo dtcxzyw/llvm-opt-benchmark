@@ -455,7 +455,7 @@ define hidden void @_ZN6cvtest7details21SkipTestExceptionBaseC2ERKNSt7__cxx1112b
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef i64 @_ZN6cvtest8readSeedEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define hidden noundef i64 @_ZN6cvtest8readSeedEPKc(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

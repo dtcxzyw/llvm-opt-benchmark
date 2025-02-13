@@ -22134,7 +22134,7 @@ declare i64 @_ZN4llvm11VPIntrinsic24getFunctionalOpcodeForVPEj(i32 noundef) loca
 declare i64 @_ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20isMemModifiedBetweenN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_RKNS_14MemoryLocationERNS_9AAResultsE(ptr %0, ptr readnone captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL20isMemModifiedBetweenN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEES6_RKNS_14MemoryLocationERNS_9AAResultsE(ptr %0, ptr readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #1 {
   %5 = alloca %"class.std::optional.219", align 8
   %.not23.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not23.i.i.i.i.i, label %"_ZSt6any_ofIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEZL20isMemModifiedBetweenS7_S7_RKNS0_14MemoryLocationERNS0_9AAResultsEE3$_0EbT_SE_T0_.exit", label %.lr.ph.i.i.i.i.i
@@ -23904,7 +23904,7 @@ _ZN4llvm15SmallVectorImplIiE6appendIPKivEEvT_S5_.exit: ; preds = %_ZN4llvm15Smal
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_113VectorCombine19foldShuffleOfBinopsERN4llvm11InstructionEENK3$_1clERPNS1_5ValueEiNS1_15MutableArrayRefIiEENS1_19TargetTransformInfo14TargetCostKindE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, i32 noundef %2, ptr captures(address) %3, i64 %4, i32 noundef %5) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_113VectorCombine19foldShuffleOfBinopsERN4llvm11InstructionEENK3$_1clERPNS1_5ValueEiNS1_15MutableArrayRefIiEENS1_19TargetTransformInfo14TargetCostKindE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5) unnamed_addr #2 align 2 {
   %7 = alloca %"class.llvm::SmallVector.208", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !319
@@ -24293,7 +24293,7 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnu
 declare noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineENS_14InsertPositionE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_11SmallVectorIiLj16EEEZN12_GLOBAL__N_113VectorCombine21foldShuffleOfShufflesERNS_11InstructionEE3$_0EEbOT_T0_"(ptr readonly captures(address) %.0.val, i32 %.8.val, i32 %.0.val1) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_11SmallVectorIiLj16EEEZN12_GLOBAL__N_113VectorCombine21foldShuffleOfShufflesERNS_11InstructionEE3$_0EEbOT_T0_"(ptr readonly %.0.val, i32 %.8.val, i32 %.0.val1) unnamed_addr #15 {
   %1 = zext i32 %.8.val to i64
   %.idx3 = shl nuw nsw i64 %1, 2
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx3
@@ -24407,7 +24407,7 @@ declare noundef zeroext i1 @_ZN4llvm34isVectorIntrinsicWithScalarOpAtArgEjjPKNS_
 declare void @_ZN4llvm23IntrinsicCostAttributesC1EjRKNS_8CallBaseENS_15InstructionCostEb(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef nonnull align 8 dereferenceable(88), i64, i32, i1 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbENK3$_3clEPS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbENK3$_3clEPS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS_11InstructionEbENK3$_3clEPS9_EUlPS4_E_EEbOT_T0_.exit", label %3
 
@@ -24520,7 +24520,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE8containsEPKS1_.exit.i.i.i.i.i.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbENK3$_8clEPS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr readonly captures(address_is_null) %.16.val) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbENK3$_8clEPS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %.16.val) unnamed_addr #2 align 2 {
   %.not1729 = icmp eq ptr %.16.val, null
   br i1 %.not1729, label %.critedge, label %.lr.ph
 
@@ -24758,7 +24758,7 @@ _ZN4llvm15SmallVectorImplIiE6assignIPKivEEvT_S5_.exit: ; preds = %_ZN4llvm15Smal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_11SmallVectorISt4pairIiiELj6EEEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS_11InstructionEbE3$_0EEDaOT_T0_"(ptr readonly captures(ret: address, provenance) %.0.val, i32 %.8.val, ptr readonly captures(none) %.0.val1, i32 %.0.val3) unnamed_addr #15 {
+define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_11SmallVectorISt4pairIiiELj6EEEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS_11InstructionEbE3$_0EEDaOT_T0_"(ptr readonly %.0.val, i32 %.8.val, ptr readonly captures(none) %.0.val1, i32 %.0.val3) unnamed_addr #15 {
   %1 = zext i32 %.8.val to i64
   %.idx5 = shl nuw nsw i64 %1, 3
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx5
@@ -24920,7 +24920,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_11SmallVectorISt4pairIiiELj6EEEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS_11InstructionEbE3$_1EEDaOT_T0_"(ptr readonly captures(ret: address, provenance) %.0.val, i32 %.8.val, ptr noundef readonly byval(%class.anon.341) align 8 captures(none) %0) unnamed_addr #16 {
+define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_11SmallVectorISt4pairIiiELj6EEEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS_11InstructionEbE3$_1EEDaOT_T0_"(ptr readonly %.0.val, i32 %.8.val, ptr noundef readonly byval(%class.anon.341) align 8 captures(none) %0) unnamed_addr #16 {
   %2 = zext i32 %.8.val to i64
   %.idx1 = shl nuw nsw i64 %2, 3
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1
@@ -25389,7 +25389,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE8containsEPKS1_.exit.thread2: ; pr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @"_ZSt10accumulateIPPN4llvm17ShuffleVectorInstENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS0_11InstructionEbE3$_6ET0_T_SB_SA_T1_"(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i64 %2, i32 %3, ptr nonnull readonly captures(none) %4, ptr nonnull readonly captures(none) %5) unnamed_addr #2 {
+define internal fastcc { i64, i32 } @"_ZSt10accumulateIPPN4llvm17ShuffleVectorInstENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS0_11InstructionEbE3$_6ET0_T_SB_SA_T1_"(ptr noundef readonly %0, ptr noundef readnone %1, i64 %2, i32 %3, ptr nonnull readonly captures(none) %4, ptr nonnull readonly captures(none) %5) unnamed_addr #2 {
   %7 = alloca %"class.llvm::ArrayRef.152", align 8
   %.not13 = icmp eq ptr %0, %1
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -25450,7 +25450,7 @@ define internal fastcc { i64, i32 } @"_ZSt10accumulateIPPN4llvm17ShuffleVectorIn
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @"_ZSt10accumulateIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERS2_bE3$_6ET0_T_SB_SA_T1_"(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr readnone captures(address) %2, i64 %3, i32 %4, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #2 {
+define internal fastcc { i64, i32 } @"_ZSt10accumulateIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERS2_bE3$_6ET0_T_SB_SA_T1_"(ptr readonly %0, ptr readnone %1, ptr readnone %2, i64 %3, i32 %4, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #2 {
   %6 = alloca %"class.llvm::ArrayRef.152", align 8
   %.not4 = icmp eq ptr %0, %2
   br i1 %.not4, label %._crit_edge, label %.lr.ph
@@ -25527,7 +25527,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit: ; preds = %.lr.ph.i4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @"_ZSt10accumulateIPN4llvm11SmallVectorIiLj12EEENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS0_11InstructionEbE3$_7ET0_T_SB_SA_T1_"(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i64 %2, i32 %3, ptr nonnull readonly captures(none) %4, ptr nonnull readonly captures(none) %5) unnamed_addr #2 {
+define internal fastcc { i64, i32 } @"_ZSt10accumulateIPN4llvm11SmallVectorIiLj12EEENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS0_11InstructionEbE3$_7ET0_T_SB_SA_T1_"(ptr noundef readonly %0, ptr noundef readnone %1, i64 %2, i32 %3, ptr nonnull readonly captures(none) %4, ptr nonnull readonly captures(none) %5) unnamed_addr #2 {
   %7 = alloca %"class.llvm::ArrayRef.152", align 8
   %.not16 = icmp eq ptr %0, %1
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -25654,7 +25654,7 @@ _ZNSt8_Rb_treeIN4llvm11SmallVectorIiLj12EEES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4llvm11SmallVectorIiLj12EEEENS1_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS1_11InstructionEbE3$_7ET0_T_SC_SB_T1_"(ptr readonly %0, ptr readnone captures(address) %1, i64 %2, i32 %3, ptr nonnull readonly captures(none) %4, ptr nonnull readonly captures(none) %5) unnamed_addr #2 {
+define internal fastcc { i64, i32 } @"_ZSt10accumulateISt23_Rb_tree_const_iteratorIN4llvm11SmallVectorIiLj12EEEENS1_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS1_11InstructionEbE3$_7ET0_T_SC_SB_T1_"(ptr readonly %0, ptr readnone %1, i64 %2, i32 %3, ptr nonnull readonly captures(none) %4, ptr nonnull readonly captures(none) %5) unnamed_addr #2 {
   %7 = alloca %"class.llvm::ArrayRef.152", align 8
   %.not17 = icmp eq ptr %0, %1
   br i1 %.not17, label %._crit_edge, label %.lr.ph
@@ -25741,7 +25741,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
 declare void @_ZN4llvm11Instruction25getInsertionPointAfterDefEv(ptr dead_on_unwind writable sret(%"class.std::optional.359") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbENK4$_11clEPS2_j"(ptr %.0.val, ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @"_ZZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbENK4$_11clEPS2_j"(ptr %.0.val, ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 2 {
   %3 = load i8, ptr %0, align 8, !tbaa !182
   %.not = icmp eq i8 %3, 92
   br i1 %.not, label %4, label %32
@@ -26280,7 +26280,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPSt4pairIiiES2_lN9__g
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIiiEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIiiEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3) unnamed_addr #1 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -27941,7 +27941,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPSt4pairIiiES2_lN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIiiEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIiiEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3) unnamed_addr #1 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -30528,7 +30528,7 @@ _ZN4llvm11SmallVectorISt4pairIPNS_3UseEiELj3EEC2EOS5_.exit: ; preds = %_ZN4llvm2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33generateInstLaneVectorFromOperandN4llvm8ArrayRefISt4pairIPNS_3UseEiEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address) %1, i64 %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL33generateInstLaneVectorFromOperandN4llvm8ArrayRefISt4pairIPNS_3UseEiEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %1, i64 %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca %"struct.std::pair.403", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !25
@@ -30725,7 +30725,7 @@ _ZN4llvm8CastInfoINS_13IntrinsicInstEPNS_3UseEvE16doCastIfPossibleERS3_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPSt4pairIPNS_3UseEiEEEZN12_GLOBAL__N_113VectorCombine21foldShuffleToIdentityERNS_11InstructionEE3$_4EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly captures(address) %0) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPSt4pairIPNS_3UseEiEEEZN12_GLOBAL__N_113VectorCombine21foldShuffleToIdentityERNS_11InstructionEE3$_4EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly %0) unnamed_addr #1 {
   %2 = alloca %class.anon.439, align 8
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_negate.454", align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.453", align 8
@@ -31582,7 +31582,7 @@ _ZNK4llvm4User10getOperandEj.exit.i.i79.i.i.i.i:  ; preds = %337, %334
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19generateNewInstTreeN4llvm8ArrayRefISt4pairIPNS_3UseEiEEEPNS_15FixedVectorTypeERKNS_11SmallPtrSetIS3_Lj4EEESB_SB_RNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoE(ptr captures(address) %0, i64 %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL19generateNewInstTreeN4llvm8ArrayRefISt4pairIPNS_3UseEiEEEPNS_15FixedVectorTypeERKNS_11SmallPtrSetIS3_Lj4EEESB_SB_RNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPKNS_19TargetTransformInfoE(ptr %0, i64 %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %7) unnamed_addr #1 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::InsertPosition", align 8
   %11 = alloca %"class.llvm::SmallVector.146", align 8
@@ -32709,7 +32709,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_3UseEiELb1EE18uninitialized_moveIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_113VectorCombine21foldShuffleToIdentityERN4llvm11InstructionEE3$_3EclIPSt4pairIPNS4_3UseEiEEEbT_"(ptr readonly captures(none) %.0.val.0.val.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_113VectorCombine21foldShuffleToIdentityERN4llvm11InstructionEE3$_3EclIPSt4pairIPNS4_3UseEiEEEbT_"(ptr readonly captures(none) %.0.val.0.val.0.val, ptr readonly %.0.val1) unnamed_addr #1 align 2 {
   %.not.i = icmp eq ptr %.0.val1, null
   br i1 %.not.i, label %"_ZZN12_GLOBAL__N_113VectorCombine21foldShuffleToIdentityERN4llvm11InstructionEENK3$_3clESt4pairIPNS1_3UseEiE.exit", label %1
 

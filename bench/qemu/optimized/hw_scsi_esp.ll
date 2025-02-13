@@ -302,7 +302,7 @@ if.end6:                                          ; preds = %trace_esp_dma_enabl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @esp_request_cancelled(ptr noundef readonly captures(address) %req) #0 {
+define dso_local void @esp_request_cancelled(ptr noundef readonly %req) #0 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8

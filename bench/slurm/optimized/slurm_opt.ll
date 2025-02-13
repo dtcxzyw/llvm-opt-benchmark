@@ -1528,7 +1528,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @slurm_option_set_by_cli(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @slurm_option_set_by_cli(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.preheader
 
@@ -1580,7 +1580,7 @@ define zeroext i1 @slurm_option_set_by_cli(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @slurm_option_set_by_data(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @slurm_option_set_by_data(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.preheader
 
@@ -1625,7 +1625,7 @@ define zeroext i1 @slurm_option_set_by_data(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @slurm_option_set_by_env(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @slurm_option_set_by_env(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.preheader
 
@@ -6006,7 +6006,7 @@ _validate_gres_flags.exit:                        ; preds = %1378, %1381, %1383,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
@@ -7173,7 +7173,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @suggest_completion(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -13107,7 +13107,7 @@ define internal void @arg_reset_network(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_nice(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_nice(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -14259,7 +14259,7 @@ define internal void @arg_reset_ntasks_per_tres(ptr noundef nonnull writeonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_open_mode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_open_mode(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 

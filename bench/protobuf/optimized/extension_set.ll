@@ -1693,7 +1693,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefInt32EiRKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefInt32EiRKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -1955,7 +1955,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefInt64EiRKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefInt64EiRKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -2204,7 +2204,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefUInt32EiRKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefUInt32EiRKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -2453,7 +2453,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefUInt64EiRKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefUInt64EiRKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -2702,7 +2702,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefFloatEiRKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefFloatEiRKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -2951,7 +2951,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefDoubleEiRKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefDoubleEiRKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -3201,7 +3201,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetRefBoolEiRKb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 1 captures(ret: address, provenance) dereferenceable(1) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetRefBoolEiRKb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 1 dereferenceable(1) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -3432,7 +3432,7 @@ _ZN6google8protobuf13RepeatedFieldIbE3AddEb.exit: ; preds = %if.end, %if.then.i8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet19GetRawRepeatedFieldEiPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef readnone captures(ret: address, provenance) %default_value) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet19GetRawRepeatedFieldEiPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef readnone %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -3729,7 +3729,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetRefEnumEiRKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetRefEnumEiRKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -3956,7 +3956,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit: ; preds = %if.end, %if.then.i8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet9GetStringEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %default_value) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet9GetStringEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 dereferenceable(32) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp = icmp eq ptr %call, null
@@ -7502,7 +7502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal12ExtensionSet13SwapExtensionEPKNS0_11MessageLiteEPS2_i(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %this, ptr noundef %extendee, ptr noundef captures(address) %other, i32 noundef %number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal12ExtensionSet13SwapExtensionEPKNS0_11MessageLiteEPS2_i(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %extendee, ptr noundef %other, i32 noundef %number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key.addr.i42 = alloca i32, align 4
   %key.addr.i = alloca i32, align 4
@@ -7734,7 +7734,7 @@ if.end31:                                         ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal12ExtensionSet26UnsafeShallowSwapExtensionEPS2_i(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %this, ptr noundef captures(address) %other, i32 noundef %number) local_unnamed_addr #5 align 2 {
+define void @_ZN6google8protobuf8internal12ExtensionSet26UnsafeShallowSwapExtensionEPS2_i(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %other, i32 noundef %number) local_unnamed_addr #5 align 2 {
 entry:
   %key.addr.i17 = alloca i32, align 4
   %key.addr.i = alloca i32, align 4

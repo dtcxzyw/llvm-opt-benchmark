@@ -20338,7 +20338,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %1, %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ27test_submodule_async_moduleRNS_7module_EE19DoesNotSupportAsyncJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ27test_submodule_async_moduleRNS_7module_EE19DoesNotSupportAsyncJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ27test_submodule_async_moduleRN8pybind117module_EE19DoesNotSupportAsync, ptr %4, align 8
@@ -26514,7 +26514,7 @@ _ZNSt5arrayIN8pybind116objectELm1EED2Ev.exit:     ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ27test_submodule_async_moduleRNS_7module_EE13SupportsAsyncJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ27test_submodule_async_moduleRNS_7module_EE13SupportsAsyncJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ27test_submodule_async_moduleRN8pybind117module_EE13SupportsAsync, ptr %4, align 8
@@ -26964,7 +26964,7 @@ _ZN8pybind116detail15pyobject_casterINS_6objectEE4castERKNS_6handleENS_19return_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKZ27test_submodule_async_moduleRNS_7module_EE13SupportsAsyncEE4callINS_6objectENS0_9void_typeERZ27test_submodule_async_moduleS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readnone captures(address_is_null) %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKZ27test_submodule_async_moduleRNS_7module_EE13SupportsAsyncEE4callINS_6objectENS0_9void_typeERZ27test_submodule_async_moduleS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readnone %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::object", align 8
   %3 = alloca %"class.pybind11::detail::accessor.202", align 8
   %4 = alloca %"class.pybind11::module_", align 8

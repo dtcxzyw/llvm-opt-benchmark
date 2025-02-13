@@ -3282,7 +3282,7 @@ return:                                           ; preds = %entry, %for.end53, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -2147483648, 2147483648) i64 @OBJ_length(ptr noundef readonly captures(address_is_null) %obj) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @OBJ_length(ptr noundef readonly %obj) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %obj, null
   br i1 %cmp, label %return, label %if.end
@@ -3299,7 +3299,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OBJ_get0_data(ptr noundef readonly captures(address_is_null) %obj) local_unnamed_addr #5 {
+define ptr @OBJ_get0_data(ptr noundef readonly %obj) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %obj, null
   br i1 %cmp, label %return, label %if.end

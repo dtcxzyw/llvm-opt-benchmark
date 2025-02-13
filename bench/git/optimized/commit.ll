@@ -397,7 +397,7 @@ free_commit_list.exit:                            ; preds = %free_commit_list.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_commit_list(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @free_commit_list(ptr noundef %0) local_unnamed_addr #0 {
   %.not2 = icmp eq ptr %0, null
   br i1 %.not2, label %._crit_edge, label %pop_commit.exit
 
@@ -995,7 +995,7 @@ buffer_slab_at.exit:                              ; preds = %26, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @get_cached_commit_buffer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
+define dso_local ptr @get_cached_commit_buffer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -1052,7 +1052,7 @@ buffer_slab_peek.exit.thread:                     ; preds = %._crit_edge4.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1155,7 +1155,7 @@ declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @type_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @repo_unuse_commit_buffer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #9 {
+define dso_local void @repo_unuse_commit_buffer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -1356,7 +1356,7 @@ free_commit_list.exit:                            ; preds = %pop_commit.exit.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @detach_commit_buffer(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #11 {
+define dso_local ptr @detach_commit_buffer(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !12
@@ -2158,7 +2158,7 @@ define dso_local noundef i64 @commit_subject_length(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @commit_list_contains(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @commit_list_contains(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #14 {
   %.not5 = icmp eq ptr %1, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -2180,7 +2180,7 @@ define dso_local range(i32 0, 2) i32 @commit_list_contains(ptr noundef readnone 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @commit_list_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
+define dso_local i32 @commit_list_count(ptr noundef readonly %0) local_unnamed_addr #14 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -2199,7 +2199,7 @@ define dso_local i32 @commit_list_count(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @copy_commit_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @copy_commit_list(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !90
@@ -3928,7 +3928,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #19
 declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @add_header_signature(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @add_header_signature(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %6, %3
@@ -4036,7 +4036,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 declare void @strbuf_insert(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @parse_signed_commit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @parse_signed_commit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   %6 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -4087,7 +4087,7 @@ repo_unuse_commit_buffer.exit:                    ; preds = %buffer_slab_peek.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @parse_buffer_signed_by_header(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @parse_buffer_signed_by_header(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %8, %5
@@ -4539,7 +4539,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare void @signature_check_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @append_merge_tag_headers(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define dso_local void @append_merge_tag_headers(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.strbuf, align 8
@@ -4668,7 +4668,7 @@ handle_signed_tag.exit:                           ; preds = %merge_remote_util.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @read_commit_extra_headers(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @read_commit_extra_headers(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.strbuf, align 8
   %5 = alloca i64, align 8
@@ -4944,7 +4944,7 @@ free_commit_extra_headers.exit:                   ; preds = %.lr.ph.i, %3
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_commit_extra_headers(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @free_commit_extra_headers(ptr noundef %0) local_unnamed_addr #0 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -4966,7 +4966,7 @@ define dso_local void @free_commit_extra_headers(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @commit_tree(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local i32 @commit_tree(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
@@ -5000,7 +5000,7 @@ free_commit_extra_headers.exit:                   ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @commit_tree_extended(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define dso_local i32 @commit_tree_extended(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca %struct.strbuf, align 8
   %12 = alloca %struct.strbuf, align 8
@@ -5419,7 +5419,7 @@ declare void @assert_oid_type(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_commit_tree(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc void @write_commit_tree(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load ptr, ptr @git_commit_encoding, align 8, !tbaa !54
   %11 = tail call i32 @is_encoding_utf8(ptr noundef %10) #24
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 8192) #24

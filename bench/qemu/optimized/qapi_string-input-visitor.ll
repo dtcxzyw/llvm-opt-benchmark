@@ -653,7 +653,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @end_list(ptr noundef captures(none) %v, ptr noundef readnone captures(address) %obj) #0 {
+define internal void @end_list(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
 entry:
   %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8

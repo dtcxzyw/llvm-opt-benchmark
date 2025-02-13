@@ -1857,7 +1857,7 @@ define internal void @"_ZN4core3ptr79drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !15, !nonnull !15
@@ -1923,7 +1923,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !15, !nonnull !15
@@ -1989,7 +1989,7 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !15, !nonnull !15
@@ -6233,7 +6233,7 @@ define internal fastcc void @_ZN6rustls6crypto5tls123prf17he003f0eb50b4c681E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6rustls6crypto5tls1321HkdfExpanderUsingHmac16expand_unchecked17hac8454775de264b2E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull writeonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6rustls6crypto5tls1321HkdfExpanderUsingHmac16expand_unchecked17hac8454775de264b2E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull writeonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca [1 x i8], align 1
   %7 = alloca { [64 x i8], i64 }, align 8
@@ -7360,7 +7360,7 @@ define void @_ZN6rustls6client11client_conn10connection16ClientConnection3new17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(1008) ptr @_ZN6rustls6client11client_conn10connection16ClientConnection10early_data17h86aa97e7ac924e9eE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(1008) %0) unnamed_addr #14 {
+define noundef align 8 dereferenceable_or_null(1008) ptr @_ZN6rustls6client11client_conn10connection16ClientConnection10early_data17h86aa97e7ac924e9eE(ptr noalias noundef readonly align 8 dereferenceable(1008) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %3 = load i8, ptr %2, align 8, !range !1628, !alias.scope !1654, !noundef !15
   %.off.i = add nsw i8 %3, -1
@@ -7389,17 +7389,17 @@ define void @_ZN6rustls6client11client_conn10connection16ClientConnection25dange
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN101_$LT$rustls..client..client_conn..connection..ClientConnection$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5a470ecb00502ca6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(1008) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN101_$LT$rustls..client..client_conn..connection..ClientConnection$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5a470ecb00502ca6E"(ptr noalias noundef readonly returned align 8 dereferenceable(1008) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN104_$LT$rustls..client..client_conn..connection..ClientConnection$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb2fd93191527abc3E"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(1008) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN104_$LT$rustls..client..client_conn..connection..ClientConnection$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hb2fd93191527abc3E"(ptr noalias noundef readnone returned align 8 dereferenceable(1008) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(1008) ptr @"_ZN168_$LT$$RF$mut$u20$rustls..client..client_conn..connection..ClientConnection$u20$as$u20$core..convert..TryFrom$LT$$RF$mut$u20$rustls..conn..connection..Connection$GT$$GT$8try_from17hcdce2212cacc458dE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(1096) %0) unnamed_addr #14 {
+define noundef align 8 dereferenceable_or_null(1008) ptr @"_ZN168_$LT$$RF$mut$u20$rustls..client..client_conn..connection..ClientConnection$u20$as$u20$core..convert..TryFrom$LT$$RF$mut$u20$rustls..conn..connection..Connection$GT$$GT$8try_from17hcdce2212cacc458dE"(ptr noalias noundef readonly align 8 dereferenceable(1096) %0) unnamed_addr #14 {
   %2 = load i64, ptr %0, align 8, !range !1653, !noundef !15
   %3 = icmp eq i64 %2, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7483,7 +7483,7 @@ define hidden void @_ZN6rustls6client6common18ClientHelloDetails3new17h8d8b0c31a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @_ZN6rustls6client6common18ClientHelloDetails34server_sent_unsolicited_extensions17h6d7f9b1b33054cebE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @_ZN6rustls6client6common18ClientHelloDetails34server_sent_unsolicited_extensions17h6d7f9b1b33054cebE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, ptr }, align 8
   %7 = alloca { ptr, ptr }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8

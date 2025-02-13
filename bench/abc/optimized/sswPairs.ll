@@ -1277,7 +1277,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_FreeTempClasses(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Ssw_FreeTempClasses(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 

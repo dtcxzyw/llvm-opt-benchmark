@@ -2245,7 +2245,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17AutoTuneCriterion15set_groundtruthEiPKfPKl(ptr noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17AutoTuneCriterion15set_groundtruthEiPKfPKl(ptr noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %5, ptr %6, align 8

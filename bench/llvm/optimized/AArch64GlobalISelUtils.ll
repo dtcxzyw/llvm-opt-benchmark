@@ -165,7 +165,7 @@ define dso_local { i64, i8 } @_ZN4llvm17AArch64GISelUtils27getAArch64VectorSplat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils5isCMNEPKNS_12MachineInstrERKNS_7CmpInst9PredicateERKNS_19MachineRegisterInfoE(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(504) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils5isCMNEPKNS_12MachineInstrERKNS_7CmpInst9PredicateERKNS_19MachineRegisterInfoE(ptr noundef readonly %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(504) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.std::optional.52", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %5

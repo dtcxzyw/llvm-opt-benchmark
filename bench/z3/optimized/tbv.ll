@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK11tbv_manager5fill1ER3tbv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %this, ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(4) %bv) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK11tbv_manager5fill1ER3tbv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %this, ptr noundef nonnull returned writeonly align 4 dereferenceable(4) %bv) local_unnamed_addr #6 align 2 {
 entry:
   %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK11tbv_manager5fill0ER3tbv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %this, ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(4) %bv) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK11tbv_manager5fill0ER3tbv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %this, ptr noundef nonnull returned writeonly align 4 dereferenceable(4) %bv) local_unnamed_addr #6 align 2 {
 entry:
   %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4

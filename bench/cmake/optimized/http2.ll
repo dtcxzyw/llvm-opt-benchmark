@@ -176,7 +176,7 @@ declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_un
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @curl_pushheader_bynum(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local ptr @curl_pushheader_bynum(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 
@@ -215,7 +215,7 @@ define dso_local ptr @curl_pushheader_bynum(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @curl_pushheader_byname(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define dso_local ptr @curl_pushheader_byname(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2668,7 +2668,7 @@ define internal i32 @cf_h2_query(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %cf_is_http2.exit, label %4
 
@@ -2705,7 +2705,7 @@ cf_is_http2.exit:                                 ; preds = %15, %11, %.lr.ph.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @Curl_http2_may_switch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @Curl_http2_may_switch(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.loopexit, label %4
 
@@ -5980,7 +5980,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
 declare void @nghttp2_session_callbacks_set_error_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @error_callback(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal noundef i32 @error_callback(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %5
 
@@ -5999,7 +5999,7 @@ define internal noundef i32 @error_callback(ptr readnone captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -6939,7 +6939,7 @@ define internal fastcc range(i32 -1, 1) i32 @h2_process_pending_input(ptr nounde
 declare i64 @Curl_bufq_sipn(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @nw_in_reader(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i64 @nw_in_reader(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %5
 

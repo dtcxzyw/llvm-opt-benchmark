@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_Z27tsi_local_handshaker_createPP14tsi_handshaker(ptr noundef writeonly captures(address_is_null) %self) local_unnamed_addr #3 {
+define noundef range(i32 0, 3) i32 @_Z27tsi_local_handshaker_createPP14tsi_handshaker(ptr noundef writeonly %self) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   br i1 %cmp, label %if.then, label %if.end
@@ -65,7 +65,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_115handshaker_nextEP14tsi_handshakerPKhmPS3_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS3_mS7_ESA_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readnone captures(address_is_null) %self, ptr noundef readonly captures(none) %received_bytes, i64 noundef %received_bytes_size, ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %bytes_to_send_size, ptr noundef writeonly captures(address_is_null) %result, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %error) #3 {
+define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_115handshaker_nextEP14tsi_handshakerPKhmPS3_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS3_mS7_ESA_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readnone %self, ptr noundef readonly captures(none) %received_bytes, i64 noundef %received_bytes_size, ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %bytes_to_send_size, ptr noundef writeonly %result, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %error) #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_134handshaker_result_get_unused_bytesEPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly captures(address_is_null) %self, ptr noundef writeonly captures(address_is_null) %bytes, ptr noundef writeonly captures(address_is_null) %bytes_size) #3 {
+define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_134handshaker_result_get_unused_bytesEPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly %self, ptr noundef writeonly %bytes, ptr noundef writeonly %bytes_size) #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %bytes, null

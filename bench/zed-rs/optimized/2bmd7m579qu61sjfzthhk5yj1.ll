@@ -1856,7 +1856,7 @@ define hidden { i64, i64 } @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h102d54efab3502dfE"(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) initializes((0, 8)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h102d54efab3502dfE"(ptr noundef nonnull returned writeonly align 8 initializes((0, 8)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 
@@ -3980,7 +3980,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_sl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h837da5666b287cf9E.llvm.10088771689186574392"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h837da5666b287cf9E.llvm.10088771689186574392"(ptr noalias noundef returned align 8 dereferenceable(160) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [160 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !640, !noundef !4
   %4 = icmp eq i64 %3, 3
@@ -18002,13 +18002,13 @@ define void @_ZN2ui10components7tab_bar6TabBar12track_scroll17hf58363095000469eE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN2ui10components7tab_bar6TabBar18start_children_mut17hd8ca79c285d3e655E(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(208) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN2ui10components7tab_bar6TabBar18start_children_mut17hd8ca79c285d3e655E(ptr noalias noundef readnone align 8 dereferenceable(208) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN2ui10components7tab_bar6TabBar16end_children_mut17h168da40b1a31274aE(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(208) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN2ui10components7tab_bar6TabBar16end_children_mut17h168da40b1a31274aE(ptr noalias noundef readnone align 8 dereferenceable(208) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   ret ptr %2
 }

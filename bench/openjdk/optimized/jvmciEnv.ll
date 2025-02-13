@@ -1050,7 +1050,7 @@ define hidden void @_ZN8JVMCIEnv4initEP10JavaThreadbPKci(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8JVMCIEnv10check_initEPS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8JVMCIEnv10check_initEPS_(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.stringStream, align 8
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %4, label %6
@@ -1474,7 +1474,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %68, %70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8JVMCIEnv27pending_exception_as_stringEPPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8JVMCIEnv27pending_exception_as_stringEPPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JNIAccessMark, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   %6 = alloca %class.JavaValue, align 8

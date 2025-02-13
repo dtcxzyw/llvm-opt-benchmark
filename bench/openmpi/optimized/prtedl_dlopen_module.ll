@@ -158,7 +158,7 @@ define internal i32 @dlopen_close(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @dlopen_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal range(i32 -1, 1) i32 @dlopen_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #7
   store ptr %6, ptr %2, align 8

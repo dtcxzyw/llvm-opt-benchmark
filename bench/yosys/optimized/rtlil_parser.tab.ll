@@ -7363,7 +7363,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1012: ; preds =
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPhS_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #6 {
+define internal fastcc void @_ZL14yy_stack_printPhS_(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #6 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 9, i64 1, ptr %3) #27
   %.not4 = icmp ugt ptr %0, %1

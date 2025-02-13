@@ -102,7 +102,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @dt_iop_color_picker_reset(ptr noundef writeonly captures(address) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @dt_iop_color_picker_reset(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !48
@@ -149,7 +149,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare ptr @gtk_widget_get_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_color_picker_reset(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #2 {
+define internal fastcc void @_color_picker_reset(ptr noundef readonly %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %2
 
@@ -205,7 +205,7 @@ DTGTK_IS_TOGGLEBUTTON.exit.thread:                ; preds = %2, %DTGTK_IS_TOGGLE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @dt_iop_color_picker_set_cst(ptr noundef readnone captures(address) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @dt_iop_color_picker_set_cst(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !48
@@ -240,7 +240,7 @@ define void @dt_iop_color_picker_set_cst(ptr noundef readnone captures(address) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @dt_iop_color_picker_get_active_cst(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define i32 @dt_iop_color_picker_get_active_cst(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !48
@@ -806,7 +806,7 @@ declare void @dt_gui_add_class(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #2 {
+define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #2 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = load ptr, ptr %2, align 8, !tbaa !98

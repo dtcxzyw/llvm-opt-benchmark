@@ -5790,7 +5790,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr noundef captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly captures(address_is_null) %.16.val, ptr readonly captures(none) %.24.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly %.16.val, ptr readonly captures(none) %.24.val, ptr noundef %0) unnamed_addr #0 {
   %2 = icmp eq ptr %.16.val, null
   br i1 %2, label %6, label %3
 

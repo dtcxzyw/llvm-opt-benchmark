@@ -629,7 +629,7 @@ zend_generator_restore_call_stack.exit:           ; preds = %59
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_generator_check_placeholder_frame(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @zend_generator_check_placeholder_frame(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

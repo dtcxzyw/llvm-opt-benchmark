@@ -1270,7 +1270,7 @@ declare dso_local ptr @bpf_prog_alloc(i32 noundef, i32 noundef) local_unnamed_ad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((48, 56)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((48, 56)) %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
@@ -1678,7 +1678,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @bpf_prog_create_from_user(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local i32 @bpf_prog_create_from_user(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = load i16, ptr %1, align 8
   %6 = zext i16 %5 to i64
   %7 = shl nuw nsw i64 %6, 3
@@ -9016,7 +9016,7 @@ define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect_frame(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect_frame(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #0 align 16 {
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !111
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -13436,7 +13436,7 @@ define dso_local range(i64 -13, 1) i64 @bpf_tcp_raw_check_syncookie_ipv6(i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local zeroext i1 @bpf_helper_changes_pkt_data(ptr noundef readnone captures(address) %0) local_unnamed_addr #10 align 16 {
+define dso_local zeroext i1 @bpf_helper_changes_pkt_data(ptr noundef readnone %0) local_unnamed_addr #10 align 16 {
   %2 = icmp eq ptr %0, @bpf_skb_vlan_push
   %3 = icmp eq ptr %0, @bpf_skb_vlan_pop
   %4 = or i1 %2, %3
@@ -28723,7 +28723,7 @@ define internal fastcc noundef zeroext i1 @bpf_skb_is_valid_access(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef ptr @bpf_convert_tstamp_write(i16 %.2.val, ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) unnamed_addr #15 align 16 {
+define internal fastcc noundef ptr @bpf_convert_tstamp_write(i16 %.2.val, ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) unnamed_addr #15 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = and i16 %.2.val, 8192
@@ -28796,7 +28796,7 @@ define internal fastcc noundef ptr @bpf_convert_tstamp_write(i16 %.2.val, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal fastcc noundef ptr @bpf_convert_tstamp_read(i16 %.2.val, i8 %.1.val, ptr noundef writeonly captures(ret: address, provenance) %0) unnamed_addr #18 align 16 {
+define internal fastcc noundef ptr @bpf_convert_tstamp_read(i16 %.2.val, i8 %.1.val, ptr noundef writeonly %0) unnamed_addr #18 align 16 {
   %2 = and i16 %.2.val, 8192
   %3 = icmp eq i16 %2, 0
   br i1 %3, label %4, label %28
@@ -28861,7 +28861,7 @@ define internal fastcc noundef ptr @bpf_convert_tstamp_read(i16 %.2.val, i8 %.1.
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal fastcc noundef ptr @bpf_convert_tstamp_type_read(i8 %.1.val, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 40)) %0) unnamed_addr #18 align 16 {
+define internal fastcc noundef ptr @bpf_convert_tstamp_type_read(i8 %.1.val, ptr noundef writeonly initializes((0, 40)) %0) unnamed_addr #18 align 16 {
   %2 = and i8 %.1.val, 15
   %3 = and i8 %.1.val, -16
   %4 = getelementptr i8, ptr %0, i64 8

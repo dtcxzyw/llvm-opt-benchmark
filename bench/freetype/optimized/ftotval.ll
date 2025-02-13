@@ -42,7 +42,7 @@ define i32 @FT_OpenType_Validate(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 declare hidden ptr @ft_module_get_service(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @FT_OpenType_Free(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @FT_OpenType_Free(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

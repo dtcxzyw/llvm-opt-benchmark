@@ -1493,7 +1493,7 @@ recv_fully.exit67:                                ; preds = %115, %recv_fully.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 203) i32 @socketTransport_writePacket(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal range(i32 0, 203) i32 @socketTransport_writePacket(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = alloca [1011 x i8], align 16
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %18
@@ -1732,7 +1732,7 @@ define internal range(i32 0, 205) i32 @socketTransport_getLastError(ptr readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = alloca %struct.in_addr, align 4
   %4 = alloca %struct.in6_addr, align 4
   %5 = icmp eq ptr %1, null

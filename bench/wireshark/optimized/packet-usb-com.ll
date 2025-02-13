@@ -981,7 +981,7 @@ proto_item_set_generated.exit117:                 ; preds = %55, %52, %47, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usb_com_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
+define internal i32 @dissect_usb_com_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

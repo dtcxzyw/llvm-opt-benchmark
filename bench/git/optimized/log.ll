@@ -5691,7 +5691,7 @@ stop_progress.exit:                               ; preds = %._crit_edge383, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @numbered_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @numbered_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !168
   %.not = icmp eq ptr %1, null
@@ -5720,7 +5720,7 @@ define internal noundef i32 @numbered_callback(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @no_numbered_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @no_numbered_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -5819,7 +5819,7 @@ define internal noundef i32 @output_directory_callback(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @keep_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @keep_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !168
   %.not = icmp eq i32 %2, 0
@@ -5966,7 +5966,7 @@ define internal noundef i32 @inline_callback(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @thread_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #9 {
+define internal range(i32 0, 2) i32 @thread_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !168
   %.not = icmp eq i32 %2, 0
@@ -7475,7 +7475,7 @@ declare void @init_diffstat_widths(ptr noundef) local_unnamed_addr #2
 declare void @parse_date_format(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @clear_decorations_callback(ptr readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @clear_decorations_callback(ptr readnone captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 

@@ -178,7 +178,7 @@ sa_doall.exit:                                    ; preds = %if.end36.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_sa_doall(ptr noundef readonly captures(address_is_null) %sa, ptr noundef readonly captures(none) %leaf) local_unnamed_addr #0 {
+define void @ossl_sa_doall(ptr noundef readonly %sa, ptr noundef readonly captures(none) %leaf) local_unnamed_addr #0 {
 entry:
   %i.i = alloca [16 x i32], align 16
   %nodes.i = alloca [16 x ptr], align 16
@@ -261,7 +261,7 @@ if.end:                                           ; preds = %sa_doall.exit, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %sa, ptr noundef readonly captures(address_is_null) %leaf, ptr noundef %arg) local_unnamed_addr #0 {
+define void @ossl_sa_doall_arg(ptr noundef readonly %sa, ptr noundef readonly %leaf, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %i.i = alloca [16 x i32], align 16
   %nodes.i = alloca [16 x ptr], align 16
@@ -392,7 +392,7 @@ if.end:                                           ; preds = %sa_doall.exit, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_sa_num(ptr noundef readonly captures(address_is_null) %sa) local_unnamed_addr #2 {
+define i64 @ossl_sa_num(ptr noundef readonly %sa) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %sa, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -408,7 +408,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_sa_get(ptr noundef readonly captures(address_is_null) %sa, i64 noundef %n) local_unnamed_addr #3 {
+define ptr @ossl_sa_get(ptr noundef readonly %sa, i64 noundef %n) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %sa, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -469,7 +469,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %sa, i64 noundef %posn, ptr noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef %sa, i64 noundef %posn, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sa, null
   br i1 %cmp, label %return, label %for.cond.preheader

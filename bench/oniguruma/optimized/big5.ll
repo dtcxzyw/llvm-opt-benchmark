@@ -83,7 +83,7 @@ define internal i32 @big5_is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 declare i32 @onigenc_not_support_get_ctype_code_range(i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @big5_left_adjust_char_head(ptr noundef readnone captures(address) %0, ptr noundef %1) #2 {
+define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr noundef %1) #2 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %3, label %25
 
@@ -141,7 +141,7 @@ define internal range(i32 0, 2) i32 @big5_is_allowed_reverse_match(ptr noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #4 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #4 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 

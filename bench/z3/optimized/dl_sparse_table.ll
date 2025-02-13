@@ -6758,7 +6758,7 @@ return:                                           ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_ZN7datalog19sparse_table_plugin11mk_union_fnERKNS_10table_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %tgt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %src, ptr noundef readonly captures(address_is_null) %delta) unnamed_addr #3 align 2 {
+define hidden noalias noundef ptr @_ZN7datalog19sparse_table_plugin11mk_union_fnERKNS_10table_baseES3_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %tgt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %src, ptr noundef readonly %delta) unnamed_addr #3 align 2 {
 entry:
   %m_kind.i = getelementptr inbounds nuw i8, ptr %tgt, i64 32
   %0 = load i32, ptr %m_kind.i, align 8
@@ -7411,7 +7411,7 @@ _ZN8uint_setD2Ev.exit:                            ; preds = %for.end18, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog19sparse_table_plugin24mk_filter_by_negation_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(36) %negated_obj, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog19sparse_table_plugin24mk_filter_by_negation_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(36) %negated_obj, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
@@ -7559,7 +7559,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog19sparse_table_plugin28mk_filter_by_negated_join_fnERKNS_10table_baseES3_S3_RK7svectorIjjES7_S7_S7_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(36) %src1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %src2, ptr noundef nonnull align 8 dereferenceable(8) %t_cols, ptr noundef nonnull align 8 dereferenceable(8) %src_cols, ptr noundef nonnull align 8 dereferenceable(8) %src1_cols, ptr noundef nonnull align 8 dereferenceable(8) %src2_cols) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog19sparse_table_plugin28mk_filter_by_negated_join_fnERKNS_10table_baseES3_S3_RK7svectorIjjES7_S7_S7_(ptr noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(36) %src1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %src2, ptr noundef nonnull align 8 dereferenceable(8) %t_cols, ptr noundef nonnull align 8 dereferenceable(8) %src_cols, ptr noundef nonnull align 8 dereferenceable(8) %src1_cols, ptr noundef nonnull align 8 dereferenceable(8) %src2_cols) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8

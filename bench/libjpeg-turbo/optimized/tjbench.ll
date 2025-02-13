@@ -4819,7 +4819,7 @@ declare i32 @tj3SetScalingFactor(ptr noundef, i64) local_unnamed_addr #1
 declare i32 @tj3SetCroppingRegion(ptr noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(ret: address, provenance) %2) unnamed_addr #13 {
+define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly %2) unnamed_addr #13 {
   %4 = load i32, ptr @quiet, align 4
   %5 = icmp eq i32 %4, 1
   %6 = load i32, ptr @lossless, align 4
@@ -4890,7 +4890,7 @@ declare i32 @tj3Transform(ptr noundef, ptr noundef, i64 noundef, i32 noundef, pt
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef nonnull ptr @sigfig(double noundef %0, ptr noundef nonnull returned writeonly captures(ret: address, provenance) %1, i32 noundef range(i32 80, 1025) %2) unnamed_addr #13 {
+define internal fastcc noundef nonnull ptr @sigfig(double noundef %0, ptr noundef nonnull returned writeonly %1, i32 noundef range(i32 80, 1025) %2) unnamed_addr #13 {
   %4 = alloca [80 x i8], align 16
   %5 = tail call double @llvm.fabs.f64(double %0)
   %6 = tail call double @log10(double noundef %5) #21

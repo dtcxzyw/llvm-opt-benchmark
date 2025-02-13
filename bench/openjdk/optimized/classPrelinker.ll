@@ -925,7 +925,7 @@ declare noundef i32 @_ZN12ConstantPool18cp_to_object_indexEi(ptr noundef nonnull
 declare noundef ptr @_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ClassPrelinker27preresolve_class_cp_entriesEP10JavaThreadP13InstanceKlassP13GrowableArrayIbE(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ClassPrelinker27preresolve_class_cp_entriesEP10JavaThreadP13InstanceKlassP13GrowableArrayIbE(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = alloca %class.constantPoolHandle, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -1122,7 +1122,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_131ELS1_0ELS1
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ClassPrelinker38preresolve_field_and_method_cp_entriesEP10JavaThreadP13InstanceKlassP13GrowableArrayIbE(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ClassPrelinker38preresolve_field_and_method_cp_entriesEP10JavaThreadP13InstanceKlassP13GrowableArrayIbE(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = alloca %class.BytecodeStream, align 8
   %6 = alloca %class.methodHandle, align 8
@@ -1459,7 +1459,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit35:      ; preds = %146, %154
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ClassPrelinker21maybe_resolve_fmi_refEP13InstanceKlassP6MethodN9Bytecodes4CodeEiP13GrowableArrayIbEP10JavaThread(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ClassPrelinker21maybe_resolve_fmi_refEP13InstanceKlassP6MethodN9Bytecodes4CodeEiP13GrowableArrayIbEP10JavaThread(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.constantPoolHandle, align 8
   %9 = alloca %class.HandleMark, align 8

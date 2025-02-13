@@ -549,7 +549,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = tail call ptr @handshake_req_private(ptr noundef %0) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %5, align 8

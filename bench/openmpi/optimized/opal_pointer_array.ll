@@ -106,7 +106,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %9
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define range(i32 -5, 1) i32 @opal_pointer_array_init(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -5, 1) i32 @opal_pointer_array_init(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %2, %3
   %or.cond = or i1 %5, %6

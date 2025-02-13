@@ -191,7 +191,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN68_$LT$data_types..columns..ColumnType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5cb2cc95f09eead7E.28" = private unnamed_addr constant [7 x ptr] [ptr @anon.056ccb3cd25ac1948620d8c35e371b0c.122, ptr @anon.056ccb3cd25ac1948620d8c35e371b0c.123, ptr @anon.056ccb3cd25ac1948620d8c35e371b0c.124, ptr @anon.056ccb3cd25ac1948620d8c35e371b0c.125, ptr @anon.056ccb3cd25ac1948620d8c35e371b0c.56, ptr @anon.056ccb3cd25ac1948620d8c35e371b0c.66, ptr @anon.056ccb3cd25ac1948620d8c35e371b0c.126], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 8 ptr @"_ZN15futures_channel4lock13Lock$LT$T$GT$8try_lock17h0b406318a637ebeeE"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0) unnamed_addr #0 {
+define hidden noundef align 8 ptr @"_ZN15futures_channel4lock13Lock$LT$T$GT$8try_lock17h0b406318a637ebeeE"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = atomicrmw xchg ptr %2, i8 1 seq_cst, align 1
   %4 = icmp eq i8 %3, 0

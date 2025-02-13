@@ -519,7 +519,7 @@ arkStep_AccessStepMem.exit.thread:                ; preds = %16, %11, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @arkStep_DisableLSetup(ptr noundef readonly captures(address_is_null) %0) #4 {
+define void @arkStep_DisableLSetup(ptr noundef readonly %0) #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -539,7 +539,7 @@ define void @arkStep_DisableLSetup(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @arkStep_DisableMSetup(ptr noundef readonly captures(address_is_null) %0) #4 {
+define void @arkStep_DisableMSetup(ptr noundef readonly %0) #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

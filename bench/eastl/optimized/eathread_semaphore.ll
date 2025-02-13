@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly captures(address_is_null) %pSemaphoreParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %pSemaphoreParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mnCount.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %mnCount.i, i32 0 seq_cst, align 4
@@ -146,7 +146,7 @@ if.end:                                           ; preds = %if.else.i28, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread9Semaphore4InitEPKNS0_19SemaphoreParametersE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly captures(address_is_null) %pSemaphoreParameters) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread9Semaphore4InitEPKNS0_19SemaphoreParametersE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %pSemaphoreParameters) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %pSemaphoreParameters, null
   br i1 %tobool.not, label %return, label %if.then

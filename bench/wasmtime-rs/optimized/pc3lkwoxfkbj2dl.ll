@@ -2319,7 +2319,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17hcb9066415bfbd13eE(ptr al
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE"(ptr readonly align 8 captures(none) %0, ptr align 8 captures(address_is_null) %1, ptr align 8 captures(address_is_null) %2, ptr align 8 captures(address_is_null) %3) unnamed_addr #1 {
+define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
@@ -2488,7 +2488,7 @@ define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E"(ptr readonly align 8 captures(none) %0, ptr align 8 captures(address_is_null) %1, ptr align 8 captures(address_is_null) %2, ptr align 8 captures(address_is_null) %3) unnamed_addr #1 {
+define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
@@ -2691,7 +2691,7 @@ define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E"(ptr readonly align 8 captures(none) %0, ptr align 8 captures(address_is_null) %1, ptr align 8 captures(address_is_null) %2, ptr align 8 captures(address_is_null) %3) unnamed_addr #1 {
+define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
@@ -2792,7 +2792,7 @@ define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE"(ptr readonly align 8 captures(none) %0, ptr align 8 captures(address_is_null) %1, ptr align 8 captures(address_is_null) %2, ptr align 8 captures(address_is_null) %3) unnamed_addr #1 {
+define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
@@ -2893,7 +2893,7 @@ define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE"(ptr readonly align 8 captures(none) %0, ptr align 8 captures(address_is_null) %1, ptr align 8 captures(address_is_null) %2, ptr align 8 captures(address_is_null) %3) unnamed_addr #1 {
+define void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)

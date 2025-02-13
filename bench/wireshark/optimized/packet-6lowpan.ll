@@ -480,7 +480,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.300 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.lowpan_context_key, align 2
   %7 = alloca ptr, align 8
   %8 = zext i8 %2 to i64

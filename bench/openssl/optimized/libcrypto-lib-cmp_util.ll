@@ -234,7 +234,7 @@ cond.end31:                                       ; preds = %switch.lookup, %con
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_CMP_print_errors_cb(ptr noundef readonly captures(address_is_null) %log_fn) local_unnamed_addr #1 {
+define void @OSSL_CMP_print_errors_cb(ptr noundef readonly %log_fn) local_unnamed_addr #1 {
 entry:
   %msg = alloca [4096 x i8], align 16
   %file = alloca ptr, align 8
@@ -484,7 +484,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ASN1_UTF8STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef captures(address_is_null) %tgt, ptr noundef %src) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef %tgt, ptr noundef %src) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %tgt, null
   br i1 %cmp, label %if.then, label %if.end
@@ -530,7 +530,7 @@ declare ptr @ASN1_OCTET_STRING_dup(ptr noundef) local_unnamed_addr #2
 declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1_bytes(ptr noundef captures(address_is_null) %tgt, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1_bytes(ptr noundef %tgt, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %tgt, null
   br i1 %cmp, label %if.then, label %if.end

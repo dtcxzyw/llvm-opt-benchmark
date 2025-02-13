@@ -5354,7 +5354,7 @@ if.end26:                                         ; preds = %land.lhs.true6, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @crec_copy(ptr noundef %J, i32 noundef %trdst, i32 noundef %trsrc, i32 noundef %trlen, ptr noundef readonly captures(address_is_null) %ct) unnamed_addr #0 {
+define internal fastcc void @crec_copy(ptr noundef %J, i32 noundef %trdst, i32 noundef %trsrc, i32 noundef %trlen, ptr noundef readonly %ct) unnamed_addr #0 {
 entry:
   %ml = alloca [16 x %struct.CRecMemList], align 16
   %conv1 = and i32 %trlen, 32768

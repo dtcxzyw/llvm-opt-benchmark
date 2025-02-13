@@ -269,7 +269,7 @@ define dso_local void @free_delta_index(ptr noundef captures(none) %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @sizeof_delta_index(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local i64 @sizeof_delta_index(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

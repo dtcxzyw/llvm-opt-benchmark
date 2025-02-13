@@ -1192,7 +1192,7 @@ declare ptr @query_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef, i32 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread44, label %.lr.ph
 

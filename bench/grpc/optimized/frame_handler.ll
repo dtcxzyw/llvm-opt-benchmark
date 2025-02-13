@@ -70,7 +70,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr noundef captures(none) %writer, ptr noundef writeonly captures(address_is_null) %output, ptr noundef captures(address_is_null) %bytes_size) local_unnamed_addr #2 {
+define noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr noundef captures(none) %writer, ptr noundef writeonly %output, ptr noundef %bytes_size) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ne ptr %bytes_size, null
   %cmp1 = icmp ne ptr %output, null
@@ -276,7 +276,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr noundef captures(none) %reader, ptr noundef readonly captures(address_is_null) %bytes, ptr noundef captures(address_is_null) %bytes_size) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr noundef captures(none) %reader, ptr noundef readonly %bytes, ptr noundef %bytes_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bytes_size, null
   br i1 %cmp, label %return, label %if.end

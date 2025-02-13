@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.8 = private unnamed_addr constant [26 x i8] c"No number in DLT sentence\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @extcap_printf_complex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @extcap_printf_complex(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %extcap_get_complex_as_string.exit, label %2
 
@@ -89,7 +89,7 @@ extcap_get_complex_as_string.exit:                ; preds = %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @extcap_get_complex_as_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden noalias ptr @extcap_get_complex_as_string(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -125,7 +125,7 @@ define hidden noalias noundef ptr @extcap_parse_complex(i32 noundef %0, ptr noun
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @extcap_compare_is_default(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @extcap_compare_is_default(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -171,7 +171,7 @@ define hidden void @extcap_free_complex(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @extcap_complex_get_int(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i32 @extcap_complex_get_int(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -199,7 +199,7 @@ define hidden i32 @extcap_complex_get_int(ptr noundef readonly captures(address_
 declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @extcap_complex_get_uint(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i32 @extcap_complex_get_uint(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -227,7 +227,7 @@ define hidden i32 @extcap_complex_get_uint(ptr noundef readonly captures(address
 declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @extcap_complex_get_long(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i64 @extcap_complex_get_long(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -252,7 +252,7 @@ define hidden i64 @extcap_complex_get_long(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @extcap_complex_get_double(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden double @extcap_complex_get_double(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -279,7 +279,7 @@ define hidden double @extcap_complex_get_double(ptr noundef readonly captures(ad
 declare double @g_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @extcap_complex_get_bool(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i32 @extcap_complex_get_bool(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %matches_regex.exit, label %3
 
@@ -325,7 +325,7 @@ define internal fastcc i32 @matches_regex(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @extcap_complex_get_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define hidden ptr @extcap_complex_get_string(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1211,7 +1211,7 @@ extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @extcap_parse_value_sentence(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @extcap_parse_value_sentence(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = icmp eq ptr %0, null
@@ -1323,7 +1323,7 @@ extcap_free_value.exit:                           ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call fastcc ptr @extcap_tokenize_sentences(ptr noundef %0)
   %.not41 = icmp eq ptr %4, null

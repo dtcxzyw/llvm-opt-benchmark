@@ -271,7 +271,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN3ue2L18commonPrefixLengthERKNS_8NGHolderERKNS_12_GLOBAL__N_112ranking_infoES2_S6_(ptr readonly captures(address) %ga.104.val, ptr readonly captures(address) %ga.120.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %a_ranking, ptr readonly captures(address) %gb.104.val, ptr readonly captures(address) %gb.120.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %b_ranking) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN3ue2L18commonPrefixLengthERKNS_8NGHolderERKNS_12_GLOBAL__N_112ranking_infoES2_S6_(ptr readonly %ga.104.val, ptr readonly %ga.120.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %a_ranking, ptr readonly %gb.104.val, ptr readonly %gb.120.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %b_ranking) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %a_ranking.val64 = load ptr, ptr %a_ranking, align 8
   %0 = getelementptr inbounds nuw i8, ptr %a_ranking, i64 8
@@ -1417,7 +1417,7 @@ for.end42:                                        ; preds = %for.inc39, %invoke.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_112ranking_infoD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_112ranking_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %to_rank = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40

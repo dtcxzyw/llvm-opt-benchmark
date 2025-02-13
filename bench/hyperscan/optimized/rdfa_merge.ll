@@ -2157,7 +2157,7 @@ ehcleanup232:                                     ; preds = %ehcleanup230, %lpad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv(ptr readonly captures(address) %this.16.val, ptr readnone captures(address) %this.24.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_115Automaton_Merge14shouldMinimizeEv(ptr readonly %this.16.val, ptr readnone %this.24.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %seen_reports = alloca %"class.ue2::flat_set", align 8
   %ref.tmp7 = alloca %"class.std::set", align 8
@@ -8004,7 +8004,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, i64 range(i64 32, 65) %r_set, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in, i64 range(i64 32, 65) %r_set, ptr noundef nonnull align 8 dereferenceable(32) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nfas = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24

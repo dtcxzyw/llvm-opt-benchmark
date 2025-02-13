@@ -2252,14 +2252,14 @@ str_capacity.exit:                                ; preds = %19, %31, %RB_FL_TES
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local i64 @rb_str_new(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr @rb_cString, align 8
   %4 = tail call fastcc i64 @str_new0(i64 noundef %3, ptr noundef %0, i64 noundef %1, i32 noundef 1)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_usascii_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_usascii_str_new(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr @rb_cString, align 8
   %4 = tail call fastcc i64 @str_new0(i64 noundef %3, ptr noundef %0, i64 noundef %1, i32 noundef 1)
   tail call void @rb_enc_set_index(i64 noundef %4, i32 noundef 2) #28
@@ -2272,7 +2272,7 @@ define dso_local noundef i64 @rb_usascii_str_new(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_utf8_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_utf8_str_new(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr @rb_cString, align 8
   %4 = tail call fastcc i64 @str_new0(i64 noundef %3, ptr noundef %0, i64 noundef %1, i32 noundef 1)
   %5 = tail call i64 @rb_enc_associate_index(i64 noundef %4, i32 noundef 1) #28
@@ -2282,7 +2282,7 @@ define dso_local noundef i64 @rb_utf8_str_new(ptr noundef captures(address_is_nu
 declare i64 @rb_enc_associate_index(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_enc_str_new(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local i64 @rb_enc_str_new(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   %4 = load i64, ptr @rb_cString, align 8
   br i1 %.not, label %5, label %7
@@ -2304,7 +2304,7 @@ define dso_local i64 @rb_enc_str_new(ptr noundef captures(address_is_null) %0, i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @str_new0(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i64 @str_new0(i64 noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = icmp slt i64 %2, 0
   br i1 %6, label %7, label %9
@@ -2418,7 +2418,7 @@ RSTRING_PTR.exit37:                               ; preds = %ruby_nonempty_memcp
 declare i64 @rb_enc_associate(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_str_new_cstr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local i64 @rb_str_new_cstr(ptr noundef %0) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %2, label %must_not_null.exit
 
@@ -2435,7 +2435,7 @@ must_not_null.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_usascii_str_new_cstr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_usascii_str_new_cstr(ptr noundef %0) local_unnamed_addr #1 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %2, label %rb_str_new_cstr.exit
 
@@ -2458,7 +2458,7 @@ rb_str_new_cstr.exit:                             ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_utf8_str_new_cstr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_utf8_str_new_cstr(ptr noundef %0) local_unnamed_addr #1 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %2, label %rb_str_new_cstr.exit
 
@@ -2476,7 +2476,7 @@ rb_str_new_cstr.exit:                             ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_enc_str_new_cstr(ptr noundef nonnull captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_enc_str_new_cstr(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 20
   %.val = load i32, ptr %3, align 4
   %.not = icmp eq i32 %.val, 1
@@ -2985,7 +2985,7 @@ define dso_local i64 @rb_str_buf_new(i64 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i64 @rb_str_cat_conv_enc_opts(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define hidden noundef i64 @rb_str_cat_conv_enc_opts(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, i32 noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = inttoptr i64 %0 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
@@ -4470,7 +4470,7 @@ RB_FL_UNSET.exit:                                 ; preds = %18, %29, %.critedge
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_str_new_with_class(i64 noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local i64 @rb_str_new_with_class(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i64 @rb_obj_class(i64 noundef %0) #28
   %5 = inttoptr i64 %0 to ptr
   %6 = load i64, ptr %5, align 8
@@ -9277,7 +9277,7 @@ define dso_local noundef i64 @rb_enc_str_buf_cat(i64 noundef returned %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rb_enc_cr_str_buf_cat(i64 noundef returned %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
+define internal fastcc noundef i64 @rb_enc_cr_str_buf_cat(i64 noundef returned %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
@@ -15105,7 +15105,7 @@ rb_enc_asciicompat.exit164.thread:                ; preds = %._crit_edge173, %rb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_str_split(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local i64 @rb_str_split(i64 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
@@ -30908,7 +30908,7 @@ define internal fastcc i64 @smart_chomp(i64 noundef %0, ptr noundef %1, ptr noun
 declare ptr @onigenc_step_back(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @str_compat_and_valid(i64 noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 {
+define internal fastcc i64 @str_compat_and_valid(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %.0..0..0. = load volatile i64, ptr %3, align 8
@@ -31031,7 +31031,7 @@ get_encoding.exit:                                ; preds = %39, %46
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @str_mod_check(i64 noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc void @str_mod_check(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #1 {
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8, !noalias !723
   %6 = and i64 %5, 8192

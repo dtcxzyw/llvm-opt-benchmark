@@ -93,7 +93,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_start_struct(ptr noundef captures(none) %v, ptr readnone captures(none) %name, ptr noundef writeonly captures(address_is_null) %obj, i64 noundef %size, ptr readnone captures(none) %errp) #0 {
+define internal noundef zeroext i1 @opts_start_struct(ptr noundef captures(none) %v, ptr readnone captures(none) %name, ptr noundef writeonly %obj, i64 noundef %size, ptr readnone captures(none) %errp) #0 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -280,7 +280,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_start_list(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(address_is_null) %list, i64 noundef %size, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_start_list(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly %list, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8

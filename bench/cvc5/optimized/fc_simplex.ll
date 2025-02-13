@@ -2360,7 +2360,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure16focusCoefficientEj(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(648) %this, i32 noundef %nb) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure16focusCoefficientEj(ptr noundef nonnull readonly align 8 dereferenceable(648) %this, i32 noundef %nb) local_unnamed_addr #9 align 2 {
 entry:
   %conv.i = zext i32 %nb to i64
   %d_posVector.i.i = getelementptr inbounds nuw i8, ptr %this, i64 408

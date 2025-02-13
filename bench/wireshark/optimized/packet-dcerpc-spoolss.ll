@@ -3013,7 +3013,7 @@ define internal void @notify_job_time_cb(ptr readnone captures(none) %0, ptr rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SYSTEM_TIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SYSTEM_TIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -6477,7 +6477,7 @@ define internal fastcc void @dissect_PRINTER_INFO_5(ptr noundef %0, ptr noundef 
 declare i32 @dissect_doserror(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = load i32, ptr @hf_offset, align 4
   %12 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull %10) #5

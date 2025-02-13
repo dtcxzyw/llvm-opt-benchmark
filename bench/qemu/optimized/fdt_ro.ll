@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [11 x i8] c"compatible\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %stroffset, ptr noundef writeonly captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local noundef ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %stroffset, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
 entry:
   %call7 = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp = icmp slt i32 %call7, 0
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @fdt_find_max_phandle(ptr noundef %fdt, ptr noundef writeonly captures(address_is_null) %phandle) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_find_max_phandle(ptr noundef %fdt, ptr noundef writeonly %phandle) local_unnamed_addr #0 {
 entry:
   %call9 = tail call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef -1, ptr noundef null) #9
   %cmp10 = icmp slt i32 %call9, 0
@@ -369,7 +369,7 @@ return:                                           ; preds = %fdt_getprop.exit39.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @fdt_generate_phandle(ptr noundef %fdt, ptr noundef writeonly captures(address_is_null) %phandle) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_generate_phandle(ptr noundef %fdt, ptr noundef writeonly %phandle) local_unnamed_addr #0 {
 entry:
   %call9.i = tail call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef -1, ptr noundef null) #9
   %cmp10.i = icmp slt i32 %call9.i, 0
@@ -499,7 +499,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly captures(address) %fdt) local_unnamed_addr #3 {
+define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly %fdt) local_unnamed_addr #3 {
 entry:
   %off_mem_rsvmap.i = getelementptr inbounds nuw i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap.i, align 1
@@ -877,7 +877,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #0 {
+define dso_local ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %off_dt_struct.i = getelementptr inbounds nuw i8, ptr %fdt, i64 8
   %0 = load i8, ptr %off_dt_struct.i, align 1
@@ -1057,7 +1057,7 @@ return:                                           ; preds = %entry, %nextprop_.e
 declare i32 @fdt_check_prop_offset_(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_get_property_by_offset(ptr noundef %fdt, i32 noundef %offset, ptr noundef writeonly captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local ptr @fdt_get_property_by_offset(ptr noundef %fdt, i32 noundef %offset, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version, align 1
@@ -1136,7 +1136,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_get_property_namelen(ptr noundef %fdt, i32 noundef %offset, ptr noundef readonly captures(none) %name, i32 noundef %namelen, ptr noundef captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local ptr @fdt_get_property_namelen(ptr noundef %fdt, i32 noundef %offset, ptr noundef readonly captures(none) %name, i32 noundef %namelen, ptr noundef %lenp) local_unnamed_addr #0 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version, align 1
@@ -1177,7 +1177,7 @@ return:                                           ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %fdt, i32 noundef %offset, ptr noundef readonly captures(none) %name, i32 noundef %namelen, ptr noundef writeonly captures(address_is_null) %lenp, ptr noundef writeonly captures(address_is_null) %poffset) unnamed_addr #0 {
+define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %fdt, i32 noundef %offset, ptr noundef readonly captures(none) %name, i32 noundef %namelen, ptr noundef writeonly %lenp, ptr noundef writeonly %poffset) unnamed_addr #0 {
 entry:
   %nextoffset.i.i19 = alloca i32, align 4
   %slen.i = alloca i32, align 4
@@ -1357,7 +1357,7 @@ return:                                           ; preds = %if.then.i, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_get_property(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %name, ptr noundef captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local ptr @fdt_get_property(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %name, ptr noundef %lenp) local_unnamed_addr #0 {
 entry:
   %version.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
@@ -1400,7 +1400,7 @@ fdt_get_property_namelen.exit:                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_getprop_namelen(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %name, i32 noundef %namelen, ptr noundef captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local ptr @fdt_getprop_namelen(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %name, i32 noundef %namelen, ptr noundef %lenp) local_unnamed_addr #0 {
 entry:
   %poffset = alloca i32, align 4
   %call = call fastcc ptr @fdt_get_property_namelen_(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %namelen, ptr noundef %lenp, ptr noundef nonnull %poffset)
@@ -1456,7 +1456,7 @@ return:                                           ; preds = %entry, %if.end10, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_getprop_by_offset(ptr noundef %fdt, i32 noundef %offset, ptr noundef writeonly captures(address_is_null) %namep, ptr noundef writeonly captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local ptr @fdt_getprop_by_offset(ptr noundef %fdt, i32 noundef %offset, ptr noundef writeonly %namep, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
 entry:
   %namelen = alloca i32, align 4
   %call1.i = tail call i32 @fdt_check_prop_offset_(ptr noundef %fdt, i32 noundef %offset) #9
@@ -1580,7 +1580,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %name, ptr noundef captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %name, ptr noundef %lenp) local_unnamed_addr #0 {
 entry:
   %poffset.i = alloca i32, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
@@ -1835,7 +1835,7 @@ return:                                           ; preds = %if.then12, %if.end3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_supernode_atdepth_offset(ptr noundef %fdt, i32 noundef %nodeoffset, i32 noundef %supernodedepth, ptr noundef writeonly captures(address_is_null) %nodedepth) local_unnamed_addr #0 {
+define dso_local i32 @fdt_supernode_atdepth_offset(ptr noundef %fdt, i32 noundef %nodeoffset, i32 noundef %supernodedepth, ptr noundef writeonly %nodedepth) local_unnamed_addr #0 {
 entry:
   %depth = alloca i32, align 4
   %call = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
@@ -2463,7 +2463,7 @@ return:                                           ; preds = %while.body, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %property, i32 noundef %idx, ptr noundef writeonly captures(address_is_null) %lenp) local_unnamed_addr #0 {
+define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %property, i32 noundef %idx, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
 entry:
   %poffset.i.i = alloca i32, align 4
   %length = alloca i32, align 4

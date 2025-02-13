@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_digest_sign_init(ptr noundef captures(address_is_null) %vpmacctx, ptr noundef %mdname, ptr noundef %vkey, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @mac_digest_sign_init(ptr noundef %vpmacctx, ptr noundef %mdname, ptr noundef %vkey, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool = icmp eq i32 %call, 0
@@ -114,7 +114,7 @@ return:                                           ; preds = %if.end37, %if.end32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_digest_sign_update(ptr noundef readonly captures(address_is_null) %vpmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
+define internal i32 @mac_digest_sign_update(ptr noundef readonly %vpmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
   %cmp = icmp eq ptr %vpmacctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -135,7 +135,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_digest_sign_final(ptr noundef readonly captures(address_is_null) %vpmacctx, ptr noundef %mac, ptr noundef %maclen, i64 noundef %macsize) #0 {
+define internal i32 @mac_digest_sign_final(ptr noundef readonly %vpmacctx, ptr noundef %mac, ptr noundef %maclen, i64 noundef %macsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool = icmp eq i32 %call, 0
