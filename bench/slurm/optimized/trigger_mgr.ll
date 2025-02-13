@@ -161,7 +161,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [9 x i8] c"fork: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @trigger_list, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -414,7 +414,7 @@ define internal void @_trig_del(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 4
   %.not = icmp eq i64 %4, 0
@@ -774,7 +774,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -1250,7 +1250,7 @@ declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8

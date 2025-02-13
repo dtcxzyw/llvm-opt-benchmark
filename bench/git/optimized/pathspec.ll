@@ -334,7 +334,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_pathspec(ptr noundef captures(none) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @parse_pathspec(ptr noundef captures(none) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %6
 

@@ -160,7 +160,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @EVP_AEAD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly %aead) local_unnamed_addr #5 {
+define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly captures(address_is_null) %aead) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %aead, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -183,7 +183,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @SSL_AEAD_CTX_max_overhead(ptr noundef readonly %aead) local_unnamed_addr #0 {
+define hidden i64 @SSL_AEAD_CTX_max_overhead(ptr noundef readonly captures(address_is_null) %aead) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %aead, null
   br i1 %cmp, label %return, label %land.lhs.true.i

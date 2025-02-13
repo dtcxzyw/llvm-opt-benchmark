@@ -233,13 +233,13 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dt_colorspaces_cicp_to_type = private unnamed_addr constant [15 x i32] [i32 20, i32 poison, i32 poison, i32 poison, i32 poison, i32 20, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 1, i32 20, i32 20], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @_colorspaces_get_matrix_from_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca [4 x [4 x float]], align 64
   %9 = alloca [4 x [4 x float]], align 64
   %.not = icmp eq ptr %0, null
@@ -629,7 +629,7 @@ define internal fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_output_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @dt_colorspaces_get_matrix_from_output_profile(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @_colorspaces_get_matrix_from_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 0)
   ret i32 %7
 }
@@ -1329,7 +1329,7 @@ declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #3
 declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @dt_colorspaces_get_profile(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define ptr @dt_colorspaces_get_profile(i32 noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
   %5 = tail call fastcc ptr @_get_profile(ptr noundef %4, i32 noundef %0, ptr noundef %1, i32 noundef %2)
   ret ptr %5
@@ -1338,7 +1338,7 @@ define ptr @dt_colorspaces_get_profile(i32 noundef %0, ptr noundef readonly %1, 
 declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @dt_colorspaces_get_output_profile.colorout, align 8, !tbaa !23
   %6 = icmp ne ptr %5, null
@@ -1936,7 +1936,7 @@ define void @dt_colorspaces_update_display_transforms() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_display_transforms(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_update_display_transforms(ptr noundef captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %3 = load ptr, ptr %2, align 8, !tbaa !81
   %.not = icmp eq ptr %3, null
@@ -2086,7 +2086,7 @@ define void @dt_colorspaces_update_display2_transforms() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_display2_transforms(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_update_display2_transforms(ptr noundef captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2208
   %3 = load ptr, ptr %2, align 8, !tbaa !88
   %.not = icmp eq ptr %3, null
@@ -3637,7 +3637,7 @@ declare ptr @g_list_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @cmsGetColorSpace(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @dt_colorspaces_is_profile_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @dt_colorspaces_is_profile_equal(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #11 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -3738,7 +3738,7 @@ _colorspaces_get_base_name.exit16:                ; preds = %28, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_colorspaces_get_name(i32 noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define ptr @dt_colorspaces_get_name(i32 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   switch i32 %0, label %55 [
     i32 26, label %53
     i32 0, label %56
@@ -4476,7 +4476,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) unnamed_addr #6 {
   %.02536 = load ptr, ptr %0, align 8, !tbaa !25
   %.not37 = icmp eq ptr %.02536, null
   br i1 %.not37, label %.thread, label %.lr.ph
@@ -5030,7 +5030,7 @@ define internal fastcc void @dt_colorspaces_pseudoinverse(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @dt_colorspaces_conversion_matrices_rgb(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef readonly %3, ptr noundef writeonly %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @dt_colorspaces_conversion_matrices_rgb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #13 {
   %6 = alloca [4 x [3 x double]], align 16
   %7 = alloca [4 x [3 x float]], align 16
   %8 = alloca [4 x [3 x double]], align 16

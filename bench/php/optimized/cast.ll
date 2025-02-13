@@ -432,7 +432,7 @@ define ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr noundef %1, i32
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %30, label %5
 

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [38 x i8] c"## ERR: Path too long [%d chars]: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %s, ptr noundef readonly %l, ptr noundef %delim, ptr noundef %brk, i32 noundef %quote) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %s, ptr noundef readonly captures(address_is_null) %l, ptr noundef %delim, ptr noundef %brk, i32 noundef %quote) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %cmp.not19 = icmp eq ptr %l, null
@@ -299,7 +299,7 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly c
 declare i32 @T_FileStream_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %s, ptr noundef readonly %l, ptr noundef %delim, i32 noundef %quote) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %s, ptr noundef readonly captures(address_is_null) %l, ptr noundef %delim, i32 noundef %quote) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %cmp.not14 = icmp eq ptr %l, null
@@ -549,7 +549,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @pkg_countCharList(ptr noundef readonly %l) local_unnamed_addr #6 {
+define dso_local i32 @pkg_countCharList(ptr noundef readonly captures(address_is_null) %l) local_unnamed_addr #6 {
 entry:
   %cmp.not3 = icmp eq ptr %l, null
   br i1 %cmp.not3, label %while.end, label %while.body
@@ -589,7 +589,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pkg_appendToList(ptr noundef %l, ptr noundef %end, ptr noundef %str) local_unnamed_addr #0 {
+define dso_local noundef ptr @pkg_appendToList(ptr noundef %l, ptr noundef captures(address_is_null) %end, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %end, null
   br i1 %cmp, label %entry.cont, label %entry.else
@@ -709,7 +709,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pkg_appendUniqueDirToList(ptr noundef %l, ptr noundef %end, ptr noundef %strAlias) local_unnamed_addr #0 {
+define dso_local noundef ptr @pkg_appendUniqueDirToList(ptr noundef %l, ptr noundef captures(address_is_null) %end, ptr noundef %strAlias) local_unnamed_addr #0 {
 entry:
   %aBuf = alloca [1024 x i8], align 16
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %strAlias, i32 noundef 47) #11
@@ -862,7 +862,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonly %l, ptr noundef readonly captures(none) %str) local_unnamed_addr #9 {
+define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonly captures(address_is_null) %l, ptr noundef readonly captures(none) %str) local_unnamed_addr #9 {
 entry:
   %tobool.not3 = icmp eq ptr %l, null
   br i1 %tobool.not3, label %return, label %for.body

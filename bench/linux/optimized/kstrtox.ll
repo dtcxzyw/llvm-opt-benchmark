@@ -52,7 +52,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_kstrtos8_fro
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable__kstrtol147, ptr @__UNIQUE_ID___addressable__kstrtoul146, ptr @__UNIQUE_ID___addressable_kstrtobool154, ptr @__UNIQUE_ID___addressable_kstrtobool_from_user157, ptr @__UNIQUE_ID___addressable_kstrtoint149, ptr @__UNIQUE_ID___addressable_kstrtoint_from_user175, ptr @__UNIQUE_ID___addressable_kstrtol_from_user169, ptr @__UNIQUE_ID___addressable_kstrtoll145, ptr @__UNIQUE_ID___addressable_kstrtoll_from_user163, ptr @__UNIQUE_ID___addressable_kstrtos16151, ptr @__UNIQUE_ID___addressable_kstrtos16_from_user181, ptr @__UNIQUE_ID___addressable_kstrtos8153, ptr @__UNIQUE_ID___addressable_kstrtos8_from_user187, ptr @__UNIQUE_ID___addressable_kstrtou16150, ptr @__UNIQUE_ID___addressable_kstrtou16_from_user178, ptr @__UNIQUE_ID___addressable_kstrtou8152, ptr @__UNIQUE_ID___addressable_kstrtou8_from_user184, ptr @__UNIQUE_ID___addressable_kstrtouint148, ptr @__UNIQUE_ID___addressable_kstrtouint_from_user172, ptr @__UNIQUE_ID___addressable_kstrtoul_from_user166, ptr @__UNIQUE_ID___addressable_kstrtoull144, ptr @__UNIQUE_ID___addressable_kstrtoull_from_user160], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local ptr @_parse_integer_fixup_radix(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @_parse_integer_fixup_radix(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %24
@@ -742,7 +742,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8(ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 

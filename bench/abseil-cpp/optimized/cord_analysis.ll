@@ -22,7 +22,7 @@ $_ZNSt10_HashtableIPKN4absl13cord_internal7CordRepES4_SaIS4_ENSt8__detail9_Ident
 $_ZNSt10_HashtableIPKN4absl13cord_internal7CordRepES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE = comdat any
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4absl13cord_internal23GetEstimatedMemoryUsageEPKNS0_7CordRepE(ptr noundef %rep) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4absl13cord_internal23GetEstimatedMemoryUsageEPKNS0_7CordRepE(ptr noundef captures(address) %rep) local_unnamed_addr #0 {
 entry:
   %raw_usage.i = alloca %"struct.absl::cord_internal::(anonymous namespace)::RawUsage", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw_usage.i)
@@ -112,7 +112,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_117GetEstimatedUsageILNS1_4ModeE1EEEmPKNS0_7
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4absl13cord_internal32GetEstimatedFairShareMemoryUsageEPKNS0_7CordRepE(ptr noundef %rep) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN4absl13cord_internal32GetEstimatedFairShareMemoryUsageEPKNS0_7CordRepE(ptr noundef captures(address) %rep) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %raw_usage.i = alloca %"struct.absl::cord_internal::(anonymous namespace)::RawUsage.0", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw_usage.i)
@@ -427,7 +427,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_117GetEstimatedUsageILNS1_4ModeE2EEEmPKNS0_7
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtreeILNS1_4ModeE1EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE(ptr readonly %rep.coerce, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %raw_usage) unnamed_addr #0 {
+define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtreeILNS1_4ModeE1EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE(ptr readonly captures(address) %rep.coerce, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %raw_usage) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %raw_usage, align 8
   %add.i = add i64 %0, 64
@@ -525,7 +525,7 @@ if.end:                                           ; preds = %for.body, %_ZN4absl
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtreeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE(ptr readonly %rep.coerce0, double %rep.coerce1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %raw_usage) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtreeILNS1_4ModeE0EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE(ptr readonly captures(address) %rep.coerce0, double %rep.coerce1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %raw_usage) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load double, ptr %raw_usage, align 8
   %1 = tail call double @llvm.fmuladd.f64(double %rep.coerce1, double 6.400000e+01, double %0)
@@ -816,7 +816,7 @@ if.end:                                           ; preds = %for.body, %_ZN4absl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_18RawUsageILNS1_4ModeE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_18RawUsageILNS1_4ModeE2EED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %counted = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24

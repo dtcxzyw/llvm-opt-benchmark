@@ -361,7 +361,7 @@ _release_data_list.exit10:                        ; preds = %.preheader.i7, %13
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @data_get_type(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @data_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1384,7 +1384,7 @@ define internal fastcc noundef i32 @_data_list_join(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_key_get_const(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @data_key_get_const(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %.not18 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not18
@@ -1437,7 +1437,7 @@ define ptr @data_key_get_const(ptr noundef readonly %0, ptr noundef %1) local_un
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_key_get(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @data_key_get(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %data_dict_find_first.exit, label %3
 
@@ -1486,7 +1486,7 @@ data_dict_find_first.exit:                        ; preds = %16, %2, %3, %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_dict_find_first(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @data_dict_find_first(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -1536,7 +1536,7 @@ define ptr @data_dict_find_first(ptr noundef readonly %0, ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_key_get_int(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @data_key_get_int(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i64 noundef %1) #16
   store ptr %4, ptr %3, align 8
@@ -1591,7 +1591,7 @@ data_key_get.exit:                                ; preds = %18, %2, %5, %8, %13
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @data_list_find_first(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @data_list_find_first(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -1837,7 +1837,7 @@ define noundef zeroext i1 @data_key_unset(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @data_get_float(ptr noundef readonly %0) local_unnamed_addr #4 {
+define double @data_get_float(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1852,7 +1852,7 @@ define double @data_get_float(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @data_get_bool(ptr noundef readonly %0) local_unnamed_addr #4 {
+define zeroext i1 @data_get_bool(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1868,7 +1868,7 @@ define zeroext i1 @data_get_bool(ptr noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @data_get_int(ptr noundef readonly %0) local_unnamed_addr #4 {
+define i64 @data_get_int(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -1889,7 +1889,7 @@ define i64 @data_get_int(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @data_get_string(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @data_get_string(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -1916,7 +1916,7 @@ define ptr @data_get_string(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @data_get_string_const(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @data_get_string_const(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -1943,7 +1943,7 @@ define ptr @data_get_string_const(ptr noundef readonly %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @data_get_string_converted(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_get_string_converted(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -2475,7 +2475,7 @@ _convert_data_force_bool.exit:                    ; preds = %60, %data_convert_t
 declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @data_copy_bool_converted(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_copy_bool_converted(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -2552,7 +2552,7 @@ data_get_bool.exit26:                             ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @data_get_bool_converted(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_get_bool_converted(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -2593,7 +2593,7 @@ data_set_bool.exit:                               ; preds = %18, %15, %7, %5, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @data_get_int_converted(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_get_int_converted(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -2679,7 +2679,7 @@ data_get_int.exit28:                              ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @data_get_dict_length(ptr noundef readonly %0) local_unnamed_addr #5 {
+define i64 @data_get_dict_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -2696,7 +2696,7 @@ define i64 @data_get_dict_length(ptr noundef readonly %0) local_unnamed_addr #5 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @data_get_list_length(ptr noundef readonly %0) local_unnamed_addr #5 {
+define i64 @data_get_list_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -5159,7 +5159,7 @@ data_new.exit:                                    ; preds = %12, %9, %4, %3
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @data_retrieve_dict_path_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_retrieve_dict_path_string(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @data_resolve_dict_path_const(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -5199,7 +5199,7 @@ define range(i32 0, 9203) i32 @data_retrieve_dict_path_string(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @data_retrieve_dict_path_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_retrieve_dict_path_bool(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @data_resolve_dict_path_const(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
@@ -5232,7 +5232,7 @@ define range(i32 0, 9203) i32 @data_retrieve_dict_path_bool(ptr noundef %0, ptr 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9203) i32 @data_retrieve_dict_path_int(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_retrieve_dict_path_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @data_resolve_dict_path_const(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %5
@@ -5298,7 +5298,7 @@ switch.lookup:                                    ; preds = %tailrecurse
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef nonnull ptr @data_get_type_string(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @data_get_type_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %data_type_to_string.exit, label %.preheader
 

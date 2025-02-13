@@ -33,7 +33,7 @@ entry:
 declare hidden void @luaX_syntaxerror(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @luaK_exp2const(ptr noundef readonly captures(none) %fs, ptr noundef readonly captures(none) %e, ptr noundef writeonly %v) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @luaK_exp2const(ptr noundef readonly captures(none) %fs, ptr noundef readonly captures(none) %e, ptr noundef writeonly captures(address_is_null) %v) local_unnamed_addr #2 {
 entry:
   %t = getelementptr inbounds nuw i8, ptr %e, i64 16
   %0 = load i32, ptr %t, align 8

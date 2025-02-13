@@ -181,7 +181,7 @@ define dso_local void @error_at(ptr noundef %0, ptr noundef readonly captures(no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verror_at(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull %5) unnamed_addr #6 {
+define internal fastcc void @verror_at(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull %5) unnamed_addr #6 {
   br label %7
 
 7:                                                ; preds = %9, %6

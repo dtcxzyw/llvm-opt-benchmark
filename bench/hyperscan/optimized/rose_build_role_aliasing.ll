@@ -7597,7 +7597,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphEN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_116RoseAliasingInfoD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(112) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rev_ghost = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -20167,7 +20167,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 declare void @_ZN3ue215duplicateReportERNS_8NGHolderEjj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19pruneReportIfUnusedERKNS_13RoseBuildImplESt10shared_ptrINS_8NGHolderEERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISE_ESaISE_EEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(780) %build, ptr noundef nonnull readonly captures(none) %h, ptr noundef nonnull readonly align 8 dereferenceable(48) %verts, i32 noundef %report) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19pruneReportIfUnusedERKNS_13RoseBuildImplESt10shared_ptrINS_8NGHolderEERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISE_ESaISE_EEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(780) %build, ptr noundef nonnull readonly captures(none) %h, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %verts, i32 noundef %report) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %h_new = alloca %"class.std::unique_ptr.420", align 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %verts, i64 24
@@ -20331,7 +20331,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_8NGHolderERKNS_9RoseGraphERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull readonly align 8 dereferenceable(48) %verts) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_8NGHolderERKNS_9RoseGraphERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %verts) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i.i.i.i.i = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp14.i.i.i.i.i = alloca %"class.boost::container::vec_iterator.310", align 8
@@ -23009,7 +23009,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3ue211CastleProto5reachEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_11CastleProtoERKNS_9RoseGraphERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EE(ptr noundef nonnull align 8 dereferenceable(112) %castle, ptr noundef nonnull readonly align 8 dereferenceable(48) %verts) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L15pruneUnusedTopsERNS_11CastleProtoERKNS_9RoseGraphERKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessISC_ESaISC_EE(ptr noundef nonnull align 8 dereferenceable(112) %castle, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %verts) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %used_tops = alloca %"class.std::unordered_set.558", align 8
   %ref.tmp37 = alloca %"class.std::set.577", align 8
@@ -23869,7 +23869,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 declare noundef i32 @_ZN3ue211CastleProto5mergeERKNS_10PureRepeatE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L14updateEdgeTopsERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE(ptr readonly %v.coerce0, ptr noundef nonnull readonly align 8 dereferenceable(48) %top_map) unnamed_addr #0 {
+define internal fastcc void @_ZN3ue2L14updateEdgeTopsERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE(ptr readonly captures(address) %v.coerce0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %top_map) unnamed_addr #0 {
 entry:
   %m_header.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %v.coerce0, i64 328
   %__begin1.sroa.0.017 = load ptr, ptr %m_header.i.i.i.i.i, align 8
@@ -26615,7 +26615,7 @@ _ZNSt10shared_ptrIN3ue29TamaProtoEEaSERKS2_.exit: ; preds = %if.end9.i.i.i145, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L10mergeEdgesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RS3_(ptr readonly %a.coerce0, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(56) %g) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L10mergeEdgesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RS3_(ptr readonly captures(address) %a.coerce0, ptr %b.coerce0, i64 %b.coerce1, ptr noundef nonnull align 8 dereferenceable(56) %g) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %tmp.i327 = alloca %"struct.std::pair.189", align 8
   %tmp.i = alloca %"struct.std::pair.189", align 8
@@ -31427,7 +31427,7 @@ if.end62:                                         ; preds = %if.else55, %if.then
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_(ptr readonly %a.coerce0, ptr readonly %b.coerce0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L14sameSuccessorsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES7_RKS3_(ptr readonly captures(address) %a.coerce0, ptr readonly captures(address) %b.coerce0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %succs_a = alloca %"class.std::set.716", align 8
   %succs_b = alloca %"class.std::set.716", align 8
@@ -31764,7 +31764,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare noundef zeroext i1 @_ZN3ue218hasAnchHistorySuccERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16splitByNeighbourERKNS_9RoseGraphERSt6vectorIS3_INS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EESaISC_EERSt13unordered_mapISA_mSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_mEEEb(ptr noundef nonnull readonly align 8 dereferenceable(56) %g, ptr noundef nonnull align 8 dereferenceable(24) %buckets, ptr noundef nonnull align 8 dereferenceable(56) %inv, i1 noundef zeroext %succ) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16splitByNeighbourERKNS_9RoseGraphERSt6vectorIS3_INS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EESaISC_EERSt13unordered_mapISA_mSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_mEEEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %g, ptr noundef nonnull align 8 dereferenceable(24) %buckets, ptr noundef nonnull align 8 dereferenceable(56) %inv, i1 noundef zeroext %succ) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %__z.i69 = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>, std::_Select1st<std::pair<const unsigned long, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>>, std::less<unsigned long>>::_Auto_node", align 8
   %__z.i = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>, std::_Select1st<std::pair<const unsigned long, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>>, std::less<unsigned long>>::_Auto_node", align 8

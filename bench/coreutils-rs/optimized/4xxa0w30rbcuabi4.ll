@@ -3428,7 +3428,7 @@ common.resume:                                    ; preds = %28, %16, %9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @_ZN7uu_more4more17h2127faff40e408c9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, i1 noundef zeroext %3, ptr noalias noundef readonly align 1 %4, i64 %5, ptr noalias noundef readonly align 1 %6, i64 %7, ptr noalias noundef align 8 dereferenceable(40) %8) unnamed_addr #2 personality ptr @rust_eh_personality {
+define { ptr, ptr } @_ZN7uu_more4more17h2127faff40e408c9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, i1 noundef zeroext %3, ptr noalias noundef readonly align 1 captures(address_is_null) %4, i64 %5, ptr noalias noundef readonly align 1 %6, i64 %7, ptr noalias noundef align 8 dereferenceable(40) %8) unnamed_addr #2 personality ptr @rust_eh_personality {
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8

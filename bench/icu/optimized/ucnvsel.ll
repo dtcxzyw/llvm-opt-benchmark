@@ -21,7 +21,7 @@ $__clang_call_terminate = comdat any
 @_ZL16defaultEncodings = internal unnamed_addr constant %struct.UEnumeration { ptr null, ptr null, ptr @_ZL31ucnvsel_close_selector_iteratorP12UEnumeration, ptr @_ZL23ucnvsel_count_encodingsP12UEnumerationP10UErrorCode, ptr @uenum_unextDefault_75, ptr @_ZL21ucnvsel_next_encodingP12UEnumerationPiP10UErrorCode, ptr @_ZL22ucnvsel_reset_iteratorP12UEnumerationP10UErrorCode }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnvsel_open_75(ptr noundef readonly %converterList, i32 noundef %converterListSize, ptr noundef %excludedCodePoints, i32 noundef %whichSet, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @ucnvsel_open_75(ptr noundef readonly captures(address) %converterList, i32 noundef %converterListSize, ptr noundef %excludedCodePoints, i32 noundef %whichSet, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %newSelector = alloca %"class.icu_75::LocalUConverterSelectorPointer", align 8
   %0 = load i32, ptr %status, align 4
@@ -1095,7 +1095,7 @@ declare void @udata_closeSwapper_75(ptr noundef) local_unnamed_addr #3
 declare ptr @utrie2_openFromSerialized_75(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucnvsel_selectForString_75(ptr noundef %sel, ptr noundef readonly %s, i32 noundef %length, ptr noundef captures(none) %status) local_unnamed_addr #0 {
+define noundef ptr @ucnvsel_selectForString_75(ptr noundef %sel, ptr noundef readonly captures(address) %s, i32 noundef %length, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1813,7 +1813,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL21ucnvsel_next_encodingP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %enumerator, ptr noundef writeonly %resultLength, ptr noundef readonly captures(none) %status) #11 {
+define internal noundef ptr @_ZL21ucnvsel_next_encodingP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %enumerator, ptr noundef writeonly captures(address_is_null) %resultLength, ptr noundef readonly captures(none) %status) #11 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

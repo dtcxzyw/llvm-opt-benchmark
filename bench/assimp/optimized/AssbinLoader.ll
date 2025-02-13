@@ -1780,7 +1780,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14AssbinImporter14ReadBinaryBoneEPNS_8IOStreamEP6aiBone(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %this, ptr noundef %stream, ptr noundef %b) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp14AssbinImporter14ReadBinaryBoneEPNS_8IOStreamEP6aiBone(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %this, ptr noundef %stream, ptr noundef captures(address) %b) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i30 = alloca i32, align 4
   %t.i15 = alloca i32, align 4
@@ -2824,7 +2824,7 @@ if.end227:                                        ; preds = %for.body216, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14AssbinImporter26ReadBinaryMaterialPropertyEPNS_8IOStreamEP18aiMaterialProperty(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %stream, ptr noundef %prop) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp14AssbinImporter26ReadBinaryMaterialPropertyEPNS_8IOStreamEP18aiMaterialProperty(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %stream, ptr noundef captures(address) %prop) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i64 = alloca i32, align 4
   %t.i53 = alloca i32, align 4
@@ -3234,7 +3234,7 @@ if.end20:                                         ; preds = %for.body, %if.end9,
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14AssbinImporter18ReadBinaryNodeAnimEPNS_8IOStreamEP10aiNodeAnim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %this, ptr noundef %stream, ptr noundef %nd) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp14AssbinImporter18ReadBinaryNodeAnimEPNS_8IOStreamEP10aiNodeAnim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %this, ptr noundef %stream, ptr noundef captures(address) %nd) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i101 = alloca i32, align 4
   %t.i90 = alloca i32, align 4
@@ -3731,7 +3731,7 @@ for.end:                                          ; preds = %_Z4ReadI9aiQuatKeyE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14AssbinImporter14ReadBinaryAnimEPNS_8IOStreamEP11aiAnimation(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %this, ptr noundef %stream, ptr noundef %anim) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp14AssbinImporter14ReadBinaryAnimEPNS_8IOStreamEP11aiAnimation(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(74) %this, ptr noundef %stream, ptr noundef captures(address) %anim) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i55 = alloca i32, align 4
   %t.i44 = alloca double, align 8
@@ -4157,7 +4157,7 @@ if.end33:                                         ; preds = %if.then9, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14AssbinImporter15ReadBinaryLightEPNS_8IOStreamEP7aiLight(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %stream, ptr noundef %l) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp14AssbinImporter15ReadBinaryLightEPNS_8IOStreamEP7aiLight(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %stream, ptr noundef captures(address) %l) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i139 = alloca float, align 4
   %t.i128 = alloca float, align 4
@@ -4599,7 +4599,7 @@ if.end31:                                         ; preds = %_Z4ReadIfET_PN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14AssbinImporter16ReadBinaryCameraEPNS_8IOStreamEP8aiCamera(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %stream, ptr noundef writeonly %cam) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp14AssbinImporter16ReadBinaryCameraEPNS_8IOStreamEP8aiCamera(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %stream, ptr noundef writeonly captures(address) %cam) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i64 = alloca float, align 4
   %t.i53 = alloca float, align 4

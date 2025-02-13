@@ -193,7 +193,7 @@ zend_list_insert.exit:                            ; preds = %2, %.fold.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_fetch_resource2(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @zend_fetch_resource2(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %6
@@ -270,7 +270,7 @@ define ptr @zend_fetch_resource(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_fetch_resource_ex(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @zend_fetch_resource_ex(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %0, null
@@ -339,7 +339,7 @@ zend_fetch_resource.exit:                         ; preds = %25, %28, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_fetch_resource2_ex(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @zend_fetch_resource2_ex(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %0, null

@@ -149,7 +149,7 @@ session_terminate_session.exit:                   ; preds = %3, %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_session_terminate_session_with_reason(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define dso_local i32 @nghttp2_session_terminate_session_with_reason(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %5 = load i32, ptr %4, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2845
@@ -264,7 +264,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = call fastcc i32 @session_new(ptr noundef %6, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
@@ -284,7 +284,7 @@ define dso_local i32 @nghttp2_session_client_new3(ptr noundef writeonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_session_client_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local i32 @nghttp2_session_client_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef null)
@@ -304,7 +304,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_new(ptr noundef nonnull captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @session_new(ptr noundef nonnull captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #1 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %10
 
@@ -778,7 +778,7 @@ nghttp2_session_server_new3.exit:                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = call fastcc i32 @session_new(ptr noundef %6, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef %4)
@@ -798,7 +798,7 @@ define dso_local i32 @nghttp2_session_server_new3(ptr noundef writeonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_session_server_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local i32 @nghttp2_session_server_new2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef null)
@@ -5599,7 +5599,7 @@ session_handle_invalid_connection.exit:           ; preds = %session_is_new_peer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_handle_invalid_connection(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @session_handle_invalid_connection(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %6 = load ptr, ptr %5, align 8, !tbaa !190
   %.not = icmp eq ptr %6, null
@@ -13713,7 +13713,7 @@ define dso_local ptr @nghttp2_session_find_stream(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @nghttp2_session_get_root_stream(ptr noundef readnone %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @nghttp2_session_get_root_stream(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -14291,7 +14291,7 @@ session_predicate_for_stream_send.exit.thread:    ; preds = %4, %2, %13, %10, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -530, 1) i32 @session_predicate_response_headers_send(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 -530, 1) i32 @session_predicate_response_headers_send(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %session_predicate_for_stream_send.exit.thread, label %4
 

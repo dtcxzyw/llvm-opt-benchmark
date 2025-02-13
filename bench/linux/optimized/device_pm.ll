@@ -122,7 +122,7 @@ define dso_local noundef nonnull ptr @acpi_power_state_string(i32 noundef %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_device_get_power(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @acpi_device_get_power(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
@@ -732,7 +732,7 @@ define dso_local void @acpi_device_fix_up_power_children(ptr noundef %0) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_device_update_power(ptr noundef %0, ptr noundef writeonly %1) #1 align 16 {
+define dso_local i32 @acpi_device_update_power(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
   store i32 0, ptr %3, align 4, !annotation !5
@@ -802,7 +802,7 @@ define dso_local i32 @acpi_device_update_power(ptr noundef %0, ptr noundef write
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_bus_update_power(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local i32 @acpi_bus_update_power(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 16 {
   %3 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -1100,7 +1100,7 @@ define dso_local zeroext i1 @acpi_pm_device_can_wakeup(ptr noundef readonly capt
 declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 align 16 {
+define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
@@ -1197,7 +1197,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
 declare dso_local i32 @dev_pm_qos_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 align 16 {
   %6 = alloca [5 x i8], align 1
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #6

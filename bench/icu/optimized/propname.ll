@@ -365,7 +365,7 @@ return:                                           ; preds = %do.body, %do.cond, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6icu_7512PropNameData7getNameEPKci(ptr noundef readonly %nameGroup, i32 noundef %nameIndex) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZN6icu_7512PropNameData7getNameEPKci(ptr noundef readonly captures(ret: address, provenance) %nameGroup, i32 noundef %nameIndex) local_unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp slt i32 %nameIndex, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -404,7 +404,7 @@ return:                                           ; preds = %for.end, %entry, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PropNameData12containsNameERNS_9BytesTrieEPKc(ptr noundef nonnull align 8 dereferenceable(28) %trie, ptr noundef readonly %name) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PropNameData12containsNameERNS_9BytesTrieEPKc(ptr noundef nonnull align 8 dereferenceable(28) %trie, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %while.cond.preheader
@@ -714,7 +714,7 @@ return:                                           ; preds = %if.end8.i, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %bytesTrieOffset, ptr noundef readonly %alias) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN6icu_7512PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %bytesTrieOffset, ptr noundef readonly captures(address_is_null) %alias) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %trie = alloca %"class.icu_75::BytesTrie", align 8
   %idx.ext = sext i32 %bytesTrieOffset to i64
@@ -825,14 +825,14 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512PropNameData15getPropertyEnumEPKc(ptr noundef %alias) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7512PropNameData15getPropertyEnumEPKc(ptr noundef captures(address_is_null) %alias) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN6icu_7512PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef 0, ptr noundef %alias)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512PropNameData20getPropertyValueEnumEiPKc(i32 noundef %property, ptr noundef %alias) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7512PropNameData20getPropertyValueEnumEiPKc(i32 noundef %property, ptr noundef captures(address_is_null) %alias) local_unnamed_addr #0 align 2 {
 entry:
   br label %for.body.i
 
@@ -970,7 +970,7 @@ _ZN6icu_7512PropNameData15getPropertyNameEii.exit: ; preds = %for.body.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_getPropertyEnum_75(ptr noundef %alias) local_unnamed_addr #0 {
+define noundef i32 @u_getPropertyEnum_75(ptr noundef captures(address_is_null) %alias) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noundef i32 @_ZN6icu_7512PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef 0, ptr noundef %alias)
   ret i32 %call.i
@@ -984,7 +984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_getPropertyValueEnum_75(i32 noundef %property, ptr noundef %alias) local_unnamed_addr #0 {
+define noundef i32 @u_getPropertyValueEnum_75(i32 noundef %property, ptr noundef captures(address_is_null) %alias) local_unnamed_addr #0 {
 entry:
   br label %for.body.i.i
 

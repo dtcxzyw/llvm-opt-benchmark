@@ -7697,7 +7697,7 @@ define internal range(i32 -1, 1) i32 @apply_option_parse_whitespace(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @apply_option_parse_space_change(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
+define internal noundef i32 @apply_option_parse_space_change(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -7812,7 +7812,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @unquote_c_style(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @skip_tree_prefix(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc ptr @skip_tree_prefix(i32 noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #14 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %.preheader
 
@@ -8146,7 +8146,7 @@ squash_slash.exit:                                ; preds = %._crit_edge.i, %23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_name_common(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
+define internal fastcc ptr @find_name_common(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(address) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %4 to i64
   %9 = icmp eq i32 %3, 0
@@ -8608,7 +8608,7 @@ define internal fastcc void @say_patch_name(ptr noundef captures(none) %0, ptr n
 declare i32 @repo_hold_locked_index(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stat_patch_list(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @stat_patch_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.strbuf, align 8
   %.not14 = icmp eq ptr %1, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -8734,7 +8734,7 @@ show_stats.exit:                                  ; preds = %42, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @numstat_patch_list(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @numstat_patch_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -8787,7 +8787,7 @@ define internal fastcc void @numstat_patch_list(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @summary_patch_list(ptr noundef readonly %0) unnamed_addr #17 {
+define internal fastcc void @summary_patch_list(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #17 {
   %.not33 = icmp eq ptr %0, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 

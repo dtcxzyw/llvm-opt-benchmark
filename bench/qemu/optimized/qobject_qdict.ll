@@ -1522,7 +1522,7 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qdict_is_equal(ptr noundef readonly %x, ptr noundef readonly %y) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qdict_is_equal(ptr noundef readonly captures(address_is_null) %x, ptr noundef readonly captures(address_is_null) %y) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %x, null
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i

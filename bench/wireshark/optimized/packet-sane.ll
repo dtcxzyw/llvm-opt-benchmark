@@ -2708,7 +2708,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr noundef nonnull captures(none) %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -2743,7 +2743,7 @@ define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tvb_read_sane_string(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @tvb_read_sane_string(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3105,7 +3105,7 @@ dissect_sane_word.exit28.us44:                    ; preds = %129, %.lr.ph.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sane_status(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sane_status(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8

@@ -1036,7 +1036,7 @@ declare ptr @RSA_PSS_PARAMS_it() local_unnamed_addr #1
 declare void @RSA_PSS_PARAMS_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readonly %pss, ptr noundef writeonly captures(none) %pmd, ptr noundef writeonly captures(none) %pmgf1md, ptr noundef writeonly captures(none) %psaltlen, ptr noundef writeonly captures(none) %ptrailerField) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readonly captures(address_is_null) %pss, ptr noundef writeonly captures(none) %pmd, ptr noundef writeonly captures(none) %pmgf1md, ptr noundef writeonly captures(none) %psaltlen, ptr noundef writeonly captures(none) %ptrailerField) local_unnamed_addr #0 {
 entry:
   %pss_params = alloca %struct.rsa_pss_params_30_st, align 4
   %call = call i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef nonnull %pss_params) #4

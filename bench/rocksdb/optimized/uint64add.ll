@@ -75,7 +75,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7rocksdb17UInt64AddOperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value, ptr noundef %logger) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb17UInt64AddOperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value, ptr noundef %logger) unnamed_addr #0 align 2 {
 entry:
   %value.addr.i = alloca i64, align 8
   %tobool.not = icmp eq ptr %existing_value, null

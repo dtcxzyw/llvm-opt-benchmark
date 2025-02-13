@@ -874,7 +874,7 @@ return:                                           ; preds = %land.rhs, %for.inc,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3sat10aig_finder8find_aigERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3sat10aig_finder8find_aigERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
 entry:
   %__args.i = alloca %"class.sat::literal", align 4
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
@@ -2895,7 +2895,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorI7svector
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10aig_finder11validate_ifENS_7literalES1_S1_S1_RKNS_6clauseEPS3_S5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, i32 %x.coerce, i32 %c.coerce, i32 %t.coerce, i32 %e.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %c0, ptr noundef readonly %c1, ptr noundef readonly %c2, ptr noundef readonly %c3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat10aig_finder11validate_ifENS_7literalES1_S1_S1_RKNS_6clauseEPS3_S5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, i32 %x.coerce, i32 %c.coerce, i32 %t.coerce, i32 %e.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %c0, ptr noundef readonly captures(address_is_null) %c1, ptr noundef readonly captures(address_is_null) %c2, ptr noundef readonly captures(address_is_null) %c3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %clauses = alloca %class.vector, align 8
   %ref.tmp = alloca %class.svector.3, align 8

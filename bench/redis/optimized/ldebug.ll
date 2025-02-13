@@ -1422,7 +1422,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getobjname(ptr noundef readonly captures(none) %L, ptr noundef %ci, i32 noundef %stackpos, ptr noundef writeonly captures(none) %name) unnamed_addr #4 {
+define internal fastcc noundef ptr @getobjname(ptr noundef readonly captures(none) %L, ptr noundef captures(address) %ci, i32 noundef %stackpos, ptr noundef writeonly captures(none) %name) unnamed_addr #4 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %ci, i64 8
   %ci2.i = getelementptr inbounds nuw i8, ptr %L, i64 40

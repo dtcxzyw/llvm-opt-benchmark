@@ -59,7 +59,7 @@ define internal noalias noundef ptr @Copy_AlphaNumeric_Type(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @Free_AlphaNumeric_Type(ptr noundef %0) #2 {
+define internal void @Free_AlphaNumeric_Type(ptr noundef captures(address_is_null) %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

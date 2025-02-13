@@ -182,7 +182,7 @@ define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_GetArgs(ptr noundef %0) loc
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @get_args(ptr readnone captures(none) %0, ptr noundef %1) #2 {
+define internal noundef nonnull ptr @get_args(ptr readnone captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) #2 {
   %3 = icmp eq ptr %1, null
   %spec.store.select = select i1 %3, ptr @_Py_NoneStruct, ptr %1
   %4 = load i32, ptr %spec.store.select, align 8, !tbaa !3
@@ -199,7 +199,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @get_kwargs(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #2 {
+define internal noundef nonnull ptr @get_kwargs(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null, ret: address, provenance) %2) #2 {
   %4 = icmp eq ptr %2, null
   %spec.store.select = select i1 %4, ptr @_Py_NoneStruct, ptr %2
   %5 = load i32, ptr %spec.store.select, align 8, !tbaa !3

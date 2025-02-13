@@ -2804,7 +2804,7 @@ declare noundef zeroext i1 @_ZNK3ue211LeftEngInfocvbEv(ptr noundef nonnull align
 declare noundef i64 @_ZNK3ue213RoseBuildImpl17maxLiteralOverlapENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEES8_(ptr noundef nonnull align 8 dereferenceable(780), ptr, i64, ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl24hasOnlyPseudoStarInEdgesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly %v.coerce0, i64 %v.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl24hasOnlyPseudoStarInEdgesENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly captures(address) %v.coerce0, i64 %v.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %m_header.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %v.coerce0, i64 328
   %__begin1.sroa.0.04 = load ptr, ptr %m_header.i.i.i.i.i, align 8
@@ -3288,7 +3288,7 @@ declare noundef zeroext i1 @_ZNK3ue215RoseVertexProps8isBoringEv(ptr noundef non
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl12hasDelayPredENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly %v.coerce0, i64 %v.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl12hasDelayPredENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly captures(address) %v.coerce0, i64 %v.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %m_header.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %v.coerce0, i64 328
   br label %for.cond
@@ -3310,7 +3310,7 @@ cleanup5:                                         ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl20hasAnchoredTablePredENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly %v.coerce0, i64 %v.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl20hasAnchoredTablePredENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly captures(address) %v.coerce0, i64 %v.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %m_header.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %v.coerce0, i64 328
   br label %for.cond
@@ -21682,7 +21682,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIPN3u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L12findLeftSuccERKNS_13RoseBuildImplE(ptr noalias nonnull align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(780) %build) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L12findLeftSuccERKNS_13RoseBuildImplE(ptr noalias nonnull align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(780) %build) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ref.tmp20 = alloca %"struct.ue2::left_id", align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8

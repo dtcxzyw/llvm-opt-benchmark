@@ -75,7 +75,7 @@ define range(i32 0, 2) i32 @yr_hash_table_create(i32 noundef %0, ptr noundef wri
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8, !tbaa !8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph24, label %._crit_edge25
@@ -175,7 +175,7 @@ define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef re
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @yr_hash_table_lookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define ptr @yr_hash_table_lookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 1

@@ -2181,7 +2181,7 @@ declare void @_ZN17G1HeapRegionRangeC1Ejj(ptr noundef nonnull align 4 dereferenc
 declare i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK19G1HeapRegionManager19next_region_in_heapEPK12G1HeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK19G1HeapRegionManager19next_region_in_heapEPK12G1HeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 
@@ -2750,7 +2750,7 @@ _ZN19G1HeapRegionManager9shrink_atEjm.exit:       ; preds = %_ZN19G1HeapRegionPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK19G1HeapRegionManager27find_empty_from_idx_reverseEjPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK19G1HeapRegionManager27find_empty_from_idx_reverseEjPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %.not = icmp ugt i32 %1, %5

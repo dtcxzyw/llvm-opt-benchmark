@@ -1595,7 +1595,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define void @llhttp__debug(ptr noundef %s, ptr noundef readonly %p, ptr noundef readnone %endp, ptr noundef %msg) local_unnamed_addr #8 {
+define void @llhttp__debug(ptr noundef %s, ptr noundef readonly captures(address) %p, ptr noundef readnone captures(address) %endp, ptr noundef %msg) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %p, %endp
   %0 = load ptr, ptr @stderr, align 8

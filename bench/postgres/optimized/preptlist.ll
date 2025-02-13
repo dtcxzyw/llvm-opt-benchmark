@@ -532,7 +532,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @expand_insert_targetlist(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc ptr @expand_insert_targetlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_head.exit, label %3
 
@@ -699,7 +699,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %sel
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @extract_update_targetlist_colnos(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @extract_update_targetlist_colnos(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -772,7 +772,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_plan_rowmark(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local ptr @get_plan_rowmark(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph

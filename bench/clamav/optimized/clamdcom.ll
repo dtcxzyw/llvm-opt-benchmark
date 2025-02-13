@@ -138,7 +138,7 @@ define void @recvlninit(ptr noundef initializes((5120, 5124)) %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @recvln(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @recvln(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5124
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5128
@@ -821,7 +821,7 @@ declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #4
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @dsresult(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.RCVLN, align 8

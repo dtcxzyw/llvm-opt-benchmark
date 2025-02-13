@@ -957,7 +957,7 @@ for.end26:                                        ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z16btIsBodyInIslandRKN27btSimulationIslandManagerMt6IslandEPK17btCollisionObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(101) %island, ptr noundef readnone %obj) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_Z16btIsBodyInIslandRKN27btSimulationIslandManagerMt6IslandEPK17btCollisionObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(101) %island, ptr noundef readnone captures(address) %obj) local_unnamed_addr #7 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %island, i64 4
   %0 = load i32, ptr %m_size.i, align 4

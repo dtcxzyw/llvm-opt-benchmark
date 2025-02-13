@@ -349,7 +349,7 @@ define hidden ptr @wmem_tree_insert(ptr noundef captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rb_insert_case1(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @rb_insert_case1(ptr noundef captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -652,7 +652,7 @@ define void @wmem_tree_insert32(ptr noundef captures(none) %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -885,7 +885,7 @@ lookup_or_insert32_node.exit:                     ; preds = %.split.us.i.thread3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -929,7 +929,7 @@ define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @wmem_tree_lookup32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -978,7 +978,7 @@ define ptr @wmem_tree_lookup32(ptr noundef readonly %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @wmem_tree_lookup32_le(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -1075,7 +1075,7 @@ define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_tree_remove32(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @wmem_tree_remove32(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32.exit.thread, label %3
 
@@ -1322,7 +1322,7 @@ declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_tree_lookup_string(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @wmem_tree_lookup_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   %5 = icmp eq ptr %0, null
@@ -1392,7 +1392,7 @@ wmem_tree_lookup.exit:                            ; preds = %13, %21, %wmem_tree
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_tree_remove_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @wmem_tree_remove_string(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not.i = icmp eq i32 %4, 0
   %5 = icmp eq ptr %0, null
@@ -1467,7 +1467,7 @@ wmem_tree_lookup_string.exit.thread:              ; preds = %13, %21, %15, %.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_tree_insert32_array(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @wmem_tree_insert32_array(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %.not29 = icmp eq i32 %4, 0
   br i1 %.not29, label %._crit_edge33, label %.preheader.lr.ph
@@ -1623,7 +1623,7 @@ lookup_or_insert32.exit:                          ; preds = %.preheader.split.sp
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_array(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @wmem_tree_lookup32_array(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -1739,7 +1739,7 @@ wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_looku
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4

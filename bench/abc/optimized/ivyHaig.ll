@@ -505,7 +505,7 @@ declare ptr @Ivy_Latch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @Ivy_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly captures(address) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %27, label %5
 

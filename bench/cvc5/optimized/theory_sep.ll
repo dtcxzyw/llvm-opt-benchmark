@@ -3798,7 +3798,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @_ZN4cvc58internal11NodeManager17mkNullaryOperatorERKNS0_8TypeNodeENS0_4kind6Kind_tE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory3sep9TheorySep17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(1840) %this) unnamed_addr #7 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory3sep9TheorySep17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1840) %this) unnamed_addr #7 align 2 {
 entry:
   %d_rewriter = getelementptr inbounds nuw i8, ptr %this, i64 448
   ret ptr %d_rewriter
@@ -22654,7 +22654,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory3sep9TheorySep15sharesRootLabelENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 dereferenceable(1840) %this, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory3sep9TheorySep15sharesRootLabelENS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 captures(address) dereferenceable(1840) %this, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rp = alloca %"class.std::vector.65", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -44850,7 +44850,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory3sep9TheorySep13getRootLabelsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.65") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr noundef %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory3sep9TheorySep13getRootLabelsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.65") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1840) %this, ptr noundef %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %visited = alloca %"class.std::unordered_set.619", align 8

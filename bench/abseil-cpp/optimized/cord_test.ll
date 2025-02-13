@@ -101930,7 +101930,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_119CordCompareTestCaseEEvT_S3_(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_119CordCompareTestCaseEEvT_S3_(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not3.i = icmp eq ptr %__first, %__last
   br i1 %cmp.not3.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_119CordCompareTestCaseEEEvT_S5_.exit, label %for.body.i
@@ -138648,7 +138648,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN12_GLOBAL__N_14$_668__invokeERN4absl4CordE"(ptr noundef nonnull align 8 dereferenceable(16) %c) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN12_GLOBAL__N_14$_668__invokeERN4absl4CordE"(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %c) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca %"struct.absl::cord_internal::InlineData::Rep::AsTree", align 8
   %other.i = alloca %"class.absl::Cord", align 8
@@ -138688,7 +138688,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN12_GLOBAL__N_14$_678__invokeERN4absl4CordE"(ptr noundef nonnull align 8 dereferenceable(16) %c) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN12_GLOBAL__N_14$_678__invokeERN4absl4CordE"(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %c) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca %"struct.absl::cord_internal::InlineData::Rep::AsTree", align 8
   %other.i = alloca %"class.absl::Cord", align 8

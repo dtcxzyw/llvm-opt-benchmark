@@ -890,7 +890,7 @@ if.end5:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509V3_set_nconf(ptr noundef writeonly %ctx, ptr noundef %conf) local_unnamed_addr #0 {
+define void @X509V3_set_nconf(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %conf) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -913,7 +913,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509V3_set_ctx(ptr noundef writeonly %ctx, ptr noundef %issuer, ptr noundef %subj, ptr noundef %req, ptr noundef %crl, i32 noundef %flags) local_unnamed_addr #0 {
+define void @X509V3_set_ctx(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %issuer, ptr noundef %subj, ptr noundef %req, ptr noundef %crl, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -943,7 +943,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509V3_set_issuer_pkey(ptr noundef %ctx, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_set_issuer_pkey(ptr noundef captures(address_is_null) %ctx, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1023,7 +1023,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509V3_set_conf_lhash(ptr noundef writeonly %ctx, ptr noundef %lhash) local_unnamed_addr #0 {
+define void @X509V3_set_conf_lhash(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %lhash) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end

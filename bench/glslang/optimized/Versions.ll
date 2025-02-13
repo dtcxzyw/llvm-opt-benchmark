@@ -7261,7 +7261,7 @@ define void @_ZN7glslang14TParseVersions19ppRequireExtensionsERKNS_10TSourceLocE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang14TParseVersions20getExtensionBehaviorEPKc(ptr noundef nonnull readonly align 8 dereferenceable(224) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7glslang14TParseVersions20getExtensionBehaviorEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24

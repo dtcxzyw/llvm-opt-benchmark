@@ -1706,7 +1706,7 @@ declare dso_local void @idr_preload(i32 noundef) local_unnamed_addr #1
 declare dso_local i32 @idr_alloc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @drm_minor_alloc_release(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define internal void @drm_minor_alloc_release(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0

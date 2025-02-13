@@ -2084,7 +2084,7 @@ define linkonce_odr void @_ZNK4ofbx11TextureImpl19getRelativeFileNameEv(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #12 {
   %4 = tail call i32 @atoi(ptr noundef %0) #30
   store i32 %4, ptr %2, align 4
   %5 = icmp ult ptr %0, %1
@@ -2116,7 +2116,7 @@ define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #13 {
+define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #13 {
   %4 = tail call i64 @strtoull(ptr noundef captures(none) %0, ptr noundef null, i32 noundef 10) #29
   store i64 %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2148,7 +2148,7 @@ define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #12 {
   %4 = tail call i64 @atoll(ptr noundef %0) #30
   store i64 %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2180,7 +2180,7 @@ define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #12 {
   %4 = tail call double @atof(ptr noundef %0) #30
   store double %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2212,7 +2212,7 @@ define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #12 {
   %4 = tail call double @atof(ptr noundef %0) #30
   %5 = fptrunc double %4 to float
   store float %5, ptr %2, align 4
@@ -2245,7 +2245,7 @@ define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringEPKcS1_Pdi(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringEPKcS1_Pdi(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = ptrtoint ptr %1 to i64
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph29, label %._crit_edge
@@ -2627,7 +2627,7 @@ define void @_ZNK4ofbx6Object17getRotationOffsetEv(ptr dead_on_unwind noalias wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr readonly %.144.val.32.val, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 {
+define internal fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr readonly captures(address_is_null) %.144.val.32.val, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 {
   %.not10.i.i = icmp eq ptr %.144.val.32.val, null
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.split.i.i
 
@@ -4733,7 +4733,7 @@ _ZNKSt13unordered_mapIyN4ofbx5Scene10ObjectPairESt4hashIyESt8equal_toIyESaISt4pa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkENS0_4TypeEPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK4ofbx6Object17resolveObjectLinkENS0_4TypeEPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.ofbx::DataView", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8

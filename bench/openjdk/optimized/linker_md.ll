@@ -21,7 +21,7 @@ define hidden range(i32 0, 2) i32 @dbgsysBuildFunName(ptr noundef readnone captu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dbgsysBuildLibName(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @dbgsysBuildLibName(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %6

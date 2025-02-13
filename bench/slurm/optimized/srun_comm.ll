@@ -279,7 +279,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_allocate_abort(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @srun_allocate_abort(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
 
@@ -374,7 +374,7 @@ declare ptr @slurm_conf_get_nodeaddr(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @srun_node_fail(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @srun_node_fail(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.srun_node_fail_args_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8

@@ -491,7 +491,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_notify_flush(ptr rea
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -560,7 +560,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_comm_size_notify(ptr
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -595,7 +595,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_size(ptr rea
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -631,7 +631,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_count(p
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -667,7 +667,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_size(pt
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -703,7 +703,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_count(p
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -739,7 +739,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_size(pt
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_count(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -775,7 +775,7 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_count(ptr r
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) #8 {
+define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16

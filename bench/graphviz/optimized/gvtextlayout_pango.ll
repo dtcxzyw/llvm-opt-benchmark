@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pango_psfontResolve.buf = internal global [1024 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @pango_textlayout(ptr noundef captures(none) %0, ptr noundef writeonly %1) #0 {
+define internal zeroext i1 @pango_textlayout(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
   %3 = alloca %struct._PangoRectangle, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

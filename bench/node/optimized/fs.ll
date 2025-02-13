@@ -3860,7 +3860,7 @@ do.end27:                                         ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_fs_write(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef readonly %bufs, i32 noundef %nbufs, i64 noundef %off, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local i32 @uv_fs_write(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef readonly captures(address_is_null) %bufs, i32 noundef %nbufs, i64 noundef %off, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %do.end44, label %do.body1

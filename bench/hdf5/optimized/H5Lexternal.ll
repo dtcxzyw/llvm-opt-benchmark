@@ -442,7 +442,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @H5L__extern_query(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #0 {
+define internal noundef i64 @H5L__extern_query(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) #0 {
   %6 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %6, 16
   br i1 %.not, label %11, label %7

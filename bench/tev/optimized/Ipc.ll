@@ -1172,7 +1172,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev9IpcPacket12setOpenImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_b(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev9IpcPacket12setOpenImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_b(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -1633,7 +1633,7 @@ _ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit46:     ; preds = %_ZN3tev9IpcPacket7O
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev9IpcPacket14setReloadImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev9IpcPacket14setReloadImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -1943,7 +1943,7 @@ _ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit:       ; preds = %_ZN3tev9IpcPacket7O
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev9IpcPacket13setCloseImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev9IpcPacket13setCloseImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -2201,7 +2201,7 @@ _ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit:       ; preds = %_ZN3tev9IpcPacket7O
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev9IpcPacket14setUpdateImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbRKNS1_6vectorINS0_11ChannelDescENS5_ISB_EEEEiiiiRKNSA_IfNS5_IfEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev9IpcPacket14setUpdateImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbRKNS1_6vectorINS0_11ChannelDescENS5_ISB_EEEEiiiiRKNSA_IfNS5_IfEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.std::__1::__exception_guard_exceptions", align 8
   %11 = alloca %"class.fmt::v9::format_arg_store", align 16
   %12 = alloca %"class.std::__1::vector.11", align 8
@@ -3646,7 +3646,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev9IpcPacket14setCreateImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbiiiRKNS1_6vectorIS7_NS5_IS7_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev9IpcPacket14setCreateImageERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbiiiRKNS1_6vectorIS7_NS5_IS7_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.tev::IpcPacket::OStream", align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4175,7 +4175,7 @@ _ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit40:     ; preds = %_ZN3tev9IpcPacket7O
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev9IpcPacket17setVectorGraphicsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbbRKNS1_6vectorINS_9VgCommandENS5_ISB_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev9IpcPacket17setVectorGraphicsERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbbRKNS1_6vectorINS_9VgCommandENS5_ISB_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -9555,7 +9555,7 @@ define dso_local void @_ZN3tev3Ipc21sendToPrimaryInstanceERKNS_9IpcPacketE(ptr n
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev3Ipc28receiveFromSecondaryInstanceENSt3__18functionIFvRKNS_9IpcPacketEEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev3Ipc28receiveFromSecondaryInstanceENSt3__18functionIFvRKNS_9IpcPacketEEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8

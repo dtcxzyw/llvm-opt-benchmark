@@ -153,7 +153,7 @@ define dso_local i32 @__ftrace_vprintk(i64 noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: none, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @trace_is_tracepoint_string(ptr noundef readnone %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef zeroext i1 @trace_is_tracepoint_string(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 16 {
   %2 = icmp ult ptr @__start___tracepoint_str, @__stop___tracepoint_str
   br i1 %2, label %3, label %.loopexit
 
@@ -296,7 +296,7 @@ define internal void @t_stop(ptr readnone captures(none) %0, ptr readnone captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal ptr @t_next(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #7 align 16 {
+define internal ptr @t_next(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) #7 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

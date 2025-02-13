@@ -312,7 +312,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 declare double @sqrt(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define void @export_embedding(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define void @export_embedding(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32

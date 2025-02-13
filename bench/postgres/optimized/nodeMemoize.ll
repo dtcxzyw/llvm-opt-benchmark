@@ -1401,7 +1401,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef captures(address) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1537,7 +1537,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prepare_probe_slot(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @prepare_probe_slot(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1627,7 +1627,7 @@ slot_getallattrs.exit:                            ; preds = %35, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @cache_reduce_memory(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @cache_reduce_memory(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load i64, ptr %4, align 8

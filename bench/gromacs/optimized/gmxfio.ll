@@ -901,7 +901,7 @@ define noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef readnone %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL15open_file_mutex) #19
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %3

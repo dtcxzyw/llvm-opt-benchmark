@@ -91,7 +91,7 @@ return:                                           ; preds = %raxNewNode.exit, %e
 declare void @zfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @raxReallocForData(ptr noundef %n, ptr noundef readnone %data) local_unnamed_addr #1 {
+define dso_local ptr @raxReallocForData(ptr noundef %n, ptr noundef readnone captures(address_is_null) %data) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %data, null
   br i1 %cmp, label %return, label %if.end
@@ -538,7 +538,7 @@ return:                                           ; preds = %raxNewNode.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef %data, ptr noundef writeonly %old, i32 noundef %overwrite) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef %data, ptr noundef writeonly captures(address_is_null) %old, i32 noundef %overwrite) local_unnamed_addr #1 {
 entry:
   %child = alloca ptr, align 8
   %new_parentlink = alloca ptr, align 8
@@ -1603,7 +1603,7 @@ return:                                           ; preds = %if.end818, %raxSetD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @raxLowWalk(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef writeonly %stopnode, ptr noundef writeonly %plink, ptr noundef nonnull writeonly captures(none) %splitpos, ptr noundef %ts) unnamed_addr #1 {
+define internal fastcc i64 @raxLowWalk(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %stopnode, ptr noundef writeonly captures(address_is_null) %plink, ptr noundef nonnull writeonly captures(none) %splitpos, ptr noundef %ts) unnamed_addr #1 {
 entry:
   %h.054 = load ptr, ptr %rax, align 8
   %bf.load55 = load i32, ptr %h.054, align 4
@@ -1822,7 +1822,7 @@ if.end86:                                         ; preds = %if.then84, %land.lh
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxRemove(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef writeonly %old) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxRemove(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %old) local_unnamed_addr #1 {
 entry:
   %h = alloca ptr, align 8
   %ts = alloca %struct.raxStack, align 8
@@ -2302,21 +2302,21 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxInsert(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef %data, ptr noundef %old) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxInsert(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef %data, ptr noundef captures(address_is_null) %old) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @raxGenericInsert(ptr noundef %rax, ptr noundef %s, i64 noundef %len, ptr noundef %data, ptr noundef %old, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxTryInsert(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef %data, ptr noundef %old) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxTryInsert(ptr noundef %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef %data, ptr noundef captures(address_is_null) %old) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @raxGenericInsert(ptr noundef %rax, ptr noundef %s, i64 noundef %len, ptr noundef %data, ptr noundef %old, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none) %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef writeonly %value) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none) %rax, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %value) local_unnamed_addr #10 {
 entry:
   %h.054.i = load ptr, ptr %rax, align 8
   %bf.load55.i = load i32, ptr %h.054.i, align 4
@@ -2469,7 +2469,7 @@ return:                                           ; preds = %if.end, %raxGetData
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @raxFindParentLink(ptr noundef readonly %parent, ptr noundef readnone %child) local_unnamed_addr #11 {
+define dso_local noundef nonnull ptr @raxFindParentLink(ptr noundef readonly captures(ret: address, provenance) %parent, ptr noundef readnone captures(address) %child) local_unnamed_addr #11 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %parent, i64 4
   %bf.load = load i32, ptr %parent, align 4
@@ -2495,7 +2495,7 @@ while.end:                                        ; preds = %while.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @raxRemoveChild(ptr noundef %parent, ptr noundef readnone %child) local_unnamed_addr #1 {
+define dso_local ptr @raxRemoveChild(ptr noundef %parent, ptr noundef readnone captures(address) %child) local_unnamed_addr #1 {
 entry:
   %bf.load = load i32, ptr %parent, align 4
   %0 = and i32 %bf.load, 4
@@ -2644,7 +2644,7 @@ return:                                           ; preds = %if.end, %raxSetData
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxRecursiveFree(ptr noundef captures(none) %rax, ptr noundef %n, ptr noundef %free_callback) local_unnamed_addr #1 {
+define dso_local void @raxRecursiveFree(ptr noundef captures(none) %rax, ptr noundef %n, ptr noundef captures(address_is_null) %free_callback) local_unnamed_addr #1 {
 entry:
   %bf.load = load i32, ptr %n, align 4
   %0 = and i32 %bf.load, 4
@@ -2728,7 +2728,7 @@ if.end:                                           ; preds = %raxGetData.exit, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxFreeWithCallback(ptr noundef %rax, ptr noundef %free_callback) local_unnamed_addr #1 {
+define dso_local void @raxFreeWithCallback(ptr noundef %rax, ptr noundef captures(address_is_null) %free_callback) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %rax, align 8
   tail call void @raxRecursiveFree(ptr noundef nonnull %rax, ptr noundef %0, ptr noundef %free_callback)
@@ -4846,7 +4846,7 @@ return:                                           ; preds = %if.then35, %if.else
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxStop(ptr noundef readonly %it) local_unnamed_addr #1 {
+define dso_local void @raxStop(ptr noundef readonly captures(address) %it) local_unnamed_addr #1 {
 entry:
   %key = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %key, align 8

@@ -9962,7 +9962,7 @@ declare noundef i32 @_ZN6Client13getCrackLevelEv(ptr noundef nonnull align 8 der
 declare noundef i32 @_ZN11Environment16getDayNightRatioEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ClientMap28updateTransparentMeshBuffersEv(ptr noundef nonnull align 8 dereferenceable(648) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9ClientMap28updateTransparentMeshBuffersEv(ptr noundef nonnull align 8 captures(address) dereferenceable(648) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i145 = alloca i64, align 8
   %__dnew.i.i108 = alloca i64, align 8
@@ -11838,7 +11838,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ClientMap16renderMapShadowsEPN3irr5video12IVideoDriverERKNS1_9SMaterialEiii(ptr noundef nonnull readonly align 8 dereferenceable(648) %this, ptr noundef %driver, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(178) %material, i32 noundef %pass, i32 noundef %frame, i32 noundef %total_frames) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9ClientMap16renderMapShadowsEPN3irr5video12IVideoDriverERKNS1_9SMaterialEiii(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(648) %this, ptr noundef %driver, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(178) %material, i32 noundef %pass, i32 noundef %frame, i32 noundef %total_frames) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i776 = alloca i64, align 8
   %__dnew.i.i.i743 = alloca i64, align 8

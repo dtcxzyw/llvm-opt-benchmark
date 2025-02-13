@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings16ModelConsDefault28getStringRepresentativesFromERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EERSt13unordered_setINS0_8TypeNodeESt4hashISE_ESt8equal_toISE_ESaISE_EERSt3mapISE_SD_IS6_SF_IS6_ESH_IS6_ES9_ES7_ISE_ESaISt4pairIKSE_SP_EEERSt6vectorIS6_S9_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(56) %repTypes, ptr noundef nonnull align 8 dereferenceable(48) %repSet, ptr nonnull readnone align 8 captures(none) %auxEq) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings16ModelConsDefault28getStringRepresentativesFromERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EERSt13unordered_setINS0_8TypeNodeESt4hashISE_ESt8equal_toISE_ESaISE_EERSt3mapISE_SD_IS6_SF_IS6_ESH_IS6_ES9_ES7_ISE_ESaISt4pairIKSE_SP_EEERSt6vectorIS6_S9_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %termSet, ptr noundef nonnull align 8 dereferenceable(56) %repTypes, ptr noundef nonnull align 8 dereferenceable(48) %repSet, ptr nonnull readnone align 8 captures(none) %auxEq) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i9 = alloca %"struct.std::__detail::_AllocNode.454", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8

@@ -260,7 +260,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef float @_Z20DistanceBetweenLinesRK9btVector3S1_S1_S1_PS_S2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ustart, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %udir, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vstart, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vdir, ptr noundef writeonly %upoint, ptr noundef writeonly %vpoint) local_unnamed_addr #2 {
+define dso_local noundef float @_Z20DistanceBetweenLinesRK9btVector3S1_S1_S1_PS_S2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ustart, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %udir, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vstart, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vdir, ptr noundef writeonly captures(address_is_null) %upoint, ptr noundef writeonly captures(address_is_null) %vpoint) local_unnamed_addr #2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %udir, i64 4
   %0 = load float, ptr %arrayidx.i.i, align 4
@@ -1098,7 +1098,7 @@ return:                                           ; preds = %_Z7hasedgeRK4int3ii
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN14btHullTriangle4neibEii(ptr noundef nonnull readonly align 4 dereferenceable(36) %this, i32 noundef %a, i32 noundef %b) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN14btHullTriangle4neibEii(ptr noundef nonnull readonly align 4 captures(ret: address, provenance) dereferenceable(36) %this, i32 noundef %a, i32 noundef %b) local_unnamed_addr #6 align 2 {
 entry:
   br label %for.body
 

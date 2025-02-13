@@ -176,7 +176,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #4
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7512DateTimeRuleaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(36) %this, ptr noundef nonnull readonly align 8 dereferenceable(36) %right) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7512DateTimeRuleaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(36) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %right) local_unnamed_addr #2 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %right
   br i1 %cmp.not, label %if.end, label %if.then
@@ -217,7 +217,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7512DateTimeRuleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(36) %this, ptr noundef nonnull readonly align 8 dereferenceable(36) %that) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7512DateTimeRuleeqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %that) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %that
   br i1 %cmp, label %lor.end, label %typeid.end
@@ -312,7 +312,7 @@ lor.end:                                          ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7512DateTimeRuleneERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(36) %this, ptr noundef nonnull readonly align 8 dereferenceable(36) %that) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7512DateTimeRuleneERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %that) local_unnamed_addr #6 align 2 {
 entry:
   %cmp.i = icmp eq ptr %this, %that
   br i1 %cmp.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit, label %typeid.end.i

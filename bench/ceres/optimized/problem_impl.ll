@@ -4635,7 +4635,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal11ProblemImpl19DeleteBlockInV
 declare noundef ptr @_ZN5ceres8internal7Program24mutable_parameter_blocksEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal11ProblemImpl25SetParameterBlockConstantEPKd(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal11ProblemImpl25SetParameterBlockConstantEPKd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %3, align 8
@@ -4710,7 +4710,7 @@ _ZN5ceres15FindWithDefaultISt3mapIPdPNS_8internal14ParameterBlockESt4lessIS2_ESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK5ceres8internal11ProblemImpl24IsParameterBlockConstantEPKd(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK5ceres8internal11ProblemImpl24IsParameterBlockConstantEPKd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %3, align 8
@@ -4817,7 +4817,7 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit: ; preds = %.critedge, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal11ProblemImpl25SetParameterBlockVariableEPd(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal11ProblemImpl25SetParameterBlockVariableEPd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %3, align 8
@@ -4892,7 +4892,7 @@ _ZN5ceres15FindWithDefaultISt3mapIPdPNS_8internal14ParameterBlockESt4lessIS2_ESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal11ProblemImpl11SetManifoldEPdPNS_8ManifoldE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal11ProblemImpl11SetManifoldEPdPNS_8ManifoldE(ptr noundef nonnull align 8 captures(address) dereferenceable(280) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %4, align 8
@@ -4966,7 +4966,7 @@ _ZN5ceres15FindWithDefaultISt3mapIPdPNS_8internal14ParameterBlockESt4lessIS2_ESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK5ceres8internal11ProblemImpl11GetManifoldEPKd(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK5ceres8internal11ProblemImpl11GetManifoldEPKd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %3, align 8
@@ -5041,14 +5041,14 @@ _ZN5ceres15FindWithDefaultISt3mapIPdPNS_8internal14ParameterBlockESt4lessIS2_ESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK5ceres8internal11ProblemImpl11HasManifoldEPKd(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK5ceres8internal11ProblemImpl11HasManifoldEPKd(ptr noundef nonnull align 8 captures(address) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK5ceres8internal11ProblemImpl11GetManifoldEPKd(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1)
   %4 = icmp ne ptr %3, null
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal11ProblemImpl22SetParameterLowerBoundEPdid(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal11ProblemImpl22SetParameterLowerBoundEPdid(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %5, align 8
@@ -5222,7 +5222,7 @@ _ZSt4fillIPddEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal11ProblemImpl22SetParameterUpperBoundEPdid(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal11ProblemImpl22SetParameterUpperBoundEPdid(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %5, align 8
@@ -5396,7 +5396,7 @@ _ZSt4fillIPddEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK5ceres8internal11ProblemImpl22GetParameterLowerBoundEPKdi(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef double @_ZNK5ceres8internal11ProblemImpl22GetParameterLowerBoundEPKdi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %4, align 8
@@ -5482,7 +5482,7 @@ _ZNK5ceres8internal14ParameterBlock10LowerBoundEi.exit: ; preds = %30, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK5ceres8internal11ProblemImpl22GetParameterUpperBoundEPKdi(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef double @_ZNK5ceres8internal11ProblemImpl22GetParameterUpperBoundEPKdi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %4, align 8
@@ -5568,7 +5568,7 @@ _ZNK5ceres8internal14ParameterBlock10UpperBoundEi.exit: ; preds = %30, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5ceres8internal11ProblemImpl8EvaluateERKNS_7Problem15EvaluateOptionsEPdPSt6vectorIdSaIdEESA_PNS_9CRSMatrixE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN5ceres8internal11ProblemImpl8EvaluateERKNS_7Problem15EvaluateOptionsEPdPSt6vectorIdSaIdEESA_PNS_9CRSMatrixE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.ceres::internal::Program", align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.google::LogMessageFatal", align 8
@@ -7365,7 +7365,7 @@ define hidden noundef i32 @_ZNK5ceres8internal11ProblemImpl12NumResidualsEv(ptr 
 declare noundef i32 @_ZNK5ceres8internal7Program12NumResidualsEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK5ceres8internal11ProblemImpl18ParameterBlockSizeEPKd(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK5ceres8internal11ProblemImpl18ParameterBlockSizeEPKd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %3, align 8
@@ -7440,7 +7440,7 @@ _ZN5ceres15FindWithDefaultISt3mapIPdPNS_8internal14ParameterBlockESt4lessIS2_ESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK5ceres8internal11ProblemImpl25ParameterBlockTangentSizeEPKd(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK5ceres8internal11ProblemImpl25ParameterBlockTangentSizeEPKd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   store ptr null, ptr %3, align 8
@@ -7532,7 +7532,7 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit: ; preds = %33, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5ceres8internal11ProblemImpl17HasParameterBlockEPKd(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef readnone %1) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK5ceres8internal11ProblemImpl17HasParameterBlockEPKd(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7570,7 +7570,7 @@ _ZNKSt3mapIPdPN5ceres8internal14ParameterBlockESt4lessIS0_ESaISt4pairIKS0_S4_EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5ceres8internal11ProblemImpl18GetParameterBlocksEPSt6vectorIPdSaIS3_EE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5ceres8internal11ProblemImpl18GetParameterBlocksEPSt6vectorIPdSaIS3_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::LogMessageFatal", align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %.critedge
@@ -7876,7 +7876,7 @@ define hidden noundef ptr @_ZNK5ceres8internal11ProblemImpl31GetLossFunctionForR
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5ceres8internal11ProblemImpl34GetResidualBlocksForParameterBlockEPKdPSt6vectorIPNS0_13ResidualBlockESaIS6_EE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5ceres8internal11ProblemImpl34GetResidualBlocksForParameterBlockEPKdPSt6vectorIPNS0_13ResidualBlockESaIS6_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(280) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.google::LogMessageFatal", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8

@@ -5543,7 +5543,7 @@ _ZN8rationalD2Ev.exit4:                           ; preds = %.noexc.i2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3opt10opt_solver20get_objective_valuesEv(ptr noundef nonnull readnone align 8 dereferenceable(1034) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3opt10opt_solver20get_objective_valuesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1034) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_objective_values = getelementptr inbounds nuw i8, ptr %this, i64 976
   ret ptr %m_objective_values

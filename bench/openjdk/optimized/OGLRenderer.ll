@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [1170 x i8] c"void main() {    vec2 oleg1 = dFdx(gl_TexCoord[0].st);    vec2 oleg2 = dFdy(gl_TexCoord[0].st);    vec2 corner = gl_TexCoord[0].st - (oleg1+oleg2)/2.0;    vec2 omin = min(corner, corner+oleg1);    omin = min(omin, corner+oleg2);    omin = min(omin, corner+oleg1+oleg2);    vec2 omax = max(corner, corner+oleg1);    omax = max(omax, corner+oleg2);    omax = max(omax, corner+oleg1+oleg2);    vec2 ileg1 = dFdx(gl_TexCoord[1].st);    vec2 ileg2 = dFdy(gl_TexCoord[1].st);    corner = gl_TexCoord[1].st - (ileg1+ileg2)/2.0;    vec2 imin = min(corner, corner+ileg1);    imin = min(imin, corner+ileg2);    imin = min(imin, corner+ileg1+ileg2);    vec2 imax = max(corner, corner+ileg1);    imax = max(imax, corner+ileg2);    imax = max(imax, corner+ileg1+ileg2);    vec2 o1 = clamp(omin, 0.0, 1.0);    vec2 o2 = clamp(omax, 0.0, 1.0);    float oint = (o2.y-o1.y)*(o2.x-o1.x);    float oarea = (omax.y-omin.y)*(omax.x-omin.x);    vec2 i1 = clamp(imin, 0.0, 1.0);    vec2 i2 = clamp(imax, 0.0, 1.0);    float iint = (i2.y-i1.y)*(i2.x-i1.x);    float iarea = (imax.y-imin.y)*(imax.x-imin.x);    float coverage = oint/oarea - iint / iarea;    gl_FragColor = gl_Color * coverage;}\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_DrawLine(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_DrawLine(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %33, label %7
 
@@ -86,7 +86,7 @@ define hidden void @OGLRenderer_DrawLine(ptr noundef readnone %0, i32 noundef %1
 declare void @OGLRenderQueue_CheckPreviousOp(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_DrawRect(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_DrawRect(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = or i32 %4, %3
   %or.cond = icmp slt i32 %6, 0
   %7 = icmp eq ptr %0, null
@@ -150,7 +150,7 @@ define hidden void @OGLRenderer_DrawRect(ptr noundef readnone %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %5, null
   %9 = icmp eq ptr %6, null
   %or.cond = or i1 %8, %9
@@ -308,7 +308,7 @@ define void @Java_sun_java2d_opengl_OGLRenderer_drawPoly(ptr noundef %0, ptr nou
 declare ptr @OGLRenderQueue_GetCurrentContext(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_DrawScanlines(ptr noundef readnone %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_DrawScanlines(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -347,7 +347,7 @@ define hidden void @OGLRenderer_DrawScanlines(ptr noundef readnone %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_FillRect(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_FillRect(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %3, 1
   %7 = icmp slt i32 %4, 1
   %or.cond = or i1 %6, %7
@@ -374,7 +374,7 @@ define hidden void @OGLRenderer_FillRect(ptr noundef readnone %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_FillSpans(ptr noundef readnone %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_FillSpans(ptr noundef readnone captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -413,7 +413,7 @@ define hidden void @OGLRenderer_FillSpans(ptr noundef readnone %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_FillParallelogram(ptr noundef readnone %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_FillParallelogram(ptr noundef readnone captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %20, label %9
 
@@ -440,7 +440,7 @@ define hidden void @OGLRenderer_FillParallelogram(ptr noundef readnone %0, float
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_DrawParallelogram(ptr noundef readnone %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_DrawParallelogram(ptr noundef readnone captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
   %10 = fmul float %3, %7
   %11 = fmul float %4, %7
   %12 = fmul float %5, %8
@@ -550,7 +550,7 @@ define hidden void @OGLRenderer_DrawParallelogram(ptr noundef readnone %0, float
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone %0, ptr noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %1, null
   %or.cond = or i1 %9, %10
@@ -658,7 +658,7 @@ define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone %0, ptr
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #0 {
   %15 = icmp eq ptr %0, null
   %16 = icmp eq ptr %1, null
   %or.cond = or i1 %15, %16
@@ -807,7 +807,7 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLRenderer_DrawAAParallelogram(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) local_unnamed_addr #0 {
+define hidden void @OGLRenderer_DrawAAParallelogram(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq ptr %0, null
   %12 = icmp eq ptr %1, null
   %or.cond3 = or i1 %11, %12

@@ -242,7 +242,7 @@ read_program_header_table.exit._crit_edge:        ; preds = %read_program_header
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @find_section_by_name(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @find_section_by_name(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(ret: address, provenance) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64

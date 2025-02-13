@@ -317,7 +317,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h7525815fee0b61d3E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h7525815fee0b61d3E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i32, ptr %1, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %5 = load i32, ptr %0, align 4, !range !4, !alias.scope !25, !noalias !28
@@ -532,13 +532,13 @@ _ZN6uu_env13string_parser12StringParser6new_at17h5c246883672407b0E.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6uu_env15string_expander14StringExpander10get_parser17hf48d429eff574debE(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6uu_env15string_expander14StringExpander10get_parser17hf48d429eff574debE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6uu_env15string_expander14StringExpander14get_parser_mut17hfcc84f8797fd5a13E(ptr noalias noundef readnone align 8 dereferenceable(64) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6uu_env15string_expander14StringExpander14get_parser_mut17hfcc84f8797fd5a13E(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }

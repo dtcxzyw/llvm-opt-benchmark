@@ -4201,7 +4201,7 @@ declare dso_local i32 @__pm_runtime_suspend(ptr noundef, i32 noundef) local_unna
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_em485_handle_stop_tx(ptr noundef %0) #0 align 16 {
+define internal noundef i32 @serial8250_em485_handle_stop_tx(ptr noundef captures(address) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 584
@@ -4256,7 +4256,7 @@ define internal noundef i32 @serial8250_em485_handle_stop_tx(ptr noundef %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial8250_em485_handle_start_tx(ptr noundef %0) #0 align 16 {
+define internal noundef i32 @serial8250_em485_handle_start_tx(ptr noundef captures(address) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #14

@@ -555,7 +555,7 @@ scan_globals.exit:                                ; preds = %.loopexit.i, %._cri
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @declspec(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @declspec(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8, !tbaa !25
   %5 = load ptr, ptr @ty_int, align 8, !tbaa !52
@@ -1862,7 +1862,7 @@ find_func.exit.thread:                            ; preds = %26, %24, %21, %find
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @eval2(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @eval2(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   tail call void @add_type(ptr noundef %0) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 16, !tbaa !24
@@ -2526,7 +2526,7 @@ tailrecurse.backedge:                             ; preds = %67, %58, %63, %65
 declare zeroext i1 @is_integer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @eval_rval(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @eval_rval(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 16, !tbaa !7
   switch i32 %3, label %29 [
     i32 40, label %4
@@ -31581,7 +31581,7 @@ define internal fastcc ptr @assign(ptr noundef nonnull %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_initializer2(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @struct_initializer2(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8, !tbaa !25
   %.not13 = icmp eq ptr %3, null
@@ -32709,7 +32709,7 @@ define internal fastcc noundef ptr @new_string_literal(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @declaration(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @declaration(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.InitDesg, align 8
   %6 = alloca %struct.Relocation, align 8
   %7 = alloca ptr, align 8

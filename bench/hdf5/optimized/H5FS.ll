@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5_H5FS_node_t_reg_free_list = external global %struct.H5FL_reg_head_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5FS_create(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define ptr @H5FS_create(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
@@ -1109,7 +1109,7 @@ define range(i32 -1, 1) i32 @H5FS__dirty(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FS_alloc_hdr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FS_alloc_hdr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, -1

@@ -36,7 +36,7 @@ define noundef zeroext i1 @lv_rb_init(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @lv_rb_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @lv_rb_insert(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader23.i
 
@@ -409,7 +409,7 @@ lv_rb_find.exit:                                  ; preds = %.lr.ph.i, %19, %rb_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_rb_find(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @lv_rb_find(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader23
 
@@ -445,7 +445,7 @@ define ptr @lv_rb_find(ptr noundef readonly %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_rb_remove_node(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @lv_rb_remove_node(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %.not = icmp eq ptr %4, null
@@ -591,7 +591,7 @@ lv_rb_minimum_from.exit:                          ; preds = %.preheader
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_rb_minimum_from(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @lv_rb_minimum_from(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -606,7 +606,7 @@ define ptr @lv_rb_minimum_from(ptr noundef readonly %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rb_delete_color(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @rb_delete_color(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader111
 
@@ -1065,7 +1065,7 @@ rb_left_rotate.exit95:                            ; preds = %160, %165, %166
 declare void @lv_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_rb_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @lv_rb_remove(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader23.i
 
@@ -1107,7 +1107,7 @@ lv_rb_find.exit:                                  ; preds = %lv_rb_find.exit.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_rb_drop_node(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_rb_drop_node(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1128,7 +1128,7 @@ define noundef zeroext i1 @lv_rb_drop_node(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_rb_drop(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_rb_drop(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader23.i.i
 
@@ -1178,7 +1178,7 @@ lv_rb_remove.exit:                                ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_rb_destroy(ptr noundef %0) local_unnamed_addr #0 {
+define void @lv_rb_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1241,7 +1241,7 @@ define void @lv_rb_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_rb_minimum(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @lv_rb_minimum(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1264,7 +1264,7 @@ lv_rb_minimum_from.exit:                          ; preds = %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_rb_maximum(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @lv_rb_maximum(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1287,7 +1287,7 @@ lv_rb_maximum_from.exit:                          ; preds = %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_rb_maximum_from(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @lv_rb_maximum_from(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %2, %1

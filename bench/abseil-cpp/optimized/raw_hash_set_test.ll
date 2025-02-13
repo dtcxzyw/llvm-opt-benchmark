@@ -66653,7 +66653,7 @@ _ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111St
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EEESt6vectorISN_SaISN_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SV_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly %first.coerce, ptr readnone %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_EEESt6vectorISN_SaISN_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SV_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly captures(address) %first.coerce, ptr readnone captures(address) %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher.449", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -75896,7 +75896,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl18container_internal12_GLOBAL__N_110ProbeStats24ProbeNormalizedHistogramEv(ptr noalias nonnull align 8 captures(none) %agg.result, ptr readonly %this.0.val, ptr readnone %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl18container_internal12_GLOBAL__N_110ProbeStats24ProbeNormalizedHistogramEv(ptr noalias nonnull align 8 captures(none) %agg.result, ptr readonly captures(address) %this.0.val, ptr readnone captures(address) %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not4.i = icmp eq ptr %this.0.val, %this.8.val
   br i1 %cmp.i.not4.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEyET0_T_S9_S8_.exit.thread, label %for.body.i
@@ -103550,7 +103550,7 @@ _ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110Va
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKlEESt6vectorISG_SaISG_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SO_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly %first.coerce, ptr readnone %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKlEESt6vectorISG_SaISG_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SO_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly captures(address) %first.coerce, ptr readnone captures(address) %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher.379", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -109367,7 +109367,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EE6insertIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_SK_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %first, ptr noundef readnone %last) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EE6insertIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_SK_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %first, ptr noundef readnone captures(address) %last) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 8
   %agg.tmp.i.i.i.i.i.i.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -110284,7 +110284,7 @@ _ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKZNS5_8TestBodyEvE5ValueEESt6vectorISH_SaISH_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SP_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly %first.coerce, ptr readnone %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKZNS5_8TestBodyEvE5ValueEESt6vectorISH_SaISH_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SP_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly captures(address) %first.coerce, ptr readnone captures(address) %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher.841", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110875,7 +110875,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE16GetDescriberImplINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb0EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %m) #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE16GetDescriberImplINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb0EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %m) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret ptr %m
 }
@@ -118327,7 +118327,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN4absl18container
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_116OrderOfIterationERKNS1_10ValueTableIlLb0EEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr readonly %t.0.val, ptr readonly captures(none) %t.8.val) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_116OrderOfIterationERKNS1_10ValueTableIlLb0EEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr readonly captures(address_is_null) %t.0.val, ptr readonly captures(none) %t.8.val) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i.i.i = icmp ne ptr %t.0.val, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)

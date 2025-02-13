@@ -510,7 +510,7 @@ define void @html_form_data_tag_free(ptr noundef captures(none) %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   store ptr %1, ptr %7, align 8, !tbaa !25
@@ -524,7 +524,7 @@ define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_mem_form_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_mem_form_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
   store ptr %1, ptr %8, align 8, !tbaa !25
@@ -538,7 +538,7 @@ define noundef zeroext i1 @html_normalise_mem_form_data(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca [1025 x i8], align 16
   %9 = alloca [1025 x i8], align 16
@@ -5465,7 +5465,7 @@ html_output_flush.exit1836:                       ; preds = %2106, %2109
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -5482,7 +5482,7 @@ define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @html_normalise_map_form_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @html_normalise_map_form_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.m_area_tag, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -5947,7 +5947,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @screnc_decode(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @screnc_decode(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %118, label %thread-pre-split.preheader
 
@@ -6217,7 +6217,7 @@ html_output_flush.exit:                           ; preds = %3
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @html_tag_contents_append(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #11 {
+define internal fastcc void @html_tag_contents_append(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #11 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %53, label %4
 

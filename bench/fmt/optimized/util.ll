@@ -588,7 +588,7 @@ $_ZTIN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE = comdat any
 @llvm.used = appending global [1 x ptr] [ptr @_ZN3fmt3v1012format_facetISt6localeE2idE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z18open_buffered_filePP8_IO_FILE(ptr noalias sret(%"class.fmt::v10::buffered_file") align 8 %agg.result, ptr noundef writeonly %fp) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z18open_buffered_filePP8_IO_FILE(ptr noalias sret(%"class.fmt::v10::buffered_file") align 8 %agg.result, ptr noundef writeonly captures(address_is_null) %fp) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %read_end = alloca %"class.fmt::v10::file", align 4
   %write_end = alloca %"class.fmt::v10::file", align 4

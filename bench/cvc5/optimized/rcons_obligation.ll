@@ -734,7 +734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory11quantifiers15RConsObligation11getBuiltinsEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory11quantifiers15RConsObligation11getBuiltinsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_ts = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_ts
@@ -749,7 +749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory11quantifiers15RConsObligation21getCandidateSolutionsEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory11quantifiers15RConsObligation21getCandidateSolutionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_candSols = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %d_candSols
@@ -764,7 +764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory11quantifiers15RConsObligation11getWatchSetEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory11quantifiers15RConsObligation11getWatchSetEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_watchSet = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %d_watchSet

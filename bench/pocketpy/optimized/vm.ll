@@ -13047,7 +13047,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %12, %_ZN
 declare void @_ZN4pkpy2VM25__post_init_builtin_typesEv(ptr noundef nonnull align 8 dereferenceable(264913)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy2VM16__unpack_as_listENS_8ArgsViewERNS_10pod_vectorIPNS_8PyObjectELi4EEE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr readonly %1, ptr readnone %2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy2VM16__unpack_as_listENS_8ArgsViewERNS_10pod_vectorIPNS_8PyObjectELi4EEE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.pkpy::Tuple", align 8
   %6 = alloca %"struct.pkpy::ArgsView", align 8
   %7 = alloca %"struct.pkpy::Str", align 8
@@ -13553,7 +13553,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRS2_EEvOT_.exit27: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy2VM16__unpack_as_dictENS_8ArgsViewERNS_4DictE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr readonly %1, ptr readnone %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy2VM16__unpack_as_dictENS_8ArgsViewERNS_4DictE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr readonly captures(address) %1, ptr readnone captures(address) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.pkpy::Str", align 8
   %6 = alloca %"struct.pkpy::Str", align 8
   %.not37 = icmp eq ptr %1, %2
@@ -16998,7 +16998,7 @@ _ZN4pkpy2VM16find_name_in_mroENS_4TypeENS_7StrNameE.exit.thread: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy2VM9bind_funcEPNS_8PyObjectENS_7StrNameEiPFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264913) %0, ptr noundef readonly %1, i16 %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4pkpy2VM9bind_funcEPNS_8PyObjectENS_7StrNameEiPFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264913) %0, ptr noundef readonly captures(address_is_null) %1, i16 %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.pkpy::NativeFunc", align 8
   %9 = alloca %"struct.pkpy::any", align 8
   %10 = alloca %"struct.pkpy::StaticMethod", align 8
@@ -17312,7 +17312,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZN4pkpy3anyD2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcPFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcPFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.pkpy::any", align 8
   call void @_ZN4pkpy3anyC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   %8 = invoke noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcS4_PFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull %7, i32 noundef %5)
@@ -17376,7 +17376,7 @@ _ZN4pkpy3anyD2Ev.exit8:                           ; preds = %20, %24, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcS4_PFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcS4_PFS2_PS0_NS_8ArgsViewEENS_3anyENS_8BindTypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::shared_ptr.63", align 8
   %10 = alloca %"class.std::shared_ptr.63", align 8

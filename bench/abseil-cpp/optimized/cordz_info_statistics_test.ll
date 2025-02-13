@@ -7881,7 +7881,7 @@ ehcleanup130:                                     ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef double @_ZN4absl13cord_internal12_GLOBAL__N_113FairShareImplEPNS0_7CordRepEm(ptr noundef readonly %rep, i64 noundef %ref) unnamed_addr #15 {
+define internal fastcc noundef double @_ZN4absl13cord_internal12_GLOBAL__N_113FairShareImplEPNS0_7CordRepEm(ptr noundef readonly captures(address) %rep, i64 noundef %ref) unnamed_addr #15 {
 entry:
   %refcount = getelementptr inbounds nuw i8, ptr %rep, i64 8
   %0 = load atomic i32, ptr %refcount acquire, align 4

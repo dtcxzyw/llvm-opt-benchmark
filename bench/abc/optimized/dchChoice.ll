@@ -202,7 +202,7 @@ Aig_ObjEquiv.exit:                                ; preds = %12, %13
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.lr.ph
 
@@ -258,7 +258,7 @@ tailrecurse:                                      ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #13
   %4 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef %0, ptr noundef %2)
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #13
@@ -840,7 +840,7 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %4 = icmp eq ptr %1, null
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -910,7 +910,7 @@ Aig_ObjEquiv.exit:                                ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Dch_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Dch_ObjCheckTfi(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
   %.not17 = icmp eq ptr %2, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 

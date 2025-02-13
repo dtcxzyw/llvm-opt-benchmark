@@ -673,7 +673,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local i32 @nfs4_wait_clnt_recover(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -11, 1) i32 @nfs4_async_handle_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -11, 1) i32 @nfs4_async_handle_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.nfs4_exception, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1209,7 +1209,7 @@ define internal fastcc void @nfs4_update_changeattr_locked(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @update_open_stateid(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @update_open_stateid(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = alloca %struct.nfs4_stateid_struct, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1919,7 +1919,7 @@ define internal fastcc void @nfs4_opendata_put(ptr noundef %0) unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_handle_delegation_recall_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_handle_delegation_recall_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   switch i32 %4, label %6 [
     i32 0, label %27
     i32 -2, label %27
@@ -8771,7 +8771,7 @@ define internal void @nfs4_close_context(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @nfs4_atomic_open(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define internal ptr @nfs4_atomic_open(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 align 16 {
   %6 = tail call fastcc ptr @nfs4_do_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
   br i1 %7, label %11, label %8
@@ -9302,7 +9302,7 @@ define internal fastcc ptr @nfs4_opendata_to_nfs4_state(ptr noundef %0) unnamed_
 declare dso_local void @nfs4_close_state(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_run_open_task(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nfs4_run_open_task(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.rpc_message, align 8
   %4 = alloca %struct.rpc_task_setup, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -13453,7 +13453,7 @@ declare dso_local i32 @nfs4_init_clientid(ptr noundef, ptr noundef) #2
 declare dso_local i32 @nfs40_discover_server_trunking(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @nfs4_state_find_open_context(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @nfs4_state_find_open_context(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @__rcu_read_lock() #22
@@ -14915,7 +14915,7 @@ declare dso_local i32 @__SCT__tp_func_nfs4_readlink(ptr noundef, ptr noundef, i3
 declare dso_local ptr @alloc_nfs_open_context(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 align 16 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca %struct.nfs_access_entry, align 8
   %8 = alloca %struct.nfs4_exception, align 8

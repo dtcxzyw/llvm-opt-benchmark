@@ -3686,7 +3686,7 @@ declare ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef, double noundef) local
 declare i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN4node4quic6Stream4FromEPv(ptr noundef readnone returned %stream_user_data) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN4node4quic6Stream4FromEPv(ptr noundef readnone returned captures(ret: address, provenance) %stream_user_data) local_unnamed_addr #6 align 2 {
 entry:
   ret ptr %stream_user_data
 }

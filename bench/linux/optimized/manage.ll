@@ -1730,7 +1730,7 @@ define dso_local void @wake_threads_waitq(ptr noundef %0) local_unnamed_addr #1 
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_wake_thread(i32 noundef %0, ptr noundef readnone %1) #1 align 16 {
+define dso_local void @irq_wake_thread(i32 noundef %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %30, label %5
@@ -1791,7 +1791,7 @@ define dso_local void @irq_wake_thread(i32 noundef %0, ptr noundef readnone %1) 
 declare dso_local void @__irq_wake_thread(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @free_irq(i32 noundef %0, ptr noundef readnone %1) #1 align 16 {
+define dso_local ptr @free_irq(i32 noundef %0, ptr noundef readnone captures(address) %1) #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %121, label %5
@@ -3259,7 +3259,7 @@ define dso_local void @remove_percpu_irq(i32 noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__free_percpu_irq(i32 noundef %0, ptr noundef readnone %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__free_percpu_irq(i32 noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !51
   %5 = and i32 %4, 16776960
@@ -3355,7 +3355,7 @@ define internal fastcc ptr @__free_percpu_irq(i32 noundef %0, ptr noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_percpu_irq(i32 noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local void @free_percpu_irq(i32 noundef %0, ptr noundef captures(address) %1) #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %26, label %5
@@ -3399,7 +3399,7 @@ define dso_local void @free_percpu_irq(i32 noundef %0, ptr noundef %1) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_percpu_nmi(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @free_percpu_nmi(i32 noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %18, label %5

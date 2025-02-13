@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_generate(ptr noundef %ctx, ptr noundef %ppkey) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_generate(ptr noundef %ctx, ptr noundef captures(address_is_null) %ppkey) local_unnamed_addr #0 {
 entry:
   %gentmp = alloca [2 x i32], align 4
   %tmp_keymgmt = alloca ptr, align 8
@@ -404,7 +404,7 @@ declare void @evp_pkey_free_legacy(ptr noundef) local_unnamed_addr #1
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_paramgen(ptr noundef %ctx, ptr noundef %ppkey) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_paramgen(ptr noundef %ctx, ptr noundef captures(address_is_null) %ppkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ctx, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -426,7 +426,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_keygen(ptr noundef %ctx, ptr noundef %ppkey) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_keygen(ptr noundef %ctx, ptr noundef captures(address_is_null) %ppkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ctx, align 8
   %cmp.not = icmp eq i32 %0, 4
@@ -611,7 +611,7 @@ fromdata_init.exit:                               ; preds = %if.end4.i, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @EVP_PKEY_fromdata(ptr noundef readonly %ctx, ptr noundef %ppkey, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @EVP_PKEY_fromdata(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef captures(address_is_null) %ppkey, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

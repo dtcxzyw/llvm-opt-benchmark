@@ -3763,14 +3763,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory6arrays12TheoryArrays17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(6201) %this) unnamed_addr #10 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory6arrays12TheoryArrays17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(6201) %this) unnamed_addr #10 align 2 {
 entry:
   %d_rewriter = getelementptr inbounds nuw i8, ptr %this, i64 2376
   ret ptr %d_rewriter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory6arrays12TheoryArrays15getProofCheckerEv(ptr noundef nonnull readnone align 8 dereferenceable(6201) %this) unnamed_addr #10 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory6arrays12TheoryArrays15getProofCheckerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(6201) %this) unnamed_addr #10 align 2 {
 entry:
   %d_checker = getelementptr inbounds nuw i8, ptr %this, i64 4736
   ret ptr %d_checker
@@ -17086,7 +17086,7 @@ declare void @_ZN4cvc58internal6theory9Valuation22getCandidateModelValueENS0_12N
 declare void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory6arrays12TheoryArrays18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(6201) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 dereferenceable(48) %termSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory6arrays12TheoryArrays18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(6201) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %termSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i904 = alloca %"class.cvc5::internal::NodeTemplate.626", align 8

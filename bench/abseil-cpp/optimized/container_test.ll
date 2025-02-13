@@ -7690,7 +7690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sequence_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -7802,7 +7802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sequence_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -11813,7 +11813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
@@ -12722,7 +12722,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
@@ -14668,7 +14668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp12 = alloca %"class.testing::Message", align 8
@@ -16718,7 +16718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #16 align 2 {
+define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #16 align 2 {
 entry:
   %sequence_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %vector_ = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -16987,7 +16987,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #16 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #16 align 2 {
 entry:
   ret void
 }
@@ -17039,7 +17039,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #16 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #16 align 2 {
 entry:
   ret void
 }
@@ -17091,7 +17091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp9 = alloca %"class.testing::Message", align 8
@@ -18540,7 +18540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp9 = alloca %"class.testing::Message", align 8
@@ -21346,7 +21346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -21630,7 +21630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp9 = alloca %"class.testing::Message", align 8
@@ -21914,7 +21914,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -22198,7 +22198,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp9 = alloca %"class.testing::Message", align 8
@@ -22482,7 +22482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4 = alloca %"class.testing::Message", align 8
@@ -23075,7 +23075,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
@@ -25156,7 +25156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -25342,7 +25342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -25528,7 +25528,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -25714,7 +25714,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -25900,7 +25900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -26095,7 +26095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -26290,7 +26290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -26485,7 +26485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -31667,7 +31667,7 @@ _ZN12_GLOBAL__N_125SortingTest_IsSorted_TestD2Ev.exit: ; preds = %while.body.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
@@ -32217,7 +32217,7 @@ _ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_TestD2Ev.exit: ; preds = %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4 = alloca %"class.testing::Message", align 8

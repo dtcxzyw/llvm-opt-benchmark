@@ -1263,7 +1263,7 @@ check_for_freed_segments_locked.exit:             ; preds = %2, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef range(i64 0, 4503599627370496) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @make_new_segment(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, 4503599627370496) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   br label %5
@@ -1734,7 +1734,7 @@ add_span_to_fullness_class.exit:                  ; preds = %unlink_span.exit59,
 declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @dsa_get_address(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %47, label %3
 
@@ -1831,7 +1831,7 @@ check_for_freed_segments.exit:                    ; preds = %3, %check_for_freed
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_segment_by_index(ptr noundef %0, i64 noundef range(i64 0, -1) %1) unnamed_addr #0 {
+define internal fastcc ptr @get_segment_by_index(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, -1) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr [1024 x %struct.dsa_segment_map], ptr %3, i64 0, i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -75,7 +75,7 @@ $_ZTSSt14default_deleteIN5arrow6BufferEE = comdat any
 @_ZTSSt14default_deleteIN5arrow6BufferEE = linkonce_odr constant [36 x i8] c"St14default_deleteIN5arrow6BufferEE\00", comdat, align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow7compute10SwissTable17extract_group_idsEiPKtPKjPKhPj(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef readonly %optional_selection, ptr noundef %hashes, ptr noundef %local_slots, ptr noundef %out_group_ids) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow7compute10SwissTable17extract_group_idsEiPKtPKjPKhPj(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef readonly captures(address_is_null) %optional_selection, ptr noundef %hashes, ptr noundef %local_slots, ptr noundef %out_group_ids) local_unnamed_addr #0 align 2 {
 entry:
   %log_blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_, align 4

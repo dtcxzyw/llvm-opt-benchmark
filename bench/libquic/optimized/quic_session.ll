@@ -2680,7 +2680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i8 } @_ZN3net11QuicSession10WritevDataEPNS_18ReliableQuicStreamEjNS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(2044) %this, ptr noundef readnone %stream, i32 noundef %id, ptr noundef readonly byval(%"struct.net::QuicIOVector") align 8 captures(none) %iov, i64 noundef %offset, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, i8 } @_ZN3net11QuicSession10WritevDataEPNS_18ReliableQuicStreamEjNS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(2044) %this, ptr noundef readnone captures(address) %stream, i32 noundef %id, ptr noundef readonly byval(%"struct.net::QuicIOVector") align 8 captures(none) %iov, i64 noundef %offset, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"struct.net::QuicConsumedData", align 8
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
@@ -3756,7 +3756,7 @@ entry:
 declare noundef zeroext i1 @_ZNK3net10QuicConfig46HasReceivedInitialStreamFlowControlWindowBytesEv(ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net11QuicSession28OnNewStreamFlowControlWindowEm(ptr noundef nonnull readonly align 8 dereferenceable(2044) %this, i64 noundef %new_window) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11QuicSession28OnNewStreamFlowControlWindowEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2044) %this, i64 noundef %new_window) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4269,7 +4269,7 @@ if.end:                                           ; preds = %for.cond.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef nonnull align 8 dereferenceable(2044) %this, i32 noundef %id) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef nonnull align 8 captures(address) dereferenceable(2044) %this, i32 noundef %id) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %call4 = tail call noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull align 8 dereferenceable(2044) %this, i32 noundef %id)
   br i1 %call4, label %return, label %if.end6
@@ -4497,7 +4497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull readnone align 8 dereferenceable(2044) %this) local_unnamed_addr #8 align 2 {
+define dso_local noundef nonnull ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2044) %this) local_unnamed_addr #8 align 2 {
 entry:
   %config_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %config_
@@ -5093,7 +5093,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull readonly align 8 dereferenceable(2044) %this, i32 noundef %id) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2044) %this, i32 noundef %id) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %static_stream_map_ = getelementptr inbounds nuw i8, ptr %this, i64 704
   %0 = load i32, ptr %static_stream_map_, align 8
@@ -5687,7 +5687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net11QuicSession26IsStreamFlowControlBlockedEv(ptr noundef nonnull readonly align 8 dereferenceable(2044) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net11QuicSession26IsStreamFlowControlBlockedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2044) %this) local_unnamed_addr #0 align 2 {
 entry:
   %static_stream_map_ = getelementptr inbounds nuw i8, ptr %this, i64 704
   %0 = load i32, ptr %static_stream_map_, align 8

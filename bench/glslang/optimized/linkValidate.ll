@@ -21324,7 +21324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TIntermediate20checkCallGraphCyclesER9TInfoSink(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TIntermediate20checkCallGraphCyclesER9TInfoSink(ptr noundef nonnull align 8 captures(address) dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::list.130", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.028.042 = load ptr, ptr %4, align 8
@@ -22210,7 +22210,7 @@ define void @_ZN7glslang13TIntermediate18inOutLocationCheckER9TInfoSink(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK7glslang13TIntermediate14userOutputUsedEv(ptr noundef nonnull readonly align 8 dereferenceable(2024) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK7glslang13TIntermediate14userOutputUsedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2024) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

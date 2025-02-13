@@ -1456,7 +1456,7 @@ define linkonce_odr dso_local void @_ZN14ArgumentParser4BaseD2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16cmCoreTryCompile9Arguments13SetSourceTypeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(1040) %0, i64 %1, ptr %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN16cmCoreTryCompile9Arguments13SetSourceTypeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(address) dereferenceable(1040) %0, i64 %1, ptr %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair.666"], align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   switch i64 %1, label %.thread [
@@ -1960,7 +1960,7 @@ _ZZN16cmArgumentParserIN16cmCoreTryCompile9ArgumentsEE4BindEN2cm18static_string_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_118TryCompileLangPropERN16cmCoreTryCompile9ArgumentsESt17basic_string_viewIcSt11char_traitsIcEES6_(ptr noundef nonnull align 8 dereferenceable(1040) %0, i64 %1, ptr readonly %2, i64 %3, ptr readonly %4) #5 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZN12_GLOBAL__N_118TryCompileLangPropERN16cmCoreTryCompile9ArgumentsESt17basic_string_viewIcSt11char_traitsIcEES6_(ptr noundef nonnull align 8 dereferenceable(1040) %0, i64 %1, ptr readonly captures(address_is_null) %2, i64 %3, ptr readonly captures(address_is_null) %4) #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16944,7 +16944,7 @@ declare noundef i32 @_ZN10cmMakefile10TryCompileERKNSt7__cxx1112basic_stringIcSt
 declare void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(2880), ptr noundef nonnull align 8 dereferenceable(32), i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16cmCoreTryCompile14FindOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((40, 48), (72, 80)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16cmCoreTryCompile14FindOutputFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(112) initializes((40, 48), (72, 80)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = alloca [3 x %"struct.std::pair.666"], align 8
   %3 = alloca [3 x %"struct.std::pair.666"], align 8

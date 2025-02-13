@@ -1305,7 +1305,7 @@ declare void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr nound
 declare void @_ZN4LIEF5MachO11LoadCommand4swapERS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo6rebaseEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo6rebaseEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -2771,7 +2771,7 @@ define void @_ZNK4LIEF5MachO8DyldInfo8bindingsEv(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo4bindEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo4bindEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
@@ -5639,7 +5639,7 @@ _ZNSt12_Vector_baseIN4LIEF5MachO16ThreadedBindDataESaIS2_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo9weak_bindEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo9weak_bindEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   ret ptr %2
 }
@@ -5730,7 +5730,7 @@ define void @_ZNK4LIEF5MachO8DyldInfo22show_weak_bind_opcodesB5cxx11Ev(ptr dead_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo9lazy_bindEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo9lazy_bindEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }
@@ -5845,7 +5845,7 @@ define void @_ZNK4LIEF5MachO8DyldInfo7exportsEv(ptr dead_on_unwind noalias writa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo11export_infoEv(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4LIEF5MachO8DyldInfo11export_infoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   ret ptr %2
 }
@@ -6272,7 +6272,7 @@ define hidden noundef zeroext i1 @_ZN4LIEF5MachOneEhNS0_14REBASE_OPCODESE(i8 nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo18update_rebase_infoERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo18update_rebase_infoERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca ptr, align 8
@@ -8306,7 +8306,7 @@ _ZNSt8_Rb_treeIPN4LIEF5MachO10RelocationES3_St9_IdentityIS3_ENS1_6Binary6KeyCmpE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo19update_binding_infoERNS_15vector_iostreamERNS0_7details17dyld_info_commandE(ptr noundef nonnull returned align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo19update_binding_infoERNS_15vector_iostreamERNS0_7details17dyld_info_commandE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt8functionIFbPN4LIEF5MachO15DyldBindingInfoES3_EED2Ev.exit51:
   %3 = alloca %"class.std::set.204", align 8
   %4 = alloca %"class.std::set.204", align 8
@@ -8591,7 +8591,7 @@ _ZNSt3setIPN4LIEF5MachO15DyldBindingInfoESt8functionIFbS3_S3_EESaIS3_EED2Ev.exit
 declare noundef i64 @_ZNK4LIEF5MachO15DyldBindingInfo13binding_classEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo24update_standard_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull returned align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo24update_standard_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.std::_Rb_tree<LIEF::MachO::Relocation *, LIEF::MachO::Relocation *, std::_Identity<LIEF::MachO::Relocation *>, LIEF::MachO::Binary::KeyCmp>::_Alloc_node", align 8
@@ -8880,7 +8880,7 @@ _ZNSt6vectorIPN4LIEF5MachO14RelocationDyldESaIS3_EED2Ev.exit22: ; preds = %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo20update_weak_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 dereferenceable(240) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo20update_weak_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca ptr, align 8
@@ -10992,7 +10992,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo20update_lazy_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 dereferenceable(240) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo20update_lazy_bindingsERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca ptr, align 8
@@ -12096,7 +12096,7 @@ declare noundef zeroext i1 @_ZNK4LIEF5MachO11BindingInfo14is_weak_importEv(ptr n
 declare noundef zeroext i1 @_ZNK4LIEF5MachO11BindingInfo10has_symbolEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo27update_standard_bindings_v1ERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 dereferenceable(240) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo27update_standard_bindings_v1ERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(41) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca ptr, align 8
@@ -14276,7 +14276,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EESt6vectorIPNS0_14RelocationDyldESaISE_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 dereferenceable(240) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(41) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS0_15DyldBindingInfoESt8functionIFbS4_S4_EESaIS4_EESt6vectorIPNS0_14RelocationDyldESaISE_EERNS_15vector_iostreamE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(240) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(41) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -55329,7 +55329,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_T0_"(ptr %0, ptr readnone %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNSA_15DyldBindingInfoESt8functionIFbSE_SE_EESaISE_EES3_IPNSA_14RelocationDyldESaISN_EERNS9_15vector_iostreamEE3$_0EEEvT_SU_T0_"(ptr %0, ptr readnone captures(address) %1, ptr readonly captures(none) %2, ptr readonly captures(none) %3) unnamed_addr #3 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.preheader
 

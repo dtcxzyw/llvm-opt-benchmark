@@ -291,7 +291,7 @@ if.then35.i:                                      ; preds = %if.else33.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i32 0, 1114112) i32 @_ZN5folly15utf8ToCodePointERPKhS1_b(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p, ptr noundef readnone %e, i1 noundef zeroext %skipOnError) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i32 0, 1114112) i32 @_ZN5folly15utf8ToCodePointERPKhS1_b(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p, ptr noundef readnone captures(address) %e, i1 noundef zeroext %skipOnError) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %d = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

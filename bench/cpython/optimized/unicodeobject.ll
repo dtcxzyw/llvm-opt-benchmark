@@ -1496,7 +1496,7 @@ define hidden i64 @_PyUnicode_InternedSize_Immortal() local_unnamed_addr #0 {
 declare i32 @PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 1, 9) i32 @_Py_GetErrorHandler(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 1, 9) i32 @_Py_GetErrorHandler(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %24, label %3
 
@@ -2893,7 +2893,7 @@ define internal fastcc nonnull ptr @unicode_kind_name(i16 %.34.val) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnicode_Resize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnicode_Resize(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3125,7 +3125,7 @@ Py_DECREF.exit:                                   ; preds = %PyUnicode_MAX_CHAR_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_FromWideChar(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_FromWideChar(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ne i64 %1, 0
   %or.cond = and i1 %3, %4
@@ -3426,7 +3426,7 @@ get_latin1_char.exit:                             ; preds = %Py_DECREF.exit.sink
 declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_WriteWideChar(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_WriteWideChar(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i64 %2, 0
   br i1 %4, label %5, label %7
 
@@ -3883,7 +3883,7 @@ define dso_local ptr @PyUnicode_FromStringAndSize(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   %5 = zext i1 %.not to i32
   %6 = tail call fastcc ptr @unicode_decode_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %5, ptr noundef %2, ptr noundef %3)
@@ -4118,7 +4118,7 @@ get_latin1_char.exit:                             ; preds = %10, %7, %14, %_PyUn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_WriteUCS4(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_WriteUCS4(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i64 %2, 0
   br i1 %4, label %5, label %7
 
@@ -4495,7 +4495,7 @@ _PyUnicode_FromUCS1.exit:                         ; preds = %_PyUnicode_DATA.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_PyUnicode_FromUCS2(ptr noundef readonly captures(address) %0, i64 noundef %1) unnamed_addr #0 {
   switch i64 %1, label %36 [
     i64 0, label %unicode_char.exit
     i64 1, label %3
@@ -4772,7 +4772,7 @@ unicode_char.exit:                                ; preds = %.lr.ph62, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_PyUnicode_FromUCS4(ptr noundef readonly captures(address) %0, i64 noundef %1) unnamed_addr #0 {
   switch i64 %1, label %37 [
     i64 0, label %unicode_char.exit
     i64 1, label %3
@@ -5489,7 +5489,7 @@ _PyUnicode_DATA.exit24:                           ; preds = %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_AsUCS4(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_AsUCS4(ptr noundef captures(address) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp slt i64 %2, 0
   %or.cond = or i1 %5, %6
@@ -5509,7 +5509,7 @@ define dso_local ptr @PyUnicode_AsUCS4(ptr noundef %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @as_ucs4(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef range(i64 0, -9223372036854775808) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @as_ucs4(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1, i64 noundef range(i64 0, -9223372036854775808) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 7
@@ -5698,7 +5698,7 @@ _PyUnicode_DATA.exit:                             ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_AsUCS4Copy(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_AsUCS4Copy(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @as_ucs4(ptr noundef %0, ptr noundef null, i64 noundef 0, i32 noundef 1)
   ret ptr %2
 }
@@ -8008,7 +8008,7 @@ define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_Format(ptr noundef captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PyUnicode_AsWideChar(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @PyUnicode_AsWideChar(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -8149,7 +8149,7 @@ unicode_copy_as_widechar.exit:                    ; preds = %.lr.ph.i, %.lr.ph46
 declare i32 @PyErr_BadArgument() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_AsWideCharString(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_AsWideCharString(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8313,7 +8313,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Converter(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Converter(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -8352,7 +8352,7 @@ define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Converter(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Opt_Converter(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 131073) i32 @_PyUnicode_WideCharString_Opt_Converter(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -8491,7 +8491,7 @@ unicode_char.exit:                                ; preds = %_PyUnicode_DATA.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_FromObject(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_FromObject(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val9 = load ptr, ptr %2, align 8, !tbaa !187
   %.not = icmp eq ptr %.val9, @PyUnicode_Type
@@ -9247,7 +9247,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @_Py_normalize_encoding(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #14 {
+define hidden range(i32 0, 2) i32 @_Py_normalize_encoding(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = getelementptr i8, ptr %4, i64 -1
   %6 = load i8, ptr %0, align 1, !tbaa !195
@@ -9314,13 +9314,13 @@ define hidden range(i32 0, 2) i32 @_Py_normalize_encoding(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeUTF16(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeUTF16(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeUTF32(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeUTF32(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null)
   ret ptr %5
 }
@@ -10204,7 +10204,7 @@ define dso_local ptr @PyUnicode_AsEncodedObject(ptr noundef %0, ptr noundef %1, 
 declare ptr @PyCodec_Encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_EncodeLocale(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_EncodeLocale(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @_Py_GetErrorHandler(ptr noundef %1)
   %4 = tail call fastcc ptr @unicode_encode_locale(ptr noundef %0, i32 noundef %3, i32 noundef 1)
   ret ptr %4
@@ -12718,7 +12718,7 @@ Py_DECREF.exit:                                   ; preds = %30, %27, %21, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeLocaleAndSize(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeLocaleAndSize(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @_Py_GetErrorHandler(ptr noundef %2)
   %5 = tail call fastcc ptr @unicode_decode_locale(ptr noundef %0, i64 noundef %1, i32 noundef %4, i32 noundef 1)
   ret ptr %5
@@ -12810,7 +12810,7 @@ Py_DECREF.exit:                                   ; preds = %28, %25, %22, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeLocale(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeLocale(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #42
   %4 = tail call i32 @_Py_GetErrorHandler(ptr noundef %1)
   %5 = tail call fastcc ptr @unicode_decode_locale(ptr noundef nonnull %0, i64 noundef %3, i32 noundef %4, i32 noundef 1)
@@ -12907,7 +12907,7 @@ define dso_local ptr @PyUnicode_DecodeFSDefaultAndSize(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unicode_decode_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @unicode_decode_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct._PyUnicodeWriter, align 8
   switch i64 %1, label %22 [
     i64 0, label %7
@@ -14109,7 +14109,7 @@ ucs1lib_find_char.exit:                           ; preds = %192, %188, %224, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_AsUTF8AndSize(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_AsUTF8AndSize(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._PyBytesWriter, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !187
@@ -14583,7 +14583,7 @@ define dso_local ptr @PyUnicode_DecodeUTF7(ptr noundef %0, i64 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeUTF7Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeUTF7Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -16145,7 +16145,7 @@ define dso_local ptr @PyUnicode_DecodeUTF8(ptr noundef %0, i64 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @_Py_DecodeUTF8Ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -3, 1) i32 @_Py_DecodeUTF8Ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   store ptr %0, ptr %7, align 8, !tbaa !263
@@ -16645,7 +16645,7 @@ define internal fastcc range(i32 0, 5) i32 @ucs4lib_utf8_decode(ptr noundef nonn
 declare void @PyMem_RawFree(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_DecodeUTF8_surrogateescape(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden ptr @_Py_DecodeUTF8_surrogateescape(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -16721,7 +16721,7 @@ define hidden ptr @_Py_DecodeUTF8_surrogateescape(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @_Py_EncodeUTF8Ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -3, 1) i32 @_Py_EncodeUTF8Ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call i64 @wcslen(ptr noundef %0) #42
   switch i32 %5, label %.thread [
     i32 1, label %10
@@ -17036,7 +17036,7 @@ define dso_local ptr @PyUnicode_AsUTF8String(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -17576,7 +17576,7 @@ Py_XDECREF.exit104:                               ; preds = %247, %244, %242, %P
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i64 @ucs1lib_utf32_encode(ptr noundef readonly %0, i64 noundef returned %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #18 {
+define internal fastcc noundef i64 @ucs1lib_utf32_encode(ptr noundef readonly captures(address) %0, i64 noundef returned %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #18 {
   %5 = load ptr, ptr %2, align 8, !tbaa !262
   %6 = getelementptr i8, ptr %0, i64 %1
   %.not = icmp eq i32 %3, 0
@@ -17880,7 +17880,7 @@ define dso_local ptr @PyUnicode_AsUTF32String(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -19176,7 +19176,7 @@ define hidden ptr @_PyUnicode_GetNameCAPI() local_unnamed_addr #0 {
 declare ptr @PyCapsule_Import(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct._PyUnicodeWriter, align 8
@@ -20274,7 +20274,7 @@ Py_XDECREF.exit162:                               ; preds = %452, %449, %447, %P
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyUnicode_DecodeUnicodeEscapeStateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @_PyUnicode_DecodeUnicodeEscapeStateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #41
   %6 = call ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
@@ -20634,7 +20634,7 @@ PyUnicode_READ.exit:                              ; preds = %38, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyUnicode_DecodeRawUnicodeEscapeStateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden ptr @_PyUnicode_DecodeRawUnicodeEscapeStateful(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct._PyUnicodeWriter, align 8
@@ -25784,7 +25784,7 @@ _PyUnicodeWriter_Dealloc.exit:                    ; preds = %399, %396, %394, %P
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !187
   %3 = getelementptr i8, ptr %.val, i64 168
@@ -25943,7 +25943,7 @@ _Py_NewRef.exit:                                  ; preds = %60, %_PyUnicode_DAT
 declare i32 @_PyUnicode_ToDecimalDigit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef captures(none) %8) local_unnamed_addr #6 {
+define hidden i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef captures(none) %8) local_unnamed_addr #6 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
@@ -26041,7 +26041,7 @@ GroupGenerator_next.exit.thread:                  ; preds = %20, %GroupGenerator
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @InsertThousandsGrouping_fill(ptr noundef readonly %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef range(i64 0, -9223372036854775808) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef captures(none) %8) unnamed_addr #6 {
+define internal fastcc void @InsertThousandsGrouping_fill(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef range(i64 0, -9223372036854775808) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef captures(none) %8) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %19
 
@@ -27635,7 +27635,7 @@ _Py_NewRef.exit:                                  ; preds = %155, %152, %150, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyUnicode_FastFill(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
+define hidden void @_PyUnicode_FastFill(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 7
@@ -27704,7 +27704,7 @@ unicode_fill.exit:                                ; preds = %.lr.ph.i, %.lr.ph30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -1, -9223372036854775808) i64 @PyUnicode_Fill(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @PyUnicode_Fill(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !187
   %6 = getelementptr i8, ptr %.val, i64 168
@@ -28615,7 +28615,7 @@ asciilib_splitlines.exit:                         ; preds = %247, %186, %23, %97
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @_PyUnicode_Equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #22 {
+define dso_local range(i32 0, 2) i32 @_PyUnicode_Equal(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %unicode_eq.exit, label %4
 
@@ -29602,7 +29602,7 @@ _PyUnicode_DATA.exit:                             ; preds = %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyUnicode_EqualToASCIIId(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyUnicode_EqualToASCIIId(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 34
   %.val21 = load i16, ptr %3, align 2
   %4 = and i16 %.val21, 16
@@ -30066,7 +30066,7 @@ ucs1lib_find.exit:                                ; preds = %68, %67, %65, %64, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef range(i32 0, 8) %3) unnamed_addr #0 {
+define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef range(i32 0, 8) %3) unnamed_addr #0 {
   %switch = icmp eq i32 %3, 2
   br i1 %switch, label %5, label %38
 
@@ -30365,7 +30365,7 @@ PyUnicode_MAX_CHAR_VALUE.exit52:                  ; preds = %PyUnicode_MAX_CHAR_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyUnicode_Append(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @PyUnicode_Append(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %7
 
@@ -30600,7 +30600,7 @@ Py_DECREF.exit:                                   ; preds = %90, %87, %85, %83, 
 declare ptr @PyErr_Occurred() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyUnicode_AppendAndDel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @PyUnicode_AppendAndDel(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @PyUnicode_Append(ptr noundef %0, ptr noundef %1)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %3
@@ -31186,7 +31186,7 @@ _PyUnicode_FromASCII.exit:                        ; preds = %_PyUnicode_DATA.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unicode_result_unchanged(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @unicode_result_unchanged(ptr noundef captures(ret: address, provenance) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !187
   %.not = icmp eq ptr %.val, @PyUnicode_Type
@@ -42340,7 +42340,7 @@ define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_WriteSubstring(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %2, -1
   br i1 %4, label %5, label %7
 
@@ -42647,7 +42647,7 @@ define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_WriteUTF8(ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_decode_utf8_writer(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_decode_utf8_writer(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %8, label %10
 
@@ -42799,7 +42799,7 @@ ascii_decode.exit:                                ; preds = %._crit_edge.i, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_DecodeUTF8Stateful(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnicodeWriter_DecodeUTF8Stateful(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp slt i64 %2, 0
   br i1 %6, label %7, label %9
 
@@ -46880,7 +46880,7 @@ _PyUnicode_DATA.exit:                             ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicode_str(ptr noundef %0) #0 {
+define internal ptr @unicode_str(ptr noundef captures(ret: address, provenance) %0) #0 {
   %2 = tail call fastcc ptr @unicode_result_unchanged(ptr noundef %0)
   ret ptr %2
 }
@@ -47442,7 +47442,7 @@ Py_DECREF.exit45:                                 ; preds = %arg_as_utf8.exit57.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_PyUnicode_InitState(ptr noundef readnone %0) local_unnamed_addr #23 {
+define hidden void @_PyUnicode_InitState(ptr noundef readnone captures(address) %0) local_unnamed_addr #23 {
   %2 = alloca [8 x i16], align 16
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !511
   %.not = icmp eq ptr %0, %3
@@ -47481,7 +47481,7 @@ _init_global_state.exit:                          ; preds = %make_bloom_mask.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyUnicode_InitGlobalObjects(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @_PyUnicode_InitGlobalObjects(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._Py_hashtable_allocator_t, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !511
   %.not = icmp eq ptr %1, %4
@@ -48020,7 +48020,7 @@ PyUnicode_FromString.exit:                        ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyUnicode_ClearInterned(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @_PyUnicode_ClearInterned(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -48838,7 +48838,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #0 {
   %6 = icmp eq i64 %3, -1
   br i1 %6, label %8, label %.preheader
 
@@ -50630,7 +50630,7 @@ load_unaligned.exit:                              ; preds = %.loopexit, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_decode_utf8_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_decode_utf8_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -57604,7 +57604,7 @@ declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #2
 declare ptr @PyTuple_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @formatfloat(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @formatfloat(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #41
   %6 = fcmp oeq double %5, -1.000000e+00
   br i1 %6, label %7, label %9
@@ -59257,7 +59257,7 @@ define internal ptr @unicode_count(ptr noundef %0, ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicode_expandtabs(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal ptr @unicode_expandtabs(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #41
   %.not = icmp eq ptr %3, null
@@ -63225,7 +63225,7 @@ unicode_maketrans_impl.exit:                      ; preds = %144, %196, %29, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicode_sizeof(ptr noundef readonly %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @unicode_sizeof(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 34
   %.val15.i = load i16, ptr %3, align 2
   %4 = and i16 %.val15.i, 16
@@ -64876,7 +64876,7 @@ declare i32 @_PyUnicode_IsNumeric(i32 noundef) local_unnamed_addr #2
 declare i32 @_PyUnicode_IsAlpha(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_string(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc ptr @build_string(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3, ptr noundef nonnull captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.SubString, align 8
   %8 = alloca %struct.SubString, align 8
@@ -66386,7 +66386,7 @@ parse_field.exit:                                 ; preds = %113, %PyUnicode_REA
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @field_name_split(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @field_name_split(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %9 = getelementptr i8, ptr %0, i64 56
   %smax = tail call i64 @llvm.smax.i64(i64 %2, i64 %1)
@@ -67097,7 +67097,7 @@ unicode_hash.exit:                                ; preds = %1, %_PyUnicode_DATA
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @hashtable_unicode_compare(ptr noundef readonly %0, ptr noundef readonly %1) #22 {
+define internal range(i32 0, 2) i32 @hashtable_unicode_compare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #22 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

@@ -231,7 +231,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @onas_scan_queue_start(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 23) i32 @onas_scan_queue_start(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = alloca %union.pthread_attr_t, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #10
   %.not = icmp eq ptr %0, null

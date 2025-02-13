@@ -1270,7 +1270,7 @@ sub_2:                                            ; preds = %sub_1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %5 = tail call i32 @PMIx_Setenv(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i1 noundef zeroext true, ptr noundef nonnull %4) #17

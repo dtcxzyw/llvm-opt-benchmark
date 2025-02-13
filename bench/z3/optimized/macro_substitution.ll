@@ -1675,7 +1675,7 @@ if.end23:                                         ; preds = %for.body.i.i.i60, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18macro_substitution12get_head_defEP10quantifierP9func_declRP3appRP4expr(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(none) %q, ptr noundef readnone %f, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %head, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %def) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN18macro_substitution12get_head_defEP10quantifierP9func_declRP3appRP4expr(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(none) %q, ptr noundef readnone captures(address) %f, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %head, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %def) local_unnamed_addr #7 align 2 {
 entry:
   %m_expr.i = getelementptr inbounds nuw i8, ptr %q, i64 24
   %0 = load ptr, ptr %m_expr.i, align 8
@@ -1707,7 +1707,7 @@ if.end:                                           ; preds = %_Z9is_app_ofPK4expr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10quantifierRP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %f, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %q, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %pr) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10quantifierRP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address) %f, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %q, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %pr) local_unnamed_addr #8 align 2 {
 entry:
   %m_decl2macro = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
@@ -1860,7 +1860,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10quantifierRP3appRPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %f, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %q, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %pr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %dep) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10quantifierRP3appRPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address) %f, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %q, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %pr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %dep) local_unnamed_addr #8 align 2 {
 entry:
   %m_decl2macro = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12

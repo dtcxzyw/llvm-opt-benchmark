@@ -5187,7 +5187,7 @@ declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, pt
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_btmesh_record_copy_cb(ptr noundef returned initializes((0, 104)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_btmesh_record_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 104)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   %5 = load ptr, ptr %1, align 8
@@ -5688,7 +5688,7 @@ define internal void @uat_btmesh_record_free_cb(ptr noundef readonly captures(no
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_btmesh_dev_key_record_copy_cb(ptr noundef returned initializes((0, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_btmesh_dev_key_record_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %5 = load ptr, ptr %1, align 8
@@ -5807,7 +5807,7 @@ define internal void @uat_btmesh_dev_key_record_free_cb(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_btmesh_label_uuid_record_copy_cb(ptr noundef returned initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_btmesh_label_uuid_record_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %1, align 8
@@ -12159,7 +12159,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr readonly captures(none) %.0.val, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr readonly captures(none) %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
   %5 = icmp eq i16 %3, -1
   br i1 %5, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
 

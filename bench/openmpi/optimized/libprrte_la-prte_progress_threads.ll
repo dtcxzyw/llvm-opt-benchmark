@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @prte_progress_thread_init(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @prte_progress_thread_init(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b77 = load i1, ptr @inited, align 1
   br i1 %.b77, label %12, label %2
 
@@ -530,7 +530,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @prte_progress_thread_finalize(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @prte_progress_thread_finalize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b28 = load i1, ptr @inited, align 1
   br i1 %.b28, label %2, label %.loopexit
 
@@ -650,7 +650,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @prte_progress_thread_pause(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @prte_progress_thread_pause(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b10 = load i1, ptr @inited, align 1
   br i1 %.b10, label %2, label %.loopexit
 
@@ -696,7 +696,7 @@ define range(i32 -13, 1) i32 @prte_progress_thread_pause(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_progress_thread_resume(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @prte_progress_thread_resume(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b10 = load i1, ptr @inited, align 1
   br i1 %.b10, label %2, label %.loopexit
 

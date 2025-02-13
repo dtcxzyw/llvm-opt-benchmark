@@ -873,7 +873,7 @@ define internal void @_comment_handler(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_start_element_handler_ns(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 %7, ptr noundef readonly %8) #0 {
+define internal void @_start_element_handler_ns(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 %7, ptr noundef readonly captures(address_is_null) %8) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = icmp sgt i32 %4, 0

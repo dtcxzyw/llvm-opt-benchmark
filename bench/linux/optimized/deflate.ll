@@ -122,7 +122,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateReset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %69, label %3
 
@@ -818,7 +818,7 @@ declare dso_local void @zlib_tr_stored_block(ptr noundef, ptr noundef, i64 nound
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -3, 1) i32 @zlib_deflateEnd(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @zlib_deflateEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

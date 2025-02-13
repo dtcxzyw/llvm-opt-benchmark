@@ -724,7 +724,7 @@ mbedtls_ccm_crypt.exit114:                        ; preds = %.preheader.i111
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_finish(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_finish(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -829,7 +829,7 @@ mbedtls_ccm_crypt.exit:                           ; preds = %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_star_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_star_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef captures(address_is_null) %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 3, ptr noundef readonly %2, i64 noundef %3)
@@ -862,7 +862,7 @@ ccm_auth_crypt.exit:                              ; preds = %10, %13, %15, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef captures(address_is_null) %8, i64 noundef %9) local_unnamed_addr #2 {
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %12 = tail call i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef 1, ptr noundef readonly %2, i64 noundef %3)

@@ -855,7 +855,7 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @testchar(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 9) %2, i32 noundef range(i32 1, 3) %3, i8 noundef signext range(i8 0, 64) %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @testchar(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 9) %2, i32 noundef range(i32 1, 3) %3, i8 noundef signext range(i8 0, 64) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %2, i32 noundef 1) #2
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %15, label %8

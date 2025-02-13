@@ -907,7 +907,7 @@ return:                                           ; preds = %if.then.i.i, %_ZN6h
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm11HiddenClass22forEachPropertyNoAllocEPS1_RNS0_11PointerBaseESt8functionIFvNS0_8SymbolIDENS0_23NamedPropertyDescriptorEEE(ptr noundef readonly %self, ptr noundef nonnull align 1 dereferenceable(1) %base, ptr noundef %callback) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm11HiddenClass22forEachPropertyNoAllocEPS1_RNS0_11PointerBaseESt8functionIFvNS0_8SymbolIDENS0_23NamedPropertyDescriptorEEE(ptr noundef readonly captures(address_is_null) %self, ptr noundef nonnull align 1 dereferenceable(1) %base, ptr noundef %callback) local_unnamed_addr #1 align 2 {
 entry:
   %__args.i = alloca %"class.hermes::vm::SymbolID", align 4
   %__args4.i = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
@@ -1331,7 +1331,7 @@ return:                                           ; preds = %if.end28, %land.lhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes2vm11HiddenClass19findPropertyNoAllocEPS1_RNS0_11PointerBaseENS0_8SymbolIDE(ptr noundef readonly %self, ptr noundef nonnull align 1 dereferenceable(1) %base, i32 %name.coerce) local_unnamed_addr #1 align 2 {
+define hidden { i64, i8 } @_ZN6hermes2vm11HiddenClass19findPropertyNoAllocEPS1_RNS0_11PointerBaseENS0_8SymbolIDE(ptr noundef readonly captures(address_is_null) %self, ptr noundef nonnull align 1 dereferenceable(1) %base, i32 %name.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %tobool.not25 = icmp eq ptr %self, null
   br i1 %tobool.not25, label %return, label %for.body.lr.ph
@@ -1471,7 +1471,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes2vm11HiddenClass14deletePropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_15DictPropertyMap11PropertyPosE(ptr readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %pos.coerce) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm11HiddenClass14deletePropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_15DictPropertyMap11PropertyPosE(ptr readonly captures(ret: address, provenance) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %pos.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
@@ -2264,7 +2264,7 @@ return:                                           ; preds = %land.lhs.true, %cle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm11HiddenClass14updatePropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_15DictPropertyMap11PropertyPosENS0_13PropertyFlagsE(ptr readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %pos.coerce, i16 %newFlags.coerce) local_unnamed_addr #1 align 2 {
+define hidden ptr @_ZN6hermes2vm11HiddenClass14updatePropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_15DictPropertyMap11PropertyPosENS0_13PropertyFlagsE(ptr readonly captures(ret: address, provenance) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %pos.coerce, i16 %newFlags.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %lk.i.i.i.i.i = alloca %"class.std::lock_guard", align 8
   %ref.tmp53 = alloca %"class.hermes::vm::detail::Transition", align 4

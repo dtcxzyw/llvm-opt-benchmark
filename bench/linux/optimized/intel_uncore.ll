@@ -3378,7 +3378,7 @@ define dso_local void @intel_uncore_fini_mmio(ptr noundef readnone captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 align 16 {
   %.fr21 = freeze i32 %1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %8
@@ -3619,7 +3619,7 @@ declare void @llvm.write_register.i64(metadata, i64) #9
 declare dso_local i64 @ktime_get_raw() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 align 16 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8

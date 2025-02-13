@@ -521,7 +521,7 @@ mca_btl_self_free.exit:                           ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @mca_btl_self_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
+define internal range(i32 -2, 1) i32 @mca_btl_self_sendi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly captures(address_is_null) %9) #0 {
   %11 = alloca i64, align 8
   %12 = alloca [2 x %struct.mca_btl_base_segment_t], align 16
   %13 = alloca %struct.mca_btl_base_descriptor_t, align 8

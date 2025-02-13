@@ -990,7 +990,7 @@ define void @_ZThn16_NK16PointEditFactory10pluginNameEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN16PointEditFactory11getEditToolEPK7QAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN16PointEditFactory11getEditToolEPK7QAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(address) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -1044,7 +1044,7 @@ define noundef ptr @_ZN16PointEditFactory11getEditToolEPK7QAction(ptr noundef no
 declare void @_ZN15EditPointPluginC1Ei(ptr noundef nonnull align 8 dereferenceable(1416), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef ptr @_ZThn16_N16PointEditFactory11getEditToolEPK7QAction(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZThn16_N16PointEditFactory11getEditToolEPK7QAction(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4

@@ -1768,13 +1768,13 @@ if.end8:                                          ; preds = %if.then3, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_113tactic2solver15congruence_rootEP4expr(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %e) unnamed_addr #5 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_113tactic2solver15congruence_rootEP4expr(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %e) unnamed_addr #5 align 2 {
 entry:
   ret ptr %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_113tactic2solver15congruence_nextEP4expr(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned %e) unnamed_addr #5 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_113tactic2solver15congruence_nextEP4expr(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone returned captures(ret: address, provenance) %e) unnamed_addr #5 align 2 {
 entry:
   ret ptr %e
 }

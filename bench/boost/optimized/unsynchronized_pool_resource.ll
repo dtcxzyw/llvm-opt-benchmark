@@ -132,7 +132,7 @@ define void @_ZN5boost9container3pmr28unsynchronized_pool_resource13do_deallocat
 declare void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5boost9container3pmr28unsynchronized_pool_resource11do_is_equalERKNS1_15memory_resourceE(ptr noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef nonnull readnone align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK5boost9container3pmr28unsynchronized_pool_resource11do_is_equalERKNS1_15memory_resourceE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(64) %0, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8) %1) unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }

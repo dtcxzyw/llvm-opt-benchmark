@@ -191,7 +191,7 @@ define dso_local void @sql_fn_parser_setup(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sql_fn_post_column_ref(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
+define internal ptr @sql_fn_post_column_ref(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %2, null
@@ -2004,7 +2004,7 @@ declare void @UnregisterExprContextCallback(ptr noundef, ptr noundef, i64 nounde
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @check_sql_fn_statements(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @check_sql_fn_statements(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge38, label %.lr.ph37
 
@@ -2084,7 +2084,7 @@ define dso_local void @check_sql_fn_statements(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   store ptr null, ptr %6, align 8

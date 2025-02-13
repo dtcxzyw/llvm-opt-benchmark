@@ -2344,7 +2344,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare ptr @XML_ErrorString(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev9CDLParser4Impl17getCDLParsingInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(98) %this) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev9CDLParser4Impl17getCDLParsingInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(98) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_parsingInfo = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %m_parsingInfo
@@ -4432,7 +4432,7 @@ lor.end20:                                        ; preds = %lor.rhs17, %lor.end
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev9CDLParser4Impl19IsValidStartElementEPS1_PKc(ptr noundef %pImpl, ptr noundef readonly %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev9CDLParser4Impl19IsValidStartElementEPS1_PKc(ptr noundef %pImpl, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.0", align 1

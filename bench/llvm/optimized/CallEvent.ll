@@ -2040,7 +2040,7 @@ _ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4ento9CallEvent21getDeclaredResultTypeEPKNS_4DeclE(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang4ento9CallEvent21getDeclaredResultTypeEPKNS_4DeclE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 126
@@ -3317,7 +3317,7 @@ define dso_local void @_ZNK5clang4ento15AnyFunctionCall28getInitialStackFrameCon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFrameContextERN4llvm15SmallVectorImplISt4pairINS_4ento4SValES7_EEERNS6_11SValBuilderERKNS6_9CallEventENS3_8ArrayRefIPNS_11ParmVarDeclEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(412) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr readonly %4, i64 %5) unnamed_addr #0 {
+define internal fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFrameContextERN4llvm15SmallVectorImplISt4pairINS_4ento4SValES7_EEERNS6_11SValBuilderERKNS6_9CallEventENS3_8ArrayRefIPNS_11ParmVarDeclEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(412) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr readonly captures(address) %4, i64 %5) unnamed_addr #0 {
   %7 = alloca %"class.clang::ento::SVal", align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::optional.574", align 8

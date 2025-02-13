@@ -1977,7 +1977,7 @@ _ZN8rationalaSERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN12old_intervalaSEOS_(ptr noundef nonnull returned align 8 dereferenceable(112) initializes((8, 12), (48, 52), (88, 90), (96, 112)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(112) %other) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN12old_intervalaSEOS_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(112) initializes((8, 12), (48, 52), (88, 90), (96, 112)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(112) %other) local_unnamed_addr #6 align 2 {
 entry:
   %m_lower = getelementptr inbounds nuw i8, ptr %other, i64 8
   %m_lower2 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2871,7 +2871,7 @@ _ZN25scoped_dependency_managerIPvE7mk_joinEPN18dependency_managerINS1_6configEE1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12old_interval8join_optEPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %d1, ptr noundef %d2, ptr noundef %opt1, ptr noundef readnone %opt2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12old_interval8join_optEPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %d1, ptr noundef %d2, ptr noundef %opt1, ptr noundef readnone captures(address) %opt2) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %opt1, %d1
   %cmp2 = icmp eq ptr %opt1, %d2

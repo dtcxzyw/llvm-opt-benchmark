@@ -1198,7 +1198,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @uprv_convertToLCID_75(ptr noundef readonly %langID, ptr noundef readonly %posixID, ptr noundef writeonly captures(none) %status) local_unnamed_addr #10 {
+define i32 @uprv_convertToLCID_75(ptr noundef readonly captures(address_is_null) %langID, ptr noundef readonly captures(address_is_null) %posixID, ptr noundef writeonly captures(none) %status) local_unnamed_addr #10 {
 entry:
   %tobool = icmp ne ptr %langID, null
   %tobool1 = icmp ne ptr %posixID, null

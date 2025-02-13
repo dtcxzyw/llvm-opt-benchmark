@@ -332,7 +332,7 @@ define hidden void @_ZNK8ZWorkers10threads_doEP13ThreadClosure(ptr noundef nonnu
 declare void @_ZNK13WorkerThreads10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8ZWorkers13resizing_lockEv(ptr noundef nonnull readnone align 8 dereferenceable(184) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZN8ZWorkers13resizing_lockEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(184) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }

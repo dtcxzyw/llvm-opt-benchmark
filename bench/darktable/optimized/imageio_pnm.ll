@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [9 x i8] c"%9s %9s \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @dt_imageio_open_pnm(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @dt_imageio_open_pnm(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 2
   %5 = alloca [10 x i8], align 1
   %6 = alloca [10 x i8], align 1

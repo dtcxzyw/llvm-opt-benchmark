@@ -1435,7 +1435,7 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hid_dump_device(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 88
   br label %4
 

@@ -230,7 +230,7 @@ define range(i32 -12, 1) i32 @pthread_setup_scheduler(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -36, 1) i32 @nxtask_setup_arguments(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -36, 1) i32 @nxtask_setup_arguments(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr @g_noname, ptr %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 976

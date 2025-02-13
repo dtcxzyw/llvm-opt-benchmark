@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [32 x i8] c"invalid file (bad magic number)\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [4097 x i8], align 16
   %4 = alloca [4097 x i8], align 16
   %5 = icmp slt i32 %0, 1
@@ -228,7 +228,7 @@ getJavaPath.exit52:                               ; preds = %16
 }
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define hidden void @errorExit(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @errorExit(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %3
 

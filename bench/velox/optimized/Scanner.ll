@@ -2285,7 +2285,7 @@ cond.end14:                                       ; preds = %if.end, %cond.true9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16veloxtpFlexLexer14yy_init_bufferEP15yy_buffer_stateRSi(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef %b, ptr noundef nonnull align 8 dereferenceable(16) %file) local_unnamed_addr #4 align 2 {
+define void @_ZN16veloxtpFlexLexer14yy_init_bufferEP15yy_buffer_stateRSi(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef captures(address) %b, ptr noundef nonnull align 8 dereferenceable(16) %file) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call ptr @__errno_location() #41
   %0 = load i32, ptr %call, align 4
@@ -2604,7 +2604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN16veloxtpFlexLexer16yy_delete_bufferEP15yy_buffer_state(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(732) %this, ptr noundef %b) unnamed_addr #14 align 2 {
+define void @_ZN16veloxtpFlexLexer16yy_delete_bufferEP15yy_buffer_state(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(732) %this, ptr noundef captures(address) %b) unnamed_addr #14 align 2 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2651,7 +2651,7 @@ return:                                           ; preds = %entry, %if.end11
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef %b) local_unnamed_addr #4 align 2 {
+define void @_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef captures(address) %b) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %if.end10, label %if.end

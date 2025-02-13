@@ -2515,7 +2515,7 @@ define dso_local zeroext i1 @intel_fb_supports_90_270_rotation(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -5762,7 +5762,7 @@ define internal void @intel_user_framebuffer_destroy(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_user_framebuffer_create_handle(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @intel_user_framebuffer_create_handle(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -5804,7 +5804,7 @@ define internal i32 @intel_user_framebuffer_create_handle(ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_user_framebuffer_dirty(ptr noundef readonly %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4, i32 %5) #0 align 16 {
+define internal i32 @intel_user_framebuffer_dirty(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4, i32 %5) #0 align 16 {
   %7 = alloca ptr, align 8
   %8 = icmp eq ptr %0, null
   br i1 %8, label %.thread, label %9

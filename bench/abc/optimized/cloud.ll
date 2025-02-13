@@ -1918,7 +1918,7 @@ define void @Cloud_bddPrintCube(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cloud_PrintInfo(ptr noundef readonly %0) local_unnamed_addr #4 {
+define void @Cloud_PrintInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 

@@ -2829,7 +2829,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2fs20GetRecursiveSubPathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbRKSt3setIcSt4lessIcES4_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(24) %dst, i1 noundef zeroext %list_files, ptr noundef nonnull align 8 dereferenceable(48) %ignore) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2fs20GetRecursiveSubPathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbRKSt3setIcSt4lessIcES4_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(24) %dst, i1 noundef zeroext %list_files, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %ignore) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -5988,7 +5988,7 @@ cleanup66:                                        ; preds = %if.end29, %while.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2fs28RemoveRelativePathComponentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2fs28RemoveRelativePathComponentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef captures(address) %path) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i326 = alloca i64, align 8
   %__dnew.i.i.i195 = alloca i64, align 8

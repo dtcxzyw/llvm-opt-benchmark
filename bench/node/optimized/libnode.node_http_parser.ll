@@ -6056,7 +6056,7 @@ declare void @_ZN4node9AsyncWrap21EmitTraceEventDestroyEv(ptr noundef nonnull al
 declare void @_ZN4node9AsyncWrap11EmitDestroyEb(ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr readonly %__x.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr readonly captures(address) %__x.0.val) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8

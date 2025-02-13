@@ -201,7 +201,7 @@ define void @_ZN4pkpy5TupleC2EPNS_8PyObjectES2_S2_S2_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy5TupleD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy5TupleD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(36) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = icmp eq ptr %2, %3

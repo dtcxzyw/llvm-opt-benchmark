@@ -945,7 +945,7 @@ _ZNRSt8optionalIN3gmx14CheckpointDataILNS0_23CheckpointDataOperationE0EEEE5value
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx24ParrinelloRahmanBarostat8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(344) %0) unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx24ParrinelloRahmanBarostat8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(344) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   ret ptr %2
 }
@@ -1112,7 +1112,7 @@ _ZN3gmx24ParrinelloRahmanBarostat22restoreCheckpointStateESt8optionalINS_14Check
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn8_N3gmx24ParrinelloRahmanBarostat8clientIDB5cxx11Ev(ptr noundef readnone %0) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZThn8_N3gmx24ParrinelloRahmanBarostat8clientIDB5cxx11Ev(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   ret ptr %2
 }
@@ -2554,7 +2554,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3gmx24ParrinelloRahmanBarostat13boxVelocitiesEv(ptr noundef nonnull readnone align 8 dereferenceable(344) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK3gmx24ParrinelloRahmanBarostat13boxVelocitiesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(344) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 180
   ret ptr %2
 }

@@ -443,7 +443,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN6icu_7515RBBIDataWrapper12addReferenceEv(ptr noundef nonnull returned align 8 dereferenceable(137) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZN6icu_7515RBBIDataWrapper12addReferenceEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(137) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fRefCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = atomicrmw add ptr %fRefCount, i32 1 seq_cst, align 4
@@ -451,7 +451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull readnone align 8 dereferenceable(137) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(137) %this) local_unnamed_addr #10 align 2 {
 entry:
   %fRuleString = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %fRuleString

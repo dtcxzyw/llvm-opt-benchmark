@@ -279,7 +279,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local i32 @sprint_oid(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #2 align 16 {
+define dso_local i32 @sprint_oid(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #2 align 16 {
   %5 = getelementptr i8, ptr %0, i64 %1
   %6 = icmp ugt ptr %5, %0
   br i1 %6, label %7, label %.loopexit

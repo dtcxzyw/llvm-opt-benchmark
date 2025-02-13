@@ -80838,7 +80838,7 @@ _ZN4llvm5APIntD2Ev.exit21:                        ; preds = %_ZNK4llvm5APInt12ge
 declare void @_ZN4llvm5APInt12lshrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMovWSymbolEN4llvm8ArrayRefINS1_13AArch64MCExpr11VariantKindEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand12isMovWSymbolEN4llvm8ArrayRefINS1_13AArch64MCExpr11VariantKindEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MCValue", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40

@@ -140,7 +140,7 @@ declare i32 @H5VLnative_addr_to_token(i64 noundef, i64 noundef, ptr noundef) loc
 declare i32 @H5open() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ref_path_table_gen_fake(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @ref_path_table_gen_fake(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @thefile, align 8
   %4 = icmp sgt i64 %3, 0
   br i1 %4, label %5, label %14
@@ -326,7 +326,7 @@ define internal i32 @ref_path_table_cmp(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_ref_path_cb(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr readnone captures(none) %3) #0 {
+define internal noundef i32 @init_ref_path_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr readnone captures(none) %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %ref_path_table_put.exit
 

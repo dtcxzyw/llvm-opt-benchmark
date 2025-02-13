@@ -5097,7 +5097,7 @@ _ZZN9grpc_core20ChannelArgTypeTraitsI24grpc_channel_credentialsvE6VTableEvENKUlP
 declare { i64, ptr } @_ZN9grpc_core20ClientChannelFactory14ChannelArgNameEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_132Chttp2SecureClientChannelFactoryEvE6VTableEvENUlPvE_8__invokeES4_(ptr noundef readnone returned %p) #17 align 2 {
+define internal noundef ptr @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_132Chttp2SecureClientChannelFactoryEvE6VTableEvENUlPvE_8__invokeES4_(ptr noundef readnone returned captures(ret: address, provenance) %p) #17 align 2 {
 entry:
   ret ptr %p
 }
@@ -5109,7 +5109,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_132Chttp2SecureClientChannelFactoryEvE6VTableEvENUlPvS4_E_8__invokeES4_S4_(ptr noundef readnone %p1, ptr noundef readnone %p2) #17 align 2 {
+define internal noundef range(i32 -1, 2) i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_132Chttp2SecureClientChannelFactoryEvE6VTableEvENUlPvS4_E_8__invokeES4_S4_(ptr noundef readnone captures(address) %p1, ptr noundef readnone captures(address) %p2) #17 align 2 {
 entry:
   %cmp.i.i = icmp ult ptr %p1, %p2
   %cmp1.i.i = icmp ult ptr %p2, %p1

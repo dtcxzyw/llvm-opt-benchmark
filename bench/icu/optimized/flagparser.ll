@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL17currentBufferSize = internal unnamed_addr global i32 512, align 4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @parseFlagsFile(ptr noundef %fileName, ptr noundef readonly captures(none) %flagBuffer, i32 noundef %flagBufferSize, ptr noundef readonly %flagNames, i32 noundef %numOfFlags, ptr noundef captures(none) %status) local_unnamed_addr #0 {
+define i32 @parseFlagsFile(ptr noundef %fileName, ptr noundef readonly captures(none) %flagBuffer, i32 noundef %flagBufferSize, ptr noundef readonly captures(address_is_null) %flagNames, i32 noundef %numOfFlags, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @T_FileStream_open(ptr noundef %fileName, ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call, null

@@ -486,7 +486,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %19, %23
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF3DEX6Method4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF3DEX6Method4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -499,7 +499,7 @@ define noundef i64 @_ZNK4LIEF3DEX6Method11code_offsetEv(ptr noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3DEX6Method8bytecodeEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF3DEX6Method8bytecodeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
@@ -546,7 +546,7 @@ define void @_ZN4LIEF3DEX6Method19insert_dex2dex_infoEjj(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4LIEF3DEX6Method12dex2dex_infoEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4LIEF3DEX6Method12dex2dex_infoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }

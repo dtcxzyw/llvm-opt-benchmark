@@ -214,7 +214,7 @@ return:                                           ; preds = %lor.lhs.false43, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %s, ptr noundef readonly captures(none) %packet, i32 noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %res, ptr noundef writeonly %len, i32 noundef %init) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %s, ptr noundef readonly captures(none) %packet, i32 noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %res, ptr noundef writeonly captures(address_is_null) %len, i32 noundef %init) local_unnamed_addr #1 {
 entry:
   %offset.i = alloca i64, align 8
   %extensions.sroa.0.0.copyload = load ptr, ptr %packet, align 8

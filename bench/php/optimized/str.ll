@@ -16,7 +16,7 @@ define hidden ptr @lexbor_str_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_str_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_str_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %10, label %5
 
@@ -42,7 +42,7 @@ define hidden ptr @lexbor_str_init(ptr noundef %0, ptr noundef %1, i64 noundef %
 declare ptr @lexbor_mraw_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_str_init_append(ptr noundef writeonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @lexbor_str_init_append(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %13, label %6
 
@@ -865,7 +865,7 @@ define hidden i64 @lexbor_str_whitespace_from_end(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden ptr @lexbor_str_data_ncasecmp_first(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
+define hidden ptr @lexbor_str_data_ncasecmp_first(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -1251,7 +1251,7 @@ define hidden void @lexbor_str_data_to_uppercase(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden ptr @lexbor_str_data_find_lowercase(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define hidden ptr @lexbor_str_data_find_lowercase(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -1279,7 +1279,7 @@ define hidden ptr @lexbor_str_data_find_lowercase(ptr noundef readonly %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden ptr @lexbor_str_data_find_uppercase(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define hidden ptr @lexbor_str_data_find_uppercase(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %4, %2

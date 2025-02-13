@@ -439,13 +439,13 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %5, %13, %pmix_point
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_mca_base_var_group_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @pmix_mca_base_var_group_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @group_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @group_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @group_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
@@ -987,7 +987,7 @@ pmix_mca_base_var_group_get_internal.exit:        ; preds = %227, %pmix_mca_base
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_mca_base_var_group_component_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @pmix_mca_base_var_group_component_register(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 84

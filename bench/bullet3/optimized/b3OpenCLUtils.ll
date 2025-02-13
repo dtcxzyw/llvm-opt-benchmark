@@ -169,7 +169,7 @@ declare void @clewExit() local_unnamed_addr #2
 declare void @b3OutputPrintfVarArgsInternal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @b3OpenCLUtils_getNumPlatforms(ptr noundef writeonly %pErrNum) local_unnamed_addr #0 {
+define dso_local i32 @b3OpenCLUtils_getNumPlatforms(ptr noundef writeonly captures(address_is_null) %pErrNum) local_unnamed_addr #0 {
 entry:
   %pPlatforms = alloca [10 x ptr], align 16
   %numPlatforms = alloca i32, align 4
@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_getPlatform(i32 noundef %platformIndex0, ptr noundef writeonly %pErrNum) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_getPlatform(i32 noundef %platformIndex0, ptr noundef writeonly captures(address_is_null) %pErrNum) local_unnamed_addr #0 {
 entry:
   %numPlatforms = alloca i32, align 4
   %call.i = tail call i32 @clewInit(ptr noundef nonnull @.str.6)
@@ -388,7 +388,7 @@ _ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %platform, i64 noundef %deviceType, ptr noundef writeonly %pErrNum, ptr noundef readnone %pGLContext, ptr readnone captures(none) %pGLDC, i32 noundef %preferredDeviceIndex, i32 %preferredPlatformIndex) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %platform, i64 noundef %deviceType, ptr noundef writeonly captures(address_is_null) %pErrNum, ptr noundef readnone captures(address_is_null) %pGLContext, ptr readnone captures(none) %pGLDC, i32 noundef %preferredDeviceIndex, i32 %preferredPlatformIndex) local_unnamed_addr #0 {
 entry:
   %ciErrNum = alloca i32, align 4
   %devices = alloca [16 x ptr], align 16
@@ -474,7 +474,7 @@ return:                                           ; preds = %if.end24, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %deviceType, ptr noundef %pErrNum, ptr noundef %pGLContext, ptr noundef readnone captures(none) %pGLDC, i32 noundef %preferredDeviceIndex, i32 noundef %preferredPlatformIndex, ptr noundef writeonly %retPlatformId) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %deviceType, ptr noundef captures(address_is_null) %pErrNum, ptr noundef captures(address_is_null) %pGLContext, ptr noundef readnone captures(none) %pGLDC, i32 noundef %preferredDeviceIndex, i32 noundef %preferredPlatformIndex, ptr noundef writeonly captures(address_is_null) %retPlatformId) local_unnamed_addr #0 {
 entry:
   %numPlatforms = alloca i32, align 4
   %pbuf = alloca [128 x i8], align 16
@@ -1033,7 +1033,7 @@ if.end45:                                         ; preds = %if.else, %if.then42
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %clContext, ptr noundef %device, ptr noundef %kernelSourceOrg, ptr noundef writeonly %pErrNum, ptr noundef %additionalMacrosArg, ptr noundef %clFileNameForCaching, i1 noundef zeroext %disableBinaryCaching) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %clContext, ptr noundef %device, ptr noundef %kernelSourceOrg, ptr noundef writeonly captures(address_is_null) %pErrNum, ptr noundef %additionalMacrosArg, ptr noundef %clFileNameForCaching, i1 noundef zeroext %disableBinaryCaching) local_unnamed_addr #0 {
 entry:
   %device.addr = alloca ptr, align 8
   %status = alloca i32, align 4
@@ -1372,7 +1372,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %clContext, ptr noundef %device, ptr noundef %kernelSource, ptr noundef %kernelName, ptr noundef %pErrNum, ptr noundef %prog, ptr noundef %additionalMacros) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %clContext, ptr noundef %device, ptr noundef %kernelSource, ptr noundef %kernelName, ptr noundef captures(address_is_null) %pErrNum, ptr noundef %prog, ptr noundef %additionalMacros) local_unnamed_addr #0 {
 entry:
   %localErrNum = alloca i32, align 4
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.77, ptr noundef %kernelName)

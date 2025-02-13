@@ -320,7 +320,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %.crited
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @decl_raw(ptr noundef readonly %0) unnamed_addr #4 {
+define internal fastcc ptr @decl_raw(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %.critedge2, %1
@@ -1642,7 +1642,7 @@ initializer_for_index.exit.thread24:              ; preds = %initializer_for_ind
 declare ptr @type_get_indexed_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @expr_is_pure(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @expr_is_pure(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not135 = icmp eq ptr %0, null
   br i1 %.not135, label %.critedge, label %.lr.ph
 

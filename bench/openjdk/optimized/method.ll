@@ -617,7 +617,7 @@ _ZN6Method21clear_native_functionEv.exit:         ; preds = %_ZN6Method10clear_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Method16set_vtable_indexEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Method16set_vtable_indexEi(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
   %4 = icmp ult ptr %0, %3
   %5 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
@@ -2035,7 +2035,7 @@ define hidden noundef nonnull ptr @_ZNK6Method8bcp_fromEi(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK6Method8bcp_fromEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone %1) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZNK6Method8bcp_fromEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %3, align 8
   %4 = and i32 %.sroa.0.0.copyload.i.i, 256
@@ -2236,7 +2236,7 @@ define hidden void @_ZN6Method24restore_unshareable_infoEP10JavaThread(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Method16set_itable_indexEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Method16set_itable_indexEi(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
   %4 = icmp ult ptr %0, %3
   %5 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
@@ -4326,7 +4326,7 @@ _ZNK6Method23can_be_statically_boundE11AccessFlags.exit: ; preds = %_ZNK6Method1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6Method23can_be_statically_boundEP13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Method23can_be_statically_boundEP13InstanceKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6073,7 +6073,7 @@ _ZN6Method28set_is_not_c2_osr_compilableEv.exit:  ; preds = %29, %13, %_ZN6Metho
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Method11unlink_codeEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Method11unlink_codeEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @NMethodState_lock, align 8
   %4 = tail call noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #24
   br i1 %4, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, label %5
@@ -6628,7 +6628,7 @@ define hidden noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6Method16is_overridden_inEP5Klass(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Method16is_overridden_inEP5Klass(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 512
@@ -7307,7 +7307,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6Method19check_non_bcp_klassEP5Klass(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6Method19check_non_bcp_klassEP5Klass(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZNK5Klass12class_loaderEv.exit.thread, label %2
 
@@ -9388,7 +9388,7 @@ define hidden void @_ZN6Method40change_method_associated_with_jmethod_idEP10_jme
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6Method12is_method_idEP10_jmethodID(ptr noundef readonly %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN6Method12is_method_idEP10_jmethodID(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -9433,7 +9433,7 @@ _ZN14JNIMethodBlock8containsEPP6Method.exit:      ; preds = %24, %18, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6Method26checked_resolve_jmethod_idEP10_jmethodID(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6Method26checked_resolve_jmethod_idEP10_jmethodID(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 

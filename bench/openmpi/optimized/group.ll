@@ -83,7 +83,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %14
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, @ompi_mpi_group_empty
   %7 = icmp eq ptr %3, @ompi_mpi_group_empty
   %or.cond = or i1 %6, %7
@@ -208,7 +208,7 @@ ompi_group_get_proc_name.exit41:                  ; preds = %38, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_dump(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @ompi_group_dump(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3)
@@ -1200,7 +1200,7 @@ ompi_group_get_proc_name.exit40:                  ; preds = %37, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define noundef i32 @ompi_group_compare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.critedge, label %5
 

@@ -1600,7 +1600,7 @@ add_pending.exit:                                 ; preds = %96, %108
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 1) i32 @mca_btl_smcuda_sendi(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly %9) #0 {
+define range(i32 -4, 1) i32 @mca_btl_smcuda_sendi(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i8 zeroext %6, i32 noundef %7, i8 noundef zeroext %8, ptr noundef writeonly captures(address_is_null) %9) #0 {
   %11 = alloca i64, align 8
   %12 = alloca %struct.iovec, align 8
   %13 = alloca i32, align 4

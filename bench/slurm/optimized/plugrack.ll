@@ -126,7 +126,7 @@ define range(i32 -1, 1) i32 @plugrack_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noundef %1) #0 {
+define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -180,7 +180,7 @@ define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @plugrack_use_by_type(ptr noundef readonly %0, ptr noundef %1) #0 {
+define ptr @plugrack_use_by_type(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

@@ -2906,7 +2906,7 @@ Abc_SclConeClean.exit:                            ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclTimeNtkRecompute(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define void @Abc_SclTimeNtkRecompute(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   tail call void @Abc_SclComputeLoad(ptr noundef %0) #26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !37

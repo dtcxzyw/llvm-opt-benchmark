@@ -341,7 +341,7 @@ _ZN9grpc_core17ManualConstructorINS_12experimental4JsonEE7DestroyEv.exit: ; pred
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_Z20grpc_jwt_claims_jsonPK15grpc_jwt_claims(ptr noundef readnone %claims) local_unnamed_addr #3 {
+define noundef ptr @_Z20grpc_jwt_claims_jsonPK15grpc_jwt_claims(ptr noundef readnone captures(address_is_null, ret: address, provenance) %claims) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %claims, null
   %json = getelementptr inbounds nuw i8, ptr %claims, i64 80
@@ -350,7 +350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z23grpc_jwt_claims_subjectPK15grpc_jwt_claims(ptr noundef readonly %claims) local_unnamed_addr #5 {
+define noundef ptr @_Z23grpc_jwt_claims_subjectPK15grpc_jwt_claims(ptr noundef readonly captures(address_is_null) %claims) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %claims, null
   br i1 %cmp, label %return, label %if.end
@@ -365,7 +365,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z22grpc_jwt_claims_issuerPK15grpc_jwt_claims(ptr noundef readonly %claims) local_unnamed_addr #5 {
+define noundef ptr @_Z22grpc_jwt_claims_issuerPK15grpc_jwt_claims(ptr noundef readonly captures(address_is_null) %claims) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %claims, null
   br i1 %cmp, label %return, label %if.end
@@ -381,7 +381,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z18grpc_jwt_claims_idPK15grpc_jwt_claims(ptr noundef readonly %claims) local_unnamed_addr #5 {
+define noundef ptr @_Z18grpc_jwt_claims_idPK15grpc_jwt_claims(ptr noundef readonly captures(address_is_null) %claims) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %claims, null
   br i1 %cmp, label %return, label %if.end
@@ -397,7 +397,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z24grpc_jwt_claims_audiencePK15grpc_jwt_claims(ptr noundef readonly %claims) local_unnamed_addr #5 {
+define noundef ptr @_Z24grpc_jwt_claims_audiencePK15grpc_jwt_claims(ptr noundef readonly captures(address_is_null) %claims) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %claims, null
   br i1 %cmp, label %return, label %if.end
@@ -413,7 +413,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_Z25grpc_jwt_claims_issued_atPK15grpc_jwt_claims(ptr noundef readonly %claims) local_unnamed_addr #4 {
+define { i64, i64 } @_Z25grpc_jwt_claims_issued_atPK15grpc_jwt_claims(ptr noundef readonly captures(address_is_null) %claims) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %claims, null
   br i1 %cmp, label %if.then, label %if.end
@@ -442,7 +442,7 @@ declare { i64, i64 } @gpr_inf_past(i32 noundef) local_unnamed_addr #0
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_Z26grpc_jwt_claims_expires_atPK15grpc_jwt_claims(ptr noundef readonly %claims) local_unnamed_addr #4 {
+define { i64, i64 } @_Z26grpc_jwt_claims_expires_atPK15grpc_jwt_claims(ptr noundef readonly captures(address_is_null) %claims) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %claims, null
   br i1 %cmp, label %if.then, label %if.end
@@ -468,7 +468,7 @@ return:                                           ; preds = %if.end, %if.then
 declare { i64, i64 } @gpr_inf_future(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_Z26grpc_jwt_claims_not_beforePK15grpc_jwt_claims(ptr noundef readonly %claims) local_unnamed_addr #4 {
+define { i64, i64 } @_Z26grpc_jwt_claims_not_beforePK15grpc_jwt_claims(ptr noundef readonly captures(address_is_null) %claims) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %claims, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1055,7 +1055,7 @@ declare i32 @gpr_time_cmp(i64, i64, i64, i64) local_unnamed_addr #0
 declare { i64, i64 } @gpr_time_0(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 7) i32 @_Z21grpc_jwt_claims_checkPK15grpc_jwt_claimsPKc(ptr noundef readonly %claims, ptr noundef %audience) local_unnamed_addr #4 {
+define noundef range(i32 0, 7) i32 @_Z21grpc_jwt_claims_checkPK15grpc_jwt_claimsPKc(ptr noundef readonly captures(address_is_null) %claims, ptr noundef %audience) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %claims, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -3720,7 +3720,7 @@ _ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12exper
 declare void @_Z18grpc_base64_decodePKci(ptr sret(%struct.grpc_slice) align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z24grpc_jwt_verifier_createPK46grpc_jwt_verifier_email_domain_key_url_mappingm(ptr noundef readonly %mappings, i64 noundef %num_mappings) local_unnamed_addr #4 {
+define noundef ptr @_Z24grpc_jwt_verifier_createPK46grpc_jwt_verifier_email_domain_key_url_mappingm(ptr noundef readonly captures(address_is_null) %mappings, i64 noundef %num_mappings) local_unnamed_addr #4 {
 entry:
   %call.i = tail call noundef ptr @gpr_zalloc(i64 noundef 24)
   %add = add i64 %num_mappings, 1
@@ -7270,7 +7270,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %response) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly captures(address_is_null) %response) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i8 = alloca %class.anon.58, align 1
   %ref.tmp.i.i.i.i.i = alloca %class.anon.58, align 1

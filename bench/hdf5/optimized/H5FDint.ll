@@ -4107,7 +4107,7 @@ define i64 @H5FD_register_driver_by_name(ptr noundef %0, i1 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @H5FD_is_driver_registered_by_name(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5FD_is_driver_registered_by_name(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5FD_get_driver_ud_t, align 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4220,7 +4220,7 @@ define i64 @H5FD_register_driver_by_value(i32 noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @H5FD_is_driver_registered_by_value(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5FD_is_driver_registered_by_value(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5FD_get_driver_ud_t, align 8
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

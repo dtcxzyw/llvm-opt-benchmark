@@ -340,7 +340,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @sscop_allowed_subdissector(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @sscop_allowed_subdissector(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %.b.i = load i1, ptr @initialize_handles_once.initialized, align 4
   br i1 %.b.i, label %.initialize_handles_once.exit_crit_edge, label %2
 

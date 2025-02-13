@@ -1899,7 +1899,7 @@ declare i32 @opal_ifindextokindex(i32 noundef) local_unnamed_addr #2
 declare i32 @opal_ifnext(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @split_and_resolve(ptr noundef captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca [32 x i8], align 16

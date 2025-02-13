@@ -301,7 +301,7 @@ define void @convert_num_unit(double noundef %0, ptr noundef writeonly captures(
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @revert_num_unit(ptr noundef readonly %0) #1 {
+define i32 @revert_num_unit(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -5786,7 +5786,7 @@ define range(i32 -1, 1) i32 @slurm_send_recv_controller_rc_msg(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_free_msg_members(ptr noundef %0) local_unnamed_addr #2 {
+define void @slurm_free_msg_members(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %2
 

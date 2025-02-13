@@ -3408,7 +3408,7 @@ define hidden void @proto_register_thread_bcn() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %57, label %6
@@ -3651,7 +3651,7 @@ define hidden void @proto_reg_handoff_thread_bcn() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_thread_bcn_heur(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_thread_bcn_heur(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %5
 
@@ -3684,7 +3684,7 @@ define internal range(i32 0, 2) i32 @dissect_thread_bcn_heur(ptr noundef %0, ptr
 declare void @register_mle_key_hash_handler(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
+define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %66 [
@@ -3794,7 +3794,7 @@ set_thread_seq_ctr_from_key_index.exit:           ; preds = %11, %15, %20
 declare void @register_ieee802154_mac_key_hash_handler(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
+define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %.thread [
@@ -3961,7 +3961,7 @@ declare ptr @g_byte_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_thread_temp_keys(ptr noundef nonnull readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @create_thread_temp_keys(ptr noundef nonnull readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca [10 x i8], align 4
   %7 = alloca [32 x i8], align 16
   %8 = tail call ptr @g_byte_array_new() #7

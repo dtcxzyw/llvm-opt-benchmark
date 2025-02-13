@@ -601,7 +601,7 @@ define range(i32 -1, 1) i32 @H5VLterminate(i64 noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VLget_cap_flags(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VLget_cap_flags(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 9) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -629,7 +629,7 @@ define range(i32 -1, 1) i32 @H5VLget_cap_flags(i64 noundef %0, ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VLget_value(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VLget_value(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 9) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -4622,7 +4622,7 @@ H5VL__datatype_optional.exit:                     ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_datatype_optional_op(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_datatype_optional_op(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.cont, label %.cont.thread
 

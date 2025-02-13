@@ -408,7 +408,7 @@ if.end:                                           ; preds = %if.then, %build_rhc
 declare ptr @acpi_add_rom_blob(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_acpi_build_update(ptr noundef %build_opaque) #0 {
+define internal void @virt_acpi_build_update(ptr noundef captures(address_is_null) %build_opaque) #0 {
 entry:
   %tables = alloca %struct.AcpiBuildTables, align 8
   %tobool.not = icmp eq ptr %build_opaque, null

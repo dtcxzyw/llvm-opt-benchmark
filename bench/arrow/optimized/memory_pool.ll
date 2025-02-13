@@ -5669,7 +5669,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN5arrow18BaseMemoryPoolImplINS_12_GLOBAL__N_115SystemAllocatorEE4FreeEPhll(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef %buffer, i64 noundef %size, i64 %alignment) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow18BaseMemoryPoolImplINS_12_GLOBAL__N_115SystemAllocatorEE4FreeEPhll(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef captures(address) %buffer, i64 noundef %size, i64 %alignment) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %buffer, @_ZN5arrow11memory_pool8internal14zero_size_areaE
   br i1 %cmp.i, label %_ZN5arrow12_GLOBAL__N_115SystemAllocator17DeallocateAlignedEPhll.exit, label %if.else.i

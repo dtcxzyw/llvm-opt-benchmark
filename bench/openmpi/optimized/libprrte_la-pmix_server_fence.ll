@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.dmodex_req = private unnamed_addr constant [11 x i8] c"dmodex_req\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_server_fencenb_fn(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @pmix_server_fencenb_fn(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.pmix_data_buffer, align 8
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_pmix_server_globals, i64 8), align 8
   %or.cond = icmp ult i32 %10, 64
@@ -1167,7 +1167,7 @@ declare void @PMIx_Byte_object_construct(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Data_unload(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @relcb(ptr noundef %0) #6 {
+define internal void @relcb(ptr noundef captures(address_is_null) %0) #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

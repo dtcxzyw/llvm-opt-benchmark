@@ -753,7 +753,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %_ZN8ob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef ptr @_ZN15expr_dominators9intersectEP4exprS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef readonly %x, ptr noundef readonly %y) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN15expr_dominators9intersectEP4exprS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef readonly captures(address, ret: address, provenance) %x, ptr noundef readonly captures(address) %y) local_unnamed_addr #5 align 2 {
 entry:
   %m_expr2post = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 12
@@ -4725,7 +4725,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_128expr_substitution_simplifier5is_gtEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readonly %lhs, ptr noundef %rhs) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_128expr_substitution_simplifier5is_gtEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readonly captures(address) %lhs, ptr noundef %rhs) unnamed_addr #3 align 2 {
 entry:
   %cmp182 = icmp eq ptr %lhs, %rhs
   br i1 %cmp182, label %return, label %if.end.lr.ph

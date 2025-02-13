@@ -2166,7 +2166,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK9grpc_core33XdsClusterSpecifierPluginRegistry16GetPluginForTypeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %config_proto_type_name.coerce0, ptr readonly captures(none) %config_proto_type_name.coerce1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK9grpc_core33XdsClusterSpecifierPluginRegistry16GetPluginForTypeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, i64 %config_proto_type_name.coerce0, ptr readonly captures(none) %config_proto_type_name.coerce1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -2248,7 +2248,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core33XdsClusterSpecifierPluginRegistry14PopulateSymtabEP11upb_DefPool(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %symtab) local_unnamed_addr #4 align 2 {
+define void @_ZNK9grpc_core33XdsClusterSpecifierPluginRegistry14PopulateSymtabEP11upb_DefPool(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, ptr noundef %symtab) local_unnamed_addr #4 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8

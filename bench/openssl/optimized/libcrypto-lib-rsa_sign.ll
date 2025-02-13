@@ -287,7 +287,7 @@ declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_verify(i32 noundef %type, ptr noundef readonly captures(none) %m, i32 noundef %m_len, ptr noundef writeonly %rm, ptr noundef writeonly captures(none) %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_rsa_verify(i32 noundef %type, ptr noundef readonly captures(none) %m, i32 noundef %m_len, ptr noundef writeonly captures(address_is_null) %rm, ptr noundef writeonly captures(none) %prm_len, ptr noundef %sigbuf, i64 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #1 {
 entry:
   %encoded_len = alloca i64, align 8
   %encoded = alloca ptr, align 8

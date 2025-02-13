@@ -586,7 +586,7 @@ return:                                           ; preds = %entry, %if.end12
 }
 
 ; Function Attrs: uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL11timer_checkPN9grpc_core9TimestampE(ptr noundef %next) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZL11timer_checkPN9grpc_core9TimestampE(ptr noundef captures(address_is_null) %next) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i29 = alloca %"class.std::allocator.3", align 1
   %ref.tmp.i = alloca %"class.std::allocator.3", align 1
@@ -1244,7 +1244,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef %next, ptr noundef nonnull readonly captures(none) %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef captures(address_is_null) %next, ptr noundef nonnull readonly captures(none) %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp2.i = alloca %"class.absl::lts_20230802::Status", align 8

@@ -1043,7 +1043,7 @@ declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #1
 declare i64 @EVP_MD_get_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @do_fp(ptr noundef %out, ptr noundef %buf, ptr noundef %bp, i32 noundef %sep, i32 noundef %binout, i32 noundef %xoflen, ptr noundef readnone %key, ptr noundef %sigin, i32 noundef %siglen, ptr noundef %sig_name, ptr noundef %md_name, ptr noundef %file) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_fp(ptr noundef %out, ptr noundef %buf, ptr noundef %bp, i32 noundef %sep, i32 noundef %binout, i32 noundef %xoflen, ptr noundef readnone captures(address_is_null) %key, ptr noundef %sigin, i32 noundef %siglen, ptr noundef %sig_name, ptr noundef %md_name, ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %backslash = alloca i32, align 4

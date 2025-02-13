@@ -3431,7 +3431,7 @@ parts64_mul.exit:                                 ; preds = %.thread100, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_mul(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_mul(ptr noundef nonnull captures(ret: address, provenance) %a, ptr noundef nonnull captures(ret: address, provenance) %b, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -6455,7 +6455,7 @@ parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef nonnull ptr @parts64_muladd(ptr noundef nonnull returned %a, ptr noundef nonnull readonly captures(none) %b, ptr noundef nonnull captures(none) %c, i32 noundef %flags, ptr noundef captures(none) %s) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @parts64_muladd(ptr noundef nonnull returned captures(ret: address, provenance) %a, ptr noundef nonnull readonly captures(none) %b, ptr noundef nonnull captures(none) %c, i32 noundef %flags, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p_widen = alloca %struct.FloatParts128, align 8
   %c_widen = alloca %struct.FloatParts128, align 8
@@ -9200,7 +9200,7 @@ float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_div(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_div(ptr noundef nonnull captures(ret: address, provenance) %a, ptr noundef nonnull captures(ret: address, provenance) %b, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -11480,7 +11480,7 @@ float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_modrem(ptr noundef nonnull captures(ret: address, provenance) %a, ptr noundef nonnull captures(ret: address, provenance) %b, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12181,7 +12181,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts128_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef writeonly %mod_quot, ptr noundef captures(none) %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts128_modrem(ptr noundef nonnull captures(ret: address, provenance) %a, ptr noundef nonnull captures(ret: address, provenance) %b, ptr noundef writeonly captures(address_is_null) %mod_quot, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12865,7 +12865,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext %mod, ptr noundef initializes((0, 8)) %quotient, ptr noundef captures(none) %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext %mod, ptr noundef captures(address_is_null) initializes((0, 8)) %quotient, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -36169,7 +36169,7 @@ return:                                           ; preds = %if.end103, %if.else
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_minmax(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_minmax(ptr noundef nonnull captures(ret: address, provenance) %a, ptr noundef nonnull captures(ret: address, provenance) %b, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32

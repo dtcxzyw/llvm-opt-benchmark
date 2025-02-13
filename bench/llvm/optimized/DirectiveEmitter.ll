@@ -8497,7 +8497,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit80:               ; preds = %290, %288, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15generateGetNameN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES7_(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL15generateGetNameN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES7_(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -13929,7 +13929,7 @@ _ZL24generateClauseClassMacroRKN4llvm17DirectiveLanguageERNS_11raw_ostreamE.exit
 declare { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19hasDuplicateClausesN4llvm8ArrayRefIPKNS_6RecordEEERKNS_9DirectiveERNS_9StringSetINS_15MallocAllocatorEEE(ptr readonly %0, i64 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19hasDuplicateClausesN4llvm8ArrayRefIPKNS_6RecordEEERKNS_9DirectiveERNS_9StringSetINS_15MallocAllocatorEEE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -14299,7 +14299,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31generateCaseForVersionedClausesN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageERNS_9StringSetINS_15MallocAllocatorEEE(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL31generateCaseForVersionedClausesN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageERNS_9StringSetINS_15MallocAllocatorEEE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
@@ -14928,7 +14928,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc { ptr, i64 } @"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS2_S4_E11Association"(ptr readonly %.0.val.0.val, i64 %.0.val.8.val, i32 noundef %0) unnamed_addr #5 align 2 {
+define internal fastcc { ptr, i64 } @"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS2_S4_E11Association"(ptr readonly captures(address) %.0.val.0.val, i64 %.0.val.8.val, i32 noundef %0) unnamed_addr #5 align 2 {
   %2 = add i32 %0, -8
   %or.cond = icmp ult i32 %2, -2
   tail call void @llvm.assume(i1 %or.cond)
@@ -17383,7 +17383,7 @@ _ZNK4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapI
 declare void @_ZN4llvm11SplitStringENS_9StringRefERNS_15SmallVectorImplIS0_EES0_(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17generateEnumClassN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefES7_RKNS_17DirectiveLanguageEb(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_ZL17generateEnumClassN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefES7_RKNS_17DirectiveLanguageEb(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -24959,7 +24959,7 @@ _ZL26generateFlangClausesParserRKN4llvm17DirectiveLanguageERNS_11raw_ostreamE.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17generateClauseSetN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefERKNS_9DirectiveERKNS_17DirectiveLanguageE(ptr readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6) unnamed_addr #0 {
+define internal fastcc void @_ZL17generateClauseSetN4llvm8ArrayRefIPKNS_6RecordEEERNS_11raw_ostreamENS_9StringRefERKNS_9DirectiveERKNS_17DirectiveLanguageE(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

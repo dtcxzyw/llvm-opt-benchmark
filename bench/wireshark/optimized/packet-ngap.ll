@@ -20078,7 +20078,7 @@ copy_address_wmem.exit40:                         ; preds = %copy_address_wmem.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408

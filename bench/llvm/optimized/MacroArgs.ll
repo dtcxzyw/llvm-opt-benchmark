@@ -37,7 +37,7 @@ $_ZNSt6vectorIS_IN5clang5TokenESaIS1_EESaIS3_EE17_M_default_appendEm = comdat an
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang9MacroArgs6createEPKNS_9MacroInfoEN4llvm8ArrayRefINS_5TokenEEEbRNS_12PreprocessorE(ptr noundef readonly captures(none) %0, ptr readonly captures(none) %1, i64 %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(3288) %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang9MacroArgs6createEPKNS_9MacroInfoEN4llvm8ArrayRefINS_5TokenEEEbRNS_12PreprocessorE(ptr noundef readonly captures(none) %0, ptr readonly captures(none) %1, i64 %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 captures(address) dereferenceable(3288) %4) local_unnamed_addr #0 align 2 {
   %6 = zext i1 %3 to i8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 2248
   %8 = load ptr, ptr %7, align 8, !tbaa !3
@@ -276,7 +276,7 @@ define dso_local noundef i32 @_ZN5clang9MacroArgs12getArgLengthEPKNS_5TokenE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK5clang9MacroArgs16getUnexpArgumentEj(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZNK5clang9MacroArgs16getUnexpArgumentEj(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not7 = icmp eq i32 %1, 0
   br i1 %.not7, label %select.unfold._crit_edge, label %select.unfold

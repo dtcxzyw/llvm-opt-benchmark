@@ -7017,7 +7017,7 @@ lpad:                                             ; preds = %if.then.i, %invoke.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3mbp10term_graph11mk_app_coreEP4expr(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef readonly %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN3mbp10term_graph11mk_app_coreEP4expr(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef readonly captures(address, ret: address, provenance) %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %kids = alloca %class.ref_buffer, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -7674,7 +7674,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3mbp10term_graph13mk_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %t, ptr noundef nonnull align 8 dereferenceable(16) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3mbp10term_graph13mk_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %t, ptr noundef nonnull align 8 dereferenceable(16) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep = alloca %class.obj_ref, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -7816,7 +7816,7 @@ return:                                           ; preds = %if.then2.i.i.i17, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3mbp10term_graph17mk_all_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(88) %t, ptr noundef nonnull align 8 dereferenceable(16) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3mbp10term_graph17mk_all_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %t, ptr noundef nonnull align 8 dereferenceable(16) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -7982,7 +7982,7 @@ for.end17:                                        ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3mbp10term_graph21mk_qe_lite_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerER10check_pred(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %t, ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef nonnull align 8 dereferenceable(137) %contains_nc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3mbp10term_graph21mk_qe_lite_equalitiesERNS_4termER10ref_vectorI4expr11ast_managerER10check_pred(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %t, ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef nonnull align 8 dereferenceable(137) %contains_nc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep = alloca %class.obj_ref, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -19991,7 +19991,7 @@ return:                                           ; preds = %if.end48, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorIZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEE6pair_tLb0EjE9push_backERKSA_(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %elem) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorIZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEE6pair_tLb0EjE9push_backERKSA_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %elem) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -20097,7 +20097,7 @@ if.end:                                           ; preds = %_ZN6vectorIZN3mbp10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEENK3$_0clEPS4_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(address) %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %e, i64 12

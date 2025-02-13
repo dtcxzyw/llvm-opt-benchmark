@@ -196,7 +196,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_parse_request(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((8, 344)) %1, ptr noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((8, 344)) %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %5, ptr noundef nonnull align 16 dereferenceable(336) @info_template, i64 336, i1 false)

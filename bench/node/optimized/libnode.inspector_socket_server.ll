@@ -239,7 +239,7 @@ if.end6:                                          ; preds = %if.end6.critedge, %
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector25PrintDebuggerReadyMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS0_12ServerSocketENS_15FunctionDeleterISB_XadL_ZNS0_21InspectorSocketServer17CloseServerSocketEPSB_EEEEESaISG_EERKS9_IS6_SaIS6_EEPKcbP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %server_sockets, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ids, ptr noundef %verb, i1 noundef zeroext %publish_uid_stderr, ptr noundef %out) local_unnamed_addr #0 {
+define dso_local void @_ZN4node9inspector25PrintDebuggerReadyMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS0_12ServerSocketENS_15FunctionDeleterISB_XadL_ZNS0_21InspectorSocketServer17CloseServerSocketEPSB_EEEEESaISG_EERKS9_IS6_SaIS6_EEPKcbP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %server_sockets, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ids, ptr noundef %verb, i1 noundef zeroext %publish_uid_stderr, ptr noundef captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %url.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %url.i.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -445,7 +445,7 @@ _ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4node9inspector21InspectorSocketServer7SessionEi(ptr noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %session_id) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZN4node9inspector21InspectorSocketServer7SessionEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(148) %this, i32 noundef %session_id) local_unnamed_addr #4 align 2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -937,7 +937,7 @@ if.end29:                                         ; preds = %entry, %_ZNSt8_Rb_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node9inspector21InspectorSocketServer16HandleGetRequestEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %session_id, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %path) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node9inspector21InspectorSocketServer16HandleGetRequestEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(148) %this, i32 noundef %session_id, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %path) local_unnamed_addr #0 align 2 {
 entry:
   %header.i.i9 = alloca [132 x i8], align 16
   %strm.i = alloca %struct.z_stream_s, align 8
@@ -1121,7 +1121,7 @@ return:                                           ; preds = %if.else14, %if.end,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4node9inspector12_GLOBAL__N_116MatchPathSegmentEPKcS3_(ptr noundef readonly %path, ptr noundef readonly captures(none) %expected) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN4node9inspector12_GLOBAL__N_116MatchPathSegmentEPKcS3_(ptr noundef readonly captures(ret: address, provenance) %path, ptr noundef readonly captures(none) %expected) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %expected) #22
   %cmp11.not.i = icmp eq i64 %call, 0
@@ -2731,7 +2731,7 @@ if.end12:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector21InspectorSocketServer20TerminateConnectionsEv(ptr noundef nonnull readonly align 8 dereferenceable(148) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector21InspectorSocketServer20TerminateConnectionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(148) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -2920,7 +2920,7 @@ _ZNSt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteIS2_EED2Ev.e
 declare void @_ZN4node9inspector15InspectorSocket6AcceptEP11uv_stream_sSt10unique_ptrINS1_8DelegateESt14default_deleteIS5_EE(ptr sret(%"class.std::unique_ptr.33") align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector21InspectorSocketServer4SendEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %session_id, ptr noundef nonnull align 8 dereferenceable(32) %message) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector21InspectorSocketServer4SendEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(148) %this, i32 noundef %session_id, ptr noundef nonnull align 8 dereferenceable(32) %message) local_unnamed_addr #0 align 2 {
 entry:
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -3274,7 +3274,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hide
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %object) unnamed_addr #0 {
+define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %object) unnamed_addr #0 {
 entry:
   %json = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %json) #19

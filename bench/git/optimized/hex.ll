@@ -66,7 +66,7 @@ get_hash_hex_algop.exit:                          ; preds = %hex2chr.exit.i, %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @get_oid_hex_algop(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @get_oid_hex_algop(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !30
   %.not22.not.i = icmp eq i64 %5, 0
@@ -307,7 +307,7 @@ get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @parse_oid_hex_algop(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @parse_oid_hex_algop(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !30
   %.not22.not.i.i = icmp eq i64 %6, 0
@@ -575,7 +575,7 @@ parse_oid_hex_algop.exit:                         ; preds = %hex2chr.exit.i.i.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @hash_to_hex_algop_r(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @hash_to_hex_algop_r(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, @hash_algos
   br i1 %4, label %5, label %9
 
@@ -623,7 +623,7 @@ define dso_local noundef ptr @hash_to_hex_algop_r(ptr noundef returned writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @oid_to_hex_r(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @oid_to_hex_r(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 4, !tbaa !37
   %5 = sext i32 %4 to i64
@@ -675,7 +675,7 @@ hash_to_hex_algop_r.exit:                         ; preds = %.lr.ph.i, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @hash_to_hex_algop(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local nonnull ptr @hash_to_hex_algop(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr @hash_to_hex_algop.bufno, align 4, !tbaa !43
   %4 = add nuw nsw i32 %3, 1
   %5 = and i32 %4, 3

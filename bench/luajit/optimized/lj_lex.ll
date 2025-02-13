@@ -3868,7 +3868,7 @@ while.end:                                        ; preds = %lex_savenext.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lex_longstring(ptr noundef %ls, ptr noundef writeonly %tv, i32 noundef range(i32 0, -2147483648) %sep) unnamed_addr #0 {
+define internal fastcc void @lex_longstring(ptr noundef %ls, ptr noundef writeonly captures(address_is_null) %tv, i32 noundef range(i32 0, -2147483648) %sep) unnamed_addr #0 {
 entry:
   %sz.i101 = alloca i64, align 8
   %sz.i21.i = alloca i64, align 8

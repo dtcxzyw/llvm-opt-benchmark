@@ -489,7 +489,7 @@ entry:
 declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef ptr @vfio_get_cap(ptr noundef readonly %ptr, i32 noundef %cap_offset, i16 noundef zeroext %id) local_unnamed_addr #6 {
+define dso_local noundef ptr @vfio_get_cap(ptr noundef readonly captures(ret: address, provenance) %ptr, i32 noundef %cap_offset, i16 noundef zeroext %id) local_unnamed_addr #6 {
 entry:
   %cmp.not8 = icmp eq i32 %cap_offset, 0
   br i1 %cmp.not8, label %return, label %for.body
@@ -514,7 +514,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef ptr @vfio_get_region_info_cap(ptr noundef readonly %info, i16 noundef zeroext %id) local_unnamed_addr #6 {
+define dso_local noundef ptr @vfio_get_region_info_cap(ptr noundef readonly captures(ret: address, provenance) %info, i16 noundef zeroext %id) local_unnamed_addr #6 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %info, i64 4
   %0 = load i32, ptr %flags, align 4
@@ -548,7 +548,7 @@ return:                                           ; preds = %for.inc.i, %for.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef ptr @vfio_get_device_info_cap(ptr noundef readonly %info, i16 noundef zeroext %id) local_unnamed_addr #6 {
+define dso_local noundef ptr @vfio_get_device_info_cap(ptr noundef readonly captures(ret: address, provenance) %info, i16 noundef zeroext %id) local_unnamed_addr #6 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %info, i64 4
   %0 = load i32, ptr %flags, align 4

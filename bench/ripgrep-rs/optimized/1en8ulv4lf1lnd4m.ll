@@ -980,7 +980,7 @@ _ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit: ; preds 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define void @_ZN12grep_printer5color10ColorSpecs3new17he671acb7e0a3e7d2E(ptr noalias noundef writeonly sret({ { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } } }) align 1 captures(none) dereferenceable(60) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
+define void @_ZN12grep_printer5color10ColorSpecs3new17he671acb7e0a3e7d2E(ptr noalias noundef writeonly sret({ { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, { i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } } }) align 1 captures(none) dereferenceable(60) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds { i8, { i8, [4 x i8] } }, ptr %1, i64 %2
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -1433,24 +1433,24 @@ define void @_ZN12grep_printer5color10ColorSpecs18default_with_color17h739fddd73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs4path17h41159985bddbe17eE(ptr noalias noundef readonly returned align 1 dereferenceable(60) %0) unnamed_addr #5 {
+define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs4path17h41159985bddbe17eE(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(60) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs4line17h7b646b78e88590e2E(ptr noalias noundef readonly align 1 dereferenceable(60) %0) unnamed_addr #5 {
+define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs4line17h7b646b78e88590e2E(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable(60) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 15
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs6column17h4968efce8af23155E(ptr noalias noundef readonly align 1 dereferenceable(60) %0) unnamed_addr #5 {
+define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs6column17h4968efce8af23155E(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable(60) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 30
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs7matched17h23e57f61a32b24e1E(ptr noalias noundef readonly align 1 dereferenceable(60) %0) unnamed_addr #5 {
+define noundef nonnull align 1 dereferenceable(15) ptr @_ZN12grep_printer5color10ColorSpecs7matched17h23e57f61a32b24e1E(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable(60) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 45
   ret ptr %2
 }

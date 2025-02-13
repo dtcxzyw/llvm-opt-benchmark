@@ -128,7 +128,7 @@ define hidden noundef ptr @mbedtls_ecp_curve_info_from_tls_id(i16 noundef zeroex
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @mbedtls_ecp_curve_info_from_name(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden noundef ptr @mbedtls_ecp_curve_info_from_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

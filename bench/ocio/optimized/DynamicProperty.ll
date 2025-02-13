@@ -1938,14 +1938,14 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveELN9__gnu_cxx12_Lock
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef nonnull readnone align 8 dereferenceable(144) %this) unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(144) %this) unnamed_addr #10 align 2 {
 entry:
   %m_gradingRGBCurve = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %m_gradingRGBCurve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZThn16_NK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef readnone %this) unnamed_addr #10 align 2 {
+define hidden noundef nonnull ptr @_ZThn16_NK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8getValueEv(ptr noundef readnone captures(ret: address, provenance) %this) unnamed_addr #10 align 2 {
 entry:
   %m_gradingRGBCurve.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %m_gradingRGBCurve.i

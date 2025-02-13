@@ -196,7 +196,7 @@ define dso_local void @die_errno(ptr noundef %0, ...) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull returned writeonly %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull returned writeonly captures(ret: address, provenance) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #17
   %4 = tail call ptr @__errno_location() #21

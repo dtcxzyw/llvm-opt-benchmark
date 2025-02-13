@@ -134,7 +134,7 @@ opal_argv_count.exit:                             ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @opal_argv_count(ptr noundef readonly %0) local_unnamed_addr #1 {
+define i32 @opal_argv_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -340,7 +340,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @opal_argv_free(ptr noundef %0) local_unnamed_addr #0 {
+define void @opal_argv_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %.preheader
 
@@ -645,7 +645,7 @@ define noalias ptr @opal_argv_split_with_empty(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @opal_argv_join(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define noalias noundef ptr @opal_argv_join(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -723,7 +723,7 @@ define noalias noundef ptr @opal_argv_join(ptr noundef readonly %0, i32 noundef 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @opal_argv_join_range(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define noalias noundef ptr @opal_argv_join_range(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit.sink.split, label %6
 
@@ -828,7 +828,7 @@ opal_argv_count.exit:                             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @opal_argv_len(ptr noundef readonly %0) local_unnamed_addr #8 {
+define i64 @opal_argv_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -855,7 +855,7 @@ define i64 @opal_argv_len(ptr noundef readonly %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @opal_argv_copy(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @opal_argv_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %opal_argv_free.exit, label %3
 
@@ -933,7 +933,7 @@ opal_argv_free.exit:                              ; preds = %.preheader.i.i, %op
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @opal_argv_delete(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @opal_argv_delete(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %47, label %6
 
@@ -1048,7 +1048,7 @@ opal_argv_count.exit:                             ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @opal_argv_insert(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @opal_argv_insert(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -1232,7 +1232,7 @@ opal_argv_append.exit:                            ; preds = %.preheader.i.i, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @opal_argv_insert_element(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @opal_argv_insert_element(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %opal_argv_append.exit, label %5
 

@@ -1633,7 +1633,7 @@ Vec_PtrFree.exit:                                 ; preds = %3, %9
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @If_ObjPrint(ptr noundef readonly %0) local_unnamed_addr #5 {
+define void @If_ObjPrint(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 

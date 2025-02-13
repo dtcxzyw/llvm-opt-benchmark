@@ -282,7 +282,7 @@ _Z9save_freePKcS0_iPv.exit:                       ; preds = %11, %10, %17
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_Z9save_freePKcS0_iPv(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #10 {
+define void @_Z9save_freePKcS0_iPv(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #10 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 

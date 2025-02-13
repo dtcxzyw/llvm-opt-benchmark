@@ -1915,7 +1915,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16forcePrintFuncIREv() local_unname
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm17isPassInPrintListENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm17isPassInPrintListENS_9StringRefE(ptr readonly captures(address_is_null) %0, i64 %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca %"struct.std::hash", align 1
   %5 = alloca %"struct.std::equal_to", align 1
@@ -2169,7 +2169,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19isFilterPassesEmptyEv() local_unn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr readonly captures(address_is_null) %0, i64 %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca %"struct.std::hash", align 1
   %5 = alloca %"struct.std::equal_to", align 1

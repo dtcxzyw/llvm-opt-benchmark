@@ -514,7 +514,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z27connect_and_auto_disconnectRN4entt4sighIFvRiESaIvEEERKi(ptr noundef nonnull align 8 dereferenceable(24) %sigh, ptr nonnull readnone align 4 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z27connect_and_auto_disconnectRN4entt4sighIFvRiESaIvEEERKi(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %sigh, ptr nonnull readnone align 4 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %sigh, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !4, !noalias !8

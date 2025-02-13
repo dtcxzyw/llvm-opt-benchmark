@@ -419,7 +419,7 @@ define internal fastcc range(i32 0, 9) i32 @string_to_log_level(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ws_log_parse_args(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @ws_log_parse_args(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %.preheader269
 
@@ -1107,7 +1107,7 @@ ws_log_set_domain_filter.exit:                    ; preds = %ws_log_set_level_st
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_console_compat_option(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @parse_console_compat_option(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
@@ -1221,7 +1221,7 @@ ws_log_set_level.exit:                            ; preds = %.thread.thread, %.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @print_err(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #1 {
+define internal void @print_err(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #1 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
@@ -1523,7 +1523,7 @@ define void @ws_log_set_writer_with_data(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ws_log_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @ws_log_init(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 
@@ -1957,14 +1957,14 @@ free_log_filter.exit5:                            ; preds = %free_log_filter.exi
 declare ptr @g_getenv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @ws_log_init_with_writer(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @ws_log_init_with_writer(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   store ptr %1, ptr @registered_log_writer, align 8
   tail call void @ws_log_init(ptr noundef %0, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ws_log_init_with_writer_and_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @ws_log_init_with_writer_and_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
   store ptr %2, ptr @registered_log_writer_data, align 8
   store ptr %3, ptr @registered_log_writer_data_free, align 8
   store ptr %1, ptr @registered_log_writer, align 8
@@ -2528,7 +2528,7 @@ declare ptr @bytes_to_str_maxlen(ptr noundef, ptr noundef, i64 noundef, i64 noun
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @ws_log_file_writer(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8) local_unnamed_addr #7 {
+define void @ws_log_file_writer(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef readonly captures(none) %7, ptr noundef %8) local_unnamed_addr #7 {
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -2538,7 +2538,7 @@ define void @ws_log_file_writer(ptr noundef captures(none) %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @log_write_do_work(ptr noundef captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, ptr noundef readonly captures(none) %10, ptr noundef %11) unnamed_addr #7 {
+define internal fastcc void @log_write_do_work(ptr noundef captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, ptr noundef readonly captures(none) %10, ptr noundef %11) unnamed_addr #7 {
   %13 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 3, i64 1, ptr %0)
   %14 = load ptr, ptr @registered_progname, align 8
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.69, ptr noundef %14, i64 noundef %4) #20
@@ -2674,7 +2674,7 @@ ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #7 {
+define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #7 {
   %9 = icmp ult i32 %1, 4
   br i1 %9, label %10, label %console_file.exit
 

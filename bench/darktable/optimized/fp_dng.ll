@@ -1572,7 +1572,7 @@ define void @_ZN6LibRaw17convertFloatToIntEfff(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_ZN6LibRaw17is_floating_pointEv(ptr noundef nonnull readonly align 8 dereferenceable(767680) %0) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN6LibRaw17is_floating_pointEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(767680) %0) local_unnamed_addr #5 align 2 {
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 381536
   %3 = load i32, ptr %2, align 8, !tbaa !159

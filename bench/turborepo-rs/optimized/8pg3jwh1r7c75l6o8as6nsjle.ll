@@ -3294,7 +3294,7 @@ define noundef zeroext i1 @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen4grid(ptr noalias noundef readonly align 8 dereferenceable(344) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen4grid(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(344) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %3 = load i8, ptr %2, align 4, !alias.scope !637, !noundef !5
   %4 = and i8 %3, 8
@@ -3305,7 +3305,7 @@ define hidden noundef nonnull align 8 dereferenceable(136) ptr @_RNvMs0_NtCs8mTr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen8grid_mut.llvm.17685815667789704627(ptr noalias noundef readonly align 8 dereferenceable(344) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen8grid_mut.llvm.17685815667789704627(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(344) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %3 = load i8, ptr %2, align 4, !alias.scope !640, !noundef !5
   %4 = and i8 %3, 8

@@ -137,7 +137,7 @@ pmix_obj_run_destructors.exit6:                   ; preds = %.lr.ph.i3, %pmix_ob
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_create(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @prte_bp_graph_create(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %30, label %5
 
@@ -540,7 +540,7 @@ pmix_obj_run_destructors.exit104:                 ; preds = %.lr.ph.i101, %._cri
 declare i32 @pmix_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_clone(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @prte_bp_graph_clone(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %2, null
@@ -662,7 +662,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %22, %pmix_
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -1034,7 +1034,7 @@ define i32 @prte_bp_graph_order(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %8
 
@@ -1475,7 +1475,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %40, %34, %pmix_poin
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_solve_bipartite_assignment(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @prte_bp_graph_solve_bipartite_assignment(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = icmp eq ptr %2, null

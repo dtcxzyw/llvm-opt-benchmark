@@ -174,7 +174,7 @@ declare ptr @error_copy(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_file_get_error_obj_any(ptr noundef readonly %f1, ptr noundef readonly %f2, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qemu_file_get_error_obj_any(ptr noundef readonly captures(address_is_null) %f1, ptr noundef readonly captures(address_is_null) %f2, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %f1, null
   br i1 %tobool.not, label %if.end3, label %if.then

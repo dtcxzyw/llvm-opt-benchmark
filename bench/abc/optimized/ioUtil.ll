@@ -423,7 +423,7 @@ declare i32 @Abc_NtkIsAcyclicWithBoxes(ptr noundef) local_unnamed_addr #2
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @temporaryLtlStore(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @temporaryLtlStore(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 

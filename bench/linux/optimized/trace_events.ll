@@ -1544,7 +1544,7 @@ define dso_local void @event_file_put(ptr noundef %0) local_unnamed_addr #0 alig
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ftrace_set_clr_event(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ftrace_set_clr_event(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = icmp eq ptr %0, null
@@ -1620,7 +1620,7 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @trace_set_clr_event(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @trace_set_clr_event(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = load volatile ptr, ptr @ftrace_trace_arrays, align 8
   %5 = icmp eq ptr %4, @ftrace_trace_arrays
   br i1 %5, label %.thread, label %6
@@ -1655,7 +1655,7 @@ define dso_local i32 @trace_set_clr_event(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @trace_array_set_clr_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local i32 @trace_array_set_clr_event(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %9, label %6
 
@@ -2336,7 +2336,7 @@ define dso_local noundef range(i32 -16, 1) i32 @trace_remove_event_call(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @__find_event_file(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 align 16 {
+define dso_local ptr @__find_event_file(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -2405,7 +2405,7 @@ define dso_local ptr @__find_event_file(ptr noundef readonly %0, ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @find_event_file(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 align 16 {
+define dso_local ptr @find_event_file(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -2949,7 +2949,7 @@ create_event_toplevel_files.exit.thread:          ; preds = %2, %8, %.loopexit
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__trace_early_add_event_dirs(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__trace_early_add_event_dirs(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -3226,7 +3226,7 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
@@ -3345,7 +3345,7 @@ define internal fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef readonly %
 declare dso_local void @eventfs_remove_events_dir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @early_enable_events(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local void @early_enable_events(ptr noundef captures(address) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 section ".init.text" align 16 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #19

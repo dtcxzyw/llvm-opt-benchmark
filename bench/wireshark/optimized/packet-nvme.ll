@@ -3194,7 +3194,7 @@ nvme_publish_link.exit:                           ; preds = %4, %7, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvme_cmd_sgl(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_nvme_cmd_sgl(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %9 = alloca %struct.keyed_data_req, align 8
   %10 = add i32 %5, 24
@@ -7671,7 +7671,7 @@ dissect_nvme_get_logpage_err_inf_resp.exit:       ; preds = %.lr.ph.i191, %disse
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvmeof_fabric_cmd(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((122, 123), (160, 161)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_nvmeof_fabric_cmd(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef initializes((122, 123), (160, 161)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = add i32 %5, 4
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %9) #10
@@ -8290,7 +8290,7 @@ get_cqe_sc_string.exit:                           ; preds = %4, %30, %33, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvme_cmd(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((160, 161)) %4) local_unnamed_addr #0 {
+define hidden void @dissect_nvme_cmd(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef initializes((160, 161)) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8

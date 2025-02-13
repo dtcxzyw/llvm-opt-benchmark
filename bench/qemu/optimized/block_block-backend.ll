@@ -603,7 +603,7 @@ declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 declare void @bdrv_unref(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @blk_get_refcnt(ptr noundef readonly %blk) local_unnamed_addr #0 {
+define dso_local i32 @blk_get_refcnt(ptr noundef readonly captures(address_is_null) %blk) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else
@@ -789,7 +789,7 @@ if.end51:                                         ; preds = %if.then50, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_all_next(ptr noundef readonly %blk) local_unnamed_addr #0 {
+define dso_local ptr @blk_all_next(ptr noundef readonly captures(address_is_null) %blk) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else
@@ -877,7 +877,7 @@ while.end:                                        ; preds = %blk_all_next.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_get_aio_context(ptr noundef readonly %blk) local_unnamed_addr #0 {
+define dso_local ptr @blk_get_aio_context(ptr noundef readonly captures(address_is_null) %blk) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %blk, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -999,7 +999,7 @@ blk_update_root_state.exit:                       ; preds = %do.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_next(ptr noundef readonly %blk) local_unnamed_addr #0 {
+define dso_local ptr @blk_next(ptr noundef readonly captures(address_is_null) %blk) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else
@@ -1477,7 +1477,7 @@ declare zeroext i1 @id_wellformed(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_by_name(ptr noundef readonly %name) local_unnamed_addr #0 {
+define dso_local ptr @blk_by_name(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else
@@ -1664,7 +1664,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @blk_by_legacy_dinfo(ptr noundef readnone %dinfo) local_unnamed_addr #0 {
+define dso_local nonnull ptr @blk_by_legacy_dinfo(ptr noundef readnone captures(address) %dinfo) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %while.cond, label %if.else
@@ -1708,7 +1708,7 @@ while.end:                                        ; preds = %blk_next.exit
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @blk_get_public(ptr noundef readnone %blk) local_unnamed_addr #0 {
+define dso_local nonnull ptr @blk_get_public(ptr noundef readnone captures(ret: address, provenance) %blk) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else
@@ -1723,7 +1723,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @blk_by_public(ptr noundef readnone %public) local_unnamed_addr #0 {
+define dso_local noundef ptr @blk_by_public(ptr noundef readnone captures(ret: address, provenance) %public) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else
@@ -2040,7 +2040,7 @@ if.end3:                                          ; preds = %do.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @blk_detach_dev(ptr noundef %blk, ptr noundef readnone %dev) local_unnamed_addr #0 {
+define dso_local void @blk_detach_dev(ptr noundef %blk, ptr noundef readnone captures(address) %dev) local_unnamed_addr #0 {
 entry:
   %dev1 = getelementptr inbounds nuw i8, ptr %blk, i64 248
   %0 = load ptr, ptr %dev1, align 8
@@ -2114,7 +2114,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @object_get_canonical_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_by_dev(ptr noundef readnone %dev) local_unnamed_addr #0 {
+define dso_local ptr @blk_by_dev(ptr noundef readnone captures(address) %dev) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else
@@ -2985,7 +2985,7 @@ glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned captures(ret: address, provenance) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #18
   ret ptr %x
@@ -5552,7 +5552,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_try_blockalign(ptr noundef readonly %blk, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local ptr @blk_try_blockalign(ptr noundef readonly captures(address_is_null) %blk, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %blk, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -5576,7 +5576,7 @@ cond.end:                                         ; preds = %cond.true.i, %cond.
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @blk_blockalign(ptr noundef readonly %blk, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local ptr @blk_blockalign(ptr noundef readonly captures(address_is_null) %blk, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %blk, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -5972,7 +5972,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @blk_get_stats(ptr noundef readnone %blk) local_unnamed_addr #11 {
+define dso_local nonnull ptr @blk_get_stats(ptr noundef readnone captures(ret: address, provenance) %blk) local_unnamed_addr #11 {
 entry:
   %stats = getelementptr inbounds nuw i8, ptr %blk, i64 288
   ret ptr %stats
@@ -6284,7 +6284,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @blk_get_root_state(ptr noundef readnone %blk) local_unnamed_addr #0 {
+define dso_local nonnull ptr @blk_get_root_state(ptr noundef readnone captures(ret: address, provenance) %blk) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %do.end, label %if.else

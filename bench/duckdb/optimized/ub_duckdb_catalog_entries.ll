@@ -2905,7 +2905,7 @@ unreachable:                                      ; preds = %invoke.cont52
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb17TableCatalogEntry14GetConstraintsEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb17TableCatalogEntry14GetConstraintsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(248) %this) local_unnamed_addr #8 align 2 {
 entry:
   %constraints = getelementptr inbounds nuw i8, ptr %this, i64 224
   ret ptr %constraints
@@ -5296,7 +5296,7 @@ _ZN6duckdb10unique_ptrINS_13StandardEntryESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb15DuckSchemaEntry13GetCatalogSetENS_11CatalogTypeE(ptr noundef nonnull readnone align 8 dereferenceable(1040) %this, i8 noundef zeroext %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb15DuckSchemaEntry13GetCatalogSetENS_11CatalogTypeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1040) %this, i8 noundef zeroext %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1
@@ -29428,7 +29428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14DuckTableEntry19GetBoundConstraintsEv(ptr noundef nonnull readnone align 8 dereferenceable(512) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14DuckTableEntry19GetBoundConstraintsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(512) %this) unnamed_addr #8 align 2 {
 entry:
   %bound_constraints = getelementptr inbounds nuw i8, ptr %this, i64 264
   ret ptr %bound_constraints
@@ -35697,7 +35697,7 @@ _ZNSt10unique_ptrIN6duckdb10CreateInfoESt14default_deleteIS1_EED2Ev.exit10: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(105) ptr @_ZNK6duckdb17TableCatalogEntry10GetColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(105) ptr @_ZNK6duckdb17TableCatalogEntry10GetColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(248) %this) local_unnamed_addr #8 align 2 {
 entry:
   %columns = getelementptr inbounds nuw i8, ptr %this, i64 112
   ret ptr %columns
@@ -37488,7 +37488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb23ColumnDependencyManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb23ColumnDependencyManagerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(224) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %deleted_columns = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184

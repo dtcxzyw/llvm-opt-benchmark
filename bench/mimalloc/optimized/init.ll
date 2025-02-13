@@ -405,7 +405,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_thread_done(ptr noundef readonly %heap) local_unnamed_addr #1 {
+define hidden void @_mi_thread_done(ptr noundef readonly captures(address) %heap) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %heap, null
   br i1 %cmp, label %if.then, label %if.end3

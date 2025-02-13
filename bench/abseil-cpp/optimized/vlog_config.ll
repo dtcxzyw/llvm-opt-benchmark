@@ -450,7 +450,7 @@ lpad:                                             ; preds = %_ZN4absl13base_inte
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN4absl12log_internal12_GLOBAL__N_19VLogLevelESt17basic_string_viewIcSt11char_traitsIcEEPKSt6vectorINS1_11VModuleInfoESaIS7_EEi(i64 %file.coerce0, ptr %file.coerce1, ptr noundef readonly %infos, i32 noundef %current_global_v) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN4absl12log_internal12_GLOBAL__N_19VLogLevelESt17basic_string_viewIcSt11char_traitsIcEEPKSt6vectorINS1_11VModuleInfoESaIS7_EEi(i64 %file.coerce0, ptr %file.coerce1, ptr noundef readonly captures(address_is_null) %infos, i32 noundef %current_global_v) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %infos, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

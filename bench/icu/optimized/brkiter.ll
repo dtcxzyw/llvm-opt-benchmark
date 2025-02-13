@@ -950,7 +950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(479) ptr @_ZN6icu_7513BreakIteratoraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(479) %this, ptr noundef nonnull readonly align 8 dereferenceable(479) %other) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(479) ptr @_ZN6icu_7513BreakIteratoraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(479) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(479) %other) local_unnamed_addr #12 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end, label %if.then

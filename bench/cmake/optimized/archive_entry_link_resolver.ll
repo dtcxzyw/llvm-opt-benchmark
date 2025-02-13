@@ -89,7 +89,7 @@ define dso_local void @archive_entry_linkresolver_set_strategy(ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local void @archive_entry_linkresolver_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %54, label %.split5
 
@@ -767,7 +767,7 @@ grow_hash.exit:                                   ; preds = %._crit_edge41.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @archive_entry_partial_links(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @archive_entry_partial_links(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %.not = icmp eq ptr %4, null

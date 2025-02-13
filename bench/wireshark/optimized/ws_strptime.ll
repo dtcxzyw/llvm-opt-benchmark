@@ -80,7 +80,7 @@ define ptr @ws_strptime_p(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 declare ptr @strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -1746,7 +1746,7 @@ first_wday_of.exit587:                            ; preds = %695, %702, %703
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @find_string(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef range(i32 2, 13) %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @find_string(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address) %3, i32 noundef range(i32 2, 13) %4) unnamed_addr #0 {
   %.not21 = icmp eq ptr %2, null
   br i1 %.not21, label %.loopexit17, label %.preheader
 

@@ -973,7 +973,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_start_stop_callback(ptr noundef readonly %0) #1 {
+define internal void @_start_stop_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
   %2 = load i32, ptr %0, align 8, !tbaa !95
@@ -1013,7 +1013,7 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_exit_callback(ptr noundef readonly %0) #1 {
+define internal void @_exit_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
   %2 = load i32, ptr %0, align 8, !tbaa !95
@@ -1039,7 +1039,7 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_slow_down_callback(ptr noundef readonly %0) #1 {
+define internal void @_slow_down_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
   %2 = load i32, ptr %0, align 8, !tbaa !95
@@ -1076,7 +1076,7 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 declare void @dt_shortcut_register(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_speed_up_callback(ptr noundef readonly %0) #1 {
+define internal void @_speed_up_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
   %2 = load i32, ptr %0, align 8, !tbaa !95
@@ -1111,7 +1111,7 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_step_forward_callback(ptr noundef readonly %0) #1 {
+define internal void @_step_forward_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
   %2 = load i32, ptr %0, align 8, !tbaa !95
@@ -1147,7 +1147,7 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_step_back_callback(ptr noundef readonly %0) #1 {
+define internal void @_step_back_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
   %2 = load i32, ptr %0, align 8, !tbaa !95

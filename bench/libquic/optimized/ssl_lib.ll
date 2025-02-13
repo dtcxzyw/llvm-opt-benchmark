@@ -40,7 +40,7 @@ entry:
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @SSL_CTX_new(ptr noundef readonly %method) local_unnamed_addr #0 {
+define hidden noundef ptr @SSL_CTX_new(ptr noundef readonly captures(address_is_null) %method) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %method, null
   br i1 %cmp, label %if.then, label %if.end
@@ -415,7 +415,7 @@ declare void @lh_free(ptr noundef) local_unnamed_addr #1
 declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_cipher_preference_list_free(ptr noundef %cipher_list) local_unnamed_addr #0 {
+define hidden void @ssl_cipher_preference_list_free(ptr noundef captures(address_is_null) %cipher_list) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cipher_list, null
   br i1 %cmp, label %return, label %if.end
@@ -1685,7 +1685,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SSL_get_peer_certificate(ptr noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden ptr @SSL_get_peer_certificate(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1714,7 +1714,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @SSL_get_peer_cert_chain(ptr noundef readonly %ssl) local_unnamed_addr #9 {
+define hidden ptr @SSL_get_peer_cert_chain(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2764,7 +2764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @SSL_get_ciphers(ptr noundef readonly %ssl) local_unnamed_addr #9 {
+define hidden ptr @SSL_get_ciphers(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end
@@ -2819,7 +2819,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @ssl_get_ciphers_by_id(ptr noundef readonly %ssl) local_unnamed_addr #9 {
+define hidden ptr @ssl_get_ciphers_by_id(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end
@@ -2843,7 +2843,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SSL_get_cipher_list(ptr noundef readonly %ssl, i32 noundef %n) local_unnamed_addr #0 {
+define hidden ptr @SSL_get_cipher_list(ptr noundef readonly captures(address_is_null) %ssl, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end.i
@@ -4374,7 +4374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @SSL_get_shared_ciphers(ptr noundef readnone captures(none) %ssl, ptr noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #5 {
+define hidden noundef ptr @SSL_get_shared_ciphers(ptr noundef readnone captures(none) %ssl, ptr noundef writeonly captures(ret: address, provenance) %buf, i32 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i32 %len, 1
   br i1 %cmp, label %return, label %if.end
@@ -4557,7 +4557,7 @@ return:                                           ; preds = %if.then3, %if.end11
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SSL_use_psk_identity_hint(ptr noundef %ssl, ptr noundef %identity_hint) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_use_psk_identity_hint(ptr noundef captures(address_is_null) %ssl, ptr noundef %identity_hint) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end
@@ -4601,7 +4601,7 @@ return:                                           ; preds = %if.then7, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @SSL_get_psk_identity_hint(ptr noundef readonly %ssl) local_unnamed_addr #8 {
+define hidden ptr @SSL_get_psk_identity_hint(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end
@@ -4617,7 +4617,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @SSL_get_psk_identity(ptr noundef readonly %ssl) local_unnamed_addr #9 {
+define hidden ptr @SSL_get_psk_identity(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false

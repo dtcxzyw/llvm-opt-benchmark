@@ -2553,7 +2553,7 @@ _ZN3irr3gui15CGUIEnvironment18clearDeletionQueueEv.exit: ; preds = %_ZN3irr4core
 declare noundef i32 @_ZN3irr2os5Timer7getTimeEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr3gui15CGUIEnvironment8setFocusEPNS0_11IGUIElementE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %element) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr3gui15CGUIEnvironment8setFocusEPNS0_11IGUIElementE(ptr noundef nonnull align 8 captures(address) dereferenceable(520) %this, ptr noundef %element) unnamed_addr #0 align 2 {
 entry:
   %e = alloca %"struct.irr::SEvent", align 8
   %e51 = alloca %"struct.irr::SEvent", align 8
@@ -2890,7 +2890,7 @@ return:                                           ; preds = %_ZNK3irr17IReferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr3gui15CGUIEnvironment8hasFocusEPKNS0_11IGUIElementEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this, ptr noundef readnone %element, i1 noundef zeroext %checkSubElements) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui15CGUIEnvironment8hasFocusEPKNS0_11IGUIElementEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this, ptr noundef readnone captures(address) %element, i1 noundef zeroext %checkSubElements) unnamed_addr #0 align 2 {
 entry:
   %Focus = getelementptr inbounds nuw i8, ptr %this, i64 432
   %0 = load ptr, ptr %Focus, align 8, !tbaa !95
@@ -3056,7 +3056,7 @@ if.end29:                                         ; preds = %_ZNK3irr17IReferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr3gui15CGUIEnvironment7OnEventERKNS_6SEventE(ptr noundef nonnull readonly align 8 dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(56) %event) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr3gui15CGUIEnvironment7OnEventERKNS_6SEventE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(56) %event) unnamed_addr #0 align 2 {
 entry:
   %UserReceiver = getelementptr inbounds nuw i8, ptr %this, i64 464
   %0 = load ptr, ptr %UserReceiver, align 8, !tbaa !74
@@ -3091,7 +3091,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_ZThn8_N3irr3gui15CGUIEnvironment7OnEventERKNS_6SEventE(ptr noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(56) %event) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn8_N3irr3gui15CGUIEnvironment7OnEventERKNS_6SEventE(ptr noundef readonly captures(address) %this, ptr noundef nonnull align 8 dereferenceable(56) %event) unnamed_addr #3 align 2 {
 entry:
   %UserReceiver.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   %0 = load ptr, ptr %UserReceiver.i, align 8, !tbaa !74
@@ -5677,7 +5677,7 @@ declare void @_ZN3irr3gui13CGUIImageListC1EPNS_5video12IVideoDriverE(ptr noundef
 declare noundef zeroext i1 @_ZN3irr3gui13CGUIImageList15createImageListEPNS_5video8ITextureENS_4core11dimension2dIiEEb(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef, i64, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN3irr3gui15CGUIEnvironment17getRootGUIElementEv(ptr noundef nonnull readnone align 8 dereferenceable(520) %this) unnamed_addr #11 align 2 {
+define noundef nonnull ptr @_ZN3irr3gui15CGUIEnvironment17getRootGUIElementEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(520) %this) unnamed_addr #11 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr

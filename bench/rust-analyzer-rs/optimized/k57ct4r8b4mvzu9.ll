@@ -20461,7 +20461,7 @@ define void @"_ZN6syntax3ast9generated86_$LT$impl$u20$syntax..ast..AstNode$u20$f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6syntax3ast9generated86_$LT$impl$u20$syntax..ast..AstNode$u20$for$u20$syntax..ast..generated..nodes..Stmt$GT$6syntax17hd05e3acec54ea4c0E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6syntax3ast9generated86_$LT$impl$u20$syntax..ast..AstNode$u20$for$u20$syntax..ast..generated..nodes..Stmt$GT$6syntax17hd05e3acec54ea4c0E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -38559,7 +38559,7 @@ define noundef ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Abi$u20$as$u20$syn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Abi$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hb24d04362fe50a0aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Abi$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hb24d04362fe50a0aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -38633,7 +38633,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ArgList$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ArgList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h596c65d9dbdbe6a1E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ArgList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h596c65d9dbdbe6a1E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -38707,7 +38707,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ArrayExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ArrayExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf916264d34e382daE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ArrayExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf916264d34e382daE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -38781,7 +38781,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ArrayType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ArrayType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01809c07716c9cd6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ArrayType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01809c07716c9cd6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -38855,7 +38855,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..AsmExpr$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..AsmExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha0274a25036139bfE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..AsmExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha0274a25036139bfE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -38929,7 +38929,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..nodes..AssocItemList$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..AssocItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7c944c432f15e07cE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..AssocItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7c944c432f15e07cE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39003,7 +39003,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..nodes..AssocTypeArg$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..AssocTypeArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h46953f80c5752a22E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..AssocTypeArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h46953f80c5752a22E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39077,7 +39077,7 @@ define noundef ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Attr$u20$as$u20$sy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Attr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h62130ed8911d7f58E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Attr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h62130ed8911d7f58E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39151,7 +39151,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..AwaitExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..AwaitExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf0b6f137b199b6b2E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..AwaitExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf0b6f137b199b6b2E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39225,7 +39225,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..BecomeExpr$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..BecomeExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1ff4297e19ad8d32E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..BecomeExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1ff4297e19ad8d32E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39299,7 +39299,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..BinExpr$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..BinExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha52492bd4546f84fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..BinExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha52492bd4546f84fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39373,7 +39373,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..BlockExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..BlockExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hecb50b6569a77701E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..BlockExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hecb50b6569a77701E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39447,7 +39447,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..nodes..BoxPat$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..BoxPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6dd598d05e2e1abaE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..BoxPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6dd598d05e2e1abaE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39521,7 +39521,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..BreakExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..BreakExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1629123c5b88d7f4E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..BreakExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1629123c5b88d7f4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39595,7 +39595,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..CallExpr$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..CallExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha703e4ef49af7568E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..CallExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha703e4ef49af7568E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39669,7 +39669,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..CastExpr$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..CastExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h87346f32afd0eb59E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..CastExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h87346f32afd0eb59E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39743,7 +39743,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ClosureExpr$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ClosureExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17had5b07d9ffd9908aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ClosureExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17had5b07d9ffd9908aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39817,7 +39817,7 @@ define noundef ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h96fbc1cbf78bde4dE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h96fbc1cbf78bde4dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39891,7 +39891,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ConstArg$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ConstArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf254b7efe3eaec0eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ConstArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf254b7efe3eaec0eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -39965,7 +39965,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..nodes..ConstBlockPat$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..ConstBlockPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he54eb5cbb2c4c26aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..ConstBlockPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he54eb5cbb2c4c26aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40039,7 +40039,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ConstParam$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h58f3a4cd75b3ba34E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h58f3a4cd75b3ba34E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40113,7 +40113,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..nodes..ContinueExpr$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..ContinueExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h999b373dca952ad8E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..ContinueExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h999b373dca952ad8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40187,7 +40187,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..nodes..DynTraitType$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..DynTraitType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hcae3011a50b2c2ecE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..DynTraitType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hcae3011a50b2c2ecE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40261,7 +40261,7 @@ define noundef ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$sy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hbba625dc14c0bba9E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hbba625dc14c0bba9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40335,7 +40335,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ExprStmt$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ExprStmt$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h912d8d3c1d8cdf6fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ExprStmt$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h912d8d3c1d8cdf6fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40409,7 +40409,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ExternBlock$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ExternBlock$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h0530f11a7956cf6dE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ExternBlock$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h0530f11a7956cf6dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40483,7 +40483,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ExternCrate$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hd049dbbbb6f559b9E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..ExternCrate$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hd049dbbbb6f559b9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40557,7 +40557,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..ExternItemList$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..ExternItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hca2362278e57b617E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..ExternItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hca2362278e57b617E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40631,7 +40631,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FieldExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FieldExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha539bb60a2520d49E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FieldExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha539bb60a2520d49E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40705,7 +40705,7 @@ define noundef ptr @"_ZN74_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$synt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN74_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hba07a88052ab120cE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN74_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hba07a88052ab120cE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40779,7 +40779,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FnPtrType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FnPtrType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1ba2d6280e91ef1bE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FnPtrType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1ba2d6280e91ef1bE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40853,7 +40853,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ForExpr$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ForExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h909506a3c4f4c706E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ForExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h909506a3c4f4c706E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -40927,7 +40927,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ForType$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ForType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h0405a371632b8c0bE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..ForType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h0405a371632b8c0bE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41001,7 +41001,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..nodes..FormatArgsArg$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..FormatArgsArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h77e14283d79dec12E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..FormatArgsArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h77e14283d79dec12E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41075,7 +41075,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..FormatArgsExpr$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..FormatArgsExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17haaf08c49a2a9c219E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..FormatArgsExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17haaf08c49a2a9c219E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41149,7 +41149,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..GenericArgList$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..GenericArgList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h108a84eeee53d5afE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..GenericArgList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h108a84eeee53d5afE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41223,7 +41223,7 @@ define noundef ptr @"_ZN88_$LT$syntax..ast..generated..nodes..GenericParamList$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..GenericParamList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdf486074eb31dad7E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..GenericParamList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdf486074eb31dad7E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41297,7 +41297,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h3852b3b9380bf1e2E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h3852b3b9380bf1e2E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41371,7 +41371,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..nodes..IfExpr$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..IfExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h4520b01fca91bdf6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..IfExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h4520b01fca91bdf6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41445,7 +41445,7 @@ define noundef ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$sy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2d672bcd69d8fa08E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2d672bcd69d8fa08E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41519,7 +41519,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..nodes..ImplTraitType$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..ImplTraitType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hd7a529ff0344f490E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..ImplTraitType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hd7a529ff0344f490E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41593,7 +41593,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..IndexExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..IndexExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h22a117ce41b3cff9E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..IndexExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h22a117ce41b3cff9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41667,7 +41667,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..InferType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..InferType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9b7a2676bf9b22adE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..InferType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9b7a2676bf9b22adE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41741,7 +41741,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ItemList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h27ae190c5696dcfaE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41815,7 +41815,7 @@ define noundef ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Label$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Label$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h08105c2e23c02a1eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Label$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h08105c2e23c02a1eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41889,7 +41889,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetElse$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetElse$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h12b282064530984aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetElse$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h12b282064530984aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -41963,7 +41963,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetExpr$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hff79d2ee9f539f02E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hff79d2ee9f539f02E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42037,7 +42037,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetStmt$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetStmt$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5ba9172be72c7523E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..LetStmt$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5ba9172be72c7523E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42111,7 +42111,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..Lifetime$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..Lifetime$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he03632f90d36e8c6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..Lifetime$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he03632f90d36e8c6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42185,7 +42185,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..LifetimeArg$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..LifetimeArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h115c18241e7a8f79E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..LifetimeArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h115c18241e7a8f79E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42259,7 +42259,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..nodes..LifetimeParam$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha963ba87be11d04aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha963ba87be11d04aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42333,7 +42333,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..Literal$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..Literal$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hebdc17687ae77beaE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..Literal$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hebdc17687ae77beaE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42407,7 +42407,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..LiteralPat$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..LiteralPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h4844cfbe490c03e7E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..LiteralPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h4844cfbe490c03e7E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42481,7 +42481,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..LoopExpr$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..LoopExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9d9365f62a0e61cfE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..LoopExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9d9365f62a0e61cfE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42555,7 +42555,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroCall$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroCall$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hbe0b2ee35ca3174fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroCall$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hbe0b2ee35ca3174fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42629,7 +42629,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MacroDef$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MacroDef$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdc33cc2b0a9e583eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MacroDef$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdc33cc2b0a9e583eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42703,7 +42703,7 @@ define noundef ptr @"_ZN87_$LT$syntax..ast..generated..nodes..MacroEagerInput$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN87_$LT$syntax..ast..generated..nodes..MacroEagerInput$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdde6a4fbba727f80E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN87_$LT$syntax..ast..generated..nodes..MacroEagerInput$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdde6a4fbba727f80E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42777,7 +42777,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1da6717b315109ddE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1da6717b315109ddE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42851,7 +42851,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroItems$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroItems$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1583f13fe14acbe9E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroItems$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1583f13fe14acbe9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42925,7 +42925,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MacroPat$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MacroPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2f5ac4d01ca4ad7fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MacroPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2f5ac4d01ca4ad7fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -42999,7 +42999,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroRules$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroRules$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h3ffcb3efed2ce43aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroRules$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h3ffcb3efed2ce43aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43073,7 +43073,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroStmts$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroStmts$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha2ef24d30ecf6099E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MacroStmts$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha2ef24d30ecf6099E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43147,7 +43147,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2f1ea47d2e7a65f4E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MacroType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2f1ea47d2e7a65f4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43221,7 +43221,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MatchArm$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MatchArm$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6771c8f3d7a64f63E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..MatchArm$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6771c8f3d7a64f63E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43295,7 +43295,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..nodes..MatchArmList$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..MatchArmList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6c34a72c935e0679E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..MatchArmList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6c34a72c935e0679E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43369,7 +43369,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MatchExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MatchExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h951c10332d0dc640E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..MatchExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h951c10332d0dc640E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43443,7 +43443,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MatchGuard$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MatchGuard$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8f739af93b6b0bfcE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..MatchGuard$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8f739af93b6b0bfcE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43517,7 +43517,7 @@ define noundef ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Meta$u20$as$u20$sy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Meta$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hfdd2d024392d230eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Meta$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hfdd2d024392d230eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43591,7 +43591,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..MethodCallExpr$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..MethodCallExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h0bc69fff331b2d50E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..MethodCallExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h0bc69fff331b2d50E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43665,7 +43665,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Module$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Module$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h081d92b2323c1f2dE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Module$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h081d92b2323c1f2dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43739,7 +43739,7 @@ define noundef ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Name$u20$as$u20$sy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Name$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf2942837daa2ca88E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Name$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf2942837daa2ca88E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43813,7 +43813,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..NameRef$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..NameRef$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7b4d4b9572b9b747E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..NameRef$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7b4d4b9572b9b747E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43887,7 +43887,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..NeverType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..NeverType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha622e4349102bb61E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..NeverType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha622e4349102bb61E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -43961,7 +43961,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..nodes..OffsetOfExpr$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..OffsetOfExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2d516a1fa3c45bf4E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..OffsetOfExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2d516a1fa3c45bf4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44035,7 +44035,7 @@ define noundef ptr @"_ZN77_$LT$syntax..ast..generated..nodes..OrPat$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..OrPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h58f6c524b8c5fe4fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..OrPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h58f6c524b8c5fe4fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44109,7 +44109,7 @@ define noundef ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Param$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Param$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9151860080d6313eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Param$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9151860080d6313eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44183,7 +44183,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParamList$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParamList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h02a91dfe1dcab358E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParamList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h02a91dfe1dcab358E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44257,7 +44257,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParenExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParenExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5fd5b2314789793fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParenExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5fd5b2314789793fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44331,7 +44331,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ParenPat$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ParenPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hd48e602064c7df68E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..ParenPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hd48e602064c7df68E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44405,7 +44405,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParenType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParenType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2224bd7368f8be85E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..ParenType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2224bd7368f8be85E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44479,7 +44479,7 @@ define noundef ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Path$u20$as$u20$sy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Path$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h885cc27dbc08ca8fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Path$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h885cc27dbc08ca8fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44553,7 +44553,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..PathExpr$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..PathExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h648d2388acb2c303E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..PathExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h648d2388acb2c303E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44627,7 +44627,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..PathPat$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..PathPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha3a4aa809c28ce7fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..PathPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha3a4aa809c28ce7fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44701,7 +44701,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..PathSegment$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..PathSegment$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hffed3f53f3c28f55E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..PathSegment$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hffed3f53f3c28f55E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44775,7 +44775,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..PathType$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..PathType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8b6d8481a845a235E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..PathType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8b6d8481a845a235E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44849,7 +44849,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..PrefixExpr$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..PrefixExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf9b997923e3c3f91E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..PrefixExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf9b997923e3c3f91E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44923,7 +44923,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..PtrType$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..PtrType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1692d504d96d0966E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..PtrType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1692d504d96d0966E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -44997,7 +44997,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..RangeExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..RangeExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h58b06bc7354d8f67E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..RangeExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h58b06bc7354d8f67E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45071,7 +45071,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..RangePat$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..RangePat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17heda9d7a7b8249079E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..RangePat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17heda9d7a7b8249079E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45145,7 +45145,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..RecordExpr$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..RecordExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he517abcf3d0ea420E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..RecordExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he517abcf3d0ea420E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45219,7 +45219,7 @@ define noundef ptr @"_ZN87_$LT$syntax..ast..generated..nodes..RecordExprField$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN87_$LT$syntax..ast..generated..nodes..RecordExprField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1a247734ea666096E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN87_$LT$syntax..ast..generated..nodes..RecordExprField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1a247734ea666096E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45293,7 +45293,7 @@ define noundef ptr @"_ZN91_$LT$syntax..ast..generated..nodes..RecordExprFieldLis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$syntax..ast..generated..nodes..RecordExprFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2eea0b1c319d8e28E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$syntax..ast..generated..nodes..RecordExprFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2eea0b1c319d8e28E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45367,7 +45367,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..RecordField$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hbc4e42370421ad8dE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hbc4e42370421ad8dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45441,7 +45441,7 @@ define noundef ptr @"_ZN87_$LT$syntax..ast..generated..nodes..RecordFieldList$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN87_$LT$syntax..ast..generated..nodes..RecordFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h055f293b5ece9eb6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN87_$LT$syntax..ast..generated..nodes..RecordFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h055f293b5ece9eb6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45515,7 +45515,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..RecordPat$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..RecordPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h31a6e68be6ea23a5E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..RecordPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h31a6e68be6ea23a5E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45589,7 +45589,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..RecordPatField$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..RecordPatField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hee5a8f6388ff9ea8E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..RecordPatField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hee5a8f6388ff9ea8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45663,7 +45663,7 @@ define noundef ptr @"_ZN90_$LT$syntax..ast..generated..nodes..RecordPatFieldList
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN90_$LT$syntax..ast..generated..nodes..RecordPatFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h3546e6c0c37c91dbE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN90_$LT$syntax..ast..generated..nodes..RecordPatFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h3546e6c0c37c91dbE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45737,7 +45737,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RefExpr$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RefExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h4f35a6ec6e4dc4e6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RefExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h4f35a6ec6e4dc4e6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45811,7 +45811,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..nodes..RefPat$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..RefPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha357e71c50ae0635E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..RefPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha357e71c50ae0635E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45885,7 +45885,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RefType$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RefType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he68c02d5e60bc0bdE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RefType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he68c02d5e60bc0bdE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -45959,7 +45959,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Rename$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Rename$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hde9c3675a7a26f47E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Rename$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hde9c3675a7a26f47E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46033,7 +46033,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RestPat$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RestPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9435ddde28fb055cE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RestPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9435ddde28fb055cE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46107,7 +46107,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RetType$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RetType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5b58f95368e74f75E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RetType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5b58f95368e74f75E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46181,7 +46181,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ReturnExpr$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ReturnExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h66063113ed0b5046E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ReturnExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h66063113ed0b5046E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46255,7 +46255,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h355df94793869c77E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h355df94793869c77E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46329,7 +46329,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..SlicePat$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..SlicePat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h45281f0d565c57c0E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..SlicePat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h45281f0d565c57c0E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46403,7 +46403,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..SliceType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..SliceType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2708a9967aac2345E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..SliceType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2708a9967aac2345E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46477,7 +46477,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46551,7 +46551,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Static$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Static$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5c564c31554ca82eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Static$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5c564c31554ca82eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46625,7 +46625,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..StmtList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h01e502b17e559ba1E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46699,7 +46699,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1dd1b2c0e0352c4fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h1dd1b2c0e0352c4fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46773,7 +46773,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TokenTree$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TokenTree$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hcf23e4a58abd3854E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TokenTree$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hcf23e4a58abd3854E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46847,7 +46847,7 @@ define noundef ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h964ae91177d80e95E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h964ae91177d80e95E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46921,7 +46921,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5f50e462cb541411E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..TraitAlias$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5f50e462cb541411E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -46995,7 +46995,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..TryExpr$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..TryExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he52aab209a9ed25eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..TryExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he52aab209a9ed25eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47069,7 +47069,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TupleExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TupleExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hcf049b32244331f6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TupleExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hcf049b32244331f6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47143,7 +47143,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..TupleField$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7f10dcd75241e34cE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7f10dcd75241e34cE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47217,7 +47217,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..TupleFieldList$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..TupleFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h613cbcf1bfe48226E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..TupleFieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h613cbcf1bfe48226E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47291,7 +47291,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..TuplePat$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..TuplePat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h79415677c6b76943E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..TuplePat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h79415677c6b76943E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47365,7 +47365,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..TupleStructPat$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..TupleStructPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8468f9d84d001525E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..TupleStructPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8468f9d84d001525E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47439,7 +47439,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TupleType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TupleType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6100633603fca7e4E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TupleType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h6100633603fca7e4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47513,7 +47513,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h90829669aa748d71E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h90829669aa748d71E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47587,7 +47587,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..TypeArg$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..TypeArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h97a6371d747421a8E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..TypeArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h97a6371d747421a8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47661,7 +47661,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeBound$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeBound$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9a0cea5f0f04a0c4E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeBound$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9a0cea5f0f04a0c4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47735,7 +47735,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..nodes..TypeBoundList$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..TypeBoundList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h66e78c445fc545f6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..TypeBoundList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h66e78c445fc545f6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47809,7 +47809,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h48fbd7397af81fe1E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h48fbd7397af81fe1E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47883,7 +47883,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..UnderscoreExpr$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..UnderscoreExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he53103c1c8ed0dfeE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..UnderscoreExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he53103c1c8ed0dfeE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -47957,7 +47957,7 @@ define noundef ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Union$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Union$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hc1f54823566ef21dE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Union$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hc1f54823566ef21dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48031,7 +48031,7 @@ define noundef ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he91322e97c712b8aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he91322e97c712b8aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48105,7 +48105,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..UseTree$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..UseTree$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h541e6f34eca7b3cbE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..UseTree$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h541e6f34eca7b3cbE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48179,7 +48179,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..UseTreeList$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..UseTreeList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hde4aa966173572acE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..UseTreeList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hde4aa966173572acE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48253,7 +48253,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..nodes..Variant$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hde58a2e94fa7d552E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hde58a2e94fa7d552E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48327,7 +48327,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..VariantList$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..VariantList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf88fdf98c42ab365E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..VariantList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hf88fdf98c42ab365E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48401,7 +48401,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..Visibility$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..Visibility$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha7aaf137a6390b96E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..Visibility$u20$as$u20$syntax..ast..AstNode$GT$6syntax17ha7aaf137a6390b96E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48475,7 +48475,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..WhereClause$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..WhereClause$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8f538e21b80422b6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..WhereClause$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8f538e21b80422b6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48549,7 +48549,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..WherePred$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..WherePred$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h09c9df331ca58350E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..WherePred$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h09c9df331ca58350E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48623,7 +48623,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..WhileExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..WhileExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9574b1943707e6c2E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..WhileExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9574b1943707e6c2E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48697,7 +48697,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..WildcardPat$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..WildcardPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8e6f4c91c20e6278E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..WildcardPat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h8e6f4c91c20e6278E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48771,7 +48771,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..nodes..YeetExpr$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..YeetExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h14ce3bdc309bfe4aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$syntax..ast..generated..nodes..YeetExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h14ce3bdc309bfe4aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48845,7 +48845,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..YieldExpr$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..YieldExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h90eb1bd550b0f1a9E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..YieldExpr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h90eb1bd550b0f1a9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -48947,7 +48947,7 @@ switch.lookup:                                    ; preds = %"_ZN74_$LT$syntax..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Adt$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h57fcc07f9268c24dE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Adt$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h57fcc07f9268c24dE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -49066,7 +49066,7 @@ define { i64, ptr } @"_ZN81_$LT$syntax..ast..generated..nodes..AssocItem$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..AssocItem$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9067ac9409f49493E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..AssocItem$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9067ac9409f49493E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -49377,7 +49377,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17haf9d959d2f611838E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17haf9d959d2f611838E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -49496,7 +49496,7 @@ define { i64, ptr } @"_ZN82_$LT$syntax..ast..generated..nodes..ExternItem$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ExternItem$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9358009ab2b1365dE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..ExternItem$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h9358009ab2b1365dE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -49592,7 +49592,7 @@ define { i64, ptr } @"_ZN81_$LT$syntax..ast..generated..nodes..FieldList$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hb2eb3370f8a9912fE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..FieldList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hb2eb3370f8a9912fE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -49701,7 +49701,7 @@ switch.lookup:                                    ; preds = %"_ZN74_$LT$syntax..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hc754f13510a79be1E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hc754f13510a79be1E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -49810,7 +49810,7 @@ define { i64, ptr } @"_ZN84_$LT$syntax..ast..generated..nodes..GenericParam$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h91bcb0b23340d6b7E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h91bcb0b23340d6b7E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -50078,7 +50078,7 @@ define { i64, ptr } @"_ZN76_$LT$syntax..ast..generated..nodes..Item$u20$as$u20$s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Item$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2cb7ab9d0e5b4e37E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Item$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2cb7ab9d0e5b4e37E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -50269,7 +50269,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Pat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h81d0698c5557213eE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..generated..nodes..Pat$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h81d0698c5557213eE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -50462,7 +50462,7 @@ switch.lookup:                                    ; preds = %"_ZN74_$LT$syntax..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Type$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h12565a404b5615d5E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Type$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h12565a404b5615d5E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #5 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }
@@ -50541,7 +50541,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..nodes..AnyHasArgList$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..AnyHasArgList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h10dfcf7c23f76c8aE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN85_$LT$syntax..ast..generated..nodes..AnyHasArgList$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h10dfcf7c23f76c8aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -50694,7 +50694,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..nodes..AnyHasAttrs$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..AnyHasAttrs$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdc713ae9cf695a82E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$syntax..ast..generated..nodes..AnyHasAttrs$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hdc713ae9cf695a82E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -50796,7 +50796,7 @@ define noundef ptr @"_ZN89_$LT$syntax..ast..generated..nodes..AnyHasDocComments$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$syntax..ast..generated..nodes..AnyHasDocComments$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h00a8d357bdaaebb4E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$syntax..ast..generated..nodes..AnyHasDocComments$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h00a8d357bdaaebb4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -50883,7 +50883,7 @@ define noundef ptr @"_ZN91_$LT$syntax..ast..generated..nodes..AnyHasGenericParam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$syntax..ast..generated..nodes..AnyHasGenericParams$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he0ff9f234abd97c0E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$syntax..ast..generated..nodes..AnyHasGenericParams$u20$as$u20$syntax..ast..AstNode$GT$6syntax17he0ff9f234abd97c0E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -50959,7 +50959,7 @@ define noundef ptr @"_ZN86_$LT$syntax..ast..generated..nodes..AnyHasLoopBody$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..AnyHasLoopBody$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7fd1855a977328fdE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$syntax..ast..generated..nodes..AnyHasLoopBody$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h7fd1855a977328fdE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -51046,7 +51046,7 @@ define noundef ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasModuleItem$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasModuleItem$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h174eb94b83a17565E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasModuleItem$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h174eb94b83a17565E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -51147,7 +51147,7 @@ define noundef ptr @"_ZN82_$LT$syntax..ast..generated..nodes..AnyHasName$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..AnyHasName$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h84e38d379b2f01baE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..AnyHasName$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h84e38d379b2f01baE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -51240,7 +51240,7 @@ define noundef ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasTypeBounds$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasTypeBounds$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h73a9c8a35d63f4cbE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasTypeBounds$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h73a9c8a35d63f4cbE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -51339,7 +51339,7 @@ define noundef ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasVisibility$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasVisibility$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h673ac0772eb1bfecE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$syntax..ast..generated..nodes..AnyHasVisibility$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h673ac0772eb1bfecE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

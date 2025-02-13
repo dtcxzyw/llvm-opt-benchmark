@@ -812,7 +812,7 @@ define hidden noundef ptr @Curl_cwriter_get_by_name(ptr noundef readonly capture
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @Curl_cwriter_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
+define hidden noundef ptr @Curl_cwriter_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.08 = load ptr, ptr %3, align 8, !tbaa !85
   %.not9 = icmp eq ptr %.08, null
@@ -1838,7 +1838,7 @@ define hidden void @Curl_creader_done(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @Curl_creader_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
+define hidden noundef ptr @Curl_creader_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %.08 = load ptr, ptr %3, align 8, !tbaa !117
   %.not9 = icmp eq ptr %.08, null

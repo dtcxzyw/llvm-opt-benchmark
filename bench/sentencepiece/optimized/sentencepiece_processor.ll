@@ -1027,7 +1027,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceText21ConvertToUnicodeSpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN13sentencepiece12_GLOBAL__N_129ConvertToUnicodeSpansInternalEPNS_17SentencePieceTextE(ptr noundef readonly %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN13sentencepiece12_GLOBAL__N_129ConvertToUnicodeSpansInternalEPNS_17SentencePieceTextE(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %76, label %3
 
@@ -5342,7 +5342,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 declare void @_ZN13sentencepiece17SentencePieceTextD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor6EncodeESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor6EncodeESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef captures(address_is_null) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %8 = alloca %"class.sentencepiece::SentencePieceText", align 8
@@ -6871,7 +6871,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEifPSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, i32 noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEifPSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, i32 noundef %4, float noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %10 = alloca %"class.sentencepiece::SentencePieceText", align 8
@@ -11229,7 +11229,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt6vectorIS2_ISt17basic_string_viewIcSt11char_traitsIcEEiESaIS8_EEfES3_ISB_SaISB_EEEESt20back_insert_iteratorIS3_IdSaIdEEEZNK13sentencepiece22SentencePieceProcessor12SampleEncodeES7_ifPNSL_17SentencePieceTextEE3$_0ET0_T_SR_SQ_T1_"(ptr readonly %0, ptr readnone %1, ptr returned %2, float %3) unnamed_addr #3 {
+define internal fastcc ptr @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt6vectorIS2_ISt17basic_string_viewIcSt11char_traitsIcEEiESaIS8_EEfES3_ISB_SaISB_EEEESt20back_insert_iteratorIS3_IdSaIdEEEZNK13sentencepiece22SentencePieceProcessor12SampleEncodeES7_ifPNSL_17SentencePieceTextEE3$_0ET0_T_SR_SQ_T1_"(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr returned captures(ret: address, provenance) %2, float %3) unnamed_addr #3 {
   %.not8 = icmp eq ptr %0, %1
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -11318,7 +11318,7 @@ _ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSEOd.exit: ; preds = %13, %_ZNSt6
 declare noundef double @_ZN13sentencepiece10log_domain6LogSumERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESt20back_insert_iteratorIS5_EZNK13sentencepiece22SentencePieceProcessor12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEifPNS9_17SentencePieceTextEE3$_1ET0_T_SJ_SI_T1_"(ptr readonly %0, ptr readnone %1, ptr returned %2, double %3) unnamed_addr #3 {
+define internal fastcc ptr @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESt20back_insert_iteratorIS5_EZNK13sentencepiece22SentencePieceProcessor12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEifPNS9_17SentencePieceTextEE3$_1ET0_T_SJ_SI_T1_"(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr returned captures(ret: address, provenance) %2, double %3) unnamed_addr #3 {
   %.not8 = icmp eq ptr %0, %1
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 

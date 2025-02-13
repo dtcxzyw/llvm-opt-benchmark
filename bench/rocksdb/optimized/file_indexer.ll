@@ -212,7 +212,7 @@ if.end27:                                         ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11FileIndexer11UpdateIndexEPNS_5ArenaEmPSt6vectorIPNS_12FileMetaDataESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %arena, i64 noundef %num_levels, ptr noundef readonly %files) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11FileIndexer11UpdateIndexEPNS_5ArenaEmPSt6vectorIPNS_12FileMetaDataESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %arena, i64 noundef %num_levels, ptr noundef readonly captures(address_is_null) %files) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %agg.tmp35 = alloca %"class.std::function.19", align 8

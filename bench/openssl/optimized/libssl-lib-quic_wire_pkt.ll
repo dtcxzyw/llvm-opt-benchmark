@@ -393,7 +393,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(none) %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr noundef captures(none) %hdr, ptr noundef writeonly %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(none) %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr noundef captures(none) %hdr, ptr noundef writeonly captures(address_is_null) %ptrs) local_unnamed_addr #0 {
 entry:
   %token_len237 = alloca i64, align 8
   %len285 = alloca i64, align 8
@@ -949,7 +949,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %pkt, i64 noundef %short_conn_id_len, ptr noundef %hdr, ptr noundef %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %pkt, i64 noundef %short_conn_id_len, ptr noundef %hdr, ptr noundef captures(address_is_null) %ptrs) local_unnamed_addr #0 {
 entry:
   %off_start = alloca i64, align 8
   %off_pn = alloca i64, align 8
@@ -1665,7 +1665,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr noundef readonly %hdr, ptr noundef %client_initial_dcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr noundef readonly captures(address_is_null) %hdr, ptr noundef %client_initial_dcid) local_unnamed_addr #0 {
 entry:
   %expected_tag = alloca [16 x i8], align 16
   %cmp = icmp eq ptr %hdr, null

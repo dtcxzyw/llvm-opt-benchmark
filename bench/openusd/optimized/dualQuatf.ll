@@ -511,7 +511,7 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQua
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfmLERKS0_(ptr noundef nonnull returned align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfmLERKS0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4

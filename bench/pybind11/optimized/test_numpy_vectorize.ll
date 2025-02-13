@@ -38711,7 +38711,7 @@ _ZN8pybind115dtypeD2Ev.exit:                      ; preds = %31, %28, %26, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE11NonPODClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE11NonPODClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ30test_submodule_numpy_vectorizeRN8pybind117module_EE11NonPODClass, ptr %4, align 8
@@ -44886,7 +44886,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ30test_submodule_numpy_vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE11NonPODClassJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE11NonPODClassJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -47862,7 +47862,7 @@ define linkonce_odr hidden void @_ZNK8pybind115array21check_dimensions_implIJEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE18VectorizeTestClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE18VectorizeTestClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ30test_submodule_numpy_vectorizeRN8pybind117module_EE18VectorizeTestClass, ptr %4, align 8
@@ -48445,7 +48445,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ30test_submodule_numpy_vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE18VectorizeTestClassJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ30test_submodule_numpy_vectorizeRNS_7module_EE18VectorizeTestClassJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3

@@ -273,7 +273,7 @@ declare void @grpc_slice_buffer_add(ptr noundef, ptr noundef byval(%struct.grpc_
 declare void @grpc_slice_buffer_move_first_no_ref(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z40grpc_deframe_unprocessed_incoming_framesP18grpc_chttp2_streamPlPN9grpc_core11SliceBufferEPj(ptr noalias writeonly sret(%"class.grpc_core::Poll") align 8 captures(none) %agg.result, ptr noundef %s, ptr noundef writeonly %min_progress_size, ptr noundef %stream_out, ptr noundef writeonly %message_flags) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z40grpc_deframe_unprocessed_incoming_framesP18grpc_chttp2_streamPlPN9grpc_core11SliceBufferEPj(ptr noalias writeonly sret(%"class.grpc_core::Poll") align 8 captures(none) %agg.result, ptr noundef %s, ptr noundef writeonly captures(address_is_null) %min_progress_size, ptr noundef %stream_out, ptr noundef writeonly captures(address_is_null) %message_flags) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %error = alloca %"class.absl::lts_20230802::Status", align 8

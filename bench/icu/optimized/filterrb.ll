@@ -340,13 +340,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK10ResKeyPath6piecesB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK10ResKeyPath6piecesB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #6 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK10ResKeyPath(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 dereferenceable(24) %value) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK10ResKeyPath(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %value) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %value, align 8
   %cmp.i = icmp eq ptr %0, %value
@@ -895,7 +895,7 @@ eh.resume:                                        ; preds = %lpad66, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK25SimpleRuleBasedPathFilter5matchERK10ResKeyPath(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %path) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK25SimpleRuleBasedPathFilter5matchERK10ResKeyPath(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %path) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRoot = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fRoot, align 8
@@ -1186,7 +1186,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25SimpleRuleBasedPathFilter4Tree5printERSoi(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %indent) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK25SimpleRuleBasedPathFilter4Tree5printERSoi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %indent) local_unnamed_addr #4 align 2 {
 entry:
   %cmp28 = icmp sgt i32 %indent, 0
   br i1 %cmp28, label %for.body, label %for.end
@@ -1307,7 +1307,7 @@ if.end:                                           ; preds = %for.end57, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25SimpleRuleBasedPathFilter5printERSo(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK25SimpleRuleBasedPathFilter5printERSo(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.16)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -1319,7 +1319,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK25SimpleRuleBasedPathFilter(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(72) %value) local_unnamed_addr #4 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK25SimpleRuleBasedPathFilter(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %value) local_unnamed_addr #4 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.16)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)

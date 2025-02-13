@@ -5852,7 +5852,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13CXXRecordDeclENS1_11DeclContextEEEDaPT0_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14isRelevantAttrRN5clang4SemaEPKNS_4DeclEPKNS_4AttrE(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14isRelevantAttrRN5clang4SemaEPKNS_4DeclEPKNS_4AttrE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i16, ptr %3, align 8
   %5 = icmp ne i16 %4, 325
@@ -11372,7 +11372,7 @@ _ZN5clang23LocalInstantiationScopeD2Ev.exit:      ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang24TemplateDeclInstantiator19SubstTemplateParamsEPNS_21TemplateParameterListE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang24TemplateDeclInstantiator19SubstTemplateParamsEPNS_21TemplateParameterListE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.1512", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
@@ -12064,7 +12064,7 @@ _ZN4llvm11SmallVectorIPN5clang11BindingDeclELj16EED2Ev.exit: ; preds = %.loopexi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang24TemplateDeclInstantiator12VisitVarDeclEPNS_7VarDeclEbPN4llvm8ArrayRefIPNS_11BindingDeclEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang24TemplateDeclInstantiator12VisitVarDeclEPNS_7VarDeclEbPN4llvm8ArrayRefIPNS_11BindingDeclEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -28583,7 +28583,7 @@ _ZN4llvm11SmallVectorIPN5clang21TemplateParameterListELj8EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31collectUnexpandedParameterPacksRN5clang4SemaEPNS_21TemplateParameterListERN4llvm15SmallVectorImplISt4pairINS4_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL31collectUnexpandedParameterPacksRN5clang4SemaEPNS_21TemplateParameterListERN4llvm15SmallVectorImplISt4pairINS4_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 536870911
@@ -33781,7 +33781,7 @@ _ZN5clang30MultiLevelTemplateArgumentListD2Ev.exit: ; preds = %_ZN5clang24Templa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4Sema19SubstTemplateParamsEPNS_21TemplateParameterListEPNS_11DeclContextERKNS_30MultiLevelTemplateArgumentListEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(117) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang4Sema19SubstTemplateParamsEPNS_21TemplateParameterListEPNS_11DeclContextERKNS_30MultiLevelTemplateArgumentListEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(117) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::TemplateDeclInstantiator", align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #26
   store ptr %0, ptr %6, align 8, !tbaa !937
@@ -56112,7 +56112,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit: ; preds = %28, %31
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE21TransformRequiresExprEPNS_12RequiresExprE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE21TransformRequiresExprEPNS_12RequiresExprE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
 "_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformRequiresTypeParamsES2_S2_PKNS_12RequiresExprEPNS_20RequiresExprBodyDeclEN4llvm8ArrayRefIPNS_11ParmVarDeclEEERNSD_15SmallVectorImplINS_8QualTypeEEERNSI_ISG_EERNS1_23ExtParameterInfoBuilderE.exit":
   %2 = alloca %"class.std::optional.2797", align 8
   %3 = alloca %"class.llvm::ArrayRef.2782", align 8
@@ -61887,7 +61887,7 @@ define internal fastcc i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFun
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformGenericSelectionExprEPNS_20GenericSelectionExprE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformGenericSelectionExprEPNS_20GenericSelectionExprE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.1222", align 8
   %4 = alloca %"class.llvm::ArrayRef.1483", align 8
   %5 = alloca %"class.llvm::ArrayRef.1222", align 8
@@ -72195,7 +72195,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN5clang14TypeLocBuilder4pushINS_29Tem
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformTemplateArgumentsINS_33TemplateArgumentLocInventIteratorIS6_PKNS_16TemplateArgumentEEEEEbT_SE_RNS_24TemplateArgumentListInfoEb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, ptr %2, ptr readnone %3, ptr noundef nonnull align 8 dereferenceable(280) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformTemplateArgumentsINS_33TemplateArgumentLocInventIteratorIS6_PKNS_16TemplateArgumentEEEEEbT_SE_RNS_24TemplateArgumentListInfoEb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, ptr %2, ptr readnone captures(address) %3, ptr noundef nonnull align 8 dereferenceable(280) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::TemplateArgumentLoc", align 8
   %8 = alloca %"class.clang::TemplateArgumentLoc", align 8
   %9 = alloca %"class.clang::TemplateArgumentLoc", align 8
@@ -72980,7 +72980,7 @@ declare void @_ZN5clang4Sema31PushExpressionEvaluationContextENS0_27ExpressionEv
 declare i64 @_ZN5clang4Sema18CheckPackExpansionEPNS_4ExprENS_14SourceLocationESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i32, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_38DependentTemplateSpecializationTypeLocEEEEEbT_SC_RNS_24TemplateArgumentListInfoEb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %1, i32 %2, ptr readnone %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(280) %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformTemplateArgumentsINS_36TemplateArgumentLocContainerIteratorINS_38DependentTemplateSpecializationTypeLocEEEEEbT_SC_RNS_24TemplateArgumentListInfoEb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address) %1, i32 %2, ptr readnone captures(address) %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(280) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::TemplateArgumentLoc", align 8
   %8 = alloca %"class.clang::TemplateArgumentLoc", align 8
   %9 = alloca %"class.clang::SourceLocation", align 4
@@ -73249,7 +73249,7 @@ declare i64 @_ZN5clang4Sema28BuildQualifiedTemplateIdExprERNS_12CXXScopeSpecENS_
 declare i64 @_ZN5clang4Sema33BuildQualifiedDeclarationNameExprERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoEbPPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformTemplateArgumentsIPKNS_19TemplateArgumentLocEEEbT_SC_RNS_24TemplateArgumentListInfoEb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(280) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformTemplateArgumentsIPKNS_19TemplateArgumentLocEEEbT_SC_RNS_24TemplateArgumentListInfoEb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 dereferenceable(280) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateArgumentLoc", align 8
   %6 = alloca %"class.clang::TemplateArgumentLoc", align 8
   %7 = alloca %"class.clang::SourceLocation", align 4
@@ -76514,7 +76514,7 @@ define internal fastcc i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFun
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOpenACCWaitConstructEPNS_20OpenACCWaitConstructE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOpenACCWaitConstructEPNS_20OpenACCWaitConstructE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.1222", align 8
   %4 = alloca %"class.llvm::SmallVector.2238", align 8
   %5 = alloca %"class.llvm::ArrayRef.2187", align 8
@@ -84351,7 +84351,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit: ; preds = %133, %136
 declare noundef ptr @_ZN5clang8CastExpr19getSubExprAsWrittenEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE14TransformExprsEPKPNS_4ExprEjbRN4llvm15SmallVectorImplIS9_EEPb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef writeonly %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE14TransformExprsEPKPNS_4ExprEjbRN4llvm15SmallVectorImplIS9_EEPb"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SmallVector.1339", align 8
   %.not141 = icmp eq i32 %2, 0
   br i1 %.not141, label %.critedge88, label %.lr.ph
@@ -84559,7 +84559,7 @@ declare void @_ZN5clang11SemaOpenACC14ActOnConstructENS_20OpenACCDirectiveKindEN
 declare i64 @_ZN5clang11SemaOpenACC12ActOnIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192), i8 noundef zeroext, i8 noundef zeroext, i32, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOpenACCClauseListENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, ptr readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOpenACCClauseListENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, ptr readonly captures(address) %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::SmallVector.2238", align 8
   %8 = alloca ptr, align 8
@@ -91982,7 +91982,7 @@ declare noundef zeroext i1 @_ZN5clang21isOpenMPLoopDirectiveEN4llvm3omp9Directiv
 declare i64 @_ZN5clang10SemaOpenMP20ActOnOpenMPRegionEndENS_12ActionResultIPNS_4StmtELb1EEEN4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(528), i64, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPAffinityClauseEPNS_17OMPAffinityClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPAffinityClauseEPNS_17OMPAffinityClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.1222", align 8
   %4 = alloca %"class.llvm::SmallVector.476", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
@@ -92136,7 +92136,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE25TransformOMPAlignedClauseEPNS_16OMPAlignedClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE25TransformOMPAlignedClauseEPNS_16OMPAlignedClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -92248,7 +92248,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %51
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPAllocateClauseEPNS_17OMPAllocateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPAllocateClauseEPNS_17OMPAllocateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.1222", align 8
   %4 = alloca %"class.llvm::SmallVector.2453", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -92488,7 +92488,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPCopyprivateClauseEPNS_20OMPCopyprivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPCopyprivateClauseEPNS_20OMPCopyprivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -92590,7 +92590,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %41
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE24TransformOMPCopyinClauseEPNS_15OMPCopyinClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE24TransformOMPCopyinClauseEPNS_15OMPCopyinClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -93012,7 +93012,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPDoacrossClauseEPNS_17OMPDoacrossClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPDoacrossClauseEPNS_17OMPDoacrossClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -93120,7 +93120,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %45
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformOMPExclusiveClauseEPNS_18OMPExclusiveClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformOMPExclusiveClauseEPNS_18OMPExclusiveClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -93276,7 +93276,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE30TransformOMPFirstprivateClauseEPNS_21OMPFirstprivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE30TransformOMPFirstprivateClauseEPNS_21OMPFirstprivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -93378,7 +93378,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %41
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE23TransformOMPFlushClauseEPNS_14OMPFlushClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE23TransformOMPFlushClauseEPNS_14OMPFlushClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -93893,7 +93893,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit20: ; preds = %_ZN5clang12CXX
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE22TransformOMPFullClauseEPNS_13OMPFullClauseE"(ptr readonly captures(none) %.0.val, ptr noundef readonly %0) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE22TransformOMPFullClauseEPNS_13OMPFullClauseE"(ptr readonly captures(none) %.0.val, ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr i8, ptr %.0.val, i64 12696
   %.val.val = load i32, ptr %2, align 8, !tbaa !862
   %.not = icmp eq i32 %.val.val, -1
@@ -93945,7 +93945,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE31TransformOMPHasDeviceAddrClauseEPNS_22OMPHasDeviceAddrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE31TransformOMPHasDeviceAddrClauseEPNS_22OMPHasDeviceAddrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   %4 = alloca %"struct.clang::OMPVarListLocTy", align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
@@ -94142,7 +94142,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPInReductionClauseEPNS_20OMPInReductionClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPInReductionClauseEPNS_20OMPInReductionClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.1222", align 8
   %4 = alloca %"class.llvm::SmallVector.2453", align 8
   %5 = alloca %"class.clang::CXXScopeSpec", align 8
@@ -94533,7 +94533,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit75: ; preds = %.critedge, %17
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformOMPInclusiveClauseEPNS_18OMPInclusiveClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformOMPInclusiveClauseEPNS_18OMPInclusiveClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -94635,7 +94635,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %41
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE22TransformOMPInitClauseEPNS_13OMPInitClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE22TransformOMPInitClauseEPNS_13OMPInitClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"struct.clang::OMPInteropInfo", align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %.ptr, align 8, !tbaa !710
@@ -94754,7 +94754,7 @@ _ZN5clang14OMPInteropInfoD2Ev.exit:               ; preds = %.critedge, %53
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPIsDevicePtrClauseEPNS_20OMPIsDevicePtrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPIsDevicePtrClauseEPNS_20OMPIsDevicePtrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   %4 = alloca %"struct.clang::OMPVarListLocTy", align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
@@ -94864,7 +94864,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %44
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPLastprivateClauseEPNS_20OMPLastprivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPLastprivateClauseEPNS_20OMPLastprivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -94972,7 +94972,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %45
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE24TransformOMPLinearClauseEPNS_15OMPLinearClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE24TransformOMPLinearClauseEPNS_15OMPLinearClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -95613,7 +95613,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPNontemporalClauseEPNS_20OMPNontemporalClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPNontemporalClauseEPNS_20OMPNontemporalClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -95773,7 +95773,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPNumTeamsClauseEPNS_17OMPNumTeamsClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE26TransformOMPNumTeamsClauseEPNS_17OMPNumTeamsClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2593", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -96064,7 +96064,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE25TransformOMPPartialClauseEPNS_16OMPPartialClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE25TransformOMPPartialClauseEPNS_16OMPPartialClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(ret: address, provenance) %1) unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !3217
   %5 = tail call fastcc i64 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE13TransformExprEPNS_4ExprE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4)
@@ -96102,7 +96102,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPPermutationClauseEPNS_20OMPPermutationClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPPermutationClauseEPNS_20OMPPermutationClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2238", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -96264,7 +96264,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE25TransformOMPPrivateClauseEPNS_16OMPPrivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE25TransformOMPPrivateClauseEPNS_16OMPPrivateClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -96381,7 +96381,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformOMPReductionClauseEPNS_18OMPReductionClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformOMPReductionClauseEPNS_18OMPReductionClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.1222", align 8
   %4 = alloca %"class.llvm::SmallVector.2453", align 8
   %5 = alloca %"class.clang::CXXScopeSpec", align 8
@@ -96859,7 +96859,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE24TransformOMPSharedClauseEPNS_15OMPSharedClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE24TransformOMPSharedClauseEPNS_15OMPSharedClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -96988,7 +96988,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE23TransformOMPSizesClauseEPNS_14OMPSizesClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE23TransformOMPSizesClauseEPNS_14OMPSizesClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.476", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -97123,7 +97123,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev.exit: ; preds = %.loopexit, %45
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE31TransformOMPTaskReductionClauseEPNS_22OMPTaskReductionClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE31TransformOMPTaskReductionClauseEPNS_22OMPTaskReductionClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.1222", align 8
   %4 = alloca %"class.llvm::SmallVector.2453", align 8
   %5 = alloca %"class.clang::CXXScopeSpec", align 8
@@ -97514,7 +97514,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit75: ; preds = %.critedge, %17
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPThreadLimitClauseEPNS_20OMPThreadLimitClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE29TransformOMPThreadLimitClauseEPNS_20OMPThreadLimitClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2593", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -98058,7 +98058,7 @@ define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29Instan
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE31TransformOMPUseDeviceAddrClauseEPNS_22OMPUseDeviceAddrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE31TransformOMPUseDeviceAddrClauseEPNS_22OMPUseDeviceAddrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   %4 = alloca %"struct.clang::OMPVarListLocTy", align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
@@ -98168,7 +98168,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj16EED2Ev.exit: ; preds = %.critedge, %44
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE30TransformOMPUseDevicePtrClauseEPNS_21OMPUseDevicePtrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 {
+define internal fastcc noundef ptr @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE30TransformOMPUseDevicePtrClauseEPNS_21OMPUseDevicePtrClauseE"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readonly captures(address) %1) unnamed_addr #11 align 2 {
   %3 = alloca %"class.llvm::SmallVector.2453", align 8
   %4 = alloca %"struct.clang::OMPVarListLocTy", align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #26
@@ -99828,7 +99828,7 @@ declare i64 @_ZN5clang8SemaSYCL25BuildUniqueStableNameExprENS_14SourceLocationES
 declare noundef ptr @_ZN5clang26ResolvedUnexpandedPackExpr6CreateERNS_10ASTContextENS_14SourceLocationENS_8QualTypeEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(23216), i32, i64, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformFunctionTypeParamsES2_N4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS8_15SmallVectorImplISD_EEPNSK_ISB_EERNS1_23ExtParameterInfoBuilderEPj"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(41) %7) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE27TransformFunctionTypeParamsES2_N4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS8_15SmallVectorImplISD_EEPNSK_ISB_EERNS1_23ExtParameterInfoBuilderEPj"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(41) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::SmallVector.1339", align 8
   %10 = alloca %"class.clang::TypeLoc", align 8
   %11 = alloca %"class.llvm::SmallVector.1339", align 8

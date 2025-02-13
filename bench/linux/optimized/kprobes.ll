@@ -337,7 +337,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @collect_garbage_slots(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @collect_garbage_slots(ptr noundef captures(address) %0) unnamed_addr #0 align 16 {
   tail call void @synchronize_rcu() #21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -785,7 +785,7 @@ define dso_local void @wait_for_kprobe_optimizer() local_unnamed_addr #0 align 1
 declare dso_local zeroext i1 @flush_delayed_work(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @optprobe_queued_unopt(ptr noundef readnone %0) local_unnamed_addr #6 align 16 {
+define dso_local zeroext i1 @optprobe_queued_unopt(ptr noundef readnone captures(address) %0) local_unnamed_addr #6 align 16 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -2041,7 +2041,7 @@ define dso_local void @unregister_kprobe(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__unregister_kprobe_top(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__unregister_kprobe_top(ptr noundef captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -2831,7 +2831,7 @@ define dso_local void @unregister_kretprobe(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @disable_kprobe(ptr noundef %0) #0 align 16 {
+define dso_local i32 @disable_kprobe(ptr noundef captures(address) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @kprobe_mutex) #21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -2947,7 +2947,7 @@ __disable_kprobe.exit:                            ; preds = %8, %20, %41, %.loop
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @enable_kprobe(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @enable_kprobe(ptr noundef captures(address) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @kprobe_mutex) #21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -5028,7 +5028,7 @@ declare dso_local i32 @seq_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @seq_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @kprobe_seq_start(ptr readnone captures(none) %0, ptr noundef readonly %1) #17 align 16 {
+define internal ptr @kprobe_seq_start(ptr readnone captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #17 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp slt i64 %3, 64
   %5 = select i1 %4, ptr %1, ptr null
@@ -5041,7 +5041,7 @@ define internal void @kprobe_seq_stop(ptr readnone captures(none) %0, ptr readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal ptr @kprobe_seq_next(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #19 align 16 {
+define internal ptr @kprobe_seq_next(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(ret: address, provenance) %2) #19 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

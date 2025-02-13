@@ -259,7 +259,7 @@ define internal void @ipip6_tunnel_setup(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @ipip6_validate(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ipip6_validate(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %13, label %5
 
@@ -853,7 +853,7 @@ define internal i32 @ipip6_tunnel_init(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ipip6_tunnel_uninit(ptr noundef %0) #4 align 16 {
+define internal void @ipip6_tunnel_uninit(ptr noundef captures(address) %0) #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2304
   %3 = getelementptr i8, ptr %0, i64 2336
   %4 = load ptr, ptr %3, align 8
@@ -2652,7 +2652,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare dso_local void @dst_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -6, 1) i32 @ipip6_tunnel_del_prl(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -6, 1) i32 @ipip6_tunnel_del_prl(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #18
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @ipip6_tunnel_del_prl.__already_done, align 1
@@ -4101,7 +4101,7 @@ define internal noundef range(i32 -2, 1) i32 @ipip6_err(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ipip6_tunnel_lookup(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc ptr @ipip6_tunnel_lookup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = lshr i32 %2, 4
   %7 = xor i32 %6, %2
   %8 = and i32 %7, 15
@@ -4664,7 +4664,7 @@ define internal i32 @sit_init_net(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sit_exit_batch_net(ptr noundef readonly %0) #4 align 16 {
+define internal void @sit_exit_batch_net(ptr noundef readonly captures(address) %0) #4 align 16 {
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   store ptr %2, ptr %2, align 8

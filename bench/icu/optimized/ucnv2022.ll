@@ -2557,7 +2557,7 @@ if.end430:                                        ; preds = %if.else352, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr noundef captures(none) %_this, ptr noundef captures(none) %source, ptr noundef readnone %sourceLimit, i32 noundef range(i32 1, 4) %var, ptr noundef captures(none) %err) unnamed_addr #9 {
+define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr noundef captures(none) %_this, ptr noundef captures(none) %source, ptr noundef readnone captures(address) %sourceLimit, i32 noundef range(i32 1, 4) %var, ptr noundef captures(none) %err) unnamed_addr #9 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %_this, i64 16
   %0 = load ptr, ptr %extraInfo, align 8

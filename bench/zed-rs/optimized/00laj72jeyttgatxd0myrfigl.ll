@@ -6645,7 +6645,7 @@ define hidden { i32, float } @_ZN4core3ops8function6FnOnce9call_once17h0acfd477e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h0adf129d0f3455c5E.llvm.6921608835373963916(ptr noundef nonnull readnone returned %0) unnamed_addr #9 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h0adf129d0f3455c5E.llvm.6921608835373963916(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -6783,7 +6783,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hfd0d2d94bcfe5682E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hfdfc948ee39d4ca8E.llvm.6921608835373963916(ptr noundef nonnull readnone returned %0) unnamed_addr #9 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hfdfc948ee39d4ca8E.llvm.6921608835373963916(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -6983,7 +6983,7 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17hbb80ce761d598d5dE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17hbb80ce761d598d5dE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr66drop_in_place$LT$settings..settings_store..DeserializedSetting$GT$17h2747dbe18669f8edE.exit", label %2
 
@@ -7455,7 +7455,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17ha0b2c092ab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb7f7d9d8dd7e52eaE.llvm.6921608835373963916"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb7f7d9d8dd7e52eaE.llvm.6921608835373963916"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %7 = icmp eq ptr %1, null
@@ -7535,7 +7535,7 @@ define hidden void @_ZN4core6option6Option4Some17h36838014c1b5a724E.llvm.6921608
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core6option6Option4Some17h7018c634add0f85cE.llvm.6921608835373963916(ptr noundef nonnull readnone returned %0) unnamed_addr #9 {
+define hidden noundef nonnull ptr @_ZN4core6option6Option4Some17h7018c634add0f85cE.llvm.6921608835373963916(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -7564,7 +7564,7 @@ define hidden void @_ZN4core6option6Option4Some17h8fca4968d516a221E.llvm.6921608
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core6option6Option4Some17h8ff796d966909fa9E.llvm.6921608835373963916(ptr noundef nonnull readnone returned %0) unnamed_addr #9 {
+define hidden noundef nonnull ptr @_ZN4core6option6Option4Some17h8ff796d966909fa9E.llvm.6921608835373963916(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #9 {
   ret ptr %0
 }
 

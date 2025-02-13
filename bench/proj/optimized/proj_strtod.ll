@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [14 x i8] c"0123456789+-_\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.preheader253
 

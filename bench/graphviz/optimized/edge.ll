@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @AgDataRecName = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfstout(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agfstout(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -63,7 +63,7 @@ agsubrep.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agsubrep(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agsubrep(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -93,7 +93,7 @@ declare i32 @dtrestore(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dtextract(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @agnxtout(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agnxtout(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 3
@@ -145,7 +145,7 @@ agsubrep.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfstin(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agfstin(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -190,7 +190,7 @@ agsubrep.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agnxtin(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agnxtin(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 3
@@ -242,7 +242,7 @@ agsubrep.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfstedge(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agfstedge(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
   %4 = alloca %struct.Agsubnode_s, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
@@ -326,7 +326,7 @@ agfstin.exit:                                     ; preds = %33, %agsubrep.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agnxtedge(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @agnxtedge(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Agsubnode_s, align 8
   %5 = alloca %struct.Agsubnode_s, align 8
   %6 = alloca %struct.Agsubnode_s, align 8
@@ -1209,7 +1209,7 @@ declare i32 @agisstrict(ptr noundef) local_unnamed_addr #1
 declare void @agregister(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @agdeledgeimage(ptr noundef readonly %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define void @agdeledgeimage(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.Agsubnode_s, align 8
   %5 = alloca %struct.Agsubnode_s, align 8
   %6 = load i32, ptr %1, align 8
@@ -1800,7 +1800,7 @@ define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr readnone captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 2
@@ -1817,7 +1817,7 @@ define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly %0, ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @agmkout(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @agmkout(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 2
@@ -1827,7 +1827,7 @@ define ptr @agmkout(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @agmkin(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @agmkin(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3
@@ -1861,7 +1861,7 @@ define ptr @aghead(ptr noundef readonly captures(none) %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @agopp(ptr noundef readonly %0) local_unnamed_addr #3 {
+define nonnull ptr @agopp(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3

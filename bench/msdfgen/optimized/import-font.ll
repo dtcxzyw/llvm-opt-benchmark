@@ -405,7 +405,7 @@ if.end:                                           ; preds = %invoke.cont, %lor.l
 declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN7msdfgen8loadFontEPNS_14FreetypeHandleEPKc(ptr noundef readonly %library, ptr noundef %filename) local_unnamed_addr #2 {
+define dso_local noundef ptr @_ZN7msdfgen8loadFontEPNS_14FreetypeHandleEPKc(ptr noundef readonly captures(address_is_null) %library, ptr noundef %filename) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %library, null
   br i1 %tobool.not, label %return, label %if.end
@@ -434,7 +434,7 @@ return:                                           ; preds = %entry, %if.end5, %d
 declare i32 @FT_New_Face(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN7msdfgen12loadFontDataEPNS_14FreetypeHandleEPKhi(ptr noundef readonly %library, ptr noundef %data, i32 noundef %length) local_unnamed_addr #2 {
+define dso_local noundef ptr @_ZN7msdfgen12loadFontDataEPNS_14FreetypeHandleEPKhi(ptr noundef readonly captures(address_is_null) %library, ptr noundef %data, i32 noundef %length) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %library, null
   br i1 %tobool.not, label %return, label %if.end
@@ -587,7 +587,7 @@ declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef readonly %font, i32 %glyphIndex.coerce, ptr noundef writeonly %advance) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef readonly captures(address_is_null) %font, i32 %glyphIndex.coerce, ptr noundef writeonly captures(address_is_null) %advance) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %font, null
   br i1 %tobool.not, label %return, label %if.end
@@ -630,7 +630,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleEjPd(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef readonly captures(none) %font, i32 noundef %unicode, ptr noundef writeonly %advance) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleEjPd(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef readonly captures(none) %font, i32 noundef %unicode, ptr noundef writeonly captures(address_is_null) %advance) local_unnamed_addr #2 {
 if.end.i:
   %0 = load ptr, ptr %font, align 8
   %conv = zext i32 %unicode to i64

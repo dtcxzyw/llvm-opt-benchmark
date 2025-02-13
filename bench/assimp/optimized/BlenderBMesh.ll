@@ -2426,7 +2426,7 @@ invoke.cont:                                      ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter8AddTFaceEPKfS2_S2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %uv1, ptr noundef readonly captures(none) %uv2, ptr noundef readonly captures(none) %uv3, ptr noundef readonly %uv4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter8AddTFaceEPKfS2_S2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %uv1, ptr noundef readonly captures(none) %uv2, ptr noundef readonly captures(none) %uv3, ptr noundef readonly captures(address_is_null) %uv4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mtface = alloca %"struct.Assimp::Blender::MTFace", align 8
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %mtface, i64 8

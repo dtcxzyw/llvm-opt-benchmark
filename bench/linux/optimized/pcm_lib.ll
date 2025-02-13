@@ -1753,7 +1753,7 @@ define dso_local void @snd_interval_mulkdiv(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 2) i32 @snd_interval_ratnum(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #7 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @snd_interval_ratnum(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) #7 align 16 {
   %6 = alloca %struct.snd_interval, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3203,7 +3203,7 @@ define dso_local void @_snd_pcm_hw_params_any(ptr noundef captures(none) initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local i32 @snd_pcm_hw_param_value(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #9 align 16 {
+define dso_local i32 @snd_pcm_hw_param_value(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #9 align 16 {
   %4 = icmp ugt i32 %1, 2
   br i1 %4, label %40, label %5
 
@@ -3363,7 +3363,7 @@ define dso_local void @_snd_pcm_hw_param_setempty(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
   %5 = icmp ugt i32 %2, 2
   br i1 %5, label %45, label %6
 
@@ -3612,7 +3612,7 @@ define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32
 declare dso_local i32 @snd_pcm_hw_refine(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_pcm_hw_param_last(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local i32 @snd_pcm_hw_param_last(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
   %5 = icmp ugt i32 %2, 2
   br i1 %5, label %46, label %6
 
@@ -4972,7 +4972,7 @@ define internal i32 @interleaved_copy(ptr noundef %0, i64 noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @noninterleaved_copy(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6) unnamed_addr #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @noninterleaved_copy(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.iov_iter, align 8
   %9 = alloca %struct.kvec, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -5350,7 +5350,7 @@ declare dso_local i32 @snd_pcm_start(ptr noundef) local_unnamed_addr #3
 declare dso_local void @snd_pcm_stream_unlock_irq(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_add_chmap_ctls(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef writeonly %5) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_add_chmap_ctls(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5) #0 align 16 {
   %7 = alloca %struct.snd_kcontrol_new, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) @__const.snd_pcm_add_chmap_ctls.knew, i64 72, i1 false)

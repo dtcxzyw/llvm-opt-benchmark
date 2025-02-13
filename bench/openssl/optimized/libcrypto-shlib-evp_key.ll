@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [43 x i8] c"assertion failed: niv <= EVP_MAX_IV_LENGTH\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @EVP_set_pw_prompt(ptr noundef readonly %prompt) local_unnamed_addr #0 {
+define void @EVP_set_pw_prompt(ptr noundef readonly captures(address_is_null) %prompt) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %prompt, null
   br i1 %cmp, label %if.then, label %if.else
@@ -102,7 +102,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @UI_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_BytesToKey(ptr noundef %type, ptr noundef %md, ptr noundef %salt, ptr noundef %data, i32 noundef %datal, i32 noundef %count, ptr noundef writeonly %key, ptr noundef writeonly %iv) local_unnamed_addr #3 {
+define i32 @EVP_BytesToKey(ptr noundef %type, ptr noundef %md, ptr noundef %salt, ptr noundef %data, i32 noundef %datal, i32 noundef %count, ptr noundef writeonly captures(address) %key, ptr noundef writeonly captures(address) %iv) local_unnamed_addr #3 {
 entry:
   %md_buf = alloca [64 x i8], align 16
   %mds = alloca i32, align 4

@@ -48,7 +48,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @mspack_valid_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @oabd_decompress(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.mspack_system, align 8
   %6 = alloca %struct.oabd_file, align 8
@@ -287,7 +287,7 @@ copy_fh.exit:                                     ; preds = %92, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @oabd_decompress_incremental(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [28 x i8], align 16
   %6 = alloca %struct.mspack_system, align 8
   %7 = alloca %struct.oabd_file, align 8
@@ -528,7 +528,7 @@ copy_fh.exit:                                     ; preds = %108, %102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @oabd_param(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) #3 {
+define internal range(i32 0, 2) i32 @oabd_param(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp eq i32 %1, 0
   %or.cond = and i1 %4, %5

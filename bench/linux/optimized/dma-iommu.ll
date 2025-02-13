@@ -3581,7 +3581,7 @@ declare void @llvm.write_register.i64(metadata, i64) #14
 declare dso_local i64 @iommu_iova_to_phys(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__finalise_sg(ptr readonly %.592.val, ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__finalise_sg(ptr readonly captures(address_is_null) %.592.val, ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = icmp eq ptr %.592.val, null
   br i1 %4, label %.thread1, label %.thread
 

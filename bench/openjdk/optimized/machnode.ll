@@ -1127,7 +1127,7 @@ _ZNK4Type8make_ptrEv.exit25:                      ; preds = %33, %_ZNK4Type8make
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -1171,7 +1171,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK8MachNode13operand_indexEP4Node(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK8MachNode13operand_indexEP4Node(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8

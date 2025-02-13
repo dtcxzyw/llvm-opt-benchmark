@@ -16727,7 +16727,7 @@ _ZN7channel13channel_store12ChannelStore14channel_for_id17h0613606d65115accE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7channel12channel_chat11ChannelChat6client17h05e04bfa26d4adc9E(ptr noalias noundef readonly align 16 dereferenceable(528) %0) unnamed_addr #7 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7channel12channel_chat11ChannelChat6client17h05e04bfa26d4adc9E(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable(528) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   ret ptr %2
 }
@@ -17990,7 +17990,7 @@ define noundef i64 @_ZN7channel12channel_chat11ChannelChat13message_count17h6c94
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7channel12channel_chat11ChannelChat8messages17h4bc6298937c2d738E(ptr noalias noundef readonly align 16 dereferenceable(528) %0) unnamed_addr #7 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7channel12channel_chat11ChannelChat8messages17h4bc6298937c2d738E(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable(528) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   ret ptr %2
 }

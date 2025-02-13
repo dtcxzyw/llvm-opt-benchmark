@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
+define noundef i64 @_Z13MurmurHash64APKvij(ptr noundef readonly captures(address) %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %seed to i64
   %conv1 = sext i32 %len to i64

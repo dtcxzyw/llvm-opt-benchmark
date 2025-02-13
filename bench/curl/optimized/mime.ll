@@ -312,7 +312,7 @@ Curl_mime_cleanpart.exit:                         ; preds = %cleanup_part_conten
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @mime_subparts_unbind(ptr noundef %0) #4 {
+define internal void @mime_subparts_unbind(ptr noundef captures(address_is_null) %0) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1023,7 +1023,7 @@ define ptr @curl_mime_addpart(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @Curl_slist_duplicate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 44) i32 @curl_mime_headers(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 44) i32 @curl_mime_headers(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %4
 
@@ -1071,7 +1071,7 @@ define range(i32 0, 44) i32 @curl_mime_headers(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 44) i32 @curl_mime_type(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 44) i32 @curl_mime_type(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -1100,7 +1100,7 @@ define range(i32 0, 44) i32 @curl_mime_type(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 44) i32 @curl_mime_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 44) i32 @curl_mime_name(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -1129,7 +1129,7 @@ define range(i32 0, 44) i32 @curl_mime_name(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 44) i32 @curl_mime_filename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 44) i32 @curl_mime_filename(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -1336,7 +1336,7 @@ define internal void @mime_file_free(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 44) i32 @curl_mime_encoder(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 44) i32 @curl_mime_encoder(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2087,7 +2087,7 @@ define hidden ptr @Curl_mime_contenttype(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   tail call void @curl_slist_free_all(ptr noundef %7) #18
@@ -2575,7 +2575,7 @@ content_type_match.exit232:                       ; preds = %185, %183, %182, %1
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @escape_string(ptr noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @escape_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.dynbuf, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %5 = icmp eq i32 %2, 0
@@ -4372,7 +4372,7 @@ declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @Curl_bufq_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mime_unpause(ptr noundef %0) unnamed_addr #16 {
+define internal fastcc void @mime_unpause(ptr noundef captures(address_is_null) %0) unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

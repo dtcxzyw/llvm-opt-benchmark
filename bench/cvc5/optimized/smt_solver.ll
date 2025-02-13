@@ -1443,14 +1443,14 @@ if.end:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal3smt9SmtSolver25getPreprocessedAssertionsEv(ptr noundef nonnull readnone align 8 dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal3smt9SmtSolver25getPreprocessedAssertionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_ppAssertions = getelementptr inbounds nuw i8, ptr %this, i64 1024
   ret ptr %d_ppAssertions
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZNK4cvc58internal3smt9SmtSolver24getPreprocessedSkolemMapEv(ptr noundef nonnull readnone align 8 dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZNK4cvc58internal3smt9SmtSolver24getPreprocessedSkolemMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_ppSkolemMap = getelementptr inbounds nuw i8, ptr %this, i64 1104
   ret ptr %d_ppSkolemMap
@@ -1477,14 +1477,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal3smt9SmtSolver15getPreprocessorEv(ptr noundef nonnull readnone align 8 dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal3smt9SmtSolver15getPreprocessorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_pp = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %d_pp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(272) ptr @_ZN4cvc58internal3smt9SmtSolver13getAssertionsEv(ptr noundef nonnull readnone align 8 dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(272) ptr @_ZN4cvc58internal3smt9SmtSolver13getAssertionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_asserts = getelementptr inbounds nuw i8, ptr %this, i64 728
   ret ptr %d_asserts

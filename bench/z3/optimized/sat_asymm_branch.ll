@@ -2682,7 +2682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat12asymm_branch4sortERNS_3bigERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %big, ptr noundef nonnull align 4 dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat12asymm_branch4sortERNS_3bigERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %big, ptr noundef nonnull align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
 entry:
   %m_lits.i = getelementptr inbounds nuw i8, ptr %c, i64 20
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
@@ -2694,7 +2694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat12asymm_branch4sortERNS_3bigEPKNS_7literalES5_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %big, ptr noundef readonly %begin, ptr noundef readnone %end) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat12asymm_branch4sortERNS_3bigEPKNS_7literalES5_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %big, ptr noundef readonly captures(address) %begin, ptr noundef readnone captures(address) %end) local_unnamed_addr #3 align 2 {
 entry:
   %m_pos = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_pos, align 8

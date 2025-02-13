@@ -865,7 +865,7 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i21, %103
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @opal_graph_adjacent(ptr noundef readnone %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define i32 @opal_graph_adjacent(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %0, %5
@@ -1018,7 +1018,7 @@ define i32 @opal_graph_get_graph_vertices(ptr noundef readonly captures(none) %0
 declare i32 @opal_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.vertex_distance_from_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1082,7 +1082,7 @@ opal_value_array_append_item.exit:                ; preds = %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_graph_spf(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define i32 @opal_graph_spf(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %0, %5
@@ -1250,7 +1250,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @opal_graph_dijkstra(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %0, %5

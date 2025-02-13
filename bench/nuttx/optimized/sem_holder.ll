@@ -323,7 +323,7 @@ define void @nxsem_release_holder(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nxsem_restore_baseprio(ptr noundef readnone %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define void @nxsem_restore_baseprio(ptr noundef readnone captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8

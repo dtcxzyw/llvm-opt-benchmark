@@ -314,7 +314,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix15PathRefScanSink9fromPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.nix::PathRefScanSink") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix15PathRefScanSink9fromPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.nix::PathRefScanSink") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"class.std::set", align 8
   %5 = alloca %"class.std::map", align 8
@@ -769,7 +769,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17scanForReferencesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3setINS_9StorePathESt4lessIS9_ESaIS9_EE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17scanForReferencesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3setINS_9StorePathESt4lessIS9_ESaIS9_EE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %5 = alloca %"class.nix::PathRefScanSink", align 8
   %6 = alloca %"struct.nix::TeeSink", align 8
@@ -900,7 +900,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %38
 declare void @_ZN3nix8HashSinkC1ENS_13HashAlgorithmE(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17scanForReferencesERNS_4SinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3setINS_9StorePathESt4lessISB_ESaISB_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17scanForReferencesERNS_4SinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3setINS_9StorePathESt4lessISB_ESaISB_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.nix::PathRefScanSink", align 8
   %6 = alloca %"struct.nix::TeeSink", align 8
   call void @_ZN3nix15PathRefScanSink9fromPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.nix::PathRefScanSink") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %3)

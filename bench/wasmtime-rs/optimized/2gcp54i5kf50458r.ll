@@ -65,7 +65,7 @@ define range(i8 -1, 2) i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hccfdbc5120e7a3a9E"(ptr readnone returned align 8 %0) unnamed_addr #2 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hccfdbc5120e7a3a9E"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

@@ -953,7 +953,7 @@ define dso_local void @SpeculativeInsertionWait(i32 noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i64], align 16

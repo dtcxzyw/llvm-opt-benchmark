@@ -804,7 +804,7 @@ declare ptr @get_midx_checksum(ptr noundef) local_unnamed_addr #2
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @close_midx_revindex(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @close_midx_revindex(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 

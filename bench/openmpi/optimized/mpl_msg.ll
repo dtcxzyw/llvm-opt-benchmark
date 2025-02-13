@@ -42,7 +42,7 @@ define noundef i32 @MPL_internal_error_printf(ptr noundef readonly captures(none
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind uwtable
-define noundef i32 @MPL_internal_sys_error_printf(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ...) local_unnamed_addr #3 {
+define noundef i32 @MPL_internal_sys_error_printf(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) local_unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call ptr @strerror(i32 noundef %1) #8

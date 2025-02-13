@@ -1938,7 +1938,7 @@ define internal i32 @heapctypewithbuffer_getbuffer(ptr noundef initializes((24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heapctypewithbuffer_releasebuffer(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 {
+define internal void @heapctypewithbuffer_releasebuffer(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = icmp eq ptr %4, %0
@@ -2074,7 +2074,7 @@ declare i32 @PyObject_GenericSetAttr(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @heapctype_vectorcall_new(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
+define internal ptr @heapctype_vectorcall_new(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !9
   %5 = getelementptr i8, ptr %.val.i, i64 168
@@ -2126,7 +2126,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @heapctype_vectorcall_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
+define internal range(i32 -1, 1) i32 @heapctype_vectorcall_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !9
   %5 = getelementptr i8, ptr %.val.i, i64 168
@@ -2179,7 +2179,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @heapctype_vectorcall_vectorcall(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef readnone %3) #0 {
+define internal ptr @heapctype_vectorcall_vectorcall(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef readnone captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   %5 = and i64 %2, 9223372036854775807
   %.not7 = icmp eq i64 %5, 0

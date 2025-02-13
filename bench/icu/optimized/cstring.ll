@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @T_CString_toLowerCase_75(ptr noundef returned %str) local_unnamed_addr #1 {
+define noundef ptr @T_CString_toLowerCase_75(ptr noundef returned captures(address_is_null, ret: address, provenance) %str) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end, label %do.body
@@ -70,7 +70,7 @@ if.end:                                           ; preds = %do.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @T_CString_toUpperCase_75(ptr noundef returned %str) local_unnamed_addr #1 {
+define noundef ptr @T_CString_toUpperCase_75(ptr noundef returned captures(address_is_null, ret: address, provenance) %str) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end, label %do.body
@@ -207,7 +207,7 @@ entry:
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -254, 255) i32 @uprv_stricmp_75(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #6 {
+define range(i32 -254, 255) i32 @uprv_stricmp_75(ptr noundef readonly captures(address_is_null) %str1, ptr noundef readonly captures(address_is_null) %str2) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %str1, null
   br i1 %cmp, label %if.then, label %if.else3
@@ -270,7 +270,7 @@ return:                                           ; preds = %if.else17, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -254, 255) i32 @uprv_strnicmp_75(ptr noundef readonly %str1, ptr noundef readonly %str2, i32 noundef %n) local_unnamed_addr #6 {
+define range(i32 -254, 255) i32 @uprv_strnicmp_75(ptr noundef readonly captures(address_is_null) %str1, ptr noundef readonly captures(address_is_null) %str2, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %str1, null
   br i1 %cmp, label %if.then, label %if.else3

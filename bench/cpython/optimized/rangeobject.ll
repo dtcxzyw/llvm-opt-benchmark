@@ -1197,7 +1197,7 @@ Py_DECREF.exit:                                   ; preds = %47, %44, %42, %1
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @range_richcompare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
+define internal ptr @range_richcompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !17
   %.not = icmp eq ptr %.val, @PyRange_Type

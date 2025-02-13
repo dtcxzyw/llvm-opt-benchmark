@@ -2356,14 +2356,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory4bags11SolverState7getBagsEv(ptr noundef nonnull readnone align 8 dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory4bags11SolverState7getBagsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_bags = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %d_bags
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory4bags11SolverState19getCardinalityTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory4bags11SolverState19getCardinalityTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_cardTerms = getelementptr inbounds nuw i8, ptr %this, i64 248
   ret ptr %d_cardTerms
@@ -4372,7 +4372,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq15EqClassIteratorppEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory4bags11SolverState19getDisequalBagTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58internal6theory4bags11SolverState19getDisequalBagTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_deq = getelementptr inbounds nuw i8, ptr %this, i64 200
   ret ptr %d_deq

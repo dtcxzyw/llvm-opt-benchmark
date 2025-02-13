@@ -264,7 +264,7 @@ define dso_local void @clear_itimer() local_unnamed_addr #0 align 16 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @do_setitimer(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @do_setitimer(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !20
   %5 = inttoptr i64 %4 to ptr
   switch i32 %0, label %92 [
@@ -935,7 +935,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare dso_local i32 @hrtimer_try_to_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_cpu_itimer(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc void @set_cpu_itimer(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8

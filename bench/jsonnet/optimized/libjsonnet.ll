@@ -4432,7 +4432,7 @@ define noundef ptr @jsonnet_evaluate_snippet_stream(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias noundef ptr @jsonnet_realloc(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define noalias noundef ptr @jsonnet_realloc(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i64 %2, 0
   br i1 %4, label %6, label %11

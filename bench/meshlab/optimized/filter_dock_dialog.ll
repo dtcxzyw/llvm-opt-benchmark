@@ -3291,7 +3291,7 @@ declare noundef zeroext i1 @_ZN17RichParameterListeqERKS_(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZN14MeshModelState5applyEP9MeshModel(ptr noundef nonnull align 8 dereferenceable(436), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null

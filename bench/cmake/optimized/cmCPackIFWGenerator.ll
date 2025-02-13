@@ -18426,7 +18426,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK19cmCPackIFWGenerator15GetGroupPackageEP21cmCPackComponentGroup(ptr noundef nonnull readonly align 8 dereferenceable(2448) %0, ptr noundef readnone %1) local_unnamed_addr #11 align 2 {
+define dso_local noundef ptr @_ZNK19cmCPackIFWGenerator15GetGroupPackageEP21cmCPackComponentGroup(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2448) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2136
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2128
@@ -18469,7 +18469,7 @@ _ZNKSt3mapIP21cmCPackComponentGroupP17cmCPackIFWPackageSt4lessIS1_ESaISt4pairIKS
 declare void @_ZN5cmsys11SystemTools9UpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK19cmCPackIFWGenerator19GetComponentPackageEP16cmCPackComponent(ptr noundef nonnull readonly align 8 dereferenceable(2448) %0, ptr noundef readnone %1) local_unnamed_addr #11 align 2 {
+define dso_local noundef ptr @_ZNK19cmCPackIFWGenerator19GetComponentPackageEP16cmCPackComponent(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2448) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2080

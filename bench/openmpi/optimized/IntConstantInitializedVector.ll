@@ -63,7 +63,7 @@ define hidden void @tm_intCIV_init(ptr noundef writeonly captures(none) initiali
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @tm_intCIV_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @tm_intCIV_set(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %or.cond = or i1 %4, %5
@@ -128,7 +128,7 @@ tm_intCIV_isInitialized.exit:                     ; preds = %18, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @tm_intCIV_get(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @tm_intCIV_get(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %or.cond = or i1 %3, %4

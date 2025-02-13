@@ -317,7 +317,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @reltable.AdbcStatusCodeMessage = private unnamed_addr constant [15 x i32] [i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.98 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.99 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.100 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.101 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.102 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.103 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.104 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.105 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.106 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.107 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.108 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.109 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.110 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.111 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.112 to i64), i64 ptrtoint (ptr @reltable.AdbcStatusCodeMessage to i64)) to i32)], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext range(i8 0, 6) i8 @duckdb_adbc_init(i32 noundef %version, ptr noundef writeonly %driver, ptr noundef readnone captures(none) %error) local_unnamed_addr #0 {
+define noundef zeroext range(i8 0, 6) i8 @duckdb_adbc_init(i32 noundef %version, ptr noundef writeonly captures(address_is_null) %driver, ptr noundef readnone captures(none) %error) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %driver, null
   br i1 %tobool.not, label %return, label %if.end
@@ -386,7 +386,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc11DatabaseNewEP12AdbcDatabaseP9AdbcError(ptr noundef writeonly %database, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc11DatabaseNewEP12AdbcDatabaseP9AdbcError(ptr noundef writeonly captures(address_is_null) %database, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i43 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -566,7 +566,7 @@ eh.resume:                                        ; preds = %ehcleanup15, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc17DatabaseSetOptionEP12AdbcDatabasePKcS3_P9AdbcError(ptr noundef readonly %database, ptr noundef %key, ptr noundef %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc17DatabaseSetOptionEP12AdbcDatabasePKcS3_P9AdbcError(ptr noundef readonly captures(address_is_null) %database, ptr noundef %key, ptr noundef %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -733,7 +733,7 @@ eh.resume:                                        ; preds = %ehcleanup15, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc12DatabaseInitEP12AdbcDatabaseP9AdbcError(ptr noundef readonly %database, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc12DatabaseInitEP12AdbcDatabaseP9AdbcError(ptr noundef readonly captures(address_is_null) %database, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -837,7 +837,7 @@ return:                                           ; preds = %if.end14, %_ZNSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc15DatabaseReleaseEP12AdbcDatabaseP9AdbcError(ptr noundef %database, ptr readnone captures(none) %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN11duckdb_adbc15DatabaseReleaseEP12AdbcDatabaseP9AdbcError(ptr noundef captures(address_is_null) %database, ptr readnone captures(none) %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %database, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -878,7 +878,7 @@ if.end:                                           ; preds = %_ZN11duckdb_adbc25D
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc13ConnectionNewEP14AdbcConnectionP9AdbcError(ptr noundef writeonly %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc13ConnectionNewEP14AdbcConnectionP9AdbcError(ptr noundef writeonly captures(address_is_null) %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -955,7 +955,7 @@ return:                                           ; preds = %if.end, %_ZNSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc19ConnectionSetOptionEP14AdbcConnectionPKcS3_P9AdbcError(ptr noundef readonly %connection, ptr noundef readonly captures(none) %key, ptr noundef readonly %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc19ConnectionSetOptionEP14AdbcConnectionPKcS3_P9AdbcError(ptr noundef readonly captures(address_is_null) %connection, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(address_is_null) %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i358 = alloca i64, align 8
   %__dnew.i.i306 = alloca i64, align 8
@@ -2115,7 +2115,7 @@ eh.resume:                                        ; preds = %ehcleanup136, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc14ConnectionInitEP14AdbcConnectionP12AdbcDatabaseP9AdbcError(ptr noundef %connection, ptr noundef readonly %database, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc14ConnectionInitEP14AdbcConnectionP12AdbcDatabaseP9AdbcError(ptr noundef %connection, ptr noundef readonly captures(address_is_null) %database, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i83 = alloca i64, align 8
   %__dnew.i.i59 = alloca i64, align 8
@@ -2384,14 +2384,14 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc23ConnectionGetTableTypesEP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef %error) #2 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc23ConnectionGetTableTypesEP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr noundef captures(address_is_null) %connection, ptr noundef captures(address_is_null) %out, ptr noundef %error) #2 {
 entry:
   %call = tail call fastcc noundef zeroext i8 @_ZN11duckdb_adbcL13QueryInternalEP14AdbcConnectionP16ArrowArrayStreamPKcP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef nonnull @.str.82, ptr noundef %error)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc12StatementNewEP14AdbcConnectionP13AdbcStatementP9AdbcError(ptr noundef readonly %connection, ptr noundef writeonly %statement, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc12StatementNewEP14AdbcConnectionP13AdbcStatementP9AdbcError(ptr noundef readonly captures(address_is_null) %connection, ptr noundef writeonly captures(address_is_null) %statement, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i130 = alloca i64, align 8
   %__dnew.i.i106 = alloca i64, align 8
@@ -2716,7 +2716,7 @@ eh.resume:                                        ; preds = %ehcleanup42, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc16StatementReleaseEP13AdbcStatementP9AdbcError(ptr noundef %statement, ptr readnone captures(none) %error) #2 {
+define noundef zeroext i8 @_ZN11duckdb_adbc16StatementReleaseEP13AdbcStatementP9AdbcError(ptr noundef captures(address_is_null) %statement, ptr readnone captures(none) %error) #2 {
 entry:
   %tobool.not = icmp eq ptr %statement, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2782,7 +2782,7 @@ return:                                           ; preds = %if.end26, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc13StatementBindEP13AdbcStatementP10ArrowArrayP11ArrowSchemaP9AdbcError(ptr noundef readonly %statement, ptr noundef %values, ptr noundef %schemas, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN11duckdb_adbc13StatementBindEP13AdbcStatementP10ArrowArrayP11ArrowSchemaP9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef %values, ptr noundef %schemas, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i130 = alloca i64, align 8
   %__dnew.i.i106 = alloca i64, align 8
@@ -3109,7 +3109,7 @@ eh.resume:                                        ; preds = %ehcleanup41, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc19StatementBindStreamEP13AdbcStatementP16ArrowArrayStreamP9AdbcError(ptr noundef readonly %statement, ptr noundef %values, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc19StatementBindStreamEP13AdbcStatementP16ArrowArrayStreamP9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef captures(address_is_null) %values, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i90 = alloca i64, align 8
   %__dnew.i.i66 = alloca i64, align 8
@@ -3363,7 +3363,7 @@ eh.resume:                                        ; preds = %ehcleanup28, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc21StatementExecuteQueryEP13AdbcStatementP16ArrowArrayStreamPlP9AdbcError(ptr noundef readonly %statement, ptr noundef writeonly %out, ptr noundef writeonly %rows_affected, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc21StatementExecuteQueryEP13AdbcStatementP16ArrowArrayStreamPlP9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef writeonly captures(address_is_null) %out, ptr noundef writeonly captures(address_is_null) %rows_affected, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i440 = alloca i64, align 8
   %__dnew.i.i404 = alloca i64, align 8
@@ -4437,7 +4437,7 @@ eh.resume:                                        ; preds = %ehcleanup209, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc16StatementPrepareEP13AdbcStatementP9AdbcError(ptr noundef readonly %statement, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc16StatementPrepareEP13AdbcStatementP9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i34 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -4599,7 +4599,7 @@ eh.resume:                                        ; preds = %ehcleanup15, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc18StatementSetOptionEP13AdbcStatementPKcS3_P9AdbcError(ptr noundef readonly %statement, ptr noundef readonly %key, ptr noundef readonly captures(none) %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc18StatementSetOptionEP13AdbcStatementPKcS3_P9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef readonly captures(address_is_null) %key, ptr noundef readonly captures(none) %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i121 = alloca i64, align 8
   %__dnew.i.i97 = alloca i64, align 8
@@ -4947,7 +4947,7 @@ eh.resume:                                        ; preds = %ehcleanup62, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc20StatementSetSqlQueryEP13AdbcStatementPKcP9AdbcError(ptr noundef readonly %statement, ptr noundef %query, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc20StatementSetSqlQueryEP13AdbcStatementPKcP9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef %query, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i60 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -5179,7 +5179,7 @@ eh.resume:                                        ; preds = %ehcleanup28, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc20ConnectionGetObjectsEP14AdbcConnectioniPKcS3_S3_PS3_S3_P16ArrowArrayStreamP9AdbcError(ptr noundef %connection, i32 noundef %depth, ptr noundef readonly %catalog, ptr noundef %db_schema, ptr noundef %table_name, ptr noundef readnone %table_type, ptr noundef %column_name, ptr noundef %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc20ConnectionGetObjectsEP14AdbcConnectioniPKcS3_S3_PS3_S3_P16ArrowArrayStreamP9AdbcError(ptr noundef captures(address_is_null) %connection, i32 noundef %depth, ptr noundef readonly captures(address_is_null) %catalog, ptr noundef %db_schema, ptr noundef %table_name, ptr noundef readnone captures(address_is_null) %table_type, ptr noundef %column_name, ptr noundef captures(address_is_null) %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i414 = alloca i64, align 8
   %values.i.i345 = alloca %"class.std::vector.234", align 8
@@ -6216,7 +6216,7 @@ eh.resume:                                        ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc16ConnectionCommitEP14AdbcConnectionP9AdbcError(ptr noundef readonly %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc16ConnectionCommitEP14AdbcConnectionP9AdbcError(ptr noundef readonly captures(address_is_null) %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i44 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -6386,7 +6386,7 @@ eh.resume:                                        ; preds = %ehcleanup14, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc18ConnectionRollbackEP14AdbcConnectionP9AdbcError(ptr noundef readonly %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc18ConnectionRollbackEP14AdbcConnectionP9AdbcError(ptr noundef readonly captures(address_is_null) %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i44 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -6684,7 +6684,7 @@ ehcleanup:                                        ; preds = %if.then.i.i11, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc17ConnectionGetInfoEP14AdbcConnectionPKjmP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef readonly %info_codes, i64 noundef %info_codes_length, ptr noundef %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc17ConnectionGetInfoEP14AdbcConnectionPKjmP16ArrowArrayStreamP9AdbcError(ptr noundef captures(address_is_null) %connection, ptr noundef readonly captures(address_is_null) %info_codes, i64 noundef %info_codes_length, ptr noundef captures(address_is_null) %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %values.i.i = alloca %"class.std::vector.234", align 8
   %__dnew.i.i210 = alloca i64, align 8
@@ -7354,7 +7354,7 @@ eh.resume:                                        ; preds = %ehcleanup121, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc27StatementGetParameterSchemaEP13AdbcStatementP11ArrowSchemaP9AdbcError(ptr noundef readonly %statement, ptr noundef %schema, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN11duckdb_adbc27StatementGetParameterSchemaEP13AdbcStatementP11ArrowSchemaP9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef %schema, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i80 = alloca i64, align 8
   %__dnew.i.i56 = alloca i64, align 8
@@ -7601,7 +7601,7 @@ eh.resume:                                        ; preds = %ehcleanup28, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc24ConnectionGetTableSchemaEP14AdbcConnectionPKcS3_S3_P11ArrowSchemaP9AdbcError(ptr noundef %connection, ptr noundef readonly %catalog, ptr noundef readonly %db_schema, ptr noundef readonly %table_name, ptr noundef %schema, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc24ConnectionGetTableSchemaEP14AdbcConnectionPKcS3_S3_P11ArrowSchemaP9AdbcError(ptr noundef captures(address_is_null) %connection, ptr noundef readonly captures(address_is_null) %catalog, ptr noundef readonly captures(address_is_null) %db_schema, ptr noundef readonly captures(address_is_null) %table_name, ptr noundef %schema, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i278 = alloca i64, align 8
   %__dnew.i.i231 = alloca i64, align 8
@@ -8395,7 +8395,7 @@ eh.resume:                                        ; preds = %ehcleanup105, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc25StatementSetSubstraitPlanEP13AdbcStatementPKhmP9AdbcError(ptr noundef readonly %statement, ptr noundef readonly %plan, i64 noundef %length, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc25StatementSetSubstraitPlanEP13AdbcStatementPKhmP9AdbcError(ptr noundef readonly captures(address_is_null) %statement, ptr noundef readonly captures(address_is_null) %plan, i64 noundef %length, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i137 = alloca i64, align 8
   %__dnew.i.i113 = alloca i64, align 8
@@ -8894,7 +8894,7 @@ eh.resume:                                        ; preds = %ehcleanup58, %ehcle
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11duckdb_adbc19InitializeADBCErrorEP9AdbcError(ptr noundef writeonly %error) local_unnamed_addr #0 {
+define void @_ZN11duckdb_adbc19InitializeADBCErrorEP9AdbcError(ptr noundef writeonly captures(address_is_null) %error) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %error, null
   br i1 %tobool.not, label %return, label %if.end
@@ -8925,7 +8925,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc11CheckResultER12duckdb_stateP9AdbcErrorPKc(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %res, ptr noundef %error, ptr noundef readonly %error_msg) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc11CheckResultER12duckdb_stateP9AdbcErrorPKc(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %res, ptr noundef %error, ptr noundef readonly captures(address_is_null) %error_msg) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9337,7 +9337,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbcL13QueryInternalEP14AdbcConnectionP16ArrowArrayStreamPKcP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef %query, ptr noundef %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbcL13QueryInternalEP14AdbcConnectionP16ArrowArrayStreamPKcP9AdbcError(ptr noundef captures(address_is_null) %connection, ptr noundef captures(address_is_null) %out, ptr noundef %query, ptr noundef %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i138 = alloca i64, align 8
   %__dnew.i.i93 = alloca i64, align 8
@@ -9801,7 +9801,7 @@ ehcleanup40:                                      ; preds = %ehcleanup35, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc12ExecuteQueryEPN6duckdb10ConnectionEPKcP9AdbcError(ptr noundef %conn, ptr noundef readonly %query, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc12ExecuteQueryEPN6duckdb10ConnectionEPKcP9AdbcError(ptr noundef %conn, ptr noundef readonly captures(address_is_null) %query, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i54 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -11626,7 +11626,7 @@ declare void @duckdb_destroy_prepare(ptr noundef) local_unnamed_addr #6
 declare i32 @duckdb_prepared_arrow_schema(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc21GetPreparedParametersEP18_duckdb_connectionRN6duckdb10unique_ptrINS2_11QueryResultESt14default_deleteIS4_ELb1EEEP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %result, ptr noundef %input, ptr noundef writeonly %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc21GetPreparedParametersEP18_duckdb_connectionRN6duckdb10unique_ptrINS2_11QueryResultESt14default_deleteIS4_ELb1EEEP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %result, ptr noundef %input, ptr noundef writeonly captures(address_is_null) %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrow_scan = alloca %"class.std::shared_ptr.80", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12222,7 +12222,7 @@ declare i32 @duckdb_execute_prepared_arrow(ptr noundef, ptr noundef) local_unnam
 declare ptr @duckdb_query_arrow_error(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN11duckdb_adbcL10get_schemaEP16ArrowArrayStreamP11ArrowSchema(ptr noundef readonly %stream, ptr noundef %out) #2 {
+define internal noundef i32 @_ZN11duckdb_adbcL10get_schemaEP16ArrowArrayStreamP11ArrowSchema(ptr noundef readonly captures(address_is_null) %stream, ptr noundef %out) #2 {
 entry:
   %out.addr = alloca ptr, align 8
   store ptr %out, ptr %out.addr, align 8, !tbaa !48
@@ -12247,7 +12247,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN11duckdb_adbcL8get_nextEP16ArrowArrayStreamP10ArrowArray(ptr noundef readonly %stream, ptr noundef %out) #2 {
+define internal noundef i32 @_ZN11duckdb_adbcL8get_nextEP16ArrowArrayStreamP10ArrowArray(ptr noundef readonly captures(address_is_null) %stream, ptr noundef %out) #2 {
 entry:
   %out.addr = alloca ptr, align 8
   store ptr %out, ptr %out.addr, align 8, !tbaa !48
@@ -12276,7 +12276,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare noundef zeroext i8 @_ZN11duckdb_adbc18BatchToArrayStreamEP10ArrowArrayP11ArrowSchemaP16ArrowArrayStreamP9AdbcError(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z12ReleaseErrorP9AdbcError(ptr noundef %error) #4 {
+define void @_Z12ReleaseErrorP9AdbcError(ptr noundef captures(address_is_null) %error) #4 {
 entry:
   %tobool.not = icmp eq ptr %error, null
   br i1 %tobool.not, label %if.end5, label %if.then
@@ -12430,7 +12430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20ErrorArrayStreamInitP16ArrowArrayStreamP10AdbcDriver(ptr noundef %out, ptr noundef %private_driver) local_unnamed_addr #2 {
+define void @_Z20ErrorArrayStreamInitP16ArrowArrayStreamP10AdbcDriver(ptr noundef captures(address_is_null) %out, ptr noundef %private_driver) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %out, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

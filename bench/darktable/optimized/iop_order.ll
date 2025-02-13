@@ -314,7 +314,7 @@ declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @dt_ioppr_get_iop_order_link(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
+define noundef ptr @dt_ioppr_get_iop_order_link(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -365,7 +365,7 @@ define noundef ptr @dt_ioppr_get_iop_order_link(ptr noundef readonly %0, ptr nou
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @dt_ioppr_get_iop_order_entry(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
+define ptr @dt_ioppr_get_iop_order_entry(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %.not18.i = icmp eq ptr %0, null
   br i1 %.not18.i, label %dt_ioppr_get_iop_order_link.exit.thread, label %.lr.ph.i
 
@@ -413,7 +413,7 @@ dt_ioppr_get_iop_order_link.exit.thread:          ; preds = %20, %16, %9, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dt_ioppr_get_iop_order(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @dt_ioppr_get_iop_order(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not18.i.i = icmp eq ptr %0, null
   br i1 %.not18.i.i, label %.loopexit, label %.lr.ph.i.i
 
@@ -470,7 +470,7 @@ dt_ioppr_get_iop_order_entry.exit:                ; preds = %16, %.lr.ph.split.u
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @dt_ioppr_get_iop_order_last(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define i32 @dt_ioppr_get_iop_order_last(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
@@ -498,7 +498,7 @@ define i32 @dt_ioppr_get_iop_order_last(ptr noundef readonly %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_ioppr_is_iop_before(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dt_ioppr_is_iop_before(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %.not18.i.i.i = icmp eq ptr %0, null
   br i1 %.not18.i.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i.i
 
@@ -602,7 +602,7 @@ define range(i32 -1, 2) i32 @dt_sort_iop_list_by_order_f(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @_check_iop_list_equal(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @_check_iop_list_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %.not33 = icmp eq ptr %0, null
   br i1 %.not33, label %.thread, label %.lr.ph.preheader
 
@@ -649,7 +649,7 @@ define range(i32 0, 2) i32 @_check_iop_list_equal(ptr noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not33.i = icmp eq ptr %0, null
   br i1 %.not33.i, label %_check_iop_list_equal.exit.thread, label %.split
 
@@ -709,7 +709,7 @@ _check_iop_list_equal.exit.thread:                ; preds = %_check_iop_list_equ
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @dt_ioppr_has_multiple_instances(ptr noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @dt_ioppr_has_multiple_instances(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not16 = icmp eq ptr %0, null
   br i1 %.not16, label %.thread, label %.lr.ph
 
@@ -2571,7 +2571,7 @@ define ptr @dt_ioppr_iop_order_copy_deep(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_ioppr_extract_multi_instances_list(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @dt_ioppr_extract_multi_instances_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not13 = icmp eq ptr %0, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph.i.preheader
 
@@ -2691,7 +2691,7 @@ define internal noalias noundef ptr @_dup_iop_order_entry(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_ioppr_merge_module_multi_instance_iop_order_list(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define ptr @dt_ioppr_merge_module_multi_instance_iop_order_list(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %.not10.i = icmp eq ptr %0, null
   br i1 %.not10.i, label %_count_entries_operation.exit, label %.lr.ph.i
 
@@ -2818,7 +2818,7 @@ g_list_shorter_than.exit.thread:                  ; preds = %10, %46, %._crit_ed
 declare ptr @g_list_insert_before(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @dt_ioppr_update_for_style_items(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @dt_ioppr_update_for_style_items(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not47 = icmp eq ptr %1, null
   br i1 %.not47, label %._crit_edge.thread, label %.lr.ph
 
@@ -2958,7 +2958,7 @@ dt_ioppr_get_iop_order.exit:                      ; preds = %dt_ioppr_get_iop_or
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_ioppr_update_for_entries(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ioppr_update_for_entries(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #1 {
   %.not144 = icmp eq ptr %1, null
   br i1 %.not144, label %._crit_edge149, label %.lr.ph148
 
@@ -3239,7 +3239,7 @@ _count_entries_operation.exit:                    ; preds = %.lr.ph.i90
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_ioppr_update_for_modules(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @dt_ioppr_update_for_modules(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not42 = icmp eq ptr %1, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -3355,7 +3355,7 @@ dt_ioppr_get_iop_order.exit:                      ; preds = %dt_ioppr_get_iop_or
 declare ptr @dt_iop_get_instance_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @dt_ioppr_check_duplicate_iop_order(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @dt_ioppr_check_duplicate_iop_order(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !117
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
@@ -3528,7 +3528,7 @@ _ioppr_search_history_by_module.exit:             ; preds = %.lr.ph.i, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_ioppr_check_so_iop_order(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dt_ioppr_check_so_iop_order(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not11 = icmp eq ptr %0, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -4115,7 +4115,7 @@ dt_ioppr_get_iop_order_link.exit35.thread:        ; preds = %47, %36, %3, %dt_io
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_ioppr_print_module_iop_order(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @dt_ioppr_print_module_iop_order(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -4139,7 +4139,7 @@ define void @dt_ioppr_print_module_iop_order(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_ioppr_print_history_iop_order(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @dt_ioppr_print_history_iop_order(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -4163,7 +4163,7 @@ define void @dt_ioppr_print_history_iop_order(ptr noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_ioppr_print_iop_order(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @dt_ioppr_print_iop_order(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -4711,7 +4711,7 @@ _ioppr_check_rules.exit:                          ; preds = %._crit_edge164.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @dt_ioppr_serialize_iop_order_list(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define noalias noundef ptr @dt_ioppr_serialize_iop_order_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit.sink.split, label %3, !prof !125
 

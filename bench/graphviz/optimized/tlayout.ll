@@ -1516,7 +1516,7 @@ doRep.exit:                                       ; preds = %.doRep.exit_crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr noundef readnone %2) unnamed_addr #0 {
+define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr noundef readnone captures(address_is_null) %2) unnamed_addr #0 {
   %4 = fmul double %1, %1
   %5 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not64 = icmp eq ptr %5, null
@@ -1700,7 +1700,7 @@ define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr no
 declare i32 @rand() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = tail call ptr @findGrid(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
   %6 = icmp ne ptr %5, null
   %7 = icmp ne ptr %3, null

@@ -618,7 +618,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_cert_request_type(ptr noundef writeonly %options, i32 noundef %type) local_unnamed_addr #8 {
+define void @grpc_tls_credentials_options_set_cert_request_type(ptr noundef writeonly captures(address_is_null) %options, i32 noundef %type) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -634,7 +634,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_verify_server_cert(ptr noundef writeonly %options, i32 noundef %verify_server_cert) local_unnamed_addr #8 {
+define void @grpc_tls_credentials_options_set_verify_server_cert(ptr noundef writeonly captures(address_is_null) %options, i32 noundef %verify_server_cert) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -652,7 +652,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define void @grpc_tls_credentials_options_set_certificate_provider(ptr noundef %options, ptr noundef %provider) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_certificate_provider(ptr noundef captures(address_is_null) %options, ptr noundef %provider) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %cmp.not = icmp eq ptr %options, null
@@ -822,7 +822,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %if.end.i, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_watch_root_certs(ptr noundef writeonly %options) local_unnamed_addr #8 {
+define void @grpc_tls_credentials_options_watch_root_certs(ptr noundef writeonly captures(address_is_null) %options) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -909,7 +909,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_watch_identity_key_cert_pairs(ptr noundef writeonly %options) local_unnamed_addr #8 {
+define void @grpc_tls_credentials_options_watch_identity_key_cert_pairs(ptr noundef writeonly captures(address_is_null) %options) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -987,7 +987,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_certificate_verifier(ptr noundef %options, ptr noundef %verifier) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @grpc_tls_credentials_options_set_certificate_verifier(ptr noundef captures(address_is_null) %options, ptr noundef %verifier) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.body1
@@ -1093,7 +1093,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_check_call_host(ptr noundef writeonly %options, i32 noundef %check_call_host) local_unnamed_addr #8 {
+define void @grpc_tls_credentials_options_set_check_call_host(ptr noundef writeonly captures(address_is_null) %options, i32 noundef %check_call_host) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1185,7 +1185,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_tls_credentials_options_set_send_client_ca_list(ptr noundef writeonly %options, i1 noundef zeroext %send_client_ca_list) local_unnamed_addr #11 {
+define void @grpc_tls_credentials_options_set_send_client_ca_list(ptr noundef writeonly captures(address_is_null) %options, i1 noundef zeroext %send_client_ca_list) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %options, null
   br i1 %cmp, label %return, label %if.end
@@ -1201,7 +1201,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z45grpc_tls_credentials_options_set_crl_providerP28grpc_tls_credentials_optionsSt10shared_ptrIN9grpc_core12experimental11CrlProviderEE(ptr noundef %options, ptr noundef readonly captures(none) %provider) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_Z45grpc_tls_credentials_options_set_crl_providerP28grpc_tls_credentials_optionsSt10shared_ptrIN9grpc_core12experimental11CrlProviderEE(ptr noundef captures(address_is_null) %options, ptr noundef readonly captures(none) %provider) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1315,7 +1315,7 @@ _ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_min_tls_version(ptr noundef writeonly %options, i32 noundef %min_tls_version) local_unnamed_addr #8 {
+define void @grpc_tls_credentials_options_set_min_tls_version(ptr noundef writeonly captures(address_is_null) %options, i32 noundef %min_tls_version) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1331,7 +1331,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_tls_credentials_options_set_max_tls_version(ptr noundef writeonly %options, i32 noundef %max_tls_version) local_unnamed_addr #8 {
+define void @grpc_tls_credentials_options_set_max_tls_version(ptr noundef writeonly captures(address_is_null) %options, i32 noundef %max_tls_version) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %options, null
   br i1 %cmp.not, label %if.then, label %do.end

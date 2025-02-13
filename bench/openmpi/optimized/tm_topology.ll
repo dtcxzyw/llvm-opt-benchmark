@@ -1774,7 +1774,7 @@ tailrecurse:                                      ; preds = %54
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias noundef ptr @tm_build_synthetic_topology(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
+define hidden noalias noundef ptr @tm_build_synthetic_topology(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 0, ptr %7, align 8

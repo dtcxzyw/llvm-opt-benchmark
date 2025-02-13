@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Get_processor_name_f08 = weak alias void (ptr, ptr, ptr, i32), ptr @ompi_get_processor_name_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_get_processor_name_f(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
+define void @ompi_get_processor_name_f(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = alloca [256 x i8], align 16
   %6 = call i32 @PMPI_Get_processor_name(ptr noundef nonnull %5, ptr noundef %1) #4
   %7 = icmp eq i32 %6, 0

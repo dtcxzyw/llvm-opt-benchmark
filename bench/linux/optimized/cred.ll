@@ -1359,7 +1359,7 @@ define dso_local void @revert_creds(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef range(i32 -1, 2) i32 @cred_fscmp(ptr noundef readonly %0, ptr noundef readonly %1) #4 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @cred_fscmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #4 align 16 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 

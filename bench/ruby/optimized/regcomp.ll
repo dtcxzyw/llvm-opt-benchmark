@@ -319,7 +319,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @onig_names_copy(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @onig_memsize(ptr noundef readonly %0) local_unnamed_addr #8 {
+define dso_local i64 @onig_memsize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %._crit_edge, label %.lr.ph
 
@@ -396,7 +396,7 @@ tailrecurse:                                      ; preds = %28, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -34359738344, 34359738377) i64 @onig_region_memsize(ptr noundef readonly %0) local_unnamed_addr #9 {
+define dso_local range(i64 -34359738344, 34359738377) i64 @onig_region_memsize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -413,13 +413,13 @@ define dso_local range(i64 -34359738344, 34359738377) i64 @onig_region_memsize(p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local i32 @onig_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = tail call i32 @onig_compile_ruby(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_compile_ruby(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define dso_local i32 @onig_compile_ruby(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca %struct.NodeOptInfo, align 8
   %8 = alloca %struct.OptEnv, align 8
   %9 = alloca ptr, align 8
@@ -5964,7 +5964,7 @@ define internal fastcc range(i32 -11, 1) i32 @unset_addr_list_fix(ptr noundef no
 declare void @onig_node_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -403, 1) i32 @onig_reg_init(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define dso_local range(i32 -403, 1) i32 @onig_reg_init(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %.b = load i1, ptr @onig_inited, align 4
   br i1 %.b, label %7, label %onig_init.exit
 
@@ -6037,7 +6037,7 @@ define dso_local noundef i32 @onig_init() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_new_without_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define dso_local i32 @onig_new_without_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4
   %.b.i = load i1, ptr @onig_inited, align 4
   br i1 %.b.i, label %10, label %onig_init.exit.i
@@ -6098,7 +6098,7 @@ onig_reg_init.exit.thread:                        ; preds = %14, %12, %10, %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onig_new(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define dso_local i32 @onig_new(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = tail call noalias dereferenceable_or_null(456) ptr @malloc(i64 noundef 456) #19
   store ptr %8, ptr %0, align 8
   %9 = icmp eq ptr %8, null
@@ -6895,7 +6895,7 @@ common.ret112:                                    ; preds = %35, %30, %46, %52, 
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -208, 1) i32 @get_min_match_length(ptr noundef %0, ptr noundef nonnull initializes((0, 8)) %1, ptr noundef %2) unnamed_addr #12 {
+define internal fastcc range(i32 -208, 1) i32 @get_min_match_length(ptr noundef captures(address) %0, ptr noundef nonnull initializes((0, 8)) %1, ptr noundef %2) unnamed_addr #12 {
   %4 = alloca i64, align 8
   br label %tailrecurse
 
@@ -7511,7 +7511,7 @@ divide_look_behind_alternatives.exit:             ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @get_head_value_node(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef captures(none) %2) unnamed_addr #12 {
+define internal fastcc ptr @get_head_value_node(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef range(i32 0, 2) %1, ptr noundef captures(none) %2) unnamed_addr #12 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %3
@@ -8408,7 +8408,7 @@ tailrecurse.backedge:                             ; preds = %89, %96, %96, %96
 declare ptr @onig_node_new_anchor(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @optimize_node_left(ptr noundef %0, ptr noundef nonnull initializes((0, 61), (88, 125), (152, 189), (216, 504)) %1, ptr noundef nonnull %2) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483648, 1) i32 @optimize_node_left(ptr noundef captures(address) %0, ptr noundef nonnull initializes((0, 61), (88, 125), (152, 189), (216, 504)) %1, ptr noundef nonnull %2) unnamed_addr #4 {
   %4 = alloca %struct.OptEnv, align 8
   %5 = alloca %struct.NodeOptInfo, align 8
   %6 = alloca %struct.NodeOptInfo, align 8

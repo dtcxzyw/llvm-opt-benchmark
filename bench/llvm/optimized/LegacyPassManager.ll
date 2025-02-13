@@ -508,7 +508,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13PMDataManager31isPassDebuggingEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm13PMDataManager18initSizeRemarkInfoERNS_6ModuleERNS_9StringMapISt4pairIjjENS_15MallocAllocatorEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZN4llvm13PMDataManager18initSizeRemarkInfoERNS_6ModuleERNS_9StringMapISt4pairIjjENS_15MallocAllocatorEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -628,7 +628,7 @@ declare noundef i32 @_ZNK4llvm8Function19getInstructionCountEv(ptr noundef nonnu
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13PMDataManager27emitInstrCountChangedRemarkEPNS_4PassERNS_6ModuleEljRNS_9StringMapISt4pairIjjENS_15MallocAllocatorEEEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(841) %2, i64 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm13PMDataManager27emitInstrCountChangedRemarkEPNS_4PassERNS_6ModuleEljRNS_9StringMapISt4pairIjjENS_15MallocAllocatorEEEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %2, i64 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) local_unnamed_addr #4 align 2 {
   %8 = alloca i64, align 8
   %9 = alloca %class.anon.122, align 8
   %10 = alloca i64, align 8
@@ -4736,7 +4736,7 @@ _ZNSt6vectorIPN4llvm13PMDataManagerESaIS2_EE9push_backERKS2_.exit: ; preds = %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17PMTopLevelManager11setLastUserENS_8ArrayRefIPNS_4PassEEES3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr readonly %1, i64 %2, ptr noundef %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm17PMTopLevelManager11setLastUserENS_8ArrayRefIPNS_4PassEEES3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef %3) local_unnamed_addr #4 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::SmallVector.208", align 8
@@ -12289,7 +12289,7 @@ define dso_local void @_ZN4llvm13PMDataManager15getOnTheFlyPassEPNS_4PassEPKvRNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13PMDataManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(380) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm13PMDataManagerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(380) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !10
@@ -12831,7 +12831,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6i
 declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13FPPassManager11runOnModuleERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(412) %0, ptr noundef nonnull readonly align 8 dereferenceable(841) %1) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13FPPassManager11runOnModuleERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(412) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.06.09 = load ptr, ptr %3, align 8, !tbaa !25
@@ -14758,7 +14758,7 @@ _ZN4llvm6legacy15PassManagerImplD0Ev.exit:        ; preds = %_ZN4llvm11SmallVect
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #22 align 2 {
+define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #22 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1.i = load ptr, ptr %2, align 8, !tbaa !10
@@ -15847,7 +15847,7 @@ define internal void @_ZNK12_GLOBAL__N_113MPPassManager16getAnalysisUsageERN4llv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113MPPassManager18getAsPMDataManagerEv(ptr noundef nonnull readnone align 8 dereferenceable(456) %0) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113MPPassManager18getAsPMDataManagerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(456) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -16388,7 +16388,7 @@ _ZN4llvm6legacy23FunctionPassManagerImpl21releaseMemoryOnTheFlyEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113MPPassManager9getAsPassEv(ptr noundef nonnull readnone returned align 8 dereferenceable(456) %0) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113MPPassManager9getAsPassEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(456) %0) unnamed_addr #8 align 2 {
   ret ptr %0
 }
 
@@ -16413,7 +16413,7 @@ define internal void @_ZThn32_N12_GLOBAL__N_113MPPassManagerD0Ev(ptr noundef ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZThn32_N12_GLOBAL__N_113MPPassManager9getAsPassEv(ptr noundef readnone %0) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZThn32_N12_GLOBAL__N_113MPPassManager9getAsPassEv(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   ret ptr %2
 }

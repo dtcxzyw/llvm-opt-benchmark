@@ -52,7 +52,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 declare void @lv_timer_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_async_call_cancel(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_async_call_cancel(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_timer_get_next(ptr noundef null) #2
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph

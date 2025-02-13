@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_long_long_int = external global %struct.ompi_predefined_datatype_t, align 1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define void @ADIOI_Print_flatlist_node(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @ADIOI_Print_flatlist_node(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %3 = load ptr, ptr @stderr, align 8
   br i1 %2, label %4, label %6

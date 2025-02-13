@@ -738,7 +738,7 @@ return:                                           ; preds = %X509_NAME_cmp.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_get_pubkey(ptr noundef readonly %x) local_unnamed_addr #0 {
+define hidden ptr @X509_get_pubkey(ptr noundef readonly captures(address_is_null) %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -762,7 +762,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @X509_get0_pubkey_bitstr(ptr noundef readonly %x) local_unnamed_addr #5 {
+define hidden ptr @X509_get0_pubkey_bitstr(ptr noundef readonly captures(address_is_null) %x) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %x, null
   br i1 %tobool.not, label %return, label %if.end
@@ -781,7 +781,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly %x, ptr noundef %k) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly captures(address_is_null) %x, ptr noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %x, null
   br i1 %cmp.i, label %if.end7.thread, label %lor.lhs.false.i
@@ -845,7 +845,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonly %perror_depth, ptr noundef %x, ptr noundef %chain, i64 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonly captures(address_is_null) %perror_depth, ptr noundef %x, ptr noundef %chain, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 196608
   %tobool.not = icmp eq i64 %and, 0
@@ -1091,7 +1091,7 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_get_signature_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures(none) %crl, ptr noundef readonly %pk, i64 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures(none) %crl, ptr noundef readonly captures(address_is_null) %pk, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 196608
   %tobool.not = icmp eq i64 %and, 0

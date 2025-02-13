@@ -680,7 +680,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_set0_multi_prime_params(ptr noundef %r, ptr noundef readonly %primes, ptr noundef readonly %exps, ptr noundef readonly %coeffs, i32 noundef %pnum) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_set0_multi_prime_params(ptr noundef %r, ptr noundef readonly captures(address_is_null) %primes, ptr noundef readonly captures(address_is_null) %exps, ptr noundef readonly captures(address_is_null) %coeffs, i32 noundef %pnum) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %primes, null
   %cmp1 = icmp eq ptr %exps, null
@@ -802,7 +802,7 @@ declare i32 @ossl_rsa_multip_calc_product(ptr noundef) local_unnamed_addr #2
 declare void @ossl_rsa_multip_info_free_ex(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @RSA_get0_key(ptr noundef readonly captures(none) %r, ptr noundef writeonly %n, ptr noundef writeonly %e, ptr noundef writeonly %d) local_unnamed_addr #6 {
+define void @RSA_get0_key(ptr noundef readonly captures(none) %r, ptr noundef writeonly captures(address_is_null) %n, ptr noundef writeonly captures(address_is_null) %e, ptr noundef writeonly captures(address_is_null) %d) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %n, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -838,7 +838,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @RSA_get0_factors(ptr noundef readonly captures(none) %r, ptr noundef writeonly %p, ptr noundef writeonly %q) local_unnamed_addr #6 {
+define void @RSA_get0_factors(ptr noundef readonly captures(none) %r, ptr noundef writeonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %q) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -904,7 +904,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @RSA_get0_crt_params(ptr noundef readonly captures(none) %r, ptr noundef writeonly %dmp1, ptr noundef writeonly %dmq1, ptr noundef writeonly %iqmp) local_unnamed_addr #6 {
+define void @RSA_get0_crt_params(ptr noundef readonly captures(none) %r, ptr noundef writeonly captures(address_is_null) %dmp1, ptr noundef writeonly captures(address_is_null) %dmq1, ptr noundef writeonly captures(address_is_null) %iqmp) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %dmp1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -940,7 +940,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly captures(none) %r, ptr noundef writeonly %exps, ptr noundef writeonly %coeffs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly captures(none) %r, ptr noundef writeonly captures(address_is_null) %exps, ptr noundef writeonly captures(address_is_null) %coeffs) local_unnamed_addr #0 {
 entry:
   %prime_infos.i = getelementptr inbounds nuw i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos.i, align 8
@@ -1107,7 +1107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_rsa_get0_pss_params_30(ptr noundef readnone %r) local_unnamed_addr #7 {
+define nonnull ptr @ossl_rsa_get0_pss_params_30(ptr noundef readnone captures(ret: address, provenance) %r) local_unnamed_addr #7 {
 entry:
   %pss_params = getelementptr inbounds nuw i8, ptr %r, i64 104
   ret ptr %pss_params
@@ -1348,7 +1348,7 @@ return:                                           ; preds = %if.end6, %lor.lhs.f
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_get0_all_params(ptr noundef readonly %r, ptr noundef %primes, ptr noundef %exps, ptr noundef %coeffs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_get0_all_params(ptr noundef readonly captures(address_is_null) %r, ptr noundef %primes, ptr noundef %exps, ptr noundef %coeffs) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   br i1 %cmp, label %return, label %if.end

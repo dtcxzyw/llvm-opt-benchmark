@@ -30349,7 +30349,7 @@ return:                                           ; preds = %if.end, %return.sin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr noundef %object, ptr noundef nonnull %parameters) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address_is_null) %srcNode, ptr noundef %object, ptr noundef nonnull %parameters) unnamed_addr #0 align 2 {
 entry:
   %node.addr.i = alloca ptr, align 8
   %ref.tmp5 = alloca %"class.llvh::simple_ilist", align 8
@@ -34356,7 +34356,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23Functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr %methodName.coerce0, i64 %methodName.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %parameters) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address_is_null) %srcNode, ptr %methodName.coerce0, i64 %methodName.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %parameters) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp6 = alloca %"class.llvh::simple_ilist", align 8
   %0 = load ptr, ptr %this, align 8

@@ -365,7 +365,7 @@ X509_NAME_hash_ex.exit:                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq, ptr noundef writeonly %ok) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq, ptr noundef writeonly captures(address_is_null) %ok) local_unnamed_addr #0 {
 entry:
   %md = alloca [20 x i8], align 16
   %call = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str.2, ptr noundef %propq) #8
@@ -484,14 +484,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get_serialNumber(ptr noundef readnone %a) local_unnamed_addr #5 {
+define nonnull ptr @X509_get_serialNumber(ptr noundef readnone captures(ret: address, provenance) %a) local_unnamed_addr #5 {
 entry:
   %serialNumber = getelementptr inbounds nuw i8, ptr %a, i64 8
   ret ptr %serialNumber
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_get0_serialNumber(ptr noundef readnone %a) local_unnamed_addr #5 {
+define nonnull ptr @X509_get0_serialNumber(ptr noundef readnone captures(ret: address, provenance) %a) local_unnamed_addr #5 {
 entry:
   %serialNumber = getelementptr inbounds nuw i8, ptr %a, i64 8
   ret ptr %serialNumber
@@ -933,7 +933,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_get0_pubkey(ptr noundef readonly %x) local_unnamed_addr #0 {
+define ptr @X509_get0_pubkey(ptr noundef readonly captures(address_is_null) %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -952,7 +952,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @X509_PUBKEY_get0(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_get_pubkey(ptr noundef readonly %x) local_unnamed_addr #0 {
+define ptr @X509_get_pubkey(ptr noundef readonly captures(address_is_null) %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -971,7 +971,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly %cert, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly captures(address_is_null) %cert, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %cert, null
   br i1 %cmp.i, label %if.then, label %X509_get0_pubkey.exit
@@ -1048,7 +1048,7 @@ return:                                           ; preds = %if.end, %sw.default
 declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonly %perror_depth, ptr noundef %x, ptr noundef %chain, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonly captures(address_is_null) %perror_depth, ptr noundef %x, ptr noundef %chain, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %curve_name.i83 = alloca [80 x i8], align 16
   %curve_name_len.i84 = alloca i64, align 8

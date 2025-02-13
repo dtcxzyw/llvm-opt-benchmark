@@ -4303,7 +4303,7 @@ ehcleanup115:                                     ; preds = %lpad.loopexit161, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_lbEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %var, ptr noundef readonly captures(none) %e) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_lbEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef captures(address) %var, ptr noundef readonly captures(none) %e) local_unnamed_addr #3 align 2 {
 entry:
   %m_arith = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %e, i64 4
@@ -5043,7 +5043,7 @@ return:                                           ; preds = %for.body, %_ZNK10ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_ubEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %var, ptr noundef readonly captures(none) %e) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer28lemma_quantifier_generalizer5is_ubEP3varP4expr(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef captures(address) %var, ptr noundef readonly captures(none) %e) local_unnamed_addr #3 align 2 {
 entry:
   %m_arith = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %e, i64 4

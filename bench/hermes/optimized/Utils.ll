@@ -176,7 +176,7 @@ return:                                           ; preds = %if.then8, %if.end5,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes14isDirectCalleeEPNS_5ValueEPNS_8CallInstE(ptr noundef readnone %C, ptr noundef nonnull %CI) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes14isDirectCalleeEPNS_5ValueEPNS_8CallInstE(ptr noundef readnone captures(address) %C, ptr noundef nonnull %CI) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %CI, i32 noundef 0) #3
   %cmp.not = icmp eq ptr %call.i, %C
@@ -461,7 +461,7 @@ return:                                           ; preds = %for.inc60, %if.end1
 declare noundef zeroext i1 @_ZNK6hermes5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes27deleteIncomingBlockFromPhisEPNS_10BasicBlockES1_(ptr noundef readonly %blockToModify, ptr noundef readnone %incoming) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes27deleteIncomingBlockFromPhisEPNS_10BasicBlockES1_(ptr noundef readonly captures(address) %blockToModify, ptr noundef readnone captures(address) %incoming) local_unnamed_addr #0 {
 entry:
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %blockToModify, i64 64
   %InstList.i = getelementptr inbounds nuw i8, ptr %blockToModify, i64 56

@@ -6468,7 +6468,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit8: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6487,7 +6487,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6506,7 +6506,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6525,7 +6525,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6544,7 +6544,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6563,7 +6563,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6582,7 +6582,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6601,7 +6601,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6620,7 +6620,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6639,7 +6639,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6658,7 +6658,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6677,7 +6677,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6696,7 +6696,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6715,7 +6715,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6734,7 +6734,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6753,7 +6753,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6772,7 +6772,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6791,7 +6791,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6810,7 +6810,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6829,7 +6829,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6848,7 +6848,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6867,7 +6867,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6886,7 +6886,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6905,7 +6905,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6924,7 +6924,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6943,7 +6943,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6962,7 +6962,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -6981,7 +6981,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7000,7 +7000,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7019,7 +7019,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7038,7 +7038,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7057,7 +7057,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7076,7 +7076,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7095,7 +7095,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7114,7 +7114,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7133,7 +7133,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7152,7 +7152,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7171,7 +7171,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7190,7 +7190,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7209,7 +7209,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7228,7 +7228,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7247,7 +7247,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7266,7 +7266,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7285,7 +7285,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7304,7 +7304,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7323,7 +7323,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7342,7 +7342,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
@@ -7361,7 +7361,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nchildren = getelementptr inbounds nuw i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4

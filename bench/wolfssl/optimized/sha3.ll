@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_keccak_r = internal unnamed_addr constant [24 x i64] [i64 1, i64 32898, i64 -9223372036854742902, i64 -9223372034707259392, i64 32907, i64 2147483649, i64 -9223372034707259263, i64 -9223372036854743031, i64 138, i64 136, i64 2147516425, i64 2147483658, i64 2147516555, i64 -9223372036854775669, i64 -9223372036854742903, i64 -9223372036854743037, i64 -9223372036854743038, i64 -9223372036854775680, i64 32778, i64 -9223372034707292150, i64 -9223372034707259263, i64 -9223372036854742912, i64 2147483649, i64 -9223372034707259384], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha3_224(ptr noundef writeonly %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha3_224(ptr noundef writeonly captures(address_is_null) %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
@@ -27,14 +27,14 @@ wc_InitSha3.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_224_Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_224_Update(ptr noundef captures(address_is_null) %sha3, ptr noundef captures(address_is_null) %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @wc_Sha3Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len, i8 noundef zeroext 18)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef %sha3, ptr noundef readonly %data, i32 noundef %len, i8 noundef zeroext range(i8 9, 19) %p) unnamed_addr #1 {
+define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef captures(address_is_null) %sha3, ptr noundef readonly captures(address_is_null) %data, i32 noundef %len, i8 noundef zeroext range(i8 9, 19) %p) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha3, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -179,7 +179,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_224_Final(ptr noundef %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_224_Final(ptr noundef captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   %cmp1.i = icmp eq ptr %hash, null
@@ -246,7 +246,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_224_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_224_GetHash(ptr noundef readonly captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)
@@ -309,7 +309,7 @@ wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Fina
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_224_Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_Sha3_224_Copy(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %src, null
   %cmp1.i = icmp eq ptr %dst, null
@@ -326,7 +326,7 @@ wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha3_256(ptr noundef writeonly %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha3_256(ptr noundef writeonly captures(address_is_null) %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
@@ -345,14 +345,14 @@ wc_InitSha3.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_256_Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_256_Update(ptr noundef captures(address_is_null) %sha3, ptr noundef captures(address_is_null) %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @wc_Sha3Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len, i8 noundef zeroext 17)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_256_Final(ptr noundef %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_256_Final(ptr noundef captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   %cmp1.i = icmp eq ptr %hash, null
@@ -419,7 +419,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_256_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_256_GetHash(ptr noundef readonly captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)
@@ -482,7 +482,7 @@ wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Fina
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_256_Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_Sha3_256_Copy(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %src, null
   %cmp1.i = icmp eq ptr %dst, null
@@ -499,7 +499,7 @@ wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha3_384(ptr noundef writeonly %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha3_384(ptr noundef writeonly captures(address_is_null) %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
@@ -518,14 +518,14 @@ wc_InitSha3.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_384_Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_384_Update(ptr noundef captures(address_is_null) %sha3, ptr noundef captures(address_is_null) %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @wc_Sha3Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len, i8 noundef zeroext 13)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_384_Final(ptr noundef %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_384_Final(ptr noundef captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   %cmp1.i = icmp eq ptr %hash, null
@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_384_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_384_GetHash(ptr noundef readonly captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)
@@ -655,7 +655,7 @@ wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Fina
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_384_Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_Sha3_384_Copy(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %src, null
   %cmp1.i = icmp eq ptr %dst, null
@@ -672,7 +672,7 @@ wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha3_512(ptr noundef writeonly %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha3_512(ptr noundef writeonly captures(address_is_null) %sha3, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
@@ -691,14 +691,14 @@ wc_InitSha3.exit:                                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_512_Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_512_Update(ptr noundef captures(address_is_null) %sha3, ptr noundef captures(address_is_null) %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @wc_Sha3Update(ptr noundef %sha3, ptr noundef %data, i32 noundef %len, i8 noundef zeroext 9)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_512_Final(ptr noundef %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_512_Final(ptr noundef captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %sha3, null
   %cmp1.i = icmp eq ptr %hash, null
@@ -765,7 +765,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_512_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_512_GetHash(ptr noundef readonly captures(address_is_null) %sha3, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)
@@ -828,7 +828,7 @@ wc_Sha3GetHash.exit:                              ; preds = %entry, %wc_Sha3Fina
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Sha3_512_Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_Sha3_512_Copy(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %src, null
   %cmp1.i = icmp eq ptr %dst, null

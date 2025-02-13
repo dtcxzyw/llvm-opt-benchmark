@@ -377,7 +377,7 @@ define dso_local void @nlmsvc_mark_resources(ptr noundef %0) local_unnamed_addr 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @nlm_traverse_files(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.file_lock, align 8
   tail call void @mutex_lock(ptr noundef nonnull @nlm_file_mutex) #12
   %5 = icmp eq ptr %2, null
@@ -670,7 +670,7 @@ define dso_local void @nlmsvc_free_host_resources(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef range(i32 0, 2) i32 @nlmsvc_same_host(ptr noundef readnone %0, ptr noundef readnone %1) #7 align 16 {
+define internal noundef range(i32 0, 2) i32 @nlmsvc_same_host(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #7 align 16 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4

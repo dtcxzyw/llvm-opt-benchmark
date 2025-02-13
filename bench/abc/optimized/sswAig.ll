@@ -711,7 +711,7 @@ declare ptr @Aig_ObjCreateCi(ptr noundef) local_unnamed_addr #3
 declare void @srand(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Ssw_FramesConstrainNode(ptr noundef captures(none) %0, ptr noundef %1, ptr readonly %.256.val, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
+define internal fastcc void @Ssw_FramesConstrainNode(ptr noundef captures(none) %0, ptr noundef %1, ptr readonly captures(address_is_null) %.256.val, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
   %.not.i = icmp eq ptr %.256.val, null
   br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 

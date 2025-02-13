@@ -993,7 +993,7 @@ return:                                           ; preds = %if.end9, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_DSA_PVK_bio_ex(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @b2i_DSA_PVK_bio_ex(ptr noundef %in, ptr noundef captures(address_is_null) %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %isdss = alloca i32, align 4
   %ispub = alloca i32, align 4
@@ -1004,7 +1004,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef readonly %cb, ptr noundef %u, ptr noundef nonnull captures(none) %isdss, ptr noundef nonnull captures(none) %ispub, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %u, ptr noundef nonnull captures(none) %isdss, ptr noundef nonnull captures(none) %ispub, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %keybuf.i = alloca [20 x i8], align 16
   %psbuf.i = alloca [1024 x i8], align 16
@@ -1221,7 +1221,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_DSA_PVK_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define ptr @b2i_DSA_PVK_bio(ptr noundef %in, ptr noundef captures(address_is_null) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %isdss.i = alloca i32, align 4
   %ispub.i = alloca i32, align 4
@@ -1236,7 +1236,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_RSA_PVK_bio_ex(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @b2i_RSA_PVK_bio_ex(ptr noundef %in, ptr noundef captures(address_is_null) %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %isdss = alloca i32, align 4
   %ispub = alloca i32, align 4
@@ -1247,7 +1247,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_RSA_PVK_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define ptr @b2i_RSA_PVK_bio(ptr noundef %in, ptr noundef captures(address_is_null) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %isdss.i = alloca i32, align 4
   %ispub.i = alloca i32, align 4
@@ -1262,7 +1262,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_PVK_bio_ex(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef readnone captures(none) %libctx, ptr noundef readnone captures(none) %propq) local_unnamed_addr #0 {
+define ptr @b2i_PVK_bio_ex(ptr noundef %in, ptr noundef captures(address_is_null) %cb, ptr noundef %u, ptr noundef readnone captures(none) %libctx, ptr noundef readnone captures(none) %propq) local_unnamed_addr #0 {
 entry:
   %isdss = alloca i32, align 4
   %ispub = alloca i32, align 4
@@ -1279,7 +1279,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @b2i_PVK_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define ptr @b2i_PVK_bio(ptr noundef %in, ptr noundef captures(address_is_null) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %isdss.i = alloca i32, align 4
   %ispub.i = alloca i32, align 4
@@ -1300,7 +1300,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef readonly %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef readonly captures(address_is_null) %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %p.i = alloca ptr, align 8
   %psbuf.i = alloca [1024 x i8], align 16
@@ -1515,7 +1515,7 @@ return:                                           ; preds = %i2b_PVK.exit.thread
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @i2b_PVK_bio(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @i2b_PVK_bio(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef captures(address_is_null) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @i2b_PVK_bio_ex(ptr noundef %out, ptr noundef %pk, i32 noundef %enclevel, ptr noundef %cb, ptr noundef %u, ptr noundef null, ptr noundef null)
   ret i32 %call
@@ -1532,7 +1532,7 @@ declare i32 @EVP_PKEY_set1_DSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BN_lebin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef %out, ptr noundef %pk, i32 noundef range(i32 0, 2) %ispub) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captures(address_is_null) %out, ptr noundef %pk, i32 noundef range(i32 0, 2) %ispub) unnamed_addr #0 {
 entry:
   %p.i71 = alloca ptr, align 8
   %q.i72 = alloca ptr, align 8

@@ -370,7 +370,7 @@ declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(n
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_rate_control_unregister(ptr noundef readnone %0) #0 align 16 {
+define dso_local void @ieee80211_rate_control_unregister(ptr noundef readnone captures(address) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rate_ctrl_mutex) #14
   br label %2
 
@@ -473,7 +473,7 @@ define dso_local void @ieee80211_check_rate_mask(ptr noundef readonly captures(n
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_get_tx_rates(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @ieee80211_get_tx_rates(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, i32 noundef %4) #0 align 16 {
   %6 = alloca [10 x i8], align 1
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
@@ -1113,7 +1113,7 @@ define internal fastcc void @__rate_control_send_low(ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rate_control_get_rate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @rate_control_get_rate(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2432
@@ -1650,7 +1650,7 @@ declare dso_local void @ieee80211_sta_set_expected_throughput(ptr noundef, i32 n
 declare dso_local i32 @sta_get_expected_throughput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ieee80211_init_rate_ctrl_alg(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_init_rate_ctrl_alg(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #14
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @ieee80211_init_rate_ctrl_alg.__already_done, align 1
@@ -1912,7 +1912,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 align 16 {
   %7 = alloca [8 x i16], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16

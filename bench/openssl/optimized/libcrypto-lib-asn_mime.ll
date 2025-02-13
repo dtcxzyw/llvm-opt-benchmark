@@ -665,7 +665,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SMIME_read_ASN1_ex(ptr noundef %bio, i32 noundef %flags, ptr noundef writeonly %bcont, ptr noundef %it, ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @SMIME_read_ASN1_ex(ptr noundef %bio, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %bcont, ptr noundef %it, ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %linebuf.i = alloca [1024 x i8], align 16
   %param.i = alloca %struct.mime_param_st, align 8
@@ -1814,7 +1814,7 @@ return:                                           ; preds = %if.end5, %if.then
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @SMIME_read_ASN1(ptr noundef %bio, ptr noundef %bcont, ptr noundef %it) local_unnamed_addr #0 {
+define ptr @SMIME_read_ASN1(ptr noundef %bio, ptr noundef captures(address_is_null) %bcont, ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @SMIME_read_ASN1_ex(ptr noundef %bio, i32 noundef 0, ptr noundef %bcont, ptr noundef %it, ptr noundef null, ptr noundef null, ptr noundef null)
   ret ptr %call

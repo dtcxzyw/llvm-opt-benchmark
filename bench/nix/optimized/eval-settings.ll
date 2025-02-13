@@ -4153,7 +4153,7 @@ declare noundef zeroext i1 @_ZN3nix9hasPrefixESt17basic_string_viewIcSt11char_tr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3nix12EvalSettings16getCurrentSystemB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(2144) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3nix12EvalSettings16getCurrentSystemB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(2144) %0) local_unnamed_addr #8 align 2 {
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584

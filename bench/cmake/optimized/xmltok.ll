@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @KW_no = internal constant [3 x i8] c"no\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef readnone %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !4
   %4 = icmp ugt ptr %3, %0
   br i1 %4, label %.lr.ph.preheader, label %select.unfold
@@ -239,7 +239,7 @@ define dso_local noundef i32 @XmlSizeOfUnknownEncoding() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initializes((0, 456)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 456)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(456) @latin1_encoding, i64 456, i1 false)
   br label %8
 
@@ -629,7 +629,7 @@ checkCharRefNumber.exit:                          ; preds = %17, %15, %10, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef captures(none) %3, ptr noundef %4) #6 {
+define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3, ptr noundef %4) #6 {
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
   %7 = load ptr, ptr %1, align 8, !tbaa !4
@@ -788,7 +788,7 @@ XmlUtf8Encode.exit:                               ; preds = %26, %33, %37, %46, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef captures(none) %3, ptr noundef readnone %4) #6 {
+define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4) #6 {
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = icmp ult ptr %6, %2
   br i1 %7, label %.lr.ph, label %.thread
@@ -869,7 +869,7 @@ define dso_local noundef nonnull ptr @XmlGetUtf16InternalEncoding() local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @XmlInitEncoding(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @XmlInitEncoding(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %getEncodingIndex.exit.thread13, label %.preheader.i
 
@@ -1046,7 +1046,7 @@ normal_updatePosition.exit:                       ; preds = %50, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #6 {
   %11 = alloca ptr, align 8
   %12 = alloca [128 x i8], align 16
   %13 = alloca ptr, align 8
@@ -3629,7 +3629,7 @@ define internal noundef i32 @normal_nameLength(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal noundef ptr @normal_skipS(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #7 {
+define internal noundef ptr @normal_skipS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %4
 
@@ -4315,7 +4315,7 @@ define internal range(i32 0, 2) i32 @normal_isPublicId(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @latin1_toUtf8(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef captures(none) %3, ptr noundef %4) #9 {
+define internal range(i32 0, 3) i32 @latin1_toUtf8(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3, ptr noundef %4) #9 {
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = icmp eq ptr %6, %2
   br i1 %7, label %._crit_edge, label %.lr.ph
@@ -4379,7 +4379,7 @@ define internal range(i32 0, 3) i32 @latin1_toUtf8(ptr readnone captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @latin1_toUtf16(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef captures(none) %3, ptr noundef readnone %4) #9 {
+define internal range(i32 0, 3) i32 @latin1_toUtf16(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4) #9 {
   %.promoted = load ptr, ptr %1, align 8, !tbaa !4
   %6 = icmp ult ptr %.promoted, %2
   br i1 %6, label %.lr.ph, label %.thread
@@ -8865,7 +8865,7 @@ unicode_byte_type.exit.thread16:                  ; preds = %unicode_byte_type.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal ptr @little2_skipS(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #7 {
+define internal ptr @little2_skipS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !9
@@ -12113,7 +12113,7 @@ define internal fastcc i32 @initScan(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @ascii_toUtf8(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef captures(none) %3, ptr noundef readnone %4) #9 {
+define internal range(i32 0, 3) i32 @ascii_toUtf8(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4) #9 {
   %6 = load ptr, ptr %1, align 8, !tbaa !4
   %7 = icmp ult ptr %6, %2
   br i1 %7, label %.lr.ph, label %.thread
@@ -14359,7 +14359,7 @@ unicode_byte_type.exit.thread16:                  ; preds = %unicode_byte_type.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal noundef ptr @big2_skipS(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #7 {
+define internal noundef ptr @big2_skipS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i8, ptr %1, align 1, !tbaa !9
   %cond10 = icmp eq i8 %4, 0

@@ -780,7 +780,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @PMIx_server_setup_application(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @setup_cbfunc(i32 %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @setup_cbfunc(i32 %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.pmix_data_buffer, align 8
   %9 = alloca %struct.pmix_byte_object, align 8
@@ -5660,7 +5660,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_odls_base_default_kill_local_procs(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noundef i32 @prte_odls_base_default_kill_local_procs(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pmix_list_t, align 8
   %4 = alloca %struct.prte_proc_t, align 8
   %5 = alloca %struct.pmix_pointer_array_t, align 8

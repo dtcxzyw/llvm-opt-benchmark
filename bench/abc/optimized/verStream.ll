@@ -498,7 +498,7 @@ define void @Ver_StreamSkipToChars(ptr noundef captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @Ver_StreamGetWord(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65628
   %4 = load i32, ptr %3, align 4, !tbaa !21
   %.not = icmp eq i32 %4, 0

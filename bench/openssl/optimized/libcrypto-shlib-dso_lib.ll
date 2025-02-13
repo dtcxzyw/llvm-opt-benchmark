@@ -165,7 +165,7 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @DSO_flags(ptr noundef readonly %dso) local_unnamed_addr #2 {
+define i32 @DSO_flags(ptr noundef readonly captures(address_is_null) %dso) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %dso, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -181,7 +181,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DSO_up_ref(ptr noundef %dso) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSO_up_ref(ptr noundef captures(address_is_null) %dso) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dso, null
   br i1 %cmp, label %if.then, label %if.end
@@ -352,7 +352,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DSO_set_filename(ptr noundef %dso, ptr noundef %filename) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSO_set_filename(ptr noundef captures(address_is_null) %dso, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dso, null
   %cmp1 = icmp eq ptr %filename, null
@@ -428,7 +428,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @DSO_get_filename(ptr noundef readonly %dso) local_unnamed_addr #0 {
+define ptr @DSO_get_filename(ptr noundef readonly captures(address_is_null) %dso) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dso, null
   br i1 %cmp, label %if.then, label %if.end

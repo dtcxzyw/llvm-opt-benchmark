@@ -832,7 +832,7 @@ _ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MachineFrameInfo23computeMaxCallFrameSizeERNS_15MachineFunctionEPSt6vectorINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESaIS6_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(696) initializes((80, 88)) %0, ptr noundef nonnull readonly align 8 dereferenceable(1065) %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm16MachineFrameInfo23computeMaxCallFrameSizeERNS_15MachineFunctionEPSt6vectorINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESaIS6_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(696) initializes((80, 88)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1065) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = load ptr, ptr %5, align 8, !tbaa !181

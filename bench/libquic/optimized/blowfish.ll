@@ -1572,7 +1572,7 @@ if.end491:                                        ; preds = %if.end460, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %key, i64 noundef %len, ptr noundef readonly %data) local_unnamed_addr #2 {
+define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %key, i64 noundef %len, ptr noundef readonly captures(address) %data) local_unnamed_addr #2 {
 entry:
   %in = alloca [2 x i32], align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4168) %key, ptr noundef nonnull align 4 dereferenceable(4168) @bf_init, i64 4168, i1 false)

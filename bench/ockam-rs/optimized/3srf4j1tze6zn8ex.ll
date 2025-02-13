@@ -2650,7 +2650,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h3d232087660b7271E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
+define hidden noundef align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h3d232087660b7271E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
   %2 = load atomic i64, ptr %0 acquire, align 8
   %3 = icmp eq i64 %2, 2
   %4 = getelementptr i8, ptr %0, i64 9
@@ -2659,7 +2659,7 @@ define hidden noundef align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h6e750120eb9ad5b5E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
+define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h6e750120eb9ad5b5E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 acquire, align 8
   %4 = icmp eq i64 %3, 2
@@ -2668,7 +2668,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9once_cell4sy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17hdc71163bc1de1168E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
+define hidden noundef align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17hdc71163bc1de1168E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
   %2 = load atomic i64, ptr %0 acquire, align 8
   %3 = icmp eq i64 %2, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

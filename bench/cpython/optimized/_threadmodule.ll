@@ -1128,7 +1128,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.141 = private unnamed_addr constant [7 x i8] c"Thread\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyThread_AfterFork(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @_PyThread_AfterFork(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @PyThread_get_thread_ident_ex() #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !4

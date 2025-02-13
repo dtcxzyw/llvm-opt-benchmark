@@ -1955,7 +1955,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net19QuicFixedIPEndPoint12GetSendValueEv(ptr noundef nonnull readonly align 8 dereferenceable(89) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net19QuicFixedIPEndPoint12GetSendValueEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(89) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2034,7 +2034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net19QuicFixedIPEndPoint16GetReceivedValueEv(ptr noundef nonnull readonly align 8 dereferenceable(89) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net19QuicFixedIPEndPoint16GetReceivedValueEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(89) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3373,7 +3373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net10QuicConfig30ReceivedAlternateServerAddressEv(ptr noundef nonnull align 8 dereferenceable(600) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net10QuicConfig30ReceivedAlternateServerAddressEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(600) %this) local_unnamed_addr #0 align 2 {
 entry:
   %alternate_server_address_ = getelementptr inbounds nuw i8, ptr %this, i64 472
   %call = tail call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net19QuicFixedIPEndPoint16GetReceivedValueEv(ptr noundef nonnull align 8 dereferenceable(89) %alternate_server_address_)

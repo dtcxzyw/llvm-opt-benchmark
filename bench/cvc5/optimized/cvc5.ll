@@ -44404,7 +44404,7 @@ if.end:                                           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(28) ptr @_ZN4cvc54Term14const_iteratoraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(28) initializes((0, 16), (24, 28)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %it) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(28) ptr @_ZN4cvc54Term14const_iteratoraSERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(28) initializes((0, 16), (24, 28)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %it) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %it, align 8
   store ptr %0, ptr %this, align 8
@@ -44607,7 +44607,7 @@ _ZNK4cvc54Term14const_iteratoreqERKS1_.exit:      ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(28) ptr @_ZN4cvc54Term14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(28) %this) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(28) ptr @_ZN4cvc54Term14const_iteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(28) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %d_pos, align 8
@@ -75085,7 +75085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc519DatatypeConstructor14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc519DatatypeConstructor14const_iteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %d_idx, align 8
@@ -81274,7 +81274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58Datatype14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58Datatype14const_iteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %d_idx, align 8
@@ -85811,7 +85811,7 @@ if.end:                                           ; preds = %invoke.cont, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc54StataSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 2)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc54StataSERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 2)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %s, align 8
   %frombool = and i8 %0, 1
@@ -87602,7 +87602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(18) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(18) %this) local_unnamed_addr #18 align 2 {
 entry:
   %d_base.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_base.i, align 8
@@ -87799,7 +87799,7 @@ do.end:                                           ; preds = %_ZNK4cvc510Statisti
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratormmEv(ptr noundef nonnull returned align 8 dereferenceable(18) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratormmEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(18) %this) local_unnamed_addr #18 align 2 {
 entry:
   %d_base.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_base.i, align 8
@@ -88372,7 +88372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc510StatisticsC2ERKNS_8internal18StatisticsRegistryE(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %reg) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc510StatisticsC2ERKNS_8internal18StatisticsRegistryE(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %reg) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::Stat", align 8
   %ref.tmp13 = alloca %"struct.cvc5::Stat::StatData", align 8
@@ -89294,7 +89294,7 @@ unreachable:                                      ; preds = %invoke.cont16, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc55Proof12getProofNodeEv(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #19 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc55Proof12getProofNodeEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #19 align 2 {
 entry:
   ret ptr %this
 }
@@ -95201,7 +95201,7 @@ declare void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr sret(%"class.c
 declare void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc56Solver14synthFunHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4TermESaISA_EERKNS_4SortEbPNS_7GrammarE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %symbol, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %boundVars, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sort, i1 noundef zeroext %isInv, ptr noundef readonly %grammar) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc56Solver14synthFunHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4TermESaISA_EERKNS_4SortEbPNS_7GrammarE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %symbol, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %boundVars, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sort, i1 noundef zeroext %isInv, ptr noundef readonly captures(address_is_null) %grammar) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scope.i.i24 = alloca %"class.cvc5::internal::options::ioutils::Scope", align 8
   %scope.i.i = alloca %"class.cvc5::internal::options::ioutils::Scope", align 8
@@ -169427,7 +169427,7 @@ unreachable:                                      ; preds = %invoke.cont203, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc56Solver8synthFunERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4TermESaISA_EENS_4SortERNS_7GrammarE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %symbol, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %boundVars, ptr noundef readonly captures(none) %sort, ptr noundef nonnull align 8 dereferenceable(24) %grammar) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc56Solver8synthFunERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4TermESaISA_EENS_4SortERNS_7GrammarE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %symbol, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %boundVars, ptr noundef readonly captures(none) %sort, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(24) %grammar) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8
   %ref.tmp36 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8

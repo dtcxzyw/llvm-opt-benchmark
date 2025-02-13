@@ -854,7 +854,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef writeonly %6, i1 noundef zeroext %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i1 noundef zeroext %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::vector.10", align 8
@@ -2202,7 +2202,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::vector.15", align 8

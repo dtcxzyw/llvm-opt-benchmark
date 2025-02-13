@@ -909,7 +909,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_charFromName_75(i32 noundef %nameChoice, ptr noundef readonly %name, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define i32 @u_charFromName_75(i32 noundef %nameChoice, ptr noundef readonly captures(address_is_null) %name, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [64 x i8], align 16
   %indexes.i = alloca [8 x i16], align 16
@@ -1539,7 +1539,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L9enumNamesEPNS_10UCharNamesEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef readonly %names, i32 noundef %start, i32 noundef %limit, ptr noundef %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L9enumNamesEPNS_10UCharNamesEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef readonly captures(address) %names, i32 noundef %start, i32 noundef %limit, ptr noundef captures(address_is_null) %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
 entry:
   %buffer.i147 = alloca [200 x i8], align 16
   %buffer.i128 = alloca [200 x i8], align 16
@@ -1912,7 +1912,7 @@ return:                                           ; preds = %while.body, %_ZN6ic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @u_enumCharNames_75(i32 noundef %start, i32 noundef %limit, ptr noundef %fn, ptr noundef %context, i32 noundef %nameChoice, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define void @u_enumCharNames_75(i32 noundef %start, i32 noundef %limit, ptr noundef captures(address_is_null) %fn, ptr noundef %context, i32 noundef %nameChoice, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -4011,7 +4011,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #1
 declare i32 @udata_swapInvStringBlock_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef nonnull ptr @_ZN6icu_75L18expandGroupLengthsEPKhPtS2_(ptr noundef readonly %s, ptr noundef nonnull writeonly captures(none) %offsets, ptr noundef nonnull writeonly captures(none) %lengths) unnamed_addr #7 {
+define internal fastcc noundef nonnull ptr @_ZN6icu_75L18expandGroupLengthsEPKhPtS2_(ptr noundef readonly captures(ret: address, provenance) %s, ptr noundef nonnull writeonly captures(none) %offsets, ptr noundef nonnull writeonly captures(none) %lengths) unnamed_addr #7 {
 entry:
   br label %while.body
 
@@ -4524,7 +4524,7 @@ if.end110:                                        ; preds = %if.then109, %while.
 declare signext i8 @u_charType_75(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef readonly captures(none) %names, i16 %group.2.val, i16 %group.4.val, i32 noundef %start, i32 noundef range(i32 -2147483648, 2147483647) %end, ptr noundef readonly %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef readonly captures(none) %names, i16 %group.2.val, i16 %group.4.val, i32 noundef %start, i32 noundef range(i32 -2147483648, 2147483647) %end, ptr noundef readonly captures(address_is_null) %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
 entry:
   %offsets = alloca [34 x i16], align 16
   %lengths = alloca [34 x i16], align 16

@@ -108,7 +108,7 @@ return:                                           ; preds = %for.body, %if.then2
 declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @BIO_pop(ptr noundef %bio) local_unnamed_addr #4 {
+define hidden ptr @BIO_pop(ptr noundef captures(address_is_null) %bio) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end
@@ -1096,7 +1096,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @BIO_push(ptr noundef returned %bio, ptr noundef %appended_bio) local_unnamed_addr #10 {
+define hidden noundef ptr @BIO_push(ptr noundef returned captures(address_is_null, ret: address, provenance) %bio, ptr noundef %appended_bio) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %while.cond
@@ -1118,7 +1118,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @BIO_next(ptr noundef readonly %bio) local_unnamed_addr #6 {
+define hidden ptr @BIO_next(ptr noundef readonly captures(address_is_null) %bio) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %bio, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1134,7 +1134,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @BIO_find_type(ptr noundef readonly %bio, i32 noundef %type) local_unnamed_addr #11 {
+define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_is_null, ret: address, provenance) %bio, i32 noundef %type) local_unnamed_addr #11 {
 entry:
   %tobool.not = icmp eq ptr %bio, null
   br i1 %tobool.not, label %return, label %if.end

@@ -126,7 +126,7 @@ define dso_local zeroext i1 @dir_change(ptr noundef %0) local_unnamed_addr #5 {
 declare i32 @chdir(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local ptr @filename(ptr noundef readonly %0) local_unnamed_addr #7 {
+define dso_local ptr @filename(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #7 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %.not9 = icmp eq i64 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -152,7 +152,7 @@ define dso_local ptr @filename(ptr noundef readonly %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %33, label %.preheader
@@ -688,7 +688,7 @@ define internal fastcc ptr @lib_find(ptr noundef %0, ptr noundef %1) unnamed_add
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @file_get_dir_and_filename_from_full(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #5 {
+define dso_local void @file_get_dir_and_filename_from_full(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = tail call zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %4, label %6, label %5
 

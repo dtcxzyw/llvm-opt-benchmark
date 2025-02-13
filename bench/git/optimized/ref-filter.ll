@@ -2233,7 +2233,7 @@ strbuf_setlen.exit17:                             ; preds = %strbuf_setlen.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ref_sorting_set_sort_flags_all(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define dso_local void @ref_sorting_set_sort_flags_all(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %.not7 = icmp eq ptr %0, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -2269,7 +2269,7 @@ define dso_local void @ref_sorting_set_sort_flags_all(ptr noundef %0, i32 nounde
 declare i32 @git_qsort_s(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compare_refs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 {
+define internal i32 @compare_refs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.strbuf, align 8
@@ -2711,7 +2711,7 @@ pop_stack_element.exit52:                         ; preds = %83, %87
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_literal(ptr noundef readonly %0, ptr noundef readnone %1, ptr %.8.val) unnamed_addr #0 {
+define internal fastcc void @append_literal(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr %.8.val) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %4 = load i8, ptr %0, align 1, !tbaa !15
   %.not4 = icmp eq i8 %4, 0
@@ -3805,7 +3805,7 @@ parse_ref_sorting.exit:                           ; preds = %skip_prefix.exit10.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ref_sorting_release(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ref_sorting_release(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -3954,7 +3954,7 @@ define internal range(i32 -1, 1) i32 @refname_atom_parser(ptr readnone captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @objecttype_atom_parser(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @objecttype_atom_parser(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %5
 
@@ -4193,7 +4193,7 @@ err_bad_arg.exit:                                 ; preds = %skip_prefix.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @deltabase_atom_parser(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @deltabase_atom_parser(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %5
 
@@ -4859,7 +4859,7 @@ err_bad_arg.exit:                                 ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @body_atom_parser(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @body_atom_parser(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %5
 
@@ -5337,7 +5337,7 @@ define internal range(i32 -1, 1) i32 @remote_ref_atom_parser(ptr readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @head_atom_parser(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @head_atom_parser(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %5
 
@@ -5768,7 +5768,7 @@ skip_prefix.exit.thread:                          ; preds = %9, %skip_prefix.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @rest_atom_parser(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @rest_atom_parser(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %5
 
@@ -6141,7 +6141,7 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare i32 @format_set_trailers_options(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 7) i32 @parse_signature_option(ptr noundef readonly %0) unnamed_addr #17 {
+define internal fastcc range(i32 -1, 7) i32 @parse_signature_option(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -6758,7 +6758,7 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 declare i32 @versioncmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -255, 256) i32 @memcasecmp(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #18 {
+define internal range(i32 -255, 256) i32 @memcasecmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #18 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   %.not24 = icmp eq i64 %2, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
@@ -8267,7 +8267,7 @@ declare ptr @get_worktrees() local_unnamed_addr #5
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ref_to_worktree_map_cmpfnc(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #19 {
+define internal i32 @ref_to_worktree_map_cmpfnc(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #19 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !169
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24

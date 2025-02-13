@@ -3197,7 +3197,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal11SkolemFunIdENS1_8TypeNodeENS1_12NodeTem
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13SkolemManager16isSkolemFunctionENS0_12NodeTemplateILb0EEERNS0_11SkolemFunIdERNS2_ILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef readonly captures(none) %k, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %id, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cacheVal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13SkolemManager16isSkolemFunctionENS0_12NodeTemplateILb0EEERNS0_11SkolemFunIdERNS2_ILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %this, ptr noundef readonly captures(none) %k, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %id, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cacheVal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %k, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -3358,7 +3358,7 @@ return:                                           ; preds = %if.then13.i4.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK4cvc58internal13SkolemManager5getIdENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef readonly captures(none) %k) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK4cvc58internal13SkolemManager5getIdENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(152) %this, ptr noundef readonly captures(none) %k) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca i32, align 4
   %cacheVal = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -3451,7 +3451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal13SkolemManager17getProofGeneratorENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef readonly captures(none) %t) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal13SkolemManager17getProofGeneratorENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %this, ptr noundef readonly captures(none) %t) local_unnamed_addr #8 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -3503,7 +3503,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13SkolemManager15isAbstractValueENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13SkolemManager15isAbstractValueENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(152) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca i32, align 4
   %cacheVal = alloca %"class.cvc5::internal::NodeTemplate", align 8

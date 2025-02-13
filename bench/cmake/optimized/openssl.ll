@@ -920,7 +920,7 @@ declare void @SSL_CTX_set_cert_store(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @SSL_CTX_get_cert_store(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_ossl_ctx_init(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define dso_local i32 @Curl_ossl_ctx_init(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
   %14 = alloca [256 x i8], align 16
@@ -1568,7 +1568,7 @@ declare i64 @ERR_peek_error() local_unnamed_addr #2
 declare void @SSL_CTX_set_msg_callback(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @ossl_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, ptr noundef readonly %6) #0 {
+define internal void @ossl_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, ptr noundef readonly captures(address_is_null) %6) #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
@@ -1790,7 +1790,7 @@ declare i64 @SSL_CTX_set_options(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @SSL_CTX_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cert_stuff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cert_stuff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [256 x i8], align 16
   %11 = alloca ptr, align 8
   %12 = alloca %struct.anon, align 8
@@ -7568,7 +7568,7 @@ define internal noundef i32 @ossl_bio_cf_create(ptr noundef %0) #0 {
 declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @ossl_bio_cf_destroy(ptr noundef readnone %0) #4 {
+define internal range(i32 0, 2) i32 @ossl_bio_cf_destroy(ptr noundef readnone captures(address_is_null) %0) #4 {
   %.not = icmp ne ptr %0, null
   %. = zext i1 %.not to i32
   ret i32 %.

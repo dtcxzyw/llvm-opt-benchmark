@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Info_create_env = weak alias i32 (i32, ptr, ptr), ptr @PMPI_Info_create_env
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Info_create_env(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
+define i32 @PMPI_Info_create_env(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
   %5 = trunc i8 %4 to i1
   %6 = icmp eq ptr %2, null

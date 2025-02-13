@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_PARAM_dup(ptr noundef readonly %src) local_unnamed_addr #2 {
+define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %src) local_unnamed_addr #2 {
 entry:
   %buf = alloca [2 x %struct.OSSL_PARAM_BUF], align 16
   %cmp = icmp eq ptr %src, null

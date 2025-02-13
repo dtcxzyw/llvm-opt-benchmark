@@ -294,7 +294,7 @@ return:                                           ; preds = %if.then.i, %if.end4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @default_fixup_args(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) unnamed_addr #0 {
+define internal i32 @default_fixup_args(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp112 = alloca %struct.ossl_param_st, align 8
@@ -1182,7 +1182,7 @@ evp_pkey_setget_params_to_ctrl.exit:              ; preds = %lor.lhs.false.i, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @default_check(i32 noundef %state, ptr noundef readonly %translation) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @default_check(i32 noundef %state, ptr noundef readonly captures(address_is_null) %translation) unnamed_addr #0 {
 entry:
   switch i32 %state, label %return [
     i32 1, label %sw.bb
@@ -1314,7 +1314,7 @@ declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_translation(ptr noundef nonnull captures(none) %tmpl, ptr noundef readonly %translations, i64 noundef range(i64 41, 87) %translations_num) unnamed_addr #0 {
+define internal fastcc ptr @lookup_translation(ptr noundef nonnull captures(none) %tmpl, ptr noundef readonly captures(ret: address, provenance) %translations, i64 noundef range(i64 41, 87) %translations_num) unnamed_addr #0 {
 entry:
   %optype12 = getelementptr inbounds nuw i8, ptr %tmpl, i64 12
   %keytype122 = getelementptr inbounds nuw i8, ptr %tmpl, i64 4
@@ -1462,7 +1462,7 @@ return:                                           ; preds = %for.inc, %if.then35
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @fix_distid_len(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal range(i32 -2147483648, 2) i32 @fix_distid_len(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call i32 @default_fixup_args(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx)
   %cmp = icmp sgt i32 %call, 0
@@ -1494,14 +1494,14 @@ if.end5:                                          ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_dh_kdf_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_dh_kdf_type(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @fix_kdf_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx, ptr noundef nonnull @fix_dh_kdf_type.kdf_type_map)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_md(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_md(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call.i = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp.i = icmp slt i32 %call.i, 1
@@ -1639,7 +1639,7 @@ fix_cipher_md.exit:                               ; preds = %entry, %if.end44.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_oid(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_oid(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -1709,7 +1709,7 @@ return:                                           ; preds = %land.lhs.true18, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_dh_paramgen_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_dh_paramgen_type(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -1758,7 +1758,7 @@ return:                                           ; preds = %if.end11, %if.end3.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_dh_nid5114(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_dh_nid5114(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -1831,7 +1831,7 @@ return:                                           ; preds = %sw.bb10, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_dh_nid(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_dh_nid(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -1878,7 +1878,7 @@ return:                                           ; preds = %if.end10, %if.end3.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_ec_param_enc(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_ec_param_enc(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -1963,7 +1963,7 @@ return:                                           ; preds = %if.end9.thread, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_ec_paramgen_curve_nid(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_ec_paramgen_curve_nid(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = alloca ptr, align 8
   store ptr null, ptr %p2, align 8
@@ -2023,7 +2023,7 @@ return:                                           ; preds = %if.then19, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_ecdh_cofactor(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_ecdh_cofactor(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %cmp = icmp eq i32 %state, 1
   br i1 %cmp, label %if.then, label %if.else13
@@ -2130,14 +2130,14 @@ return:                                           ; preds = %land.lhs.true64, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_ec_kdf_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_ec_kdf_type(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @fix_kdf_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx, ptr noundef nonnull @fix_ec_kdf_type.kdf_type_map)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_rsa_padding_mode(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_rsa_padding_mode(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
@@ -2325,7 +2325,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_rsa_pss_saltlen(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_rsa_pss_saltlen(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -2473,7 +2473,7 @@ return:                                           ; preds = %lor.lhs.false52, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -2577,7 +2577,7 @@ return:                                           ; preds = %for.inc, %for.inc52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fix_cipher(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @fix_cipher(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %call.i = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp.i = icmp slt i32 %call.i, 1
@@ -2772,7 +2772,7 @@ return:                                           ; preds = %entry, %sw.bb, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fix_kdf_type(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx, ptr noundef readonly captures(none) %kdf_type_map) unnamed_addr #0 {
+define internal fastcc i32 @fix_kdf_type(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx, ptr noundef readonly captures(none) %kdf_type_map) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @default_check(i32 noundef %state, ptr noundef %translation)
   %cmp = icmp slt i32 %call, 1
@@ -2976,7 +2976,7 @@ declare i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef, ptr noundef) local_unna
 declare i32 @EVP_PKEY_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_payload_group_name(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_payload_group_name(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3044,7 +3044,7 @@ return:                                           ; preds = %sw.epilog, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_payload_private_key(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_payload_private_key(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3091,7 +3091,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_payload_public_key(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_payload_public_key(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %buf = alloca ptr, align 8
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -3189,7 +3189,7 @@ return:                                           ; preds = %sw.bb16, %if.then20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_payload_public_key_ec(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_payload_public_key_ec(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3267,7 +3267,7 @@ return:                                           ; preds = %if.end, %out, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dh_dsa_payload_p(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_dh_dsa_payload_p(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3317,7 +3317,7 @@ get_payload_bn.exit:                              ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dh_dsa_payload_g(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_dh_dsa_payload_g(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3363,7 +3363,7 @@ get_payload_bn.exit:                              ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dh_dsa_payload_q(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_dh_dsa_payload_q(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3409,7 +3409,7 @@ get_payload_bn.exit:                              ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_n(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_n(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3449,7 +3449,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3489,7 +3489,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_d(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_d(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3529,7 +3529,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f1(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f1(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3569,7 +3569,7 @@ return:                                           ; preds = %if.end3.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f2(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f2(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -3609,7 +3609,7 @@ return:                                           ; preds = %if.end3.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f3(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f3(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -3666,7 +3666,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f4(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f4(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -3724,7 +3724,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f5(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f5(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -3782,7 +3782,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f6(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f6(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -3840,7 +3840,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f7(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f7(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -3898,7 +3898,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f8(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f8(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -3956,7 +3956,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f9(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f9(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -4014,7 +4014,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_f10(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_f10(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %factors.i = alloca [10 x ptr], align 16
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
@@ -4072,7 +4072,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e1(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e1(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -4112,7 +4112,7 @@ return:                                           ; preds = %if.end3.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e2(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e2(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -4152,7 +4152,7 @@ return:                                           ; preds = %if.end3.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e3(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e3(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4212,7 +4212,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e4(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e4(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4273,7 +4273,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e5(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e5(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4334,7 +4334,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e6(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e6(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4395,7 +4395,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e7(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e7(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4456,7 +4456,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e8(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e8(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4517,7 +4517,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e9(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e9(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4578,7 +4578,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_e10(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_e10(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4639,7 +4639,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c1(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c1(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8
@@ -4679,7 +4679,7 @@ return:                                           ; preds = %if.end3.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c2(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c2(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4739,7 +4739,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c3(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c3(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4800,7 +4800,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c4(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c4(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4861,7 +4861,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c5(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c5(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4922,7 +4922,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c6(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c6(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -4983,7 +4983,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c7(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c7(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -5044,7 +5044,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c8(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c8(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -5105,7 +5105,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_rsa_payload_c9(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_rsa_payload_c9(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %exps.i = alloca [10 x ptr], align 16
   %coeffs.i = alloca [10 x ptr], align 16
@@ -5166,7 +5166,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ec_decoded_from_explicit_params(i32 noundef %state, ptr noundef %translation, ptr noundef %ctx) #0 {
+define internal i32 @get_ec_decoded_from_explicit_params(i32 noundef %state, ptr noundef captures(address_is_null) %translation, ptr noundef %ctx) #0 {
 entry:
   %p2 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %p2, align 8

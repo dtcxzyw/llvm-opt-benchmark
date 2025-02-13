@@ -798,7 +798,7 @@ return:                                           ; preds = %if.end21, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mul(ptr noundef %r, ptr noundef captures(address) %a, ptr noundef captures(address) %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx)
   tail call void @bn_correct_top(ptr noundef %r) #4
@@ -806,7 +806,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %top1 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top1, align 8

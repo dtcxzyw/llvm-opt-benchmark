@@ -592,7 +592,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef nonnull %ctx, ptr noundef readonly %cleanup, i32 noundef range(i32 2, 7) %next) unnamed_addr #1 {
+define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef nonnull %ctx, ptr noundef readonly captures(address_is_null) %cleanup, i32 noundef range(i32 2, 7) %next) unnamed_addr #1 {
 entry:
   %ex_len = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load i32, ptr %ex_len, align 8

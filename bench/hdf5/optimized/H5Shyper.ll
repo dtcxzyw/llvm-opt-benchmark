@@ -6557,7 +6557,7 @@ define internal fastcc noundef zeroext i1 @H5S__hyper_rebuild_helper(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4, ptr noundef readonly captures(address) %5) local_unnamed_addr #0 {
   %7 = alloca [32 x i64], align 16
   %8 = alloca [32 x i64], align 16
   %9 = alloca [32 x i64], align 16
@@ -8006,7 +8006,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__generate_hyperslab(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4, ptr noundef captures(address) %5) local_unnamed_addr #0 {
   %7 = load i8, ptr @H5_libinit_g, align 1
   %8 = trunc i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1
@@ -8152,7 +8152,7 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4, ptr noundef captures(address) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca [32 x i64], align 16
   %9 = alloca [32 x i64], align 16
   %10 = alloca [32 x %struct.H5S_hyper_dim_t], align 16
@@ -9155,7 +9155,7 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5Scombine_hyperslab(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5Scombine_hyperslab(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4, ptr noundef captures(address) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = load i8, ptr @H5_libinit_g, align 1
@@ -11257,7 +11257,7 @@ declare ptr @H5S_create(i32 noundef) local_unnamed_addr #5
 declare i32 @H5S__extent_copy_real(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @H5S_hyper_get_first_inc_block(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #9 {
+define i64 @H5S_hyper_get_first_inc_block(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1032
@@ -11427,7 +11427,7 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %49, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Sget_regular_hyperslab(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Sget_regular_hyperslab(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [32 x %struct.H5S_hyper_dim_t], align 16
   %7 = load i8, ptr @H5_libinit_g, align 1
   %8 = trunc i8 %7 to i1
@@ -14910,7 +14910,7 @@ define internal fastcc void @H5S__hyper_span_blocklist(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @H5S__hyper_cmp_spans(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #12 {
+define internal fastcc noundef zeroext i1 @H5S__hyper_cmp_spans(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #12 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %.loopexit, label %3
 
@@ -15993,7 +15993,7 @@ define internal fastcc noundef zeroext i1 @H5S__check_spans_overlap(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @H5S__hyper_clip_spans(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @H5S__hyper_clip_spans(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i32 noundef range(i32 1, 6) %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -17752,7 +17752,7 @@ H5S__hyper_free_span.exit:                        ; preds = %124, %132
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5S__hyper_merge_spans_helper(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @H5S__hyper_merge_spans_helper(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef %0, ptr noundef %1) #16

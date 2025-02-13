@@ -86,7 +86,7 @@ define dso_local noundef ptr @sparse_keymap_entry_from_keycode(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #2 align 16 {
+define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #2 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.loopexit6, label %.preheader

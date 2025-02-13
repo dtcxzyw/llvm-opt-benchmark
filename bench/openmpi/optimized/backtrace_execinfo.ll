@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [7 x i8] c"[%2d] \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @prte_backtrace_print(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @prte_backtrace_print(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [32 x ptr], align 16
   %5 = alloca [6 x i8], align 1
   %6 = load i32, ptr @prte_stacktrace_output_fileno, align 4

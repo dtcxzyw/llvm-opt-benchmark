@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -184,13 +184,13 @@ declare i32 @cJSON_IsObject(ptr noundef) local_unnamed_addr #2
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %get_array_item.exit.thread, label %.preheader
 
@@ -429,7 +429,7 @@ get_array_item.exit.thread:                       ; preds = %36, %.critedge2, %.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSONUtils_GetPointerCaseSensitive(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @cJSONUtils_GetPointerCaseSensitive(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret ptr %3
 }
@@ -903,7 +903,7 @@ define void @cJSONUtils_AddPatchToArray(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @compose_patch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @compose_patch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -1013,7 +1013,7 @@ encode_string_as_pointer.exit:                    ; preds = %31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noundef ptr @cJSONUtils_GeneratePatches(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @cJSONUtils_GeneratePatches(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1032,7 +1032,7 @@ define noundef ptr @cJSONUtils_GeneratePatches(ptr noundef %0, ptr noundef %1) l
 declare ptr @cJSON_CreateArray() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %3, null
   %or.cond = or i1 %6, %7
@@ -1361,7 +1361,7 @@ compare_strings.exit.thread.thread:               ; preds = %.compare_strings.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noundef ptr @cJSONUtils_GeneratePatchesCaseSensitive(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @cJSONUtils_GeneratePatchesCaseSensitive(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1378,7 +1378,7 @@ define noundef ptr @cJSONUtils_GeneratePatchesCaseSensitive(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @cJSONUtils_SortObject(ptr noundef %0) local_unnamed_addr #6 {
+define void @cJSONUtils_SortObject(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %sort_object.exit, label %3
 
@@ -1394,7 +1394,7 @@ sort_object.exit:                                 ; preds = %1, %3
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef %0) local_unnamed_addr #6 {
+define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %sort_object.exit, label %3
 
@@ -1745,7 +1745,7 @@ define internal fastcc ptr @get_object_item(ptr noundef nonnull %0, ptr noundef 
 declare i32 @cJSON_IsString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1958,7 +1958,7 @@ compare_strings.exit.thread:                      ; preds = %103, %compare_strin
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @overwrite_item(ptr noundef %0, ptr noundef readonly byval(%struct.cJSON) align 8 captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @overwrite_item(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.cJSON) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 

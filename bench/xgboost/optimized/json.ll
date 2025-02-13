@@ -4242,7 +4242,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(address) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::JsonString", align 8
   %4 = alloca %"class.xgboost::Json", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15318,7 +15318,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(address) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

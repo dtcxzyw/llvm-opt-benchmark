@@ -2745,7 +2745,7 @@ _ZN8IdealKit5clearEP4Node.exit:                   ; preds = %_ZN4Node7set_reqEjP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8IdealKit5clearEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN8IdealKit5clearEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0

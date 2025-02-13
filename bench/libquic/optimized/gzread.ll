@@ -735,7 +735,7 @@ return:                                           ; preds = %if.else19.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MOZ_Z_gzgets(ptr noundef %file, ptr noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @MOZ_Z_gzgets(ptr noundef %file, ptr noundef writeonly captures(address, ret: address, provenance) %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   %cmp1 = icmp eq ptr %buf, null

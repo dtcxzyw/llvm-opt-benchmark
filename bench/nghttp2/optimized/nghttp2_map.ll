@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_map_free(ptr noundef readonly %map) local_unnamed_addr #1 {
+define hidden void @nghttp2_map_free(ptr noundef readonly captures(address_is_null) %map) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %map, null
   br i1 %tobool.not, label %return, label %if.end

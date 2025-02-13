@@ -15950,7 +15950,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket13dispatchErrorEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(296) %this, ptr noundef readonly %msgstr, i32 noundef %errnoValue) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocket13dispatchErrorEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(296) %this, ptr noundef readonly captures(address_is_null) %msgstr, i32 noundef %errnoValue) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 if.end10.i:
   %agg.tmp.i.i.i = alloca %"class.std::runtime_error", align 8
   %ref.tmp.i = alloca ptr, align 8

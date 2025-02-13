@@ -70,7 +70,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.57 = private unnamed_addr constant [61 x i8] c"Chunk index %d is not the next chunk to be written (last %d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_read_scanline_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %y, ptr noundef %cinfo) local_unnamed_addr #0 {
+define i32 @exr_read_scanline_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %y, ptr noundef captures(address_is_null) %cinfo) local_unnamed_addr #0 {
 entry:
   %data = alloca [3 x i32], align 4
   %ddata = alloca [3 x i64], align 16
@@ -741,7 +741,7 @@ if.end15:                                         ; preds = %compute_sampled_lin
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_read_tile_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly %cinfo) local_unnamed_addr #0 {
+define i32 @exr_read_tile_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly captures(address_is_null) %cinfo) local_unnamed_addr #0 {
 entry:
   %data = alloca [6 x i32], align 16
   %cidx = alloca i32, align 4
@@ -1475,7 +1475,7 @@ return:                                           ; preds = %if.end145, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_read_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef readonly %cinfo, ptr noundef %packed_data) local_unnamed_addr #0 {
+define i32 @exr_read_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef readonly captures(address_is_null) %cinfo, ptr noundef %packed_data) local_unnamed_addr #0 {
 entry:
   %dataoffset = alloca i64, align 8
   %nread = alloca i64, align 8
@@ -1632,7 +1632,7 @@ return:                                           ; preds = %if.then78, %land.lh
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_read_deep_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef readonly %cinfo, ptr noundef %packed_data, ptr noundef %sample_data) local_unnamed_addr #0 {
+define i32 @exr_read_deep_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef readonly captures(address_is_null) %cinfo, ptr noundef %packed_data, ptr noundef %sample_data) local_unnamed_addr #0 {
 entry:
   %dataoffset = alloca i64, align 8
   %nread = alloca i64, align 8
@@ -1803,7 +1803,7 @@ return:                                           ; preds = %if.end81, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_write_scanline_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %y, ptr noundef writeonly %cinfo) local_unnamed_addr #0 {
+define i32 @exr_write_scanline_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %y, ptr noundef writeonly captures(address_is_null) %cinfo) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2001,7 +2001,7 @@ return:                                           ; preds = %entry, %if.end99, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_write_tile_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly %cinfo) local_unnamed_addr #0 {
+define i32 @exr_write_tile_chunk_info(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly captures(address_is_null) %cinfo) local_unnamed_addr #0 {
 entry:
   %cidx = alloca i32, align 4
   %tobool.not = icmp eq ptr %ctxt, null
@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.end17, %if.else3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reconstruct_chunk_table(ptr noundef nonnull %ctxt, ptr noundef readonly %part, ptr noundef nonnull captures(none) %chunktable) unnamed_addr #0 {
+define internal fastcc i32 @reconstruct_chunk_table(ptr noundef nonnull %ctxt, ptr noundef readonly captures(address) %part, ptr noundef nonnull captures(none) %chunktable) unnamed_addr #0 {
 entry:
   %leader.i49 = alloca %struct.priv_chunk_leader, align 8
   %cidx.i = alloca i32, align 4

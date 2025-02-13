@@ -51,7 +51,7 @@ define dso_local noundef i32 @acpi_ut_verify_checksum(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local zeroext i8 @acpi_ut_generate_checksum(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i8 @acpi_ut_generate_checksum(ptr noundef readonly captures(address) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = icmp ugt ptr %5, %0
@@ -76,7 +76,7 @@ define dso_local zeroext i8 @acpi_ut_generate_checksum(ptr noundef readonly %0, 
 declare dso_local void @acpi_bios_warning(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_verify_cdat_checksum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_ut_verify_cdat_checksum(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1
@@ -113,7 +113,7 @@ define dso_local noundef i32 @acpi_ut_verify_cdat_checksum(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local zeroext i8 @acpi_ut_checksum(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i8 @acpi_ut_checksum(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr i8, ptr %0, i64 %3
   %5 = icmp ugt ptr %4, %0

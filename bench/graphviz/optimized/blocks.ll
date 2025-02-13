@@ -830,7 +830,7 @@ declare void @_ZN5Block5splitERPS_S1_P10Constraint(ptr noundef nonnull align 8 d
 declare noundef double @_ZN5Block23desiredWeightedPositionEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6Blocks4costEv(ptr noundef nonnull readonly align 8 dereferenceable(60) %0) local_unnamed_addr #3 align 2 {
+define noundef double @_ZN6Blocks4costEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(60) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

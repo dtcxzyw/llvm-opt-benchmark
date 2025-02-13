@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [6 x i8] c"TABLE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5DSwith_new_ref(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5DSwith_new_ref(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %.not = icmp eq ptr %1, null
@@ -2608,7 +2608,7 @@ H5DSwith_new_ref.exit.thread:                     ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5DSiterate_scales(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @H5DSiterate_scales(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.H5R_ref_t, align 8
   %8 = alloca i64, align 8
@@ -3351,7 +3351,7 @@ declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Tset_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5DSget_label(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @H5DSget_label(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %union.anon.8, align 8
   %7 = alloca ptr, align 8
@@ -3542,7 +3542,7 @@ define i64 @H5DSget_label(i64 noundef %0, i32 noundef %1, ptr noundef writeonly 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5DSget_scale_name(i64 noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @H5DSget_scale_name(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %union.anon.9, align 8
   %6 = alloca ptr, align 8

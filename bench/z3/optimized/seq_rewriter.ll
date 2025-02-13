@@ -41524,7 +41524,7 @@ return:                                           ; preds = %_ZNK8seq_util6is_se
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN12seq_rewriter9is_suffixEP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef readnone %s, ptr noundef %offset, ptr noundef %len) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN12seq_rewriter9is_suffixEP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef readnone captures(address) %s, ptr noundef %offset, ptr noundef %len) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %is_int.i = alloca i8, align 1
   %lens = alloca %class.ref_vector, align 8
@@ -42163,7 +42163,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN12seq_rewriter9is_prefixEP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef readnone %s, ptr noundef %offset, ptr noundef %len) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN12seq_rewriter9is_prefixEP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(497) %this, ptr noundef readnone captures(address) %s, ptr noundef %offset, ptr noundef %len) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %is_int.i = alloca i8, align 1
   %lens = alloca %class.ref_vector, align 8
@@ -55701,7 +55701,7 @@ return:                                           ; preds = %_Z9is_app_ofPK4expr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN12seq_rewriter7eq_charEP4exprS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(497) %this, ptr noundef readnone %ch1, ptr noundef readnone %ch2) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN12seq_rewriter7eq_charEP4exprS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(497) %this, ptr noundef readnone captures(address) %ch1, ptr noundef readnone captures(address) %ch2) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %ch1, %ch2
   ret i1 %cmp
@@ -62203,7 +62203,7 @@ _ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit:     ; preds = %while.end, %_ZN11as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK12seq_rewriter15are_complementsEP4exprS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(497) %this, ptr noundef readonly %r1, ptr noundef readonly %r2) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK12seq_rewriter15are_complementsEP4exprS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(497) %this, ptr noundef readonly captures(address) %r1, ptr noundef readonly captures(address) %r2) local_unnamed_addr #8 align 2 {
 entry:
   %m_fid.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %m_fid.i.i, align 8

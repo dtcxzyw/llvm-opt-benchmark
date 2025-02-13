@@ -4438,7 +4438,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7G
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer17UsesOrientationsfEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer17UsesOrientationsfEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -20406,7 +20406,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1E
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer21_ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_PKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer21_ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_PKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -21261,13 +21261,13 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer20ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer20ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer21_ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_PKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3, ptr noundef null)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer20ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_RKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3, ptr noundef nonnull align 8 dereferenceable(128) %4) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer20ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_RKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3, ptr noundef nonnull align 8 dereferenceable(128) %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomPointInstancer21_ComputeExtentAtTimesEPSt6vectorINS_7VtArrayINS_7GfVec3fEEESaIS4_EERKS1_INS_11UsdTimeCodeESaIS8_EES8_PKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double %3, ptr noundef nonnull %4)
   ret i1 %6
 }

@@ -3519,7 +3519,7 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr noundef 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define hidden void @protobuf_lang__delete_buffer(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -3565,7 +3565,7 @@ define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr noundef rea
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @protobuf_lang__flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #13 {
+define hidden void @protobuf_lang__flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -4138,7 +4138,7 @@ define hidden void @protobuf_lang_set_debug(i32 noundef %0, ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -4166,7 +4166,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init_extra(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

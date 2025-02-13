@@ -1149,7 +1149,7 @@ opal_interval_tree_reader_get_token.exit:         ; preds = %22, %.split.us.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @opal_interval_tree_depth_node(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc i64 @opal_interval_tree_depth_node(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %common.ret11, label %5
@@ -1171,7 +1171,7 @@ common.ret11:                                     ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @opal_interval_tree_delete(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_interval_tree_delete(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i.i.i = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1811,7 +1811,7 @@ define noundef i32 @opal_interval_tree_destroy(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @inorder_destroy(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @inorder_destroy(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %opal_free_list_return_st.exit20, label %5
@@ -1989,7 +1989,7 @@ opal_interval_tree_reader_get_token.exit:         ; preds = %29, %.split.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @inorder_traversal(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @inorder_traversal(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, ptr noundef readonly captures(address) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = icmp eq ptr %5, %8
   br i1 %9, label %._crit_edge, label %.lr.ph
@@ -2093,7 +2093,7 @@ define i64 @opal_interval_tree_size(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef zeroext i1 @opal_interval_tree_verify(ptr noundef %0) local_unnamed_addr #5 {
+define noundef zeroext i1 @opal_interval_tree_verify(ptr noundef captures(address) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -2149,7 +2149,7 @@ opal_interval_tree_black_depth.exit:              ; preds = %tailrecurse.i, %15
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @opal_interval_tree_verify_node(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @opal_interval_tree_verify_node(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = icmp eq ptr %1, %5
   br i1 %6, label %.loopexit, label %.lr.ph
@@ -2221,7 +2221,7 @@ tailrecurse:                                      ; preds = %34
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -5, 1) i32 @opal_interval_tree_dump(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define range(i32 -5, 1) i32 @opal_interval_tree_dump(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.4)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -2245,7 +2245,7 @@ define range(i32 -5, 1) i32 @opal_interval_tree_dump(ptr noundef %0, ptr noundef
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
+define internal fastcc void @opal_interval_tree_dump_node(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %tailrecurse._crit_edge, label %.lr.ph
@@ -2355,7 +2355,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #9 {
+define internal fastcc void @opal_interval_tree_delete_fixup(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %1, %5

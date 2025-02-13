@@ -2560,7 +2560,7 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_add_file(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @trace_probe_get_file_link(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #8 align 16 {
+define dso_local ptr @trace_probe_get_file_link(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
@@ -2588,7 +2588,7 @@ define dso_local ptr @trace_probe_get_file_link(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @trace_probe_remove_file(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @trace_probe_remove_file(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
@@ -2993,7 +2993,7 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8

@@ -684,7 +684,7 @@ define hidden noundef ptr @_ZN20JfrCheckpointManager28acquire_virtual_thread_loc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20JfrCheckpointManager5renewEPK9JfrBufferP6Threadm23JfrCheckpointBufferKind(ptr noundef readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN20JfrCheckpointManager5renewEPK9JfrBufferP6Threadm23JfrCheckpointBufferKind(ptr noundef readnone captures(address) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   switch i32 %3, label %20 [
     i32 0, label %5
     i32 1, label %15

@@ -632,7 +632,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_parse_ctos_status_request(ptr noundef %s, ptr noundef captures(none) %pkt, i32 noundef %context, ptr noundef readnone %x, i64 noundef %chainidx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_parse_ctos_status_request(ptr noundef %s, ptr noundef captures(none) %pkt, i32 noundef %context, ptr noundef readnone captures(address_is_null) %x, i64 noundef %chainidx) local_unnamed_addr #0 {
 entry:
   %id_data = alloca ptr, align 8
   %ext_data = alloca ptr, align 8

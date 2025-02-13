@@ -4052,7 +4052,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_118StringTableBuilder16appendU16StorageEN4llvh8ArrayRefIDsEEPSt6vectorIhSaIhEE(ptr readonly %u16Storage.coerce0, i64 %u16Storage.coerce1, ptr noundef nonnull %output) unnamed_addr #0 align 2 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_118StringTableBuilder16appendU16StorageEN4llvh8ArrayRefIDsEEPSt6vectorIhSaIhEE(ptr readonly captures(address) %u16Storage.coerce0, i64 %u16Storage.coerce1, ptr noundef nonnull %output) unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp eq i64 %u16Storage.coerce1, 0
   br i1 %cmp.i, label %return, label %if.end

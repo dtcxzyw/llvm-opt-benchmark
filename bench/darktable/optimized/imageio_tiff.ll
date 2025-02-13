@@ -1280,7 +1280,7 @@ declare void @_TIFFfree(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @dt_imageio_tiff_read_profile(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @dt_imageio_tiff_read_profile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2

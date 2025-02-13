@@ -365,7 +365,7 @@ Scl_LibertyItem.exit90.thread:                    ; preds = %104, %Scl_LibertyIt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Scl_LibertyParseDump(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Scl_LibertyParseDump(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -416,7 +416,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @Scl_LibertyCountItems(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 {
+define i64 @Scl_LibertyCountItems(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -439,7 +439,7 @@ define i64 @Scl_LibertyCountItems(ptr noundef readonly %0, ptr noundef readnone 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Scl_LibertyWipeOutComments(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #4 {
+define void @Scl_LibertyWipeOutComments(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %1, i64 -1
   %5 = icmp ult ptr %0, %4
@@ -1190,7 +1190,7 @@ Scl_LibertySkipSpaces.exit187:                    ; preds = %42, %Scl_LibertyCha
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 0, 2) i64 @Scl_LibertySkipSpaces(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #8 {
+define internal fastcc range(i64 0, 2) i64 @Scl_LibertySkipSpaces(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #8 {
   %5 = load ptr, ptr %1, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = icmp ult ptr %5, %2
@@ -1263,7 +1263,7 @@ Scl_LibertyCharIsSpace.exit.thread:               ; preds = %.lr.ph.split, %.lr.
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 0, 2) i64 @Scl_LibertySkipEntry(ptr noundef captures(none) %0, ptr noundef readnone %1) unnamed_addr #8 {
+define internal fastcc range(i64 0, 2) i64 @Scl_LibertySkipEntry(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #8 {
   %3 = ptrtoint ptr %1 to i64
   %4 = load ptr, ptr %0, align 8, !tbaa !37
   %5 = ptrtoint ptr %4 to i64
@@ -1391,7 +1391,7 @@ Scl_LibertyCharIsSpace.exit.thread:               ; preds = %10, %10, %10, %10, 
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @Scl_LibertyFindMatch(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #10 {
+define internal fastcc ptr @Scl_LibertyFindMatch(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) unnamed_addr #10 {
   %3 = ptrtoint ptr %0 to i64
   %4 = ptrtoint ptr %1 to i64
   %5 = load i8, ptr %0, align 1, !tbaa !18
@@ -1569,7 +1569,7 @@ define void @Scl_LibertyStringDump(ptr noundef readonly captures(none) %0, ptr n
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Scl_LibertyStart(ptr noundef %0) local_unnamed_addr #5 {
+define noalias noundef ptr @Scl_LibertyStart(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = alloca %struct.timespec, align 8
   br label %3
 
@@ -1868,7 +1868,7 @@ define internal void @Abc_Print(i32 noundef range(i32 0, 2) %0, ptr noundef %1, 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Scl_LibertyParse(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef ptr @Scl_LibertyParse(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca ptr, align 8
@@ -12263,7 +12263,7 @@ Abc_Clock.exit:                                   ; preds = %825, %838
 declare ptr @Mio_ParseFormulaTruth(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_SclReadLiberty(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr readonly captures(none) %4) local_unnamed_addr #5 {
+define ptr @Abc_SclReadLiberty(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr readonly captures(none) %4) local_unnamed_addr #5 {
   %6 = tail call ptr @Scl_LibertyParse(ptr noundef %0, i32 noundef %2)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %25, label %8

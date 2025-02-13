@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyImport_FindSharedFuncptr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @_PyImport_FindSharedFuncptr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [258 x i8], align 16
   %6 = alloca [260 x i8], align 16
   %7 = alloca %struct.stat, align 8

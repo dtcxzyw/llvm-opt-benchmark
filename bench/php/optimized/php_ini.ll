@@ -82,7 +82,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [61 x i8] c"Failed loading Zend extension '%s' (tried: %s (%s), %s (%s))\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @display_ini_entries(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1079,7 +1079,7 @@ declare void @zend_stream_init_fp(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @zend_parse_ini_file(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct._zval_struct, align 8

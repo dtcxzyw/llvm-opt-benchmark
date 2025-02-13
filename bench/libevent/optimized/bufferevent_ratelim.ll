@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ev_token_bucket_cfg_new(i64 noundef %read_rate, i64 noundef %read_burst, i64 noundef %write_rate, i64 noundef %write_burst, ptr noundef readonly %tick_len) local_unnamed_addr #2 {
+define dso_local ptr @ev_token_bucket_cfg_new(i64 noundef %read_rate, i64 noundef %read_burst, i64 noundef %write_rate, i64 noundef %write_burst, ptr noundef readonly captures(address_is_null) %tick_len) local_unnamed_addr #2 {
 entry:
   %g = alloca %struct.timeval, align 8
   %tobool.not = icmp eq ptr %tick_len, null
@@ -2786,7 +2786,7 @@ do.end20:                                         ; preds = %do.body13, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @bufferevent_rate_limit_group_get_totals(ptr noundef readonly captures(none) %grp, ptr noundef writeonly %total_read_out, ptr noundef writeonly %total_written_out) local_unnamed_addr #0 {
+define dso_local void @bufferevent_rate_limit_group_get_totals(ptr noundef readonly captures(none) %grp, ptr noundef writeonly captures(address_is_null) %total_read_out, ptr noundef writeonly captures(address_is_null) %total_written_out) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %total_read_out, null
   br i1 %tobool.not, label %if.end, label %if.then

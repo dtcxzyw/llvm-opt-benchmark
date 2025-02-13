@@ -889,7 +889,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.drwav_result_from_errno = private unnamed_addr constant [126 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_version(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @ma_version(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -923,7 +923,7 @@ define hidden noundef nonnull ptr @ma_version_string() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 35) i32 @ma_strcpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_strcpy_s(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %15, label %5
 
@@ -967,7 +967,7 @@ define hidden range(i32 0, 35) i32 @ma_strcpy_s(ptr noundef writeonly %0, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 35) i32 @ma_wcscpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_wcscpy_s(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %15, label %5
 
@@ -1011,7 +1011,7 @@ define hidden range(i32 0, 35) i32 @ma_wcscpy_s(ptr noundef writeonly %0, i64 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 35) i32 @ma_strncpy_s(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_strncpy_s(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %26, label %6
 
@@ -1074,7 +1074,7 @@ define hidden range(i32 0, 35) i32 @ma_strncpy_s(ptr noundef writeonly %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 35) i32 @ma_strcat_s(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_strcat_s(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -1127,7 +1127,7 @@ define hidden range(i32 0, 35) i32 @ma_strcat_s(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 35) i32 @ma_strncat_s(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_strncat_s(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
 
@@ -1189,7 +1189,7 @@ define hidden range(i32 0, 35) i32 @ma_strncat_s(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %or.cond = or i1 %5, %6
@@ -1267,7 +1267,7 @@ define hidden range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 -255, 256) i32 @ma_strcmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define hidden range(i32 -255, 256) i32 @ma_strcmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %21, label %4
 
@@ -1319,7 +1319,7 @@ define hidden range(i32 -255, 256) i32 @ma_strcmp(ptr noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 35) i32 @ma_strappend(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 35) i32 @ma_strappend(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_strncpy_s.exit.thread, label %6
 
@@ -1412,7 +1412,7 @@ ma_strncpy_s.exit.thread:                         ; preds = %25, %ma_strncpy_s.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ma_copy_string(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden ptr @ma_copy_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_strcpy_s.exit, label %4
 
@@ -1477,7 +1477,7 @@ ma_strcpy_s.exit:                                 ; preds = %7, %.critedge22.i, 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ma_malloc(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden ptr @ma_malloc(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %3
 
@@ -1502,7 +1502,7 @@ define hidden ptr @ma_malloc(i64 noundef %0, ptr noundef readonly %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ma_copy_string_w(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden ptr @ma_copy_string_w(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @wcslen(ptr noundef %0) #81
   %4 = add i64 %3, 1
   %5 = shl i64 %4, 2
@@ -1572,7 +1572,7 @@ ma_wcscpy_s.exit:                                 ; preds = %6, %.critedge23.i, 
 declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 -51, 1) i32 @ma_fopen(ptr noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 {
+define hidden range(i32 -51, 1) i32 @ma_fopen(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 
@@ -1625,7 +1625,7 @@ switch.lookup:                                    ; preds = %1
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -51, 1) i32 @ma_wfopen(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_wfopen(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [32 x i8], align 16
@@ -1739,7 +1739,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @wcsrtombs(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_free(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_free(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %11, label %4
 
@@ -1791,7 +1791,7 @@ define hidden { ptr, ptr } @ma_log_callback_init(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -51, 1) i32 @ma_log_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_log_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_mutex_init.exit, label %4
 
@@ -1964,7 +1964,7 @@ define hidden range(i32 -4, 1) i32 @ma_log_register_callback(ptr noundef %0, ptr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_log_unregister_callback(ptr noundef %0, ptr readnone %1, ptr readnone captures(none) %2) local_unnamed_addr #4 {
+define hidden range(i32 -2, 1) i32 @ma_log_unregister_callback(ptr noundef %0, ptr readnone captures(address) %1, ptr readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %29, label %5
 
@@ -2073,7 +2073,7 @@ define hidden range(i32 -2, 1) i32 @ma_log_post(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_log_postv(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_log_postv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca [1024 x i8], align 16
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %2, null
@@ -2205,7 +2205,7 @@ ma_free.exit:                                     ; preds = %29, %64, %.loopexit
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_log_postf(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ...) local_unnamed_addr #4 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
@@ -2617,7 +2617,7 @@ ma_event_uninit.exit:                             ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -5, 1) i32 @ma_fence_acquire(ptr noundef %0) local_unnamed_addr #13 {
+define hidden range(i32 -5, 1) i32 @ma_fence_acquire(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -2749,7 +2749,7 @@ define hidden range(i32 -29, -1) i32 @ma_async_notification_signal(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_async_notification_poll_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_async_notification_poll_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2772,7 +2772,7 @@ define internal void @ma_async_notification_poll__on_signal(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_async_notification_poll_is_signalled(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_async_notification_poll_is_signalled(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -2918,7 +2918,7 @@ define hidden noundef i32 @ma_slot_allocator_config_init(i32 noundef returned %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_slot_allocator_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_slot_allocator_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_slot_allocator_get_heap_layout.exit.thread, label %4
 
@@ -2956,7 +2956,7 @@ ma_slot_allocator_get_heap_layout.exit.thread:    ; preds = %6, %4, %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_slot_allocator_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_slot_allocator_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_slot_allocator_get_heap_layout.exit.thread, label %5
 
@@ -3005,7 +3005,7 @@ ma_slot_allocator_get_heap_layout.exit.thread:    ; preds = %8, %5, %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_slot_allocator_init(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_slot_allocator_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -3115,7 +3115,7 @@ ma_free.exit:                                     ; preds = %20, %5, %3, %39, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_slot_allocator_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_slot_allocator_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -3155,7 +3155,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_slot_allocator_alloc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_slot_allocator_alloc(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -3264,7 +3264,7 @@ ma_ffs_32.exit:                                   ; preds = %.preheader, %20
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_slot_allocator_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -3, 1) i32 @ma_slot_allocator_free(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -3364,7 +3364,7 @@ define hidden i64 @ma_job_queue_config_init(i32 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_job_queue_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_job_queue_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_job_queue_get_heap_layout.exit.thread, label %4
 
@@ -3405,7 +3405,7 @@ ma_job_queue_get_heap_layout.exit.thread:         ; preds = %6, %4, %2, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_job_queue_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -2, 1) i32 @ma_job_queue_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_job_queue_get_heap_layout.exit.thread, label %5
 
@@ -3622,7 +3622,7 @@ ma_job_queue_get_heap_layout.exit.thread:         ; preds = %27, %7, %5, %3, %ma
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_job_queue_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_job_queue_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -3706,7 +3706,7 @@ ma_free.exit:                                     ; preds = %23, %5, %3, %40, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_job_queue_uninit(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_job_queue_uninit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -3790,7 +3790,7 @@ ma_free.exit:                                     ; preds = %39, %37, %34, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_job_queue_post(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_job_queue_post(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -3997,7 +3997,7 @@ ma_slot_allocator_alloc.exit.thread:              ; preds = %45, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -51, 1) i32 @ma_job_queue_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_job_queue_next(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -4215,7 +4215,7 @@ define hidden ptr @ma_dlsym(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_device_info_add_native_data_format(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define hidden void @ma_device_info_add_native_data_format(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #15 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %19, label %7
 
@@ -4265,7 +4265,7 @@ define hidden ptr @ma_get_backend_name(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_get_backend_from_name(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #17 {
+define hidden range(i32 -2, 1) i32 @ma_get_backend_from_name(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #17 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -4352,7 +4352,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -18, 1) i32 @ma_get_enabled_backends(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #18 {
+define hidden range(i32 -18, 1) i32 @ma_get_enabled_backends(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #18 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %12, label %.preheader
 
@@ -4427,7 +4427,7 @@ define hidden range(i32 -1, 5) i32 @ma_get_format_priority_index(i32 noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_device_post_init(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden i32 @ma_device_post_init(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_data_converter_heap_layout, align 8
   %6 = alloca %struct.ma_data_converter_heap_layout, align 8
   %7 = alloca %struct.ma_data_converter_config, align 8
@@ -5690,7 +5690,7 @@ define hidden { i64, i32 } @ma_device_job_thread_config_init() local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -51, 1) i32 @ma_device_job_thread_init(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_device_job_thread_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_job_queue_config, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %25, label %6
@@ -5745,7 +5745,7 @@ define hidden range(i32 -51, 1) i32 @ma_device_job_thread_init(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -51, 1) i32 @ma_thread_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #4 {
+define internal fastcc range(i32 -51, 1) i32 @ma_thread_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #4 {
   %7 = alloca %union.pthread_attr_t, align 8
   %8 = alloca %struct.sched_param, align 4
   %9 = icmp eq ptr %0, null
@@ -6003,7 +6003,7 @@ ma_device_job_thread_next.exit.thread:            ; preds = %ma_job_process.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_device_job_thread_uninit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @ma_device_job_thread_uninit(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.ma_job, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %13, label %ma_device_job_thread_post.exit
@@ -6035,7 +6035,7 @@ ma_thread_wait.exit:                              ; preds = %ma_device_job_threa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_device_job_thread_post(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_device_job_thread_post(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -6052,7 +6052,7 @@ define hidden range(i32 -4, 1) i32 @ma_device_job_thread_post(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -51, 1) i32 @ma_device_job_thread_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -51, 1) i32 @ma_device_job_thread_next(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -6085,7 +6085,7 @@ define hidden void @ma_context_config_init(ptr dead_on_unwind noalias writable w
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -203, 1) i32 @ma_context_init(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -203, 1) i32 @ma_context_init(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_context_config, align 8
   %6 = alloca [15 x i32], align 16
   %7 = icmp eq ptr %3, null
@@ -8552,7 +8552,7 @@ define internal noundef i32 @ma_context_init__null(ptr readnone captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_context_get_log(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden ptr @ma_context_get_log(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -8652,7 +8652,7 @@ define hidden i32 @ma_context_enumerate_devices(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_context_get_devices(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #4 {
+define hidden i32 @ma_context_get_devices(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %6
 
@@ -8844,7 +8844,7 @@ ma_realloc.exit.thread:                           ; preds = %12, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_context_get_device_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
+define hidden i32 @ma_context_get_device_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_device_info, align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %3, null
@@ -8881,7 +8881,7 @@ define hidden i32 @ma_context_get_device_info(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @ma_context_is_loopback_supported(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i32 0, 2) i32 @ma_context_is_loopback_supported(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -10219,7 +10219,7 @@ ma__is_channel_map_valid.exit:                    ; preds = %40, %60, %53, %33, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_device_init_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i32 @ma_device_init_ex(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca [15 x i32], align 16
   %7 = icmp eq ptr %3, null
   br i1 %7, label %ma_free.exit, label %8
@@ -10380,7 +10380,7 @@ ma_free.exit:                                     ; preds = %29, %72, %._crit_ed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_channel_map_copy_or_default(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_channel_map_copy_or_default(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i32 %3, 0
   %or.cond = or i1 %5, %6
@@ -10874,7 +10874,7 @@ ma_device__is_initialized.exit.thread:            ; preds = %1, %ma_free.exit89,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @ma_silence_pcm_frames(ptr noundef writeonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
+define hidden void @ma_silence_pcm_frames(ptr noundef writeonly captures(address) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = icmp eq i32 %2, 1
   br i1 %5, label %6, label %9
 
@@ -12349,7 +12349,7 @@ ma_device_get_state.exit60:                       ; preds = %ma_device__on_notif
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_duplex_rb_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_duplex_rb_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #4 {
   %8 = mul i32 %4, 5
   %9 = zext i32 %8 to i64
   %10 = icmp eq i32 %3, 0
@@ -12590,7 +12590,7 @@ ma_calculate_frame_count_after_resampling.exit.thread: ; preds = %54, %58, %62, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @ma_device_get_log(ptr noundef readonly %0) local_unnamed_addr #20 {
+define hidden ptr @ma_device_get_log(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_context_get_log.exit, label %ma_device_get_context.exit
 
@@ -12610,7 +12610,7 @@ ma_context_get_log.exit:                          ; preds = %1, %ma_device_get_c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_device_get_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #4 {
+define hidden i32 @ma_device_get_name(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.ma_device_info, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -12705,7 +12705,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @ma_channel_map_to_string(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #21 {
+define hidden i64 @ma_channel_map_to_string(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #21 {
   %.not53 = icmp eq i32 %1, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
@@ -12839,7 +12839,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %.lr.ph.split, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ma_duplex_rb_uninit(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden noundef i32 @ma_duplex_rb_uninit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_pcm_rb_uninit.exit, label %3
 
@@ -12874,7 +12874,7 @@ ma_pcm_rb_uninit.exit:                            ; preds = %1, %3, %6, %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_data_converter_uninit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @ma_data_converter_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -12999,7 +12999,7 @@ ma_free.exit:                                     ; preds = %58, %56, %53, %48, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_device_get_context(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden ptr @ma_device_get_context(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -13141,7 +13141,7 @@ ma_context_is_backend_asynchronous.exit.thread:   ; preds = %9, %16, %ma_context
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_device_get_state(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_device_get_state(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -13256,7 +13256,7 @@ ma_event_wait.exit:                               ; preds = %38, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @ma_device_is_started(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden range(i32 0, 2) i32 @ma_device_is_started(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_device_get_state.exit, label %3
 
@@ -13291,7 +13291,7 @@ define hidden range(i32 -2, 1) i32 @ma_device_set_master_volume(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_device_get_master_volume(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #23 {
+define hidden range(i32 -2, 1) i32 @ma_device_get_master_volume(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #23 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -13350,7 +13350,7 @@ define hidden float @ma_volume_db_to_linear(float noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_device_get_master_volume_db(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #26 {
+define hidden range(i32 -2, 1) i32 @ma_device_get_master_volume_db(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #26 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %15, label %4
 
@@ -14200,7 +14200,7 @@ ma_data_converter_get_required_input_frame_count.exit: ; preds = %89, %92, %96, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_calculate_buffer_size_in_frames_from_descriptor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 {
+define hidden i32 @ma_calculate_buffer_size_in_frames_from_descriptor(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %30, label %5
 
@@ -14268,7 +14268,7 @@ define hidden noundef i32 @ma_calculate_buffer_size_in_milliseconds_from_frames(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_pcm_frames(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @ma_copy_pcm_frames(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, %1
   br i1 %6, label %.loopexit, label %7
 
@@ -14299,7 +14299,7 @@ define hidden void @ma_copy_pcm_frames(ptr noundef writeonly %0, ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @ma_offset_pcm_frames_ptr(ptr noundef readnone %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden ptr @ma_offset_pcm_frames_ptr(ptr noundef readnone captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = zext i32 %2 to i64
   %6 = getelementptr inbounds nuw [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -14311,7 +14311,7 @@ define hidden ptr @ma_offset_pcm_frames_ptr(ptr noundef readnone %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @ma_offset_pcm_frames_const_ptr(ptr noundef readnone %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden ptr @ma_offset_pcm_frames_const_ptr(ptr noundef readnone captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = zext i32 %2 to i64
   %6 = getelementptr inbounds nuw [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -14556,7 +14556,7 @@ ma_clip_samples_u8.exit:                          ; preds = %.lr.ph.i29, %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_u8(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_u8(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %5, %6
@@ -14582,7 +14582,7 @@ define hidden void @ma_copy_and_apply_volume_factor_u8(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_s16(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_s16(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %5, %6
@@ -14608,7 +14608,7 @@ define hidden void @ma_copy_and_apply_volume_factor_s16(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_s24(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_s24(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not29 = and i1 %5, %6
@@ -14659,7 +14659,7 @@ define hidden void @ma_copy_and_apply_volume_factor_s24(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %5, %6
@@ -14685,7 +14685,7 @@ define hidden void @ma_copy_and_apply_volume_factor_s32(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_f32(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -14731,7 +14731,7 @@ define hidden void @ma_copy_and_apply_volume_factor_f32(ptr noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_u8(ptr noundef %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_u8(ptr noundef captures(address_is_null) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i64 %1, 0
   %or.cond13.i = and i1 %4, %5
@@ -14754,7 +14754,7 @@ ma_copy_and_apply_volume_factor_u8.exit:          ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_s16(ptr noundef %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_s16(ptr noundef captures(address_is_null) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i64 %1, 0
   %or.cond13.i = and i1 %4, %5
@@ -14777,7 +14777,7 @@ ma_copy_and_apply_volume_factor_s16.exit:         ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_s24(ptr noundef %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_s24(ptr noundef captures(address_is_null) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i64 %1, 0
   %or.cond27.i = and i1 %4, %5
@@ -14826,7 +14826,7 @@ ma_copy_and_apply_volume_factor_s24.exit:         ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_s32(ptr noundef %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_s32(ptr noundef captures(address_is_null) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i64 %1, 0
   %or.cond13.i = and i1 %4, %5
@@ -14849,7 +14849,7 @@ ma_copy_and_apply_volume_factor_s32.exit:         ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_f32(ptr noundef %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_f32(ptr noundef captures(address_is_null) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   %5 = fcmp oeq float %2, 1.000000e+00
   %or.cond = or i1 %4, %5
@@ -14872,7 +14872,7 @@ ma_copy_and_apply_volume_factor_f32.exit:         ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_u8(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_u8(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = zext i32 %3 to i64
   %7 = mul i64 %2, %6
   %8 = icmp ne ptr %0, null
@@ -14900,7 +14900,7 @@ ma_copy_and_apply_volume_factor_u8.exit:          ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_s16(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_s16(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = zext i32 %3 to i64
   %7 = mul i64 %2, %6
   %8 = icmp ne ptr %0, null
@@ -14928,7 +14928,7 @@ ma_copy_and_apply_volume_factor_s16.exit:         ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_s24(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_s24(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = zext i32 %3 to i64
   %7 = mul i64 %2, %6
   %8 = icmp ne ptr %0, null
@@ -14981,7 +14981,7 @@ ma_copy_and_apply_volume_factor_s24.exit:         ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = zext i32 %3 to i64
   %7 = mul i64 %2, %6
   %8 = icmp ne ptr %0, null
@@ -15009,7 +15009,7 @@ ma_copy_and_apply_volume_factor_s32.exit:         ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_f32(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = zext i32 %3 to i64
   %7 = mul i64 %2, %6
   %8 = icmp eq ptr %0, null
@@ -15057,7 +15057,7 @@ ma_copy_and_apply_volume_factor_f32.exit:         ; preds = %.lr.ph.i, %.lr.ph27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_factor_pcm_frames(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_factor_pcm_frames(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #2 {
   switch i32 %3, label %ma_copy_and_apply_volume_factor_pcm_frames_u8.exit [
     i32 1, label %7
     i32 2, label %20
@@ -15231,7 +15231,7 @@ ma_copy_and_apply_volume_factor_pcm_frames_u8.exit: ; preds = %.lr.ph.i.i37, %.l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_pcm_frames_u8(ptr noundef %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_pcm_frames_u8(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = zext i32 %2 to i64
   %6 = mul i64 %1, %5
   %7 = icmp ne ptr %0, null
@@ -15256,7 +15256,7 @@ ma_copy_and_apply_volume_factor_pcm_frames_u8.exit: ; preds = %.lr.ph.i.i, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_pcm_frames_s16(ptr noundef %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_pcm_frames_s16(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = zext i32 %2 to i64
   %6 = mul i64 %1, %5
   %7 = icmp ne ptr %0, null
@@ -15281,7 +15281,7 @@ ma_copy_and_apply_volume_factor_pcm_frames_s16.exit: ; preds = %.lr.ph.i.i, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_pcm_frames_s24(ptr noundef %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_pcm_frames_s24(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = zext i32 %2 to i64
   %6 = mul i64 %1, %5
   %7 = icmp ne ptr %0, null
@@ -15332,7 +15332,7 @@ ma_copy_and_apply_volume_factor_pcm_frames_s24.exit: ; preds = %.lr.ph.i.i, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_pcm_frames_s32(ptr noundef %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_pcm_frames_s32(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = zext i32 %2 to i64
   %6 = mul i64 %1, %5
   %7 = icmp ne ptr %0, null
@@ -15357,7 +15357,7 @@ ma_copy_and_apply_volume_factor_pcm_frames_s32.exit: ; preds = %.lr.ph.i.i, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_pcm_frames_f32(ptr noundef %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_pcm_frames_f32(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = zext i32 %2 to i64
   %6 = mul i64 %1, %5
   %7 = icmp eq ptr %0, null
@@ -15382,7 +15382,7 @@ ma_copy_and_apply_volume_factor_pcm_frames_f32.exit: ; preds = %.lr.ph.i.i, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_apply_volume_factor_pcm_frames(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define hidden void @ma_apply_volume_factor_pcm_frames(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   tail call void @ma_copy_and_apply_volume_factor_pcm_frames(ptr noundef %0, ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4)
   ret void
 }
@@ -15582,7 +15582,7 @@ define hidden void @ma_copy_and_apply_volume_and_clip_samples_f32(ptr noundef wr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ma_copy_and_apply_volume_and_clip_pcm_frames(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #2 {
+define hidden void @ma_copy_and_apply_volume_and_clip_pcm_frames(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #2 {
   %7 = fcmp oeq float %5, 1.000000e+00
   br i1 %7, label %8, label %9
 
@@ -15782,7 +15782,7 @@ ma_silence_pcm_frames.exit:                       ; preds = %.lr.ph.i47, %86, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_mix_pcm_frames_f32(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
+define hidden range(i32 -2, 1) i32 @ma_mix_pcm_frames_f32(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -18380,7 +18380,7 @@ define hidden void @ma_convert_pcm_frames_format(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @ma_deinterleave_pcm_frames(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #27 {
+define hidden void @ma_deinterleave_pcm_frames(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #27 {
   %6 = icmp eq ptr %3, null
   %7 = icmp eq ptr %4, null
   %or.cond = or i1 %6, %7
@@ -18626,7 +18626,7 @@ define hidden void @ma_biquad_config_init(ptr dead_on_unwind noalias writable wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_biquad_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_biquad_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_biquad_get_heap_layout.exit.thread, label %4
 
@@ -18653,7 +18653,7 @@ ma_biquad_get_heap_layout.exit.thread:            ; preds = %6, %4, %2, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_biquad_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
+define hidden range(i32 -3, 1) i32 @ma_biquad_init_preallocated(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_get_heap_layout.exit.thread, label %5
 
@@ -18696,7 +18696,7 @@ ma_biquad_get_heap_layout.exit.thread:            ; preds = %7, %5, %3, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_biquad_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -3, 1) i32 @ma_biquad_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -18826,7 +18826,7 @@ define hidden range(i32 -3, 1) i32 @ma_biquad_reinit(ptr noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_biquad_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_biquad_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -18918,7 +18918,7 @@ ma_free.exit:                                     ; preds = %12, %5, %3, %39, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_biquad_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_biquad_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -18958,7 +18958,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_biquad_clear_cache(ptr noundef readonly %0) local_unnamed_addr #30 {
+define hidden range(i32 -2, 1) i32 @ma_biquad_clear_cache(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #30 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -18988,7 +18988,7 @@ define hidden range(i32 -2, 1) i32 @ma_biquad_clear_cache(ptr noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_biquad_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_biquad_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -19156,7 +19156,7 @@ define hidden range(i32 -2, 1) i32 @ma_biquad_process_pcm_frames(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_biquad_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_biquad_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %. = select i1 %2, i32 0, i32 2
   ret i32 %.
@@ -19211,7 +19211,7 @@ define hidden void @ma_lpf2_config_init(ptr dead_on_unwind noalias writable writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf1_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_lpf1_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -19237,7 +19237,7 @@ ma_lpf1_get_heap_layout.exit.thread:              ; preds = %5, %2, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_lpf1_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_lpf1_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_lpf1_reinit.exit, label %5
 
@@ -19328,7 +19328,7 @@ ma_lpf1_reinit.exit:                              ; preds = %7, %5, %43, %40, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_lpf1_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_lpf1_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -19396,7 +19396,7 @@ define hidden range(i32 -3, 1) i32 @ma_lpf1_reinit(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_lpf1_init(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_lpf1_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -19528,7 +19528,7 @@ ma_free.exit:                                     ; preds = %14, %5, %3, %66, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_lpf1_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_lpf1_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -19568,7 +19568,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf1_clear_cache(ptr noundef %0) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_lpf1_clear_cache(ptr noundef captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -19592,7 +19592,7 @@ define hidden range(i32 -2, 1) i32 @ma_lpf1_clear_cache(ptr noundef %0) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf1_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_lpf1_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -19719,14 +19719,14 @@ define hidden range(i32 -2, 1) i32 @ma_lpf1_process_pcm_frames(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 2) i32 @ma_lpf1_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ma_lpf1_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp ne ptr %0, null
   %. = zext i1 %2 to i32
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_lpf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8, !noalias !9
   %5 = fmul double %4, 0x401921FB54442D18
@@ -19775,7 +19775,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end21, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_lpf2_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_lpf2_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_init_preallocated.exit, label %5
 
@@ -19911,7 +19911,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %37, %42, %43, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_lpf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_lpf2_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8, !noalias !16
   %6 = fmul double %5, 0x401921FB54442D18
@@ -20003,7 +20003,7 @@ ma_lpf2_get_heap_size.exit:                       ; preds = %24, %41, %39, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_lpf2_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_lpf2_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_biquad_uninit.exit, label %4
 
@@ -20043,7 +20043,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_lpf2_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -20153,7 +20153,7 @@ ma_biquad_reinit.exit:                            ; preds = %51, %38, %30, %29, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf2_clear_cache(ptr noundef readonly %0) local_unnamed_addr #30 {
+define hidden range(i32 -2, 1) i32 @ma_lpf2_clear_cache(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #30 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_biquad_clear_cache.exit, label %3
 
@@ -20183,7 +20183,7 @@ ma_biquad_clear_cache.exit:                       ; preds = %11, %9, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_lpf2_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -20197,7 +20197,7 @@ define hidden range(i32 -2, 1) i32 @ma_lpf2_process_pcm_frames(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_lpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_lpf2_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -20228,7 +20228,7 @@ define hidden void @ma_lpf_config_init(ptr dead_on_unwind noalias writable write
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
+define hidden range(i32 -2, 1) i32 @ma_lpf_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #33 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_lpf_get_heap_layout.exit.thread, label %4
 
@@ -20320,7 +20320,7 @@ ma_lpf_get_heap_layout.exit.thread:               ; preds = %cdce.end21.i.i, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_lpf_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -3, 1) i32 @ma_lpf_init_preallocated(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %7, label %5
 
@@ -20335,7 +20335,7 @@ define hidden range(i32 -3, 1) i32 @ma_lpf_init_preallocated(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = alloca %struct.ma_lpf1_config, align 8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, null
@@ -20816,7 +20816,7 @@ ma_lpf_get_heap_layout.exit.thread:               ; preds = %cdce.end21.i.i, %ma
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_lpf_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_lpf_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -20967,7 +20967,7 @@ ma_free.exit:                                     ; preds = %cdce.end21.i.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_lpf_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_lpf_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %.preheader19
 
@@ -21129,13 +21129,13 @@ ma_free.exit:                                     ; preds = %66, %64, %61, %56, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_lpf_reinit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -3, 1) i32 @ma_lpf_reinit(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = tail call fastcc i32 @ma_lpf_reinit__internal(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_lpf_clear_cache(ptr noundef readonly %0) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_lpf_clear_cache(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #27 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader15
 
@@ -21239,7 +21239,7 @@ ma_lpf2_clear_cache.exit:                         ; preds = %.lr.ph18.split, %34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -3, 1) i32 @ma_lpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -3, 1) i32 @ma_lpf_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_lpf1_process_pcm_frames.exit, label %6
 
@@ -21716,7 +21716,7 @@ ma_lpf1_process_pcm_frames.exit:                  ; preds = %._crit_edge, %._cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_lpf_get_latency(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_lpf_get_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -21781,7 +21781,7 @@ define hidden void @ma_hpf2_config_init(ptr dead_on_unwind noalias writable writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_hpf1_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_hpf1_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -21807,7 +21807,7 @@ ma_hpf1_get_heap_layout.exit.thread:              ; preds = %5, %2, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_hpf1_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_hpf1_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_hpf1_reinit.exit, label %5
 
@@ -21898,7 +21898,7 @@ ma_hpf1_reinit.exit:                              ; preds = %7, %5, %43, %40, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_hpf1_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_hpf1_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -21966,7 +21966,7 @@ define hidden range(i32 -3, 1) i32 @ma_hpf1_reinit(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_hpf1_init(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_hpf1_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -22098,7 +22098,7 @@ ma_free.exit:                                     ; preds = %14, %5, %3, %66, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_hpf1_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_hpf1_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -22138,7 +22138,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_hpf1_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_hpf1_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -22267,14 +22267,14 @@ define hidden range(i32 -2, 1) i32 @ma_hpf1_process_pcm_frames(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 2) i32 @ma_hpf1_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ma_hpf1_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp ne ptr %0, null
   %. = zext i1 %2 to i32
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_hpf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_hpf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8, !noalias !40
   %5 = fmul double %4, 0x401921FB54442D18
@@ -22323,7 +22323,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end21, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_hpf2_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_hpf2_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_init_preallocated.exit, label %5
 
@@ -22460,7 +22460,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %38, %43, %44, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_hpf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_hpf2_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8, !noalias !46
   %6 = fmul double %5, 0x401921FB54442D18
@@ -22552,7 +22552,7 @@ ma_hpf2_get_heap_size.exit:                       ; preds = %24, %41, %39, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_hpf2_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_hpf2_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_biquad_uninit.exit, label %4
 
@@ -22592,7 +22592,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_hpf2_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -22703,7 +22703,7 @@ ma_biquad_reinit.exit:                            ; preds = %52, %39, %31, %30, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_hpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_hpf2_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -22717,7 +22717,7 @@ define hidden range(i32 -2, 1) i32 @ma_hpf2_process_pcm_frames(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_hpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_hpf2_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -22748,7 +22748,7 @@ define hidden void @ma_hpf_config_init(ptr dead_on_unwind noalias writable write
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_hpf_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
+define hidden range(i32 -2, 1) i32 @ma_hpf_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #33 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_hpf_get_heap_layout.exit.thread, label %4
 
@@ -22840,7 +22840,7 @@ ma_hpf_get_heap_layout.exit.thread:               ; preds = %cdce.end21.i.i, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_hpf_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -3, 1) i32 @ma_hpf_init_preallocated(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %7, label %5
 
@@ -22855,7 +22855,7 @@ define hidden range(i32 -3, 1) i32 @ma_hpf_init_preallocated(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @ma_hpf_reinit__internal(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @ma_hpf_reinit__internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = alloca %struct.ma_hpf1_config, align 8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, null
@@ -23336,7 +23336,7 @@ ma_hpf_get_heap_layout.exit.thread:               ; preds = %cdce.end21.i.i, %ma
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_hpf_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_hpf_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -23487,7 +23487,7 @@ ma_free.exit:                                     ; preds = %cdce.end21.i.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_hpf_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_hpf_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %.preheader19
 
@@ -23649,13 +23649,13 @@ ma_free.exit:                                     ; preds = %66, %64, %61, %56, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_hpf_reinit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -3, 1) i32 @ma_hpf_reinit(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = tail call fastcc i32 @ma_hpf_reinit__internal(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -3, 1) i32 @ma_hpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -3, 1) i32 @ma_hpf_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_hpf1_process_pcm_frames.exit, label %6
 
@@ -24136,7 +24136,7 @@ ma_hpf1_process_pcm_frames.exit:                  ; preds = %._crit_edge, %._cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_hpf_get_latency(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_hpf_get_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -24180,7 +24180,7 @@ define hidden void @ma_bpf2_config_init(ptr dead_on_unwind noalias writable writ
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_bpf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_bpf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8, !noalias !67
   %5 = fmul double %4, 0x401921FB54442D18
@@ -24229,7 +24229,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end22, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_bpf2_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_bpf2_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_init_preallocated.exit, label %5
 
@@ -24371,7 +24371,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %38, %43, %44, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_bpf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_bpf2_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8, !noalias !73
   %6 = fmul double %5, 0x401921FB54442D18
@@ -24463,7 +24463,7 @@ ma_bpf2_get_heap_size.exit:                       ; preds = %24, %41, %39, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_bpf2_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_bpf2_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_biquad_uninit.exit, label %4
 
@@ -24503,7 +24503,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_bpf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_bpf2_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -24619,7 +24619,7 @@ ma_biquad_reinit.exit:                            ; preds = %54, %39, %31, %30, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_bpf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_bpf2_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -24633,7 +24633,7 @@ define hidden range(i32 -2, 1) i32 @ma_bpf2_process_pcm_frames(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_bpf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_bpf2_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -24664,7 +24664,7 @@ define hidden void @ma_bpf_config_init(ptr dead_on_unwind noalias writable write
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_bpf_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #33 {
+define hidden range(i32 -2, 1) i32 @ma_bpf_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #33 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_bpf_get_heap_layout.exit.thread, label %4
 
@@ -24745,7 +24745,7 @@ ma_bpf_get_heap_layout.exit.thread:               ; preds = %cdce.end22.i.i, %6,
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -3, 1) i32 @ma_bpf_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #34 {
+define hidden range(i32 -3, 1) i32 @ma_bpf_init_preallocated(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #34 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %7, label %5
 
@@ -24760,7 +24760,7 @@ define hidden range(i32 -3, 1) i32 @ma_bpf_init_preallocated(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc range(i32 -3, 1) i32 @ma_bpf_reinit__internal(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #34 {
+define internal fastcc range(i32 -3, 1) i32 @ma_bpf_reinit__internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #34 {
   %5 = alloca %struct.ma_bpf2_config, align 8
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, null
@@ -25017,7 +25017,7 @@ ma_bpf_get_heap_layout.exit:                      ; preds = %cdce.end22.i.i, %ma
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_bpf_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_bpf_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -25156,7 +25156,7 @@ ma_free.exit:                                     ; preds = %cdce.end22.i.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_bpf_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_bpf_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %.preheader
 
@@ -25257,13 +25257,13 @@ ma_free.exit:                                     ; preds = %41, %39, %36, %31, 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -3, 1) i32 @ma_bpf_reinit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #34 {
+define hidden range(i32 -3, 1) i32 @ma_bpf_reinit(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #34 {
   %3 = tail call fastcc i32 @ma_bpf_reinit__internal(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -3, 1) i32 @ma_bpf_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -3, 1) i32 @ma_bpf_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_bpf2_process_pcm_frames.exit.thread, label %6
 
@@ -25507,7 +25507,7 @@ ma_bpf2_process_pcm_frames.exit.thread:           ; preds = %._crit_edge, %._cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, -1) i32 @ma_bpf_get_latency(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i32 0, -1) i32 @ma_bpf_get_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -25554,7 +25554,7 @@ define hidden void @ma_notch2_config_init(ptr dead_on_unwind noalias writable wr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_notch2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_notch2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load double, ptr %3, align 8, !noalias !92
   %5 = fmul double %4, 0x401921FB54442D18
@@ -25603,7 +25603,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end19, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_notch2_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_notch2_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_init_preallocated.exit, label %5
 
@@ -25732,7 +25732,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %35, %40, %41, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_notch2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_notch2_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load double, ptr %4, align 8, !noalias !98
   %6 = fmul double %5, 0x401921FB54442D18
@@ -25824,7 +25824,7 @@ ma_notch2_get_heap_size.exit:                     ; preds = %24, %41, %39, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_notch2_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_notch2_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_biquad_uninit.exit, label %4
 
@@ -25864,7 +25864,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_notch2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_notch2_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -25967,7 +25967,7 @@ ma_biquad_reinit.exit:                            ; preds = %47, %36, %28, %27, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_notch2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_notch2_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -25981,7 +25981,7 @@ define hidden range(i32 -2, 1) i32 @ma_notch2_process_pcm_frames(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_notch2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_notch2_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -26021,7 +26021,7 @@ define hidden void @ma_peak2_config_init(ptr dead_on_unwind noalias writable wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_peak2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_peak2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8, !noalias !104
   %5 = fmul double %4, 0x401921FB54442D18
@@ -26081,7 +26081,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end30, %25, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_peak2_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_peak2_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_init_preallocated.exit, label %5
 
@@ -26223,7 +26223,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %43, %48, %49, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_peak2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_peak2_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load double, ptr %4, align 8, !noalias !110
   %6 = fmul double %5, 0x401921FB54442D18
@@ -26326,7 +26326,7 @@ ma_peak2_get_heap_size.exit:                      ; preds = %29, %46, %44, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_peak2_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_peak2_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_biquad_uninit.exit, label %4
 
@@ -26366,7 +26366,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_peak2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_peak2_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -26482,7 +26482,7 @@ ma_biquad_reinit.exit:                            ; preds = %57, %44, %36, %35, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_peak2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_peak2_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -26496,7 +26496,7 @@ define hidden range(i32 -2, 1) i32 @ma_peak2_process_pcm_frames(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_peak2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_peak2_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -26528,7 +26528,7 @@ define hidden void @ma_loshelf2_config_init(ptr dead_on_unwind noalias writable 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_loshelf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_loshelf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8, !noalias !116
   %5 = fmul double %4, 0x401921FB54442D18
@@ -26604,7 +26604,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end53, %35, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_loshelf2_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_loshelf2_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_init_preallocated.exit, label %5
 
@@ -26770,7 +26770,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %62, %67, %68, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_loshelf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_loshelf2_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load double, ptr %4, align 8, !noalias !122
   %6 = fmul double %5, 0x401921FB54442D18
@@ -26889,7 +26889,7 @@ ma_loshelf2_get_heap_size.exit:                   ; preds = %39, %56, %54, %51, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_loshelf2_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_loshelf2_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_biquad_uninit.exit, label %4
 
@@ -26929,7 +26929,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_loshelf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_loshelf2_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -27069,7 +27069,7 @@ ma_biquad_reinit.exit:                            ; preds = %78, %63, %55, %54, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_loshelf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_loshelf2_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -27083,7 +27083,7 @@ define hidden range(i32 -2, 1) i32 @ma_loshelf2_process_pcm_frames(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_loshelf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_loshelf2_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -27115,7 +27115,7 @@ define hidden void @ma_hishelf2_config_init(ptr dead_on_unwind noalias writable 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_hishelf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #32 {
+define hidden range(i32 -2, 1) i32 @ma_hishelf2_get_heap_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8, !noalias !128
   %5 = fmul double %4, 0x401921FB54442D18
@@ -27191,7 +27191,7 @@ ma_biquad_get_heap_size.exit:                     ; preds = %cdce.end53, %35, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_hishelf2_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_hishelf2_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #32 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_biquad_init_preallocated.exit, label %5
 
@@ -27357,7 +27357,7 @@ ma_biquad_init_preallocated.exit:                 ; preds = %7, %62, %67, %68, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_hishelf2_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_hishelf2_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load double, ptr %4, align 8, !noalias !134
   %6 = fmul double %5, 0x401921FB54442D18
@@ -27476,7 +27476,7 @@ ma_hishelf2_get_heap_size.exit:                   ; preds = %39, %56, %54, %51, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_hishelf2_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_hishelf2_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_biquad_uninit.exit, label %4
 
@@ -27516,7 +27516,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden range(i32 -3, 1) i32 @ma_hishelf2_reinit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #32 {
+define hidden range(i32 -3, 1) i32 @ma_hishelf2_reinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #32 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -27656,7 +27656,7 @@ ma_biquad_reinit.exit:                            ; preds = %78, %63, %55, %54, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_hishelf2_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #31 {
+define hidden range(i32 -2, 1) i32 @ma_hishelf2_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #31 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -27670,7 +27670,7 @@ define hidden range(i32 -2, 1) i32 @ma_hishelf2_process_pcm_frames(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 3) i32 @ma_hishelf2_get_latency(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden noundef range(i32 0, 3) i32 @ma_hishelf2_get_latency(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %spec.select = select i1 %2, i32 0, i32 2
   ret i32 %spec.select
@@ -27697,7 +27697,7 @@ define hidden void @ma_delay_config_init(ptr dead_on_unwind noalias writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_delay_init(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_delay_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_silence_pcm_frames.exit, label %5
 
@@ -27782,7 +27782,7 @@ ma_silence_pcm_frames.exit:                       ; preds = %.preheader, %32, %m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_delay_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_delay_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -27816,7 +27816,7 @@ ma_free.exit:                                     ; preds = %14, %12, %9, %4, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_delay_process_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_delay_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #27 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -27945,7 +27945,7 @@ define hidden range(i32 -2, 1) i32 @ma_delay_process_pcm_frames(ptr noundef %0, 
 declare float @llvm.fmuladd.f32(float, float, float) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_delay_set_wet(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_delay_set_wet(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -27959,7 +27959,7 @@ define hidden void @ma_delay_set_wet(ptr noundef writeonly %0, float noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @ma_delay_get_wet(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden float @ma_delay_get_wet(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -27974,7 +27974,7 @@ define hidden float @ma_delay_get_wet(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_delay_set_dry(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_delay_set_dry(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -27988,7 +27988,7 @@ define hidden void @ma_delay_set_dry(ptr noundef writeonly %0, float noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @ma_delay_get_dry(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden float @ma_delay_get_dry(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -28003,7 +28003,7 @@ define hidden float @ma_delay_get_dry(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_delay_set_decay(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_delay_set_decay(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -28017,7 +28017,7 @@ define hidden void @ma_delay_set_decay(ptr noundef writeonly %0, float noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @ma_delay_get_decay(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden float @ma_delay_get_decay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -28041,7 +28041,7 @@ define hidden i64 @ma_gainer_config_init(i32 noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_gainer_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_gainer_get_heap_layout.exit.thread, label %4
 
@@ -28067,7 +28067,7 @@ ma_gainer_get_heap_layout.exit.thread:            ; preds = %6, %4, %2, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_gainer_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #28 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #28 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_gainer_get_heap_layout.exit, label %5
 
@@ -28125,7 +28125,7 @@ ma_gainer_get_heap_layout.exit:                   ; preds = %.lr.ph, %11, %8, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_gainer_init(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_gainer_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -28235,7 +28235,7 @@ ma_free.exit:                                     ; preds = %11, %5, %3, %49, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_gainer_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_gainer_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -28275,7 +28275,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #36 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #36 {
   %5 = alloca [32 x float], align 16
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x float], align 16
@@ -28736,7 +28736,7 @@ ma_gainer_process_pcm_frames_internal.exit:       ; preds = %ma_copy_and_apply_v
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_gainer_set_gain(ptr noundef %0, float noundef %1) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_set_gain(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #27 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %35, label %.preheader
 
@@ -28800,7 +28800,7 @@ ma_gainer_reset_smoothing_time.exit:              ; preds = %._crit_edge, %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_gainer_set_gains(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_set_gains(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #27 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -28868,7 +28868,7 @@ ma_gainer_reset_smoothing_time.exit:              ; preds = %._crit_edge, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_gainer_set_master_volume(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_set_master_volume(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -28883,7 +28883,7 @@ define hidden range(i32 -2, 1) i32 @ma_gainer_set_master_volume(ptr noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_gainer_get_master_volume(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_gainer_get_master_volume(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -28912,7 +28912,7 @@ define hidden { i64, i64 } @ma_panner_config_init(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_panner_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_panner_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %17, label %4
 
@@ -28944,7 +28944,7 @@ define hidden range(i32 -2, 1) i32 @ma_panner_init(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_panner_process_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 -2, 1) i32 @ma_panner_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -29283,7 +29283,7 @@ ma_stereo_balance_pcm_frames.exit:                ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_panner_set_mode(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_panner_set_mode(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -29297,7 +29297,7 @@ define hidden void @ma_panner_set_mode(ptr noundef writeonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_panner_get_mode(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_panner_get_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -29312,7 +29312,7 @@ define hidden i32 @ma_panner_get_mode(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_panner_set_pan(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_panner_set_pan(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -29330,7 +29330,7 @@ define hidden void @ma_panner_set_pan(ptr noundef writeonly %0, float noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @ma_panner_get_pan(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden float @ma_panner_get_pan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -29356,7 +29356,7 @@ define hidden { i64, i32 } @ma_fader_config_init(i32 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_fader_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_fader_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %12, label %4
 
@@ -29386,7 +29386,7 @@ define hidden range(i32 -2, 1) i32 @ma_fader_init(ptr noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -29, 1) i32 @ma_fader_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 -29, 1) i32 @ma_fader_process_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %109, label %6
 
@@ -29590,7 +29590,7 @@ ma_copy_pcm_frames.exit113:                       ; preds = %._crit_edge, %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_fader_get_data_format(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #15 {
+define hidden void @ma_fader_get_data_format(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #15 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %17, label %6
 
@@ -29628,7 +29628,7 @@ define hidden void @ma_fader_get_data_format(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_fader_set_fade(ptr noundef %0, float noundef %1, float noundef %2, i64 noundef %3) local_unnamed_addr #15 {
+define hidden void @ma_fader_set_fade(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, i64 noundef %3) local_unnamed_addr #15 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_fader_set_fade_ex.exit, label %6
 
@@ -29695,7 +29695,7 @@ ma_fader_set_fade_ex.exit:                        ; preds = %4, %ma_fader_get_cu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_fader_set_fade_ex(ptr noundef %0, float noundef %1, float noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #15 {
+define hidden void @ma_fader_set_fade_ex(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #15 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %42, label %7
 
@@ -29764,7 +29764,7 @@ ma_fader_get_current_volume.exit:                 ; preds = %24, %21, %15, %9, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @ma_fader_get_current_volume(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden float @ma_fader_get_current_volume(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -30043,7 +30043,7 @@ define hidden void @ma_spatializer_listener_config_init(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_spatializer_listener_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_listener_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_spatializer_listener_get_heap_layout.exit.thread, label %4
 
@@ -30070,7 +30070,7 @@ ma_spatializer_listener_get_heap_layout.exit.thread: ; preds = %6, %4, %2, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_spatializer_listener_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #38 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_listener_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #38 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_get_default_channel_map_for_spatializer.exit, label %5
 
@@ -30310,7 +30310,7 @@ ma_atomic_vec3f_set.exit:                         ; preds = %.loopexit.i.i, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_spatializer_listener_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_spatializer_listener_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -30380,7 +30380,7 @@ ma_free.exit:                                     ; preds = %12, %5, %3, %29, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_listener_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_spatializer_listener_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -30420,7 +30420,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_spatializer_listener_get_channel_map(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden ptr @ma_spatializer_listener_get_channel_map(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -30435,7 +30435,7 @@ define hidden ptr @ma_spatializer_listener_get_channel_map(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_spatializer_listener_set_cone(ptr noundef writeonly %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 {
+define hidden void @ma_spatializer_listener_set_cone(ptr noundef writeonly captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %10, label %6
 
@@ -30453,7 +30453,7 @@ define hidden void @ma_spatializer_listener_set_cone(ptr noundef writeonly %0, f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_spatializer_listener_get_cone(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #15 {
+define hidden void @ma_spatializer_listener_get_cone(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #15 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %18, label %6
 
@@ -30658,7 +30658,7 @@ ma_atomic_vec3f_get.exit:                         ; preds = %.loopexit.i.i, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_spatializer_listener_set_speed_of_sound(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_spatializer_listener_set_speed_of_sound(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -30672,7 +30672,7 @@ define hidden void @ma_spatializer_listener_set_speed_of_sound(ptr noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @ma_spatializer_listener_get_speed_of_sound(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden float @ma_spatializer_listener_get_speed_of_sound(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -30687,7 +30687,7 @@ define hidden float @ma_spatializer_listener_get_speed_of_sound(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_spatializer_listener_set_world_up(ptr noundef writeonly %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #39 {
+define hidden void @ma_spatializer_listener_set_world_up(ptr noundef writeonly captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #39 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -30705,7 +30705,7 @@ define hidden void @ma_spatializer_listener_set_world_up(ptr noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { <2 x float>, float } @ma_spatializer_listener_get_world_up(ptr noundef readonly %0) local_unnamed_addr #40 {
+define hidden { <2 x float>, float } @ma_spatializer_listener_get_world_up(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #40 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -30724,7 +30724,7 @@ define hidden { <2 x float>, float } @ma_spatializer_listener_get_world_up(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_spatializer_listener_set_enabled(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_spatializer_listener_set_enabled(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -30738,7 +30738,7 @@ define hidden void @ma_spatializer_listener_set_enabled(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_spatializer_listener_is_enabled(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_spatializer_listener_is_enabled(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -30802,7 +30802,7 @@ define hidden void @ma_spatializer_config_init(ptr dead_on_unwind noalias writab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_spatializer_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_spatializer_get_heap_layout.exit.thread, label %4
 
@@ -30846,7 +30846,7 @@ ma_spatializer_get_heap_layout.exit.thread:       ; preds = %9, %6, %4, %2, %ma_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_spatializer_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #38 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #38 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_spatializer_get_heap_layout.exit.thread, label %5
 
@@ -31192,7 +31192,7 @@ ma_atomic_vec3f_set.exit:                         ; preds = %.loopexit.i.i, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_spatializer_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_spatializer_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -31279,7 +31279,7 @@ ma_free.exit:                                     ; preds = %26, %8, %5, %3, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_spatializer_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -31350,7 +31350,7 @@ ma_free.exit:                                     ; preds = %30, %28, %25, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef range(i32 -2, 1) i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #38 {
+define hidden noundef range(i32 -2, 1) i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, i64 noundef %4) local_unnamed_addr #38 {
   %6 = alloca %struct.ma_vec3f, align 8
   %7 = alloca %struct.ma_vec3f, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32118,7 +32118,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %.lr.ph.i, %39, %ma_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @ma_channel_map_apply_f32(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i64 noundef %6) unnamed_addr #41 {
+define internal fastcc void @ma_channel_map_apply_f32(ptr noundef writeonly captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef captures(address) %4, i32 noundef %5, i64 noundef %6) unnamed_addr #41 {
   %8 = alloca [254 x i8], align 16
   %9 = alloca [32 x [32 x float]], align 16
   %10 = tail call fastcc i32 @ma_channel_map_get_conversion_path(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 0)
@@ -33481,7 +33481,7 @@ define hidden float @ma_spatializer_get_doppler_factor(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_spatializer_get_positioning(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_spatializer_get_positioning(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -33538,7 +33538,7 @@ ma_atomic_vec3f_get.exit:                         ; preds = %.loopexit.i.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_spatializer_get_relative_position_and_direction(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #38 {
+define hidden void @ma_spatializer_get_relative_position_and_direction(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #38 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
@@ -33910,7 +33910,7 @@ ma_vec3f_normalize.exit255:                       ; preds = %ma_vec3f_normalize.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_spatializer_get_attenuation_model(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_spatializer_get_attenuation_model(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -33925,7 +33925,7 @@ define hidden i32 @ma_spatializer_get_attenuation_model(ptr noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @ma_spatializer_get_cone(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #23 {
+define hidden void @ma_spatializer_get_cone(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #23 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %18, label %6
 
@@ -33996,7 +33996,7 @@ define hidden float @ma_spatializer_get_max_gain(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i8 @ma_channel_map_get_channel(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 {
+define hidden zeroext i8 @ma_channel_map_get_channel(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -34078,7 +34078,7 @@ ma_atomic_vec3f_get.exit:                         ; preds = %.loopexit.i.i, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_spatializer_set_master_volume(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_set_master_volume(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -34093,7 +34093,7 @@ define hidden range(i32 -2, 1) i32 @ma_spatializer_set_master_volume(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_spatializer_get_master_volume(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_spatializer_get_master_volume(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -34111,7 +34111,7 @@ ma_gainer_get_master_volume.exit:                 ; preds = %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_spatializer_get_input_channels(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_spatializer_get_input_channels(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -34125,7 +34125,7 @@ define hidden i32 @ma_spatializer_get_input_channels(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_spatializer_get_output_channels(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_spatializer_get_output_channels(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -34140,7 +34140,7 @@ define hidden i32 @ma_spatializer_get_output_channels(ptr noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_spatializer_set_attenuation_model(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
+define hidden void @ma_spatializer_set_attenuation_model(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -34154,7 +34154,7 @@ define hidden void @ma_spatializer_set_attenuation_model(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_spatializer_set_positioning(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
+define hidden void @ma_spatializer_set_positioning(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -34401,7 +34401,7 @@ define hidden void @ma_linear_resampler_config_init(ptr dead_on_unwind noalias w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_heap_size(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_heap_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_linear_resampler_get_heap_layout.exit.thread, label %4
 
@@ -34469,7 +34469,7 @@ ma_linear_resampler_get_heap_layout.exit.thread:  ; preds = %8, %6, %4, %2, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_linear_resampler_init_preallocated(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -3, 1) i32 @ma_linear_resampler_init_preallocated(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_linear_resampler_heap_layout, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %ma_linear_resampler_get_heap_layout.exit.thread, label %6
@@ -34576,7 +34576,7 @@ ma_linear_resampler_get_heap_layout.exit.thread:  ; preds = %10, %8, %6, %49, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #4 {
   %7 = alloca %struct.ma_lpf_config, align 8
   %8 = icmp eq ptr %0, null
   br i1 %8, label %65, label %9
@@ -34688,7 +34688,7 @@ define internal fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_intern
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_linear_resampler_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_linear_resampler_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_free.exit, label %5
 
@@ -34808,7 +34808,7 @@ ma_free.exit:                                     ; preds = %.thread, %39, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_linear_resampler_uninit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @ma_linear_resampler_uninit(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -34850,7 +34850,7 @@ ma_free.exit:                                     ; preds = %18, %16, %13, %8, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #42 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2, ptr noundef captures(address) %3, ptr noundef captures(none) %4) local_unnamed_addr #42 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %663, label %7
 
@@ -36080,13 +36080,13 @@ ma_linear_resampler_interpolate_frame_f32.exit.i23.i: ; preds = %569
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_linear_resampler_set_rate(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -3, 1) i32 @ma_linear_resampler_set_rate(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call fastcc i32 @ma_linear_resampler_set_rate_internal(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %1, i32 noundef %2, i32 noundef 1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_ratio(ptr noundef %0, float noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_ratio(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.ma_lpf_config, align 8
   %4 = icmp ne ptr %0, null
   %5 = fcmp ugt float %1, 0.000000e+00
@@ -36189,7 +36189,7 @@ ma_linear_resampler_set_rate_internal.exit:       ; preds = %16, %23, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 4294967296) i64 @ma_linear_resampler_get_input_latency(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i64 0, 4294967296) i64 @ma_linear_resampler_get_input_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -36210,7 +36210,7 @@ define hidden range(i64 0, 4294967296) i64 @ma_linear_resampler_get_input_latenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, -8589934590) i64 @ma_linear_resampler_get_output_latency(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i64 0, -8589934590) i64 @ma_linear_resampler_get_output_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %ma_linear_resampler_get_input_latency.exit
 
@@ -36239,7 +36239,7 @@ ma_linear_resampler_get_input_latency.exit:       ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_required_input_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_required_input_frame_count(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %32, label %5
 
@@ -36284,7 +36284,7 @@ define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_required_input_frame
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_expected_output_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_expected_output_frame_count(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %35, label %5
 
@@ -36332,7 +36332,7 @@ define hidden range(i32 -2, 1) i32 @ma_linear_resampler_get_expected_output_fram
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_linear_resampler_reset(ptr noundef %0) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_linear_resampler_reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #27 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_lpf_clear_cache.exit, label %3
 
@@ -36604,7 +36604,7 @@ ma_resampler_get_vtable.exit:                     ; preds = %7, %36, %24, %30, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_resampler_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_resampler_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   %5 = icmp eq ptr %0, null
@@ -36763,7 +36763,7 @@ ma_free.exit:                                     ; preds = %21, %6, %9, %.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_resampler_uninit(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @ma_resampler_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -36819,7 +36819,7 @@ ma_free.exit:                                     ; preds = %28, %26, %23, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_resampler_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i32 @ma_resampler_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %23, label %7
 
@@ -36854,7 +36854,7 @@ define hidden i32 @ma_resampler_process_pcm_frames(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_resampler_set_rate(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_resampler_set_rate(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %24, label %5
 
@@ -36897,7 +36897,7 @@ define hidden i32 @ma_resampler_set_rate(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_resampler_set_rate_ratio(ptr noundef %0, float noundef %1) local_unnamed_addr #4 {
+define hidden i32 @ma_resampler_set_rate_ratio(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = fcmp ugt float %1, 0.000000e+00
   %or.cond = and i1 %3, %4
@@ -36942,7 +36942,7 @@ ma_resampler_set_rate.exit:                       ; preds = %22, %17, %13, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ma_resampler_get_input_latency(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @ma_resampler_get_input_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -36971,7 +36971,7 @@ define hidden i64 @ma_resampler_get_input_latency(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ma_resampler_get_output_latency(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @ma_resampler_get_output_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -37000,7 +37000,7 @@ define hidden i64 @ma_resampler_get_output_latency(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_resampler_get_required_input_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_resampler_get_required_input_frame_count(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %20, label %5
 
@@ -37034,7 +37034,7 @@ define hidden i32 @ma_resampler_get_required_input_frame_count(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_resampler_get_expected_output_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_resampler_get_expected_output_frame_count(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %20, label %5
 
@@ -37068,7 +37068,7 @@ define hidden i32 @ma_resampler_get_expected_output_frame_count(ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_resampler_reset(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @ma_resampler_reset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -37122,7 +37122,7 @@ define hidden void @ma_channel_converter_config_init(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_heap_size(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #17 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_heap_size(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #17 {
   %3 = alloca %struct.ma_channel_converter_heap_layout, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %5
@@ -37144,7 +37144,7 @@ define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_heap_size(ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @ma_channel_converter_get_heap_layout(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #17 {
+define internal fastcc range(i32 -2, 1) i32 @ma_channel_converter_get_heap_layout(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #17 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_channel_map_is_valid.exit.thread, label %4
 
@@ -37321,7 +37321,7 @@ ma_channel_map_is_valid.exit.thread:              ; preds = %ma_channel_map_get_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_channel_converter_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_init_preallocated(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #27 {
   %4 = alloca %struct.ma_channel_converter_heap_layout, align 8
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %2, null
@@ -38666,7 +38666,7 @@ ma_channel_map_contains_channel_position.exit341: ; preds = %._crit_edge410, %ma
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @ma_channel_map_contains_channel_position(i32 noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_contains_channel_position(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
   %.not17.i = icmp eq i32 %0, 0
   br i1 %.not17.i, label %ma_channel_map_find_channel_position.exit, label %.lr.ph.i
 
@@ -38707,7 +38707,7 @@ ma_channel_map_find_channel_position.exit:        ; preds = %ma_channel_map_get_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @ma_channel_map_get_spatial_channel_count(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc i32 @ma_channel_map_get_spatial_channel_count(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #3 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -38808,7 +38808,7 @@ ma_is_spatial_channel_position.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @ma_channel_map_find_channel_position(i32 noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_find_channel_position(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -38869,7 +38869,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %ma_channel_map_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_channel_converter_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_channel_converter_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_channel_converter_heap_layout, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %5 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef %4)
@@ -38949,7 +38949,7 @@ ma_free.exit:                                     ; preds = %.thread, %9, %27, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_channel_converter_uninit(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_channel_converter_uninit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -38989,7 +38989,7 @@ ma_free.exit:                                     ; preds = %17, %15, %12, %7, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #43 {
+define hidden range(i32 -3, 1) i32 @ma_channel_converter_process_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #43 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -40372,7 +40372,7 @@ ma_channel_converter_process_pcm_frames__passthrough.exit: ; preds = %353, %335,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_input_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_input_channel_map(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #27 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -40419,7 +40419,7 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_output_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_channel_converter_get_output_channel_map(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #27 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -40520,7 +40520,7 @@ ma_data_converter_config_init_default.exit:       ; preds = %7, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_get_heap_size(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_get_heap_size(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.ma_data_converter_heap_layout, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %5
@@ -40542,7 +40542,7 @@ define hidden i32 @ma_data_converter_get_heap_size(ptr noundef %0, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef readonly %0, ptr noundef nonnull captures(none) initializes((0, 24)) %1) unnamed_addr #4 {
+define internal fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) initializes((0, 24)) %1) unnamed_addr #4 {
   %3 = alloca %struct.ma_channel_converter_heap_layout, align 8
   %4 = alloca %struct.ma_channel_converter_config, align 8
   %5 = alloca i64, align 8
@@ -40758,7 +40758,7 @@ ma_resampler_get_heap_size.exit.thread:           ; preds = %ma_resampler_config
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_init_preallocated(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_init_preallocated(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_data_converter_heap_layout, align 8
   %5 = alloca %struct.ma_channel_converter_config, align 8
   %6 = alloca %struct.ma_resampler_config, align 8
@@ -41183,7 +41183,7 @@ ma_resampler_init_preallocated.exit.thread:       ; preds = %ma_resampler_config
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_init(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_data_converter_heap_layout, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = call fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef %0, ptr noundef %4)
@@ -42445,7 +42445,7 @@ ma_data_converter_process_pcm_frames__passthrough.exit: ; preds = %ma_data_conve
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_set_rate(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_set_rate(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_resampler_set_rate.exit, label %5
 
@@ -42495,7 +42495,7 @@ ma_resampler_set_rate.exit:                       ; preds = %26, %21, %17, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_set_rate_ratio(ptr noundef %0, float noundef %1) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_set_rate_ratio(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_resampler_set_rate_ratio.exit, label %4
 
@@ -42549,7 +42549,7 @@ ma_resampler_set_rate_ratio.exit:                 ; preds = %28, %23, %19, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ma_data_converter_get_input_latency(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @ma_data_converter_get_input_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_resampler_get_input_latency.exit, label %3
 
@@ -42585,7 +42585,7 @@ ma_resampler_get_input_latency.exit:              ; preds = %15, %11, %6, %3, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ma_data_converter_get_output_latency(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @ma_data_converter_get_output_latency(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_resampler_get_output_latency.exit, label %3
 
@@ -42621,7 +42621,7 @@ ma_resampler_get_output_latency.exit:             ; preds = %15, %11, %6, %3, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_get_required_input_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_get_required_input_frame_count(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_resampler_get_required_input_frame_count.exit, label %5
 
@@ -42666,7 +42666,7 @@ ma_resampler_get_required_input_frame_count.exit: ; preds = %19, %15, %10, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_get_expected_output_frame_count(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_get_expected_output_frame_count(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_resampler_get_expected_output_frame_count.exit, label %5
 
@@ -42711,7 +42711,7 @@ ma_resampler_get_expected_output_frame_count.exit: ; preds = %19, %15, %10, %5, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_data_converter_get_input_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_data_converter_get_input_channel_map(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #27 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -42786,7 +42786,7 @@ ma_channel_converter_get_output_channel_map.exit: ; preds = %.preheader.i.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @ma_channel_map_init_standard(i32 noundef %0, ptr noundef writeonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
+define hidden void @ma_channel_map_init_standard(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %or.cond = or i1 %5, %6
@@ -42813,7 +42813,7 @@ define hidden void @ma_channel_map_init_standard(i32 noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_data_converter_get_output_channel_map(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_data_converter_get_output_channel_map(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #27 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -42888,7 +42888,7 @@ ma_channel_converter_get_input_channel_map.exit:  ; preds = %.preheader.i.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_converter_reset(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @ma_data_converter_reset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_resampler_reset.exit, label %3
 
@@ -43540,7 +43540,7 @@ ma_channel_map_init_standard_channel_alsa.exit:   ; preds = %119, %121, %123, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_channel_map_init_blank(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_channel_map_init_blank(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %.not = icmp eq i32 %1, 0
   %or.cond = or i1 %3, %.not
@@ -43556,7 +43556,7 @@ define hidden void @ma_channel_map_init_blank(ptr noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_channel_map_copy(ptr noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #15 {
+define hidden void @ma_channel_map_copy(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -43574,7 +43574,7 @@ define hidden void @ma_channel_map_copy(ptr noundef writeonly %0, ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @ma_channel_map_is_valid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_is_valid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   switch i32 %1, label %.lr.ph [
     i32 0, label %.loopexit10
     i32 1, label %.loopexit
@@ -43620,7 +43620,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %ma_channel_map_get_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @ma_channel_map_is_equal(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_is_equal(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, %1
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -43690,7 +43690,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %.lr.ph.split, %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @ma_channel_map_is_blank(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ma_channel_map_is_blank(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -43772,7 +43772,7 @@ define hidden i64 @ma_convert_frames(ptr noundef %0, i64 noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ma_convert_frames_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i64 @ma_convert_frames_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.ma_data_converter_heap_layout, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -43964,7 +43964,7 @@ ma_data_converter_init.exit.thread:               ; preds = %.thread.i, %24, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %ma_allocation_callbacks_init_copy.exit.thread, label %8
 
@@ -44112,7 +44112,7 @@ ma_allocation_callbacks_init_copy.exit.thread:    ; preds = %23, %27, %32, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ma_aligned_malloc(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden ptr @ma_aligned_malloc(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %ma_malloc.exit.thread, label %5
 
@@ -44158,13 +44158,13 @@ ma_malloc.exit.thread:                            ; preds = %8, %ma_malloc.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_rb_init(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_rb_init(i64 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = tail call i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef 1, i64 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_rb_uninit(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden void @ma_rb_uninit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_aligned_free.exit, label %3
 
@@ -44198,7 +44198,7 @@ ma_aligned_free.exit:                             ; preds = %15, %12, %6, %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_aligned_free(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_aligned_free(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -44228,7 +44228,7 @@ ma_free.exit:                                     ; preds = %2, %7, %10, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_rb_reset(ptr noundef %0) local_unnamed_addr #22 {
+define hidden void @ma_rb_reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -44244,7 +44244,7 @@ define hidden void @ma_rb_reset(ptr noundef %0) local_unnamed_addr #22 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_rb_acquire_read(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #22 {
+define hidden range(i32 -2, 1) i32 @ma_rb_acquire_read(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #22 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -44292,7 +44292,7 @@ define hidden range(i32 -2, 1) i32 @ma_rb_acquire_read(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -17, 1) i32 @ma_rb_commit_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -17, 1) i32 @ma_rb_commit_read(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -44345,7 +44345,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %27, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_rb_pointer_distance(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_rb_pointer_distance(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -44377,7 +44377,7 @@ define hidden i32 @ma_rb_pointer_distance(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_rb_acquire_write(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #44 {
+define hidden range(i32 -2, 1) i32 @ma_rb_acquire_write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #44 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -44439,7 +44439,7 @@ define hidden range(i32 -2, 1) i32 @ma_rb_acquire_write(ptr noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -17, 1) i32 @ma_rb_commit_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -17, 1) i32 @ma_rb_commit_write(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -44492,7 +44492,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %27, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_rb_seek_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -2, 1) i32 @ma_rb_seek_read(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %35, label %4
 
@@ -44550,7 +44550,7 @@ define hidden range(i32 -2, 1) i32 @ma_rb_seek_read(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_rb_seek_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -2, 1) i32 @ma_rb_seek_write(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %31, label %4
 
@@ -44602,7 +44602,7 @@ define hidden range(i32 -2, 1) i32 @ma_rb_seek_write(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, -2147483648) i32 @ma_rb_available_read(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden range(i32 0, -2147483648) i32 @ma_rb_available_read(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -44639,7 +44639,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_rb_available_write(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_rb_available_write(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %21, label %3
 
@@ -44677,7 +44677,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_size(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -44693,7 +44693,7 @@ define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_size(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_stride(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_stride(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -44715,7 +44715,7 @@ define hidden range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_stride(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @ma_rb_get_subbuffer_offset(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #14 {
+define hidden i64 @ma_rb_get_subbuffer_offset(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #14 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 
@@ -44742,7 +44742,7 @@ ma_rb_get_subbuffer_stride.exit:                  ; preds = %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_rb_get_subbuffer_ptr(ptr noundef readonly %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #14 {
+define hidden ptr @ma_rb_get_subbuffer_ptr(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #14 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -44770,7 +44770,7 @@ ma_rb_get_subbuffer_offset.exit:                  ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_pcm_rb_init_ex(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_pcm_rb_init_ex(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #4 {
   %9 = icmp eq ptr %7, null
   br i1 %9, label %34, label %10
 
@@ -44829,7 +44829,7 @@ define hidden noalias noundef ptr @ma_data_source_config_init() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_data_source_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %14, label %4
 
@@ -44861,7 +44861,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_source_init(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_pcm_rb_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_pcm_rb_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %ma_pcm_rb_init_ex.exit, label %8
 
@@ -44912,7 +44912,7 @@ ma_pcm_rb_init_ex.exit:                           ; preds = %6, %8, %14, %ma_dat
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_pcm_rb_uninit(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden void @ma_pcm_rb_uninit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_rb_uninit.exit, label %3
 
@@ -44952,7 +44952,7 @@ define hidden void @ma_data_source_uninit(ptr noundef readnone captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_pcm_rb_reset(ptr noundef %0) local_unnamed_addr #22 {
+define hidden void @ma_pcm_rb_reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -44968,7 +44968,7 @@ define hidden void @ma_pcm_rb_reset(ptr noundef %0) local_unnamed_addr #22 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_pcm_rb_acquire_read(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #22 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_acquire_read(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #22 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -45034,7 +45034,7 @@ ma_rb_acquire_read.exit:                          ; preds = %6, %3, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -17, 1) i32 @ma_pcm_rb_commit_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -17, 1) i32 @ma_pcm_rb_commit_read(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_rb_commit_read.exit, label %4
 
@@ -45095,7 +45095,7 @@ ma_rb_commit_read.exit:                           ; preds = %ma_rb_pointer_dista
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_pcm_rb_acquire_write(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #44 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_acquire_write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #44 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ma_rb_acquire_write.exit, label %5
 
@@ -45176,7 +45176,7 @@ ma_rb_acquire_write.exit:                         ; preds = %5, %3, %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -17, 1) i32 @ma_pcm_rb_commit_write(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -17, 1) i32 @ma_pcm_rb_commit_write(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_rb_commit_write.exit, label %4
 
@@ -45237,7 +45237,7 @@ ma_rb_commit_write.exit:                          ; preds = %ma_rb_pointer_dista
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_pcm_rb_seek_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_seek_read(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_rb_seek_read.exit, label %4
 
@@ -45304,7 +45304,7 @@ ma_rb_seek_read.exit:                             ; preds = %41, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_pcm_rb_seek_write(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
+define hidden range(i32 -2, 1) i32 @ma_pcm_rb_seek_write(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %40, label %4
 
@@ -45366,7 +45366,7 @@ ma_rb_seek_write.exit:                            ; preds = %23, %30, %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_pcm_rb_pointer_distance(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_pcm_rb_pointer_distance(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -45411,7 +45411,7 @@ ma_rb_pointer_distance.exit:                      ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, -2147483648) i32 @ma_pcm_rb_available_read(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden range(i32 0, -2147483648) i32 @ma_pcm_rb_available_read(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -45457,7 +45457,7 @@ ma_rb_available_read.exit:                        ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_pcm_rb_available_write(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_pcm_rb_available_write(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %30, label %3
 
@@ -45504,7 +45504,7 @@ ma_rb_available_write.exit:                       ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_pcm_rb_get_subbuffer_size(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_pcm_rb_get_subbuffer_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -45528,7 +45528,7 @@ define hidden i32 @ma_pcm_rb_get_subbuffer_size(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_pcm_rb_get_subbuffer_stride(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_pcm_rb_get_subbuffer_stride(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -45562,7 +45562,7 @@ ma_rb_get_subbuffer_stride.exit:                  ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_pcm_rb_get_subbuffer_offset(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #14 {
+define hidden i32 @ma_pcm_rb_get_subbuffer_offset(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %24, label %4
 
@@ -45601,7 +45601,7 @@ ma_rb_get_subbuffer_offset.exit:                  ; preds = %4, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_pcm_rb_get_subbuffer_ptr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #14 {
+define hidden ptr @ma_pcm_rb_get_subbuffer_ptr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #14 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %15, label %5
 
@@ -45630,7 +45630,7 @@ ma_rb_get_subbuffer_ptr.exit:                     ; preds = %5, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_pcm_rb_get_format(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_pcm_rb_get_format(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -45645,7 +45645,7 @@ define hidden i32 @ma_pcm_rb_get_format(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_pcm_rb_get_channels(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_pcm_rb_get_channels(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -45660,7 +45660,7 @@ define hidden i32 @ma_pcm_rb_get_channels(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ma_pcm_rb_get_sample_rate(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @ma_pcm_rb_get_sample_rate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -45675,7 +45675,7 @@ define hidden i32 @ma_pcm_rb_get_sample_rate(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_pcm_rb_set_sample_rate(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_pcm_rb_set_sample_rate(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -45965,7 +45965,7 @@ define internal noalias noundef ptr @ma__malloc_default(i64 noundef %0, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ma_calloc(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden ptr @ma_calloc(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %9, label %3
 
@@ -46001,7 +46001,7 @@ ma_malloc.exit.thread:                            ; preds = %3, %11, %ma_malloc.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ma_realloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden ptr @ma_realloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %4
 
@@ -46066,7 +46066,7 @@ define hidden void @ma_blend_f32(ptr noundef writeonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_source_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden i32 @ma_data_source_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -46403,7 +46403,7 @@ ma_data_source_resolve_current.exit86.thread:     ; preds = %147, %.thread171, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @ma_data_source_is_looping(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden i32 @ma_data_source_is_looping(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -46418,7 +46418,7 @@ define hidden i32 @ma_data_source_is_looping(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_source_get_data_format(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #4 {
+define hidden i32 @ma_data_source_get_data_format(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -46501,7 +46501,7 @@ define hidden i32 @ma_data_source_get_data_format(ptr noundef %0, ptr noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_data_source_read_pcm_frames_within_range(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc i32 @ma_data_source_read_pcm_frames_within_range(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
@@ -46651,13 +46651,13 @@ define hidden i32 @ma_data_source_seek_to_pcm_frame(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_source_seek_pcm_frames(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_data_source_seek_pcm_frames(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = tail call i32 @ma_data_source_read_pcm_frames(ptr noundef %0, ptr noundef null, i64 noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_source_get_cursor_in_pcm_frames(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden i32 @ma_data_source_get_cursor_in_pcm_frames(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %18, label %5
@@ -46732,7 +46732,7 @@ define hidden i32 @ma_data_source_get_length_in_pcm_frames(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_source_get_cursor_in_seconds(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden i32 @ma_data_source_get_cursor_in_seconds(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -46814,7 +46814,7 @@ ma_data_source_get_data_format.exit.thread:       ; preds = %17, %25, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_data_source_get_length_in_seconds(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden i32 @ma_data_source_get_length_in_seconds(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -46996,7 +46996,7 @@ ma_data_source_seek_to_pcm_frame.exit:            ; preds = %42, %37, %33, %28, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_data_source_get_range_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden void @ma_data_source_get_range_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %13, label %5
 
@@ -47025,7 +47025,7 @@ define hidden void @ma_data_source_get_range_in_pcm_frames(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_data_source_set_loop_point_in_pcm_frames(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_loop_point_in_pcm_frames(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ult i64 %2, %1
   %or.cond24 = or i1 %4, %5
@@ -47057,7 +47057,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_source_set_loop_point_in_pcm_frames(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_data_source_get_loop_point_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden void @ma_data_source_get_loop_point_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %13, label %5
 
@@ -47086,7 +47086,7 @@ define hidden void @ma_data_source_get_loop_point_in_pcm_frames(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_data_source_set_current(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_current(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -47101,7 +47101,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_source_set_current(ptr noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_data_source_get_current(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden ptr @ma_data_source_get_current(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -47116,7 +47116,7 @@ define hidden ptr @ma_data_source_get_current(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_data_source_set_next(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_next(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -47131,7 +47131,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_source_set_next(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_data_source_get_next(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden ptr @ma_data_source_get_next(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -47146,7 +47146,7 @@ define hidden ptr @ma_data_source_get_next(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_data_source_set_next_callback(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_data_source_set_next_callback(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -47161,7 +47161,7 @@ define hidden range(i32 -2, 1) i32 @ma_data_source_set_next_callback(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_data_source_get_next_callback(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden ptr @ma_data_source_get_next_callback(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -47219,7 +47219,7 @@ define hidden void @ma_audio_buffer_ref_uninit(ptr noundef readnone captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_set_data(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_set_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -47238,7 +47238,7 @@ define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_set_data(ptr noundef wri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @ma_audio_buffer_ref_read_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #27 {
+define hidden i64 @ma_audio_buffer_ref_read_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #27 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %2, 0
   %or.cond = or i1 %5, %6
@@ -47406,7 +47406,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %ma_copy_pcm_frames.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_seek_to_pcm_frame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -47427,7 +47427,7 @@ define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_seek_to_pcm_frame(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_map(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_map(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -47476,7 +47476,7 @@ define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_map(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -17, 1) i32 @ma_audio_buffer_ref_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -17, 1) i32 @ma_audio_buffer_ref_unmap(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
 
@@ -47502,7 +47502,7 @@ define hidden range(i32 -17, 1) i32 @ma_audio_buffer_ref_unmap(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @ma_audio_buffer_ref_at_end(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i32 0, 2) i32 @ma_audio_buffer_ref_at_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -47521,7 +47521,7 @@ define hidden range(i32 0, 2) i32 @ma_audio_buffer_ref_at_end(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_cursor_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -47542,7 +47542,7 @@ define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_cursor_in_pcm_frames
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_length_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -47563,7 +47563,7 @@ define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_length_in_pcm_frames
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_available_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_available_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %11, label %4
 
@@ -47587,7 +47587,7 @@ define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_available_frames(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_audio_buffer_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_audio_buffer_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #15 {
+define hidden void @ma_audio_buffer_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_audio_buffer_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %7
 
@@ -47677,7 +47677,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %16, %24, %28, %32, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_audio_buffer_init_ex.exit, label %4
 
@@ -47793,7 +47793,7 @@ ma_audio_buffer_init_ex.exit:                     ; preds = %2, %4, %6, %ma_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @ma_audio_buffer_init_ex(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 -4, 1) i32 @ma_audio_buffer_init_ex(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #4 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ma_malloc.exit.thread, label %5
 
@@ -48015,13 +48015,13 @@ ma_malloc.exit.thread:                            ; preds = %ma_malloc.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_audio_buffer_init_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_audio_buffer_init_copy(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = tail call fastcc i32 @ma_audio_buffer_init_ex(ptr noundef %0, i32 noundef 1, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_audio_buffer_alloc_and_init(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_audio_buffer_alloc_and_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_free.exit, label %4
 
@@ -48246,7 +48246,7 @@ ma_free.exit:                                     ; preds = %89, %ma_audio_buffe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_audio_buffer_uninit(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden void @ma_audio_buffer_uninit(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_audio_buffer_uninit_ex.exit, label %3
 
@@ -48334,7 +48334,7 @@ ma_audio_buffer_uninit_ex.exit:                   ; preds = %1, %ma_free.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @ma_audio_buffer_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #27 {
+define hidden i64 @ma_audio_buffer_read_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #27 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -48348,7 +48348,7 @@ define hidden i64 @ma_audio_buffer_read_pcm_frames(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_seek_to_pcm_frame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_audio_buffer_ref_seek_to_pcm_frame.exit, label %4
 
@@ -48369,7 +48369,7 @@ ma_audio_buffer_ref_seek_to_pcm_frame.exit:       ; preds = %8, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_map(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_map(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %.thread
 
@@ -48431,7 +48431,7 @@ ma_audio_buffer_ref_map.exit:                     ; preds = %ma_audio_buffer_ref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -17, 1) i32 @ma_audio_buffer_unmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -17, 1) i32 @ma_audio_buffer_unmap(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_audio_buffer_ref_unmap.exit, label %4
 
@@ -48457,7 +48457,7 @@ ma_audio_buffer_ref_unmap.exit:                   ; preds = %11, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @ma_audio_buffer_at_end(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden range(i32 0, 2) i32 @ma_audio_buffer_at_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %ma_audio_buffer_ref_at_end.exit
 
@@ -48476,7 +48476,7 @@ ma_audio_buffer_ref_at_end.exit:                  ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -48495,7 +48495,7 @@ ma_audio_buffer_ref_get_cursor_in_pcm_frames.exit: ; preds = %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_length_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -48514,7 +48514,7 @@ ma_audio_buffer_ref_get_length_in_pcm_frames.exit: ; preds = %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_available_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_audio_buffer_get_available_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -48559,7 +48559,7 @@ define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_init(i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ma_paged_audio_buffer_data_uninit(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @ma_paged_audio_buffer_data_uninit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -48605,7 +48605,7 @@ ma_free.exit:                                     ; preds = %.lr.ph.split, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @ma_paged_audio_buffer_data_get_head(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden ptr @ma_paged_audio_buffer_data_get_head(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0 = select i1 %2, ptr null, ptr %3
@@ -48613,7 +48613,7 @@ define hidden ptr @ma_paged_audio_buffer_data_get_head(ptr noundef readnone %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ma_paged_audio_buffer_data_get_tail(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden ptr @ma_paged_audio_buffer_data_get_tail(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -48628,7 +48628,7 @@ define hidden ptr @ma_paged_audio_buffer_data_get_tail(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_get_length_in_pcm_frames(ptr noundef %0, ptr noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_get_length_in_pcm_frames(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 
@@ -48661,7 +48661,7 @@ define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_get_length_in_pcm
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_page(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef writeonly %4) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_page(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %ma_malloc.exit.thread, label %7
 
@@ -48754,7 +48754,7 @@ ma_malloc.exit.thread:                            ; preds = %22, %ma_malloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_free_page(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_free_page(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -48814,7 +48814,7 @@ define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_append_page(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_and_append_page(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden range(i32 -4, 1) i32 @ma_paged_audio_buffer_data_allocate_and_append_page(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = zext i32 %1 to i64
   %6 = icmp eq ptr %0, null
   br i1 %6, label %ma_paged_audio_buffer_data_allocate_page.exit, label %7
@@ -48916,12 +48916,12 @@ ma_paged_audio_buffer_data_allocate_page.exit:    ; preds = %52, %ma_malloc.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @ma_paged_audio_buffer_config_init(ptr noundef readnone returned %0) local_unnamed_addr #1 {
+define hidden noundef ptr @ma_paged_audio_buffer_config_init(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_init(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 
@@ -48974,7 +48974,7 @@ define hidden void @ma_paged_audio_buffer_uninit(ptr noundef readnone captures(n
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden range(i32 -17, 1) i32 @ma_paged_audio_buffer_read_pcm_frames(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #16 {
+define hidden range(i32 -17, 1) i32 @ma_paged_audio_buffer_read_pcm_frames(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %57, label %6
 
@@ -49084,7 +49084,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %ma_copy_pcm_frames.
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden range(i32 -25, 1) i32 @ma_paged_audio_buffer_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -25, 1) i32 @ma_paged_audio_buffer_seek_to_pcm_frame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -49179,7 +49179,7 @@ ma_paged_audio_buffer_data_get_tail.exit:         ; preds = %33, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_cursor_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -49200,7 +49200,7 @@ define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_cursor_in_pcm_fram
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_length_in_pcm_frames(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #16 {
+define hidden range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_length_in_pcm_frames(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -49314,7 +49314,7 @@ define hidden i32 @ma_vfs_close(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_vfs_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #4 {
+define hidden i32 @ma_vfs_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
   %.not = icmp eq ptr %4, null
@@ -49470,7 +49470,7 @@ define hidden i32 @ma_vfs_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_default_vfs_init(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_default_vfs_init(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_allocation_callbacks_init_copy.exit, label %4
 
@@ -49562,7 +49562,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %39, %35, %31, %30, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_default_vfs_open(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_open(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #6 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %ma_default_vfs_open__stdio.exit, label %6
 
@@ -49602,7 +49602,7 @@ ma_default_vfs_open__stdio.exit:                  ; preds = %ma_fopen.exit.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_default_vfs_open_w(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_open_w(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #4 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %18, label %7
@@ -49644,7 +49644,7 @@ ma_default_vfs_open_w__stdio.exit:                ; preds = %10, %16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -2, 1) i32 @ma_default_vfs_close(ptr readnone captures(none) %0, ptr noundef %1) #6 {
+define internal range(i32 -2, 1) i32 @ma_default_vfs_close(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -49658,7 +49658,7 @@ define internal range(i32 -2, 1) i32 @ma_default_vfs_close(ptr readnone captures
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_default_vfs_read(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_read(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #6 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -49704,7 +49704,7 @@ ma_default_vfs_read__stdio.exit:                  ; preds = %18, %16, %13, %7
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_default_vfs_write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_write(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #6 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -49741,7 +49741,7 @@ ma_default_vfs_write__stdio.exit:                 ; preds = %14, %13, %7
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -2, 1) i32 @ma_default_vfs_seek(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #6 {
+define internal range(i32 -2, 1) i32 @ma_default_vfs_seek(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) #6 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %8, label %6
 
@@ -49761,7 +49761,7 @@ define internal range(i32 -2, 1) i32 @ma_default_vfs_seek(ptr readnone captures(
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -2, 1) i32 @ma_default_vfs_tell(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) #6 {
+define internal range(i32 -2, 1) i32 @ma_default_vfs_tell(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #6 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %9, label %5
 
@@ -49781,7 +49781,7 @@ define internal range(i32 -2, 1) i32 @ma_default_vfs_tell(ptr readnone captures(
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_default_vfs_info(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) #6 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_info(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #6 {
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %18, label %6
@@ -49978,7 +49978,7 @@ ma_vfs_close.exit:                                ; preds = %12, %11, %9, %5, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_vfs_or_default_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #4 {
+define hidden i32 @ma_vfs_or_default_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %7
@@ -50279,13 +50279,13 @@ ma_vfs_info.exit:                                 ; preds = %ma_default_vfs_info
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_vfs_open_and_read_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i32 @ma_vfs_open_and_read_file(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = tail call fastcc i32 @ma_vfs_open_and_read_file_ex(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_vfs_open_and_read_file_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef readonly %5) unnamed_addr #4 {
+define internal fastcc i32 @ma_vfs_open_and_read_file_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #4 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -50591,7 +50591,7 @@ ma_vfs_or_default_close.exit:                     ; preds = %50, %26, %43, %ma_v
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_vfs_open_and_read_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i32 @ma_vfs_open_and_read_file_w(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = tail call fastcc i32 @ma_vfs_open_and_read_file_ex(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
@@ -50660,7 +50660,7 @@ ma_decoder_config_init.exit:                      ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_decoder_config_init_copy(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #15 {
+define hidden void @ma_decoder_config_init_copy(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -50681,7 +50681,7 @@ define hidden void @ma_decoder_config_init_copy(ptr dead_on_unwind noalias writa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.ma_decoder_config, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %8, label %7
@@ -50890,7 +50890,7 @@ define internal fastcc i32 @ma_decoder_init__internal(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_init_memory(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_init_memory(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_decoding_backend_config, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.ma_decoding_backend_config, align 8
@@ -51526,7 +51526,7 @@ ma_decoder__init_data_converter.exit:             ; preds = %70, %ma_data_conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -17, 1) i32 @ma_decoder__on_read_memory(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) #47 {
+define internal range(i32 -17, 1) i32 @ma_decoder__on_read_memory(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #47 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -51646,7 +51646,7 @@ define internal range(i32 -25, 1) i32 @ma_decoder__on_seek_memory(ptr noundef ca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_decoding_backend_config, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -52005,7 +52005,7 @@ ma_vfs_or_default_seek.exit:                      ; preds = %9, %10, %14, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoder__on_read_vfs(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #4 {
+define internal i32 @ma_decoder__on_read_vfs(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -52015,7 +52015,7 @@ define internal i32 @ma_decoder__on_read_vfs(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_decoding_backend_config, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -52338,7 +52338,7 @@ ma_vfs_or_default_close.exit:                     ; preds = %115, %114, %112, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_init_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_init_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_decoding_backend_config, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.ma_decoder_config, align 8
@@ -52538,7 +52538,7 @@ ma_decoder__preinit_file.exit.thread:             ; preds = %.thread19.i.i.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_init_file_w(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.ma_decoding_backend_config, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.ma_decoder_config, align 8
@@ -52922,7 +52922,7 @@ ma_free.exit:                                     ; preds = %91, %88, %ma_data_c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -53235,7 +53235,7 @@ ma_data_converter_get_required_input_frame_count.exit.thread: ; preds = %115, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_seek_to_pcm_frame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -53403,7 +53403,7 @@ ma_data_converter_reset.exit:                     ; preds = %84, %80, %75, %ma_d
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2, 1) i32 @ma_decoder_get_data_format(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i64 noundef %5) local_unnamed_addr #27 {
+define hidden range(i32 -2, 1) i32 @ma_decoder_get_data_format(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #27 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %ma_data_converter_get_output_channel_map.exit, label %8
 
@@ -53510,7 +53510,7 @@ ma_data_converter_get_output_channel_map.exit:    ; preds = %.preheader.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_decoder_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_decoder_get_cursor_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -53531,7 +53531,7 @@ define hidden range(i32 -2, 1) i32 @ma_decoder_get_cursor_in_pcm_frames(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_get_length_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -53633,7 +53633,7 @@ ma_data_source_get_length_in_pcm_frames.exit.thread27: ; preds = %19, %ma_data_s
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decoder_get_available_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define hidden i32 @ma_decoder_get_available_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -53745,7 +53745,7 @@ ma_decoder_get_length_in_pcm_frames.exit.thread:  ; preds = %ma_data_source_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decode_from_vfs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i32 @ma_decode_from_vfs(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.ma_decoder_config, align 8
   %7 = alloca %struct.ma_decoder, align 8
   %8 = alloca %struct.ma_decoder_config, align 8
@@ -53792,7 +53792,7 @@ ma_decoder_config_init_copy.exit:                 ; preds = %13, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -11, 1) i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc range(i32 -11, 1) i32 @ma_decoder__full_decode_and_uninit(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
@@ -53934,7 +53934,7 @@ ma_free.exit:                                     ; preds = %40, %37, %ma_reallo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decode_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden i32 @ma_decode_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.ma_decoder_config, align 8
   %6 = alloca %struct.ma_decoder, align 8
   %7 = alloca %struct.ma_decoder_config, align 8
@@ -53987,7 +53987,7 @@ ma_decode_from_vfs.exit:                          ; preds = %ma_decoder_config_i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ma_decode_memory(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden i32 @ma_decode_memory(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.ma_decoder_config, align 8
   %7 = alloca %struct.ma_decoder, align 8
   %8 = alloca %struct.ma_decoder_config, align 8
@@ -54061,7 +54061,7 @@ define hidden void @ma_encoder_config_init(ptr dead_on_unwind noalias writable w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @ma_encoder_preinit(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @ma_encoder_preinit(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_allocation_callbacks_init_copy.exit, label %4
 
@@ -54173,7 +54173,7 @@ define hidden range(i32 -203, -1) i32 @ma_encoder_init__internal(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 1, 0) i32 @ma_encoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 1, 0) i32 @ma_encoder_init_vfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %ma_vfs_or_default_close.exit, label %7
@@ -54453,7 +54453,7 @@ ma_vfs_or_default_seek.exit:                      ; preds = %9, %10, %14, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 1, 0) i32 @ma_encoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 1, 0) i32 @ma_encoder_init_vfs_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %3, null
@@ -54623,19 +54623,19 @@ ma_vfs_or_default_close.exit:                     ; preds = %57, %51, %50, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 1, 0) i32 @ma_encoder_init_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 1, 0) i32 @ma_encoder_init_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = tail call i32 @ma_encoder_init_vfs(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 1, 0) i32 @ma_encoder_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 1, 0) i32 @ma_encoder_init_file_w(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = tail call i32 @ma_encoder_init_vfs_w(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -203, -1) i32 @ma_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #15 {
+define hidden range(i32 -203, -1) i32 @ma_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #15 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %ma_encoder_init__internal.exit, label %7
 
@@ -54825,7 +54825,7 @@ define hidden i32 @ma_encoder_write_pcm_frames(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drwav_version(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @drwav_version(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -54859,7 +54859,7 @@ define hidden noundef nonnull ptr @drwav_version_string() local_unnamed_addr #1 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i16 @drwav_fmt_get_format(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden zeroext i16 @drwav_fmt_get_format(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -54885,7 +54885,7 @@ define hidden zeroext i16 @drwav_bytes_to_u16(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond.i.i = or i1 %6, %7
@@ -54948,7 +54948,7 @@ drwav_init_ex.exit:                               ; preds = %5, %drwav_copy_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #4 {
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %1, null
   %or.cond.i = or i1 %9, %10
@@ -55011,7 +55011,7 @@ drwav_preinit.exit.thread:                        ; preds = %18, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @drwav_init__internal(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @drwav_init__internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [8 x i8], align 8
   %7 = alloca [4 x i8], align 4
@@ -57282,7 +57282,7 @@ drwav_fourcc_equal.exit855:                       ; preds = %.preheader1327, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_with_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_with_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond.i = or i1 %7, %8
@@ -57356,7 +57356,7 @@ define hidden ptr @drwav_take_ownership_of_metadata(ptr noundef captures(none) i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_write(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_write(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %2, null
   %or.cond.i = or i1 %7, %8
@@ -57839,7 +57839,7 @@ define internal fastcc range(i32 0, 2) i32 @drwav_init_write__internal(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_write_sequential(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_write_sequential(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %3, null
   %or.cond.i = or i1 %7, %8
@@ -57943,7 +57943,7 @@ drwav_preinit_write.exit.thread:                  ; preds = %17, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %14, label %8
 
@@ -57961,7 +57961,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_write_sequential_pcm_frames(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_write_with_metadata(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_write_with_metadata(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %2, null
   %or.cond.i = or i1 %9, %10
@@ -58124,7 +58124,7 @@ define hidden i64 @drwav_target_write_size_bytes(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %drwav_init_file_ex.exit, label %5
 
@@ -58197,7 +58197,7 @@ drwav_init_file_ex.exit:                          ; preds = %3, %5, %drwav_prein
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_ex(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %drwav_init_file__internal_FILE.exit, label %8
 
@@ -58270,7 +58270,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %8, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = call fastcc i32 @drwav_wfopen(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @.str.171, ptr noundef %2)
@@ -58343,7 +58343,7 @@ drwav_init_file_ex_w.exit:                        ; preds = %3, %drwav_preinit.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_ex_w(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_ex_w(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca ptr, align 8
   %8 = call fastcc i32 @drwav_wfopen(ptr noundef %7, ptr noundef %1, ptr noundef nonnull @.str.171, ptr noundef %5)
   %.not = icmp eq i32 %8, 0
@@ -58414,7 +58414,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %.sink.split.i, %drw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -51, 1) i32 @drwav_wfopen(ptr noundef nonnull captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #4 {
+define internal fastcc range(i32 -51, 1) i32 @drwav_wfopen(ptr noundef nonnull captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [32 x i8], align 16
@@ -58519,7 +58519,7 @@ drwav__malloc_from_callbacks.exit.thread:         ; preds = %26, %17, %drwav__fr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %drwav_init_file__internal_FILE.exit, label %6
 
@@ -58593,7 +58593,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %6, %4, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata_w(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata_w(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = call fastcc i32 @drwav_wfopen(ptr noundef %5, ptr noundef %1, ptr noundef nonnull @.str.171, ptr noundef %3)
   %.not = icmp eq i32 %6, 0
@@ -58665,7 +58665,7 @@ drwav_init_file__internal_FILE.exit:              ; preds = %.sink.split.i, %drw
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_write(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %drwav_init_file_write__internal.exit, label %6
 
@@ -58684,7 +58684,7 @@ drwav_init_file_write__internal.exit:             ; preds = %4, %6, %drwav_fopen
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %drwav_init_file_write__internal.exit, label %7
 
@@ -58703,7 +58703,7 @@ drwav_init_file_write__internal.exit:             ; preds = %5, %7, %drwav_fopen
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_pcm_frames(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %2, null
   br i1 %6, label %drwav_init_file_write_sequential.exit, label %7
 
@@ -58730,7 +58730,7 @@ drwav_init_file_write_sequential.exit:            ; preds = %drwav_fopen.exit.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_write_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call fastcc i32 @drwav_wfopen(ptr noundef %5, ptr noundef %1, ptr noundef nonnull @.str.566, ptr noundef %3)
@@ -58749,7 +58749,7 @@ drwav_init_file_write_w__internal.exit:           ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = call fastcc i32 @drwav_wfopen(ptr noundef %6, ptr noundef %1, ptr noundef nonnull @.str.566, ptr noundef %4)
@@ -58768,7 +58768,7 @@ drwav_init_file_write_w__internal.exit:           ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_pcm_frames_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_file_write_sequential_pcm_frames_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %17, label %8
@@ -58799,7 +58799,7 @@ drwav_init_file_write_sequential_w.exit:          ; preds = %8, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %or.cond.i = or i1 %5, %6
@@ -58868,7 +58868,7 @@ drwav_init_memory_ex.exit:                        ; preds = %4, %drwav_copy_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_memory_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = icmp eq ptr %1, null
   %9 = icmp eq i64 %2, 0
   %or.cond = or i1 %8, %9
@@ -59012,7 +59012,7 @@ define internal range(i32 0, 2) i32 @drwav__on_seek_memory(ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_memory_with_metadata(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_with_metadata(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %1, null
   %7 = icmp eq i64 %2, 0
   %or.cond = or i1 %6, %7
@@ -59082,13 +59082,13 @@ drwav_preinit.exit.thread:                        ; preds = %15, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_memory_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef 0, i32 noundef 0, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #4 {
   %8 = icmp eq ptr %1, null
   %9 = icmp eq ptr %2, null
   %or.cond = or i1 %8, %9
@@ -59206,13 +59206,13 @@ drwav_preinit_write.exit.thread:                  ; preds = %21, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = tail call fastcc i32 @drwav_init_memory_write__internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 1, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %14, label %8
 
@@ -59230,7 +59230,7 @@ define hidden range(i32 0, 2) i32 @drwav_init_memory_write_sequential_pcm_frames
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -10, 1) i32 @drwav_uninit(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 -10, 1) i32 @drwav_uninit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -59489,7 +59489,7 @@ drwav_free.exit:                                  ; preds = %130, %127, %122, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @drwav_free(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @drwav_free(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 
@@ -59532,7 +59532,7 @@ define internal noundef i64 @drwav__on_write_stdio(ptr noundef captures(none) %0
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_raw(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_raw(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [4096 x i8], align 16
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %1, 0
@@ -59659,7 +59659,7 @@ drwav_get_bytes_per_pcm_frame.exit.thread:        ; preds = %31, %drwav_get_byte
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_le(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_le(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq i64 %1, 0
   %or.cond = or i1 %4, %5
@@ -59737,7 +59737,7 @@ drwav_get_bytes_per_pcm_frame.exit.thread:        ; preds = %32, %37, %drwav_get
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_be(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_be(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq i64 %1, 0
   %or.cond.i = or i1 %4, %5
@@ -59936,7 +59936,7 @@ drwav_get_bytes_per_pcm_frame.exit.thread:        ; preds = %.lr.ph, %.lr.ph75, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %12 [
@@ -60070,7 +60070,7 @@ drwav_read_pcm_frames_le.exit:                    ; preds = %49, %45, %drwav_get
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drwav_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drwav_seek_to_pcm_frame(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = alloca [2048 x i16], align 16
   %4 = icmp eq ptr %0, null
   br i1 %4, label %drwav_seek_to_first_pcm_frame.exit.thread, label %5
@@ -61020,7 +61020,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__ima(ptr noundef nonnull c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @drwav_get_cursor_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @drwav_get_cursor_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -61041,7 +61041,7 @@ define hidden range(i32 -2, 1) i32 @drwav_get_cursor_in_pcm_frames(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -2, 1) i32 @drwav_get_length_in_pcm_frames(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 -2, 1) i32 @drwav_get_length_in_pcm_frames(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -61062,7 +61062,7 @@ define hidden range(i32 -2, 1) i32 @drwav_get_length_in_pcm_frames(ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_write_raw(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_write_raw(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq i64 %1, 0
   %or.cond = or i1 %4, %5
@@ -61088,7 +61088,7 @@ define hidden i64 @drwav_write_raw(ptr noundef %0, i64 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, -7) i64 @drwav_write_pcm_frames_le(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i64 0, -7) i64 @drwav_write_pcm_frames_le(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq i64 %1, 0
   %or.cond = or i1 %4, %5
@@ -61158,7 +61158,7 @@ drwav_write_raw.exit._crit_edge:                  ; preds = %drwav_write_raw.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, -7) i64 @drwav_write_pcm_frames_be(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden range(i64 0, -7) i64 @drwav_write_pcm_frames_be(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca [4096 x i8], align 16
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %1, 0
@@ -61335,7 +61335,7 @@ drwav_write_raw.exit.thread:                      ; preds = %drwav_write_raw.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, -7) i64 @drwav_write_pcm_frames(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden range(i64 0, -7) i64 @drwav_write_pcm_frames(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq i64 %1, 0
   %or.cond.i = or i1 %4, %5
@@ -61405,7 +61405,7 @@ drwav_write_pcm_frames_le.exit:                   ; preds = %3, %drwav_write_raw
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_s16(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -62030,13 +62030,13 @@ drwav_read_pcm_frames_s16__mulaw.exit:            ; preds = %268, %271, %drwav_m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_s16le(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_s16le(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i64 @drwav_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_s16be(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_s16be(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i64 @drwav_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
@@ -62240,7 +62240,7 @@ define hidden void @drwav_mulaw_to_s16(ptr noundef writeonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_f32(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -62920,13 +62920,13 @@ drwav_read_pcm_frames_f32__mulaw.exit:            ; preds = %296, %299, %drwav_m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_f32le(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_f32le(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i64 @drwav_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_f32be(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_f32be(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i64 @drwav_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
@@ -62954,7 +62954,7 @@ define hidden i64 @drwav_read_pcm_frames_f32be(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_u8_to_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_u8_to_f32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not18 = and i1 %4, %5
@@ -62981,7 +62981,7 @@ define hidden void @drwav_u8_to_f32(ptr noundef writeonly %0, ptr noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_s16_to_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_s16_to_f32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %4, %5
@@ -63007,7 +63007,7 @@ define hidden void @drwav_s16_to_f32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_s24_to_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_s24_to_f32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not23 = and i1 %4, %5
@@ -63043,7 +63043,7 @@ define hidden void @drwav_s24_to_f32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_s32_to_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_s32_to_f32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %4, %5
@@ -63070,7 +63070,7 @@ define hidden void @drwav_s32_to_f32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_f64_to_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_f64_to_f32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %4, %5
@@ -63095,7 +63095,7 @@ define hidden void @drwav_f64_to_f32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_alaw_to_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_alaw_to_f32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not16 = and i1 %4, %5
@@ -63124,7 +63124,7 @@ define hidden void @drwav_alaw_to_f32(ptr noundef writeonly %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_mulaw_to_f32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_mulaw_to_f32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not16 = and i1 %4, %5
@@ -63153,7 +63153,7 @@ define hidden void @drwav_mulaw_to_f32(ptr noundef writeonly %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_s32(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_s32(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -63829,13 +63829,13 @@ drwav_read_pcm_frames_s32__mulaw.exit:            ; preds = %292, %295, %drwav_m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_s32le(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_s32le(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i64 @drwav_read_pcm_frames_s32(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drwav_read_pcm_frames_s32be(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i64 @drwav_read_pcm_frames_s32be(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i64 @drwav_read_pcm_frames_s32(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %5
@@ -63863,7 +63863,7 @@ define hidden i64 @drwav_read_pcm_frames_s32be(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_u8_to_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_u8_to_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %4, %5
@@ -63890,7 +63890,7 @@ define hidden void @drwav_u8_to_s32(ptr noundef writeonly %0, ptr noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_s16_to_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_s16_to_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %4, %5
@@ -63916,7 +63916,7 @@ define hidden void @drwav_s16_to_s32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_s24_to_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_s24_to_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not23 = and i1 %4, %5
@@ -63948,7 +63948,7 @@ define hidden void @drwav_s24_to_s32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_f32_to_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_f32_to_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %4, %5
@@ -63975,7 +63975,7 @@ define hidden void @drwav_f32_to_s32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_f64_to_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_f64_to_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not15 = and i1 %4, %5
@@ -64001,7 +64001,7 @@ define hidden void @drwav_f64_to_s32(ptr noundef writeonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_alaw_to_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_alaw_to_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not16 = and i1 %4, %5
@@ -64030,7 +64030,7 @@ define hidden void @drwav_alaw_to_s32(ptr noundef writeonly %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @drwav_mulaw_to_s32(ptr noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @drwav_mulaw_to_s32(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.not16 = and i1 %4, %5
@@ -64059,7 +64059,7 @@ define hidden void @drwav_mulaw_to_s32(ptr noundef writeonly %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_and_read_pcm_frames_s16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_and_read_pcm_frames_s16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
@@ -64150,7 +64150,7 @@ drwav_init.exit.thread:                           ; preds = %23, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i64, ptr %5, align 8
@@ -64247,7 +64247,7 @@ drwav__free_from_callbacks.exit:                  ; preds = %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_and_read_pcm_frames_f32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_and_read_pcm_frames_f32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
@@ -64338,7 +64338,7 @@ drwav_init.exit.thread:                           ; preds = %23, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i64, ptr %5, align 8
@@ -64435,7 +64435,7 @@ drwav__free_from_callbacks.exit:                  ; preds = %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_and_read_pcm_frames_s32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_and_read_pcm_frames_s32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
@@ -64526,7 +64526,7 @@ drwav_init.exit.thread:                           ; preds = %23, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i64, ptr %5, align 8
@@ -64623,7 +64623,7 @@ drwav__free_from_callbacks.exit:                  ; preds = %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_file_and_read_pcm_frames_s16(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_file_and_read_pcm_frames_s16(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %7
@@ -64721,7 +64721,7 @@ drwav_init_file.exit.thread:                      ; preds = %14, %12, %.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_file_and_read_pcm_frames_f32(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_file_and_read_pcm_frames_f32(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %7
@@ -64819,7 +64819,7 @@ drwav_init_file.exit.thread:                      ; preds = %14, %12, %.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_file_and_read_pcm_frames_s32(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_file_and_read_pcm_frames_s32(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %7
@@ -64917,7 +64917,7 @@ drwav_init_file.exit.thread:                      ; preds = %14, %12, %.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_file_and_read_pcm_frames_s16_w(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_file_and_read_pcm_frames_s16_w(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %2, null
@@ -65019,7 +65019,7 @@ drwav_init_file_w.exit.thread:                    ; preds = %13, %.sink.split.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_file_and_read_pcm_frames_f32_w(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_file_and_read_pcm_frames_f32_w(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %2, null
@@ -65121,7 +65121,7 @@ drwav_init_file_w.exit.thread:                    ; preds = %13, %.sink.split.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_file_and_read_pcm_frames_s32_w(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_file_and_read_pcm_frames_s32_w(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %2, null
@@ -65223,7 +65223,7 @@ drwav_init_file_w.exit.thread:                    ; preds = %13, %.sink.split.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_memory_and_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_memory_and_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %8
@@ -65320,7 +65320,7 @@ drwav_init_memory.exit.thread:                    ; preds = %22, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_memory_and_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_memory_and_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %8
@@ -65417,7 +65417,7 @@ drwav_init_memory.exit.thread:                    ; preds = %22, %drwav_copy_all
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drwav_open_memory_and_read_pcm_frames_s32(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden ptr @drwav_open_memory_and_read_pcm_frames_s32(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.drwav, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %8
@@ -65624,7 +65624,7 @@ define hidden range(i32 0, 2) i32 @drwav_fourcc_equal(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @stb_vorbis_close(ptr noundef %0) local_unnamed_addr #4 {
+define hidden void @stb_vorbis_close(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %setup_free.exit, label %3
 
@@ -66188,7 +66188,7 @@ define hidden void @stb_vorbis_flush_pushdata(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 {
+define hidden i32 @stb_vorbis_decode_frame_pushdata(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -69117,7 +69117,7 @@ get_window.exit.thread:                           ; preds = %12, %._crit_edge72,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @stb_vorbis_open_pushdata(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden ptr @stb_vorbis_open_pushdata(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.stb_vorbis, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1904) %6, i8 0, i64 1904, i1 false)
   %.not.i = icmp eq ptr %4, null
@@ -73385,7 +73385,7 @@ stb_vorbis_get_frame_float.exit:                  ; preds = %13, %17, %._crit_ed
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @stb_vorbis_get_frame_float(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define hidden i32 @stb_vorbis_get_frame_float(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -74133,7 +74133,7 @@ set_file_offset.exit88:                           ; preds = %228, %224, %214, %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @vorbis_find_page(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @vorbis_find_page(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #6 {
   %4 = alloca [27 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8
@@ -74917,7 +74917,7 @@ define hidden float @stb_vorbis_stream_length_in_seconds(ptr noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @stb_vorbis_open_file_section(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #4 {
+define hidden ptr @stb_vorbis_open_file_section(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -75037,7 +75037,7 @@ vorbis_alloc.exit.thread:                         ; preds = %34, %vorbis_alloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @stb_vorbis_open_file(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden ptr @stb_vorbis_open_file(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = tail call i64 @ftell(ptr noundef %0)
   %6 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 2)
   %7 = tail call i64 @ftell(ptr noundef %0)
@@ -75053,7 +75053,7 @@ define hidden ptr @stb_vorbis_open_file(ptr noundef %0, i32 noundef %1, ptr noun
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.170)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
@@ -75083,7 +75083,7 @@ define hidden ptr @stb_vorbis_open_filename(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @stb_vorbis_open_memory(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden ptr @stb_vorbis_open_memory(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -76217,7 +76217,7 @@ stb_vorbis_get_frame_float.exit:                  ; preds = %44, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @stb_vorbis_decode_filename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
+define hidden i32 @stb_vorbis_decode_filename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.170)
   %.not.i = icmp eq ptr %6, null
@@ -76343,7 +76343,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #51
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @stb_vorbis_decode_memory(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
+define hidden i32 @stb_vorbis_decode_memory(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
   %6 = alloca i32, align 4
   %7 = call ptr @stb_vorbis_open_memory(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6, ptr noundef null)
   %8 = icmp eq ptr %7, null
@@ -76788,7 +76788,7 @@ stb_vorbis_get_frame_float.exit:                  ; preds = %64, %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drmp3_version(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @drmp3_version(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -76829,7 +76829,7 @@ define hidden void @drmp3dec_init(ptr noundef writeonly captures(none) initializ
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 1153) i32 @drmp3dec_decode_frame(ptr noundef captures(none) initializes((6155, 6156)) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef captures(none) %4) local_unnamed_addr #29 {
+define hidden range(i32 0, 1153) i32 @drmp3dec_decode_frame(ptr noundef captures(none) initializes((6155, 6156)) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #29 {
   %6 = alloca [3 x float], align 4
   %7 = alloca [3 x float], align 4
   %8 = alloca [3 x float], align 4
@@ -81629,7 +81629,7 @@ define hidden void @drmp3dec_f32_to_s16(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drmp3_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drmp3_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -81720,7 +81720,7 @@ drmp3_init_internal.exit:                         ; preds = %29, %27, %25, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drmp3_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drmp3_init_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %drmp3_init_internal.exit, label %6
 
@@ -81911,7 +81911,7 @@ define internal noundef i32 @drmp3__on_seek_memory(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drmp3_init_file(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drmp3_init_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %drmp3_fopen.exit.thread, label %5
 
@@ -82030,7 +82030,7 @@ define internal range(i32 0, 2) i32 @drmp3__on_seek_stdio(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drmp3_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drmp3_init_file_w(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.__mbstate_t, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [32 x i8], align 16
@@ -82231,7 +82231,7 @@ drmp3_init.exit:                                  ; preds = %57
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @drmp3_uninit(ptr noundef %0) local_unnamed_addr #4 {
+define hidden void @drmp3_uninit(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %drmp3__free_from_callbacks.exit, label %3
 
@@ -82383,7 +82383,7 @@ drmp3_read_pcm_frames_raw.exit.thread:            ; preds = %drmp3_read_pcm_fram
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %drmp3_read_pcm_frames_raw.exit, label %5
 
@@ -82799,7 +82799,7 @@ drmp3_seek_to_start_of_stream.exit:               ; preds = %.lr.ph51.i, %83, %d
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drmp3_get_mp3_and_pcm_frame_count(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %drmp3_seek_to_start_of_stream.exit.thread, label %5
 
@@ -82891,7 +82891,7 @@ drmp3_seek_to_start_of_stream.exit.thread:        ; preds = %._crit_edge, %9, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1) unnamed_addr #4 {
   %3 = alloca %struct.drmp3dec_frame_info, align 4
   %4 = alloca %struct.drmp3dec_frame_info, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16040
@@ -83289,7 +83289,7 @@ define hidden i64 @drmp3_get_mp3_frame_count(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @drmp3_calculate_seek_points(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @drmp3_calculate_seek_points(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [3 x %struct.drmp3__seeking_mp3_frame_info], align 16
@@ -83493,7 +83493,7 @@ drmp3_seek_to_start_of_stream.exit.thread:        ; preds = %49, %._crit_edge122
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @drmp3_bind_seek_table(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @drmp3_bind_seek_table(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %.sink.split
 
@@ -83514,7 +83514,7 @@ define hidden range(i32 0, 2) i32 @drmp3_bind_seek_table(ptr noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drmp3_open_and_read_pcm_frames_f32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden ptr @drmp3_open_and_read_pcm_frames_f32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.drmp3, align 8
   %8 = icmp eq ptr %0, null
   br i1 %8, label %drmp3_init.exit.thread, label %9
@@ -83605,7 +83605,7 @@ drmp3_init.exit.thread:                           ; preds = %15, %28, %26, %22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @drmp3__full_read_and_close_f32(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #4 {
+define internal fastcc ptr @drmp3__full_read_and_close_f32(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #4 {
   %4 = alloca [4096 x float], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6668
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6704
@@ -83764,7 +83764,7 @@ drmp3_uninit.exit:                                ; preds = %68, %72, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drmp3_open_and_read_pcm_frames_s16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #4 {
+define hidden ptr @drmp3_open_and_read_pcm_frames_s16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.drmp3, align 8
   %8 = icmp eq ptr %0, null
   br i1 %8, label %drmp3_init.exit.thread, label %9
@@ -83855,7 +83855,7 @@ drmp3_init.exit.thread:                           ; preds = %15, %28, %26, %22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #4 {
+define internal fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #4 {
   %4 = alloca [4096 x i16], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6668
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6680
@@ -84063,7 +84063,7 @@ drmp3_uninit.exit:                                ; preds = %100, %104, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drmp3_open_memory_and_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden ptr @drmp3_open_memory_and_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.drmp3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16064) %6, i8 0, i64 16064, i1 false)
   %7 = icmp eq ptr %0, null
@@ -84160,7 +84160,7 @@ drmp3_init_memory.exit.thread:                    ; preds = %17, %30, %28, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drmp3_open_memory_and_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
+define hidden ptr @drmp3_open_memory_and_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = alloca %struct.drmp3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16064) %6, i8 0, i64 16064, i1 false)
   %7 = icmp eq ptr %0, null
@@ -84257,7 +84257,7 @@ drmp3_init_memory.exit.thread:                    ; preds = %17, %30, %28, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drmp3_open_file_and_read_pcm_frames_f32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden ptr @drmp3_open_file_and_read_pcm_frames_f32(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.drmp3, align 8
   %6 = call i32 @drmp3_init_file(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3)
   %.not = icmp eq i32 %6, 0
@@ -84273,7 +84273,7 @@ define hidden ptr @drmp3_open_file_and_read_pcm_frames_f32(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drmp3_open_file_and_read_pcm_frames_s16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden ptr @drmp3_open_file_and_read_pcm_frames_s16(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.drmp3, align 8
   %6 = call i32 @drmp3_init_file(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %3)
   %.not = icmp eq i32 %6, 0
@@ -84289,7 +84289,7 @@ define hidden ptr @drmp3_open_file_and_read_pcm_frames_s16(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drmp3_malloc(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden ptr @drmp3_malloc(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3
 
@@ -84331,7 +84331,7 @@ define internal noalias noundef ptr @drmp3__malloc_default(i64 noundef %0, ptr r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @drmp3_free(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @drmp3_free(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 
@@ -86164,7 +86164,7 @@ define hidden void @qoaplay_seek_frame(ptr noundef captures(none) initializes((3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jar_xm_generate_samples_16bit(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @jar_xm_generate_samples_16bit(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = shl i64 %2, 1
   %5 = shl i64 %2, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #82
@@ -86192,7 +86192,7 @@ define hidden void @jar_xm_generate_samples_16bit(ptr noundef %0, ptr noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jar_xm_generate_samples(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @jar_xm_generate_samples(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -86440,7 +86440,7 @@ jar_xm_mixdown.exit:                              ; preds = %31, %132, %.sink.sp
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jar_xm_generate_samples_8bit(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @jar_xm_generate_samples_8bit(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = shl i64 %2, 1
   %5 = shl i64 %2, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #82
@@ -89278,7 +89278,7 @@ define hidden range(i32 0, 2) i32 @jar_xm_check_sanity_postload(ptr noundef capt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @jar_xm_free_context(ptr noundef readonly %0) local_unnamed_addr #56 {
+define hidden void @jar_xm_free_context(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #56 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -89334,13 +89334,13 @@ define hidden zeroext i1 @jar_xm_mute_instrument(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @jar_xm_get_module_name(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden nonnull ptr @jar_xm_get_module_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @jar_xm_get_tracker_name(ptr noundef readnone %0) local_unnamed_addr #1 {
+define hidden nonnull ptr @jar_xm_get_tracker_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 29
   ret ptr %2
 }
@@ -89395,7 +89395,7 @@ define hidden zeroext i16 @jar_xm_get_number_of_samples(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @jar_xm_get_playing_speed(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #15 {
+define hidden void @jar_xm_get_playing_speed(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -89420,7 +89420,7 @@ define hidden void @jar_xm_get_playing_speed(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @jar_xm_get_position(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #15 {
+define hidden void @jar_xm_get_position(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %6
 
@@ -91615,7 +91615,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @jar_mod_init(ptr noundef writeonly %0) local_unnamed_addr #18 {
+define hidden noundef zeroext i1 @jar_mod_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not = icmp ne ptr %0, null
   br i1 %.not, label %2, label %.loopexit
 
@@ -91669,7 +91669,7 @@ define hidden noundef zeroext i1 @jar_mod_init(ptr noundef writeonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @jar_mod_setcfg(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @jar_mod_setcfg(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp ne ptr %0, null
   br i1 %.not, label %7, label %17
 
@@ -91706,7 +91706,7 @@ define hidden noundef zeroext i1 @jar_mod_setcfg(ptr noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @jar_mod_fillbuffer(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #27 {
+define hidden void @jar_mod_fillbuffer(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #27 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -93077,7 +93077,7 @@ memclear.exit:                                    ; preds = %704, %.lr.ph.prehea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jar_mod_unload(ptr noundef %0) local_unnamed_addr #4 {
+define hidden void @jar_mod_unload(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %jar_mod_reset.exit, label %2
 
@@ -93141,7 +93141,7 @@ jar_mod_reset.exit:                               ; preds = %27, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 33554432) i64 @jar_mod_load_file(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define hidden range(i64 0, 33554432) i64 @jar_mod_load_file(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7048
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -93184,7 +93184,7 @@ define hidden range(i64 0, 33554432) i64 @jar_mod_load_file(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @jar_mod_load(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #17 {
+define internal fastcc noundef zeroext i1 @jar_mod_load(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #17 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = icmp ne ptr %1, null
@@ -93447,7 +93447,7 @@ memcopy.exit123:                                  ; preds = %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @jar_mod_current_samples(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden i64 @jar_mod_current_samples(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -93543,7 +93543,7 @@ jar_mod_seek_start.exit:                          ; preds = %._crit_edge, %jar_m
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @jar_mod_seek_start(ptr noundef %0) local_unnamed_addr #27 {
+define hidden void @jar_mod_seek_start(ptr noundef captures(address_is_null) %0) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
 
@@ -94618,7 +94618,7 @@ define hidden void @TrackAudioBuffer(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @UnloadAudioBuffer(ptr noundef %0) local_unnamed_addr #4 {
+define hidden void @UnloadAudioBuffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %57, label %2
 
@@ -94779,7 +94779,7 @@ define hidden void @UntrackAudioBuffer(ptr noundef captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @IsAudioBufferPlaying(ptr noundef readonly %0) local_unnamed_addr #14 {
+define hidden zeroext i1 @IsAudioBufferPlaying(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -94802,7 +94802,7 @@ define hidden zeroext i1 @IsAudioBufferPlaying(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PlayAudioBuffer(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @PlayAudioBuffer(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -94820,7 +94820,7 @@ define hidden void @PlayAudioBuffer(ptr noundef writeonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @StopAudioBuffer(ptr noundef %0) local_unnamed_addr #15 {
+define hidden void @StopAudioBuffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %IsAudioBufferPlaying.exit.thread, label %2
 
@@ -94854,7 +94854,7 @@ IsAudioBufferPlaying.exit.thread:                 ; preds = %2, %IsAudioBufferPl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PauseAudioBuffer(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @PauseAudioBuffer(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -94868,7 +94868,7 @@ define hidden void @PauseAudioBuffer(ptr noundef writeonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ResumeAudioBuffer(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @ResumeAudioBuffer(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -94882,7 +94882,7 @@ define hidden void @ResumeAudioBuffer(ptr noundef writeonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SetAudioBufferVolume(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @SetAudioBufferVolume(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -94896,7 +94896,7 @@ define hidden void @SetAudioBufferVolume(ptr noundef writeonly %0, float noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SetAudioBufferPitch(ptr noundef %0, float noundef %1) local_unnamed_addr #4 {
+define hidden void @SetAudioBufferPitch(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = fcmp ogt float %1, 0.000000e+00
   %or.cond = and i1 %3, %4
@@ -94959,7 +94959,7 @@ ma_data_converter_set_rate.exit:                  ; preds = %5, %16, %20, %24, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SetAudioBufferPan(ptr noundef writeonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden void @SetAudioBufferPan(ptr noundef writeonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = fcmp olt float %1, 0.000000e+00
   br i1 %3, label %7, label %4
 
@@ -99747,7 +99747,7 @@ define void @AttachAudioStreamProcessor(ptr noundef readonly byval(%struct.Audio
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DetachAudioStreamProcessor(ptr noundef readonly byval(%struct.AudioStream) align 8 captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 {
+define void @DetachAudioStreamProcessor(ptr noundef readonly byval(%struct.AudioStream) align 8 captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #67
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 320
@@ -99841,7 +99841,7 @@ define void @AttachAudioMixedProcessor(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DetachAudioMixedProcessor(ptr noundef readnone %0) local_unnamed_addr #4 {
+define void @DetachAudioMixedProcessor(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #67
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4880), align 8
   %.not19 = icmp eq ptr %3, null
@@ -102064,7 +102064,7 @@ thread-pre-split:                                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_data_loop__pulse(ptr noundef readonly %0) #4 {
+define internal noundef i32 @ma_device_data_loop__pulse(ptr noundef readonly captures(address_is_null) %0) #4 {
   %.old = icmp eq ptr %0, null
   br i1 %.old, label %ma_device_get_state.exit.thread, label %ma_device_get_state.exit.preheader
 
@@ -102398,7 +102398,7 @@ ma_strncpy_s.exit29:                              ; preds = %.lr.ph.i22, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ma_device_sink_info_callback(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #15 {
+define internal void @ma_device_sink_info_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #15 {
   %5 = icmp sgt i32 %2, 0
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %5
@@ -102413,7 +102413,7 @@ define internal void @ma_device_sink_info_callback(ptr readnone captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ma_device_source_info_callback(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #15 {
+define internal void @ma_device_source_info_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #15 {
   %5 = icmp sgt i32 %2, 0
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %5
@@ -102746,7 +102746,7 @@ ma_format_from_pulse.exit:                        ; preds = %3, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ma_device__pa_stream_new__pulse(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc ptr @ma_device__pa_stream_new__pulse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #4 {
   %5 = alloca [256 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader.i, label %.lr.ph.i
@@ -103268,7 +103268,7 @@ ma_device_get_state.exit.thread:                  ; preds = %24, %ma_device_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ma_device_write_to_stream__pulse(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @ma_device_write_to_stream__pulse(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #4 {
 ma_device_get_state.exit:
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
@@ -105031,7 +105031,7 @@ ma_free.exit84:                                   ; preds = %115, %118
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -401, 1) i32 @ma_device_init__alsa(ptr noundef initializes((3424, 3480)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #4 {
+define internal range(i32 -401, 1) i32 @ma_device_init__alsa(ptr noundef initializes((3424, 3480)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %6 = load i32, ptr %1, align 8
@@ -105422,7 +105422,7 @@ ma_device_get_log.exit54:                         ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -302, 1) i32 @ma_device_read__alsa(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 -302, 1) i32 @ma_device_read__alsa(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #4 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -105621,7 +105621,7 @@ ma_device_get_state.exit.thread:                  ; preds = %ma_device_get_state
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -302, 1) i32 @ma_device_write__alsa(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 -302, 1) i32 @ma_device_write__alsa(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #4 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -105820,7 +105820,7 @@ ma_device_get_state.exit.thread:                  ; preds = %ma_device_get_state
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_device_data_loop_wakeup__alsa(ptr noundef readonly %0) #4 {
+define internal range(i32 -51, 1) i32 @ma_device_data_loop_wakeup__alsa(ptr noundef readonly captures(address_is_null) %0) #4 {
   %2 = alloca i64, align 8
   store i64 1, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -105907,7 +105907,7 @@ ma_device_get_log.exit15:                         ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ma_context_get_device_info_enum_callback__alsa(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3) #27 {
+define internal range(i32 0, 2) i32 @ma_context_get_device_info_enum_callback__alsa(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef captures(none) %3) #27 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -106070,7 +106070,7 @@ ma_strncpy_s.exit34:                              ; preds = %.lr.ph.i29, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -401, 1) i32 @ma_context_open_pcm__alsa(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef range(i32 0, 524288) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #4 {
+define internal fastcc range(i32 -401, 1) i32 @ma_context_open_pcm__alsa(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef range(i32 0, 524288) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #4 {
   %7 = alloca ptr, align 8
   %8 = alloca [7 x ptr], align 16
   %9 = alloca %union.ma_device_id, align 8
@@ -106514,7 +106514,7 @@ ma_context_test_rate_and_add_native_data_format__alsa.exit62: ; preds = %68, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -401, 1) i32 @ma_device_init_by_type__alsa(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #4 {
+define internal fastcc range(i32 -401, 1) i32 @ma_device_init_by_type__alsa(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = alloca [254 x i8], align 16
   %7 = alloca i64, align 8
@@ -108006,7 +108006,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #58
 declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #65
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -302, 1) i32 @ma_device_wait__alsa(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, i16 noundef signext range(i16 1, 5) %4) unnamed_addr #4 {
+define internal fastcc range(i32 -302, 1) i32 @ma_device_wait__alsa(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, i16 noundef signext range(i16 1, 5) %4) unnamed_addr #4 {
   %6 = alloca i16, align 2
   %7 = alloca i64, align 8
   %8 = sext i32 %3 to i64
@@ -108325,7 +108325,7 @@ ma_strncpy_s.exit23:                              ; preds = %.lr.ph.i18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -204, 1) i32 @ma_context_get_device_info__null(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3) #2 {
+define internal range(i32 -204, 1) i32 @ma_context_get_device_info__null(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) #2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -108684,7 +108684,7 @@ define internal noundef i32 @ma_device_stop__null(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #4 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %3, null
@@ -108824,7 +108824,7 @@ define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly %3) #4 {
+define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #4 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %3, null
@@ -109684,7 +109684,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #35
 declare double @sqrt(double noundef) local_unnamed_addr #68
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_heap_size__linear(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) #15 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_heap_size__linear(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) #15 {
   %4 = load i32, ptr %1, align 8, !noalias !284
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !noalias !284
@@ -109785,7 +109785,7 @@ define internal range(i32 -3, 1) i32 @ma_resampling_backend_init__linear(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ma_resampling_backend_uninit__linear(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #4 {
+define internal void @ma_resampling_backend_uninit__linear(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) #4 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %ma_linear_resampler_uninit.exit, label %5
 
@@ -109827,19 +109827,19 @@ ma_linear_resampler_uninit.exit:                  ; preds = %3, %5, %9, %14, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal range(i32 -2, 1) i32 @ma_resampling_backend_process__linear(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) #42 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_process__linear(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(none) %3, ptr noundef captures(address) %4, ptr noundef captures(none) %5) #42 {
   %7 = tail call i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -3, 1) i32 @ma_resampling_backend_set_rate__linear(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #4 {
+define internal range(i32 -3, 1) i32 @ma_resampling_backend_set_rate__linear(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #4 {
   %5 = tail call fastcc range(i32 -3, 1) i32 @ma_linear_resampler_set_rate_internal(ptr noundef %1, ptr noundef null, ptr noundef null, i32 noundef %2, i32 noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4294967296) i64 @ma_resampling_backend_get_input_latency__linear(ptr readnone captures(none) %0, ptr noundef readonly %1) #14 {
+define internal range(i64 0, 4294967296) i64 @ma_resampling_backend_get_input_latency__linear(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #14 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_linear_resampler_get_input_latency.exit, label %4
 
@@ -109860,7 +109860,7 @@ ma_linear_resampler_get_input_latency.exit:       ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, -8589934590) i64 @ma_resampling_backend_get_output_latency__linear(ptr readnone captures(none) %0, ptr noundef readonly %1) #14 {
+define internal range(i64 0, -8589934590) i64 @ma_resampling_backend_get_output_latency__linear(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #14 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_linear_resampler_get_output_latency.exit, label %ma_linear_resampler_get_input_latency.exit.i
 
@@ -109889,7 +109889,7 @@ ma_linear_resampler_get_output_latency.exit:      ; preds = %2, %ma_linear_resam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_required_input_frame_count__linear(ptr readnone captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) #15 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_required_input_frame_count__linear(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #15 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %ma_linear_resampler_get_required_input_frame_count.exit, label %6
 
@@ -109934,7 +109934,7 @@ ma_linear_resampler_get_required_input_frame_count.exit: ; preds = %4, %6, %8, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_expected_output_frame_count__linear(ptr readnone captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) #15 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_expected_output_frame_count__linear(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #15 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %ma_linear_resampler_get_expected_output_frame_count.exit, label %6
 
@@ -109982,13 +109982,13 @@ ma_linear_resampler_get_expected_output_frame_count.exit: ; preds = %4, %6, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -2, 1) i32 @ma_resampling_backend_reset__linear(ptr readnone captures(none) %0, ptr noundef %1) #27 {
+define internal range(i32 -2, 1) i32 @ma_resampling_backend_reset__linear(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #27 {
   %3 = tail call i32 @ma_linear_resampler_reset(ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 1, 6) i32 @ma_channel_map_get_conversion_path(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc range(i32 1, 6) i32 @ma_channel_map_get_conversion_path(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = icmp eq i32 %3, %1
   br i1 %6, label %7, label %ma_channel_map_is_passthrough.exit
 
@@ -110142,7 +110142,7 @@ ma_channel_map_get_channel.exit.i.i34:            ; preds = %54, %ma_channel_map
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ma_pcm_rb_data_source__on_read(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #71 {
+define internal noundef i32 @ma_pcm_rb_data_source__on_read(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #71 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %2, 0
   %or.cond35 = or i1 %5, %6
@@ -110289,7 +110289,7 @@ ma_pcm_rb_acquire_read.exit.thread:               ; preds = %13, %ma_pcm_rb_acqu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_pcm_rb_data_source__on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i64 noundef %5) #2 {
+define internal noundef i32 @ma_pcm_rb_data_source__on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 
@@ -110350,7 +110350,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %19, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -17, 1) i32 @ma_audio_buffer_ref__data_source_on_read(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #27 {
+define internal range(i32 -17, 1) i32 @ma_audio_buffer_ref__data_source_on_read(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #27 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %2, 0
   %or.cond.i = or i1 %5, %6
@@ -110455,7 +110455,7 @@ ma_audio_buffer_ref_read_pcm_frames.exit:         ; preds = %ma_copy_pcm_frames.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -2, 1) i32 @ma_audio_buffer_ref__data_source_on_seek(ptr noundef %0, i64 noundef %1) #15 {
+define internal range(i32 -2, 1) i32 @ma_audio_buffer_ref__data_source_on_seek(ptr noundef captures(address_is_null) %0, i64 noundef %1) #15 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_audio_buffer_ref_seek_to_pcm_frame.exit, label %4
 
@@ -110476,7 +110476,7 @@ ma_audio_buffer_ref_seek_to_pcm_frame.exit:       ; preds = %2, %4, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly %4, i64 noundef %5) #2 {
+define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %1, align 4
@@ -110529,7 +110529,7 @@ define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_length(ptr 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -17, 1) i32 @ma_paged_audio_buffer__data_source_on_read(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, ptr noundef writeonly %3) #16 {
+define internal range(i32 -17, 1) i32 @ma_paged_audio_buffer__data_source_on_read(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %ma_paged_audio_buffer_read_pcm_frames.exit, label %6
 
@@ -110639,7 +110639,7 @@ ma_paged_audio_buffer_read_pcm_frames.exit:       ; preds = %4, %._crit_edge.i, 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -25, 1) i32 @ma_paged_audio_buffer__data_source_on_seek(ptr noundef %0, i64 noundef %1) #16 {
+define internal range(i32 -25, 1) i32 @ma_paged_audio_buffer__data_source_on_seek(ptr noundef captures(address_is_null) %0, i64 noundef %1) #16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ma_paged_audio_buffer_seek_to_pcm_frame.exit, label %4
 
@@ -110734,7 +110734,7 @@ ma_paged_audio_buffer_seek_to_pcm_frame.exit:     ; preds = %45, %2, %4, %17, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly %4, i64 noundef %5) #17 {
+define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #17 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
@@ -110773,7 +110773,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -2, 1) i32 @ma_paged_audio_buffer__data_source_on_get_cursor(ptr noundef readonly %0, ptr noundef writeonly %1) #15 {
+define internal range(i32 -2, 1) i32 @ma_paged_audio_buffer__data_source_on_get_cursor(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit, label %4
 
@@ -110794,7 +110794,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit: ; preds = %2, %4, %6
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -2, 1) i32 @ma_paged_audio_buffer__data_source_on_get_length(ptr noundef readonly captures(none) %0, ptr noundef %1) #16 {
+define internal range(i32 -2, 1) i32 @ma_paged_audio_buffer__data_source_on_get_length(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -110841,25 +110841,25 @@ declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #7
 declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoder__data_source_on_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #4 {
+define internal i32 @ma_decoder__data_source_on_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #4 {
   %5 = tail call i32 @ma_decoder_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoder__data_source_on_seek(ptr noundef %0, i64 noundef %1) #4 {
+define internal i32 @ma_decoder__data_source_on_seek(ptr noundef captures(address_is_null) %0, i64 noundef %1) #4 {
   %3 = tail call i32 @ma_decoder_seek_to_pcm_frame(ptr noundef %0, i64 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -2, 1) i32 @ma_decoder__data_source_on_get_data_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #27 {
+define internal range(i32 -2, 1) i32 @ma_decoder__data_source_on_get_data_format(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i64 noundef %5) #27 {
   %7 = tail call i32 @ma_decoder_get_data_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -2, 1) i32 @ma_decoder__data_source_on_get_cursor(ptr noundef readonly %0, ptr noundef writeonly %1) #15 {
+define internal range(i32 -2, 1) i32 @ma_decoder__data_source_on_get_cursor(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %ma_decoder_get_cursor_in_pcm_frames.exit, label %4
 
@@ -110880,7 +110880,7 @@ ma_decoder_get_cursor_in_pcm_frames.exit:         ; preds = %2, %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_decoder__data_source_on_get_length(ptr noundef %0, ptr noundef %1) #4 {
+define internal i32 @ma_decoder__data_source_on_get_length(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #4 {
   %3 = tail call i32 @ma_decoder_get_length_in_pcm_frames(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
@@ -112299,7 +112299,7 @@ define internal fastcc range(i32 -4, 1) i32 @drwav__metadata_alloc(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @drwav__read_cue_to_metadata_obj(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc i64 @drwav__read_cue_to_metadata_obj(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #4 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [24 x i8], align 16
   %6 = icmp eq ptr %2, null
@@ -114601,7 +114601,7 @@ define internal range(i32 0, 2) i32 @drwav__on_seek_stdio(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef readonly %5) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @drwav_init_file_write__internal_FILE(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #4 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %.sink.split, label %8
 

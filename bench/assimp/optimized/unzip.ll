@@ -91,7 +91,7 @@ return:                                           ; preds = %if.else, %if.then
 declare void @fill_zlib_filefunc64_32_def_from_filefunc32(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @unzOpenInternal(ptr noundef %path, ptr noundef readonly %pzlib_filefunc64_32_def, i32 noundef range(i32 0, 2) %is64bitOpenFunction) unnamed_addr #2 {
+define internal fastcc noundef ptr @unzOpenInternal(ptr noundef %path, ptr noundef readonly captures(address_is_null) %pzlib_filefunc64_32_def, i32 noundef range(i32 0, 2) %is64bitOpenFunction) unnamed_addr #2 {
 entry:
   %c.i7.i224 = alloca i8, align 1
   %c.i.i225 = alloca i8, align 1
@@ -941,7 +941,7 @@ return:                                           ; preds = %if.end181, %unzGoTo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @unzOpen2_64(ptr noundef %path, ptr noundef readonly %pzlib_filefunc_def) local_unnamed_addr #2 {
+define noundef ptr @unzOpen2_64(ptr noundef %path, ptr noundef readonly captures(address_is_null) %pzlib_filefunc_def) local_unnamed_addr #2 {
 entry:
   %zlib_filefunc64_32_def_fill = alloca %struct.zlib_filefunc64_32_def_s, align 8
   %cmp.not = icmp eq ptr %pzlib_filefunc_def, null
@@ -981,7 +981,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @unzClose(ptr noundef %file) local_unnamed_addr #2 {
+define range(i32 -102, 1) i32 @unzClose(ptr noundef captures(address_is_null) %file) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -1028,7 +1028,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -105, 1) i32 @unzCloseCurrentFile(ptr noundef %file) local_unnamed_addr #2 {
+define range(i32 -105, 1) i32 @unzCloseCurrentFile(ptr noundef captures(address_is_null) %file) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -1089,7 +1089,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -102, 1) i32 @unzGetGlobalInfo64(ptr noundef readonly %file, ptr noundef writeonly captures(none) %pglobal_info) local_unnamed_addr #6 {
+define range(i32 -102, 1) i32 @unzGetGlobalInfo64(ptr noundef readonly captures(address_is_null) %file, ptr noundef writeonly captures(none) %pglobal_info) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -1105,7 +1105,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -102, 1) i32 @unzGetGlobalInfo(ptr noundef readonly %file, ptr noundef writeonly captures(none) %pglobal_info32) local_unnamed_addr #6 {
+define range(i32 -102, 1) i32 @unzGetGlobalInfo(ptr noundef readonly captures(address_is_null) %file, ptr noundef writeonly captures(none) %pglobal_info32) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -1126,14 +1126,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -103, 1) i32 @unzGetCurrentFileInfo64(ptr noundef %file, ptr noundef %pfile_info, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize) local_unnamed_addr #2 {
+define range(i32 -103, 1) i32 @unzGetCurrentFileInfo64(ptr noundef %file, ptr noundef captures(address_is_null) %pfile_info, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef %file, ptr noundef %pfile_info, ptr noundef null, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -103, 1) i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef %file, ptr noundef writeonly %pfile_info, ptr noundef writeonly %pfile_info_internal, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize) unnamed_addr #2 {
+define internal fastcc range(i32 -103, 1) i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef %file, ptr noundef writeonly captures(address_is_null) %pfile_info, ptr noundef writeonly captures(address_is_null) %pfile_info_internal, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize) unnamed_addr #2 {
 entry:
   %c.i7.i407 = alloca i8, align 1
   %c.i.i408 = alloca i8, align 1
@@ -2239,7 +2239,7 @@ return:                                           ; preds = %if.end317, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -103, 1) i32 @unzGetCurrentFileInfo(ptr noundef %file, ptr noundef writeonly %pfile_info, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize) local_unnamed_addr #2 {
+define range(i32 -103, 1) i32 @unzGetCurrentFileInfo(ptr noundef %file, ptr noundef writeonly captures(address_is_null) %pfile_info, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize) local_unnamed_addr #2 {
 entry:
   %file_info64 = alloca %struct.unz_file_info64_s, align 8
   %call = call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef %file, ptr noundef nonnull %file_info64, ptr noundef null, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize)
@@ -2530,7 +2530,7 @@ return:                                           ; preds = %unzStringFileNameCo
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -102, 1) i32 @unzGetFilePos64(ptr noundef readonly %file, ptr noundef writeonly %file_pos) local_unnamed_addr #6 {
+define range(i32 -102, 1) i32 @unzGetFilePos64(ptr noundef readonly captures(address_is_null) %file, ptr noundef writeonly captures(address_is_null) %file_pos) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %file, null
   %cmp1 = icmp eq ptr %file_pos, null
@@ -2559,7 +2559,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -102, 1) i32 @unzGetFilePos(ptr noundef readonly %file, ptr noundef writeonly captures(none) %file_pos) local_unnamed_addr #6 {
+define range(i32 -102, 1) i32 @unzGetFilePos(ptr noundef readonly captures(address_is_null) %file, ptr noundef writeonly captures(none) %file_pos) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp eq ptr %file, null
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -2586,7 +2586,7 @@ if.end:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -103, 1) i32 @unzGoToFilePos64(ptr noundef %file, ptr noundef readonly %file_pos) local_unnamed_addr #2 {
+define range(i32 -103, 1) i32 @unzGoToFilePos64(ptr noundef %file, ptr noundef readonly captures(address_is_null) %file_pos) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %file, null
   %cmp1 = icmp eq ptr %file_pos, null
@@ -2616,7 +2616,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -103, 1) i32 @unzGoToFilePos(ptr noundef %file, ptr noundef readonly %file_pos) local_unnamed_addr #2 {
+define range(i32 -103, 1) i32 @unzGoToFilePos(ptr noundef %file, ptr noundef readonly captures(address_is_null) %file_pos) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %file_pos, null
   %cmp.i = icmp eq ptr %file, null
@@ -2646,7 +2646,7 @@ return:                                           ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @unzOpenCurrentFile3(ptr noundef %file, ptr noundef writeonly %method, ptr noundef writeonly %level, i32 noundef %raw, ptr noundef readnone %password) local_unnamed_addr #2 {
+define i32 @unzOpenCurrentFile3(ptr noundef %file, ptr noundef writeonly captures(address_is_null) %method, ptr noundef writeonly captures(address_is_null) %level, i32 noundef %raw, ptr noundef readnone captures(address_is_null) %password) local_unnamed_addr #2 {
 entry:
   %c.i7.i148.i = alloca i8, align 1
   %c.i.i149.i = alloca i8, align 1
@@ -3305,21 +3305,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @unzOpenCurrentFilePassword(ptr noundef %file, ptr noundef %password) local_unnamed_addr #2 {
+define i32 @unzOpenCurrentFilePassword(ptr noundef %file, ptr noundef captures(address_is_null) %password) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @unzOpenCurrentFile3(ptr noundef %file, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %password)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @unzOpenCurrentFile2(ptr noundef %file, ptr noundef %method, ptr noundef %level, i32 noundef %raw) local_unnamed_addr #2 {
+define i32 @unzOpenCurrentFile2(ptr noundef %file, ptr noundef captures(address_is_null) %method, ptr noundef captures(address_is_null) %level, i32 noundef %raw) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @unzOpenCurrentFile3(ptr noundef %file, ptr noundef %method, ptr noundef %level, i32 noundef %raw, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @unzGetCurrentFileZStreamPos64(ptr noundef readonly %file) local_unnamed_addr #8 {
+define i64 @unzGetCurrentFileZStreamPos64(ptr noundef readonly captures(address_is_null) %file) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -3344,7 +3344,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @unzReadCurrentFile(ptr noundef readonly %file, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #2 {
+define i32 @unzReadCurrentFile(ptr noundef readonly captures(address_is_null) %file, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -3606,7 +3606,7 @@ declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @unztell(ptr noundef readonly %file) local_unnamed_addr #8 {
+define i64 @unztell(ptr noundef readonly captures(address_is_null) %file) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -3628,7 +3628,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @unztell64(ptr noundef readonly %file) local_unnamed_addr #8 {
+define i64 @unztell64(ptr noundef readonly captures(address_is_null) %file) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -3650,7 +3650,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -102, 2) i32 @unzeof(ptr noundef readonly %file) local_unnamed_addr #8 {
+define range(i32 -102, 2) i32 @unzeof(ptr noundef readonly captures(address_is_null) %file) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -3674,7 +3674,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @unzGetLocalExtrafield(ptr noundef readonly %file, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #2 {
+define i32 @unzGetLocalExtrafield(ptr noundef readonly captures(address_is_null) %file, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -3793,7 +3793,7 @@ return:                                           ; preds = %if.then10, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @unzGetOffset64(ptr noundef readonly %file) local_unnamed_addr #9 {
+define i64 @unzGetOffset64(ptr noundef readonly captures(address_is_null) %file) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -3829,7 +3829,7 @@ return:                                           ; preds = %if.then7, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @unzGetOffset(ptr noundef readonly %file) local_unnamed_addr #9 {
+define i64 @unzGetOffset(ptr noundef readonly captures(address_is_null) %file) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end.i

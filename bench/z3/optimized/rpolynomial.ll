@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN11rpolynomial14to_poly_or_numEPNS_10polynomialE(ptr noundef readnone returned %p) local_unnamed_addr #3 {
+define hidden noundef ptr @_ZN11rpolynomial14to_poly_or_numEPNS_10polynomialE(ptr noundef readnone returned captures(ret: address, provenance) %p) local_unnamed_addr #3 {
 entry:
   ret ptr %p
 }
@@ -154,7 +154,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN11rpolynomial7manager7is_zeroEPKNS_10polynomialE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone %p) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11rpolynomial7manager7is_zeroEPKNS_10polynomialE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone captures(address_is_null) %p) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %p, null
   ret i1 %cmp

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Info_get_nthkey_f08 = weak alias void (ptr, ptr, ptr, ptr, i32), ptr @ompi_info_get_nthkey_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_info_get_nthkey_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4) #0 {
+define void @ompi_info_get_nthkey_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr %0, align 4
   %8 = tail call ptr @PMPI_Info_f2c(i32 noundef %7) #5

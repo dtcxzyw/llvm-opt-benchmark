@@ -833,7 +833,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %19, %4, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @H5MF__fsm_is_self_referential(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @H5MF__fsm_is_self_referential(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -1033,7 +1033,7 @@ H5MF__alloc_to_fs_type.exit39:                    ; preds = %66, %64, %71, %75
 declare i32 @H5FS_sect_add(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5MF__find_sect(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
+define range(i32 -1, -2147483648) i32 @H5MF__find_sect(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   store i32 0, ptr %6, align 4
@@ -3140,7 +3140,7 @@ H5MF__delete_fstype.exit:                         ; preds = %47, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

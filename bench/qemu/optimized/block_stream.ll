@@ -735,7 +735,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
 declare void @block_job_free(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned captures(ret: address, provenance) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
   ret ptr %x

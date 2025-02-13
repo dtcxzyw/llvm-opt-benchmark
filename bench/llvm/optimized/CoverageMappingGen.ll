@@ -3348,7 +3348,7 @@ declare void @_ZN4llvm8coverage24RawCoverageMappingReader4readEv(ptr dead_on_unw
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen4emitEv(ptr noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen4emitEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::MD5", align 4
   %3 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %4 = alloca %"class.llvm::SmallVector.719", align 8
@@ -23998,7 +23998,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122CoverageMappingBuilder17emitSourceRegionsERKN4llvm8SmallSetISt4pairIN5clang14SourceLocationES5_ELj8ESt4lessIS6_EEE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122CoverageMappingBuilder17emitSourceRegionsERKN4llvm8SmallSetISt4pairIN5clang14SourceLocationES5_ELj8ESt4lessIS6_EEE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::coverage::CounterMappingRegion", align 8
   %4 = alloca %"struct.llvm::coverage::CounterMappingRegion", align 4
   %5 = alloca %"struct.llvm::coverage::CounterMappingRegion", align 8

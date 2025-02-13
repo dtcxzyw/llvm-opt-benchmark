@@ -167,7 +167,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @test_rng_nonce(ptr noundef captures(none) %vtest, ptr noundef writeonly %out, i32 noundef %strength, i64 noundef %min_noncelen, i64 %max_noncelen) #2 {
+define internal i64 @test_rng_nonce(ptr noundef captures(none) %vtest, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %strength, i64 noundef %min_noncelen, i64 %max_noncelen) #2 {
 entry:
   %strength1 = getelementptr inbounds nuw i8, ptr %vtest, i64 16
   %0 = load i32, ptr %strength1, align 8
@@ -232,7 +232,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @test_rng_enable_locking(ptr noundef %vtest) #0 {
+define internal range(i32 0, 2) i32 @test_rng_enable_locking(ptr noundef captures(address_is_null) %vtest) #0 {
 entry:
   %cmp.not = icmp eq ptr %vtest, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -261,7 +261,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rng_lock(ptr noundef readonly %vtest) #0 {
+define internal i32 @test_rng_lock(ptr noundef readonly captures(address_is_null) %vtest) #0 {
 entry:
   %cmp = icmp eq ptr %vtest, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -282,7 +282,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @test_rng_unlock(ptr noundef readonly %vtest) #0 {
+define internal void @test_rng_unlock(ptr noundef readonly captures(address_is_null) %vtest) #0 {
 entry:
   %cmp.not = icmp eq ptr %vtest, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true

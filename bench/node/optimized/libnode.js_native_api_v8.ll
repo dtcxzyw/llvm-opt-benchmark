@@ -1495,7 +1495,7 @@ _ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_last_error_info(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_last_error_info(ptr noundef %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -1552,7 +1552,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_function(ptr noundef %env, ptr noundef %utf8name, i64 noundef %length, ptr noundef %cb, ptr noundef %callback_data, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_function(ptr noundef %env, ptr noundef %utf8name, i64 noundef %length, ptr noundef %cb, ptr noundef %callback_data, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -1813,7 +1813,7 @@ declare void @_ZN2v88Function7SetNameENS_5LocalINS_6StringEEE(ptr noundef nonnul
 declare noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_define_class(ptr noundef %env, ptr noundef %utf8name, i64 noundef %length, ptr noundef %constructor, ptr noundef %callback_data, i64 noundef %property_count, ptr noundef %properties, ptr noundef %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_define_class(ptr noundef %env, ptr noundef %utf8name, i64 noundef %length, ptr noundef %constructor, ptr noundef %callback_data, i64 noundef %property_count, ptr noundef %properties, ptr noundef captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
@@ -2458,7 +2458,7 @@ if.end:                                           ; preds = %_ZNSt6vectorI24napi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_define_properties(ptr noundef %env, ptr noundef %object, i64 noundef %property_count, ptr noundef readonly %properties) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_define_properties(ptr noundef %env, ptr noundef %object, i64 noundef %property_count, ptr noundef readonly captures(address_is_null) %properties) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %local_getter = alloca %"class.v8::Local.4", align 8
@@ -2846,14 +2846,14 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_property_names(ptr noundef %env, ptr noundef %object, ptr noundef %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_property_names(ptr noundef %env, ptr noundef %object, ptr noundef captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @napi_get_all_property_names(ptr noundef %env, ptr noundef %object, i32 noundef 0, i32 noundef 18, i32 noundef 1, ptr noundef %result)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_all_property_names(ptr noundef %env, ptr noundef %object, i32 noundef %key_mode, i32 noundef %key_filter, i32 noundef %key_conversion, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_all_property_names(ptr noundef %env, ptr noundef %object, i32 noundef %key_mode, i32 noundef %key_filter, i32 noundef %key_conversion, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -3167,7 +3167,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_has_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_has_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -3316,7 +3316,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -3462,7 +3462,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_delete_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_delete_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -3616,7 +3616,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_has_own_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_has_own_property(ptr noundef %env, ptr noundef %object, ptr noundef %key, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -3924,7 +3924,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_has_named_property(ptr noundef %env, ptr noundef %object, ptr noundef %utf8name, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_has_named_property(ptr noundef %env, ptr noundef %object, ptr noundef %utf8name, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -4079,7 +4079,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_named_property(ptr noundef %env, ptr noundef %object, ptr noundef %utf8name, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_named_property(ptr noundef %env, ptr noundef %object, ptr noundef %utf8name, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -4376,7 +4376,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_has_element(ptr noundef %env, ptr noundef %object, i32 noundef %index, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_has_element(ptr noundef %env, ptr noundef %object, i32 noundef %index, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -4523,7 +4523,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_element(ptr noundef %env, ptr noundef %object, i32 noundef %index, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_element(ptr noundef %env, ptr noundef %object, i32 noundef %index, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -4667,7 +4667,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_delete_element(ptr noundef %env, ptr noundef %object, i32 noundef %index, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_delete_element(ptr noundef %env, ptr noundef %object, i32 noundef %index, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -5112,7 +5112,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_array(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_array(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -5175,7 +5175,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_array_length(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_array_length(ptr noundef %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -5305,7 +5305,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_strict_equals(ptr noundef %env, ptr noundef %lhs, ptr noundef %rhs, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_strict_equals(ptr noundef %env, ptr noundef %lhs, ptr noundef %rhs, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -5434,7 +5434,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare noundef zeroext i1 @_ZNK2v85Value12StrictEqualsENS_5LocalIS0_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_prototype(ptr noundef %env, ptr noundef %object, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_prototype(ptr noundef %env, ptr noundef %object, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -5567,7 +5567,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86Object12GetPrototypeEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_object(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_object(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -5618,7 +5618,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_array(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_array(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -5669,7 +5669,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_array_with_length(ptr noundef %env, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_array_with_length(ptr noundef captures(address_is_null) %env, i64 noundef %length, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -5719,7 +5719,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @napi_create_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @napi_create_string_latin1(ptr noundef captures(address_is_null) %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit", label %do.end.i
@@ -5811,7 +5811,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @napi_create_string_utf8(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @napi_create_string_utf8(ptr noundef captures(address_is_null) %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit", label %do.end.i
@@ -5903,7 +5903,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @napi_create_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @napi_create_string_utf16(ptr noundef captures(address_is_null) %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit", label %do.end.i
@@ -5995,7 +5995,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @node_api_create_external_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @node_api_create_external_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly captures(address_is_null) %result, ptr noundef writeonly captures(address_is_null) %copied) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %do.end.i
@@ -6152,7 +6152,7 @@ if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @node_api_create_external_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @node_api_create_external_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly captures(address_is_null) %result, ptr noundef writeonly captures(address_is_null) %copied) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %do.end.i
@@ -6313,7 +6313,7 @@ if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_double(ptr noundef %env, double noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_double(ptr noundef captures(address_is_null) %env, double noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6364,7 +6364,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_int32(ptr noundef %env, i32 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_int32(ptr noundef captures(address_is_null) %env, i32 noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6415,7 +6415,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_uint32(ptr noundef %env, i32 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_uint32(ptr noundef captures(address_is_null) %env, i32 noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6466,7 +6466,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_int64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_int64(ptr noundef captures(address_is_null) %env, i64 noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6516,7 +6516,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_bigint_int64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_bigint_int64(ptr noundef captures(address_is_null) %env, i64 noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6567,7 +6567,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v86BigInt3NewEPNS_7IsolateEl(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_bigint_uint64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_bigint_uint64(ptr noundef captures(address_is_null) %env, i64 noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6618,7 +6618,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v86BigInt15NewFromUnsignedEPNS_7IsolateEm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_bigint_words(ptr noundef %env, i32 noundef %sign_bit, i64 noundef %word_count, ptr noundef %words, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_bigint_words(ptr noundef %env, i32 noundef %sign_bit, i64 noundef %word_count, ptr noundef %words, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -6758,7 +6758,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_boolean(ptr noundef %env, i1 noundef zeroext %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_boolean(ptr noundef captures(address_is_null) %env, i1 noundef zeroext %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6810,7 +6810,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 4) i32 @napi_create_symbol(ptr noundef %env, ptr noundef %description, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 4) i32 @napi_create_symbol(ptr noundef captures(address_is_null) %env, ptr noundef %description, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6891,7 +6891,7 @@ return:                                           ; preds = %entry, %if.end58, %
 declare ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @node_api_symbol_for(ptr noundef %env, ptr noundef %utf8description, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @node_api_symbol_for(ptr noundef captures(address_is_null) %env, ptr noundef %utf8description, i64 noundef %length, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -6992,7 +6992,7 @@ return:                                           ; preds = %if.then8.i.i, %if.t
 declare ptr @_ZN2v86Symbol3ForEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @napi_create_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @napi_create_error(ptr noundef captures(address_is_null) %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7126,7 +7126,7 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @napi_create_type_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @napi_create_type_error(ptr noundef captures(address_is_null) %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7260,7 +7260,7 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @napi_create_range_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @napi_create_range_error(ptr noundef captures(address_is_null) %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7394,7 +7394,7 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception10RangeErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @node_api_create_syntax_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @node_api_create_syntax_error(ptr noundef captures(address_is_null) %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7528,7 +7528,7 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception11SyntaxErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_typeof(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_typeof(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7703,7 +7703,7 @@ declare noundef zeroext i1 @_ZNK2v85Value9IsBooleanEv(ptr noundef nonnull align 
 declare noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_undefined(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_undefined(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7754,7 +7754,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_null(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_null(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7805,7 +7805,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_cb_info(ptr noundef writeonly %env, ptr noundef %cbinfo, ptr noundef %argc, ptr noundef %argv, ptr noundef writeonly %this_arg, ptr noundef writeonly %data) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_cb_info(ptr noundef writeonly captures(address_is_null) %env, ptr noundef %cbinfo, ptr noundef captures(address_is_null) %argc, ptr noundef %argv, ptr noundef writeonly captures(address_is_null) %this_arg, ptr noundef writeonly captures(address_is_null) %data) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -7888,7 +7888,7 @@ return:                                           ; preds = %entry, %if.end26, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_new_target(ptr noundef %env, ptr noundef %cbinfo, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_new_target(ptr noundef captures(address_is_null) %env, ptr noundef %cbinfo, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -7950,7 +7950,7 @@ return:                                           ; preds = %entry, %do.end13, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_call_function(ptr noundef %env, ptr noundef %recv, ptr noundef %func, i64 noundef %argc, ptr noundef %argv, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_call_function(ptr noundef %env, ptr noundef %recv, ptr noundef %func, i64 noundef %argc, ptr noundef %argv, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -8139,7 +8139,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_global(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_global(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -8997,7 +8997,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_error(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_error(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9060,7 +9060,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value13IsNativeErrorEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 7) i32 @napi_get_value_double(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @napi_get_value_double(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9135,7 +9135,7 @@ return:                                           ; preds = %entry, %do.end23, %
 declare noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 7) i32 @napi_get_value_int32(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @napi_get_value_int32(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9233,7 +9233,7 @@ declare noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferen
 declare i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 7) i32 @napi_get_value_uint32(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @napi_get_value_uint32(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9331,7 +9331,7 @@ declare noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 derefere
 declare i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 7) i32 @napi_get_value_int64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 7) i32 @napi_get_value_int64(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9435,7 +9435,7 @@ return:                                           ; preds = %entry, %if.end51, %
 declare { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 18) i32 @napi_get_value_bigint_int64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result, ptr noundef %lossless) local_unnamed_addr #3 {
+define dso_local range(i32 0, 18) i32 @napi_get_value_bigint_int64(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result, ptr noundef %lossless) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9523,7 +9523,7 @@ return:                                           ; preds = %entry, %do.end29, %
 declare noundef i64 @_ZNK2v86BigInt10Int64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 18) i32 @napi_get_value_bigint_uint64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result, ptr noundef %lossless) local_unnamed_addr #3 {
+define dso_local range(i32 0, 18) i32 @napi_get_value_bigint_uint64(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result, ptr noundef %lossless) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9611,7 +9611,7 @@ return:                                           ; preds = %entry, %do.end29, %
 declare noundef i64 @_ZNK2v86BigInt11Uint64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 18) i32 @napi_get_value_bigint_words(ptr noundef %env, ptr noundef %value, ptr noundef %sign_bit, ptr noundef %word_count, ptr noundef %words) local_unnamed_addr #3 {
+define dso_local range(i32 0, 18) i32 @napi_get_value_bigint_words(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef %sign_bit, ptr noundef captures(address_is_null) %word_count, ptr noundef %words) local_unnamed_addr #3 {
 entry:
   %word_count_int = alloca i32, align 4
   %cmp = icmp eq ptr %env, null
@@ -9732,7 +9732,7 @@ declare noundef i32 @_ZNK2v86BigInt9WordCountEv(ptr noundef nonnull align 1 dere
 declare void @_ZNK2v86BigInt12ToWordsArrayEPiS1_Pm(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 8) i32 @napi_get_value_bool(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 8) i32 @napi_get_value_bool(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9808,7 +9808,7 @@ return:                                           ; preds = %entry, %do.end23, %
 declare noundef zeroext i1 @_ZNK2v87Boolean5ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 4) i32 @napi_get_value_string_latin1(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 4) i32 @napi_get_value_string_latin1(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -9929,7 +9929,7 @@ declare noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 derefer
 declare noundef i32 @_ZNK2v86String12WriteOneByteEPNS_7IsolateEPhiii(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 4) i32 @napi_get_value_string_utf8(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 4) i32 @napi_get_value_string_utf8(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -10052,7 +10052,7 @@ declare noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnul
 declare noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 4) i32 @napi_get_value_string_utf16(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 4) i32 @napi_get_value_string_utf16(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -10171,7 +10171,7 @@ return:                                           ; preds = %entry, %if.end50, %
 declare noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_coerce_to_bool(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_coerce_to_bool(ptr noundef %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -10298,7 +10298,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZNK2v85Value9ToBooleanEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_coerce_to_number(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_coerce_to_number(ptr noundef %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -10430,7 +10430,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZNK2v85Value8ToNumberENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_coerce_to_object(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_coerce_to_object(ptr noundef %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -10560,7 +10560,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_coerce_to_string(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_coerce_to_string(ptr noundef %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -10692,7 +10692,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_wrap(ptr noundef %env, ptr noundef %js_object, ptr noundef %native_object, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_wrap(ptr noundef %env, ptr noundef %js_object, ptr noundef %native_object, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch.i = alloca %"class.v8impl::TryCatch", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %try_catch.i)
@@ -10903,14 +10903,14 @@ _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 24) i32 @napi_unwrap(ptr noundef %env, ptr noundef %obj, ptr noundef %result) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 24) i32 @napi_unwrap(ptr noundef %env, ptr noundef %obj, ptr noundef captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %obj, ptr noundef %result, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 24) i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %js_object, ptr noundef writeonly %result, i32 noundef range(i32 0, 2) %action) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 24) i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %js_object, ptr noundef writeonly captures(address_is_null) %result, i32 noundef range(i32 0, 2) %action) unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -11116,14 +11116,14 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 24) i32 @napi_remove_wrap(ptr noundef %env, ptr noundef %obj, ptr noundef %result) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 24) i32 @napi_remove_wrap(ptr noundef %env, ptr noundef %obj, ptr noundef captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %obj, ptr noundef %result, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_external(ptr noundef %env, ptr noundef %data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_external(ptr noundef %env, ptr noundef %data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %initial_refcount.addr.i = alloca i32, align 4
   %ownership.addr.i = alloca i32, align 4
@@ -11535,7 +11535,7 @@ declare i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateE
 declare i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_check_object_type_tag(ptr noundef %env, ptr noundef %object, ptr noundef readonly %type_tag, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_check_object_type_tag(ptr noundef %env, ptr noundef %object, ptr noundef readonly captures(address_is_null) %type_tag, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %sign = alloca i32, align 4
@@ -11752,7 +11752,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_value_external(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_value_external(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -11827,7 +11827,7 @@ return:                                           ; preds = %entry, %do.end23, %
 declare noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_create_reference(ptr noundef %env, ptr noundef %value, i32 noundef %initial_refcount, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_create_reference(ptr noundef %env, ptr noundef %value, i32 noundef %initial_refcount, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %initial_refcount.addr.i = alloca i32, align 4
   %ownership.addr.i = alloca i32, align 4
@@ -11932,7 +11932,7 @@ return:                                           ; preds = %entry, %if.end29, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_delete_reference(ptr noundef %env, ptr noundef %ref) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_delete_reference(ptr noundef captures(address_is_null) %env, ptr noundef %ref) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -11981,7 +11981,7 @@ return:                                           ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_reference_ref(ptr noundef %env, ptr noundef %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_reference_ref(ptr noundef captures(address_is_null) %env, ptr noundef captures(address_is_null) %ref, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12059,7 +12059,7 @@ return:                                           ; preds = %entry, %if.end11, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 10) i32 @napi_reference_unref(ptr noundef %env, ptr noundef %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 10) i32 @napi_reference_unref(ptr noundef captures(address_is_null) %env, ptr noundef %ref, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12155,7 +12155,7 @@ return:                                           ; preds = %entry, %if.end16, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_reference_value(ptr noundef %env, ptr noundef readonly %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_reference_value(ptr noundef captures(address_is_null) %env, ptr noundef readonly captures(address_is_null) %ref, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12230,7 +12230,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_open_handle_scope(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_open_handle_scope(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12284,7 +12284,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 14) i32 @napi_close_handle_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
+define dso_local range(i32 0, 14) i32 @napi_close_handle_scope(ptr noundef captures(address_is_null) %env, ptr noundef %scope) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12339,7 +12339,7 @@ return:                                           ; preds = %do.end7, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_open_escapable_handle_scope(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_open_escapable_handle_scope(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12395,7 +12395,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 14) i32 @napi_close_escapable_handle_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
+define dso_local range(i32 0, 14) i32 @napi_close_escapable_handle_scope(ptr noundef captures(address_is_null) %env, ptr noundef %scope) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12451,7 +12451,7 @@ return:                                           ; preds = %do.end7, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 13) i32 @napi_escape_handle(ptr noundef %env, ptr noundef %scope, ptr noundef %escapee, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 13) i32 @napi_escape_handle(ptr noundef captures(address_is_null) %env, ptr noundef %scope, ptr noundef %escapee, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12540,7 +12540,7 @@ return:                                           ; preds = %entry, %if.end39, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_new_instance(ptr noundef %env, ptr noundef %constructor, i64 noundef %argc, ptr noundef %argv, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_new_instance(ptr noundef %env, ptr noundef %constructor, i64 noundef %argc, ptr noundef %argv, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -12683,7 +12683,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZNK2v88Function11NewInstanceENS_5LocalINS_7ContextEEEiPNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_instanceof(ptr noundef %env, ptr noundef %object, ptr noundef %constructor, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_instanceof(ptr noundef %env, ptr noundef %object, ptr noundef %constructor, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -12836,7 +12836,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare i16 @_ZN2v85Value10InstanceOfENS_5LocalINS_7ContextEEENS1_INS_6ObjectEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_exception_pending(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_exception_pending(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12886,7 +12886,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_and_clear_last_exception(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_and_clear_last_exception(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -12976,7 +12976,7 @@ return:                                           ; preds = %entry, %if.end20, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_arraybuffer(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_arraybuffer(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -13039,7 +13039,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_arraybuffer(ptr noundef %env, i64 noundef %byte_length, ptr noundef writeonly %data, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_arraybuffer(ptr noundef %env, i64 noundef %byte_length, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -13175,7 +13175,7 @@ declare ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef, i64 noundef) lo
 declare noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_external_arraybuffer(ptr noundef %env, ptr noundef %external_data, i64 noundef %byte_length, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local i32 @napi_create_external_arraybuffer(ptr noundef %env, ptr noundef %external_data, i64 noundef %byte_length, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %buffer = alloca ptr, align 8
   %call = call i32 @napi_create_external_buffer(ptr noundef %env, i64 noundef %byte_length, ptr noundef %external_data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef nonnull %buffer) #24
@@ -13251,7 +13251,7 @@ return:                                           ; preds = %if.end109.i, %if.th
 declare i32 @napi_create_external_buffer(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_typedarray_info(ptr noundef %env, ptr noundef %typedarray, ptr noundef writeonly %type, ptr noundef writeonly %length, ptr noundef writeonly %data, ptr noundef writeonly %arraybuffer, ptr noundef writeonly %byte_offset) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_typedarray_info(ptr noundef captures(address_is_null) %env, ptr noundef %typedarray, ptr noundef writeonly captures(address_is_null) %type, ptr noundef writeonly captures(address_is_null) %length, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %arraybuffer, ptr noundef writeonly captures(address_is_null) %byte_offset) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -13404,7 +13404,7 @@ return:                                           ; preds = %entry, %if.end114, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_arraybuffer_info(ptr noundef %env, ptr noundef %arraybuffer, ptr noundef writeonly %data, ptr noundef writeonly %byte_length) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_arraybuffer_info(ptr noundef captures(address_is_null) %env, ptr noundef %arraybuffer, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %byte_length) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -13482,7 +13482,7 @@ return:                                           ; preds = %entry, %if.end31, %
 declare noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_typedarray(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_typedarray(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -13545,7 +13545,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_typedarray(ptr noundef %env, i32 noundef %type, i64 noundef %length, ptr noundef %arraybuffer, i64 noundef %byte_offset, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_typedarray(ptr noundef %env, i32 noundef %type, i64 noundef %length, ptr noundef %arraybuffer, i64 noundef %byte_offset, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -13972,7 +13972,7 @@ declare ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 derefe
 declare noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_dataview(ptr noundef %env, i64 noundef %byte_length, ptr noundef %arraybuffer, i64 noundef %byte_offset, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_dataview(ptr noundef %env, i64 noundef %byte_length, ptr noundef %arraybuffer, i64 noundef %byte_offset, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -14112,7 +14112,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v88DataView3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_dataview(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_dataview(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -14175,7 +14175,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value10IsDataViewEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_dataview_info(ptr noundef %env, ptr noundef %dataview, ptr noundef writeonly %byte_length, ptr noundef writeonly %data, ptr noundef writeonly %arraybuffer, ptr noundef writeonly %byte_offset) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_get_dataview_info(ptr noundef captures(address_is_null) %env, ptr noundef %dataview, ptr noundef writeonly captures(address_is_null) %byte_length, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %arraybuffer, ptr noundef writeonly captures(address_is_null) %byte_offset) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -14277,7 +14277,7 @@ return:                                           ; preds = %entry, %if.end58, %
 declare noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_version(ptr noundef writeonly %env, ptr noundef writeonly %result) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @napi_get_version(ptr noundef writeonly captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -14307,7 +14307,7 @@ return:                                           ; preds = %entry, %do.end5, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_promise(ptr noundef %env, ptr noundef writeonly %deferred, ptr noundef writeonly %promise) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_promise(ptr noundef %env, ptr noundef writeonly captures(address_is_null) %deferred, ptr noundef writeonly captures(address_is_null) %promise) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -14625,7 +14625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_promise(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %is_promise) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_promise(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %is_promise) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -14688,7 +14688,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value9IsPromiseEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_create_date(ptr noundef %env, double noundef %time, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_create_date(ptr noundef %env, double noundef %time, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -14818,7 +14818,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v84Date3NewENS_5LocalINS_7ContextEEEd(ptr, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_date(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %is_date) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_date(ptr noundef captures(address_is_null) %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %is_date) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -14881,7 +14881,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value6IsDateEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_get_date_value(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_get_date_value(ptr noundef %env, ptr noundef %value, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -15011,7 +15011,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare noundef double @_ZNK2v84Date7ValueOfEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 24) i32 @napi_run_script(ptr noundef %env, ptr noundef %script, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 24) i32 @napi_run_script(ptr noundef %env, ptr noundef %script, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -15166,7 +15166,7 @@ declare ptr @_ZN2v86Script7CompileENS_5LocalINS_7ContextEEENS1_INS_6StringEEEPNS
 declare ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_add_finalizer(ptr noundef %env, ptr noundef %js_object, ptr noundef %finalize_data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_add_finalizer(ptr noundef %env, ptr noundef %js_object, ptr noundef %finalize_data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %initial_refcount.addr.i = alloca i32, align 4
   %ownership.addr.i = alloca i32, align 4
@@ -15320,7 +15320,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_adjust_external_memory(ptr noundef %env, i64 noundef %change_in_bytes, ptr noundef writeonly %adjusted_value) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_adjust_external_memory(ptr noundef captures(address_is_null) %env, i64 noundef %change_in_bytes, ptr noundef writeonly captures(address_is_null) %adjusted_value) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -15420,7 +15420,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @napi_get_instance_data(ptr noundef %env, ptr noundef writeonly %data) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @napi_get_instance_data(ptr noundef captures(address_is_null) %env, ptr noundef writeonly captures(address_is_null) %data) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -15462,7 +15462,7 @@ return:                                           ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 21) i32 @napi_detach_arraybuffer(ptr noundef %env, ptr noundef %arraybuffer) local_unnamed_addr #3 {
+define dso_local range(i32 0, 21) i32 @napi_detach_arraybuffer(ptr noundef captures(address_is_null) %env, ptr noundef %arraybuffer) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -15546,7 +15546,7 @@ declare noundef zeroext i1 @_ZNK2v811ArrayBuffer12IsDetachableEv(ptr noundef non
 declare i16 @_ZN2v811ArrayBuffer6DetachENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @napi_is_detached_arraybuffer(ptr noundef %env, ptr noundef %arraybuffer, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_is_detached_arraybuffer(ptr noundef captures(address_is_null) %env, ptr noundef %arraybuffer, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -16024,7 +16024,7 @@ if.end:                                           ; preds = %for.body27, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper14SetReturnValueEP12napi_value__(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %value) unnamed_addr #19 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper14SetReturnValueEP12napi_value__(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(address_is_null) %value) unnamed_addr #19 align 2 {
 entry:
   %_cbinfo = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_cbinfo, align 8

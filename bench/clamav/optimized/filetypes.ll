@@ -365,7 +365,7 @@ define i32 @cli_compare_ftm_file(ptr noundef %0, i64 noundef %1, ptr noundef rea
 declare i32 @cli_texttype(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [1028 x i8], align 16
   %5 = alloca %struct.cli_ac_data, align 8
   %6 = alloca [4 x i8], align 4

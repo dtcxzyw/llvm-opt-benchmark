@@ -449,7 +449,7 @@ define dso_local void @snd_hdac_stream_stop(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stop_streams(ptr noundef readonly %0) #0 align 16 {
+define dso_local void @snd_hdac_stop_streams(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -972,7 +972,7 @@ define dso_local void @snd_hdac_stream_release(ptr noundef captures(none) initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @snd_hdac_get_stream(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
+define dso_local ptr @snd_hdac_get_stream(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4

@@ -138,7 +138,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_observer_errors_observed = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @zend_vspprintf(ptr noundef writeonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i64 @zend_vspprintf(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.smart_string, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %0, null
@@ -195,7 +195,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @zend_spprintf(ptr noundef writeonly %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define i64 @zend_spprintf(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca %struct.smart_string, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
@@ -252,7 +252,7 @@ zend_vspprintf.exit:                              ; preds = %3, %19, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @zend_spprintf_unchecked(ptr noundef writeonly %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define i64 @zend_spprintf_unchecked(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca %struct.smart_string, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
@@ -2084,7 +2084,7 @@ declare i32 @zend_startup_strtod() local_unnamed_addr #2
 declare void @zend_startup_extensions_mechanism() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @zend_fopen_wrapper(ptr noundef %0, ptr noundef writeonly %1) #3 {
+define internal noalias noundef ptr @zend_fopen_wrapper(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %3
 
@@ -4785,7 +4785,7 @@ declare void @module_destructor(ptr noundef) local_unnamed_addr #2
 declare void @zend_vm_set_opcode_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define internal noundef i32 @OnUpdateErrorReporting(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #28 {
+define internal noundef i32 @OnUpdateErrorReporting(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #28 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 

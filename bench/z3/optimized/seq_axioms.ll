@@ -9014,7 +9014,7 @@ ehcleanup70:                                      ; preds = %lpad2, %lpad.i47, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3seq6axioms17is_extract_suffixEP4exprS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(656) %this, ptr noundef readnone %s, ptr noundef %i, ptr noundef %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3seq6axioms17is_extract_suffixEP4exprS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(656) %this, ptr noundef readnone captures(address) %s, ptr noundef %i, ptr noundef %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %len = alloca %class.obj_ref, align 8
   %a = getelementptr inbounds nuw i8, ptr %this, i64 16

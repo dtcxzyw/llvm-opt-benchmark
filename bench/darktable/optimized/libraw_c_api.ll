@@ -119,7 +119,7 @@ define noundef i32 @libraw_cameraCount() local_unnamed_addr #0 {
 declare noundef i32 @_ZN6LibRaw11cameraCountEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @libraw_unpack_function_name(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @libraw_unpack_function_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -137,7 +137,7 @@ define noundef ptr @libraw_unpack_function_name(ptr noundef readonly %0) local_u
 declare noundef ptr @_ZN6LibRaw20unpack_function_nameEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @libraw_subtract_black(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @libraw_subtract_black(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -154,7 +154,7 @@ define void @libraw_subtract_black(ptr noundef readonly %0) local_unnamed_addr #
 declare noundef i32 @_ZN6LibRaw14subtract_blackEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_open_file(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @libraw_open_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -172,7 +172,7 @@ define noundef i32 @libraw_open_file(ptr noundef readonly %0, ptr noundef %1) lo
 declare noundef i32 @_ZN6LibRaw9open_fileEPKc(ptr noundef nonnull align 8 dereferenceable(767680), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @libraw_get_iparams(ptr noundef readnone %0) local_unnamed_addr #5 {
+define ptr @libraw_get_iparams(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.0 = select i1 %.not, ptr null, ptr %2
@@ -180,7 +180,7 @@ define ptr @libraw_get_iparams(ptr noundef readnone %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @libraw_get_lensinfo(ptr noundef readnone %0) local_unnamed_addr #5 {
+define ptr @libraw_get_lensinfo(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %.0 = select i1 %.not, ptr null, ptr %2
@@ -188,7 +188,7 @@ define ptr @libraw_get_lensinfo(ptr noundef readnone %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @libraw_get_imgother(ptr noundef readnone %0) local_unnamed_addr #5 {
+define ptr @libraw_get_imgother(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192544
   %.0 = select i1 %.not, ptr null, ptr %2
@@ -196,7 +196,7 @@ define ptr @libraw_get_imgother(ptr noundef readnone %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_open_buffer(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @libraw_open_buffer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -214,7 +214,7 @@ define noundef i32 @libraw_open_buffer(ptr noundef readonly %0, ptr noundef %1, 
 declare noundef i32 @_ZN6LibRaw11open_bufferEPKvm(ptr noundef nonnull align 8 dereferenceable(767680), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_open_bayer(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i8 noundef zeroext %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #0 {
+define noundef i32 @libraw_open_bayer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i8 noundef zeroext %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %15
 
@@ -233,7 +233,7 @@ define noundef i32 @libraw_open_bayer(ptr noundef readonly %0, ptr noundef %1, i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_unpack(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @libraw_unpack(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -251,7 +251,7 @@ define noundef i32 @libraw_unpack(ptr noundef readonly %0) local_unnamed_addr #0
 declare noundef i32 @_ZN6LibRaw6unpackEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_unpack_thumb(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @libraw_unpack_thumb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -269,7 +269,7 @@ define noundef i32 @libraw_unpack_thumb(ptr noundef readonly %0) local_unnamed_a
 declare noundef i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_unpack_thumb_ex(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @libraw_unpack_thumb_ex(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -287,7 +287,7 @@ define noundef i32 @libraw_unpack_thumb_ex(ptr noundef readonly %0, i32 noundef 
 declare noundef i32 @_ZN6LibRaw15unpack_thumb_exEi(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @libraw_recycle_datastream(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @libraw_recycle_datastream(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -304,7 +304,7 @@ define void @libraw_recycle_datastream(ptr noundef readonly %0) local_unnamed_ad
 declare void @_ZN6LibRaw18recycle_datastreamEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @libraw_recycle(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @libraw_recycle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -321,7 +321,7 @@ define void @libraw_recycle(ptr noundef readonly %0) local_unnamed_addr #0 {
 declare void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @libraw_close(ptr noundef readonly %0) local_unnamed_addr #6 {
+define void @libraw_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -343,7 +343,7 @@ define void @libraw_close(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_exifparser_handler(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define void @libraw_set_exifparser_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -361,7 +361,7 @@ define void @libraw_set_exifparser_handler(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_dataerror_handler(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define void @libraw_set_dataerror_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -379,7 +379,7 @@ define void @libraw_set_dataerror_handler(ptr noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_progress_handler(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define void @libraw_set_progress_handler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -397,7 +397,7 @@ define void @libraw_set_progress_handler(ptr noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_adjust_to_raw_inset_crop(ptr noundef readonly %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 {
+define noundef i32 @libraw_adjust_to_raw_inset_crop(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -415,7 +415,7 @@ define noundef i32 @libraw_adjust_to_raw_inset_crop(ptr noundef readonly %0, i32
 declare noundef i32 @_ZN6LibRaw24adjust_to_raw_inset_cropEjf(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_adjust_sizes_info_only(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @libraw_adjust_sizes_info_only(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -433,7 +433,7 @@ define noundef i32 @libraw_adjust_sizes_info_only(ptr noundef readonly %0) local
 declare noundef i32 @_ZN6LibRaw22adjust_sizes_info_onlyEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_dcraw_ppm_tiff_writer(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @libraw_dcraw_ppm_tiff_writer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -451,7 +451,7 @@ define noundef i32 @libraw_dcraw_ppm_tiff_writer(ptr noundef readonly %0, ptr no
 declare noundef i32 @_ZN6LibRaw21dcraw_ppm_tiff_writerEPKc(ptr noundef nonnull align 8 dereferenceable(767680), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_dcraw_thumb_writer(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @libraw_dcraw_thumb_writer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -469,7 +469,7 @@ define noundef i32 @libraw_dcraw_thumb_writer(ptr noundef readonly %0, ptr nound
 declare noundef i32 @_ZN6LibRaw18dcraw_thumb_writerEPKc(ptr noundef nonnull align 8 dereferenceable(767680), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_dcraw_process(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @libraw_dcraw_process(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -487,7 +487,7 @@ define noundef i32 @libraw_dcraw_process(ptr noundef readonly %0) local_unnamed_
 declare noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @libraw_dcraw_make_mem_image(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @libraw_dcraw_make_mem_image(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %5
 
@@ -514,7 +514,7 @@ define noundef ptr @libraw_dcraw_make_mem_image(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @libraw_dcraw_make_mem_thumb(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @libraw_dcraw_make_mem_thumb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %5
 
@@ -549,7 +549,7 @@ define void @libraw_dcraw_clear_mem(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_ZN6LibRaw15dcraw_clear_memEP24libraw_processed_image_t(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_raw2image(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @libraw_raw2image(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -567,7 +567,7 @@ define noundef i32 @libraw_raw2image(ptr noundef readonly %0) local_unnamed_addr
 declare noundef i32 @_ZN6LibRaw9raw2imageEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @libraw_free_image(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @libraw_free_image(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -584,7 +584,7 @@ define void @libraw_free_image(ptr noundef readonly %0) local_unnamed_addr #0 {
 declare void @_ZN6LibRaw10free_imageEv(ptr noundef nonnull align 8 dereferenceable(767680)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libraw_get_decoder_info(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @libraw_get_decoder_info(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -605,7 +605,7 @@ define noundef i32 @libraw_get_decoder_info(ptr noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @libraw_COLOR(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @libraw_COLOR(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN6LibRaw5COLOREii.exit, label %4
 
@@ -683,7 +683,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %39, %_ZN6LibRaw3FCF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_demosaic(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_demosaic(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -699,7 +699,7 @@ define void @libraw_set_demosaic(ptr noundef readonly %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_output_color(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_output_color(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -715,7 +715,7 @@ define void @libraw_set_output_color(ptr noundef readonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_adjust_maximum_thr(ptr noundef readonly %0, float noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_adjust_maximum_thr(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -731,7 +731,7 @@ define void @libraw_set_adjust_maximum_thr(ptr noundef readonly %0, float nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_output_bps(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_output_bps(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -747,7 +747,7 @@ define void @libraw_set_output_bps(ptr noundef readonly %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_output_tif(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_output_tif(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -763,7 +763,7 @@ define void @libraw_set_output_tif(ptr noundef readonly %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_user_mul(ptr noundef readonly %0, i32 noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @libraw_set_user_mul(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %4
 
@@ -783,7 +783,7 @@ define void @libraw_set_user_mul(ptr noundef readonly %0, i32 noundef %1, float 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_gamma(ptr noundef readonly %0, i32 noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @libraw_set_gamma(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
 
@@ -804,7 +804,7 @@ define void @libraw_set_gamma(ptr noundef readonly %0, i32 noundef %1, float nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_no_auto_bright(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_no_auto_bright(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -820,7 +820,7 @@ define void @libraw_set_no_auto_bright(ptr noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_bright(ptr noundef readonly %0, float noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_bright(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -836,7 +836,7 @@ define void @libraw_set_bright(ptr noundef readonly %0, float noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_highlight(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_highlight(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -852,7 +852,7 @@ define void @libraw_set_highlight(ptr noundef readonly %0, i32 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @libraw_set_fbdd_noiserd(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @libraw_set_fbdd_noiserd(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -868,7 +868,7 @@ define void @libraw_set_fbdd_noiserd(ptr noundef readonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @libraw_get_raw_height(ptr noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, 65536) i32 @libraw_get_raw_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -884,7 +884,7 @@ define range(i32 0, 65536) i32 @libraw_get_raw_height(ptr noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @libraw_get_raw_width(ptr noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, 65536) i32 @libraw_get_raw_width(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -900,7 +900,7 @@ define range(i32 0, 65536) i32 @libraw_get_raw_width(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @libraw_get_iheight(ptr noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, 65536) i32 @libraw_get_iheight(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -916,7 +916,7 @@ define range(i32 0, 65536) i32 @libraw_get_iheight(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @libraw_get_iwidth(ptr noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, 65536) i32 @libraw_get_iwidth(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -932,7 +932,7 @@ define range(i32 0, 65536) i32 @libraw_get_iwidth(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @libraw_get_cam_mul(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define float @libraw_get_cam_mul(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -951,7 +951,7 @@ define float @libraw_get_cam_mul(ptr noundef readonly %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @libraw_get_pre_mul(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define float @libraw_get_pre_mul(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -970,7 +970,7 @@ define float @libraw_get_pre_mul(ptr noundef readonly %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @libraw_get_rgb_cam(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define float @libraw_get_rgb_cam(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %4
 
@@ -992,7 +992,7 @@ define float @libraw_get_rgb_cam(ptr noundef readonly %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @libraw_get_color_maximum(ptr noundef readonly %0) local_unnamed_addr #8 {
+define i32 @libraw_get_color_maximum(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

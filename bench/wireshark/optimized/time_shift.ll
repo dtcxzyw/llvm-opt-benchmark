@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [38 x i8] c"Mktime went wrong. Is the time valid?\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @time_string_parse(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = icmp ne ptr %0, null
   %10 = icmp ne ptr %5, null
   %or.cond = and i1 %9, %10
@@ -223,7 +223,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly %0, ptr nounde
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.nstime_t, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -325,7 +325,7 @@ declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @packet_list_queue_draw() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
@@ -407,7 +407,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, pt
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
+define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull captures(address_is_null) %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -486,7 +486,7 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca %struct.nstime_t, align 8
@@ -664,7 +664,7 @@ calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.prehe
 declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_undo(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden noundef ptr @time_shift_undo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.nstime_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3

@@ -687,7 +687,7 @@ define hidden i32 @cmsCloseIOhandler(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsGetProfileIOhandler(ptr noundef readonly %0) local_unnamed_addr #10 {
+define hidden ptr @cmsGetProfileIOhandler(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -746,7 +746,7 @@ declare i32 @_cmsGetTime(ptr noundef) local_unnamed_addr #1
 declare ptr @_cmsCreateMutex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsGetProfileContextID(ptr noundef readonly %0) local_unnamed_addr #10 {
+define hidden ptr @cmsGetProfileContextID(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -761,7 +761,7 @@ define hidden ptr @cmsGetProfileContextID(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsGetTagCount(ptr noundef readonly %0) local_unnamed_addr #10 {
+define hidden i32 @cmsGetTagCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

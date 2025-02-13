@@ -1960,7 +1960,7 @@ Vec_PtrPush.exit:                                 ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @Abc_NtkCountInst_rec(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Abc_NtkCountInst_rec(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8, !tbaa !93
   %4 = icmp sgt i32 %3, -1
@@ -2035,7 +2035,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCountInst(ptr noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkCountInst(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !95
   %4 = icmp eq ptr %3, null
@@ -2081,7 +2081,7 @@ define void @Abc_NtkCountInst(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define double @Abc_NtkCountNodes_rec(ptr noundef %0) local_unnamed_addr #0 {
+define double @Abc_NtkCountNodes_rec(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load double, ptr %2, align 8, !tbaa !102
   %4 = fcmp ult double %3, 0.000000e+00
@@ -2160,7 +2160,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCountNodes(ptr noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkCountNodes(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !95
   %4 = icmp eq ptr %3, null

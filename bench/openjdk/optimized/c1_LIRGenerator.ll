@@ -665,7 +665,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhiResolver4moveEP11ResolveNodeS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11PhiResolver4moveEP11ResolveNodeS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1

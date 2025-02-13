@@ -15,14 +15,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @_dist_code = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @deflateInit_(ptr noundef %strm, i32 noundef %level, ptr noundef %version, i32 noundef %stream_size) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @deflateInit_(ptr noundef %strm, i32 noundef %level, ptr noundef captures(address_is_null) %version, i32 noundef %stream_size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @deflateInit2_(ptr noundef %strm, i32 noundef %level, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %version, i32 noundef %stream_size)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @deflateInit2_(ptr noundef %strm, i32 noundef %level, i32 noundef %method, i32 noundef %windowBits, i32 noundef %memLevel, i32 noundef %strategy, ptr noundef readonly %version, i32 noundef %stream_size) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @deflateInit2_(ptr noundef %strm, i32 noundef %level, i32 noundef %method, i32 noundef %windowBits, i32 noundef %memLevel, i32 noundef %strategy, ptr noundef readonly captures(address_is_null) %version, i32 noundef %stream_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %version, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -230,7 +230,7 @@ declare ptr @zcalloc(ptr noundef, i32 noundef, i32 noundef) #1
 declare void @zcfree(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 1) i32 @deflateEnd(ptr noundef %strm) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @deflateEnd(ptr noundef captures(address) %strm) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -351,7 +351,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @deflateReset(ptr noundef %strm) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @deflateReset(ptr noundef captures(address) %strm) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @deflateResetKeep(ptr noundef %strm)
   %cmp = icmp eq i32 %call, 0
@@ -426,7 +426,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @deflateSetDictionary(ptr noundef %strm, ptr noundef %dictionary, i32 noundef %dictLength) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @deflateSetDictionary(ptr noundef captures(address) %strm, ptr noundef %dictionary, i32 noundef %dictLength) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -962,7 +962,7 @@ if.end149:                                        ; preds = %if.end149.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @deflateGetDictionary(ptr noundef readonly %strm, ptr noundef writeonly %dictionary, ptr noundef writeonly %dictLength) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @deflateGetDictionary(ptr noundef readonly captures(address) %strm, ptr noundef writeonly captures(address_is_null) %dictionary, ptr noundef writeonly captures(address_is_null) %dictLength) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -1048,7 +1048,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @deflateResetKeep(ptr noundef %strm) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @deflateResetKeep(ptr noundef captures(address) %strm) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -1147,7 +1147,7 @@ declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @_tr_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @deflateSetHeader(ptr noundef readonly %strm, ptr noundef %head) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @deflateSetHeader(ptr noundef readonly captures(address) %strm, ptr noundef %head) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -1206,7 +1206,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @deflatePending(ptr noundef readonly %strm, ptr noundef writeonly %pending, ptr noundef writeonly %bits) local_unnamed_addr #5 {
+define range(i32 -2, 1) i32 @deflatePending(ptr noundef readonly captures(address) %strm, ptr noundef writeonly captures(address_is_null) %pending, ptr noundef writeonly captures(address_is_null) %bits) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -1276,7 +1276,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @deflatePrime(ptr noundef readonly %strm, i32 noundef %bits, i32 noundef %value) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @deflatePrime(ptr noundef readonly captures(address) %strm, i32 noundef %bits, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -2981,7 +2981,7 @@ do.end19:                                         ; preds = %do.body5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @deflateTune(ptr noundef readonly %strm, i32 noundef %good_length, i32 noundef %max_lazy, i32 noundef %nice_length, i32 noundef %max_chain) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @deflateTune(ptr noundef readonly captures(address) %strm, i32 noundef %good_length, i32 noundef %max_lazy, i32 noundef %nice_length, i32 noundef %max_chain) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -3040,7 +3040,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @deflateBound(ptr noundef readonly %strm, i64 noundef %sourceLen) local_unnamed_addr #7 {
+define i64 @deflateBound(ptr noundef readonly captures(address) %strm, i64 noundef %sourceLen) local_unnamed_addr #7 {
 entry:
   %shr = lshr i64 %sourceLen, 3
   %shr1 = lshr i64 %sourceLen, 8
@@ -4725,7 +4725,7 @@ declare void @_tr_align(ptr noundef) local_unnamed_addr #1
 declare void @_tr_stored_block(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 1) i32 @deflateCopy(ptr noundef %dest, ptr noundef readonly %source) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @deflateCopy(ptr noundef %dest, ptr noundef readonly captures(address) %source) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %source, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i

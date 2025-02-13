@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.get_header_and_data = private unnamed_addr constant [20 x i8] c"get_header_and_data\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_def_callback(ptr noundef %buf, i32 noundef %num, i32 noundef %rwflag, ptr noundef readonly %userdata) local_unnamed_addr #0 {
+define i32 @PEM_def_callback(ptr noundef %buf, i32 noundef %num, i32 noundef %rwflag, ptr noundef readonly captures(address_is_null) %userdata) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -234,14 +234,14 @@ declare ptr @PEM_ASN1_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef captures(address_is_null) %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef captures(address_is_null) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %pdata, ptr noundef %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef writeonly %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef range(i32 2, 4) %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef writeonly captures(address_is_null) %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef captures(address_is_null) %cb, ptr noundef %u, i32 noundef range(i32 2, 4) %flags) unnamed_addr #0 {
 entry:
   %e.i = alloca ptr, align 8
   %cipher = alloca %struct.evp_cipher_info_st, align 8
@@ -562,14 +562,14 @@ return:                                           ; preds = %if.then.i33.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_bytes_read_bio_secmem(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_bytes_read_bio_secmem(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef captures(address_is_null) %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef captures(address_is_null) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %pdata, ptr noundef %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef 3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %fp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %callback, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %fp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef captures(address_is_null) %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #10
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #10
@@ -594,7 +594,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %bp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %bp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef readonly captures(address_is_null) %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %j = alloca i32, align 4
@@ -986,7 +986,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #3
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_do_header(ptr noundef %cipher, ptr noundef %data, ptr noundef captures(none) %plen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
+define i32 @PEM_do_header(ptr noundef %cipher, ptr noundef %data, ptr noundef captures(none) %plen, ptr noundef readonly captures(address_is_null) %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %ilen = alloca i32, align 4
   %key = alloca [64 x i8], align 16

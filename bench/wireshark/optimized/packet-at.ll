@@ -3366,7 +3366,7 @@ define internal range(i32 0, 2) i32 @check_cmgl(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmgl_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9, ptr readnone captures(none) %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmgl_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly captures(address_is_null) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13
@@ -3483,7 +3483,7 @@ define internal range(i32 0, 2) i32 @check_cmgr(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmgr_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly %9, ptr readnone captures(none) %10) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmgr_parameter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly captures(address_is_null) %9, ptr readnone captures(none) %10) #0 {
   %12 = icmp eq i32 %4, 2
   %13 = icmp eq i16 %5, 61
   %or.cond = and i1 %12, %13

@@ -9,21 +9,21 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZZ7GetWidePKcE6StrNum = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_Z11NullToEmptyPKc(ptr noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @_Z11NullToEmptyPKc(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %3 = select i1 %2, ptr @.str, ptr %0
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_Z11NullToEmptyPKw(ptr noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @_Z11NullToEmptyPKw(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %3 = select i1 %2, ptr @.str.1, ptr %0
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z8IntToExtPKcPcm(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @_Z8IntToExtPKcPcm(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, %0
   %.not.i = icmp eq i64 %2, 0
   %or.cond = or i1 %.not, %.not.i
@@ -126,7 +126,7 @@ declare noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef, ptr noundef, i64 nou
 declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef range(i32 -1, 2) i32 @_Z8stricompPKcS0_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define noundef range(i32 -1, 2) i32 @_Z8stricompPKcS0_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1, !tbaa !3
   %4 = sext i8 %3 to i32
   %5 = tail call i32 @toupper(i32 noundef %4) #14
@@ -171,7 +171,7 @@ define noundef range(i32 -1, 2) i32 @_Z8stricompPKcS0_(ptr noundef readonly %0, 
 declare i32 @toupper(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef range(i32 -1, 2) i32 @_Z9strnicompPKcS0_m(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef range(i32 -1, 2) i32 @_Z9strnicompPKcS0_m(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -223,7 +223,7 @@ define noundef range(i32 -1, 2) i32 @_Z9strnicompPKcS0_m(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_Z9RemoveEOLPw(ptr noundef returned %0) local_unnamed_addr #6 {
+define noundef ptr @_Z9RemoveEOLPw(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #6 {
   %2 = tail call i64 @wcslen(ptr noundef %0) #14
   %3 = trunc i64 %2 to i32
   %4 = icmp sgt i32 %3, 0
@@ -264,7 +264,7 @@ declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_Z8RemoveLFPw(ptr noundef returned %0) local_unnamed_addr #6 {
+define noundef ptr @_Z8RemoveLFPw(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #6 {
   %2 = tail call i64 @wcslen(ptr noundef %0) #14
   %3 = trunc i64 %2 to i32
   %4 = icmp sgt i32 %3, 0
@@ -326,7 +326,7 @@ define noundef zeroext i1 @_Z7IsAlphai(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i64 noundef %4) local_unnamed_addr #1 {
+define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
   %.not72 = icmp eq i64 %1, 0
   br i1 %.not72, label %._crit_edge, label %.lr.ph
 
@@ -963,7 +963,7 @@ define noundef nonnull ptr @_Z7GetWidePKc(ptr noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %17, %3

@@ -232,7 +232,7 @@ define hidden void @AesEncrypt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = add i16 %5, %3
   %.biased = add i16 %8, 15

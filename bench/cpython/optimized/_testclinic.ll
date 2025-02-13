@@ -10617,7 +10617,7 @@ declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_testclinic_TestClass_get_defining_class(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+define internal noundef ptr @_testclinic_TestClass_get_defining_class(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %18
 
@@ -10801,7 +10801,7 @@ Py_XDECREF.exit:                                  ; preds = %10, %.thread, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @varpos_no_fastcall(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal noundef ptr @varpos_no_fastcall(ptr noundef readonly captures(address) %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyBaseObject_Type
   br i1 %4, label %11, label %5
 
@@ -10847,7 +10847,7 @@ Py_XDECREF.exit:                                  ; preds = %19, %14, %_Py_NewRe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_varpos_no_fastcall(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @posonly_varpos_no_fastcall(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyBaseObject_Type
   br i1 %4, label %11, label %5
 
@@ -10948,7 +10948,7 @@ Py_XDECREF.exit:                                  ; preds = %12, %PyTuple_GET_SI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_req_opt_varpos_no_fastcall(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @posonly_req_opt_varpos_no_fastcall(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyBaseObject_Type
   br i1 %4, label %11, label %5
 
@@ -11151,7 +11151,7 @@ Py_XDECREF.exit:                                  ; preds = %18, %.thread, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @varpos_array_no_fastcall(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @varpos_array_no_fastcall(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyBaseObject_Type
   br i1 %4, label %11, label %5
 
@@ -11215,7 +11215,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_varpos_array_no_fastcall(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @posonly_varpos_array_no_fastcall(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyBaseObject_Type
   br i1 %4, label %11, label %5
 
@@ -11335,7 +11335,7 @@ posonly_varpos_array_no_fastcall_impl.exit:       ; preds = %49, %46, %43, %PyTu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_req_opt_varpos_array_no_fastcall(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @posonly_req_opt_varpos_array_no_fastcall(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyBaseObject_Type
   br i1 %4, label %11, label %5
 

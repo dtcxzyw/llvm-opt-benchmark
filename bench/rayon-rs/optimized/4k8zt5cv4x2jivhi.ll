@@ -1172,7 +1172,7 @@ define noundef zeroext i1 @"_ZN70_$LT$rayon_core..latch..CountLatchKind$u20$as$u
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden void @_ZN10rayon_core5latch10CountLatch3new17hd2fc7d765e79c2b4E(ptr noalias noundef writeonly sret({ { i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly align 128 %1) unnamed_addr #7 {
+define hidden void @_ZN10rayon_core5latch10CountLatch3new17hd2fc7d765e79c2b4E(ptr noalias noundef writeonly sret({ { i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly align 128 captures(address_is_null) %1) unnamed_addr #7 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE.exit, label %4
@@ -1207,7 +1207,7 @@ _ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE.exit: ; preds 
 }
 
 ; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(ptr noalias noundef writeonly sret({ { i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef readonly align 128 %2) unnamed_addr #8 {
+define void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(ptr noalias noundef writeonly sret({ { i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef readonly align 128 captures(address_is_null) %2) unnamed_addr #8 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %12, label %5
 

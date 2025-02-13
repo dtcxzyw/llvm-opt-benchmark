@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.70 = private unnamed_addr constant [14 x i8] c" [style = %s]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #5
   %5 = load i32, ptr @Ivy_ManShow.Counter, align 4, !tbaa !3

@@ -643,7 +643,7 @@ return:                                           ; preds = %if.end7, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @connSocketAccept(ptr noundef %conn, ptr noundef readonly %accept_handler) #0 {
+define internal range(i32 -1, 1) i32 @connSocketAccept(ptr noundef %conn, ptr noundef readonly captures(address_is_null) %accept_handler) #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %conn, i64 8
   %0 = load i32, ptr %state, align 8

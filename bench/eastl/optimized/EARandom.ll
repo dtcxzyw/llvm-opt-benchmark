@@ -180,7 +180,7 @@ _ZN2EA4StdC10RandomTaus7SetSeedEPKj.exit:         ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEPKj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef readonly %pSeedArray) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEPKj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef readonly captures(address_is_null) %pSeedArray) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pSeedArray, null
   %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -592,7 +592,7 @@ _ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit: ; preds = %for.body20.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC21RandomMersenneTwisterC2EPKjj(ptr noundef nonnull align 8 dereferenceable(2508) initializes((2496, 2508)) %this, ptr noundef readonly %seedArray, i32 noundef %nSeedArraySize) unnamed_addr #1 align 2 {
+define dso_local void @_ZN2EA4StdC21RandomMersenneTwisterC2EPKjj(ptr noundef nonnull align 8 dereferenceable(2508) initializes((2496, 2508)) %this, ptr noundef readonly captures(address) %seedArray, i32 noundef %nSeedArraySize) unnamed_addr #1 align 2 {
 entry:
   %mpNextState = getelementptr inbounds nuw i8, ptr %this, i64 2496
   store ptr null, ptr %mpNextState, align 8
@@ -632,7 +632,7 @@ _ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj.exit: ; preds = %while.body.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj(ptr noundef nonnull align 8 dereferenceable(2508) %this, ptr noundef readonly %seedArray, i32 noundef %nSeedArraySize) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2EA4StdC21RandomMersenneTwister7SetSeedEPKjj(ptr noundef nonnull align 8 dereferenceable(2508) %this, ptr noundef readonly captures(address) %seedArray, i32 noundef %nSeedArraySize) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq i32 %nSeedArraySize, 0
   br i1 %cmp.not, label %if.end20, label %if.then

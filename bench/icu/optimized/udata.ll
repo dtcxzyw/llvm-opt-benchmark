@@ -1133,7 +1133,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef captures(address_is_null) %isAcceptable, ptr noundef %context, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %subErrorCode = alloca i32, align 4
   %tocEntryName = alloca %"class.icu_75::CharString", align 8
@@ -1650,7 +1650,7 @@ ehcleanup232:                                     ; preds = %ehcleanup230, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udata_openChoice_75(ptr noundef %path, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %pErrorCode) local_unnamed_addr #1 {
+define noundef ptr @udata_openChoice_75(ptr noundef %path, ptr noundef %type, ptr noundef %name, ptr noundef captures(address_is_null) %isAcceptable, ptr noundef %context, ptr noundef %pErrorCode) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1685,7 +1685,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udata_getInfo_75(ptr noundef readonly %pData, ptr noundef %pInfo) local_unnamed_addr #1 {
+define void @udata_getInfo_75(ptr noundef readonly captures(address_is_null) %pData, ptr noundef captures(address_is_null) %pInfo) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %pInfo, null
   br i1 %cmp.not, label %if.end24, label %if.then
@@ -1884,7 +1884,7 @@ declare signext i8 @uprv_pathIsAbsolute_75(ptr noundef) local_unnamed_addr #6
 declare ptr @u_getTimeZoneFilesDirectory_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %pkgName, ptr noundef %dataPath, ptr noundef %tocEntryPathSuffix, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr noundef nonnull writeonly captures(none) %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %pkgName, ptr noundef %dataPath, ptr noundef %tocEntryPathSuffix, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly captures(address_is_null) %isAcceptable, ptr noundef %context, ptr noundef nonnull writeonly captures(none) %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %dataMemory = alloca %struct.UDataMemory, align 8
   %iter = alloca %"class.icu_75::UDataPathIterator", align 8
@@ -2075,7 +2075,7 @@ cleanup:                                          ; preds = %invoke.cont9, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext range(i8 0, 2) %isICUData, ptr noundef %tocEntryName, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext range(i8 0, 2) %isICUData, ptr noundef %tocEntryName, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly captures(address_is_null) %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %copyPData.i = alloca %struct.UDataMemory, align 8
   %length = alloca i32, align 4

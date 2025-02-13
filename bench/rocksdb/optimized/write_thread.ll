@@ -1658,7 +1658,7 @@ declare noundef zeroext i1 @_ZNK7rocksdb10WriteBatch8HasMergeEv(ptr noundef nonn
 declare noundef i32 @_ZN7rocksdb18WriteBatchInternal5CountEPKNS_10WriteBatchE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread20ExitAsMemTableWriterEPNS0_6WriterERNS0_10WriteGroupE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread20ExitAsMemTableWriterEPNS0_6WriterERNS0_10WriteGroupE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %1 = load ptr, ptr %write_group, align 8
@@ -2139,7 +2139,7 @@ _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread22ExitAsBatchGroupLeaderERNS0_10WriteGroupERNS_6StatusE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(56) %write_group, ptr noundef nonnull align 8 dereferenceable(16) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread22ExitAsBatchGroupLeaderERNS0_10WriteGroupERNS_6StatusE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %write_group, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i180 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i36 = alloca %"class.std::unique_ptr", align 8

@@ -30,7 +30,7 @@ define dso_local noundef zeroext i1 @has_drive_prefix(ptr noundef readnone captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef ptr @first_dir_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef ptr @first_dir_separator(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %4, %1
@@ -54,7 +54,7 @@ define dso_local noundef ptr @first_dir_separator(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef ptr @first_path_var_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef ptr @first_path_var_separator(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %4, %1
@@ -78,7 +78,7 @@ define dso_local noundef ptr @first_path_var_separator(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @last_dir_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local ptr @last_dir_separator(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %5, %1
@@ -1096,7 +1096,7 @@ declare zeroext i1 @pg_get_user_home_dir(i32 noundef, ptr noundef, i64 noundef) 
 declare i32 @geteuid() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local void @get_parent_directory(ptr noundef %0) local_unnamed_addr #17 {
+define dso_local void @get_parent_directory(ptr noundef captures(address) %0) local_unnamed_addr #17 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %trim_directory.exit, label %4

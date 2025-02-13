@@ -120,7 +120,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.79 = private unnamed_addr constant [110 x i8] c"The Libqos AHCI driver does not support the set_size operation for ATAPI command 0x%02x, please add support.\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @ahci_alloc(ptr noundef readonly %ahci, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i64 @ahci_alloc(ptr noundef readonly captures(address_is_null) %ahci, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ahci, null
   br i1 %tobool.not, label %if.else, label %do.body1
@@ -148,7 +148,7 @@ do.end6:                                          ; preds = %do.body1
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_free(ptr noundef readonly %ahci, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @ahci_free(ptr noundef readonly captures(address_is_null) %ahci, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ahci, null
   br i1 %tobool.not, label %if.else, label %do.body1
@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @get_ahci_device(ptr noundef %qts, ptr noundef writeonly %fingerprint) local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_ahci_device(ptr noundef %qts, ptr noundef writeonly captures(address_is_null) %fingerprint) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qpci_new_pc(ptr noundef %qts, ptr noundef null) #16
   %call1 = tail call ptr @qpci_device_find(ptr noundef %call, i32 noundef 250) #16
@@ -3171,7 +3171,7 @@ ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_io(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, ptr noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
+define dso_local void @ahci_io(ptr noundef captures(address_is_null) %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, ptr noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
 entry:
   br label %for.body.i
 

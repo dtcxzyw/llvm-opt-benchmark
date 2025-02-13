@@ -6946,7 +6946,7 @@ define align 8 ptr @"_ZN110_$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define nonnull align 8 ptr @"_ZN110_$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$u20$as$u20$pyo3_macros_backend..pyclass..EnumVariant$GT$11get_options17h9ca40bc260304ab7E"(ptr readnone align 8 %0) unnamed_addr #4 {
+define nonnull align 8 ptr @"_ZN110_$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$u20$as$u20$pyo3_macros_backend..pyclass..EnumVariant$GT$11get_options17h9ca40bc260304ab7E"(ptr readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %.sroa.0.0
 }
@@ -6959,7 +6959,7 @@ define align 8 ptr @"_ZN114_$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN114_$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$u20$as$u20$pyo3_macros_backend..pyclass..EnumVariant$GT$11get_options17h205d4e9bd01dfe2dE"(ptr readnone returned align 8 %0) unnamed_addr #4 {
+define align 8 ptr @"_ZN114_$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$u20$as$u20$pyo3_macros_backend..pyclass..EnumVariant$GT$11get_options17h205d4e9bd01dfe2dE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
   ret ptr %0
 }
 

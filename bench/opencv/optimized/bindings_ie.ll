@@ -364,7 +364,7 @@ define void @_ZN2cv4gapi2ie6paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi2ie8PyParams10constInputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_3MatENS1_7TraitAsE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi2ie8PyParams10constInputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_3MatENS1_7TraitAsE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.45", align 8
   %6 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
@@ -395,7 +395,7 @@ _ZN2cv4gapi2ie6ParamsINS0_7GenericEE10constInputERKNSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi2ie8PyParams14cfgNumRequestsEm(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi2ie8PyParams14cfgNumRequestsEm(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load ptr, ptr %0, align 8
@@ -441,7 +441,7 @@ _ZN2cv4gapi2ie6ParamsINS0_7GenericEE14cfgNumRequestsEm.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi2ie8PyParams12cfgBatchSizeEm(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4gapi2ie8PyParams12cfgBatchSizeEm(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array.108", align 8
   %4 = alloca %"struct.std::array.108", align 8
   %5 = alloca %"struct.std::array.116", align 8

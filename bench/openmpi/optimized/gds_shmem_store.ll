@@ -365,7 +365,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 declare i32 @pmix_hash_store(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_gds_shmem_store_local_job_data_in_shmem(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @pmix_gds_shmem_store_local_job_data_in_shmem(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -6937,7 +6937,7 @@ declare ptr @pmix_gds_shmem_get_session_tracker(ptr noundef, i32 noundef, i1 nou
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_nspace(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_nspace(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %7, label %4
 
@@ -11275,7 +11275,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pmix_bfrops_base_tma_argv_copy(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @pmix_bfrops_base_tma_argv_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %pmix_bfrops_base_tma_argv_free.exit, label %4
 

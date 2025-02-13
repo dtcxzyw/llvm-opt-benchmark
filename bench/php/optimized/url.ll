@@ -211,7 +211,7 @@ define void @php_url_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @php_replace_controlchars_ex(ptr noundef returned %0, i64 noundef %1) local_unnamed_addr #2 {
+define noundef ptr @php_replace_controlchars_ex(ptr noundef returned captures(address, ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not = icmp ne ptr %0, null
   %4 = icmp sgt i64 %1, 0
@@ -250,7 +250,7 @@ define noundef ptr @php_replace_controlchars_ex(ptr noundef returned %0, i64 nou
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @php_replace_controlchars(ptr noundef returned %0) local_unnamed_addr #4 {
+define noundef ptr @php_replace_controlchars(ptr noundef returned captures(address, ret: address, provenance) %0) local_unnamed_addr #4 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 %2
   %4 = icmp sgt i64 %2, 0
@@ -1847,7 +1847,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #10 {
+define ptr @php_url_encode(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef 3, i64 noundef %1, i64 noundef 32) #16
@@ -2337,7 +2337,7 @@ php_htoi.exit:                                    ; preds = %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #10 {
+define ptr @php_raw_url_encode(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef 3, i64 noundef %1, i64 noundef 32) #16

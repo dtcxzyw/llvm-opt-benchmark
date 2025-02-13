@@ -1941,7 +1941,7 @@ eh.resume:                                        ; preds = %delete.notnull.i28,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7524DateTimePatternGenerator13copyHashtableEPNS_9HashtableER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(4796) %this, ptr noundef readonly %other, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7524DateTimePatternGenerator13copyHashtableEPNS_9HashtableER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(4796) %this, ptr noundef readonly captures(address_is_null) %other, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i32, align 4
   %cmp = icmp ne ptr %other, null
@@ -2252,7 +2252,7 @@ return:                                           ; preds = %if.else.i.i, %_ZNK6
 declare noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510PatternMap6equalsERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(425) %this, ptr noundef nonnull readonly align 8 dereferenceable(425) %other) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510PatternMap6equalsERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(425) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(425) %other) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -5668,7 +5668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator19getAppendItemFormatE21UDateTimePatternField(ptr noundef nonnull readnone align 8 dereferenceable(4796) %this, i32 noundef %field) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator19getAppendItemFormatE21UDateTimePatternField(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4796) %this, i32 noundef %field) local_unnamed_addr #7 align 2 {
 entry:
   %appendItemFormats = getelementptr inbounds nuw i8, ptr %this, i64 264
   %idxprom = zext i32 %field to i64
@@ -5700,7 +5700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator17getAppendItemNameE21UDateTimePatternField(ptr noundef nonnull readnone align 8 dereferenceable(4796) %this, i32 noundef %field) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator17getAppendItemNameE21UDateTimePatternField(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4796) %this, i32 noundef %field) local_unnamed_addr #7 align 2 {
 entry:
   %fieldDisplayNames = getelementptr inbounds nuw i8, ptr %this, i64 1288
   %idxprom = zext i32 %field to i64
@@ -5720,7 +5720,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7524DateTimePatternGenerator26getMutableFieldDisplayNameE21UDateTimePatternField23UDateTimePGDisplayWidth(ptr noundef nonnull readnone align 8 dereferenceable(4796) %this, i32 noundef %field, i32 noundef %width) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7524DateTimePatternGenerator26getMutableFieldDisplayNameE21UDateTimePatternField23UDateTimePGDisplayWidth(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4796) %this, i32 noundef %field, i32 noundef %width) local_unnamed_addr #7 align 2 {
 entry:
   %fieldDisplayNames = getelementptr inbounds nuw i8, ptr %this, i64 1288
   %idxprom = zext i32 %field to i64
@@ -6400,7 +6400,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7524DateTimePatternGenerator10getBestRawERNS_15DateTimeMatcherEiPNS_12DistanceInfoER10UErrorCodePPKNS_11PtnSkeletonE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4796) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %source, i32 noundef %includeMask, ptr noundef writeonly captures(none) %missingFields, ptr noundef nonnull align 4 dereferenceable(4) %status, ptr noundef writeonly %specifiedSkeletonPtr) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7524DateTimePatternGenerator10getBestRawERNS_15DateTimeMatcherEiPNS_12DistanceInfoER10UErrorCodePPKNS_11PtnSkeletonE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4796) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %source, i32 noundef %includeMask, ptr noundef writeonly captures(none) %missingFields, ptr noundef nonnull align 4 dereferenceable(4) %status, ptr noundef writeonly captures(address_is_null) %specifiedSkeletonPtr) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tempInfo = alloca %"class.icu_75::DistanceInfo", align 8
   %it = alloca %"class.icu_75::PatternMapIterator", align 8
@@ -6787,7 +6787,7 @@ ehcleanup40:                                      ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7524DateTimePatternGenerator16adjustFieldTypesERKNS_13UnicodeStringEPKNS_11PtnSkeletonEi28UDateTimePatternMatchOptions(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4796) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef readonly %specifiedSkeleton, i32 noundef %flags, i32 noundef %options) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7524DateTimePatternGenerator16adjustFieldTypesERKNS_13UnicodeStringEPKNS_11PtnSkeletonEi28UDateTimePatternMatchOptions(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4796) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef readonly captures(address_is_null) %specifiedSkeleton, i32 noundef %flags, i32 noundef %options) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ch.addr.i = alloca i16, align 2
   %ch.addr.i.i = alloca i16, align 2
@@ -7635,7 +7635,7 @@ return:                                           ; preds = %cleanup, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6icu_7515DateTimeMatcher14getSkeletonPtrEv(ptr noundef nonnull readnone align 8 dereferenceable(152) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZN6icu_7515DateTimeMatcher14getSkeletonPtrEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(152) %this) local_unnamed_addr #7 align 2 {
 entry:
   %skeleton = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %skeleton
@@ -7653,7 +7653,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator17getDateTimeFormatE16UDateFormatStyleR10UErrorCode(ptr noundef nonnull readnone align 8 dereferenceable(4796) %this, i32 noundef %style, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator17getDateTimeFormatE16UDateFormatStyleR10UErrorCode(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4796) %this, i32 noundef %style, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %0 = load atomic i8, ptr @_ZGVZNK6icu_7524DateTimePatternGenerator17getDateTimeFormatE16UDateFormatStyleR10UErrorCodeE11emptyString acquire, align 8
@@ -7851,7 +7851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator10getDecimalEv(ptr noundef nonnull readnone align 8 dereferenceable(4796) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator10getDecimalEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4796) %this) local_unnamed_addr #7 align 2 {
 entry:
   %decimal = getelementptr inbounds nuw i8, ptr %this, i64 4616
   ret ptr %decimal
@@ -7906,7 +7906,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator17getDateTimeFormatEv(ptr noundef nonnull readnone align 8 dereferenceable(4796) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator17getDateTimeFormatEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4796) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -8428,7 +8428,7 @@ return:                                           ; preds = %if.end8, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_7510PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(425) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %skeleton, ptr noundef writeonly %specifiedSkeletonPtr) local_unnamed_addr #18 align 2 {
+define noundef ptr @_ZNK6icu_7510PatternMap22getPatternFromSkeletonERKNS_11PtnSkeletonEPPS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(425) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %skeleton, ptr noundef writeonly captures(address_is_null) %specifiedSkeletonPtr) local_unnamed_addr #18 align 2 {
 entry:
   %tobool.not = icmp eq ptr %specifiedSkeletonPtr, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -9196,7 +9196,7 @@ if.end:                                           ; preds = %if.else30, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7515DateTimeMatcher6equalsEPKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef readonly %other) local_unnamed_addr #24 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7515DateTimeMatcher6equalsEPKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, ptr noundef readonly captures(address_is_null) %other) local_unnamed_addr #24 align 2 {
 entry:
   %cmp = icmp eq ptr %other, null
   br i1 %cmp, label %return, label %if.end
@@ -9472,7 +9472,7 @@ return:                                           ; preds = %new.cont, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator21getPatternForSkeletonERKNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 dereferenceable(4796) %this, ptr noundef nonnull align 8 dereferenceable(64) %skeleton) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator21getPatternForSkeletonERKNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(4796) %this, ptr noundef nonnull align 8 dereferenceable(64) %skeleton) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %skeleton, i64 8
@@ -10307,7 +10307,7 @@ return:                                           ; preds = %for.cond, %_ZNK6icu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(152) ptr @_ZN6icu_7515DateTimeMatcheraSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(152) initializes((16, 145)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %other) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(152) ptr @_ZN6icu_7515DateTimeMatcheraSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(152) initializes((16, 145)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %other) local_unnamed_addr #10 align 2 {
 entry:
   %type.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %type2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 16

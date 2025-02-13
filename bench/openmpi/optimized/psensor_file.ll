@@ -340,7 +340,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %129
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stop(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal noundef i32 @stop(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_caddy_t_class, i64 56), align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @pmix_class_init_epoch, align 4

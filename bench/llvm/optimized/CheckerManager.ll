@@ -1421,7 +1421,7 @@ _ZL23expandGraphWithCheckersIN12_GLOBAL__N_123CheckObjCMessageContextEEvT_RN5cla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang4ento14CheckerManager22getObjCMessageCheckersENS0_20ObjCMessageVisitKindE(ptr noundef nonnull readnone align 8 dereferenceable(1560) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang4ento14CheckerManager22getObjCMessageCheckersENS0_20ObjCMessageVisitKindE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1560) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
 switch.lookup:
   %switch.idx.cast = zext i32 %1 to i64
   %switch.idx.mult = mul nuw nsw i64 %switch.idx.cast, 24

@@ -7994,7 +7994,7 @@ declare noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil6irfindENS_17basic_string_vi
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo12colorconvertERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_bS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %from, ptr noundef %to, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %context_key, ptr noundef readonly captures(none) %context_value, ptr noundef readonly %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo12colorconvertERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_bS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef %from, ptr noundef %to, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %context_key, ptr noundef readonly captures(none) %context_value, ptr noundef readonly captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i = alloca %struct.timespec, align 8
   %agg.tmp.i42 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -9440,7 +9440,7 @@ declare noundef nonnull align 8 dereferenceable(160) ptr @_ZN18OpenImageIO_v2_6_
 declare void @_ZN18OpenImageIO_v2_6_09ImageSpec14set_colorspaceENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo12colorconvertERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_bS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %context_key, ptr noundef readonly captures(none) %context_value, ptr noundef %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo12colorconvertERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_bS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %context_key, ptr noundef readonly captures(none) %context_value, ptr noundef captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -11749,7 +11749,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8ociolookERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_bbS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %looks, ptr noundef captures(none) %from, ptr noundef captures(none) %to, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef readonly %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8ociolookERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_bbS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %looks, ptr noundef captures(none) %from, ptr noundef captures(none) %to, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef readonly captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i = alloca %struct.timespec, align 8
   %agg.tmp.i86 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -12430,7 +12430,7 @@ ehcleanup89:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8ociolookERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_S7_bbS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %looks, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8ociolookERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_S7_bbS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %looks, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -12496,7 +12496,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont12, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_S8_bbS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef readonly %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_S8_bbS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef readonly captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i = alloca %struct.timespec, align 8
   %agg.tmp.i40 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -13093,7 +13093,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i12, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_S7_S7_bbS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_S7_S7_bbS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -13166,7 +13166,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont14, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_S8_bS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEES8_S8_S8_bS8_S8_PKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -13215,7 +13215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_S7_S7_bS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEES7_S7_S7_bS7_S7_PKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %display, ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %looks, i1 noundef zeroext %unpremult, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -13300,7 +13300,7 @@ _ZN18OpenImageIO_v2_6_012ImageBufAlgo11ociodisplayERKNS_8ImageBufENS_17basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17ociofiletransformERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEEbbPKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %name, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17ociofiletransformERNS_8ImageBufERKS1_NS_17basic_string_viewIcSt11char_traitsIcEEEbbPKNS_11ColorConfigENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %name, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef readonly captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i = alloca %struct.timespec, align 8
   %agg.tmp.i.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -13849,7 +13849,7 @@ ehcleanup41:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17ociofiletransformERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEEbbPKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %name, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17ociofiletransformERKNS_8ImageBufENS_17basic_string_viewIcSt11char_traitsIcEEEbbPKNS_11ColorConfigENS_3ROIEi(ptr noalias nonnull sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly captures(none) %name, i1 noundef zeroext %unpremult, i1 noundef zeroext %inverse, ptr noundef captures(address_is_null) %colorconfig, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   tail call void @_ZN18OpenImageIO_v2_6_08ImageBufC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
@@ -51237,7 +51237,7 @@ invoke.cont:                                      ; preds = %while.body.i, %land
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNK18OpenImageIO_v2_6_011ColorConfig25parseColorSpaceFromStringENSF_17basic_string_viewIcS5_EEE3$_0EEEvT_SL_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZNK18OpenImageIO_v2_6_011ColorConfig25parseColorSpaceFromStringENSF_17basic_string_viewIcS5_EEE3$_0EEEvT_SL_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %__val = alloca %"class.std::__cxx11::basic_string", align 8
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce

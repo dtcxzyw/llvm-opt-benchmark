@@ -127,7 +127,7 @@ dh_gen_init_base.exit:                            ; preds = %entry, %if.end10.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_gen_set_template(ptr noundef writeonly %genctx, ptr noundef %templ) #0 {
+define internal range(i32 0, 2) i32 @dh_gen_set_template(ptr noundef writeonly captures(address_is_null) %genctx, ptr noundef %templ) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0

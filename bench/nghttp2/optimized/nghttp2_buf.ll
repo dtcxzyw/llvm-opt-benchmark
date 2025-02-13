@@ -109,7 +109,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_buf_free(ptr noundef %buf, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden void @nghttp2_buf_free(ptr noundef captures(address_is_null) %buf, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %buf, null
   br i1 %cmp, label %return, label %if.end
@@ -368,7 +368,7 @@ return:                                           ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_free(ptr noundef %bufs) local_unnamed_addr #1 {
+define hidden void @nghttp2_bufs_free(ptr noundef captures(address_is_null) %bufs) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %bufs, null
   br i1 %cmp, label %return, label %if.end
@@ -545,7 +545,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_wrap_free(ptr noundef readonly %bufs) local_unnamed_addr #1 {
+define hidden void @nghttp2_bufs_wrap_free(ptr noundef readonly captures(address_is_null) %bufs) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %bufs, null
   br i1 %cmp, label %if.end3, label %if.end

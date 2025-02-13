@@ -123,7 +123,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_lshift1(ptr noundef %r, ptr noundef readonly %a) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_lshift1(ptr noundef %r, ptr noundef readonly captures(address) %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %r, %a
   br i1 %cmp.not, label %if.else, label %if.then

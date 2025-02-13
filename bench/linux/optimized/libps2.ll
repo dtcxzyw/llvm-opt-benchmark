@@ -318,7 +318,7 @@ define dso_local zeroext i1 @ps2_is_keyboard_id(i8 noundef zeroext %0) #4 align 
 declare dso_local ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__ps2_command(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @__ps2_command(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = lshr i32 %2, 12
@@ -642,7 +642,7 @@ define internal fastcc noundef i32 @ps2_adjust_timeout(ptr noundef captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ps2_command(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @ps2_command(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1088
   %6 = load ptr, ptr %5, align 8

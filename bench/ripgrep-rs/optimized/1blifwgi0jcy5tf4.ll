@@ -327,7 +327,7 @@ define { ptr, i64 } @_ZN12grep_printer4util16DecimalFormatter8as_bytes17h24d6ce9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i64 } @_ZN12grep_printer4util17trim_ascii_prefix17h89201b5f705bab52E(i1 noundef zeroext %0, i8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #4 personality ptr @rust_eh_personality {
+define { i64, i64 } @_ZN12grep_printer4util17trim_ascii_prefix17h89201b5f705bab52E(i1 noundef zeroext %0, i8 %1, ptr noalias noundef nonnull readonly align 1 captures(address) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #4 personality ptr @rust_eh_personality {
   %7 = alloca [2 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca i64, align 8

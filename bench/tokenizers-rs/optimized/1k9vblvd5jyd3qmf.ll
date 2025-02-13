@@ -333,7 +333,7 @@ define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFiel
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h6792486709f7a852E(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h6792486709f7a852E(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { i32, [5 x i32] }, align 8
   %7 = alloca { i32, [5 x i32] }, align 8
@@ -1308,7 +1308,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h2e0eac9e2aa082cfE.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hd6155a3a1c3c835dE(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hd6155a3a1c3c835dE(ptr noalias noundef writeonly sret([440 x i8]) align 8 captures(none) dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull captures(address) %2, ptr noundef captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { i32, [5 x i32] }, align 8
   %7 = alloca { i32, [5 x i32] }, align 8
@@ -1801,7 +1801,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hb8fca8d56961fa29E.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h3045570c2f987011E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(960) %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h3045570c2f987011E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(960) %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef readnone captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0129 = alloca { i32, [5 x i32] }, align 8
   %.sroa.0126 = alloca { i32, [5 x i32] }, align 8
   %.sroa.0123 = alloca { i32, [5 x i32] }, align 8
@@ -2201,7 +2201,7 @@ _ZN12aho_corasick4util9prefilter19opposite_ascii_case17h10d81342f6e0fc22E.exit15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h574448070dfe278dE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(960) %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h574448070dfe278dE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(960) %1, ptr noundef nonnull readonly captures(address) %2, ptr noundef readnone captures(address) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0132 = alloca { i32, [5 x i32] }, align 8
   %.sroa.0129 = alloca { i32, [5 x i32] }, align 8
   %.sroa.0126 = alloca { i32, [5 x i32] }, align 8
@@ -5200,7 +5200,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$tok
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc4da23282a9a5dd6E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc4da23282a9a5dd6E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !15, !nonnull !15
@@ -9820,7 +9820,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner4iter17h5f9e30d0bfb61eefE.ll
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h58b4fd52c4df4ef3E.llvm.787574339177529159"(ptr noundef nonnull readnone %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h58b4fd52c4df4ef3E.llvm.787574339177529159"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %0, i64 %3
   ret ptr %4
@@ -25928,7 +25928,7 @@ _ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary11token_to_id17h4202
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN120_$LT$tokenizers..tokenizer..serialization..TokenizerVisitor$LT$M$C$N$C$PT$C$PP$C$D$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map28_$u7b$$u7b$closure$u7d$$u7d$17hd097722c3df84b02E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN120_$LT$tokenizers..tokenizer..serialization..TokenizerVisitor$LT$M$C$N$C$PT$C$PP$C$D$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map28_$u7b$$u7b$closure$u7d$$u7d$17hd097722c3df84b02E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 captures(address_is_null) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -26790,7 +26790,7 @@ define internal noundef zeroext i1 @"_ZN94_$LT$tokenizers..models..unigram..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder13show_progress17h6b073623101838adE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((208, 209)) %0, i1 noundef zeroext %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder13show_progress17h6b073623101838adE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(216) initializes((208, 209)) %0, i1 noundef zeroext %1) unnamed_addr #11 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i8 %3, ptr %4, align 8
@@ -26798,7 +26798,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder10vocab_size17h5f92355e273771dcE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((96, 104)) %0, i32 noundef %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder10vocab_size17h5f92355e273771dcE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(216) initializes((96, 104)) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -26807,7 +26807,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder16n_sub_iterations17h54658dd6d353f292E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((104, 112)) %0, i32 noundef %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder16n_sub_iterations17h54658dd6d353f292E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(216) initializes((104, 112)) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -26816,7 +26816,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder16shrinking_factor17hc963fec0ebeb64deE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((0, 16)) %0, double noundef %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder16shrinking_factor17hc963fec0ebeb64deE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(216) initializes((0, 16)) %0, double noundef %1) unnamed_addr #11 {
   store i64 1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
@@ -26940,7 +26940,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder16max_piece_length17h0d11ce51a57cff19E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((16, 32)) %0, i64 noundef %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder16max_piece_length17h0d11ce51a57cff19E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(216) initializes((16, 32)) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26949,7 +26949,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder9seed_size17h54dab0124a4dc909E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((32, 48)) %0, i64 noundef %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN10tokenizers6models7unigram7trainer21UnigramTrainerBuilder9seed_size17h54dab0124a4dc909E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(216) initializes((32, 48)) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -27540,7 +27540,7 @@ define noundef zeroext i1 @"_ZN208_$LT$tokenizers..models..unigram..trainer.._..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9wordlevel7trainer23WordLevelTrainerBuilder13min_frequency17hdf49f0e2500fec64E(ptr noalias noundef returned writeonly align 8 dereferenceable(112) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9wordlevel7trainer23WordLevelTrainerBuilder13min_frequency17hdf49f0e2500fec64E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(112) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #11 {
   store i64 1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -27548,7 +27548,7 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9wordlevel7trainer23WordLevelTrainerBuilder10vocab_size17h2e2207af72628f67E(ptr noalias noundef returned writeonly align 8 dereferenceable(112) initializes((16, 32)) %0, i64 noundef %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9wordlevel7trainer23WordLevelTrainerBuilder10vocab_size17h2e2207af72628f67E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(112) initializes((16, 32)) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -27557,7 +27557,7 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9wordlevel7trainer23WordLevelTrainerBuilder13show_progress17he0d839fce5bc62a1E(ptr noalias noundef returned writeonly align 8 dereferenceable(112) initializes((104, 105)) %0, i1 noundef zeroext %1) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZN10tokenizers6models9wordlevel7trainer23WordLevelTrainerBuilder13show_progress17he0d839fce5bc62a1E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(112) initializes((104, 105)) %0, i1 noundef zeroext %1) unnamed_addr #11 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 %3, ptr %4, align 8

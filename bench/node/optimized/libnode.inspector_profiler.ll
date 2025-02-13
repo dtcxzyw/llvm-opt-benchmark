@@ -1157,7 +1157,7 @@ declare void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 der
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local ptr @_ZN4node8profiler20V8CoverageConnection10GetProfileEN2v85LocalINS2_6ObjectEEE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone returned %result.coerce) unnamed_addr #7 align 2 {
+define dso_local ptr @_ZN4node8profiler20V8CoverageConnection10GetProfileEN2v85LocalINS2_6ObjectEEE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone returned captures(ret: address, provenance) %result.coerce) unnamed_addr #7 align 2 {
 entry:
   ret ptr %result.coerce
 }

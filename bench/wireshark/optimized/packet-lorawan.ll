@@ -1096,7 +1096,7 @@ define internal void @session_keys_appskey_string_tostr_cb(ptr noundef readonly 
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @root_keys_copy_cb(ptr noundef returned initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @root_keys_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %5
@@ -1294,7 +1294,7 @@ define internal void @root_keys_free_cb(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @session_keys_copy_cb(ptr noundef returned initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @session_keys_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %40, label %5

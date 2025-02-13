@@ -690,7 +690,7 @@ define internal fastcc void @hidinput_handle_scroll(ptr noundef captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hidinput_report_event(ptr noundef readonly %0, ptr readnone captures(none) %1) #2 align 16 {
+define dso_local void @hidinput_report_event(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7156
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
@@ -716,7 +716,7 @@ define dso_local void @hidinput_report_event(ptr noundef readonly %0, ptr readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @hidinput_get_led_field(ptr noundef readonly %0) #4 align 16 {
+define dso_local ptr @hidinput_get_led_field(ptr noundef readonly captures(address) %0) #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2160
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -777,7 +777,7 @@ define dso_local ptr @hidinput_get_led_field(ptr noundef readonly %0) #4 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @hidinput_count_leds(ptr noundef readonly %0) #4 align 16 {
+define dso_local i32 @hidinput_count_leds(ptr noundef readonly captures(address) %0) #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2160
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -2197,7 +2197,7 @@ declare dso_local i32 @hid_hw_open(ptr noundef) local_unnamed_addr #3
 declare dso_local void @hid_hw_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #2 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !51

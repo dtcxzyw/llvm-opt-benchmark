@@ -103,7 +103,7 @@ define hidden void @free_phs(ptr noundef %0) local_unnamed_addr #0 {
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr readnone captures(none) %3, i32 %4) #0 {
+define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit60, label %6
 
@@ -360,7 +360,7 @@ declare i32 @proto_registrar_get_id_byname(ptr noundef) local_unnamed_addr #2
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @protohierstat_draw(ptr noundef %0) #6 {
+define internal void @protohierstat_draw(ptr noundef captures(address_is_null) %0) #6 {
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts4 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -380,7 +380,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @phs_draw(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @phs_draw(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #6 {
   %3 = alloca [80 x i8], align 16
   %.not24 = icmp eq ptr %0, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph26

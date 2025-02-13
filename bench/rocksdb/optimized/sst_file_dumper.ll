@@ -6767,7 +6767,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt4pairINS_15CompressionTypeEPKcESaIS6_EEiijjmb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3264) %this, i64 noundef %block_size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %compression_types, i32 noundef %compress_level_from, i32 noundef %compress_level_to, i32 noundef %max_dict_bytes, i32 noundef %zstd_max_train_bytes, i64 noundef %max_dict_buffer_bytes, i1 noundef zeroext %use_zstd_dict_trainer) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt4pairINS_15CompressionTypeEPKcESaIS6_EEiijjmb(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(3264) %this, i64 noundef %block_size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %compression_types, i32 noundef %compress_level_from, i32 noundef %compress_level_to, i32 noundef %max_dict_bytes, i32 noundef %zstd_max_train_bytes, i64 noundef %max_dict_buffer_bytes, i1 noundef zeroext %use_zstd_dict_trainer) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compress_opt = alloca %"struct.rocksdb::CompressionOptions", align 8
   %frombool = zext i1 %use_zstd_dict_trainer to i8
@@ -6903,7 +6903,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13SstFileDumper19ShowCompressionSizeEmNS_15CompressionTypeERKNS_18CompressionOptionsE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3264) %this, i64 noundef %block_size, i8 noundef zeroext %compress_type, ptr noundef nonnull align 8 dereferenceable(49) %compress_opt) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13SstFileDumper19ShowCompressionSizeEmNS_15CompressionTypeERKNS_18CompressionOptionsE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(3264) %this, i64 noundef %block_size, i8 noundef zeroext %compress_type, ptr noundef nonnull align 8 dereferenceable(49) %compress_opt) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %opts = alloca %"struct.rocksdb::Options", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8

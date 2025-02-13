@@ -735,7 +735,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_step_record(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @find_step_record(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -1166,7 +1166,7 @@ declare ptr @find_node_record(ptr noundef) local_unnamed_addr #1
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @step_create(ptr noundef %0, ptr noundef captures(address_is_null) initializes((0, 8)) %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2367,7 +2367,7 @@ define internal fastcc ptr @_build_interactive_step(ptr noundef nonnull %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_build_ext_launcher_step(ptr noundef writeonly %0, ptr noundef nonnull %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_build_ext_launcher_step(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -7667,7 +7667,7 @@ declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_pack_job_steps(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @_pack_job_steps(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, -2
@@ -7787,7 +7787,7 @@ find_step_record.exit.thread:                     ; preds = %57, %62, %64, %find
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @kill_step_on_node(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @kill_step_on_node(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.kill_step_on_node_args_t, align 8
   %5 = zext i1 %2 to i8
   store ptr null, ptr %4, align 8
@@ -8038,7 +8038,7 @@ _wake_pending_steps.exit:                         ; preds = %7, %20, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2025) i32 @step_partial_comp(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2025) i32 @step_partial_comp(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call ptr @find_job_record(i32 noundef %7) #13
@@ -8123,7 +8123,7 @@ find_step_record.exit:                            ; preds = %25, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2018) i32 @_step_partial_comp(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2018) i32 @_step_partial_comp(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -5
@@ -12090,7 +12090,7 @@ define internal fastcc ptr @_pick_step_nodes_cpus(ptr noundef %0, i32 noundef %1
 declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_count_cpus(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @_count_cpus(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %6 = load ptr, ptr %5, align 8

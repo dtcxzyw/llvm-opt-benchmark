@@ -3522,7 +3522,7 @@ declare i64 @rb_enumeratorize_with_size(i64 noundef, i64 noundef, i32 noundef, p
 declare i64 @rb_frame_this_func() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @prepare_getline_args(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull returned %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @prepare_getline_args(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull returned captures(ret: address, provenance) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

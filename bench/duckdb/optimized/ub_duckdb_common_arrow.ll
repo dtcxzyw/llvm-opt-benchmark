@@ -1464,7 +1464,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb13ArrowAppenderD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13ArrowAppenderD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %options, align 8, !tbaa !37
@@ -1892,7 +1892,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13ArrowAppender12ReleaseArrayEP10ArrowArray(ptr noundef %array) #0 align 2 {
+define void @_ZN6duckdb13ArrowAppender12ReleaseArrayEP10ArrowArray(ptr noundef captures(address_is_null) %array) #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %array, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -3461,7 +3461,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit15: ; preds = %_ZNKSt6vect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6duckdbL24ReleaseDuckDBArrowSchemaEP11ArrowSchema(ptr noundef %schema) #2 {
+define internal void @_ZN6duckdbL24ReleaseDuckDBArrowSchemaEP11ArrowSchema(ptr noundef captures(address_is_null) %schema) #2 {
 entry:
   %tobool.not = icmp eq ptr %schema, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -10989,7 +10989,7 @@ ehcleanup77:                                      ; preds = %ehcleanup73, %_ZN6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb29ResultArrowArrayStreamWrapper15MyStreamReleaseEP16ArrowArrayStream(ptr noundef %stream) #2 align 2 {
+define void @_ZN6duckdb29ResultArrowArrayStreamWrapper15MyStreamReleaseEP16ArrowArrayStream(ptr noundef captures(address_is_null) %stream) #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %stream, null
   br i1 %tobool.not, label %delete.end, label %lor.lhs.false

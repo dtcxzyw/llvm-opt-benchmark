@@ -5451,7 +5451,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z33_GetAuthoredAndExpectedTestCurvesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEbb(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z33_GetAuthoredAndExpectedTestCurvesRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEbb(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %6 = alloca [4 x i32], align 4
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.13", align 8

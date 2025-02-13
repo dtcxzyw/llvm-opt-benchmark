@@ -59,7 +59,7 @@ declare i32 @uv_signal_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv__wait_children(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @uv__wait_children(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12

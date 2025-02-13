@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.If_LibLutSetSimple = private unnamed_addr constant [8 x ptr] [ptr @__const.If_LibLutSetSimple.s_LutLib3, ptr @__const.If_LibLutSetSimple.s_LutLib4, ptr @__const.If_LibLutSetSimple.s_LutLib5, ptr @__const.If_LibLutSetSimple.s_LutLib6, ptr @__const.If_LibLutSetSimple.s_LutLib7, ptr @__const.If_LibLutSetSimple.s_LutLib8, ptr @__const.If_LibLutSetSimple.s_LutLib9, ptr @__const.If_LibLutSetSimple.s_LutLib10], align 8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @If_LibLutReadString(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @If_LibLutReadString(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %124, label %3
 
@@ -471,7 +471,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_FrameSetLutLibrary(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_FrameSetLutLibrary(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @If_LibLutReadString(ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -509,7 +509,7 @@ If_LibLutFree.exit:                               ; preds = %8, %14
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @If_LibLutFree(ptr noundef %0) local_unnamed_addr #6 {
+define void @If_LibLutFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -1073,7 +1073,7 @@ If_LibLutDup.exit:                                ; preds = %switch.lookup, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @If_LibLutFastestPinDelay(ptr noundef readonly %0) local_unnamed_addr #12 {
+define float @If_LibLutFastestPinDelay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -1092,7 +1092,7 @@ define float @If_LibLutFastestPinDelay(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @If_LibLutSlowestPinDelay(ptr noundef readonly %0) local_unnamed_addr #12 {
+define float @If_LibLutSlowestPinDelay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 

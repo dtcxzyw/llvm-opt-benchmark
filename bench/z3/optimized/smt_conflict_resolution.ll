@@ -989,7 +989,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3smt19conflict_resolution20find_common_ancestorEPNS_5enodeES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(356) %this, ptr noundef %n1, ptr noundef readonly %n2) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN3smt19conflict_resolution20find_common_ancestorEPNS_5enodeES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(356) %this, ptr noundef captures(address_is_null) %n1, ptr noundef readonly captures(ret: address, provenance) %n2) local_unnamed_addr #6 align 2 {
 entry:
   %tobool.not3.i = icmp eq ptr %n1, null
   br i1 %tobool.not3.i, label %_ZN3smt19conflict_resolution20mark_enodes_in_transILb1EEEvPNS_5enodeE.exit, label %while.body.i
@@ -1385,7 +1385,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt19conflict_resolution18eq_branch2literalsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly %n1, ptr noundef readnone %n2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt19conflict_resolution18eq_branch2literalsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly captures(address) %n1, ptr noundef readnone captures(address) %n2) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not5 = icmp eq ptr %n1, %n2
   br i1 %cmp.not5, label %while.end, label %while.body
@@ -1409,7 +1409,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt19conflict_resolution11eq2literalsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef %n1, ptr noundef readonly %n2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt19conflict_resolution11eq2literalsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef captures(address) %n1, ptr noundef readonly captures(address) %n2) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not3.i.i = icmp eq ptr %n1, null
   br i1 %tobool.not3.i.i, label %_ZN3smt19conflict_resolution20mark_enodes_in_transILb1EEEvPNS_5enodeE.exit.i, label %while.body.i.i
@@ -6091,7 +6091,7 @@ return:                                           ; preds = %_ZN6vectorIN3smt19c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt19conflict_resolution13norm_eq_proofEPNS_5enodeES2_P3app(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly captures(none) %n1, ptr noundef readonly %n2, ptr noundef %pr) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt19conflict_resolution13norm_eq_proofEPNS_5enodeES2_P3app(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly captures(none) %n1, ptr noundef readonly captures(address) %n2, ptr noundef %pr) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pr, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6361,7 +6361,7 @@ declare noundef ptr @_ZN11ast_manager12mk_iff_falseEP3app(ptr noundef nonnull al
 declare noundef ptr @_ZN11ast_manager11mk_symmetryEP3app(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_NS_16eq_justificationE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly captures(none) %n1, ptr noundef %n2, ptr %js.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_NS_16eq_justificationE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly captures(none) %n1, ptr noundef captures(address) %n2, ptr %js.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %prs = alloca %class.ptr_buffer, align 8
@@ -8391,7 +8391,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt19conflict_resolution17visit_trans_proofEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly %lhs, ptr noundef readnone %rhs) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt19conflict_resolution17visit_trans_proofEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly captures(address) %lhs, ptr noundef readnone captures(address) %rhs) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not46 = icmp eq ptr %lhs, %rhs
   br i1 %cmp.not46, label %while.end, label %while.body.lr.ph
@@ -8658,7 +8658,7 @@ while.end:                                        ; preds = %sw.epilog, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt19conflict_resolution21visit_eq_justicationsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef %lhs, ptr noundef %rhs) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt19conflict_resolution21visit_eq_justicationsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef captures(address) %lhs, ptr noundef captures(address) %rhs) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not3.i.i = icmp eq ptr %lhs, null
   br i1 %tobool.not3.i.i, label %_ZN3smt19conflict_resolution20mark_enodes_in_transILb1EEEvPNS_5enodeE.exit.i, label %while.body.i.i
@@ -8714,7 +8714,7 @@ _ZN3smt19conflict_resolution20find_common_ancestorEPNS_5enodeES2_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt19conflict_resolution8mk_proofEPNS_5enodeES2_R10ptr_bufferI3appLj16EE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly %lhs, ptr noundef readnone %rhs, ptr noundef nonnull align 8 dereferenceable(144) %result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt19conflict_resolution8mk_proofEPNS_5enodeES2_R10ptr_bufferI3appLj16EE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef readonly captures(address) %lhs, ptr noundef readnone captures(address) %rhs, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %result) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not5 = icmp eq ptr %lhs, %rhs
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph

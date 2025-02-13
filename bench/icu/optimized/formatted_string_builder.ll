@@ -86,7 +86,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7522FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %other) unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %fZero = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -98,7 +98,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(136) %other) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %other) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::FormattedStringBuilder", align 8
   %cmp = icmp eq ptr %this, %other
@@ -559,7 +559,7 @@ do.end65:                                         ; preds = %do.body14, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((128, 136)) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilder5clearEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(136) initializes((128, 136)) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -1205,7 +1205,7 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit21:   ; preds = %_ZN12_GLOBAL__N_113
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522FormattedStringBuilder6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7522FormattedStringBuilder6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(136) %other, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %fLength = getelementptr inbounds nuw i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
@@ -1214,7 +1214,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %index, ptr noundef nonnull readonly align 8 dereferenceable(136) %other, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %index, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %other, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1849,7 +1849,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7522FormattedStringBuilder5charsEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK6icu_7522FormattedStringBuilder5charsEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1

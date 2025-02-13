@@ -311,7 +311,7 @@ declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @send_fp_chars(ptr noundef %arg, ptr noundef captures(none) %buf, i32 noundef %len) #2 {
+define internal range(i32 0, 2) i32 @send_fp_chars(ptr noundef captures(address_is_null) %arg, ptr noundef captures(none) %buf, i32 noundef %len) #2 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_STRING_to_UTF8(ptr noundef writeonly captures(none) %out, ptr noundef readonly %in) local_unnamed_addr #0 {
+define hidden i32 @ASN1_STRING_to_UTF8(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(address_is_null) %in) local_unnamed_addr #0 {
 entry:
   %stmp = alloca %struct.asn1_string_st, align 8
   %str = alloca ptr, align 8
@@ -697,7 +697,7 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i8 noundef zeroext range(i8 0, 16) %flags, ptr noundef %quotes, ptr noundef readonly captures(none) %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i8 noundef zeroext range(i8 0, 16) %flags, ptr noundef captures(address_is_null) %quotes, ptr noundef readonly captures(none) %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %c = alloca i64, align 8
   %utfbuf = alloca [6 x i8], align 1
@@ -928,7 +928,7 @@ declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @UTF8_putc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i8 noundef zeroext range(i8 0, 80) %flags, ptr noundef writeonly %do_quotes, ptr noundef readonly captures(none) %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i8 noundef zeroext range(i8 0, 80) %flags, ptr noundef writeonly captures(address_is_null) %do_quotes, ptr noundef readonly captures(none) %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %chtmp = alloca i8, align 1
   %tmphex = alloca [19 x i8], align 16

@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.tuplesort_method_name = private unnamed_addr constant [9 x ptr] [ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.17, ptr @.str.15, ptr @.str.17, ptr @.str.17, ptr @.str.17, ptr @.str.16], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %4 = and i32 %2, 1
   %.not35 = icmp eq i32 %4, 0
@@ -7255,7 +7255,7 @@ qsort_tuple_int32_compare.exit29.thread66:        ; preds = %163, %174, %158, %A
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16

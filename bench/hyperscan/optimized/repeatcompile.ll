@@ -792,7 +792,7 @@ _ZN3ue215RepeatStateInfoD2Ev.exit:                ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_(ptr readonly %a_it.coerce, ptr readnone %a_ite.coerce, ptr readonly captures(none) %b_it.coerce, ptr readnone captures(none) %b_ite.coerce) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_(ptr readonly captures(address) %a_it.coerce, ptr readnone captures(address) %a_ite.coerce, ptr readonly captures(none) %b_it.coerce, ptr readnone captures(none) %b_ite.coerce) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"class.ue2::CharReach", align 8
   %cmp.i.not5 = icmp eq ptr %a_it.coerce, %a_ite.coerce

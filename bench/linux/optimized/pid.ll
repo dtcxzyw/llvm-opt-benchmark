@@ -1218,7 +1218,7 @@ define dso_local ptr @find_get_pid(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @pid_nr_ns(ptr noundef readonly %0, ptr noundef readonly %1) #5 align 16 {
+define dso_local i32 @pid_nr_ns(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %19, label %4
 
@@ -1249,7 +1249,7 @@ define dso_local i32 @pid_nr_ns(ptr noundef readonly %0, ptr noundef readonly %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @pid_vnr(ptr noundef readonly %0) #6 align 16 {
+define dso_local i32 @pid_vnr(ptr noundef readonly captures(address_is_null) %0) #6 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !24
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1416
@@ -1299,7 +1299,7 @@ define dso_local i32 @pid_vnr(ptr noundef readonly %0) #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__task_pid_nr_ns(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local i32 @__task_pid_nr_ns(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2) #0 align 16 {
   tail call void @__rcu_read_lock() #14
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %18

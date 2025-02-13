@@ -574,7 +574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #13 align 2 {
 entry:
   %_dataWindow = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %_dataWindow
@@ -1461,7 +1461,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_25Image11shiftPixelsEii(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_25Image11shiftPixelsEii(ptr noundef nonnull align 8 captures(address) dereferenceable(104) %this, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %_iex_throw_s32 = alloca %"class.std::__cxx11::basic_stringstream", align 8

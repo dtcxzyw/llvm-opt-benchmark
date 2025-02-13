@@ -991,7 +991,7 @@ mi_os_decommit_ex.exit:                           ; preds = %entry, %cond.end16.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %addr, i64 noundef %size, ptr noundef writeonly %is_zero, ptr readnone captures(none) %tld_stats) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %addr, i64 noundef %size, ptr noundef writeonly captures(address_is_null) %is_zero, ptr readnone captures(none) %tld_stats) local_unnamed_addr #1 {
 entry:
   %os_is_zero = alloca i8, align 1
   %cmp = icmp ne ptr %is_zero, null
@@ -1388,7 +1388,7 @@ mi_os_protectx.exit:                              ; preds = %entry, %cond.end16.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly %pages_reserved, ptr noundef writeonly %psize, ptr noundef writeonly captures(none) initializes((0, 24)) %memid) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly captures(address_is_null) %pages_reserved, ptr noundef writeonly captures(address_is_null) %psize, ptr noundef writeonly captures(none) initializes((0, 24)) %memid) local_unnamed_addr #1 {
 entry:
   %is_zero = alloca i8, align 1
   %p = alloca ptr, align 8

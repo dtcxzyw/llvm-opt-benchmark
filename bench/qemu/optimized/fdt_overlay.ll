@@ -814,7 +814,7 @@ declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @fdt_path_offset_namelen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %fragment, ptr noundef writeonly %pathp) unnamed_addr #0 {
+define internal fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %fragment, ptr noundef writeonly captures(address_is_null) %pathp) unnamed_addr #0 {
 entry:
   %len.i = alloca i32, align 4
   %path_len = alloca i32, align 4

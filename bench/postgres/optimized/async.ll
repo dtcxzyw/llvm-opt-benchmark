@@ -238,7 +238,7 @@ declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 declare void @PreventCommandDuringRecovery(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @GetCurrentTransactionNestLevel() #16
   %5 = load i32, ptr @ParallelWorkerNumber, align 4

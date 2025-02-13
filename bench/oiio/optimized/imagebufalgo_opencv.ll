@@ -600,7 +600,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo13from_IplImageEPK8IplImageNS_8TypeDescE(ptr noalias sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef readnone %ipl, ptr noundef readnone captures(none) %convert) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo13from_IplImageEPK8IplImageNS_8TypeDescE(ptr noalias sret(%"class.OpenImageIO_v2_6_0::ImageBuf") align 8 %agg.result, ptr noundef readnone captures(address_is_null) %ipl, ptr noundef readnone captures(none) %convert) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %logtime = alloca %"class.OpenImageIO_v2_6_0::pvt::LoggedTimer", align 8

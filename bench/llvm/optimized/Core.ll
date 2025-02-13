@@ -277,7 +277,7 @@ define dso_local void @LLVMShutdown() local_unnamed_addr #0 {
 declare void @_ZN4llvm13llvm_shutdownEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMGetVersion(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local void @LLVMGetVersion(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -1594,7 +1594,7 @@ define dso_local range(i32 0, 2) i32 @LLVMIsNewDbgInfoFormat(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @LLVMSetIsNewDbgInfoFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @LLVMSetIsNewDbgInfoFormat(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %4 = load i8, ptr %3, align 8, !tbaa !62, !range !151, !noundef !152
@@ -3890,7 +3890,7 @@ _ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj8EED2Ev.exit: ; preds = %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAArgument(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAArgument(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8ArgumentENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -3906,7 +3906,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8ArgumentENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsABasicBlock(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsABasicBlock(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10BasicBlockENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -3922,7 +3922,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10BasicBlockENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAInlineAsm(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAInlineAsm(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9InlineAsmENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -3938,7 +3938,7 @@ _ZN4llvm16dyn_cast_or_nullINS_9InlineAsmENS_5ValueEEEDaPT0_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAUser(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAUser(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_4UserENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -3955,7 +3955,7 @@ _ZN4llvm16dyn_cast_or_nullINS_4UserENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstant(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstant(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8ConstantENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -3971,7 +3971,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8ConstantENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsABlockAddress(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsABlockAddress(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12BlockAddressENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -3987,7 +3987,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12BlockAddressENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantAggregateZero(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantAggregateZero(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_21ConstantAggregateZeroENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4003,7 +4003,7 @@ _ZN4llvm16dyn_cast_or_nullINS_21ConstantAggregateZeroENS_5ValueEEEDaPT0_.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantArray(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantArray(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_13ConstantArrayENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4019,7 +4019,7 @@ _ZN4llvm16dyn_cast_or_nullINS_13ConstantArrayENS_5ValueEEEDaPT0_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantDataSequential(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantDataSequential(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_22ConstantDataSequentialENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4036,7 +4036,7 @@ _ZN4llvm16dyn_cast_or_nullINS_22ConstantDataSequentialENS_5ValueEEEDaPT0_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantDataArray(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantDataArray(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4052,7 +4052,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17ConstantDataArrayENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantDataVector(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantDataVector(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_18ConstantDataVectorENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4068,7 +4068,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantDataVectorENS_5ValueEEEDaPT0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantExpr(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantExpr(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12ConstantExprENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4084,7 +4084,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12ConstantExprENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantFP(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantFP(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10ConstantFPENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4100,7 +4100,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10ConstantFPENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantInt(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantInt(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4116,7 +4116,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantPointerNull(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantPointerNull(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_19ConstantPointerNullENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4132,7 +4132,7 @@ _ZN4llvm16dyn_cast_or_nullINS_19ConstantPointerNullENS_5ValueEEEDaPT0_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantStruct(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantStruct(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14ConstantStructENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4148,7 +4148,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14ConstantStructENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantTokenNone(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantTokenNone(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17ConstantTokenNoneENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4164,7 +4164,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17ConstantTokenNoneENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantVector(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantVector(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14ConstantVectorENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4180,7 +4180,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14ConstantVectorENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAConstantPtrAuth(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAConstantPtrAuth(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15ConstantPtrAuthENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4196,7 +4196,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15ConstantPtrAuthENS_5ValueEEEDaPT0_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAGlobalValue(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAGlobalValue(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11GlobalValueENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4212,7 +4212,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11GlobalValueENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAGlobalAlias(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4228,7 +4228,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @LLVMIsAGlobalObject(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local noundef ptr @LLVMIsAGlobalObject(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12GlobalObjectENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4249,7 +4249,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12GlobalObjectENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFunction(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFunction(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4265,7 +4265,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAGlobalVariable(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAGlobalVariable(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4281,7 +4281,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAGlobalIFunc(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11GlobalIFuncENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4297,7 +4297,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11GlobalIFuncENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAUndefValue(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAUndefValue(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10UndefValueENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4314,7 +4314,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10UndefValueENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAPoisonValue(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAPoisonValue(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11PoisonValueENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4330,7 +4330,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11PoisonValueENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAInstruction(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAInstruction(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4346,7 +4346,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAUnaryOperator(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAUnaryOperator(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_13UnaryOperatorENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4362,7 +4362,7 @@ _ZN4llvm16dyn_cast_or_nullINS_13UnaryOperatorENS_5ValueEEEDaPT0_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsABinaryOperator(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsABinaryOperator(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14BinaryOperatorENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4379,7 +4379,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14BinaryOperatorENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACallInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACallInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4395,7 +4395,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMIsAIntrinsicInst(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMIsAIntrinsicInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_13IntrinsicInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4437,7 +4437,7 @@ _ZN4llvm16dyn_cast_or_nullINS_13IntrinsicInstENS_5ValueEEEDaPT0_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMIsADbgInfoIntrinsic(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMIsADbgInfoIntrinsic(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_16DbgInfoIntrinsicENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4486,7 +4486,7 @@ _ZN4llvm16dyn_cast_or_nullINS_16DbgInfoIntrinsicENS_5ValueEEEDaPT0_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @LLVMIsADbgVariableIntrinsic(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local noundef ptr @LLVMIsADbgVariableIntrinsic(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4539,7 +4539,7 @@ _ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_5ValueEEEDaPT0_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMIsADbgDeclareInst(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMIsADbgDeclareInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14DbgDeclareInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4587,7 +4587,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14DbgDeclareInstENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMIsADbgLabelInst(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMIsADbgLabelInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12DbgLabelInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4635,7 +4635,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12DbgLabelInstENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @LLVMIsAMemIntrinsic(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local noundef ptr @LLVMIsAMemIntrinsic(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12MemIntrinsicENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4690,7 +4690,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12MemIntrinsicENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @LLVMIsAMemCpyInst(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local noundef ptr @LLVMIsAMemCpyInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4742,7 +4742,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMIsAMemMoveInst(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMIsAMemMoveInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11MemMoveInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4790,7 +4790,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11MemMoveInstENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMIsAMemSetInst(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMIsAMemSetInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10MemSetInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4840,7 +4840,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10MemSetInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACmpInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACmpInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_7CmpInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4859,7 +4859,7 @@ _ZN4llvm16dyn_cast_or_nullINS_7CmpInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFCmpInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFCmpInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8FCmpInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4875,7 +4875,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FCmpInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAICmpInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAICmpInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8ICmpInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4891,7 +4891,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8ICmpInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAExtractElementInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAExtractElementInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_18ExtractElementInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4907,7 +4907,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ExtractElementInstENS_5ValueEEEDaPT0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAGetElementPtrInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAGetElementPtrInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4923,7 +4923,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17GetElementPtrInstENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAInsertElementInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAInsertElementInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17InsertElementInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4939,7 +4939,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17InsertElementInstENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAInsertValueInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAInsertValueInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15InsertValueInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4955,7 +4955,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15InsertValueInstENS_5ValueEEEDaPT0_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsALandingPadInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsALandingPadInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14LandingPadInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4971,7 +4971,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14LandingPadInstENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAPHINode(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAPHINode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_7PHINodeENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4987,7 +4987,7 @@ _ZN4llvm16dyn_cast_or_nullINS_7PHINodeENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsASelectInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsASelectInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10SelectInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5003,7 +5003,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10SelectInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAShuffleVectorInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAShuffleVectorInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17ShuffleVectorInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5019,7 +5019,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17ShuffleVectorInstENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAStoreInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAStoreInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9StoreInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5035,7 +5035,7 @@ _ZN4llvm16dyn_cast_or_nullINS_9StoreInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsABranchInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsABranchInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10BranchInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5051,7 +5051,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10BranchInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAIndirectBrInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAIndirectBrInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14IndirectBrInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5067,7 +5067,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14IndirectBrInstENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAInvokeInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAInvokeInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10InvokeInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5083,7 +5083,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10InvokeInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAReturnInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAReturnInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10ReturnInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5099,7 +5099,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10ReturnInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsASwitchInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsASwitchInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10SwitchInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5115,7 +5115,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10SwitchInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAUnreachableInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAUnreachableInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15UnreachableInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5131,7 +5131,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15UnreachableInstENS_5ValueEEEDaPT0_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAResumeInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAResumeInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10ResumeInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5147,7 +5147,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10ResumeInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACleanupReturnInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACleanupReturnInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17CleanupReturnInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5163,7 +5163,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17CleanupReturnInstENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACatchReturnInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACatchReturnInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15CatchReturnInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5179,7 +5179,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15CatchReturnInstENS_5ValueEEEDaPT0_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACatchSwitchInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACatchSwitchInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15CatchSwitchInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5195,7 +5195,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15CatchSwitchInstENS_5ValueEEEDaPT0_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACallBrInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACallBrInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10CallBrInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5211,7 +5211,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10CallBrInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFuncletPadInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFuncletPadInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5230,7 +5230,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACatchPadInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACatchPadInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12CatchPadInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5246,7 +5246,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12CatchPadInstENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACleanupPadInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACleanupPadInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14CleanupPadInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5262,7 +5262,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14CleanupPadInstENS_5ValueEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @LLVMIsAUnaryInstruction(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local noundef ptr @LLVMIsAUnaryInstruction(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_16UnaryInstructionENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5295,7 +5295,7 @@ _ZN4llvm16dyn_cast_or_nullINS_16UnaryInstructionENS_5ValueEEEDaPT0_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAAllocaInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAAllocaInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10AllocaInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5311,7 +5311,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10AllocaInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsACastInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsACastInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8CastInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5328,7 +5328,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8CastInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAAddrSpaceCastInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAAddrSpaceCastInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17AddrSpaceCastInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5344,7 +5344,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17AddrSpaceCastInstENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsABitCastInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsABitCastInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11BitCastInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5360,7 +5360,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11BitCastInstENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFPExtInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFPExtInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9FPExtInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5376,7 +5376,7 @@ _ZN4llvm16dyn_cast_or_nullINS_9FPExtInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFPToSIInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFPToSIInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10FPToSIInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5392,7 +5392,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10FPToSIInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFPToUIInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFPToUIInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10FPToUIInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5408,7 +5408,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10FPToUIInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFPTruncInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFPTruncInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11FPTruncInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5424,7 +5424,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11FPTruncInstENS_5ValueEEEDaPT0_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAIntToPtrInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAIntToPtrInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12IntToPtrInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5440,7 +5440,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12IntToPtrInstENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAPtrToIntInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAPtrToIntInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12PtrToIntInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5456,7 +5456,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12PtrToIntInstENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsASExtInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsASExtInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8SExtInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5472,7 +5472,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8SExtInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsASIToFPInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsASIToFPInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10SIToFPInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5488,7 +5488,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10SIToFPInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsATruncInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsATruncInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9TruncInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5504,7 +5504,7 @@ _ZN4llvm16dyn_cast_or_nullINS_9TruncInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAUIToFPInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAUIToFPInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10UIToFPInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5520,7 +5520,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10UIToFPInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAZExtInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAZExtInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8ZExtInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5536,7 +5536,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8ZExtInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAExtractValueInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAExtractValueInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5552,7 +5552,7 @@ _ZN4llvm16dyn_cast_or_nullINS_16ExtractValueInstENS_5ValueEEEDaPT0_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsALoadInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsALoadInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5568,7 +5568,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAVAArgInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAVAArgInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9VAArgInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5584,7 +5584,7 @@ _ZN4llvm16dyn_cast_or_nullINS_9VAArgInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFreezeInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFreezeInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10FreezeInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5600,7 +5600,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10FreezeInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAAtomicCmpXchgInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAAtomicCmpXchgInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_17AtomicCmpXchgInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5616,7 +5616,7 @@ _ZN4llvm16dyn_cast_or_nullINS_17AtomicCmpXchgInstENS_5ValueEEEDaPT0_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAAtomicRMWInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAAtomicRMWInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_13AtomicRMWInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5632,7 +5632,7 @@ _ZN4llvm16dyn_cast_or_nullINS_13AtomicRMWInstENS_5ValueEEEDaPT0_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsAFenceInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsAFenceInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -5648,7 +5648,7 @@ _ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMIsAMDNode(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMIsAMDNode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.critedge, label %2
 
@@ -5675,7 +5675,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @LLVMIsAValueAsMetadata(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local noundef ptr @LLVMIsAValueAsMetadata(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread, label %2
 
@@ -5701,7 +5701,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @LLVMIsAMDString(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local noundef ptr @LLVMIsAMDString(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread, label %2
 
@@ -5846,7 +5846,7 @@ _ZL20getMDNodeOperandImplRN4llvm11LLVMContextEPKNS_6MDNodeEj.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetOperandUse(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetOperandUse(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1073741824
@@ -6147,7 +6147,7 @@ LLVMGetGlobalContext.exit:                        ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMMDNodeInContext(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMMDNodeInContext(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector.156", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6247,7 +6247,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj8EED2Ev.exit: ; preds = %40, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMMDNode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMMDNode(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load atomic i8, ptr @_ZGVZL16getGlobalContextvE13GlobalContext acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %LLVMGetGlobalContext.exit, !prof !7
@@ -6336,7 +6336,7 @@ select.unfold:                                    ; preds = %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetFirstNamedMetadata(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetFirstNamedMetadata(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6346,7 +6346,7 @@ define dso_local ptr @LLVMGetFirstNamedMetadata(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetLastNamedMetadata(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetLastNamedMetadata(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !153
@@ -6375,7 +6375,7 @@ define dso_local ptr @LLVMGetNextNamedMetadata(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetPreviousNamedMetadata(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetPreviousNamedMetadata(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !267
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -6637,7 +6637,7 @@ _ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %9, %14
 declare void @_ZN4llvm11NamedMDNode10addOperandEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetDebugLocDirectory(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetDebugLocDirectory(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.163", align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge42, label %4
@@ -6943,7 +6943,7 @@ declare void @_ZNK4llvm14GlobalVariable12getDebugInfoERNS_15SmallVectorImplIPNS_
 declare noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetDebugLocFilename(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetDebugLocFilename(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.163", align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge42, label %4
@@ -8941,7 +8941,7 @@ define dso_local noundef ptr @LLVMGetNamedGlobalWithLength(ptr noundef nonnull %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetFirstGlobal(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetFirstGlobal(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8954,7 +8954,7 @@ define dso_local ptr @LLVMGetFirstGlobal(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetLastGlobal(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetLastGlobal(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !153
@@ -8974,7 +8974,7 @@ define dso_local ptr @LLVMGetLastGlobal(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextGlobal(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetNextGlobal(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -8992,7 +8992,7 @@ define dso_local ptr @LLVMGetNextGlobal(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetPreviousGlobal(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetPreviousGlobal(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -9207,7 +9207,7 @@ define dso_local noundef ptr @LLVMGetNamedGlobalAlias(ptr noundef nonnull %0, pt
 declare noundef ptr @_ZNK4llvm6Module13getNamedAliasENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetFirstGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetFirstGlobalAlias(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9220,7 +9220,7 @@ define dso_local ptr @LLVMGetFirstGlobalAlias(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetLastGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetLastGlobalAlias(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !153
@@ -9240,7 +9240,7 @@ define dso_local ptr @LLVMGetLastGlobalAlias(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetNextGlobalAlias(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -9258,7 +9258,7 @@ define dso_local ptr @LLVMGetNextGlobalAlias(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetPreviousGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetPreviousGlobalAlias(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -9344,7 +9344,7 @@ define dso_local noundef ptr @LLVMGetNamedFunctionWithLength(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetFirstFunction(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetFirstFunction(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9357,7 +9357,7 @@ define dso_local ptr @LLVMGetFirstFunction(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetLastFunction(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetLastFunction(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !153
@@ -9377,7 +9377,7 @@ define dso_local ptr @LLVMGetLastFunction(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextFunction(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetNextFunction(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -9395,7 +9395,7 @@ define dso_local ptr @LLVMGetNextFunction(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetPreviousFunction(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetPreviousFunction(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -9619,7 +9619,7 @@ define dso_local ptr @LLVMGetGC(ptr noundef %0) local_unnamed_addr #0 {
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4llvm8Function5getGCB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @LLVMSetGC(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @LLVMSetGC(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %1, null
@@ -10156,7 +10156,7 @@ define dso_local noundef ptr @LLVMGetNamedGlobalIFunc(ptr noundef nonnull %0, pt
 declare noundef ptr @_ZNK4llvm6Module13getNamedIFuncENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetFirstGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetFirstGlobalIFunc(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -10169,7 +10169,7 @@ define dso_local ptr @LLVMGetFirstGlobalIFunc(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetLastGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetLastGlobalIFunc(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !153
@@ -10189,7 +10189,7 @@ define dso_local ptr @LLVMGetLastGlobalIFunc(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetNextGlobalIFunc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -10207,7 +10207,7 @@ define dso_local ptr @LLVMGetNextGlobalIFunc(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetPreviousGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetPreviousGlobalIFunc(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -10303,7 +10303,7 @@ define dso_local void @LLVMRemoveGlobalIFunc(ptr noundef nonnull %0) local_unnam
 declare void @_ZN4llvm11GlobalIFunc16removeFromParentEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @LLVMCreateOperandBundle(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @LLVMCreateOperandBundle(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #36
@@ -10485,7 +10485,7 @@ define dso_local ptr @LLVMGetOperandBundleArgAtIndex(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @LLVMBasicBlockAsValue(ptr noundef readnone returned %0) local_unnamed_addr #11 {
+define dso_local noundef ptr @LLVMBasicBlockAsValue(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   ret ptr %0
 }
 
@@ -10498,7 +10498,7 @@ define dso_local range(i32 0, 2) i32 @LLVMValueIsBasicBlock(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @LLVMValueAsBasicBlock(ptr noundef readnone returned %0) local_unnamed_addr #11 {
+define dso_local noundef ptr @LLVMValueAsBasicBlock(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   ret ptr %0
 }
 
@@ -10517,7 +10517,7 @@ define dso_local ptr @LLVMGetBasicBlockParent(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetBasicBlockTerminator(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetBasicBlockTerminator(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !337
   %4 = icmp eq ptr %2, %3
@@ -10537,7 +10537,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @LLVMCountBasicBlocks(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local i32 @LLVMCountBasicBlocks(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !153
@@ -10559,7 +10559,7 @@ _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @LLVMGetBasicBlocks(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #16 {
+define dso_local void @LLVMGetBasicBlocks(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.06.09 = load ptr, ptr %3, align 8, !tbaa !153
@@ -10594,7 +10594,7 @@ define dso_local ptr @LLVMGetEntryBasicBlock(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetFirstBasicBlock(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetFirstBasicBlock(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10607,7 +10607,7 @@ define dso_local ptr @LLVMGetFirstBasicBlock(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetLastBasicBlock(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetLastBasicBlock(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !153
@@ -10627,7 +10627,7 @@ define dso_local ptr @LLVMGetLastBasicBlock(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextBasicBlock(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetNextBasicBlock(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -10645,7 +10645,7 @@ define dso_local ptr @LLVMGetNextBasicBlock(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetPreviousBasicBlock(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetPreviousBasicBlock(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -10908,7 +10908,7 @@ define dso_local ptr @LLVMGetInstructionParent(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetFirstInstruction(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetFirstInstruction(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !359
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10921,7 +10921,7 @@ define dso_local ptr @LLVMGetFirstInstruction(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMGetLastInstruction(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMGetLastInstruction(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !359
@@ -10941,7 +10941,7 @@ define dso_local ptr @LLVMGetLastInstruction(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextInstruction(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetNextInstruction(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -10959,7 +10959,7 @@ define dso_local ptr @LLVMGetNextInstruction(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetPreviousInstruction(ptr noundef readonly %0) local_unnamed_addr #15 {
+define dso_local ptr @LLVMGetPreviousInstruction(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
@@ -11077,7 +11077,7 @@ define dso_local noundef ptr @LLVMInstructionClone(ptr noundef %0) local_unnamed
 declare noundef ptr @_ZNK4llvm11Instruction5cloneEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @LLVMIsATerminatorInst(ptr noundef readonly %0) local_unnamed_addr #12 {
+define dso_local ptr @LLVMIsATerminatorInst(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #12 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
   %3 = icmp ult i8 %2, 29
   %4 = add i8 %2, -30
@@ -12745,7 +12745,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %8, %7, %4
 declare void @_ZN4llvm8DebugLocC1EPKNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @LLVMSetCurrentDebugLocation(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @LLVMSetCurrentDebugLocation(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
@@ -13190,7 +13190,7 @@ _ZN4llvm13IRBuilderBase16CreateIndirectBrEPNS_5ValueEj.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMBuildCallBr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef readonly %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMBuildCallBr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef readonly captures(address) %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca %"class.llvm::SmallVector.220", align 8
   %13 = alloca %"class.llvm::ArrayRef.202", align 8
   %14 = alloca %"class.llvm::ArrayRef.211", align 8
@@ -13674,7 +13674,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_10InvokeInstEEEPT_S4_RKNS_5TwineE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMBuildInvokeWithOperandBundles(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMBuildInvokeWithOperandBundles(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address) %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = alloca %"class.llvm::SmallVector.220", align 8
   %12 = alloca %"class.llvm::ArrayRef.202", align 8
   %13 = alloca %"class.llvm::ArrayRef.211", align 8
@@ -18751,7 +18751,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CallInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMBuildCallWithOperandBundles(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMBuildCallWithOperandBundles(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address) %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %"class.llvm::SmallVector.220", align 8
   %10 = alloca %"class.llvm::ArrayRef.211", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -20048,7 +20048,7 @@ define dso_local void @LLVMSetCmpXchgFailureOrdering(ptr noundef captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @LLVMCreateModuleProviderForExistingModule(ptr noundef readnone returned %0) local_unnamed_addr #11 {
+define dso_local noundef ptr @LLVMCreateModuleProviderForExistingModule(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   ret ptr %0
 }
 

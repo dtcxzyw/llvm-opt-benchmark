@@ -1174,7 +1174,7 @@ define dso_local ptr @PyByteArray_FromObject(ptr noundef %0) local_unnamed_addr 
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @PyByteArray_FromStringAndSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %6
 
@@ -2943,7 +2943,7 @@ define internal ptr @bytearray_getitem(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @bytearray_setitem(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @bytearray_setitem(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %5
@@ -3038,7 +3038,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_iconcat(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @bytearray_iconcat(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16
   %4 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0) #16
@@ -3115,7 +3115,7 @@ _Py_NewRef.exit:                                  ; preds = %36, %PyByteArray_AS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_irepeat(ptr noundef %0, i64 noundef %1) #0 {
+define internal ptr @bytearray_irepeat(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) #0 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %.thread, label %5
 
@@ -3192,7 +3192,7 @@ _Py_NewRef.exit:                                  ; preds = %30, %PyByteArray_AS
 declare void @_PyBytes_Repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @bytearray_setslice(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bytearray_setslice(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.Py_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3609,7 +3609,7 @@ PyByteArray_FromStringAndSize.exit:               ; preds = %.lr.ph, %42, %39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @bytearray_ass_subscript(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @bytearray_ass_subscript(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -5028,7 +5028,7 @@ stringlib_expandtabs_impl.exit:                   ; preds = %96, %.loopexit.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_extend(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @bytearray_extend(ptr noundef captures(address) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @PyObject_CheckBuffer(ptr noundef %1) #16
   %.not = icmp eq i32 %4, 0

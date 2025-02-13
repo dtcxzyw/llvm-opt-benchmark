@@ -120,7 +120,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.97 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define ptr @opt_path_end(ptr noundef readonly %filename) local_unnamed_addr #0 {
+define ptr @opt_path_end(ptr noundef readonly captures(address, ret: address, provenance) %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #20
   %add.ptr = getelementptr inbounds i8, ptr %filename, i64 %call
@@ -146,7 +146,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @opt_progname(ptr noundef readonly %argv0) local_unnamed_addr #2 {
+define noundef nonnull ptr @opt_progname(ptr noundef readonly captures(address) %argv0) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %argv0) #20
   %add.ptr.i = getelementptr inbounds i8, ptr %argv0, i64 %call.i
@@ -983,7 +983,7 @@ opt_format_error.exit:                            ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @opt_cipher_silent(ptr noundef %name, ptr noundef %cipherp) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @opt_cipher_silent(ptr noundef %name, ptr noundef captures(address_is_null) %cipherp) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @ERR_set_mark() #21
   %call1 = tail call ptr @app_get0_libctx() #21
@@ -1046,7 +1046,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #5
 declare i32 @ERR_clear_last_mark() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @opt_cipher_any(ptr noundef %name, ptr noundef %cipherp) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @opt_cipher_any(ptr noundef %name, ptr noundef captures(address_is_null) %cipherp) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %if.end
@@ -1066,7 +1066,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @opt_cipher(ptr noundef %name, ptr noundef writeonly %cipherp) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @opt_cipher(ptr noundef %name, ptr noundef writeonly captures(address_is_null) %cipherp) local_unnamed_addr #4 {
 entry:
   %c = alloca ptr, align 8
   store ptr null, ptr %c, align 8
@@ -1122,7 +1122,7 @@ declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #5
 declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @opt_md_silent(ptr noundef %name, ptr noundef %mdp) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @opt_md_silent(ptr noundef %name, ptr noundef captures(address_is_null) %mdp) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @ERR_set_mark() #21
   %call1 = tail call ptr @app_get0_libctx() #21
@@ -1173,7 +1173,7 @@ declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #5
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @opt_md(ptr noundef %name, ptr noundef %mdp) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @opt_md(ptr noundef %name, ptr noundef captures(address_is_null) %mdp) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %if.end

@@ -2635,7 +2635,7 @@ ehcleanup:                                        ; preds = %lpad, %_ZN9grpc_cor
 declare noundef ptr @_Z22grpc_make_transport_opP12grpc_closure(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_channel_create_call(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %completion_queue, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %method, ptr noundef readonly %host, ptr noundef readonly byval(%struct.gpr_timespec) align 8 captures(none) %deadline, ptr noundef readnone %reserved) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_channel_create_call(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %completion_queue, ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %method, ptr noundef readonly captures(address_is_null) %host, ptr noundef readonly byval(%struct.gpr_timespec) align 8 captures(none) %deadline, ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %callback_exec_ctx = alloca %"class.grpc_core::ApplicationCallbackExecCtx", align 8
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
@@ -3322,7 +3322,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z36grpc_channel_create_pollset_set_callP12grpc_channelP9grpc_calljP16grpc_pollset_setRK10grpc_slicePS6_N9grpc_core9TimestampEPv(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %pollset_set, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %method, ptr noundef readonly %host, i64 %deadline.coerce, ptr noundef readnone %reserved) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z36grpc_channel_create_pollset_set_callP12grpc_channelP9grpc_calljP16grpc_pollset_setRK10grpc_slicePS6_N9grpc_core9TimestampEPv(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %pollset_set, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %method, ptr noundef readonly captures(address_is_null) %host, i64 %deadline.coerce, ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.grpc_core::Slice", align 8
   %agg.tmp2 = alloca %"class.std::optional.132", align 8
@@ -5495,7 +5495,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 declare void @_ZN9grpc_core8channelz12ChannelTrace13AddTraceEventENS1_8SeverityERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN9grpc_core12_GLOBAL__N_118channelz_node_copyEPv(ptr noundef returned %p) #8 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN9grpc_core12_GLOBAL__N_118channelz_node_copyEPv(ptr noundef returned captures(ret: address, provenance) %p) #8 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !63
@@ -5522,7 +5522,7 @@ _ZNK9grpc_core10RefCountedINS_8channelz8BaseNodeENS_19PolymorphicRefCountENS_11U
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_117channelz_node_cmpEPvS1_(ptr noundef readnone %p1, ptr noundef readnone %p2) #18 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_117channelz_node_cmpEPvS1_(ptr noundef readnone captures(address) %p1, ptr noundef readnone captures(address) %p2) #18 {
 entry:
   %cmp.i = icmp ult ptr %p1, %p2
   %cmp1.i = icmp ult ptr %p2, %p1

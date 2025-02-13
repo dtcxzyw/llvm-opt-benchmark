@@ -713,7 +713,7 @@ define dso_local void @scsi_remove_device(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_remove_target(ptr noundef readonly %0) #3 align 16 {
+define dso_local void @scsi_remove_target(ptr noundef readonly captures(address) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -1861,7 +1861,7 @@ define internal void @scsi_device_dev_release(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @scsi_sdev_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #11 align 16 {
+define internal zeroext i16 @scsi_sdev_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #11 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -440
   %5 = icmp eq ptr %1, @dev_attr_queue_depth
   br i1 %5, label %6, label %13
@@ -1899,7 +1899,7 @@ define internal zeroext i16 @scsi_sdev_attr_is_visible(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef zeroext range(i16 0, 293) i16 @scsi_sdev_bin_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 %2) #2 align 16 {
+define internal noundef zeroext range(i16 0, 293) i16 @scsi_sdev_bin_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 %2) #2 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_vpd_pg0
   br i1 %4, label %5, label %9
 

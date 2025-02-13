@@ -1154,7 +1154,7 @@ if.end:                                           ; preds = %for.body, %entry
 declare ptr @SRP_get_default_gN(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @get_index(ptr noundef nonnull readonly captures(none) %db, ptr noundef readonly %id, i8 noundef signext range(i8 73, 86) %type) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @get_index(ptr noundef nonnull readonly captures(none) %db, ptr noundef readonly captures(address_is_null) %id, i8 noundef signext range(i8 73, 86) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %id, null
   br i1 %cmp, label %return, label %if.end

@@ -55,7 +55,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evutil_usleep_(ptr noundef readonly %tv) local_unnamed_addr #1 {
+define dso_local void @evutil_usleep_(ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %tobool.not = icmp eq ptr %tv, null
@@ -79,7 +79,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_date_rfc1123(ptr noundef %date, i64 noundef %datelen, ptr noundef readonly %tm) local_unnamed_addr #1 {
+define dso_local i32 @evutil_date_rfc1123(ptr noundef %date, i64 noundef %datelen, ptr noundef readonly captures(address_is_null) %tm) local_unnamed_addr #1 {
 entry:
   %t = alloca i64, align 8
   %sys = alloca %struct.tm, align 8

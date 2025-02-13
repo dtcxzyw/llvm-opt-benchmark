@@ -926,7 +926,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_PyRuntime = external local_unnamed_addr global %struct.pyruntimestate, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyOS_StdioReadline(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) #0 {
+define hidden ptr @PyOS_StdioReadline(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = load ptr, ptr @_PyOS_ReadlineTState, align 8, !tbaa !4
   %5 = tail call i32 @fflush(ptr noundef %1)
   %.not = icmp eq ptr %2, null

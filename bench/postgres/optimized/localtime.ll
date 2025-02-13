@@ -1922,7 +1922,7 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getoffset(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @getoffset(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 45
   %5 = icmp eq i8 %3, 43
@@ -2068,7 +2068,7 @@ getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getrule(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @getrule(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %96 [
     i8 74, label %4
@@ -3141,7 +3141,7 @@ define dso_local noundef zeroext i1 @pg_get_timezone_offset(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @pg_get_timezone_name(ptr noundef readnone returned %0) local_unnamed_addr #11 {
+define dso_local noundef ptr @pg_get_timezone_name(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   ret ptr %0
 }
 
@@ -3178,7 +3178,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @timesub(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #15 {
+define internal fastcc noundef ptr @timesub(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #15 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 

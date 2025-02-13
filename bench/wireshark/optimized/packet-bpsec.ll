@@ -179,7 +179,7 @@ define void @bpsec_id_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @bpsec_id_equal(ptr noundef readonly %0, ptr noundef readonly %1) #3 {
+define range(i32 0, 2) i32 @bpsec_id_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

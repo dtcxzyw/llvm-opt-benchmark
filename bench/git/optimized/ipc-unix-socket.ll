@@ -175,7 +175,7 @@ connect_to_server.exit:                           ; preds = %4, %10, %13, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ipc_client_close_connection(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ipc_client_close_connection(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

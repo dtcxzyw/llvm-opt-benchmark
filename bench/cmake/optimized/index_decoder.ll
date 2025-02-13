@@ -438,7 +438,7 @@ declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #1
 declare void @lzma_end(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.lzma_index_coder, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %8

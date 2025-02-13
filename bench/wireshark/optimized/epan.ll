@@ -53,7 +53,7 @@ define noundef nonnull ptr @epan_get_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @epan_get_version_number(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define void @epan_get_version_number(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -631,7 +631,7 @@ define ptr @epan_get_interface_description(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @epan_get_frame_ts(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @epan_get_frame_ts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -864,7 +864,7 @@ epan_dissect_init.exit:                           ; preds = %12, %18
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define void @epan_dissect_fake_protocols(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @epan_dissect_fake_protocols(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1085,7 +1085,7 @@ declare void @col_custom_set_edt(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @col_fill_in(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @epan_dissect_packet_contains_field(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @epan_dissect_packet_contains_field(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 

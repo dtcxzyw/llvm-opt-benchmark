@@ -1205,7 +1205,7 @@ define internal void @libpqrcv_send(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6) #1 {
+define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) #1 {
   %8 = alloca %struct.StringInfoData, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i32 @PQserverVersion(ptr noundef %9) #11

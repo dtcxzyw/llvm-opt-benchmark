@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.parser_number = private unnamed_addr constant [3 x i64] [i64 10, i64 100, i64 1000], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sf_parser_param(ptr noundef captures(none) %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_param(ptr noundef captures(none) %sfp, ptr noundef captures(address_is_null) %dest_key, ptr noundef captures(address_is_null) %dest_value) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -163,7 +163,7 @@ return:                                           ; preds = %for.cond.i, %for.in
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(none) %sfp, ptr noundef writeonly %dest) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(none) %sfp, ptr noundef writeonly captures(address_is_null) %dest) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %sfp, align 8
   %1 = load i8, ptr %0, align 1
@@ -277,7 +277,7 @@ return:                                           ; preds = %for.end, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captures(none) %sfp, ptr noundef %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captures(none) %sfp, ptr noundef captures(address_is_null) %dest) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sfp, align 8
   %1 = load i8, ptr %0, align 1
@@ -495,7 +495,7 @@ return:                                           ; preds = %if.then.i, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sf_parser_inner_list(ptr noundef captures(none) %sfp, ptr noundef %dest) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_inner_list(ptr noundef captures(none) %sfp, ptr noundef captures(address_is_null) %dest) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -608,7 +608,7 @@ return:                                           ; preds = %for.cond.i, %for.in
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sf_parser_dict(ptr noundef captures(none) %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_dict(ptr noundef captures(none) %sfp, ptr noundef captures(address_is_null) %dest_key, ptr noundef captures(address_is_null) %dest_value) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -796,7 +796,7 @@ return:                                           ; preds = %for.inc.i, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sf_parser_list(ptr noundef captures(none) %sfp, ptr noundef %dest) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_list(ptr noundef captures(none) %sfp, ptr noundef captures(address_is_null) %dest) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -955,7 +955,7 @@ return:                                           ; preds = %for.cond.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 1) i32 @sf_parser_item(ptr noundef captures(none) %sfp, ptr noundef %dest) local_unnamed_addr #0 {
+define hidden range(i32 -2, 1) i32 @sf_parser_item(ptr noundef captures(none) %sfp, ptr noundef captures(address_is_null) %dest) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %sfp, i64 16
   %0 = load i32, ptr %state, align 8
@@ -1308,7 +1308,7 @@ return:                                           ; preds = %fin, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(none) %sfp, ptr noundef writeonly %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(none) %sfp, ptr noundef writeonly captures(address_is_null) %dest) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sfp, align 8
   %1 = load i8, ptr %0, align 1
@@ -1483,7 +1483,7 @@ return:                                           ; preds = %sw.bb5, %if.end11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(none) %sfp, ptr noundef writeonly %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(none) %sfp, ptr noundef writeonly captures(address_is_null) %dest) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sfp, align 8
   %1 = load i8, ptr %0, align 1
@@ -1642,7 +1642,7 @@ return:                                           ; preds = %sw.bb, %sw.bb52, %r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_date(ptr noundef captures(none) %sfp, ptr noundef writeonly %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_date(ptr noundef captures(none) %sfp, ptr noundef writeonly captures(address_is_null) %dest) unnamed_addr #0 {
 entry:
   %val = alloca %struct.sf_value, align 8
   %0 = load ptr, ptr %sfp, align 8
@@ -1685,7 +1685,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures(none) %sfp, ptr noundef writeonly %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures(none) %sfp, ptr noundef writeonly captures(address_is_null) %dest) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sfp, align 8
   %1 = load i8, ptr %0, align 1
@@ -1894,7 +1894,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parser_boolean(ptr noundef captures(none) %sfp, ptr noundef writeonly %dest) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parser_boolean(ptr noundef captures(none) %sfp, ptr noundef writeonly captures(address_is_null) %dest) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sfp, align 8
   %1 = load i8, ptr %0, align 1

@@ -1983,7 +1983,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ossl_list_rxe_remove(ptr noundef captures(none) %list, ptr noundef %elem) unnamed_addr #8 {
+define internal fastcc void @ossl_list_rxe_remove(ptr noundef captures(none) %list, ptr noundef captures(address) %elem) unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %list, align 8
   %cmp = icmp eq ptr %0, %elem

@@ -3654,7 +3654,7 @@ define hidden void @"_ZN118_$LT$$RF$alloc..collections..vec_deque..VecDeque$LT$T
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(24) ptr @_ZN11flatbuffers6vector15follow_cast_ref17ha7ac07adac1c77f8E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
+define hidden noundef nonnull align 1 dereferenceable(24) ptr @_ZN11flatbuffers6vector15follow_cast_ref17ha7ac07adac1c77f8E(ptr noalias noundef nonnull readonly align 1 captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
   %4 = add i64 %2, 24
   %5 = icmp ugt i64 %2, -25
   br i1 %5, label %8, label %6
@@ -10142,7 +10142,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std4sync9once
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17h2135c2c4ef5a0b3dE.llvm.3801596959246744488"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #16 {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17h2135c2c4ef5a0b3dE.llvm.3801596959246744488"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic i32, ptr %2 acquire, align 8
   %4 = icmp eq i32 %3, 4
@@ -44159,7 +44159,7 @@ define hidden void @_ZN4core6result6Result2Ok17hcab6cb2a52346aa8E.llvm.380159695
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd5fd64717d1b110fE.llvm.3801596959246744488"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #13 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd5fd64717d1b110fE.llvm.3801596959246744488"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #13 {
   ret ptr %0
 }
 
@@ -46683,7 +46683,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h1ce
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h06ab6aae22a51b8fE"(ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h06ab6aae22a51b8fE"(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val, ptr readonly captures(address_is_null) %.8.val1, i64 %.16.val3) unnamed_addr #4 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val1, null
@@ -47109,7 +47109,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$imp
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h48f0a5d440615aaeE"(ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h48f0a5d440615aaeE"(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val, ptr readonly captures(address_is_null) %.8.val1, i64 %.16.val3) unnamed_addr #4 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val1, null
@@ -47183,7 +47183,7 @@ _ZN4core3cmp9PartialEq2ne17hcdb4b951b3894ce4E.llvm.3801596959246744488.exit.i: ;
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h511afa5c2936b595E"(ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h511afa5c2936b595E"(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val, ptr readonly captures(address_is_null) %.8.val1, i64 %.16.val3) unnamed_addr #4 {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val1, null
@@ -76261,7 +76261,7 @@ define hidden noundef nonnull ptr @"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$8pointers17h21c9708b62e8da13E.llvm.3801596959246744488"(ptr noundef nonnull readonly %0) unnamed_addr #39 {
+define hidden noundef nonnull ptr @"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$8pointers17h21c9708b62e8da13E.llvm.3801596959246744488"(ptr noundef nonnull readonly captures(ret: address, provenance) %0) unnamed_addr #39 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !nonnull !21, !align !258, !noundef !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -76271,7 +76271,7 @@ define hidden noundef nonnull ptr @"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$8pointers17h9c7eb3526c69e107E.llvm.3801596959246744488"(ptr noundef nonnull readonly %0) unnamed_addr #39 {
+define hidden noundef nonnull ptr @"_ZN86_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..linked_list..Link$GT$8pointers17h9c7eb3526c69e107E.llvm.3801596959246744488"(ptr noundef nonnull readonly captures(ret: address, provenance) %0) unnamed_addr #39 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !nonnull !21, !align !258, !noundef !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -104510,7 +104510,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.38015
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(48) ptr @_ZN14deltalake_core8protocol15ColumnValueStat9as_column17h57afae986fc08939E(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #19 {
+define noundef align 8 dereferenceable_or_null(48) ptr @_ZN14deltalake_core8protocol15ColumnValueStat9as_column17h57afae986fc08939E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #19 {
   %2 = load ptr, ptr %0, align 8, !noundef !21
   %.not = icmp eq ptr %2, null
   %. = select i1 %.not, ptr null, ptr %0
@@ -104518,7 +104518,7 @@ define noundef align 8 dereferenceable_or_null(48) ptr @_ZN14deltalake_core8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(32) ptr @_ZN14deltalake_core8protocol15ColumnValueStat8as_value17hf38afc8cc6bfc926E(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #19 {
+define noundef align 8 dereferenceable_or_null(32) ptr @_ZN14deltalake_core8protocol15ColumnValueStat8as_value17hf38afc8cc6bfc926E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #19 {
   %2 = load ptr, ptr %0, align 8, !noundef !21
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104527,7 +104527,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_ZN14deltalake_core8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(48) ptr @_ZN14deltalake_core8protocol15ColumnCountStat9as_column17h3c9ea38f331a4061E(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #19 {
+define noundef align 8 dereferenceable_or_null(48) ptr @_ZN14deltalake_core8protocol15ColumnCountStat9as_column17h3c9ea38f331a4061E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #19 {
   %2 = load ptr, ptr %0, align 8, !noundef !21
   %.not = icmp eq ptr %2, null
   %. = select i1 %.not, ptr null, ptr %0
@@ -122705,7 +122705,7 @@ define { ptr, ptr } @"_ZN114_$LT$deltalake_core..logstore..default_logstore..Def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @"_ZN114_$LT$deltalake_core..logstore..default_logstore..DefaultLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$6config17h4b1ba1353665a56dE"(ptr noalias noundef readonly returned align 8 dereferenceable(152) %0) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(136) ptr @"_ZN114_$LT$deltalake_core..logstore..default_logstore..DefaultLogStore$u20$as$u20$deltalake_core..logstore..LogStore$GT$6config17h4b1ba1353665a56dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(152) %0) unnamed_addr #13 {
   ret ptr %0
 }
 

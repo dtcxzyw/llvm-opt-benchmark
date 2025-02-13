@@ -258,7 +258,7 @@ return:                                           ; preds = %if.end25, %grow_sla
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slabs_init(i64 noundef %limit, double noundef %factor, i1 noundef zeroext %prealloc, ptr noundef readonly %slab_sizes, ptr noundef %mem_base_external, i1 noundef zeroext %reuse_mem) local_unnamed_addr #4 {
+define dso_local void @slabs_init(i64 noundef %limit, double noundef %factor, i1 noundef zeroext %prealloc, ptr noundef readonly captures(address_is_null) %slab_sizes, ptr noundef %mem_base_external, i1 noundef zeroext %reuse_mem) local_unnamed_addr #4 {
 entry:
   %ptr.i = alloca ptr, align 8
   %pagesize.i = alloca i64, align 8
@@ -741,7 +741,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @global_page_pool_size(ptr noundef writeonly %mem_flag) local_unnamed_addr #4 {
+define dso_local i32 @global_page_pool_size(ptr noundef writeonly captures(address_is_null) %mem_flag) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   %cmp.not = icmp eq ptr %mem_flag, null
@@ -1157,7 +1157,7 @@ do_slabs_adjust_mem_limit.exit:                   ; preds = %land.rhs.i.i, %get_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slabs_available_chunks(i32 noundef %id, ptr noundef writeonly %mem_flag, ptr noundef writeonly %chunks_perslab) local_unnamed_addr #4 {
+define dso_local i32 @slabs_available_chunks(i32 noundef %id, ptr noundef writeonly captures(address_is_null) %mem_flag, ptr noundef writeonly captures(address_is_null) %chunks_perslab) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   %idxprom = zext i32 %id to i64

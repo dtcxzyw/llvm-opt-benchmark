@@ -50,7 +50,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @mspack_valid_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @szddd_open(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca [8 x i8], align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %56, label %4
@@ -182,7 +182,7 @@ szddd_read_headers.exit:                          ; preds = %14, %21, %24, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @szddd_close(ptr noundef %0, ptr noundef %1) #0 {
+define internal void @szddd_close(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 
@@ -211,7 +211,7 @@ define internal void @szddd_close(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @szddd_extract(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @szddd_extract(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %4
 
@@ -273,7 +273,7 @@ define internal i32 @szddd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @szddd_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @szddd_decompress(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %45, label %4
 
@@ -358,7 +358,7 @@ szddd_close.exit:                                 ; preds = %szddd_extract.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @szddd_error(ptr noundef readonly %0) #3 {
+define internal i32 @szddd_error(ptr noundef readonly captures(address_is_null) %0) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

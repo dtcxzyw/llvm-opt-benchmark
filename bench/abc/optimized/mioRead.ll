@@ -1109,7 +1109,7 @@ declare void @Mio_LibraryDelete(ptr noundef) local_unnamed_addr #2
 declare i32 @Mio_LibraryParseFormulas(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Mio_LibraryCleanStr(ptr noundef readonly %0) local_unnamed_addr #8 {
+define noundef ptr @Mio_LibraryCleanStr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 

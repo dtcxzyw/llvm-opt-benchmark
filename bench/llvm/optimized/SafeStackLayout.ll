@@ -755,7 +755,7 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_9BitVectorE.exit: ; preds = %41, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9safestack11StackLayout9addObjectEPKNS_5ValueEjNS_5AlignERKNS_13StackLifetime9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(2072) %0, ptr noundef %1, i32 noundef %2, i8 %3, ptr noundef nonnull readonly align 8 dereferenceable(72) %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9safestack11StackLayout9addObjectEPKNS_5ValueEjNS_5AlignERKNS_13StackLifetime9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(2072) %0, ptr noundef %1, i32 noundef %2, i8 %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.llvm::safestack::StackLayout::StackObject", align 8
   store ptr %1, ptr %6, align 8, !tbaa !66
@@ -3628,7 +3628,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN4llvm9safestack11St
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm9safestack11StackLayout11StackObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEEvT_SA_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm9safestack11StackLayout11StackObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEEvT_SA_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 {
   %3 = alloca %"struct.llvm::safestack::StackLayout::StackObject", align 8
   %4 = alloca %"struct.llvm::safestack::StackLayout::StackObject", align 8
   %5 = icmp eq ptr %0, %1

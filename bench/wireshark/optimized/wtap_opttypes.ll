@@ -201,7 +201,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @wtap_block_ref(ptr noundef returned %0) local_unnamed_addr #5 {
+define noundef ptr @wtap_block_ref(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1127,7 +1127,7 @@ wtap_block_add_uint8_option.exit:                 ; preds = %425, %375, %338, %3
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1198,7 +1198,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1269,7 +1269,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1340,7 +1340,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1411,7 +1411,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1482,7 +1482,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1553,7 +1553,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1624,7 +1624,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1695,7 +1695,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
 
@@ -1770,7 +1770,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %4, %.
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1842,7 +1842,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
 
@@ -1924,7 +1924,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %26, %12, %6, %4, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_add_option_common.exit.thread, label %7
 
@@ -2000,7 +2000,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %29, %15, %7, %5, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.sroa.37 = alloca i64, align 8
   %.sroa.5 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
@@ -2116,7 +2116,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -2225,7 +2225,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -2340,7 +2340,7 @@ wtap_block_create.exit:                           ; preds = %1, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wtap_block_count_option(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define i32 @wtap_block_count_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -2422,7 +2422,7 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2485,7 +2485,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2549,7 +2549,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2612,7 +2612,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2676,7 +2676,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2739,7 +2739,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2803,7 +2803,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readonly %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2866,7 +2866,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2930,7 +2930,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2993,7 +2993,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3057,7 +3057,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3120,7 +3120,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3184,7 +3184,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3247,7 +3247,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3314,7 +3314,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3377,7 +3377,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3442,7 +3442,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -3513,7 +3513,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
@@ -3590,7 +3590,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %3, %.
 declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_string_option.exit, label %6
 
@@ -3715,7 +3715,7 @@ wtap_block_add_string_option.exit:                ; preds = %50, %17, %14, %6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_get_nth_option_common.exit.thread, label %7
 
@@ -3791,7 +3791,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_option_common.exit.thread, label %6
@@ -3924,7 +3924,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %wtap_block_get_opti
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_get_nth_option_common.exit.thread, label %7
@@ -4003,7 +4003,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -4067,7 +4067,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -4141,7 +4141,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
 
@@ -4217,7 +4217,7 @@ declare ptr @g_bytes_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @g_bytes_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_bytes_option.exit, label %6
 
@@ -4344,7 +4344,7 @@ wtap_block_add_bytes_option.exit:                 ; preds = %50, %17, %14, %6, %
 declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -4420,7 +4420,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -4484,7 +4484,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -4561,7 +4561,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %._crit_edge.thread, label %6
 
@@ -5040,7 +5040,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.sroa.39 = alloca i64, align 8
   %.sroa.5 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
@@ -5163,7 +5163,7 @@ if_filter_free.exit:                              ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -5226,7 +5226,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_packet_verdict_free.exit, label %6
 
@@ -5344,7 +5344,7 @@ wtap_packet_verdict_free.exit:                    ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -5417,7 +5417,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -5568,7 +5568,7 @@ if_filter_free.exit:                              ; preds = %32, %29, %.sink.spl
 declare ptr @g_array_remove_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 

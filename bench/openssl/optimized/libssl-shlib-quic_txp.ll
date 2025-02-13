@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @archetypes = internal unnamed_addr constant [4 x [3 x { i8, i8, i8, i8 }]] [[3 x { i8, i8, i8, i8 }] [{ i8, i8, i8, i8 } { i8 7, i8 100, i8 0, i8 undef }, { i8, i8, i8, i8 } { i8 7, i8 -28, i8 1, i8 undef }, { i8, i8, i8, i8 } { i8 1, i8 32, i8 1, i8 undef }], [3 x { i8, i8, i8, i8 }] [{ i8, i8, i8, i8 } { i8 7, i8 100, i8 0, i8 undef }, { i8, i8, i8, i8 } { i8 7, i8 -28, i8 1, i8 undef }, { i8, i8, i8, i8 } { i8 1, i8 32, i8 1, i8 undef }], [3 x { i8, i8, i8, i8 }] [{ i8, i8, i8, i8 } { i8 -62, i8 71, i8 0, i8 undef }, { i8, i8, i8, i8 } { i8 -62, i8 -57, i8 1, i8 undef }, { i8, i8, i8, i8 } { i8 0, i8 0, i8 1, i8 undef }], [3 x { i8, i8, i8, i8 }] [{ i8, i8, i8, i8 } { i8 -17, i8 127, i8 0, i8 undef }, { i8, i8, i8, i8 } { i8 -17, i8 -1, i8 1, i8 undef }, { i8, i8, i8, i8 } { i8 1, i8 32, i8 1, i8 undef }]], align 16
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_quic_tx_packetiser_new(ptr noundef readonly %args) local_unnamed_addr #0 {
+define ptr @ossl_quic_tx_packetiser_new(ptr noundef readonly captures(address_is_null) %args) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -451,7 +451,7 @@ return:                                           ; preds = %if.end.i, %if.end6
 declare void @ossl_quic_fifd_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef writeonly captures(none) %txp, ptr noundef readonly %dcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef writeonly captures(none) %txp, ptr noundef readonly captures(address_is_null) %dcid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dcid, null
   br i1 %cmp, label %if.then, label %if.end
@@ -473,7 +473,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_set_cur_scid(ptr noundef writeonly captures(none) %txp, ptr noundef readonly %scid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_set_cur_scid(ptr noundef writeonly captures(none) %txp, ptr noundef readonly captures(address_is_null) %scid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %scid, null
   br i1 %cmp, label %if.then, label %if.end
@@ -494,7 +494,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_tx_packetiser_set_peer(ptr noundef %txp, ptr noundef readonly %peer) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_tx_packetiser_set_peer(ptr noundef %txp, ptr noundef readonly captures(address_is_null) %peer) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %peer, null
   %peer1 = getelementptr inbounds nuw i8, ptr %txp, i64 44

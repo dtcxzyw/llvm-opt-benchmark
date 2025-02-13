@@ -20,7 +20,7 @@ define hidden void @_ZN6PcDescC2Eiii(ptr noundef nonnull writeonly align 4 captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64

@@ -6134,7 +6134,7 @@ LZ4_prepareTable.exit:                            ; preds = %if.end18.i.thread, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @LZ4_freeStream(ptr noundef %LZ4_stream) local_unnamed_addr #7 {
+define noundef i32 @LZ4_freeStream(ptr noundef captures(address_is_null) %LZ4_stream) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %LZ4_stream, null
   br i1 %tobool.not, label %return, label %if.end
@@ -14342,7 +14342,7 @@ LZ4_decompress_unsafe_generic.exit:               ; preds = %for.end.i, %if.end4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %maxOutputSize, ptr noundef readonly %dictStart, i64 noundef %dictSize) local_unnamed_addr #1 {
+define i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %maxOutputSize, ptr noundef readonly captures(address_is_null) %dictStart, i64 noundef %dictSize) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %source, null
   %cmp1.i = icmp slt i32 %maxOutputSize, 0
@@ -15142,7 +15142,7 @@ LZ4_decompress_generic.exit:                      ; preds = %if.end26.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_safe_partial_forceExtDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %targetOutputSize, i32 noundef %dstCapacity, ptr noundef readonly %dictStart, i64 noundef %dictSize) local_unnamed_addr #1 {
+define i32 @LZ4_decompress_safe_partial_forceExtDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %targetOutputSize, i32 noundef %dstCapacity, ptr noundef readonly captures(address_is_null) %dictStart, i64 noundef %dictSize) local_unnamed_addr #1 {
 entry:
   %cond = tail call i32 @llvm.smin.i32(i32 %targetOutputSize, i32 %dstCapacity)
   %cmp.i = icmp eq ptr %source, null
@@ -15960,7 +15960,7 @@ entry:
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @LZ4_freeStreamDecode(ptr noundef %LZ4_stream) local_unnamed_addr #7 {
+define noundef i32 @LZ4_freeStreamDecode(ptr noundef captures(address_is_null) %LZ4_stream) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %LZ4_stream, null
   br i1 %cmp, label %return, label %if.end
@@ -18042,7 +18042,7 @@ return:                                           ; preds = %for.end.i.i151, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_safe_usingDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %maxOutputSize, ptr noundef %dictStart, i32 noundef %dictSize) local_unnamed_addr #1 {
+define i32 @LZ4_decompress_safe_usingDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %maxOutputSize, ptr noundef captures(address) %dictStart, i32 noundef %dictSize) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i32 %dictSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -18079,7 +18079,7 @@ return:                                           ; preds = %if.end8, %if.end6, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_safe_partial_usingDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %targetOutputSize, i32 noundef %dstCapacity, ptr noundef %dictStart, i32 noundef %dictSize) local_unnamed_addr #1 {
+define i32 @LZ4_decompress_safe_partial_usingDict(ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %targetOutputSize, i32 noundef %dstCapacity, ptr noundef captures(address) %dictStart, i32 noundef %dictSize) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i32 %dictSize, 0
   br i1 %cmp, label %if.then, label %if.end

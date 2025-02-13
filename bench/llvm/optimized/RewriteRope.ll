@@ -661,7 +661,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 captures(address) dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i43 = load i8, ptr %4, align 4, !tbaa !3, !range !9, !noundef !10
   %5 = trunc nuw i8 %.val.val.i.i43 to i1

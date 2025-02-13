@@ -342,7 +342,7 @@ define dso_local void @drm_buddy_fini(ptr noundef readonly captures(none) %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_get_buddy(ptr noundef readonly %0) #3 align 16 {
+define dso_local ptr @drm_get_buddy(ptr noundef readonly captures(address) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -700,7 +700,7 @@ define dso_local range(i32 -28, 1) i32 @drm_buddy_block_trim(ptr noundef capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -28, 1) i32 @__alloc_range(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @__alloc_range(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   store ptr %7, ptr %7, align 8

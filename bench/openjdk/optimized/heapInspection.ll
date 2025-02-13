@@ -1485,7 +1485,7 @@ define hidden void @_ZNK14KlassInfoHisto14print_elementsEP12outputStream(ptr nou
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14KlassHierarchy21print_class_hierarchyEP12outputStreambbPc(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14KlassHierarchy21print_class_hierarchyEP12outputStreambbPc(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.NativeCallStack, align 8
   %6 = alloca %"class.KlassInfoTable::AllClassesFinder", align 8
   %7 = alloca %class.Stack, align 8

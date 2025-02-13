@@ -108,7 +108,7 @@ return:                                           ; preds = %if.end7, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa_gen_set_template(ptr noundef writeonly %genctx, ptr noundef %templ) #0 {
+define internal range(i32 0, 2) i32 @dsa_gen_set_template(ptr noundef writeonly captures(address_is_null) %genctx, ptr noundef %templ) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0

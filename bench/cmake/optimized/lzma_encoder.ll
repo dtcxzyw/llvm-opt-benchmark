@@ -1460,7 +1460,7 @@ define dso_local i32 @lzma_lzma_encoder_init(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @lzma_lz_encoder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 12) i32 @lzma_encoder_init(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4) #0 {
+define internal range(i32 0, 12) i32 @lzma_encoder_init(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %11, label %7
 
@@ -1597,7 +1597,7 @@ is_lclppb_valid.exit.thread:                      ; preds = %2, %6, %is_lclppb_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 12) i32 @lzma_lzma_props_encode(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 12) i32 @lzma_lzma_props_encode(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %lzma_lzma_lclppb_encode.exit.thread, label %4
 

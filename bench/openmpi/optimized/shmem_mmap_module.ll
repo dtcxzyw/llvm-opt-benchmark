@@ -41,7 +41,7 @@ define internal noundef i32 @module_init() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16, 4129)) %0, ptr noundef readonly %1, i64 noundef %2) #1 {
+define internal i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16, 4129)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #1 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.opal_rng_buff_t, align 4
   %6 = alloca %struct.stat, align 8

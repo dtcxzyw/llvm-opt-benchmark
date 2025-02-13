@@ -7804,7 +7804,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZL35DiagnoseInvali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL17ProcessCharEscapePKcRS0_S0_RbN5clang13FullSourceLocEjPNS3_17DiagnosticsEngineERKNS3_11LangOptionsENS3_23StringLiteralEvalMethodE(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone %2, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %3, i32 %4, ptr %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(849) %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL17ProcessCharEscapePKcRS0_S0_RbN5clang13FullSourceLocEjPNS3_17DiagnosticsEngineERKNS3_11LangOptionsENS3_23StringLiteralEvalMethodE(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %3, i32 %4, ptr %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(849) %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca %"class.clang::DiagnosticBuilder", align 8
   %12 = alloca %"class.clang::DiagnosticBuilder", align 8
   %13 = alloca %"class.clang::DiagnosticBuilder", align 8

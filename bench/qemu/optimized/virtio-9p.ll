@@ -337,7 +337,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @virtio_9p_device_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
+define internal ptr @virtio_9p_device_get_driver(ptr noundef readonly captures(ret: address, provenance) %object, ptr noundef %interface) #0 {
 entry:
   %v9p = getelementptr inbounds nuw i8, ptr %object, i64 40
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.21) #11
@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @virtio_9p_pci_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
+define internal ptr @virtio_9p_pci_get_driver(ptr noundef readonly captures(ret: address, provenance) %object, ptr noundef %interface) #0 {
 entry:
   %call = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.24) #11
   %tobool.not = icmp eq i32 %call, 0

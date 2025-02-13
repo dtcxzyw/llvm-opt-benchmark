@@ -84754,7 +84754,7 @@ _ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsERSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecES5_ESaIS6_EERSt3setIS5_St4lessIS5_ESaIS5_EESF_(ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsERSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecES5_ESaIS6_EERSt3setIS5_St4lessIS5_ESaIS5_EESF_(ptr %.0.val, ptr readnone captures(address) %.8.val, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigSpec, Yosys::RTLIL::SigSpec, std::_Identity<Yosys::RTLIL::SigSpec>, std::less<Yosys::RTLIL::SigSpec>>::_Alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigSpec, Yosys::RTLIL::SigSpec, std::_Identity<Yosys::RTLIL::SigSpec>, std::less<Yosys::RTLIL::SigSpec>>::_Alloc_node", align 8
   %.not5 = icmp eq ptr %.0.val, %.8.val

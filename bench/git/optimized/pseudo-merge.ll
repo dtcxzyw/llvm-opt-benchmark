@@ -1364,7 +1364,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @read_bitmap(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @use_pseudo_merge(ptr noundef readonly captures(none) %0, ptr noundef returned %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @use_pseudo_merge(ptr noundef readonly captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i8, ptr %4, align 8

@@ -39425,7 +39425,7 @@ unreachable:                                      ; preds = %_ZN4absl23inlined_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEED2Ev(ptr %this.0.val, i64 %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEED2Ev(ptr captures(address_is_null) %this.0.val, i64 %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %cmp.i = icmp eq ptr %this.0.val, null
   %cmp.not1.i = icmp eq i64 %this.8.val, 0
@@ -117620,7 +117620,7 @@ ehcleanup87:                                      ; preds = %ehcleanup86, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2_EE12emplace_backIJiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 %args.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2_EE12emplace_backIJiEEERS2_DpOT_(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(24) %this, i32 %args.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val.i.i = load i64, ptr %this, align 8, !noalias !2942
   %and.i.i.i = and i64 %this.val.i.i, 1
@@ -117759,7 +117759,7 @@ _ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_129MoveConstructibleOnly
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2_EEaSEOS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2_EEaSEOS4_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end, label %if.then
@@ -122886,7 +122886,7 @@ ehcleanup82:                                      ; preds = %ehcleanup81, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS2_EE12emplace_backIJiEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 %args.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS2_EE12emplace_backIJiEEERS2_DpOT_(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(24) %this, i32 %args.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val.i.i = load i64, ptr %this, align 8, !noalias !3005
   %and.i.i.i = and i64 %this.val.i.i, 1
@@ -123025,7 +123025,7 @@ _ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS2_EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13InlinedVectorIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS2_EE4swapERS4_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %other) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i = alloca %"struct.absl::inlined_vector_internal::Storage<(anonymous namespace)::NonSwappableInstance, 2, std::allocator<(anonymous namespace)::NonSwappableInstance>>::Allocated", align 8
   %cmp.not = icmp eq ptr %this, %other

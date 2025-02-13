@@ -365,7 +365,7 @@ if.end:                                           ; preds = %_ZN3zmq7array_tINS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZN3zmq6dist_t8has_pipeEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %pipe_) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3zmq6dist_t8has_pipeEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address) %pipe_) local_unnamed_addr #7 align 2 {
 entry:
   %0 = icmp ne ptr %pipe_, null
   tail call void @llvm.assume(i1 %0)
@@ -394,7 +394,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3zmq6dist_t5matchEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %pipe_) local_unnamed_addr #8 align 2 {
+define void @_ZN3zmq6dist_t5matchEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address_is_null) %pipe_) local_unnamed_addr #8 align 2 {
 entry:
   %0 = icmp ne ptr %pipe_, null
   tail call void @llvm.assume(i1 %0)
@@ -527,7 +527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3zmq6dist_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %pipe_) local_unnamed_addr #8 align 2 {
+define void @_ZN3zmq6dist_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address_is_null) %pipe_) local_unnamed_addr #8 align 2 {
 entry:
   %0 = icmp ne ptr %pipe_, null
   tail call void @llvm.assume(i1 %0)
@@ -718,7 +718,7 @@ _ZN3zmq7array_tINS_6pipe_tELi2EE5eraseEPS1_.exit: ; preds = %if.end30, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3zmq6dist_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %pipe_) local_unnamed_addr #8 align 2 {
+define void @_ZN3zmq6dist_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address_is_null) %pipe_) local_unnamed_addr #8 align 2 {
 entry:
   %_eligible = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %_eligible, align 8

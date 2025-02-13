@@ -1237,7 +1237,7 @@ uhci_resume.exit:                                 ; preds = %16, %uhci_update_ir
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @uhci_child_detach(ptr noundef readonly captures(none) %port1, ptr noundef readnone %child) #0 {
+define internal void @uhci_child_detach(ptr noundef readonly captures(none) %port1, ptr noundef readnone captures(address) %child) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
@@ -1384,7 +1384,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @uhci_resume(ptr noundef %opaque) unnamed_addr #0 {
+define internal fastcc void @uhci_resume(ptr noundef captures(address_is_null) %opaque) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %opaque, null
   br i1 %tobool.not, label %if.end9, label %if.end

@@ -297,7 +297,7 @@ define dso_local ptr @mem_pool_strndup(ptr noundef captures(none) %0, ptr nounde
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @mem_pool_contains(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @mem_pool_contains(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 {
   %.010 = load ptr, ptr %0, align 8, !tbaa !14
   %.not11 = icmp eq ptr %.010, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph

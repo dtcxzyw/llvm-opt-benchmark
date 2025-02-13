@@ -80,7 +80,7 @@ define hidden void @_ZN17LogStreamImplBase10LineBufferC2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17LogStreamImplBase10LineBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN17LogStreamImplBase10LineBufferD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, %0
@@ -97,7 +97,7 @@ define hidden void @_ZN17LogStreamImplBase10LineBufferD2Ev(ptr noundef nonnull r
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %.not = icmp ult i64 %4, %1
@@ -183,7 +183,7 @@ declare noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) l
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2

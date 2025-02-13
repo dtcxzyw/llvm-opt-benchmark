@@ -3911,7 +3911,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24BlockCacheTraceSimulator6AccessERKNS_21BlockCacheTraceRecordE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(185) %access) local_unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb24BlockCacheTraceSimulator6AccessERKNS_21BlockCacheTraceRecordE(ptr noundef nonnull align 8 captures(address) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(185) %access) local_unnamed_addr #3 align 2 {
 entry:
   %trace_start_time_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %trace_start_time_, align 8

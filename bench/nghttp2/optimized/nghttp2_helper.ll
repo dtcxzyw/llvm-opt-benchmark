@@ -450,7 +450,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %name, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly captures(address) %name, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -495,7 +495,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly captures(address) %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
   %cmp.not4 = icmp eq i64 %len, 0
@@ -521,7 +521,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly captures(address) %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -562,7 +562,7 @@ return:                                           ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly captures(address) %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %for.body.preheader
@@ -591,7 +591,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly captures(address) %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
   %cmp.not4 = icmp eq i64 %len, 0
@@ -617,7 +617,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly captures(address) %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
   %cmp.not4 = icmp eq i64 %len, 0
@@ -643,7 +643,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @nghttp2_cpymem(ptr noundef writeonly %dest, ptr noundef readonly captures(none) %src, i64 noundef %len) local_unnamed_addr #5 {
+define hidden ptr @nghttp2_cpymem(ptr noundef writeonly captures(ret: address, provenance) %dest, ptr noundef readonly captures(none) %src, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end

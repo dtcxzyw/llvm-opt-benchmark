@@ -1778,7 +1778,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef nonnull ptr @grpc_composite_channel_credentials_create(ptr noundef %channel_creds, ptr noundef %call_creds, ptr noundef readnone %reserved) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull ptr @grpc_composite_channel_credentials_create(ptr noundef %channel_creds, ptr noundef %call_creds, ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %channel_creds, null
   %cmp1 = icmp eq ptr %call_creds, null

@@ -6077,7 +6077,7 @@ _ZN7rocksdb6StatusD2Ev.exit28:                    ; preds = %ehcleanup, %_ZNKSt1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder22CompressAndVerifyBlockERKNS_5SliceEbRKNS_18CompressionContextEPNS_20UncompressionContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_PNS_15CompressionTypeEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %uncompressed_block_data, i1 noundef zeroext %is_data_block, ptr noundef nonnull align 8 dereferenceable(8) %compression_ctx, ptr noundef %verify_ctx, ptr noundef %compressed_output, ptr noundef captures(none) %block_contents, ptr noundef captures(none) %type, ptr noundef %out_status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder22CompressAndVerifyBlockERKNS_5SliceEbRKNS_18CompressionContextEPNS_20UncompressionContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_PNS_15CompressionTypeEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %uncompressed_block_data, i1 noundef zeroext %is_data_block, ptr noundef nonnull align 8 dereferenceable(8) %compression_ctx, ptr noundef %verify_ctx, ptr noundef %compressed_output, ptr noundef captures(none) %block_contents, ptr noundef captures(none) %type, ptr noundef captures(address) %out_status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.rocksdb::Status", align 8
   %compression_info = alloca %"class.rocksdb::CompressionInfo", align 8
@@ -8324,7 +8324,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad, %_ZNKSt14defa
 declare noundef i32 @_ZN7rocksdb34ComputeBuiltinChecksumWithLastByteENS_12ChecksumTypeEPKcmc(i8 noundef signext, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder24InsertBlockInCacheHelperERKNS_5SliceEPKNS_11BlockHandleENS_9BlockTypeE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, ptr noundef %handle, i8 noundef zeroext %block_type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder24InsertBlockInCacheHelperERKNS_5SliceEPKNS_11BlockHandleENS_9BlockTypeE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, ptr noundef %handle, i8 noundef zeroext %block_type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.rocksdb::CacheKey", align 8
   %charge = alloca i64, align 8

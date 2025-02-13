@@ -52,7 +52,7 @@ define range(i32 0, 2) i32 @EpdCmp(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @EpdFree(ptr noundef %0) local_unnamed_addr #4 {
+define void @EpdFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

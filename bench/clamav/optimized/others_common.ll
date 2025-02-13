@@ -194,7 +194,7 @@ cli_getctx.exit:                                  ; preds = %1, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_infomsg(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
+define void @cli_infomsg(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #23
@@ -445,7 +445,7 @@ define noalias noundef ptr @cli_safer_realloc(ptr noundef captures(none) %0, i64
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @cli_safer_realloc_or_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @cli_safer_realloc_or_free(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %4, label %5
 
@@ -502,7 +502,7 @@ define noalias noundef ptr @cli_max_realloc(ptr noundef captures(none) %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @cli_max_realloc_or_free(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @cli_max_realloc_or_free(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, -1073741825
   %or.cond = icmp ult i64 %3, -1073741824
   br i1 %or.cond, label %4, label %5
@@ -532,7 +532,7 @@ define noalias noundef ptr @cli_max_realloc_or_free(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @cli_safer_strdup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noalias ptr @cli_safer_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -704,7 +704,7 @@ define noundef ptr @cli_strerror(i32 noundef %0, ptr noundef returned %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @cli_writen(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i64 @cli_writen(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %.preheader
@@ -832,7 +832,7 @@ define noundef nonnull ptr @cli_gettmpdir() local_unnamed_addr #18 {
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_ftw(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @cli_ftw(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca i32, align 4
   %9 = alloca %struct.dirent_data, align 8
@@ -1175,7 +1175,7 @@ cli_safer_strdup.exit51:                          ; preds = %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_entry(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @handle_entry(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.stat, align 8
@@ -1597,7 +1597,7 @@ declare i64 @clock() local_unnamed_addr #2
 declare i32 @rand() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cli_sanitize_filepath(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define noundef ptr @cli_sanitize_filepath(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = add i64 %1, -4097
   %6 = icmp ult i64 %5, -4096
@@ -1976,7 +1976,7 @@ cli_max_calloc.exit:                              ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_newfilepathfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_newfilepathfd(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %5
@@ -2150,7 +2150,7 @@ define range(i32 0, 21) i32 @cli_gentempfd_with_prefix(ptr noundef %0, ptr nound
 declare i32 @cli_regcomp_real(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_get_filepath_from_filedesc(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_get_filepath_from_filedesc(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #23
@@ -2209,7 +2209,7 @@ declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) l
 declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_realpath(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_realpath(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.53, ptr noundef %0)
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null

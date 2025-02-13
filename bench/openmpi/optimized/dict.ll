@@ -37,7 +37,7 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_ulong_cmp(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_ptr_cmp(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_ptr_cmp(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
   %3 = icmp ugt ptr %0, %1
   %4 = zext i1 %3 to i32
   %5 = icmp ult ptr %0, %1

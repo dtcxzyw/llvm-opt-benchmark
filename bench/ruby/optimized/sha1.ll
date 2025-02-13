@@ -1127,7 +1127,7 @@ define void @rb_Digest_SHA1_Update(ptr noundef captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %5

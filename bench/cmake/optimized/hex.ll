@@ -50,7 +50,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @rhash_byte_to_base32(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @rhash_byte_to_base32(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not42 = icmp eq i64 %2, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
@@ -126,7 +126,7 @@ define dso_local void @rhash_byte_to_base32(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not47 = icmp eq i64 %2, 0
   br i1 %.not47, label %._crit_edge.thread, label %.lr.ph
@@ -232,7 +232,7 @@ define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [164 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 164, ptr nonnull %6) #4
   %.not = icmp eq i32 %3, 0
@@ -677,7 +677,7 @@ define dso_local i64 @rhash_urlencode(ptr noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @rhash_sprintI64(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @rhash_sprintI64(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #4
   %4 = icmp eq ptr %0, null

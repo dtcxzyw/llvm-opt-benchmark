@@ -28,7 +28,7 @@ define void @cl_cleanup_crypto() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_hash_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define noundef ptr @cl_hash_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   %7 = tail call ptr @EVP_get_digestbyname(ptr noundef %0) #12
@@ -206,7 +206,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_hash_file_fd(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef ptr @cl_hash_file_fd(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @EVP_get_digestbyname(ptr noundef %1) #12
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -237,7 +237,7 @@ define noundef ptr @cl_hash_file_fd(i32 noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
@@ -320,7 +320,7 @@ declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unname
 declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_hash_file_fp(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef ptr @cl_hash_file_fp(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @fileno(ptr noundef %0) #12
   %5 = tail call ptr @EVP_get_digestbyname(ptr noundef %1) #12
   %.not.i = icmp eq ptr %5, null
@@ -355,25 +355,25 @@ cl_hash_file_fd.exit:                             ; preds = %3, %6, %.sink.split
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha512(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha512(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha384(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha384(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str.1, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha256(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha256(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str.2, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_sha1(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define noundef ptr @cl_sha1(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cl_hash_data(ptr noundef nonnull @.str.3, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
@@ -1179,7 +1179,7 @@ declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #6
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @cl_validate_certificate_chain(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @cl_validate_certificate_chain(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @X509_STORE_new() #12
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %80, label %5
@@ -1435,7 +1435,7 @@ declare ptr @X509_LOOKUP_file() local_unnamed_addr #3
 declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @cl_load_crl(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @cl_load_crl(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -1529,7 +1529,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 declare ptr @PEM_read_bio_X509_AUX(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly %0) local_unnamed_addr #1 {
+define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12

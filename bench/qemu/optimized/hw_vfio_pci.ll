@@ -6599,7 +6599,7 @@ return:                                           ; preds = %entry, %trace_vfio_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @vfio_pci_get_object(ptr noundef readnone %vbasedev) #17 {
+define internal noundef ptr @vfio_pci_get_object(ptr noundef readnone captures(ret: address, provenance) %vbasedev) #17 {
 entry:
   %add.ptr = getelementptr i8, ptr %vbasedev, i64 -2608
   ret ptr %add.ptr

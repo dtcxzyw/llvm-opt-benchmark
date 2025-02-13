@@ -164,14 +164,14 @@ return:                                           ; preds = %if.else, %invoke.co
 declare i32 @unorm2_normalize_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unorm_previous_75(ptr noundef %src, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef %pNeededToNormalize, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @unorm_previous_75(ptr noundef %src, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef captures(address_is_null) %pNeededToNormalize, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %src, i8 noundef signext 0, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef %pNeededToNormalize, ptr noundef %pErrorCode)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %src, i8 noundef signext range(i8 0, 2) %forward, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef %pNeededToNormalize, ptr noundef nonnull %pErrorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %src, i8 noundef signext range(i8 0, 2) %forward, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef captures(address_is_null) %pNeededToNormalize, ptr noundef nonnull %pErrorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fn2 = alloca %"class.icu_75::FilteredNormalizer2", align 8
   %call = tail call noundef ptr @_ZN6icu_7518Normalizer2Factory11getInstanceE18UNormalizationModeR10UErrorCode(i32 noundef %mode, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
@@ -214,7 +214,7 @@ return:                                           ; preds = %if.then, %if.end6, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @unorm_next_75(ptr noundef %src, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef %pNeededToNormalize, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @unorm_next_75(ptr noundef %src, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef captures(address_is_null) %pNeededToNormalize, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL13unorm_iterateP13UCharIteratoraPDsi18UNormalizationModeiaPaP10UErrorCode(ptr noundef %src, i8 noundef signext 1, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %mode, i32 noundef %options, i8 noundef signext %doNormalize, ptr noundef %pNeededToNormalize, ptr noundef %pErrorCode)
   ret i32 %call
@@ -422,7 +422,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL8_iterateP13UCharIteratoraPDsiPKN6icu_7511Normalizer2EaPaP10UErrorCode(ptr noundef %src, i8 noundef signext range(i8 0, 2) %forward, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %n2, i8 noundef signext %doNormalize, ptr noundef writeonly %pNeededToNormalize, ptr noundef %pErrorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL8_iterateP13UCharIteratoraPDsiPKN6icu_7511Normalizer2EaPaP10UErrorCode(ptr noundef %src, i8 noundef signext range(i8 0, 2) %forward, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %n2, i8 noundef signext %doNormalize, ptr noundef writeonly captures(address_is_null) %pNeededToNormalize, ptr noundef %pErrorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.icu_75::UnicodeString", align 8
   %destString = alloca %"class.icu_75::UnicodeString", align 8

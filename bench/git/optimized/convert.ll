@@ -145,7 +145,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare ptr @read_blob_data_from_index(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef nonnull ptr @gather_convert_stats_ascii(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @gather_convert_stats_ascii(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i64 %1, 0
   %or.cond.i = and i1 %3, %4
@@ -922,7 +922,7 @@ apply_filter.exit:                                ; preds = %5, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @apply_filter(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef range(i32 1, 3) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @apply_filter(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 1, 3) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [24 x i8], align 16
   %11 = alloca %struct.strbuf, align 8
   %12 = alloca %struct.strbuf, align 8
@@ -1735,7 +1735,7 @@ _.exit:                                           ; preds = %58, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @crlf_to_git(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @crlf_to_git(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = icmp eq i32 %5, 1
   br i1 %8, label %strbuf_setlen.exit, label %9
 
@@ -3047,7 +3047,7 @@ define dso_local range(i32 0, 2) i32 @renormalize_buffer(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @is_null_stream_filter(ptr noundef readnone %0) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @is_null_stream_filter(ptr noundef readnone captures(address) %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, @null_filter_singleton
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -3260,7 +3260,7 @@ define dso_local i32 @stream_filter(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @init_checkout_metadata(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #11 {
+define dso_local void @init_checkout_metadata(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #11 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %5
@@ -3303,7 +3303,7 @@ define dso_local void @init_checkout_metadata(ptr noundef writeonly captures(non
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @clone_checkout_metadata(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #11 {
+define dso_local void @clone_checkout_metadata(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #11 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %4
@@ -3654,7 +3654,7 @@ declare i32 @subprocess_handshake(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @write_packetized_from_buf_no_flush_count(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @trace_encoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @trace_encoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_encoding.trace, i64 24, i1 false)
@@ -3953,7 +3953,7 @@ declare void @hash_object_file(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @null_filter_fn(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #11 {
+define internal noundef i32 @null_filter_fn(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #11 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %14, label %6
 
@@ -3988,7 +3988,7 @@ declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed
 declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ident_filter_fn(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #0 {
+define internal noundef i32 @ident_filter_fn(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %.not = icmp eq ptr %1, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %.not, label %11, label %.preheader
@@ -4524,7 +4524,7 @@ define internal void @cascade_free_fn(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #18 {
+define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #18 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1

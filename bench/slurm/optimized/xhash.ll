@@ -33,7 +33,7 @@ define noundef ptr @xhash_init(ptr noundef %0, ptr noundef %1) local_unnamed_add
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @xhash_get(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @xhash_get(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call fastcc ptr @xhash_find(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -48,7 +48,7 @@ define ptr @xhash_get(ptr noundef readonly %0, ptr noundef readonly %1, i32 noun
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -345,7 +345,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @xhash_get_str(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define ptr @xhash_get_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %4 = trunc i64 %3 to i32
   %5 = tail call fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %4)
@@ -365,7 +365,7 @@ xhash_get.exit:                                   ; preds = %2, %6
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr null, ptr %3, align 8
@@ -927,7 +927,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @xhash_pop(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call fastcc ptr @xhash_find(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   store ptr %5, ptr %4, align 8
@@ -1095,7 +1095,7 @@ define ptr @xhash_pop(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @xhash_pop_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @xhash_pop_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @xhash_pop(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
@@ -1103,7 +1103,7 @@ define ptr @xhash_pop_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @xhash_delete(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1127,7 +1127,7 @@ define void @xhash_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_delete_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @xhash_delete_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %4 = trunc i64 %3 to i32
   %5 = icmp ne ptr %0, null
@@ -1151,7 +1151,7 @@ xhash_delete.exit:                                ; preds = %2, %7, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @xhash_count(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @xhash_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -1165,7 +1165,7 @@ define i32 @xhash_count(ptr noundef readonly %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_walk(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @xhash_walk(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1191,7 +1191,7 @@ define void @xhash_walk(ptr noundef readonly %0, ptr noundef readonly %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_clear(ptr noundef %0) local_unnamed_addr #0 {
+define void @xhash_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %100, label %3

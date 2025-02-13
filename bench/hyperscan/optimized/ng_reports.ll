@@ -215,7 +215,7 @@ _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit:             ; preds = %cleanup
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210set_reportERNS_8NGHolderEj(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, i32 noundef %internal_report) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210set_reportERNS_8NGHolderEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %g, i32 noundef %internal_report) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %internal_report.addr = alloca i32, align 4
   %tmp = alloca %"struct.std::pair", align 8

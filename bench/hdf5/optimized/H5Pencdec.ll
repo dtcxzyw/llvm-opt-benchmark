@@ -482,7 +482,7 @@ define noundef i32 @H5P__encode_uint64_t(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P__encode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5P__encode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.H5P_enc_iter_ud_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

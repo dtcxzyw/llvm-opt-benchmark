@@ -206,7 +206,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local i32 @ip6_push_pending_frames(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @icmp6_send(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly captures(none) %5) #0 align 16 {
+define dso_local void @icmp6_send(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef readonly captures(address) %4, ptr noundef readonly captures(none) %5) #0 align 16 {
   %7 = alloca i8, align 1
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1

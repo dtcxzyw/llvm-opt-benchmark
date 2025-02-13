@@ -1357,7 +1357,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %ctm, ptr noundef readonly %cmp_time) local_unnamed_addr #0 {
+define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %ctm, ptr noundef readonly captures(address_is_null) %cmp_time) local_unnamed_addr #0 {
 entry:
   %t.i.i = alloca i64, align 8
   %atm = alloca %struct.asn1_string_st, align 8
@@ -1653,7 +1653,7 @@ return:                                           ; preds = %if.end58.thread100,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_time_adj(ptr noundef %s, i64 noundef %offset_sec, ptr noundef readonly %in_tm) local_unnamed_addr #0 {
+define hidden ptr @X509_time_adj(ptr noundef %s, i64 noundef %offset_sec, ptr noundef readonly captures(address_is_null) %in_tm) local_unnamed_addr #0 {
 entry:
   %t.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i)
@@ -1760,7 +1760,7 @@ X509_time_adj.exit:                               ; preds = %if.then4.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_time_adj_ex(ptr noundef %s, i32 noundef %offset_day, i64 noundef %offset_sec, ptr noundef readonly %in_tm) local_unnamed_addr #0 {
+define hidden ptr @X509_time_adj_ex(ptr noundef %s, i32 noundef %offset_day, i64 noundef %offset_sec, ptr noundef readonly captures(address_is_null) %in_tm) local_unnamed_addr #0 {
 entry:
   %t = alloca i64, align 8
   store i64 0, ptr %t, align 8

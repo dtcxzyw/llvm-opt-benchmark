@@ -669,7 +669,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData15initialize_nameE6Handle(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((144, 152)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData15initialize_nameE6Handle(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((144, 152)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -2148,7 +2148,7 @@ _ZN15ClassLoaderData10add_handleE6Handle.exit:    ; preds = %_ZN15ClassLoaderDat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK15ClassLoaderData30is_permanent_class_loader_dataEv(ptr noundef nonnull readonly align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ClassLoaderData30is_permanent_class_loader_dataEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   %3 = icmp eq ptr %0, %2
   br i1 %3, label %_ZNK15ClassLoaderData28is_builtin_class_loader_dataEv.exit.thread, label %4
@@ -2210,7 +2210,7 @@ _ZNK15ClassLoaderData28is_builtin_class_loader_dataEv.exit.thread: ; preds = %4,
 declare noundef zeroext i1 @_ZN21java_lang_ClassLoader10isAncestorEP7oopDescS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData10add_handleE6Handle(ptr dead_on_unwind noalias writable writeonly sret(%class.OopHandle) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) initializes((34, 35)) %1, ptr readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData10add_handleE6Handle(ptr dead_on_unwind noalias writable writeonly sret(%class.OopHandle) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) initializes((34, 35)) %1, ptr readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -2388,7 +2388,7 @@ declare noundef ptr @_ZN8Universe7vm_weakEv() local_unnamed_addr #1
 declare void @_ZN10WeakHandleC1EP10OopStorage6Handle(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData12remove_classEP5Klass(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData12remove_classEP5Klass(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load volatile ptr, ptr %3, align 8
   %.not15 = icmp eq ptr %4, null
@@ -3045,7 +3045,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit:       ; preds = %1, %5
 declare noundef zeroext i1 @_ZN16SystemDictionary24is_platform_class_loaderEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK15ClassLoaderData28is_builtin_class_loader_dataEv(ptr noundef nonnull readonly align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ClassLoaderData28is_builtin_class_loader_dataEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   %3 = icmp eq ptr %0, %2
   br i1 %3, label %_ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit.thread, label %4
@@ -3227,7 +3227,7 @@ define hidden void @_ZN15ClassLoaderData13remove_handleE9OopHandle(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData18init_handle_lockedER9OopHandle6Handle(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData18init_handle_lockedER9OopHandle6Handle(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -3913,7 +3913,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare void @_ZN16ModuleEntryTable6verifyEv(ptr noundef nonnull align 8 dereferenceable(880)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15ClassLoaderData14contains_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN15ClassLoaderData14contains_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10

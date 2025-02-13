@@ -955,7 +955,7 @@ while.end:                                        ; preds = %_ZNK15ref_vector_co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6spacer7sym_mux8find_idxEP9func_declRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly %sym, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %idx) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK6spacer7sym_mux8find_idxEP9func_declRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(address) %sym, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %idx) local_unnamed_addr #7 align 2 {
 entry:
   %m_muxes = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %sym, i64 12
@@ -1033,7 +1033,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK6spacer7sym_mux12find_by_declEP9func_declj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly %fdecl, i32 noundef %idx) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK6spacer7sym_mux12find_by_declEP9func_declj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly captures(address) %fdecl, i32 noundef %idx) local_unnamed_addr #3 align 2 {
 entry:
   %m_entries = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fdecl, i64 12
@@ -1117,7 +1117,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK6spacer7sym_mux10shift_declEP9func_decljj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly %decl, i32 %src_idx, i32 noundef %tgt_idx) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK6spacer7sym_mux10shift_declEP9func_decljj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly captures(address) %decl, i32 %src_idx, i32 noundef %tgt_idx) local_unnamed_addr #3 align 2 {
 entry:
   %m_muxes = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %decl, i64 12

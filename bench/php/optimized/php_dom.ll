@@ -742,7 +742,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dom_get_doc_props(ptr noundef %0) local_unnamed_addr #1 {
+define hidden ptr @dom_get_doc_props(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -774,7 +774,7 @@ declare noalias ptr @_emalloc_16() local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @dom_get_doc_props_read_only(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden nonnull ptr @dom_get_doc_props_read_only(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -793,7 +793,7 @@ define hidden nonnull ptr @dom_get_doc_props_read_only(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dom_set_doc_classmap(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden void @dom_set_doc_classmap(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %5
@@ -861,7 +861,7 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @dom_get_doc_classmap(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden noundef ptr @dom_get_doc_classmap(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %dom_get_doc_props_read_only.exit
 
@@ -891,7 +891,7 @@ dom_get_doc_props_read_only.exit:                 ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @dom_get_strict_error(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @dom_get_strict_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %2
 
@@ -914,7 +914,7 @@ dom_get_doc_props_read_only.exit:                 ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @dom_object_get_node(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @dom_object_get_node(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -933,7 +933,7 @@ define ptr @dom_object_get_node(ptr noundef readonly %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @php_dom_object_get_data(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @php_dom_object_get_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1165,7 +1165,7 @@ declare void @llvm.assume(i1 noundef) #5
 declare ptr @php_libxml_import_node(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @php_dom_create_object(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define noundef zeroext i1 @php_dom_create_object(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -13516,7 +13516,7 @@ define hidden void @php_dom_create_iterator(ptr noundef %0, i32 noundef %1) loca
 declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 {
+define hidden nonnull ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef %1) #16
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
@@ -13559,7 +13559,7 @@ define hidden void @php_dom_create_implementation(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @dom_hierarchy(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @dom_hierarchy(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -13664,7 +13664,7 @@ thread-pre-split:                                 ; preds = %12
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %.loopexit, label %8
 
@@ -14101,7 +14101,7 @@ declare void @xmlNodeAddContent(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @php_libxml_node_free_resource(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -14231,7 +14231,7 @@ dom_reconcile_ns_internal.exit:                   ; preds = %30, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
@@ -14256,7 +14256,7 @@ define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   br label %6
@@ -14523,7 +14523,7 @@ define hidden ptr @dom_get_ns(ptr noundef %0, ptr noundef %1, ptr noundef writeo
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dom_get_nsdecl(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden ptr @dom_get_nsdecl(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -14789,7 +14789,7 @@ declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @zend_std_get_property_ptr_ptr(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_update_refcount_after_clone(ptr noundef readonly captures(none) %0, ptr readnone %.64.val, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dom_update_refcount_after_clone(ptr noundef readonly captures(none) %0, ptr readnone captures(address) %.64.val, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %.64.val

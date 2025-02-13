@@ -31,7 +31,7 @@ $_ZN17meshopt_Allocator8StorageTIvE10deallocateE = comdat any
 @_ZZN7meshoptL13fillCellRemapEPjPfmPKjPKNS_9ReservoirEPKNS_7Vector3EPKfmfmE11dummy_color = internal unnamed_addr constant [3 x float] zeroinitializer, align 4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_Z20meshopt_simplifyEdgePjPKjmPKfmmS3_mS3_mmfjPf(ptr noundef %destination, ptr noundef readonly %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef readonly captures(none) %vertex_attributes_data, i64 noundef %vertex_attributes_stride, ptr noundef readonly captures(none) %attribute_weights, i64 noundef %attribute_count, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef writeonly %out_result_error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_Z20meshopt_simplifyEdgePjPKjmPKfmmS3_mS3_mmfjPf(ptr noundef captures(address) %destination, ptr noundef readonly captures(address) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef readonly captures(none) %vertex_attributes_data, i64 noundef %vertex_attributes_stride, ptr noundef readonly captures(none) %attribute_weights, i64 noundef %attribute_count, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef writeonly captures(address_is_null) %out_result_error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %histogram.i = alloca [2048 x i32], align 16
   %G.i = alloca [16 x %"struct.meshopt::QuadricGrad"], align 16
@@ -2825,7 +2825,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef %result, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) unnamed_addr #2 {
+define internal fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef captures(address_is_null) %result, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) unnamed_addr #2 {
 entry:
   %minv = alloca [3 x float], align 4
   %maxv = alloca [3 x float], align 4
@@ -3000,21 +3000,21 @@ terminate.lpad:                                   ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @meshopt_simplify(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef %out_result_error) local_unnamed_addr #0 {
+define dso_local noundef i64 @meshopt_simplify(ptr noundef captures(address) %destination, ptr noundef captures(address) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef captures(address_is_null) %out_result_error) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_Z20meshopt_simplifyEdgePjPKjmPKfmmS3_mS3_mmfjPf(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef %out_result_error)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @meshopt_simplifyWithAttributes(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef readonly captures(none) %vertex_attributes_data, i64 noundef %vertex_attributes_stride, ptr noundef readonly captures(none) %attribute_weights, i64 noundef %attribute_count, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef %out_result_error) local_unnamed_addr #0 {
+define dso_local noundef i64 @meshopt_simplifyWithAttributes(ptr noundef captures(address) %destination, ptr noundef captures(address) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef readonly captures(none) %vertex_attributes_data, i64 noundef %vertex_attributes_stride, ptr noundef readonly captures(none) %attribute_weights, i64 noundef %attribute_count, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef captures(address_is_null) %out_result_error) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_Z20meshopt_simplifyEdgePjPKjmPKfmmS3_mS3_mmfjPf(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef %vertex_attributes_data, i64 noundef %vertex_attributes_stride, ptr noundef %attribute_weights, i64 noundef %attribute_count, i64 noundef %target_index_count, float noundef %target_error, i32 noundef %options, ptr noundef %out_result_error)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @meshopt_simplifySloppy(ptr noundef captures(none) %destination, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, i64 noundef %target_index_count, float noundef %target_error, ptr noundef writeonly %out_result_error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @meshopt_simplifySloppy(ptr noundef captures(none) %destination, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, i64 noundef %target_index_count, float noundef %target_error, ptr noundef writeonly captures(address_is_null) %out_result_error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %div = udiv i64 %target_index_count, 6
@@ -3982,7 +3982,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @meshopt_simplifyPoints(ptr noundef writeonly captures(none) %destination, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef readonly %vertex_colors, i64 noundef %vertex_colors_stride, float noundef %color_weight, i64 noundef %target_vertex_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @meshopt_simplifyPoints(ptr noundef writeonly captures(none) %destination, ptr noundef readonly captures(none) %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, ptr noundef readonly captures(address_is_null) %vertex_colors, i64 noundef %vertex_colors_stride, float noundef %color_weight, i64 noundef %target_vertex_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %cmp = icmp eq i64 %target_vertex_count, 0

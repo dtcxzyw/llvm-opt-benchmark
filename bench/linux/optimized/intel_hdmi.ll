@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(p
 declare dso_local i32 @intel_panel_fitting(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr readonly %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr readonly captures(address_is_null) %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4340
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4528
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2632

@@ -438,7 +438,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12DefaultEvent17DefaultSettlementC2ERKNS_4DateERKSt3mapINS_9SeniorityEdSt4lessIS6_ESaISt4pairIKS6_dEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %date, ptr noundef nonnull readonly align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12DefaultEvent17DefaultSettlementC2ERKNS_4DateERKSt3mapINS_9SeniorityEdSt4lessIS6_ESaISt4pairIKS6_dEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %date, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<QuantLib::Seniority, std::pair<const QuantLib::Seniority, double>, std::_Select1st<std::pair<const QuantLib::Seniority, double>>, std::less<QuantLib::Seniority>>::_Alloc_node", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -738,7 +738,7 @@ _ZNSt8_Rb_treeIN8QuantLib9SeniorityESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12DefaultEvent17DefaultSettlementC1ERKNS_4DateERKSt3mapINS_9SeniorityEdSt4lessIS6_ESaISt4pairIKS6_dEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((80, 84), (88, 96)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %date, ptr noundef nonnull readonly align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12DefaultEvent17DefaultSettlementC1ERKNS_4DateERKSt3mapINS_9SeniorityEdSt4lessIS6_ESaISt4pairIKS6_dEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((80, 84), (88, 96)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %date, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<QuantLib::Seniority, std::pair<const QuantLib::Seniority, double>, std::_Select1st<std::pair<const QuantLib::Seniority, double>>, std::less<QuantLib::Seniority>>::_Alloc_node", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1249,7 +1249,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib12DefaultEvent17DefaultSettlement12recoveryRateENS_9SeniorityE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %sen) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib12DefaultEvent17DefaultSettlement12recoveryRateENS_9SeniorityE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, i32 noundef %sen) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1460,7 +1460,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 52)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %atomicEvType, ptr noundef captures(none) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull readonly align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 52)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %atomicEvType, ptr noundef captures(none) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<QuantLib::Seniority, std::pair<const QuantLib::Seniority, double>, std::_Select1st<std::pair<const QuantLib::Seniority, double>>, std::less<QuantLib::Seniority>>::_Alloc_node", align 8
@@ -2101,7 +2101,7 @@ _ZN5boost10shared_ptrIN8QuantLib8Currency4DataEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12DefaultEventC1ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((192, 196), (200, 208)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %atomicEvType, ptr noundef captures(none) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull readonly align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12DefaultEventC1ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((192, 196), (200, 208)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %atomicEvType, ptr noundef captures(none) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<QuantLib::Seniority, std::pair<const QuantLib::Seniority, double>, std::_Select1st<std::pair<const QuantLib::Seniority, double>>, std::less<QuantLib::Seniority>>::_Alloc_node", align 8
@@ -3714,7 +3714,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17FailureToPayEventC2ERKNS_4DateERKNS_8CurrencyENS_9SeniorityEdS3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 52)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, double noundef %defaultedAmount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17FailureToPayEventC2ERKNS_4DateERKNS_8CurrencyENS_9SeniorityEdS3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 52)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, double noundef %defaultedAmount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DefaultType", align 8
   %agg.tmp = alloca %"class.QuantLib::Currency", align 8
@@ -3802,7 +3802,7 @@ lpad:                                             ; preds = %_ZN8QuantLib8Curren
 declare void @_ZN8QuantLib11DefaultTypeC1ENS_13AtomicDefault4TypeENS_13Restructuring4TypeE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17FailureToPayEventC1ERKNS_4DateERKNS_8CurrencyENS_9SeniorityEdS3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((184, 192), (200, 204), (208, 216)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, double noundef %defaultedAmount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17FailureToPayEventC1ERKNS_4DateERKNS_8CurrencyENS_9SeniorityEdS3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((184, 192), (200, 204), (208, 216)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, double noundef %defaultedAmount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DefaultType", align 8
   %agg.tmp = alloca %"class.QuantLib::Currency", align 8
@@ -4096,7 +4096,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BankruptcyEventC2ERKNS_4DateERKNS_8CurrencyENS_9SeniorityES3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 52)) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BankruptcyEventC2ERKNS_4DateERKNS_8CurrencyENS_9SeniorityES3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 52)) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::DefaultType", align 8
@@ -4505,7 +4505,7 @@ _ZN8QuantLib8CurrencyD2Ev.exit:                   ; preds = %_ZN8QuantLib12Defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BankruptcyEventC1ERKNS_4DateERKNS_8CurrencyENS_9SeniorityES3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((176, 184), (192, 196), (200, 208)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BankruptcyEventC1ERKNS_4DateERKNS_8CurrencyENS_9SeniorityES3_RKSt3mapIS7_dSt4lessIS7_ESaISt4pairIKS7_dEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((176, 184), (192, 196), (200, 208)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %creditEventDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %curr, i32 noundef %bondsSen, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %settleDate, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %recoveryRates) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::DefaultType", align 8

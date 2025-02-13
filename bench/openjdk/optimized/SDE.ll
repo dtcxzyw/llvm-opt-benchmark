@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [18 x i8] c"SDE stratum table\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   tail call fastcc void @loadDebugInfo(ptr noundef %0, ptr noundef %1)
   %.b.i = load i1, ptr @sourceMapIsValid, align 1
   br i1 %.b.i, label %.preheader, label %searchOneSourceName.exit
@@ -784,7 +784,7 @@ stiLineTableIndex.exit.thread:                    ; preds = %44, %.lr.ph.split, 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @stratumTableIndex(ptr noundef readonly %0) unnamed_addr #1 {
+define internal fastcc i32 @stratumTableIndex(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %.preheader
 

@@ -1858,7 +1858,7 @@ return:                                           ; preds = %entry, %if.end53, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1, ptr noundef %out, ptr noundef writeonly %precision, ptr noundef writeonly %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1, ptr noundef %out, ptr noundef writeonly captures(address_is_null) %precision, ptr noundef writeonly captures(address_is_null) %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i15.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2055,7 +2055,7 @@ _ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal128EEENS_6StatusEPKcSt17b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %out, ptr noundef captures(address_is_null) %precision, ptr noundef captures(address_is_null) %scale) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   %0 = extractvalue { i64, ptr } %call, 0
@@ -2068,7 +2068,7 @@ entry:
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal12810FromStringEPKcPS0_PiS4_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal12810FromStringEPKcPS0_PiS4_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %out, ptr noundef captures(address_is_null) %precision, ptr noundef captures(address_is_null) %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
   tail call void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i64 %call.i.i, ptr nonnull %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale)
@@ -3232,7 +3232,7 @@ return:                                           ; preds = %_ZNK5arrow10Decimal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1, ptr noundef %out, ptr noundef writeonly %precision, ptr noundef writeonly %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1, ptr noundef %out, ptr noundef writeonly captures(address_is_null) %precision, ptr noundef writeonly captures(address_is_null) %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i16.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3424,7 +3424,7 @@ _ZN5arrow12_GLOBAL__N_117DecimalFromStringINS_10Decimal256EEENS_6StatusEPKcSt17b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal25610FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow10Decimal25610FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_PiSA_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %out, ptr noundef captures(address_is_null) %precision, ptr noundef captures(address_is_null) %scale) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   %0 = extractvalue { i64, ptr } %call, 0
@@ -3434,7 +3434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal25610FromStringEPKcPS0_PiS4_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal25610FromStringEPKcPS0_PiS4_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %out, ptr noundef captures(address_is_null) %precision, ptr noundef captures(address_is_null) %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
   tail call void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i64 %call.i.i, ptr nonnull %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale)

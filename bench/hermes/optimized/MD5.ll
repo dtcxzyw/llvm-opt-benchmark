@@ -33,7 +33,7 @@ $_ZTVN4llvh13format_objectIJhEEE = comdat any
 @_ZN4llvh3MD5C1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvh3MD5C2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) initializes((88, 152)) %this, ptr readonly %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) initializes((88, 152)) %this, ptr readonly captures(ret: address, provenance) %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %b4 = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -820,7 +820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) %this, ptr captures(none) %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %lo = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %lo, align 4
@@ -888,7 +888,7 @@ return:                                           ; preds = %if.end29, %if.then1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) %this, ptr captures(none) %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %lo.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %lo.i, align 4
@@ -1215,7 +1215,7 @@ _ZN4llvh11SmallStringILj32EED2Ev.exit:            ; preds = %_ZN4llvh15SmallVect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden { i64, i64 } @_ZN4llvh3MD54hashENS_8ArrayRefIhEE(ptr %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #8 align 2 {
+define hidden { i64, i64 } @_ZN4llvh3MD54hashENS_8ArrayRefIhEE(ptr captures(none) %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #8 align 2 {
 if.end21.i:
   %Hash = alloca %"class.llvh::MD5", align 8
   store i32 1732584193, ptr %Hash, align 8

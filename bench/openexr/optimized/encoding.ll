@@ -479,7 +479,7 @@ return:                                           ; preds = %cond.true22, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @default_write_chunk(ptr noundef readonly %encode) #0 {
+define internal i32 @default_write_chunk(ptr noundef readonly captures(address_is_null) %encode) #0 {
 entry:
   %tobool.not = icmp eq ptr %encode, null
   br i1 %tobool.not, label %return, label %if.end
@@ -600,7 +600,7 @@ return:                                           ; preds = %sw.bb, %sw.bb2, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_encoding_update(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef %cinfo, ptr noundef %encode) local_unnamed_addr #0 {
+define i32 @exr_encoding_update(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef %cinfo, ptr noundef captures(address_is_null) %encode) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

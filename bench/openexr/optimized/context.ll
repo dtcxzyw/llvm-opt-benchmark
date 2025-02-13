@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [51 x i8] c"Unable to write %lu bytes to stream, wrote %ld: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_test_file_header(ptr noundef %filename, ptr noundef readonly %ctxtdata) local_unnamed_addr #0 {
+define i32 @exr_test_file_header(ptr noundef %filename, ptr noundef readonly captures(address_is_null) %ctxtdata) local_unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
   %inits = alloca %struct._exr_context_initializer_v3, align 8
@@ -223,7 +223,7 @@ if.end27:                                         ; preds = %if.then, %if.end23,
 declare i32 @internal_exr_alloc_context(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dispatch_read(ptr noundef %ctxt, ptr noundef %buf, i64 noundef %sz, ptr noundef %offsetp, ptr noundef writeonly %nread, i32 noundef %rmode) #0 {
+define internal i32 @dispatch_read(ptr noundef %ctxt, ptr noundef %buf, i64 noundef %sz, ptr noundef captures(address_is_null) %offsetp, ptr noundef writeonly captures(address_is_null) %nread, i32 noundef %rmode) #0 {
 entry:
   %tobool.not = icmp eq ptr %nread, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -359,7 +359,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @internal_exr_check_magic(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_finish(ptr noundef %pctxt) local_unnamed_addr #0 {
+define i32 @exr_finish(ptr noundef captures(address_is_null) %pctxt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -454,7 +454,7 @@ return:                                           ; preds = %entry, %if.end20
 declare void @internal_exr_destroy_context(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_start_read(ptr noundef writeonly %ctxt, ptr noundef %filename, ptr noundef readonly %ctxtdata) local_unnamed_addr #0 {
+define i32 @exr_start_read(ptr noundef writeonly captures(address_is_null) %ctxt, ptr noundef %filename, ptr noundef readonly captures(address_is_null) %ctxtdata) local_unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
   %inits = alloca %struct._exr_context_initializer_v3, align 8
@@ -647,7 +647,7 @@ return:                                           ; preds = %if.then, %if.then2,
 declare i32 @internal_exr_parse_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_start_write(ptr noundef writeonly %ctxt, ptr noundef %filename, i32 noundef %default_mode, ptr noundef readonly %ctxtdata) local_unnamed_addr #0 {
+define i32 @exr_start_write(ptr noundef writeonly captures(address_is_null) %ctxt, ptr noundef %filename, i32 noundef %default_mode, ptr noundef readonly captures(address_is_null) %ctxtdata) local_unnamed_addr #0 {
 entry:
   %tmproot.i = alloca [32 x i8], align 16
   %ret = alloca ptr, align 8
@@ -900,7 +900,7 @@ return:                                           ; preds = %if.end34, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dispatch_write(ptr noundef %ctxt, ptr noundef %buf, i64 noundef %sz, ptr noundef %offsetp) #0 {
+define internal i32 @dispatch_write(ptr noundef %ctxt, ptr noundef %buf, i64 noundef %sz, ptr noundef captures(address_is_null) %offsetp) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1004,7 +1004,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_file_name(ptr noundef %ctxt, ptr noundef writeonly %name) local_unnamed_addr #0 {
+define i32 @exr_get_file_name(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %name) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1058,7 +1058,7 @@ return:                                           ; preds = %cond.true, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_user_data(ptr noundef %ctxt, ptr noundef writeonly %userdata) local_unnamed_addr #0 {
+define i32 @exr_get_user_data(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %userdata) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1616,7 +1616,7 @@ declare void @internal_exr_update_default_handlers(ptr noundef) local_unnamed_ad
 declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @default_shutdown(ptr readnone captures(none) %c, ptr noundef readonly %userdata, i32 %failed) #0 {
+define internal void @default_shutdown(ptr readnone captures(none) %c, ptr noundef readonly captures(address_is_null) %userdata, i32 %failed) #0 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -1635,7 +1635,7 @@ if.end3:                                          ; preds = %if.then, %if.then1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr noundef %ctxt, ptr noundef readonly %userdata, ptr noundef captures(none) %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly %error_cb) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr noundef %ctxt, ptr noundef readonly captures(address_is_null) %userdata, ptr noundef captures(none) %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly captures(address_is_null) %error_cb) #0 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %if.then, label %if.end3
@@ -1749,7 +1749,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr noundef %ctxt, ptr noundef readonly %userdata, ptr noundef readonly captures(none) %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly %error_cb) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr noundef %ctxt, ptr noundef readonly captures(address_is_null) %userdata, ptr noundef readonly captures(none) %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly captures(address_is_null) %error_cb) #0 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %if.then, label %if.end3

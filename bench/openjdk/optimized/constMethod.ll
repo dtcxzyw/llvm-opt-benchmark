@@ -1051,7 +1051,7 @@ define hidden noundef ptr @_ZNK11ConstMethod6methodEv(ptr noundef nonnull readon
 declare noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i16, ptr %3, align 2
@@ -1061,7 +1061,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod27compressed_linenumber_tabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod15last_u2_elementEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod15last_u2_elementEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 7
@@ -1087,7 +1087,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod15last_u2_elementEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod28generic_signature_index_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod28generic_signature_index_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 7
@@ -1113,7 +1113,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod28generic_signature_index_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod29method_parameters_length_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod29method_parameters_length_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
@@ -1142,7 +1142,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod29method_parameters_length_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod30checked_exceptions_length_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod30checked_exceptions_length_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 32
@@ -1196,7 +1196,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod30checked_exceptions_length_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_parameters_startEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_parameters_startEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
@@ -1229,7 +1229,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_parameters_startEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod27exception_table_length_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod27exception_table_length_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
@@ -1321,7 +1321,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit: ; preds = %22, %29, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod24checked_exceptions_startEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod24checked_exceptions_startEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 32
@@ -1379,7 +1379,7 @@ _ZNK11ConstMethod30checked_exceptions_length_addrEv.exit: ; preds = %20, %27, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod31localvariable_table_length_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod31localvariable_table_length_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8
@@ -1545,7 +1545,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit: ; preds = %58, %65, %67
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
@@ -1921,7 +1921,7 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit: ; preds = %_ZNK11Cons
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8
@@ -2193,7 +2193,7 @@ _ZNK11ConstMethod27exception_table_length_addrEv.exit: ; preds = %_ZNK11ConstMet
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_annotations_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_annotations_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -2203,7 +2203,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_annotations_addrEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod26parameter_annotations_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod26parameter_annotations_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 128
@@ -2218,7 +2218,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod26parameter_annotations_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod21type_annotations_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod21type_annotations_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 128
@@ -2238,7 +2238,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod21type_annotations_addrEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ConstMethod24default_annotations_addrEv(ptr noundef nonnull readonly align 8 dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ConstMethod24default_annotations_addrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(52) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 128

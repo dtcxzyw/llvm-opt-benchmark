@@ -89,7 +89,7 @@ define dso_local ptr @form_request_name(i32 noundef %0) local_unnamed_addr #0 {
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -9, 576) i32 @form_request_by_name(ptr noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i32 -9, 576) i32 @form_request_by_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   %.not = icmp eq ptr %0, null

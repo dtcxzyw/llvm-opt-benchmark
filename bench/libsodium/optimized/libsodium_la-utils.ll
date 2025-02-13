@@ -599,7 +599,7 @@ _sodium_mprotect.exit:                            ; preds = %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly %padded_buflen_p, ptr noundef nonnull captures(none) %buf, i64 noundef %unpadded_buflen, i64 noundef %blocksize, i64 noundef %max_buflen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly captures(address_is_null) %padded_buflen_p, ptr noundef nonnull captures(none) %buf, i64 noundef %unpadded_buflen, i64 noundef %blocksize, i64 noundef %max_buflen) local_unnamed_addr #0 {
 entry:
   %mask = alloca i8, align 1
   %cmp = icmp eq i64 %blocksize, 0

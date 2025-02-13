@@ -9966,7 +9966,7 @@ return:                                           ; preds = %if.else73, %noins
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 65536) i32 @var_lookup_(ptr noundef %fs, ptr noundef %name, ptr noundef nonnull captures(none) %e, i32 noundef range(i32 0, 2) %first) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65536) i32 @var_lookup_(ptr noundef captures(address_is_null) %fs, ptr noundef %name, ptr noundef nonnull captures(none) %e, i32 noundef range(i32 0, 2) %first) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %fs, null
   br i1 %tobool.not, label %if.else14, label %if.then

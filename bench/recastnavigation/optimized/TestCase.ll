@@ -377,7 +377,7 @@ define dso_local void @_ZN8TestCase10resetTimesEv(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8TestCase7doTestsEP9dtNavMeshP14dtNavMeshQuery(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN8TestCase7doTestsEP9dtNavMeshP14dtNavMeshQuery(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca [256 x i32], align 16
   %5 = alloca [768 x float], align 16
   %6 = alloca [3 x float], align 4

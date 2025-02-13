@@ -12,7 +12,7 @@ define hidden void @avifDiagnosticsClearError(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @avifDiagnosticsPrintf(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #1 {
+define hidden void @avifDiagnosticsPrintf(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4

@@ -362,7 +362,7 @@ eh.resume:                                        ; preds = %ehcleanup13, %lpad
 declare void @_ZN6icu_7524DateTimePatternGenerator21staticGetBaseSkeletonERKNS_13UnicodeStringER10UErrorCode(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udatpg_addPattern_75(ptr noundef %dtpg, ptr noundef %pattern, i32 noundef %patternLength, i8 noundef signext %override, ptr noundef %conflictingPattern, i32 noundef %capacity, ptr noundef writeonly %pLength, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @udatpg_addPattern_75(ptr noundef %dtpg, ptr noundef %pattern, i32 noundef %patternLength, i8 noundef signext %override, ptr noundef %conflictingPattern, i32 noundef %capacity, ptr noundef writeonly captures(address_is_null) %pLength, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %patternString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -496,7 +496,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 declare void @_ZN6icu_7524DateTimePatternGenerator19setAppendItemFormatE21UDateTimePatternFieldRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getAppendItemFormat_75(ptr noundef nonnull %dtpg, i32 noundef %field, ptr noundef writeonly %pLength) local_unnamed_addr #0 {
+define ptr @udatpg_getAppendItemFormat_75(ptr noundef nonnull %dtpg, i32 noundef %field, ptr noundef writeonly captures(address_is_null) %pLength) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator19getAppendItemFormatE21UDateTimePatternField(ptr noundef nonnull align 8 dereferenceable(4796) %dtpg, i32 noundef %field)
   %cmp.not = icmp eq ptr %pLength, null
@@ -584,7 +584,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 declare void @_ZN6icu_7524DateTimePatternGenerator17setAppendItemNameE21UDateTimePatternFieldRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getAppendItemName_75(ptr noundef nonnull %dtpg, i32 noundef %field, ptr noundef writeonly %pLength) local_unnamed_addr #0 {
+define ptr @udatpg_getAppendItemName_75(ptr noundef nonnull %dtpg, i32 noundef %field, ptr noundef writeonly captures(address_is_null) %pLength) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator17getAppendItemNameE21UDateTimePatternField(ptr noundef nonnull align 8 dereferenceable(4796) %dtpg, i32 noundef %field)
   %cmp.not = icmp eq ptr %pLength, null
@@ -740,7 +740,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 declare void @_ZN6icu_7524DateTimePatternGenerator17setDateTimeFormatERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getDateTimeFormat_75(ptr noundef nonnull %dtpg, ptr noundef writeonly %pLength) local_unnamed_addr #0 {
+define ptr @udatpg_getDateTimeFormat_75(ptr noundef nonnull %dtpg, ptr noundef writeonly captures(address_is_null) %pLength) local_unnamed_addr #0 {
 if.end2.i:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -787,7 +787,7 @@ udatpg_getDateTimeFormatForStyle_75.exit:         ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getDateTimeFormatForStyle_75(ptr noundef %udtpg, i32 noundef %style, ptr noundef writeonly %pLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define ptr @udatpg_getDateTimeFormatForStyle_75(ptr noundef %udtpg, i32 noundef %style, ptr noundef writeonly captures(address_is_null) %pLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -945,7 +945,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 declare void @_ZN6icu_7524DateTimePatternGenerator10setDecimalERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(4796), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getDecimal_75(ptr noundef nonnull %dtpg, ptr noundef writeonly %pLength) local_unnamed_addr #0 {
+define ptr @udatpg_getDecimal_75(ptr noundef nonnull %dtpg, ptr noundef writeonly captures(address_is_null) %pLength) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7524DateTimePatternGenerator10getDecimalEv(ptr noundef nonnull align 8 dereferenceable(4796) %dtpg)
   %cmp.not = icmp eq ptr %pLength, null
@@ -1133,7 +1133,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7524DateTimePatternGenerator16getBaseSkeletonsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4796), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udatpg_getPatternForSkeleton_75(ptr noundef %dtpg, ptr noundef %skeleton, i32 noundef %skeletonLength, ptr noundef writeonly %pLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define ptr @udatpg_getPatternForSkeleton_75(ptr noundef %dtpg, ptr noundef %skeleton, i32 noundef %skeletonLength, ptr noundef writeonly captures(address_is_null) %pLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %skeletonString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

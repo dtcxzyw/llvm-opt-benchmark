@@ -1624,7 +1624,7 @@ if.end.i.i18:                                     ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN5folly9EventBase12getEventBaseEv(ptr noundef nonnull readnone returned align 16 dereferenceable(584) %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZN5folly9EventBase12getEventBaseEv(ptr noundef nonnull readnone returned align 16 captures(ret: address, provenance) dereferenceable(584) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr %this
 }
@@ -1898,7 +1898,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn24_N5folly9EventBase12getEventBaseEv(ptr noundef readnone %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZThn24_N5folly9EventBase12getEventBaseEv(ptr noundef readnone captures(ret: address, provenance) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   ret ptr %0
@@ -9377,7 +9377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5folly9EventBase19getNumLoopCallbacksEv(ptr noundef nonnull readonly align 16 dereferenceable(584) %this) local_unnamed_addr #34 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK5folly9EventBase19getNumLoopCallbacksEv(ptr noundef nonnull readonly align 16 captures(address) dereferenceable(584) %this) local_unnamed_addr #34 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %loopCallbacks_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   br label %do.body.i
@@ -14125,7 +14125,7 @@ declare noundef i64 @_ZN5folly13getOSThreadIDEv() local_unnamed_addr #2
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9EventBase16runLoopCallbacksERN5boost9intrusive4listINS0_12LoopCallbackEJNS2_18constant_time_sizeILb0EEEEEE(ptr noundef nonnull readonly align 16 dereferenceable(584) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %currentCallbacks) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly9EventBase16runLoopCallbacksERN5boost9intrusive4listINS0_12LoopCallbackEJNS2_18constant_time_sizeILb0EEEEEE(ptr noundef nonnull readonly align 16 captures(address) dereferenceable(584) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %currentCallbacks) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rctx = alloca %"class.folly::RequestContextScopeGuard", align 8
   %0 = load ptr, ptr %currentCallbacks, align 8, !tbaa !154
@@ -19540,7 +19540,7 @@ declare noundef zeroext i1 @_ZN5folly13setThreadNameENSt6thread2idENS_5RangeIPKc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5folly9EventBase7getNameB5cxx11Ev(ptr noundef nonnull readnone align 16 dereferenceable(584) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5folly9EventBase7getNameB5cxx11Ev(ptr noundef nonnull readnone align 16 captures(ret: address, provenance) dereferenceable(584) %this) local_unnamed_addr #6 align 2 {
 entry:
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   ret ptr %name_

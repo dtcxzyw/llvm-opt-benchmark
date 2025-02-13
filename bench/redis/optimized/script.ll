@@ -130,7 +130,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, 3) i32 @scriptInterrupt(ptr noundef %run_ctx) local_unnamed_addr #2 {
+define dso_local range(i32 1, 3) i32 @scriptInterrupt(ptr noundef captures(address) %run_ctx) local_unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %run_ctx, i64 24
   %0 = load i32, ptr %flags, align 8
@@ -479,7 +479,7 @@ declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @selectDb(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scriptResetRun(ptr noundef %run_ctx) local_unnamed_addr #2 {
+define dso_local void @scriptResetRun(ptr noundef captures(address) %run_ctx) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @curr_run_ctx, align 8
   %tobool.not = icmp eq ptr %0, null

@@ -774,7 +774,7 @@ define dso_local noundef range(i32 -16, 1) i32 @mdiobus_register_device(ptr noun
 declare dso_local void @mdio_device_reset(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @mdiobus_unregister_device(ptr noundef readonly %0) #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mdiobus_unregister_device(ptr noundef readonly captures(address) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1928

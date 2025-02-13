@@ -38,7 +38,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE20_M_a
 @_ZN6pj_ctxD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6pj_ctxD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_Z10pj_get_ctxP8PJconsts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 

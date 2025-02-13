@@ -401,7 +401,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.198 = private unnamed_addr constant [25 x i8] c"%08X%08X%08X.%08X.backup\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @XLogInsertRecord(ptr noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i64 @XLogInsertRecord(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load ptr, ptr @XLogCtl, align 8
@@ -7342,7 +7342,7 @@ define dso_local i64 @GetInsertRecPtr() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetFlushRecPtr(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @GetFlushRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @XLogCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #26, !srcloc !8
@@ -10024,7 +10024,7 @@ declare i32 @pg_fsync_no_writethrough(i32 noundef) local_unnamed_addr #3
 declare i32 @pg_fdatasync(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @do_pg_backup_start(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @do_pg_backup_start(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %7 = alloca [1034 x i8], align 16
   %8 = alloca [1024 x i8], align 16

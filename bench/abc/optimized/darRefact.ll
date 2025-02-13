@@ -557,7 +557,7 @@ define void @Ref_ObjPrint(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %.val = load i32, ptr %3, align 8, !tbaa !73
   %.not = icmp eq i32 %.val, 0
   br i1 %.not, label %7, label %.critedge2

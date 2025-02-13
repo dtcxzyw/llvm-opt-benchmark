@@ -181,7 +181,7 @@ _ZN5QListIP9ProtoNodeE6appendES1_.exit:           ; preds = %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN9ProtoNode8isHiddenEP11_proto_node(ptr noundef readonly %0) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN9ProtoNode8isHiddenEP11_proto_node(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 align 2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL20proto_item_is_hiddenP11_proto_node.exit, label %2
 
@@ -729,7 +729,7 @@ define noundef i32 @_ZNK9ProtoNode13childrenCountEv(ptr noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN9ProtoNode3rowEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN9ProtoNode3rowEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK9ProtoNode7isChildEv.exit.thread, label %_ZNK9ProtoNode7isChildEv.exit

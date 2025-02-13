@@ -1314,7 +1314,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq11mechanism_t11get_user_idEv(ptr noundef nonnull readnone align 8 dereferenceable(1488) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq11mechanism_t11get_user_idEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1488) %this) local_unnamed_addr #9 align 2 {
 entry:
   %_user_id = getelementptr inbounds nuw i8, ptr %this, i64 1464
   ret ptr %_user_id
@@ -1429,7 +1429,7 @@ _ZL8name_lenPKc.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK3zmq11mechanism_t20add_basic_propertiesEPhm(ptr noundef nonnull readonly align 8 dereferenceable(1488) %this, ptr noundef initializes((0, 1)) %ptr_, i64 noundef %ptr_capacity_) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK3zmq11mechanism_t20add_basic_propertiesEPhm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1488) %this, ptr noundef initializes((0, 1)) %ptr_, i64 noundef %ptr_capacity_) local_unnamed_addr #0 align 2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %this, i64 316
   %0 = load i8, ptr %type, align 4
@@ -1512,7 +1512,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK3zmq11mechanism_t20basic_properties_lenEv(ptr noundef nonnull readonly align 8 dereferenceable(1488) %this) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK3zmq11mechanism_t20basic_properties_lenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1488) %this) local_unnamed_addr #0 align 2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %this, i64 316
   %0 = load i8, ptr %type, align 4
@@ -1594,7 +1594,7 @@ cond.end:                                         ; preds = %for.end, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %msg_, ptr noundef readonly captures(none) %prefix_, i64 noundef %prefix_len_) local_unnamed_addr #0 align 2 {
+define void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 captures(address) dereferenceable(1488) %this, ptr noundef %msg_, ptr noundef readonly captures(none) %prefix_, i64 noundef %prefix_len_) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK3zmq11mechanism_t20basic_properties_lenEv(ptr noundef nonnull align 8 dereferenceable(1488) %this)
   %add = add i64 %call, %prefix_len_

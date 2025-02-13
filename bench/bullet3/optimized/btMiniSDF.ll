@@ -2197,7 +2197,7 @@ if.end:                                           ; preds = %for.body.i633, %ent
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK9btMiniSDF11interpolateEjRdRK9btVector3PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, i32 noundef %field_id, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %dist, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %x, ptr noundef writeonly %gradient) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9btMiniSDF11interpolateEjRdRK9btVector3PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, i32 noundef %field_id, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %dist, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %x, ptr noundef writeonly captures(address_is_null) %gradient) local_unnamed_addr #9 align 2 {
 entry:
   %xi = alloca %class.btVector3, align 8
   %N = alloca %struct.btShapeMatrix, align 8

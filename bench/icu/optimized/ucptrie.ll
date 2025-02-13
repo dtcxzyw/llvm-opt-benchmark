@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @ucptrie_openFromBinary_75(i32 noundef %type, i32 noundef %valueWidth, ptr noundef %data, i32 noundef %length, ptr noundef writeonly %pActualLength, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
+define noalias noundef ptr @ucptrie_openFromBinary_75(i32 noundef %type, i32 noundef %valueWidth, ptr noundef %data, i32 noundef %length, ptr noundef writeonly captures(address_is_null) %pActualLength, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -730,7 +730,7 @@ return:                                           ; preds = %if.end21, %if.end17
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucptrie_getRange_75(ptr noundef readonly captures(none) %trie, i32 noundef %start, i32 noundef %option, i32 noundef %surrogateValue, ptr noundef %filter, ptr noundef %context, ptr noundef %pValue) local_unnamed_addr #0 {
+define i32 @ucptrie_getRange_75(ptr noundef readonly captures(none) %trie, i32 noundef %start, i32 noundef %option, i32 noundef %surrogateValue, ptr noundef captures(address_is_null) %filter, ptr noundef %context, ptr noundef captures(address_is_null) %pValue) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %value2.i = alloca i32, align 4
@@ -788,7 +788,7 @@ ucptrie_internalGetRange_75.exit:                 ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly captures(none) %t, i32 noundef %start, ptr noundef readonly %filter, ptr noundef %context, ptr noundef writeonly %pValue) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly captures(none) %t, i32 noundef %start, ptr noundef readonly captures(address_is_null) %filter, ptr noundef %context, ptr noundef writeonly captures(address_is_null) %pValue) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %start, 1114111
   br i1 %cmp, label %return, label %if.end
@@ -1557,7 +1557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucpmap_getRange_75(ptr noundef readonly captures(none) %map, i32 noundef %start, i32 noundef %option, i32 noundef %surrogateValue, ptr noundef %filter, ptr noundef %context, ptr noundef %pValue) local_unnamed_addr #0 {
+define i32 @ucpmap_getRange_75(ptr noundef readonly captures(none) %map, i32 noundef %start, i32 noundef %option, i32 noundef %surrogateValue, ptr noundef captures(address_is_null) %filter, ptr noundef %context, ptr noundef captures(address_is_null) %pValue) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   %value2.i.i = alloca i32, align 4

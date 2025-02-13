@@ -353,7 +353,7 @@ $__clang_call_terminate = comdat any
 @.str.331 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11please_citeP8_IO_FILEPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @_Z11please_citeP8_IO_FILEPKc(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %33, label %.preheader
 
@@ -421,7 +421,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17pleaseCiteGromacsP8_IO_FILE(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z17pleaseCiteGromacsP8_IO_FILE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::TextLineWrapper", align 4
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

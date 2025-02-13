@@ -7669,7 +7669,7 @@ declare void @abort() local_unnamed_addr #14
 declare noundef ptr @_ZN6icu_7514DayPeriodRules11getInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(217) ptr @_ZNK6icu_7516SimpleDateFormat15getSmpFmtLocaleEv(ptr noundef nonnull readnone align 8 dereferenceable(832) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(217) ptr @_ZNK6icu_7516SimpleDateFormat15getSmpFmtLocaleEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(832) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
   ret ptr %fLocale

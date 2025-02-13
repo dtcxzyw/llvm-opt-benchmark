@@ -35189,7 +35189,7 @@ eh.resume:                                        ; preds = %lpad46, %ehcleanup1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension22getSearchSizeForAnchorENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(1264) %this, ptr noundef readonly captures(none) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension22getSearchSizeForAnchorENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1264) %this, ptr noundef readonly captures(none) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1128
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -38208,7 +38208,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension27getSearchSizeForMeasureTermENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(1264) %this, ptr noundef readonly captures(none) %m) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension27getSearchSizeForMeasureTermENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1264) %this, ptr noundef readonly captures(none) %m) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

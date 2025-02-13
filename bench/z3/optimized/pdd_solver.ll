@@ -2651,7 +2651,7 @@ eh.resume:                                        ; preds = %if.then.i.i73, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2dd6solver18try_simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull readonly align 8 dereferenceable(32) %src, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %changed_leading_term) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2dd6solver18try_simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %src, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %changed_leading_term) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.dd::pdd", align 8
   %r = alloca %"class.dd::pdd", align 8
@@ -3965,7 +3965,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd6solver14simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull readonly align 8 dereferenceable(32) %src, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %changed_leading_term) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd6solver14simplify_usingERNS0_8equationERKS1_Rb(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %src, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %changed_leading_term) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.dd::pdd", align 8
   %r = alloca %"class.dd::pdd", align 8
@@ -5346,7 +5346,7 @@ declare void @_ZNK2dd3pdd9subst_pddEjRKS0_(ptr sret(%"class.dd::pdd") align 8, p
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN2dd3pddaSERKS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2dd6solver9get_queueERKNS0_8equationE(ptr noundef nonnull readnone align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %eq) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2dd6solver9get_queueERKNS0_8equationE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %eq) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %eq, align 8
   %1 = icmp ult i32 %0, 3

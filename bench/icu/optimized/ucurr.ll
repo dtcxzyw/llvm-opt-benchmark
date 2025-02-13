@@ -1006,7 +1006,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucurr_unregister_75(ptr noundef %key, ptr noundef readonly %status) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucurr_unregister_75(ptr noundef %key, ptr noundef readonly captures(address_is_null) %status) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %status, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -1501,7 +1501,7 @@ declare void @ures_close_75(ptr noundef) local_unnamed_addr #6
 declare void @ulocimp_getParent(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucurr_getName_75(ptr noundef %currency, ptr noundef %locale, i32 noundef %nameStyle, ptr noundef writeonly %isChoiceFormat, ptr noundef %len, ptr noundef captures(none) %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @ucurr_getName_75(ptr noundef %currency, ptr noundef %locale, i32 noundef %nameStyle, ptr noundef writeonly captures(address_is_null) %isChoiceFormat, ptr noundef %len, ptr noundef captures(none) %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ec2 = alloca i32, align 4
   %loc = alloca %"class.icu_75::CharString", align 8
@@ -1783,7 +1783,7 @@ declare ptr @ures_getByKeyWithFallback_75(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @ures_getStringByIndex_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucurr_getPluralName_75(ptr noundef %currency, ptr noundef %locale, ptr noundef %isChoiceFormat, ptr noundef %pluralCount, ptr noundef %len, ptr noundef captures(none) %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @ucurr_getPluralName_75(ptr noundef %currency, ptr noundef %locale, ptr noundef captures(address_is_null) %isChoiceFormat, ptr noundef %pluralCount, ptr noundef %len, ptr noundef captures(none) %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ec2 = alloca i32, align 4
   %loc = alloca %"class.icu_75::CharString", align 8
@@ -5919,7 +5919,7 @@ for.end:                                          ; preds = %for.body, %for.end.
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL22ucurr_nextCurrencyListP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %enumerator, ptr noundef writeonly %resultLength, ptr readnone captures(none) %0) #13 {
+define internal noundef ptr @_ZL22ucurr_nextCurrencyListP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %enumerator, ptr noundef writeonly captures(address_is_null) %resultLength, ptr readnone captures(none) %0) #13 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %enumerator, i64 8
   %1 = load ptr, ptr %context, align 8

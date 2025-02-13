@@ -10476,7 +10476,7 @@ return:                                           ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3ue213roseCheckRoseERKNS_11RoseInGraphEbRKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull readonly align 8 dereferenceable(56) %ig, i1 noundef zeroext %prefilter, ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(320) %cc) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3ue213roseCheckRoseERKNS_11RoseInGraphEbRKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %ig, i1 noundef zeroext %prefilter, ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(320) %cc) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ig, i64 8
   %0 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8, !noalias !368
@@ -16086,7 +16086,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_11RoseI
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_11RoseInGraphENS2_17RoseInVertexPropsENS2_15RoseInEdgePropsEEEEESt6vectorISA_SaISA_EEEESB_NS0_5__ops10_Iter_predIZNS2_L20shift_accepts_to_endERKS6_RSE_E3$_0EElET_SN_SN_T1_T2_T0_SP_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__len, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #16 {
+define internal fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_11RoseInGraphENS2_17RoseInVertexPropsENS2_15RoseInEdgePropsEEEEESt6vectorISA_SaISA_EEEESB_NS0_5__ops10_Iter_predIZNS2_L20shift_accepts_to_endERKS6_RSE_E3$_0EElET_SN_SN_T1_T2_T0_SP_"(ptr %__first.coerce, ptr captures(address) %__last.coerce, i64 noundef %__len, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #16 {
 entry:
   %__tmp.i.i20.i.i = alloca %"class.ue2::graph_detail::vertex_descriptor.272", align 8
   %__tmp.i.i.i.i = alloca %"class.ue2::graph_detail::vertex_descriptor.272", align 8

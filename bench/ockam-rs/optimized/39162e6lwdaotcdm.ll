@@ -4103,7 +4103,7 @@ define void @_ZN5ockam6remote4info15RemoteRelayInfo3new17hb9097db46c21bc25E(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ockam6remote4info15RemoteRelayInfo16forwarding_route17hb70981b757794ed0E(ptr noalias noundef readonly returned align 8 dereferenceable(112) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ockam6remote4info15RemoteRelayInfo16forwarding_route17hb70981b757794ed0E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -4119,13 +4119,13 @@ define { ptr, i64 } @_ZN5ockam6remote4info15RemoteRelayInfo14remote_address17h68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ockam6remote4info15RemoteRelayInfo14worker_address17hca13ed0e552c1d23E(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ockam6remote4info15RemoteRelayInfo14worker_address17hca13ed0e552c1d23E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5ockam6remote4info15RemoteRelayInfo15flow_control_id17h6303d8cf226475aeE(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5ockam6remote4info15RemoteRelayInfo15flow_control_id17h6303d8cf226475aeE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }

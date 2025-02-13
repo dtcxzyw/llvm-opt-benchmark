@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN5folly6detail13base64_detail19base64Encode_SSE4_2EPKcS3_Pc(ptr noundef %f, ptr noundef %l, ptr noundef writeonly %o) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5folly6detail13base64_detail19base64Encode_SSE4_2EPKcS3_Pc(ptr noundef %f, ptr noundef %l, ptr noundef writeonly captures(ret: address, provenance) %o) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %l to i64
   %sub.ptr.rhs.cast.i4 = ptrtoint ptr %f to i64
@@ -160,7 +160,7 @@ declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #1
 declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN5folly6detail13base64_detail22base64URLEncode_SSE4_2EPKcS3_Pc(ptr noundef %f, ptr noundef %l, ptr noundef writeonly %o) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5folly6detail13base64_detail22base64URLEncode_SSE4_2EPKcS3_Pc(ptr noundef %f, ptr noundef %l, ptr noundef writeonly captures(ret: address, provenance) %o) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %l to i64
   %sub.ptr.rhs.cast.i4 = ptrtoint ptr %f to i64

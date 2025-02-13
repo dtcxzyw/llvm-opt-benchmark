@@ -149,7 +149,7 @@ define internal i32 @memory_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noalias noundef ptr @mem_devnode(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #4 align 16 {
+define internal noalias noundef ptr @mem_devnode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #4 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %15, label %4
 

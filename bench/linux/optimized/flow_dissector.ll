@@ -270,7 +270,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readonly %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(address) %3, i32 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
   switch i8 %2, label %8 [
     i8 6, label %9
@@ -348,7 +348,7 @@ define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_flow_get_icmp_tci(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @skb_flow_get_icmp_tci(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.icmphdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   store i64 0, ptr %6, align 8, !annotation !19
@@ -3368,7 +3368,7 @@ define dso_local range(i32 1, 0) i32 @skb_get_hash_perturb(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 65596) i32 @__skb_get_poff(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 65596) i32 @__skb_get_poff(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i8, align 1
   %6 = load i16, ptr %2, align 4
   %7 = zext i16 %6 to i32

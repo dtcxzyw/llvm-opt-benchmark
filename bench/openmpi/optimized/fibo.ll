@@ -53,7 +53,7 @@ define hidden void @tm_fiboTreeFree(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @tm_fiboTreeMin(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24

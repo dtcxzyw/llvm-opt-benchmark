@@ -3618,14 +3618,14 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev9ProcessorELN9__gnu_cxx12_Lock_policy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl9getSliderEv(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) unnamed_addr #13 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl9getSliderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) unnamed_addr #13 align 2 {
 entry:
   %m_slider = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %m_slider
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl9getSliderEff(ptr noundef nonnull writeonly align 8 dereferenceable(128) initializes((40, 48)) %this, float noundef %sliderMixingMinEdge, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl9getSliderEff(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(128) initializes((40, 48)) %this, float noundef %sliderMixingMinEdge, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
 entry:
   %m_slider = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_sliderMinEdge.i = getelementptr inbounds nuw i8, ptr %this, i64 40

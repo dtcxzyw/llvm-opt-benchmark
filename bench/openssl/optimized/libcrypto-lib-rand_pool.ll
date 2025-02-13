@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rand_pool_add(ptr noundef captures(none) %pool, ptr noundef readonly %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_pool_add(ptr noundef captures(none) %pool, ptr noundef readonly captures(address) %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
   %max_len = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %0 = load i64, ptr %max_len, align 8

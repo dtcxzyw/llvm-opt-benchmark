@@ -1176,7 +1176,7 @@ if.end23:                                         ; preds = %sw.epilog.i, %sw.bb
 declare i32 @roseRunLastFlushCombProgram(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -7, 1) i32 @hs_open_stream(ptr noundef %db, i32 noundef %flags, ptr noundef writeonly %stream) local_unnamed_addr #0 {
+define dso_local range(i32 -7, 1) i32 @hs_open_stream(ptr noundef %db, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %stream) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %stream, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1367,7 +1367,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @hs_copy_stream(ptr noundef writeonly %to_id, ptr noundef readonly %from_id) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @hs_copy_stream(ptr noundef writeonly captures(address_is_null) %to_id, ptr noundef readonly captures(address_is_null) %from_id) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %to_id, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1406,7 +1406,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -13, 1) i32 @hs_reset_and_copy_stream(ptr noundef %to_id, ptr noundef readonly %from_id, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local range(i32 -13, 1) i32 @hs_reset_and_copy_stream(ptr noundef %to_id, ptr noundef readonly captures(address) %from_id, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %from_id, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -3668,7 +3668,7 @@ return:                                           ; preds = %report_eod_matches.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -7, 1) i32 @hs_stream_size(ptr noundef %db, ptr noundef writeonly %stream_size) local_unnamed_addr #4 {
+define dso_local range(i32 -7, 1) i32 @hs_stream_size(ptr noundef %db, ptr noundef writeonly captures(address_is_null) %stream_size) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %stream_size, null
   %tobool.i.not = icmp eq ptr %db, null
@@ -3716,7 +3716,7 @@ return:                                           ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -13, 1) i32 @hs_scan_vector(ptr noundef %db, ptr noundef readonly %data, ptr noundef readonly %length, i32 noundef %count, i32 noundef %flags, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local range(i32 -13, 1) i32 @hs_scan_vector(ptr noundef %db, ptr noundef readonly captures(address_is_null) %data, ptr noundef readonly captures(address_is_null) %length, i32 noundef %count, i32 noundef %flags, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %tobool = icmp eq ptr %scratch, null
   %tobool1 = icmp eq ptr %data, null
@@ -4313,7 +4313,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -12, 1) i32 @hs_compress_stream(ptr noundef %stream, ptr noundef %buf, i64 noundef %buf_space, ptr noundef writeonly %used_space) local_unnamed_addr #0 {
+define dso_local range(i32 -12, 1) i32 @hs_compress_stream(ptr noundef %stream, ptr noundef %buf, i64 noundef %buf_space, ptr noundef writeonly captures(address_is_null) %used_space) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %stream, null
   %tobool1.not = icmp eq ptr %used_space, null
@@ -4347,7 +4347,7 @@ declare i64 @size_compress_stream(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i64 @compress_stream(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -7, 1) i32 @hs_expand_stream(ptr noundef %db, ptr noundef writeonly %stream, ptr noundef %buf, i64 noundef %buf_size) local_unnamed_addr #0 {
+define dso_local range(i32 -7, 1) i32 @hs_expand_stream(ptr noundef %db, ptr noundef writeonly captures(address_is_null) %stream, ptr noundef %buf, i64 noundef %buf_size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %stream, null
   %tobool1.not = icmp eq ptr %buf, null

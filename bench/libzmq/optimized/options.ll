@@ -1635,7 +1635,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN3zmq1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef nonnull %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly captures(address_is_null) %optval_, i64 noundef %optvallen_, ptr noundef nonnull %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %optvallen_, 0
   %cmp1 = icmp eq ptr %optval_, null
@@ -1747,7 +1747,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIjjSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef nonnull %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly captures(address_is_null) %optval_, i64 noundef %optvallen_, ptr noundef nonnull %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %optvallen_, 0
   %cmp1 = icmp eq ptr %optval_, null

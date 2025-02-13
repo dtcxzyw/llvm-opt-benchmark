@@ -2139,7 +2139,7 @@ define void @_ZN3gmx24ExponentialMovingAverage19updateWithDataPointEf(ptr nounde
 declare float @llvm.fmuladd.f32(float, float, float) #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(9) ptr @_ZNK3gmx24ExponentialMovingAverage5stateEv(ptr noundef nonnull readnone returned align 4 dereferenceable(16) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 4 dereferenceable(9) ptr @_ZNK3gmx24ExponentialMovingAverage5stateEv(ptr noundef nonnull readnone returned align 4 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #15 align 2 {
   ret ptr %0
 }
 

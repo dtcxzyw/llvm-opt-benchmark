@@ -17,7 +17,7 @@ $_ZTS17LibRaw_exceptions = comdat any
 @_ZTISt9bad_alloc = external constant ptr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6LibRaw21dcraw_ppm_tiff_writerEPKc(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN6LibRaw21dcraw_ppm_tiff_writerEPKc(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5496
   %4 = load i32, ptr %3, align 8, !tbaa !6
   %5 = and i32 %4, 268435448

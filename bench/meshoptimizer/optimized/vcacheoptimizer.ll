@@ -21,7 +21,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef writeonly %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef readonly captures(none) %table) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef writeonly captures(address) %destination, ptr noundef readonly captures(address) %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef readonly captures(none) %table) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %adjacency = alloca %"struct.meshopt::TriangleAdjacency", align 8
@@ -582,21 +582,21 @@ terminate.lpad:                                   ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_optimizeVertexCache(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
+define dso_local void @meshopt_optimizeVertexCache(ptr noundef captures(address) %destination, ptr noundef captures(address) %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
 entry:
   tail call void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef nonnull @_ZN7meshoptL17kVertexScoreTableE)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_optimizeVertexCacheStrip(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
+define dso_local void @meshopt_optimizeVertexCacheStrip(ptr noundef captures(address) %destination, ptr noundef captures(address) %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
 entry:
   tail call void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef %destination, ptr noundef %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef nonnull @_ZN7meshoptL22kVertexScoreTableStripE)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, i32 noundef %cache_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly captures(address) %destination, ptr noundef readonly captures(address) %indices, i64 noundef %index_count, i64 noundef %vertex_count, i32 noundef %cache_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %adjacency = alloca %"struct.meshopt::TriangleAdjacency", align 8

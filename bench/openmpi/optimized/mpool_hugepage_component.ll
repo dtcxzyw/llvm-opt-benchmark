@@ -471,7 +471,7 @@ define internal noundef i32 @mca_mpool_hugepage_register() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #0 {
+define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @mca_mpool_hugepage_priority, align 4
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_hugepage_component, i64 352), align 8

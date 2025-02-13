@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [48 x i8] c"cli_pdf: LZW_OK on stream inflation completion\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @pdf_decodestream(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @pdf_decodestream(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.lzw_stream_s, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8

@@ -594,7 +594,7 @@ read_dir_paths.exit.thread:                       ; preds = %3, %._crit_edge
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @tmp_objdir_env(ptr noundef readonly %0) local_unnamed_addr #7 {
+define dso_local ptr @tmp_objdir_env(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

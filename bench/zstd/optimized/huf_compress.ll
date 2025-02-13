@@ -2939,14 +2939,14 @@ return:                                           ; preds = %if.end9, %for.end.l
 declare i32 @FSE_optimalTableLog_internal(i32 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @HUF_compress1X_repeat(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %hufTable, ptr noundef %repeat, i32 noundef %flags) local_unnamed_addr #2 {
+define i64 @HUF_compress1X_repeat(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %hufTable, ptr noundef captures(address_is_null) %repeat, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc i64 @HUF_compress_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, i32 noundef 0, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %hufTable, ptr noundef %repeat, i32 noundef %flags)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @HUF_compress_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, i32 noundef range(i32 0, 2) %nbStreams, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %oldHufTable, ptr noundef %repeat, i32 noundef %flags) unnamed_addr #2 {
+define internal fastcc i64 @HUF_compress_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, i32 noundef range(i32 0, 2) %nbStreams, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %oldHufTable, ptr noundef captures(address_is_null) %repeat, i32 noundef %flags) unnamed_addr #2 {
 entry:
   %maxSymbolValue.addr = alloca i32, align 4
   %maxSymbolValueBegin = alloca i32, align 4
@@ -3196,7 +3196,7 @@ return:                                           ; preds = %if.end156.thread143
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @HUF_compress4X_repeat(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %hufTable, ptr noundef %repeat, i32 noundef %flags) local_unnamed_addr #2 {
+define i64 @HUF_compress4X_repeat(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %hufTable, ptr noundef captures(address_is_null) %repeat, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc i64 @HUF_compress_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %huffLog, i32 noundef 1, ptr noundef %workSpace, i64 noundef %wkspSize, ptr noundef %hufTable, ptr noundef %repeat, i32 noundef %flags)
   ret i64 %call

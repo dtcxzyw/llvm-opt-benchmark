@@ -22,7 +22,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA6Thread17BarrierParametersC2EibPKc(ptr noundef nonnull align 4 dereferenceable(21) initializes((0, 5)) %this, i32 noundef %height, i1 noundef zeroext %bIntraProcess, ptr noundef readonly %pName) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA6Thread17BarrierParametersC2EibPKc(ptr noundef nonnull align 4 dereferenceable(21) initializes((0, 5)) %this, i32 noundef %height, i1 noundef zeroext %bIntraProcess, ptr noundef readonly captures(address_is_null) %pName) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i32 %height, ptr %this, align 4
@@ -48,7 +48,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA6Thread7BarrierC2EPKNS0_17BarrierParametersEb(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 105)) %this, ptr noundef readonly %pBarrierParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #4 align 2 {
+define dso_local void @_ZN2EA6Thread7BarrierC2EPKNS0_17BarrierParametersEb(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 105)) %this, ptr noundef readonly captures(address_is_null) %pBarrierParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %this, i8 0, i64 105, i1 false)
   %tobool.not = icmp eq ptr %pBarrierParameters, null
@@ -111,7 +111,7 @@ if.end:                                           ; preds = %if.then.i10, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef readonly %pBarrierParameters) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef readonly captures(address_is_null) %pBarrierParameters) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pBarrierParameters, null
   br i1 %tobool.not, label %return, label %land.lhs.true

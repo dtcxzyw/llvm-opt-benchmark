@@ -15,7 +15,7 @@ entry:
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_ERR_STATE_save(ptr noundef %es) local_unnamed_addr #0 {
+define void @OSSL_ERR_STATE_save(ptr noundef captures(address_is_null) %es) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %es, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -362,7 +362,7 @@ for.end82:                                        ; preds = %err_clear.exit131, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_ERR_STATE_restore(ptr noundef readonly %es) local_unnamed_addr #0 {
+define void @OSSL_ERR_STATE_restore(ptr noundef readonly captures(address_is_null) %es) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %es, null
   br i1 %cmp, label %for.end, label %lor.lhs.false

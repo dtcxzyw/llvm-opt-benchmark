@@ -1284,7 +1284,7 @@ _ZNSt6vectorIN4llvm14WeakTrackingVHESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18MergeFunctionsPass14runOnFunctionsENS_8ArrayRefIPNS_8FunctionEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::DenseMap.120") align 8 captures(none) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm18MergeFunctionsPass14runOnFunctionsENS_8ArrayRefIPNS_8FunctionEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::DenseMap.120") align 8 captures(none) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
 _ZN4llvm18ValueMapCallbackVHIPNS_11GlobalValueEmNS_17GlobalNumberState6ConfigEEC2ERKS5_.exit.i.i.i.i.i.i.preheader:
   %3 = alloca %"class.std::vector.157", align 8
   %4 = alloca %"class.llvm::WeakTrackingVH", align 8

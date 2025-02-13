@@ -1289,7 +1289,7 @@ _ZN5boostlsINS_9exceptionENS_3log11v2_mt_posix23attribute_name_info_tagENS3_14at
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1804,7 +1804,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2454,7 +2454,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.5", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::missing_value", align 8
@@ -2660,7 +2660,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix13missing_v
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13missing_value6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.5", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::missing_value", align 8
@@ -3088,7 +3088,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
@@ -3294,7 +3294,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_t
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
@@ -3522,7 +3522,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_t
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
@@ -3750,7 +3750,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12invalid_t
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12invalid_type6throw_EPKcmS4_RKNS1_14attribute_nameERKNS_9typeindex14stl_type_indexE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"struct.boost::exception_detail::error_info_injector.6", align 8
   %8 = alloca %"class.boost::log::v2_mt_posix::invalid_type", align 8
@@ -4218,7 +4218,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13invalid_value6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.8", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::invalid_value", align 8
@@ -4624,7 +4624,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
@@ -4830,7 +4830,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_err
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_m(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_m(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
@@ -5063,7 +5063,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix11parse_err
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_RKNS1_14attribute_nameE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.9", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::parse_error", align 8
@@ -5491,7 +5491,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16conversion_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.12", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::conversion_error", align 8
@@ -6078,7 +6078,7 @@ define void @_ZN5boost3log11v2_mt_posix12system_errorD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_i(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_i(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.14", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::system_error", align 8
@@ -6394,7 +6394,7 @@ _ZN5boost16exception_detail19error_info_injectorINS_3log11v2_mt_posix12system_er
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_NS_6system10error_codeE(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly byval(%"class.boost::system::error_code") align 8 captures(none) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix12system_error6throw_EPKcmS4_NS_6system10error_codeE(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly byval(%"class.boost::system::error_code") align 8 captures(none) %3) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.boost::exception_detail::error_info_injector.14", align 8
   %7 = alloca %"class.boost::log::v2_mt_posix::system_error", align 8
@@ -6634,7 +6634,7 @@ define void @_ZN5boost3log11v2_mt_posix11logic_errorD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11logic_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.15", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::logic_error", align 8
@@ -7092,7 +7092,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix13odr_violation6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.16", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::odr_violation", align 8
@@ -7498,7 +7498,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix15unexpected_call6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.17", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::unexpected_call", align 8
@@ -7903,7 +7903,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix11setup_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.18", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::setup_error", align 8
@@ -8309,7 +8309,7 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix16limitation_error6throw_EPKcmS4_(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.boost::exception_detail::error_info_injector.19", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::limitation_error", align 8

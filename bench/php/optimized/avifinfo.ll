@@ -204,7 +204,7 @@ define internal void @AvifInfoInternalForwardSkip(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @AvifInfoGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @AvifInfoGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.AvifInfoInternalForward, align 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -216,7 +216,7 @@ define hidden range(i32 0, 4) i32 @AvifInfoGetFeatures(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @AvifInfoGetFeaturesStream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @AvifInfoGetFeaturesStream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.AvifInfoInternalBox, align 4
   %6 = alloca %struct.AvifInfoInternalBox, align 4
   %7 = alloca %struct.AvifInfoInternalBox, align 4

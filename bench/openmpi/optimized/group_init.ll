@@ -264,7 +264,7 @@ opal_pointer_array_get_item.exit.thread:          ; preds = %78, %99, %opal_poin
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ompi_group_allocate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @ompi_group_allocate(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = tail call noalias ptr @calloc(i64 noundef %3, i64 noundef 8) #10
   %5 = icmp eq ptr %4, null
@@ -288,7 +288,7 @@ define noundef ptr @ompi_group_allocate(ptr noundef %0, i32 noundef %1) local_un
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ompi_group_allocate_plist_w_procs(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @ompi_group_allocate_plist_w_procs(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_group_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
   %6 = load i32, ptr @opal_class_init_epoch, align 4

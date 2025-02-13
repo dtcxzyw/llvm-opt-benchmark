@@ -2965,7 +2965,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_pow(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #9 {
+define internal ptr @complex_pow(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #9 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.Py_complex, align 8
@@ -3306,7 +3306,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %10, %_PyObject_Init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_pos(ptr noundef %0) #9 {
+define internal ptr @complex_pos(ptr noundef captures(ret: address, provenance) %0) #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !8
   %.not = icmp eq ptr %.val, @PyComplex_Type
@@ -3882,7 +3882,7 @@ complex_conjugate_impl.exit:                      ; preds = %8, %_PyObject_Init.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___complex__(ptr noundef %0, ptr readnone captures(none) %1) #9 {
+define internal ptr @complex___complex__(ptr noundef captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #9 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !8
   %.not.i = icmp eq ptr %.val.i, @PyComplex_Type

@@ -196,7 +196,7 @@ if.end:                                           ; preds = %if.then5.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_crl_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_crl_set0_libctx(ptr noundef captures(address_is_null) %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %x, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -1024,7 +1024,7 @@ declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %crl, ptr noundef writeonly %ret, ptr noundef %serial, ptr noundef %issuer) #1 {
+define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %crl, ptr noundef writeonly captures(address_is_null) %ret, ptr noundef %serial, ptr noundef %issuer) #1 {
 entry:
   %rtmp = alloca %struct.x509_revoked_st, align 8
   %revoked = getelementptr inbounds nuw i8, ptr %crl, i64 48

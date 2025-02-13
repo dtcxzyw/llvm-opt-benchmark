@@ -219,7 +219,7 @@ jd_putc.exit:                                     ; preds = %77, %71, %61, %53, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @json_dumper_set_member_name(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @json_dumper_set_member_name(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536
@@ -526,7 +526,7 @@ jd_putc.exit:                                     ; preds = %40, %34, %24, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_puts_string(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @json_puts_string(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %4 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1141,7 +1141,7 @@ define void @json_dumper_end_array(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @json_dumper_value_string(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @json_dumper_value_string(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536

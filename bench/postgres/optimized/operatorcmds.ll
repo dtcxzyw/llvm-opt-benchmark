@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [29 x i8] c"operator is only a shell: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [2 x i32], align 4
   %5 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %3) #6

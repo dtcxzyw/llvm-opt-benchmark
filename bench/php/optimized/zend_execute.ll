@@ -332,7 +332,7 @@ define dso_local nonnull ptr @zend_vm_stack_extend(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local ptr @zend_get_compiled_variable_value(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @zend_get_compiled_variable_value(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   ret ptr %4
@@ -1101,7 +1101,7 @@ zend_verify_scalar_type_hint.exit.thread30:       ; preds = %15, %3, %zend_verif
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @zend_check_user_type_slow(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local zeroext i1 @zend_check_user_type_slow(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2597,7 +2597,7 @@ _zval_undefined_op1.exit.thread:                  ; preds = %298, %_zval_undefin
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @zend_verify_ref_array_assignable(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @zend_verify_ref_array_assignable(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2951,7 +2951,7 @@ define dso_local void @zend_throw_conflicting_coercion_error(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @zend_verify_ref_assignable_zval(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @zend_verify_ref_assignable_zval(ptr noundef readonly captures(address) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3614,7 +3614,7 @@ declare noalias ptr @_emalloc_48() local_unnamed_addr #3
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_ref_del_type_source(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #1 {
+define dso_local void @zend_ref_del_type_source(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -4089,7 +4089,7 @@ define dso_local void @zend_init_func_run_time_cache(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_init_func_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @zend_init_func_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %4, ptr %5, align 8
@@ -4411,7 +4411,7 @@ define internal fastcc void @init_func_run_time_cache(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_init_code_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @zend_init_code_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %4, ptr %5, align 8
@@ -4479,7 +4479,7 @@ define dso_local void @zend_init_code_execute_data(ptr noundef initializes((0, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_init_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @zend_init_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1048576
@@ -5616,7 +5616,7 @@ define internal fastcc void @cleanup_live_vars(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_unfinished_execution_gc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @zend_unfinished_execution_gc(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16777216
@@ -5643,7 +5643,7 @@ define dso_local ptr @zend_unfinished_execution_gc(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_unfinished_execution_gc_ex(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define dso_local ptr @zend_unfinished_execution_gc_ex(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -65120,7 +65120,7 @@ zend_wrong_assign_to_variable_reference.exit:     ; preds = %87, %.thread, %63, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_CV_HANDLER(ptr noundef %0) #1 {
+define internal noundef i32 @ZEND_ASSIGN_REF_SPEC_VAR_CV_HANDLER(ptr noundef captures(address) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
@@ -144566,7 +144566,7 @@ zend_object_fetch_property_type_info.exit:        ; preds = %73, %80, %83, %99, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ZEND_POST_INC_OBJ_SPEC_UNUSED_CONST_HANDLER(ptr noundef %0) #1 {
+define internal noundef i32 @ZEND_POST_INC_OBJ_SPEC_UNUSED_CONST_HANDLER(ptr noundef captures(address) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -189721,7 +189721,7 @@ define dso_local ptr @zend_get_user_opcode_handler(i8 noundef zeroext %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @zend_get_zval_ptr(ptr noundef readnone %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone %3) local_unnamed_addr #14 {
+define dso_local ptr @zend_get_zval_ptr(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(ret: address, provenance) %3) local_unnamed_addr #14 {
   switch i32 %1, label %9 [
     i32 1, label %.sink.split
     i32 2, label %5
@@ -189774,7 +189774,7 @@ declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #1 {
+define internal fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i32, ptr %0, align 8
   %6 = zext i32 %5 to i64
@@ -190112,7 +190112,7 @@ resolve_single_class_type.exit94.thread:          ; preds = %83, %resolve_single
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_check_intersection_for_property_or_class_constant_class_type(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @zend_check_intersection_for_property_or_class_constant_class_type(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8
   %5 = zext i32 %4 to i64
   %.idx = shl nuw nsw i64 %5, 4
@@ -193850,7 +193850,7 @@ define internal fastcc void @zend_throw_non_object_error(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_assign_to_typed_prop(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 {
+define internal fastcc ptr @zend_assign_to_typed_prop(ptr noundef readonly captures(none) %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct._zval_struct, align 8
@@ -194358,7 +194358,7 @@ zval_undefined_cv.exit.thread:                    ; preds = %105, %zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_handle_fetch_obj_flags(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #1 {
+define internal fastcc void @zend_handle_fetch_obj_flags(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -195891,7 +195891,7 @@ zend_wrong_assign_to_variable_reference.exit:     ; preds = %201, %190, %168, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @zend_assign_to_typed_property_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, i32 %.24.val.4.val) unnamed_addr #1 {
+define internal fastcc noundef ptr @zend_assign_to_typed_property_reference(ptr noundef %0, ptr noundef captures(address, ret: address, provenance) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, i32 %.24.val.4.val) unnamed_addr #1 {
   %5 = icmp slt i32 %.24.val.4.val, 0
   %6 = tail call noundef zeroext i1 @zend_verify_prop_assignable_by_ref_ex(ptr noundef readonly %0, ptr noundef %2, i1 noundef zeroext %5, i32 noundef 0)
   br i1 %6, label %7, label %109
@@ -197488,7 +197488,7 @@ define internal fastcc void @zend_pre_inc_helper_SPEC_VAR(ptr noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_incdec_typed_ref(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #1 {
+define internal fastcc void @zend_incdec_typed_ref(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -197990,7 +197990,7 @@ define internal fastcc void @zend_pre_dec_helper_SPEC_CV(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #1 {
+define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %30 [
@@ -198201,7 +198201,7 @@ define internal fastcc range(i64 9223372036854775807, -9223372036854775807) i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_incdec_typed_prop(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 {
+define internal fastcc void @zend_incdec_typed_prop(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 {
   %6 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %2, null
   %spec.store.select = select i1 %.not, ptr %6, ptr %2
@@ -198345,7 +198345,7 @@ zend_verify_scalar_type_hint.exit.i:              ; preds = %65, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_post_incdec_property_zval(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_post_incdec_property_zval(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %40 [

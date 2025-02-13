@@ -1717,7 +1717,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @nanoexr_read_exr(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118exr_AssetRead_FuncEPK19_priv_exr_context_tPvS4_mmPFiS3_iPKczE(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118exr_AssetRead_FuncEPK19_priv_exr_context_tPvS4_mmPFiS3_iPKczE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit.thread, label %8
@@ -2029,7 +2029,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIjE9FlipImageEPjiii(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIjE9FlipImageEPjiii(ptr noundef captures(address) %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %.not = icmp samesign ult i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2230,7 +2230,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef nonnull captures(address) %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %.not = icmp samesign ult i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2356,7 +2356,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef nonnull captures(address) %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %.not = icmp samesign ult i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2452,7 +2452,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %5, %13,
 declare zeroext i1 @nanoexr_Gaussian_resample(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2921,7 +2921,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr 
 declare { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary4findB5cxx11EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage18GetSamplerMetadataENS_19HioAddressDimensionEPNS_14HioAddressModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i32 %1, ptr noundef writeonly %2) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage18GetSamplerMetadataENS_19HioAddressDimensionEPNS_14HioAddressModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #7 align 2 {
   %.not = icmp ne ptr %2, null
   br i1 %.not, label %4, label %9
 

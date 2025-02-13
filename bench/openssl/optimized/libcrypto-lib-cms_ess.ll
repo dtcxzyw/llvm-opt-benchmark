@@ -55,7 +55,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @CMS_get1_ReceiptRequest(ptr noundef %si, ptr noundef writeonly %prr) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CMS_get1_ReceiptRequest(ptr noundef %si, ptr noundef writeonly captures(address_is_null) %prr) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef 212) #4
   %cmp.not = icmp eq ptr %prr, null
@@ -278,7 +278,7 @@ declare i32 @CMS_signed_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @CMS_ReceiptRequest_get0_values(ptr noundef readonly captures(none) %rr, ptr noundef writeonly %pcid, ptr noundef writeonly %pallorfirst, ptr noundef writeonly %plist, ptr noundef writeonly %prto) local_unnamed_addr #2 {
+define void @CMS_ReceiptRequest_get0_values(ptr noundef readonly captures(none) %rr, ptr noundef writeonly captures(address_is_null) %pcid, ptr noundef writeonly captures(address_is_null) %pallorfirst, ptr noundef writeonly captures(address_is_null) %plist, ptr noundef writeonly captures(address_is_null) %prto) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %pcid, null
   br i1 %cmp.not, label %if.end, label %if.then

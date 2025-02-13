@@ -3650,7 +3650,7 @@ Vec_WrdFillExtra.exit182:                         ; preds = %Vec_WrdGrow.exit.i1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManIsoNpnReduce(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @Gia_ManIsoNpnReduce(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca [17 x ptr], align 16

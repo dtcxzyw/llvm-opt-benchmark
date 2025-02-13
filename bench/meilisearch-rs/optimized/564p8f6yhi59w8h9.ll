@@ -1278,7 +1278,7 @@ define hidden { i64, i64 } @_ZN4core5error5Error7type_id17h919f1e92c5b74e62E.llv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd31bf0835ba5f62cE.llvm.10588664184252717122"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #9 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd31bf0835ba5f62cE.llvm.10588664184252717122"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #9 {
   ret ptr %0
 }
 

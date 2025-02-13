@@ -1141,7 +1141,7 @@ _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (64, 72)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(80) initializes((0, 8), (64, 72)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !11
@@ -1293,14 +1293,14 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CFileListD1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (64, 72)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CFileListD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(80) initializes((0, 8), (64, 72)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZTTN3irr2io9CFileListE) #21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr2io9CFileListD1Ev(ptr noundef %this) unnamed_addr #2 align 2 {
+define void @_ZTv0_n24_N3irr2io9CFileListD1Ev(ptr noundef captures(address) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -3190,7 +3190,7 @@ _ZN3irr2io14SFileListEntryD2Ev.exit:              ; preds = %if.then.i.i.i3.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io9CFileList7getPathEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io9CFileList7getPathEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %this) unnamed_addr #7 align 2 {
 entry:
   %Path = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %Path

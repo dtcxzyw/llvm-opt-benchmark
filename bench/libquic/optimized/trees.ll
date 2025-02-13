@@ -463,7 +463,7 @@ bi_flush.exit:                                    ; preds = %if.else.i, %if.end2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @MOZ_Z__tr_flush_block(ptr noundef %s, ptr noundef readonly %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #3 {
+define dso_local void @MOZ_Z__tr_flush_block(ptr noundef %s, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #3 {
 entry:
   %level = getelementptr inbounds nuw i8, ptr %s, i64 1308
   %0 = load i32, ptr %level, align 4

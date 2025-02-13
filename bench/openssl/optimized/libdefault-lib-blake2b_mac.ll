@@ -79,7 +79,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blake2_mac_init(ptr noundef %vmacctx, ptr noundef readonly %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal i32 @blake2_mac_init(ptr noundef %vmacctx, ptr noundef readonly captures(address_is_null) %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0

@@ -1036,7 +1036,7 @@ declare ptr @htmlEntityUTF8(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @free_textspan(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @free_textspan(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %.preheader
 
@@ -1079,7 +1079,7 @@ define void @free_textspan(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_label(ptr noundef %0) local_unnamed_addr #0 {
+define void @free_label(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %2
 

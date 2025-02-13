@@ -56330,7 +56330,7 @@ _ZZN8pybind116detail16type_caster_baseI16ConstructorStatsE21make_move_constructo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE1AJZ32test_submodule_virtual_functionsS2_E3PyAEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE1AJZ32test_submodule_virtual_functionsS2_E3PyAEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_virtual_functionsRN8pybind117module_EE1A, ptr %4, align 8
@@ -57835,7 +57835,7 @@ _ZN8pybind116detail15argument_loaderIJPZ32test_submodule_virtual_functionsRNS_7m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE2A2JZ32test_submodule_virtual_functionsS2_E4PyA2EE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE2A2JZ32test_submodule_virtual_functionsS2_E4PyA2EE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_virtual_functionsRN8pybind117module_EE2A2, ptr %4, align 8
@@ -64986,7 +64986,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN9AdderBase4Da
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTest1AE, ptr %4, align 8
@@ -65580,7 +65580,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ32test_submodule_virtual_fu
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EEN12OverrideTest1AEJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -66298,7 +66298,7 @@ _ZNSt5arrayIN8pybind116objectELm4EED2Ev.exit:     ; preds = %_ZN8pybind116object
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJZ32test_submodule_virtual_functionsS2_E14PyOverrideTestEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_virtual_functionsRNS_7module_EE12OverrideTestJZ32test_submodule_virtual_functionsS2_E14PyOverrideTestEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_virtual_functionsRN8pybind117module_EE12OverrideTest, ptr %4, align 8
@@ -66785,7 +66785,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTest7str_refB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(72) %0) unnamed_addr #20 align 2 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTest7str_refB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -66798,7 +66798,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTest5A_refEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %0) unnamed_addr #20 align 2 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTest5A_refEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }

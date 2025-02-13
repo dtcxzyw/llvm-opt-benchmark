@@ -11570,7 +11570,7 @@ if.end5:                                          ; preds = %_ZNK6vectorIiLb0EjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr readonly captures(none) %this.0.val, ptr readonly %this.8.val.0.val, i32 %this.8.val.8.val, i32 noundef %v1, i32 noundef %v2) unnamed_addr #20 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr readonly captures(none) %this.0.val, ptr readonly captures(address) %this.8.val.0.val, i32 %this.8.val.8.val, i32 noundef %v1, i32 noundef %v2) unnamed_addr #20 align 2 {
 entry:
   %sub.i.i.i.i = add i32 %this.8.val.8.val, -1
   %and.i.i.i.i = and i32 %sub.i.i.i.i, %v1

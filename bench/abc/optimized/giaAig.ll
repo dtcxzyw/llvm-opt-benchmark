@@ -854,7 +854,7 @@ declare void @Gia_ManCleanPhase(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManFromAigChoices_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Gia_ManFromAigChoices_rec(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %Aig_ObjEquiv.exit31.thread, label %5
 

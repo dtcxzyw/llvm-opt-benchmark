@@ -412,7 +412,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #5
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoNS_8SyncCoutE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 {
   switch i32 %1, label %_ZNSt5mutex4lockEv.exit [
     i32 0, label %3
     i32 1, label %6

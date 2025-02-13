@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [50 x i8] c"Invalid reference to preview object to initialize\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_preview_init(ptr noundef %ctxt, ptr noundef writeonly %p, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_preview_init(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %p, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %w to i64
   %conv1 = zext i32 %h to i64
@@ -76,7 +76,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef %p, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef captures(address_is_null) %p, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
 entry:
   %conv.i = zext i32 %w to i64
   %conv1.i = zext i32 %h to i64
@@ -157,7 +157,7 @@ if.end5:                                          ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_preview_destroy(ptr noundef readonly %ctxt, ptr noundef %p) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_preview_destroy(ptr noundef readonly captures(address_is_null) %ctxt, ptr noundef captures(address_is_null) %p) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

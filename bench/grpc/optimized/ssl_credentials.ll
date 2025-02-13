@@ -152,7 +152,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20grpc_ssl_credentialsC2EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 16), (24, 32), (56, 80)) %this, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pair, ptr noundef %verify_options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20grpc_ssl_credentialsC2EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 16), (24, 32), (56, 80)) %this, ptr noundef %pem_root_certs, ptr noundef captures(address_is_null) %pem_key_cert_pair, ptr noundef captures(address_is_null) %verify_options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -202,7 +202,7 @@ if.end22:                                         ; preds = %if.then7, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20grpc_ssl_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 captures(none) dereferenceable(84) initializes((24, 32)) %this, ptr noundef %pem_root_certs, ptr noundef readonly %pem_key_cert_pair, ptr noundef readonly %verify_options) local_unnamed_addr #3 align 2 {
+define void @_ZN20grpc_ssl_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 captures(none) dereferenceable(84) initializes((24, 32)) %this, ptr noundef %pem_root_certs, ptr noundef readonly captures(address_is_null) %pem_key_cert_pair, ptr noundef readonly captures(address_is_null) %verify_options) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @gpr_strdup(ptr noundef %pem_root_certs)
   %config_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1225,7 +1225,7 @@ if.end:                                           ; preds = %_ZN27grpc_ssl_serve
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((40, 68)) %this, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, i32 noundef %client_certificate_request) local_unnamed_addr #3 align 2 {
+define void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((40, 68)) %this, ptr noundef %pem_root_certs, ptr noundef captures(address_is_null) %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, i32 noundef %client_certificate_request) local_unnamed_addr #3 align 2 {
 entry:
   %config_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %client_certificate_request2 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1396,7 +1396,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_cert_pairm(ptr noundef readonly %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs) local_unnamed_addr #3 {
+define noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_cert_pairm(ptr noundef readonly captures(address_is_null) %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq i64 %num_key_cert_pairs, 0
   br i1 %cmp.not, label %for.end, label %do.body
@@ -1469,7 +1469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %pem_root_certs, ptr noundef readonly %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs) local_unnamed_addr #3 {
+define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %pem_root_certs, ptr noundef readonly captures(address_is_null) %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @gpr_zalloc(i64 noundef 24)
   %call1 = tail call ptr @gpr_strdup(ptr noundef %pem_root_certs)

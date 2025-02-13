@@ -117,7 +117,7 @@ if.end45:                                         ; preds = %if.then2, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZN6icu_759BytesTrie11jumpByDeltaEPKh(ptr noundef readonly %pos) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN6icu_759BytesTrie11jumpByDeltaEPKh(ptr noundef readonly captures(ret: address, provenance) %pos) local_unnamed_addr #4 align 2 {
 entry:
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %pos, i64 1
   %0 = load i8, ptr %pos, align 1

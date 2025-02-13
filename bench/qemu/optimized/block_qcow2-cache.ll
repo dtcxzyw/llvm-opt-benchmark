@@ -417,7 +417,7 @@ for.end:                                          ; preds = %for.body, %trace_qc
 declare ptr @qemu_coroutine_self() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef %c, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef captures(address) %c, i32 noundef %i) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -797,14 +797,14 @@ return:                                           ; preds = %entry, %qcow2_cache
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get(ptr noundef %bs, ptr noundef captures(address) %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table, i1 noundef zeroext %read_from_disk) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef captures(address) %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table, i1 noundef zeroext %read_from_disk) unnamed_addr #0 {
 entry:
   %_now.i.i92 = alloca %struct.timeval, align 8
   %_now.i.i74 = alloca %struct.timeval, align 8
@@ -1122,7 +1122,7 @@ return:                                           ; preds = %if.end67, %trace_qc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef captures(address) %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext false)
   ret i32 %call

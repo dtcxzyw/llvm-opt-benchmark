@@ -104,7 +104,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 declare i32 @nxrmutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @mm_map_add(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @mm_map_add(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %3
 
@@ -165,7 +165,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @mm_map_next(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @mm_map_next(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %3) #6
   %5 = icmp eq i32 %4, 0
@@ -184,7 +184,7 @@ define ptr @mm_map_next(ptr noundef %0, ptr noundef readonly %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %4) #6
   %6 = icmp eq i32 %5, 0
@@ -225,7 +225,7 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

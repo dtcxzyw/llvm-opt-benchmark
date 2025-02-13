@@ -275,7 +275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %other) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %lor.end, label %typeid.end
@@ -517,7 +517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519InitialTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519InitialTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %other) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -858,7 +858,7 @@ if.end:                                           ; preds = %delete.end, %entry
 declare noundef ptr @_ZNK6icu_7512DateTimeRule5cloneEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7518AnnualTimeZoneRuleeqERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %that) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7518AnnualTimeZoneRuleeqERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %that) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %that
   br i1 %cmp, label %return, label %typeid.end
@@ -1144,7 +1144,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 declare noundef i32 @_ZNK6icu_7512DateTimeRule15getTimeRuleTypeEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %other) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -1787,7 +1787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(352) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %other) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end

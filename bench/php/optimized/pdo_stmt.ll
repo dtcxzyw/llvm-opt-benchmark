@@ -1775,7 +1775,7 @@ define internal fastcc noundef zeroext i1 @pdo_stmt_verify_mode(ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -3755,7 +3755,7 @@ define internal fastcc void @fetch_value(ptr noundef %0, ptr noundef initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PDOStatement_fetchAll(ptr noundef %0, ptr noundef %1) #0 {
+define hidden void @zim_PDOStatement_fetchAll(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._zval_struct, align 8
   store i64 0, ptr %3, align 8
@@ -7536,7 +7536,7 @@ row_read_column_number.exit.thread:               ; preds = %.critedge2.i, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @row_prop_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2, ptr readnone captures(none) %3) #0 {
+define internal noundef ptr @row_prop_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned captures(ret: address, provenance) %2, ptr readnone captures(none) %3) #0 {
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.111) #16
   ret ptr %2
 }
@@ -7820,7 +7820,7 @@ define internal ptr @row_dim_read(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @row_dim_write(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #0 {
+define internal void @row_dim_write(ptr readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, ptr readnone captures(none) %2) #0 {
   %.not = icmp eq ptr %1, null
   %.str.113..str.114 = select i1 %.not, ptr @.str.113, ptr @.str.114
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.113..str.114) #16
@@ -8303,7 +8303,7 @@ define internal range(i32 -1, 1) i32 @pdo_stmt_iter_valid(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @pdo_stmt_iter_get_data(ptr noundef readonly %0) #10 {
+define internal ptr @pdo_stmt_iter_get_data(ptr noundef readonly captures(ret: address, provenance) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0

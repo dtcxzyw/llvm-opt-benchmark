@@ -1035,7 +1035,7 @@ rb_transcoding_close.exit:                        ; preds = %43, %47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_econv_convert(ptr noundef initializes((4, 8), (112, 168)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local noundef i32 @rb_econv_convert(ptr noundef captures(address_is_null) initializes((4, 8), (112, 168)) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca [16 x i8], align 16
@@ -2273,7 +2273,7 @@ load_transcoder_entry.exit.thread:                ; preds = %12, %load_transcode
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_econv_append(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @rb_econv_append(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2441,7 +2441,7 @@ define dso_local void @rb_econv_check_error(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_econv_substr_append(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i64 @rb_econv_substr_append(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = tail call i64 @rb_str_new_frozen(i64 noundef %1) #21
@@ -2471,7 +2471,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %14
 declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_econv_str_append(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i64 @rb_econv_str_append(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = inttoptr i64 %1 to ptr
@@ -2505,7 +2505,7 @@ rb_econv_substr_append.exit:                      ; preds = %4, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_econv_substr_convert(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @rb_econv_substr_convert(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -2537,7 +2537,7 @@ rb_econv_substr_append.exit:                      ; preds = %5, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_econv_str_convert(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @rb_econv_str_convert(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = inttoptr i64 %1 to ptr
@@ -7677,7 +7677,7 @@ declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_trans_conv(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #0 {
+define internal fastcc i32 @rb_trans_conv(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   store ptr %8, ptr %9, align 8

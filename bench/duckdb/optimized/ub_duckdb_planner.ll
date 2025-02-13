@@ -2785,14 +2785,14 @@ declare void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull 
 declare void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6duckdb17BoundParameterMap16GetParametersPtrB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZN6duckdb17BoundParameterMap16GetParametersPtrB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
 entry:
   %parameters = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %parameters
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6duckdb17BoundParameterMap13GetParametersB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6duckdb17BoundParameterMap13GetParametersB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
 entry:
   %parameters = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %parameters
@@ -16847,7 +16847,7 @@ _ZNSt6vectorISt17reference_wrapperIN6duckdb16ExpressionBinderEESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb6Binder16GetActiveBindersEv(ptr noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb6Binder16GetActiveBindersEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(752) %this) local_unnamed_addr #16 align 2 {
 entry:
   br label %while.cond.i
 
@@ -22083,7 +22083,7 @@ _ZNSt6vectorIN6duckdb16BinarySerializer10DebugStateESaIS2_EED2Ev.exit: ; preds =
 declare void @_ZN6duckdb12MemoryStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN6duckdb6Binder13GetRootBinderEv(ptr noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull ptr @_ZN6duckdb6Binder13GetRootBinderEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(752) %this) local_unnamed_addr #16 align 2 {
 entry:
   br label %while.cond
 
@@ -29535,7 +29535,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb6Binder18HasMatchingBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RS6_(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(32) %table_name, ptr noundef nonnull align 8 dereferenceable(32) %column_name, ptr noundef nonnull align 8 dereferenceable(32) %error_message) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb6Binder18HasMatchingBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RS6_(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(32) %table_name, ptr noundef nonnull align 8 dereferenceable(32) %column_name, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %error_message) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %empty_catalog.i = alloca %"class.std::__cxx11::basic_string", align 8
   %empty_schema = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29628,7 +29628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb6Binder18HasMatchingBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_RS6_(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %schema_name, ptr noundef nonnull align 8 dereferenceable(32) %table_name, ptr noundef nonnull align 8 dereferenceable(32) %column_name, ptr noundef nonnull align 8 dereferenceable(32) %error_message) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb6Binder18HasMatchingBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_RS6_(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %schema_name, ptr noundef nonnull align 8 dereferenceable(32) %table_name, ptr noundef nonnull align 8 dereferenceable(32) %column_name, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %error_message) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %empty_catalog = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %empty_catalog) #31
@@ -29682,7 +29682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb6Binder18HasMatchingBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_RS6_(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %catalog_name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %schema_name, ptr noundef nonnull align 8 dereferenceable(32) %table_name, ptr noundef nonnull align 8 dereferenceable(32) %column_name, ptr noundef nonnull align 8 dereferenceable(32) %error_message) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb6Binder18HasMatchingBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_RS6_(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %catalog_name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %schema_name, ptr noundef nonnull align 8 dereferenceable(32) %table_name, ptr noundef nonnull align 8 dereferenceable(32) %column_name, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %error_message) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %binding = alloca %"class.duckdb::optional_ptr.997", align 8
   %catalog_entry = alloca %"class.duckdb::optional_ptr", align 8
@@ -30035,7 +30035,7 @@ cleanup51:                                        ; preds = %for.body.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN6duckdb11BindContext10GetBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %out_error) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define ptr @_ZN6duckdb11BindContext10GetBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %out_error) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i104 = alloca i64, align 8
   %__dnew.i.i95 = alloca i64, align 8
@@ -30830,7 +30830,7 @@ _ZN6duckdb6Binder13GetRootBinderEv.exit:          ; preds = %while.cond.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6duckdb6Binder13GetTableNamesB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6duckdb6Binder13GetTableNamesB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(752) %this) local_unnamed_addr #16 align 2 {
 entry:
   br label %while.cond.i
 
@@ -50322,7 +50322,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb13PragmaHandler12HandlePragmaERNS_12SQLStatementERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(128) %statement, ptr noundef nonnull align 8 dereferenceable(32) %resulting_query) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb13PragmaHandler12HandlePragmaERNS_12SQLStatementERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(128) %statement, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %resulting_query) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.1660", align 8
   %info = alloca %"class.duckdb::unique_ptr.809", align 8

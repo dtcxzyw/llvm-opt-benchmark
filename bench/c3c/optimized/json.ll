@@ -1008,7 +1008,7 @@ define dso_local void @json_init_string(ptr noundef captures(none) initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local zeroext i1 @is_freable(ptr noundef readnone %0) local_unnamed_addr #6 {
+define dso_local zeroext i1 @is_freable(ptr noundef readnone captures(address) %0) local_unnamed_addr #6 {
   %2 = icmp ne ptr %0, @error
   %3 = icmp ne ptr %0, @true_val
   %or.cond.not14 = and i1 %2, %3

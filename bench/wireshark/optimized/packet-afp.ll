@@ -1666,7 +1666,7 @@ define internal range(i32 0, 2) i32 @afp_equal(ptr noundef readonly captures(non
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_afp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal i32 @dissect_afp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = alloca %struct.afp_request_key, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = icmp eq ptr %3, null

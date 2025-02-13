@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readnone %FirstEl, i64 noundef %MinCapacity, i64 noundef %TSize) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readnone captures(address) %FirstEl, i64 noundef %MinCapacity, i64 noundef %TSize) local_unnamed_addr #0 align 2 {
 entry:
   %Capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %Capacity.i, align 4

@@ -58,7 +58,7 @@ define dso_local void @clear_selection() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local zeroext i1 @vc_is_sel(ptr noundef readnone %0) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @vc_is_sel(ptr noundef readnone captures(address) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   %3 = icmp eq ptr %2, %0
   ret i1 %3

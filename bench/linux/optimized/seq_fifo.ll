@@ -83,7 +83,7 @@ declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noun
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_seq_fifo_delete(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @snd_seq_fifo_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %45, label %3
 

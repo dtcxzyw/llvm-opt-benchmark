@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.migrate_needed = private unnamed_addr constant [29 x i8] c"_Bool migrate_needed(void *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_display_reset(ptr noundef readonly %vdev) local_unnamed_addr #0 {
+define dso_local void @vfio_display_reset(ptr noundef readonly captures(address_is_null) %vdev) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %vdev, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

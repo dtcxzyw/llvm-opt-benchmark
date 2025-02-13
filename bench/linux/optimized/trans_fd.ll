@@ -558,7 +558,7 @@ define internal i32 @p9_fd_create_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @p9_fd_close(ptr noundef %0) #2 align 16 {
+define internal void @p9_fd_close(ptr noundef captures(address_is_null) %0) #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %59, label %3
 

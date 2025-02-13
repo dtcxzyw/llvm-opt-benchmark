@@ -147,7 +147,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm20SampleContextTrackerC1ERNS_10sampleprof16SampleProfileMapEPKNS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm20SampleContextTrackerC2ERNS_10sampleprof16SampleProfileMapEPKNS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE(ptr noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(96) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MD5", align 4
   %6 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %7 = icmp eq i64 %3, 0
@@ -259,7 +259,7 @@ _ZN4llvm15ContextTrieNode22getHottestChildContextERKNS_10sampleprof12LineLocatio
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef ptr @_ZN4llvm15ContextTrieNode22getHottestChildContextERKNS_10sampleprof12LineLocationE(ptr noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm15ContextTrieNode22getHottestChildContextERKNS_10sampleprof12LineLocationE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -329,7 +329,7 @@ define dso_local noundef ptr @_ZNK4llvm15ContextTrieNode18getFunctionSamplesEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20SampleContextTracker18moveContextSamplesERNS_15ContextTrieNodeERKNS_10sampleprof12LineLocationEOS1_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(96) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20SampleContextTracker18moveContextSamplesERNS_15ContextTrieNodeERKNS_10sampleprof12LineLocationEOS1_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::tuple.224", align 8
   %7 = alloca %"class.std::tuple.88", align 1
@@ -827,7 +827,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm15ContextTrieNode11getFuncNameEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15ContextTrieNode18getAllChildContextEv(ptr noundef nonnull readnone returned align 8 dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15ContextTrieNode18getAllChildContextEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
   ret ptr %0
 }
 
@@ -2286,7 +2286,7 @@ _ZN4llvm20SampleContextTracker8IteratorppEv.exit: ; preds = %_ZNSt5queueIPN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20SampleContextTracker26getCalleeContextSamplesForERKNS_8CallBaseENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20SampleContextTracker26getCalleeContextSamplesForERKNS_8CallBaseENS_9StringRefE(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = tail call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
@@ -2455,7 +2455,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit46:              ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20SampleContextTracker19getCalleeContextForEPKNS_10DILocationENS_10sampleprof10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20SampleContextTracker19getCalleeContextForEPKNS_10DILocationENS_10sampleprof10FunctionIdE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(216) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %6 = tail call noundef ptr @_ZN4llvm20SampleContextTracker13getContextForEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1)
   %.not = icmp eq ptr %6, null
@@ -2475,7 +2475,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker19getCalleeContextFo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20SampleContextTracker34getIndirectCalleeContextSamplesForEPKNS_10DILocationE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.64") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20SampleContextTracker34getIndirectCalleeContextSamplesForEPKNS_10DILocationE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.64") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %46, label %4
@@ -2585,7 +2585,7 @@ _ZNSt6vectorIPKN4llvm10sampleprof15FunctionSamplesESaIS4_EE9push_backERKS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForEPKNS_10DILocationE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(216) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = alloca %"struct.std::pair.81", align 8
   %5 = alloca %"struct.std::pair.81", align 8
@@ -3082,7 +3082,7 @@ _ZN4llvm11SmallVectorISt4pairINS_10sampleprof12LineLocationENS2_10FunctionIdEELj
 declare i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesForEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesForEPKNS_10DILocationE(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN4llvm20SampleContextTracker13getContextForEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %4
@@ -3113,7 +3113,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesForERKNS_10sampleprof13SampleContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesForERKNS_10sampleprof13SampleContextE(ptr noundef nonnull align 8 captures(address) dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
@@ -3163,7 +3163,7 @@ _ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
@@ -3546,7 +3546,7 @@ _ZNK4llvm20SampleContextTracker24getContextNodeForProfileEPKNS_10sampleprof15Fun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20SampleContextTracker22getTopLevelContextNodeENS_10sampleprof10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20SampleContextTracker22getTopLevelContextNodeENS_10sampleprof10FunctionIdE(ptr noundef nonnull align 8 captures(address, ret: address, provenance) dereferenceable(216) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::sampleprof::LineLocation", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
@@ -3575,7 +3575,7 @@ define dso_local void @_ZN4llvm20SampleContextTracker25markContextSamplesInlined
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20SampleContextTracker14getRootContextEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm20SampleContextTracker14getRootContextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }

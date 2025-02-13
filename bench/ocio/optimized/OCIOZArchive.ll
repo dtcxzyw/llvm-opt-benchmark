@@ -2873,7 +2873,7 @@ eh.resume:                                        ; preds = %ehcleanup30, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CIOPOciozArchive18getFastLutFileHashB5cxx11EPKc(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef %filepath) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CIOPOciozArchive18getFastLutFileHashB5cxx11EPKc(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, ptr noundef %filepath) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %fpath = alloca %"class.std::__cxx11::basic_string", align 8

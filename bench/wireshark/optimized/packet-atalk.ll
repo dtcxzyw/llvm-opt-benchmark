@@ -1908,7 +1908,7 @@ define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_atp_zip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal i32 @dissect_atp_zip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %62, label %6
 

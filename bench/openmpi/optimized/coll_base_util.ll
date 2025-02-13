@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [19 x i8] c"neighbor_alltoallw\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef writeonly %11) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #0 {
   %13 = alloca ptr, align 8
   %14 = alloca %struct.ompi_status_public_t, align 8
   store ptr @ompi_request_null, ptr %13, align 8

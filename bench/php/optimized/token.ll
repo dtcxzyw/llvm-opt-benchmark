@@ -57,7 +57,7 @@ define hidden ptr @lxb_html_token_attr_append(ptr noundef captures(none) %0, ptr
 declare ptr @lxb_html_token_attr_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_token_attr_remove(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden void @lxb_html_token_attr_remove(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1

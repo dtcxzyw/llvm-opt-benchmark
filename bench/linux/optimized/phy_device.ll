@@ -607,7 +607,7 @@ define dso_local noundef range(i32 -19, 1) i32 @phy_unregister_fixup_for_id(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef readonly %4) #0 align 16 {
+define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) #0 align 16 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 1424) #19
   %8 = icmp eq ptr %7, null

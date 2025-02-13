@@ -229,7 +229,7 @@ define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12Ty
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type28_$u7b$$u7b$closure$u7d$$u7d$17hace3632f7ea4c421E"(ptr sret({ { { i64, ptr }, i64 } }) align 8 %0, ptr readonly align 8 %1, ptr align 8 %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type28_$u7b$$u7b$closure$u7d$$u7d$17hace3632f7ea4c421E"(ptr sret({ { { i64, ptr }, i64 } }) align 8 %0, ptr readonly align 8 captures(address_is_null) %1, ptr align 8 %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4

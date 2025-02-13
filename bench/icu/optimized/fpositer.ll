@@ -144,7 +144,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_759UVector326assignERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7521FieldPositionIteratoreqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull readonly align 8 dereferenceable(20) %rhs) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7521FieldPositionIteratoreqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %rhs) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %rhs, %this
   br i1 %cmp, label %return, label %if.end

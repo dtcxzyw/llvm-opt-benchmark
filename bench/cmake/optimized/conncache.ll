@@ -564,7 +564,7 @@ declare i32 @Curl_close(ptr noundef) local_unnamed_addr #1
 declare void @Curl_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_cpool_xfer_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @Curl_cpool_xfer_init(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cpool_get_instance.exit, label %2
 
@@ -1219,7 +1219,7 @@ define internal fastcc ptr @cpool_get_oldest_idle(ptr noundef nonnull %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cpool_get_instance.exit, label %3
 
@@ -1361,7 +1361,7 @@ cpool_get_instance.exit:                          ; preds = %17, %2, %66, %62, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef %0, ptr noundef writeonly initializes((552, 564)) %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef %0, ptr noundef writeonly captures(address) initializes((552, 564)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 620
@@ -1533,7 +1533,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @Curl_cpool_find(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local zeroext i1 @Curl_cpool_find(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cpool_get_instance.exit, label %7
 
@@ -2765,7 +2765,7 @@ cpool_foreach.exit:                               ; preds = %.critedge.loopexit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_cpool_get_conn(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Curl_hash_iterator, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cpool_get_instance.exit, label %4

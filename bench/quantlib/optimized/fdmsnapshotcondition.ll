@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20FdmSnapshotCondition9getValuesEv(ptr noundef nonnull readnone align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20FdmSnapshotCondition9getValuesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %values_

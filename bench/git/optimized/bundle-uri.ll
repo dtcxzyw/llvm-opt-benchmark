@@ -108,7 +108,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_bundles(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #3 {
+define internal i32 @compare_bundles(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
@@ -383,7 +383,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fetch_bundle_uri(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local i32 @fetch_bundle_uri(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.hashmap_iter, align 8
   %5 = alloca %struct.bundle_list, align 8
   %6 = alloca %struct.remote_bundle_info, align 8
@@ -477,7 +477,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fetch_bundle_uri_internal(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 -2147483647, -2147483648) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @fetch_bundle_uri_internal(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 -2147483647, -2147483648) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.bundle_list, align 8
   %6 = alloca %struct.child_process, align 8
   %7 = alloca %struct.strbuf, align 8
@@ -1166,7 +1166,7 @@ _.exit91:                                         ; preds = %81, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @download_bundle_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, 4) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @download_bundle_list(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483647, 4) %3) unnamed_addr #0 {
   %5 = alloca %struct.hashmap_iter, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !4

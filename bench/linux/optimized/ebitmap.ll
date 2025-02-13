@@ -67,7 +67,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ebitmap_cpy(ptr noundef initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ebitmap_cpy(ptr noundef captures(address_is_null) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
@@ -133,7 +133,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_cpy(ptr noundef initiali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ebitmap_destroy(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @ebitmap_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -616,7 +616,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_export(ptr nounde
 declare dso_local i32 @netlbl_catmap_setlong(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
@@ -940,7 +940,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef initializes((0, 16)) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef captures(address_is_null) initializes((0, 16)) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8

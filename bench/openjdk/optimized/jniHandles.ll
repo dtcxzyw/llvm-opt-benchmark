@@ -317,7 +317,7 @@ _ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %5
 
@@ -333,7 +333,7 @@ define hidden noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14JNIHandleBlock15allocate_handleEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14JNIHandleBlock15allocate_handleEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.020.in44 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -553,7 +553,7 @@ tailrecurse.backedge:                             ; preds = %96, %64, %69, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_ZL32report_handle_allocation_failureN17AllocFailStrategy13AllocFailEnumEPKc.exit, label %4
 
@@ -586,7 +586,7 @@ _ZL32report_handle_allocation_failureN17AllocFailStrategy13AllocFailEnumEPKc.exi
 declare noundef ptr @_ZN10OopStorage8allocateEv(ptr noundef nonnull align 8 dereferenceable(126)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10JNIHandles16make_weak_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN10JNIHandles16make_weak_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_ZL32report_handle_allocation_failureN17AllocFailStrategy13AllocFailEnumEPKc.exit, label %4
 
@@ -790,7 +790,7 @@ _ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit: ; preds = %_ZN10OopStorag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN10JNIHandles17is_global_storageEPK10OopStorage(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10JNIHandles17is_global_storageEPK10OopStorage(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN10JNIHandles15_global_handlesE, align 8
   %3 = icmp eq ptr %2, %0
   ret i1 %3
@@ -893,7 +893,7 @@ declare noundef i32 @_ZNK10OopStorage17allocation_statusEPKP7oopDesc(ptr noundef
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %.010 = load ptr, ptr %3, align 8
   %.not11.not = icmp eq ptr %.010, null
@@ -932,7 +932,7 @@ _ZNK14JNIHandleBlock14chain_containsEP8_jobject.exit.thread: ; preds = %_ZNK14JN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN10JNIHandles15is_frame_handleEP10JavaThreadP8_jobject(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN10JNIHandles15is_frame_handleEP10JavaThreadP8_jobject(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %4 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -953,7 +953,7 @@ define hidden noundef zeroext i1 @_ZN10JNIHandles15is_frame_handleEP10JavaThread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK14JNIHandleBlock14chain_containsEP8_jobject(ptr noundef nonnull readonly align 8 dereferenceable(296) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK14JNIHandleBlock14chain_containsEP8_jobject(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(296) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %10
@@ -1163,7 +1163,7 @@ define hidden noundef zeroext i1 @_ZN10JNIHandles24current_thread_in_nativeEv() 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -1217,7 +1217,7 @@ define hidden noundef ptr @_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17A
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JNIHandleBlock13release_blockEPS_P10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14JNIHandleBlock13release_blockEPS_P10JavaThread(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   br i1 %.not, label %.lr.ph.us.preheader, label %tailrecurse
@@ -1401,7 +1401,7 @@ define hidden void @_ZN14JNIHandleBlock17rebuild_free_listEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK14JNIHandleBlock8containsEP8_jobject(ptr noundef nonnull readonly align 8 dereferenceable(296) %0, ptr noundef readnone %1) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK14JNIHandleBlock8containsEP8_jobject(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(296) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 align 2 {
   %.not = icmp ule ptr %0, %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load i32, ptr %3, align 8

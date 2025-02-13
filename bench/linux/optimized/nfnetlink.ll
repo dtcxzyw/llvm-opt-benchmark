@@ -357,7 +357,7 @@ define internal range(i32 -12, 1) i32 @nfnetlink_net_init(ptr noundef %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfnetlink_net_exit_batch(ptr noundef readonly %0) #0 align 16 {
+define internal void @nfnetlink_net_exit_batch(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit, label %.preheader

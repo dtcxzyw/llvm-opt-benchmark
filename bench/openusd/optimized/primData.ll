@@ -847,7 +847,7 @@ define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData12GetSpe
 declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage13_GetSpecifierEPKNS_12Usd_PrimDataE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimData21_ComposeAndCacheFlagsEPKS0_b(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimData21_ComposeAndCacheFlagsEPKS0_b(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %.not = icmp eq ptr %1, null
   %5 = or i1 %.not, %2

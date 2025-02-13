@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_text_encoded_next = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @lv_svg_render_init(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @lv_svg_render_init(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

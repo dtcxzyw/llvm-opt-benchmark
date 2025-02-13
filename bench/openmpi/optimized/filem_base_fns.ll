@@ -452,7 +452,7 @@ define noundef i32 @prte_filem_base_none_wait_all(ptr noundef readnone captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_filem_base_none_preposition_files(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef i32 @prte_filem_base_none_preposition_files(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 

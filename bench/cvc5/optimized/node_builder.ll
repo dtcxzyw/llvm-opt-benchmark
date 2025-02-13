@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder12internalCopyERKS1_(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %nb) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuilder12internalCopyERKS1_(ptr noundef nonnull align 8 captures(address) dereferenceable(116) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %nb) local_unnamed_addr #3 align 2 {
 entry:
   %d_nv.i = getelementptr inbounds nuw i8, ptr %nb, i64 96
   %0 = load ptr, ptr %d_nv.i, align 8
@@ -432,7 +432,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal11NodeBuilder13nvIsAllocatedEv(ptr noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal11NodeBuilder13nvIsAllocatedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(116) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_nv = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv, align 8
@@ -523,7 +523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder13decrRefCountsEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuilder13decrRefCountsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_children.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %d_nchildren.i = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -1479,7 +1479,7 @@ _ZN4cvc58internal11NodeBuilder6appendERKNS0_8TypeNodeE.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilder6appendERKNS0_8TypeNodeE(ptr noundef nonnull returned align 8 dereferenceable(116) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %typeNode) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilder6appendERKNS0_8TypeNodeE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(116) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %typeNode) local_unnamed_addr #3 align 2 {
 entry:
   %d_nv.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv.i.i, align 8
@@ -1543,7 +1543,7 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %if.then.i2, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilder6appendERKSt6vectorINS0_8TypeNodeESaIS3_EE(ptr noundef nonnull returned align 8 dereferenceable(116) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %children) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilder6appendERKSt6vectorINS0_8TypeNodeESaIS3_EE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(116) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %children) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %children, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %children, i64 8
@@ -1623,7 +1623,7 @@ _ZN4cvc58internal11NodeBuilder6appendIN9__gnu_cxx17__normal_iteratorIPKNS0_8Type
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder30allocateNvIfNecessaryForAppendEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuilder30allocateNvIfNecessaryForAppendEv(ptr noundef nonnull align 8 captures(address) dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_nv.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv.i, align 8
@@ -1647,7 +1647,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder7reallocEm(ptr noundef nonnull align 8 dereferenceable(116) %this, i64 noundef %toSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11NodeBuilder7reallocEm(ptr noundef nonnull align 8 captures(address) dereferenceable(116) %this, i64 noundef %toSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.cvc5::internal::FatalStream", align 1
   %d_nvMaxChildren = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -2291,7 +2291,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder4cropEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuilder4cropEv(ptr noundef nonnull align 8 captures(address) dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_nv.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv.i, align 8
@@ -2350,7 +2350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder7reallocEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuilder7reallocEv(ptr noundef nonnull align 8 captures(address) dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_nvMaxChildren = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i32, ptr %d_nvMaxChildren, align 8

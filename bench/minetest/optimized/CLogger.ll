@@ -156,7 +156,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 declare void @_ZN3irr2os7Printer5printEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr7CLogger3logEPKcS2_NS_10ELOG_LEVELE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly %text, ptr noundef %hint, i32 noundef %ll) unnamed_addr #3 align 2 {
+define void @_ZN3irr7CLogger3logEPKcS2_NS_10ELOG_LEVELE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly captures(address_is_null) %text, ptr noundef %hint, i32 noundef %ll) unnamed_addr #3 align 2 {
 entry:
   %empty.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %s = alloca %"class.irr::core::string", align 8

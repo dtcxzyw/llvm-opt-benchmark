@@ -1460,7 +1460,7 @@ ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_proc_unpack(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define i32 @ompi_proc_unpack(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.opal_process_name_t, align 4
   %8 = alloca %struct.pmix_proc, align 4

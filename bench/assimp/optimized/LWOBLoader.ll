@@ -1128,7 +1128,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17__normal_iteratorIPNS_3LWO4FaceESt6vectorIS4_SaIS4_EEEERPtPKtj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %it, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef %end, i32 noundef %max) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17__normal_iteratorIPNS_3LWO4FaceESt6vectorIS4_SaIS4_EEEERPtPKtj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %it, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef captures(address) %end, i32 noundef %max) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %cursor, align 8
   %cmp33 = icmp ult ptr %0, %end

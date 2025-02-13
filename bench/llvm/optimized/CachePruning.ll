@@ -1746,7 +1746,7 @@ declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #5
 declare { i32, ptr } @_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb(ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18writeTimestampFileN4llvm9StringRefE(ptr readonly %0, i64 %1) unnamed_addr #0 {
+define internal fastcc void @_ZL18writeTimestampFileN4llvm9StringRefE(ptr readonly captures(address_is_null) %0, i64 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::error_code", align 8
   %5 = alloca %"class.llvm::raw_fd_ostream", align 8

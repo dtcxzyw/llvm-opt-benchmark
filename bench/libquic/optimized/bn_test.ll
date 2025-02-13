@@ -1493,7 +1493,7 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 declare ptr @BN_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define internal fastcc void @_ZL7messageP8_IO_FILEPKc(ptr noundef %out, ptr noundef readonly captures(none) %m) unnamed_addr #6 {
+define internal fastcc void @_ZL7messageP8_IO_FILEPKc(ptr noundef captures(address_is_null) %out, ptr noundef readonly captures(none) %m) unnamed_addr #6 {
 entry:
   %cmp.not.i = icmp eq ptr %out, null
   br i1 %cmp.not.i, label %_ZL7puts_fpP8_IO_FILEPKc.exit10, label %if.then.i8

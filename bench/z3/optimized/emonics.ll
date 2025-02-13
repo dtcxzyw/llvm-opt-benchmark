@@ -1251,7 +1251,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3nla7emonics11merge_cellsERNS0_9head_tailES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(16) %root, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN3nla7emonics11merge_cellsERNS0_9head_tailES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %root, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %other) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %root, %other
   br i1 %cmp, label %if.end10, label %if.end
@@ -1287,7 +1287,7 @@ if.end10:                                         ; preds = %if.then6, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3nla7emonics13unmerge_cellsERNS0_9head_tailES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(16) %root, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3nla7emonics13unmerge_cellsERNS0_9head_tailES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %root, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %other) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %root, %other
   br i1 %cmp, label %if.end12, label %if.end
@@ -1407,7 +1407,7 @@ _ZN6vectorIN3nla7emonics9head_tailELb0EjE7reserveEj.exit: ; preds = %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK3nla7emonics14find_canonicalERK7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %vars) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK3nla7emonics14find_canonicalERK7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %vars) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i4 = alloca %struct._key_data, align 8
   %ref.tmp.i.i.i = alloca %struct._key_data, align 8
@@ -5297,7 +5297,7 @@ for.end22:                                        ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3nla7emonics7displayERSoPNS0_4cellE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef readonly %c) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3nla7emonics7displayERSoPNS0_4cellE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef readonly captures(address) %c) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %c, null
   br i1 %tobool.not, label %if.end, label %do.body

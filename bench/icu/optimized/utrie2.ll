@@ -539,7 +539,7 @@ _ZL7u8IndexPK6UTrie2ii.exit:                      ; preds = %cond.true.i, %cond.
 declare i32 @utf8_prevCharSafeBody_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @utrie2_openFromSerialized_75(i32 noundef %valueBits, ptr noundef %data, i32 noundef %length, ptr noundef writeonly %pActualLength, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #1 {
+define noalias noundef ptr @utrie2_openFromSerialized_75(i32 noundef %valueBits, ptr noundef %data, i32 noundef %length, ptr noundef writeonly captures(address_is_null) %pActualLength, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -950,7 +950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @utrie2_serialize_75(ptr noundef readonly %trie, ptr noundef %data, i32 noundef %capacity, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #7 {
+define i32 @utrie2_serialize_75(ptr noundef readonly captures(address_is_null) %trie, ptr noundef %data, i32 noundef %capacity, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1015,14 +1015,14 @@ return:                                           ; preds = %entry, %if.end17, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_enum_75(ptr noundef readonly captures(none) %trie, ptr noundef %enumValue, ptr noundef %enumRange, ptr noundef %context) local_unnamed_addr #1 {
+define void @utrie2_enum_75(ptr noundef readonly captures(none) %trie, ptr noundef captures(address_is_null) %enumValue, ptr noundef captures(address_is_null) %enumRange, ptr noundef %context) local_unnamed_addr #1 {
 entry:
   tail call fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_(ptr noundef %trie, i32 noundef 0, i32 noundef 1114112, ptr noundef %enumValue, ptr noundef %enumRange, ptr noundef %context)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_(ptr noundef readonly captures(none) %trie, i32 noundef range(i32 0, -1023) %start, i32 noundef range(i32 -2147482624, -2147483648) %limit, ptr noundef readonly %enumValue, ptr noundef readonly %enumRange, ptr noundef %context) unnamed_addr #1 {
+define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_(ptr noundef readonly captures(none) %trie, i32 noundef range(i32 0, -1023) %start, i32 noundef range(i32 -2147482624, -2147483648) %limit, ptr noundef readonly captures(address_is_null) %enumValue, ptr noundef readonly captures(address_is_null) %enumRange, ptr noundef %context) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %enumRange, null
   br i1 %cmp, label %return, label %if.end
@@ -1406,7 +1406,7 @@ return:                                           ; preds = %land.lhs.true62, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_enumForLeadSurrogate_75(ptr noundef readonly captures(none) %trie, i32 noundef %lead, ptr noundef %enumValue, ptr noundef %enumRange, ptr noundef %context) local_unnamed_addr #1 {
+define void @utrie2_enumForLeadSurrogate_75(ptr noundef readonly captures(none) %trie, i32 noundef %lead, ptr noundef captures(address_is_null) %enumValue, ptr noundef captures(address_is_null) %enumRange, ptr noundef %context) local_unnamed_addr #1 {
 entry:
   %and = and i32 %lead, -1024
   %cmp = icmp eq i32 %and, 55296

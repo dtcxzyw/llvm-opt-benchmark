@@ -420,7 +420,7 @@ eh.resume:                                        ; preds = %lpad12, %lpad, %lpa
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core27ExternalCertificateVerifier12OnVerifyDoneEP42grpc_tls_custom_verification_check_requestPv16grpc_status_codePKc(ptr noundef readnone %request, ptr noundef %callback_arg, i32 noundef %status, ptr noundef %error_details) #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27ExternalCertificateVerifier12OnVerifyDoneEP42grpc_tls_custom_verification_check_requestPv16grpc_status_codePKc(ptr noundef readnone captures(address) %request, ptr noundef %callback_arg, i32 noundef %status, ptr noundef %error_details) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -1042,7 +1042,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core27HostNameCertificateVerifier6VerifyEP42grpc_tls_custom_verification_check_requestSt8functionIFvN4absl12lts_202308026StatusEEEPS6_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %request, ptr readnone captures(none) %0, ptr noundef captures(none) %sync_status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9grpc_core27HostNameCertificateVerifier6VerifyEP42grpc_tls_custom_verification_check_requestSt8functionIFvN4absl12lts_202308026StatusEEEPS6_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %request, ptr readnone captures(none) %0, ptr noundef captures(none) %sync_status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i64 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

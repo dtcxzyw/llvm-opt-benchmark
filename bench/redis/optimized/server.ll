@@ -9154,7 +9154,7 @@ declare void @firePostExecutionUnitJobs() local_unnamed_addr #4
 declare void @modulePostExecutionUnitOperations() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @incrCommandStatsOnError(ptr noundef %cmd, i32 noundef %flags) local_unnamed_addr #28 {
+define dso_local range(i32 0, 2) i32 @incrCommandStatsOnError(ptr noundef captures(address_is_null) %cmd, i32 noundef %flags) local_unnamed_addr #28 {
 entry:
   %tobool.not = icmp eq ptr %cmd, null
   br i1 %tobool.not, label %if.end10, label %if.then
@@ -9870,7 +9870,7 @@ declare void @trackingHandlePendingKeyInvalidations() local_unnamed_addr #4
 declare void @listJoin(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @commandCheckExistence(ptr noundef readonly captures(none) %c, ptr noundef %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @commandCheckExistence(ptr noundef readonly captures(none) %c, ptr noundef captures(address_is_null) %err) local_unnamed_addr #0 {
 entry:
   %cmd = getelementptr inbounds nuw i8, ptr %c, i64 128
   %0 = load ptr, ptr %cmd, align 8
@@ -10048,7 +10048,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @sdstoupper(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @commandCheckArity(ptr noundef readonly captures(none) %c, ptr noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @commandCheckArity(ptr noundef readonly captures(none) %c, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #0 {
 entry:
   %cmd = getelementptr inbounds nuw i8, ptr %c, i64 128
   %0 = load ptr, ptr %cmd, align 8
@@ -14262,7 +14262,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @dictRelease(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @genInfoSectionDict(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef readonly %defaults, ptr noundef writeonly %out_all, ptr noundef writeonly %out_everything) local_unnamed_addr #0 {
+define dso_local ptr @genInfoSectionDict(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef readonly captures(address_is_null) %defaults, ptr noundef writeonly captures(address_is_null) %out_all, ptr noundef writeonly captures(address_is_null) %out_everything) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %defaults, null
   %spec.select = select i1 %tobool.not, ptr @__const.genInfoSectionDict.default_sections, ptr %defaults

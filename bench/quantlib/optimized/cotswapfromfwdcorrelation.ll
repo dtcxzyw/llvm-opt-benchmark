@@ -1630,7 +1630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib25CotSwapFromFwdCorrelation12correlationsEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib25CotSwapFromFwdCorrelation12correlationsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) unnamed_addr #8 align 2 {
 entry:
   %swapCorrMatrices_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %swapCorrMatrices_

@@ -774,7 +774,7 @@ declare noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull a
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef range(i64 0, 6) %5) unnamed_addr #5 {
+define internal fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, i64 noundef range(i64 0, 6) %5) unnamed_addr #5 {
   %7 = icmp eq ptr %3, null
   %spec.select38 = select i1 %7, ptr %0, ptr %3
   %8 = icmp eq i64 %5, 5
@@ -835,7 +835,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL7tag_cmpPKN6LogTag4typeES2_(ptr noundef readnone %0, ptr noundef readnone %1) #8 {
+define internal noundef range(i32 -1, 2) i32 @_ZL7tag_cmpPKN6LogTag4typeES2_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #8 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ne ptr %0, %1
   %5 = zext i1 %4 to i32

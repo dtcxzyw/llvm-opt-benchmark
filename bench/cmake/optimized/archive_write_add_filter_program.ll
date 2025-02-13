@@ -271,7 +271,7 @@ __archive_write_program_free.exit:                ; preds = %4, %9
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef i32 @__archive_write_program_free(ptr noundef %0) local_unnamed_addr #7 {
+define dso_local noundef i32 @__archive_write_program_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

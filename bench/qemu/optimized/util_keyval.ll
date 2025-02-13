@@ -241,7 +241,7 @@ for.end62:                                        ; preds = %for.inc60, %entry, 
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @keyval_parse_into(ptr noundef %qdict, ptr noundef %params, ptr noundef %implied_key, ptr noundef writeonly %p_help, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @keyval_parse_into(ptr noundef %qdict, ptr noundef %params, ptr noundef %implied_key, ptr noundef writeonly captures(address_is_null) %p_help, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %index.i.i = alloca i64, align 8
   %end.i = alloca ptr, align 8
@@ -954,7 +954,7 @@ return:                                           ; preds = %if.end6, %entry, %f
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @keyval_parse(ptr noundef %params, ptr noundef %implied_key, ptr noundef %p_help, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @keyval_parse(ptr noundef %params, ptr noundef %implied_key, ptr noundef captures(address_is_null) %p_help, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qdict_new() #8
   %call1 = tail call ptr @keyval_parse_into(ptr noundef %call, ptr noundef %params, ptr noundef %implied_key, ptr noundef %p_help, ptr noundef %errp)

@@ -8302,7 +8302,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN16bound_simplifier9is_offsetEP4exprS1_R8rational(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef readonly captures(none) %e, ptr noundef readnone %x, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN16bound_simplifier9is_offsetEP4exprS1_R8rational(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef readonly captures(none) %e, ptr noundef readnone captures(address) %x, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 {
 entry:
   %is_int.i = alloca i8, align 1
   %a = getelementptr inbounds nuw i8, ptr %this, i64 32

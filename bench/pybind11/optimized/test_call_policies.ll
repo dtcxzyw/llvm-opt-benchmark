@@ -26400,7 +26400,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE5ChildJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE5ChildJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ28test_submodule_call_policiesRN8pybind117module_EE5Child, ptr %4, align 8
@@ -32573,7 +32573,7 @@ _ZNSt5arrayIN8pybind116objectELm1EED2Ev.exit:     ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE6ParentJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE6ParentJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ28test_submodule_call_policiesRN8pybind117module_EE6Parent, ptr %4, align 8
@@ -35280,7 +35280,7 @@ _ZN8pybind116detail15keep_alive_implENS_6handleES1_.exit: ; preds = %1, %"_ZZN8p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE8ParentGCJZ28test_submodule_call_policiesS2_E6ParentEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE8ParentGCJZ28test_submodule_call_policiesS2_E6ParentEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ28test_submodule_call_policiesRN8pybind117module_EE8ParentGC, ptr %4, align 8
@@ -36075,7 +36075,7 @@ _ZNSt6vectorISt4pairIPKSt9type_infoPFPvS4_EESaIS7_EE12emplace_backIJRS3_RS6_EEER
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE8ParentGCJZ28test_submodule_call_policiesS2_E6ParentEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned %0) #7 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IZ28test_submodule_call_policiesRNS_7module_EE8ParentGCJZ28test_submodule_call_policiesS2_E6ParentEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned captures(ret: address, provenance) %0) #7 align 2 {
   ret ptr %0
 }
 

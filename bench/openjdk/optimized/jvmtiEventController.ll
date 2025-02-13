@@ -2466,7 +2466,7 @@ _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %33, %31, %1
 declare void @_ZN12JvmtiEnvBase11env_disposeEv(ptr noundef nonnull align 8 dereferenceable(460)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiEventControllerPrivate16set_user_enabledEP12JvmtiEnvBaseP10JavaThread6Handle10jvmtiEventb(ptr noundef %0, ptr noundef %1, ptr readonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN27JvmtiEventControllerPrivate16set_user_enabledEP12JvmtiEnvBaseP10JavaThread6Handle10jvmtiEventb(ptr noundef captures(address) %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
   %6 = load i8, ptr @_ZN10JvmtiTrace23_trace_event_controllerE, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %_ZN16SafeResourceMarkD2Ev.exit

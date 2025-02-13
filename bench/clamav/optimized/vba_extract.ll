@@ -223,7 +223,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.206 = private unnamed_addr constant [72 x i8] c"create_vba_project: Unable to allocate memory for vba project elements\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_vba_readdir_new(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @cli_vba_readdir_new(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [1024 x i8], align 16
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
@@ -2512,7 +2512,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = alloca [4096 x i8], align 16
@@ -3659,7 +3659,7 @@ define internal fastcc noundef ptr @create_vba_project(i32 noundef range(i32 1, 
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %76, label %5
 
@@ -4061,7 +4061,7 @@ declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_ppt_vba_read(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @cli_ppt_vba_read(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.z_stream_s, align 8
   %4 = alloca [8192 x i8], align 16
   %5 = alloca [8192 x i8], align 16
@@ -4969,7 +4969,7 @@ seekandread.exit:                                 ; preds = %12
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @cli_free_vba_project(ptr noundef %0) local_unnamed_addr #11 {
+define void @cli_free_vba_project(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %2
 

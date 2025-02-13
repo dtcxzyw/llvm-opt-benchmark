@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @lv_tlsf_check(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @lv_tlsf_check(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -202,7 +202,7 @@ mapping_insert.exit:                              ; preds = %51, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_tlsf_walk_pool(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @lv_tlsf_walk_pool(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %4 = select i1 %.not, ptr @default_walker, ptr %1
   %5 = ptrtoint ptr %0 to i64
@@ -250,7 +250,7 @@ define internal void @default_walker(ptr readnone captures(none) %0, i64 %1, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, -3) i64 @lv_tlsf_block_size(ptr noundef readonly %0) local_unnamed_addr #3 {
+define range(i64 0, -3) i64 @lv_tlsf_block_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -424,7 +424,7 @@ block_link_next.exit:                             ; preds = %mapping_insert.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @lv_tlsf_remove_pool(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_tlsf_remove_pool(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = ptrtoint ptr %1 to i64
   %4 = add i64 %3, -8
   %5 = inttoptr i64 %4 to ptr
@@ -717,7 +717,7 @@ define void @lv_tlsf_destroy(ptr noundef readnone captures(none) %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lv_tlsf_get_pool(ptr noundef readnone %0) local_unnamed_addr #2 {
+define nonnull ptr @lv_tlsf_get_pool(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   ret ptr %2
 }
@@ -743,7 +743,7 @@ adjust_request_size.exit:                         ; preds = %2, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @block_locate_free(ptr noundef %0, i64 noundef range(i64 0, 65536) %1) unnamed_addr #6 {
+define internal fastcc ptr @block_locate_free(ptr noundef captures(address) %0, i64 noundef range(i64 0, 65536) %1) unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %remove_free_block.exit, label %3
 
@@ -1563,7 +1563,7 @@ block_insert.exit:                                ; preds = %104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @block_merge_next(ptr noundef %0, ptr noundef returned %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @block_merge_next(ptr noundef captures(address) %0, ptr noundef returned %1) unnamed_addr #6 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val.i = load i64, ptr %3, align 8, !tbaa !15
   %4 = icmp ugt i64 %.val.i, 3

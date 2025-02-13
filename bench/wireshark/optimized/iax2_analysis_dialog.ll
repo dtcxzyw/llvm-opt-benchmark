@@ -6509,7 +6509,7 @@ declare void @rtpstream_id_copy_pinfo(ptr noundef, ptr noundef, i32 noundef) loc
 declare noundef zeroext i1 @_ZN15WiresharkDialog19registerTapListenerEPKcPvS1_jPFvS2_EPF17tap_packet_statusS2_P12_packet_infoP12epan_dissectPKvjES4_(ptr noundef nonnull align 8 dereferenceable(133), ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18Iax2AnalysisDialog8tapResetEPv(ptr noundef %0) #0 align 2 {
+define void @_ZN18Iax2AnalysisDialog8tapResetEPv(ptr noundef captures(address_is_null) %0) #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

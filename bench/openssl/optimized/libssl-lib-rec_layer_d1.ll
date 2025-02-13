@@ -131,7 +131,7 @@ declare void @pitem_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @dtls1_read_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr noundef writeonly captures(none) %buf, i64 noundef %len, i32 noundef %peek, ptr noundef writeonly captures(none) %readbytes) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @dtls1_read_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef writeonly captures(address_is_null) %recvd_type, ptr noundef writeonly captures(none) %buf, i64 noundef %len, i32 noundef %peek, ptr noundef writeonly captures(none) %readbytes) local_unnamed_addr #0 {
 entry:
   %msg_hdr = alloca %struct.hm_header_st, align 8
   %cmp = icmp eq ptr %s, null

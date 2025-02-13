@@ -374,7 +374,7 @@ define internal noundef i32 @masq_device_event(ptr readnone captures(none) %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nf_nat_masq_schedule(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 2080, 3265) %4) unnamed_addr #0 align 16 {
+define internal fastcc void @nf_nat_masq_schedule(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 2080, 3265) %4) unnamed_addr #0 align 16 {
   %6 = load volatile i32, ptr @masq_worker_count, align 4
   %7 = icmp sgt i32 %6, 16
   br i1 %7, label %.thread6, label %8

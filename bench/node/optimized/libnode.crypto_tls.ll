@@ -4397,7 +4397,7 @@ if.end:                                           ; preds = %entry
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN4node6crypto7TLSWrap8ClearOutEvE3$_0ET0_T_SF_SE_T1_"(ptr readonly %__first.coerce, ptr readnone %__last.coerce, ptr writeonly %__result.coerce) unnamed_addr #3 {
+define internal fastcc void @"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN4node6crypto7TLSWrap8ClearOutEvE3$_0ET0_T_SF_SE_T1_"(ptr readonly captures(address) %__first.coerce, ptr readnone captures(address) %__last.coerce, ptr writeonly captures(ret: address, provenance) %__result.coerce) unnamed_addr #3 {
 entry:
   %cmp.i.not6 = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i.not6, label %for.end, label %for.body
@@ -4685,13 +4685,13 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN4node6crypto7TLSWrap12GetAsyncWrapEv(ptr noundef nonnull readnone returned align 8 dereferenceable(457) %this) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull ptr @_ZN4node6crypto7TLSWrap12GetAsyncWrapEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(457) %this) unnamed_addr #12 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZThn56_N4node6crypto7TLSWrap12GetAsyncWrapEv(ptr noundef readnone %this) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull ptr @_ZThn56_N4node6crypto7TLSWrap12GetAsyncWrapEv(ptr noundef readnone captures(ret: address, provenance) %this) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   ret ptr %0
@@ -5042,7 +5042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 -71, 1) i32 @_ZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef nonnull align 8 dereferenceable(457) %this, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef readnone %send_handle) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -71, 1) i32 @_ZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef nonnull align 8 dereferenceable(457) %this, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef readnone captures(address_is_null) %send_handle) unnamed_addr #3 align 2 {
 entry:
   %length = alloca i64, align 8
   %res = alloca %"struct.node::StreamWriteResult", align 8
@@ -5662,7 +5662,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr sret(%"class.std::unique_ptr.12") align 8, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 -71, 1) i32 @_ZThn56_N4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle) unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 -71, 1) i32 @_ZThn56_N4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef %this, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef captures(address_is_null) %send_handle) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   %call = tail call noundef i32 @_ZN4node6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef nonnull align 8 dereferenceable(457) %0, ptr noundef %w, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle)

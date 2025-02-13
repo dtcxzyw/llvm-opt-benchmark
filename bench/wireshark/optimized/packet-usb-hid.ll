@@ -3531,7 +3531,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_usb_hid_data = private unnamed_addr constant [4 x ptr] [ptr @.str.3317, ptr @.str.3318, ptr @.str.3319, ptr @.str.3320], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

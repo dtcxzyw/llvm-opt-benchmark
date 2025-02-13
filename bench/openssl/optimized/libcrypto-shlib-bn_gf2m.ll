@@ -97,7 +97,7 @@ declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 4
   %cmp = icmp eq i32 %0, 0
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.then2, %while.en
 declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %r, ptr noundef %a, ptr noundef %p) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %r, ptr noundef captures(address) %a, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %arr = alloca [6 x i32], align 16
   %call.i = tail call i32 @BN_is_zero(ptr noundef %p) #4
@@ -539,7 +539,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %zz = alloca [4 x i64], align 16
   %cmp = icmp eq ptr %a, %b
@@ -957,7 +957,7 @@ declare void @bn_GF2m_mul_2x2(ptr noundef, i64 noundef, i64 noundef, i64 noundef
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_mul(ptr noundef %r, ptr noundef captures(address) %a, ptr noundef captures(address) %b, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %p) #4
   %add = add nsw i32 %call, 1
@@ -1195,7 +1195,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %r, ptr noundef captures(address) %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1508,7 +1508,7 @@ declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_inv_arr(ptr noundef %r, ptr noundef %xx, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_inv_arr(ptr noundef %r, ptr noundef captures(address) %xx, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1573,7 +1573,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_div(ptr noundef %r, ptr noundef %y, ptr noundef %x, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_div(ptr noundef %r, ptr noundef captures(address) %y, ptr noundef captures(address) %x, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1598,7 +1598,7 @@ err:                                              ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_div_arr(ptr noundef %r, ptr noundef %yy, ptr noundef %xx, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_div_arr(ptr noundef %r, ptr noundef captures(address) %yy, ptr noundef captures(address) %xx, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -2039,7 +2039,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef %a_, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef captures(address) %a_, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 4
   %cmp = icmp eq i32 %0, 0
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %err, %if.then
 declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_solve_quad(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_solve_quad(ptr noundef %r, ptr noundef captures(address) %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %p) #4
   %add = add nsw i32 %call, 1

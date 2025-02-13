@@ -636,7 +636,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @prte_node_match(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @prte_node_match(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @prte_check_host_is_local(ptr noundef %1) #13
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %.0 = select i1 %3, ptr %4, ptr %1

@@ -5214,7 +5214,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull readonly %path, ptr noundef readonly %ext) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull readonly captures(address) %path, ptr noundef readonly captures(address) %ext) unnamed_addr #7 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #18
   %add.ptr = getelementptr inbounds i8, ptr %path, i64 %call

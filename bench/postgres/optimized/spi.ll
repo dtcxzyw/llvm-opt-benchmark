@@ -1501,7 +1501,7 @@ define dso_local range(i32 -8, 19) i32 @SPI_exec(ptr noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_extended(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 19) i32 @SPI_execute_extended(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = alloca %struct._SPI_plan, align 8
@@ -1611,7 +1611,7 @@ _SPI_begin_call.exit:                             ; preds = %8, %2, %_SPI_prepar
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_plan(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 19) i32 @SPI_execute_plan(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SPIExecuteOptions, align 8
   %7 = zext i1 %3 to i8
   %8 = icmp eq ptr %0, null
@@ -1725,13 +1725,13 @@ _SPI_begin_call.exit:                             ; preds = %18, %13, %5, %9, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 19) i32 @SPI_execp(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @SPI_execute_plan(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, i64 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_extended(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_extended(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_SPI_begin_call.exit, label %4
 
@@ -1773,7 +1773,7 @@ _SPI_begin_call.exit:                             ; preds = %8, %2, %4, %_SPI_be
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_with_paramlist(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_with_paramlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SPIExecuteOptions, align 8
   %6 = zext i1 %2 to i8
   %7 = icmp eq ptr %0, null
@@ -1824,7 +1824,7 @@ _SPI_begin_call.exit:                             ; preds = %12, %4, %8, %_SPI_b
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_snapshot(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i64 noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 19) i32 @SPI_execute_snapshot(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.SPIExecuteOptions, align 8
   %10 = zext i1 %5 to i8
   %11 = icmp eq ptr %0, null
@@ -1938,7 +1938,7 @@ _SPI_begin_call.exit:                             ; preds = %21, %16, %8, %12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -8, 19) i32 @SPI_execute_with_args(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i1 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 19) i32 @SPI_execute_with_args(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.SPICallbackArg, align 8
   %9 = alloca %struct.ErrorContextCallback, align 8
   %10 = alloca %struct._SPI_plan, align 8
@@ -2416,7 +2416,7 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @SPI_prepare_extended(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @SPI_prepare_extended(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._SPI_plan, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
@@ -2539,7 +2539,7 @@ _SPI_begin_call.exit:                             ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -2600,7 +2600,7 @@ declare void @MemoryContextSetParent(ptr noundef, ptr noundef) local_unnamed_add
 declare void @SaveCachedPlan(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2739,7 +2739,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %20, label %3
 
@@ -2881,7 +2881,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_modifytuple(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -3622,7 +3622,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3692,7 +3692,7 @@ _SPI_convert_params.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.SPICallbackArg, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
   %7 = icmp eq ptr %1, null
@@ -4036,7 +4036,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct._SPI_plan, align 8
   %10 = icmp eq ptr %1, null
   %11 = icmp slt i32 %2, 0
@@ -4165,13 +4165,13 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_cursor_open_with_paramlist(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @SPI_cursor_open_with_paramlist(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._SPI_plan, align 8
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %2, null
@@ -4387,7 +4387,7 @@ define dso_local void @SPI_cursor_close(ptr noundef %0) local_unnamed_addr #0 {
 declare void @PortalDrop(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i32 @SPI_getargtypeid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %11, label %4
 
@@ -4422,7 +4422,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i32 @SPI_getargcount(ptr noundef readonly %0) local_unnamed_addr #8 {
+define dso_local i32 @SPI_getargcount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -4446,7 +4446,7 @@ define dso_local i32 @SPI_getargcount(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @SPI_is_cursor_plan(ptr noundef readonly %0) local_unnamed_addr #7 {
+define dso_local zeroext i1 @SPI_is_cursor_plan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -4890,7 +4890,7 @@ _SPI_find_ENR_by_name.exit.thread:                ; preds = %5, %10, %_SPI_find_
 declare void @unregister_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %SPI_register_relation.exit.thread, label %3
 

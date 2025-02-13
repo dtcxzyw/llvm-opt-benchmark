@@ -1187,7 +1187,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt8qi_queue10set_valuesEP10quantifierP3appjjjf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %this, ptr noundef %q, ptr noundef readonly %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation, float noundef %cost) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt8qi_queue10set_valuesEP10quantifierP3appjjjf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %this, ptr noundef %q, ptr noundef readonly captures(address_is_null) %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation, float noundef %cost) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZNK3smt18quantifier_manager8get_statEP10quantifier(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef %q)
@@ -1287,7 +1287,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare noundef ptr @_ZNK3smt18quantifier_manager8get_statEP10quantifier(ptr noundef nonnull align 8 dereferenceable(13), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN3smt8qi_queue8get_costEP10quantifierP3appjjj(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %q, ptr noundef %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation) local_unnamed_addr #3 align 2 {
+define hidden noundef float @_ZN3smt8qi_queue8get_costEP10quantifierP3appjjj(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %q, ptr noundef captures(address_is_null) %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN3smt8qi_queue10set_valuesEP10quantifierP3appjjjf(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %q, ptr noundef %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation, float noundef 0.000000e+00)
   %m_evaluator = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -1429,7 +1429,7 @@ _ZNK6vectorIfLb0EjE4sizeEv.exit:                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt8qi_queue6insertEPNS_11fingerprintEP3appjjj(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %f, ptr noundef %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt8qi_queue6insertEPNS_11fingerprintEP3appjjj(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %f, ptr noundef captures(address_is_null) %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %f, align 8
   %call.i = tail call noundef ptr @_ZN3smt8qi_queue10set_valuesEP10quantifierP3appjjjf(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %0, ptr noundef %pat, i32 noundef %generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation, float noundef 0.000000e+00)

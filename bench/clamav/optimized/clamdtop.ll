@@ -3482,7 +3482,7 @@ define internal range(i32 -1, 2) i32 @tasks_compare(ptr noundef readonly capture
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reconnect(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @reconnect(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %2 = load i32, ptr @tries, align 4, !tbaa !38
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr @tries, align 4, !tbaa !38
@@ -3596,7 +3596,7 @@ declare ptr @get_version() local_unnamed_addr #10
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @make_connection(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @make_connection(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %3
 
@@ -3932,7 +3932,7 @@ make_ip.exit:                                     ; preds = %72, %74, %82
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @read_version(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @read_version(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #25
   %3 = call fastcc i32 @recv_line(ptr noundef %0, ptr noundef %2)
@@ -4104,7 +4104,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @recv_line(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @recv_line(ptr noundef captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 

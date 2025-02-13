@@ -48,7 +48,7 @@ define hidden void @lxb_html_tree_active_formatting_up_to_last_marker(ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #1 {
+define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -89,7 +89,7 @@ define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef r
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -130,7 +130,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_reverse(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_reverse(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -247,7 +247,7 @@ declare zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr noundef
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

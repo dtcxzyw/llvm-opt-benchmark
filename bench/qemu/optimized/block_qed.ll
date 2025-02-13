@@ -669,7 +669,7 @@ qobject_unref_impl.exit:                          ; preds = %fail, %land.lhs.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_change_backing_file(ptr noundef readonly captures(none) %bs, ptr noundef readonly %backing_file, ptr noundef readonly %backing_fmt) #0 {
+define internal i32 @bdrv_qed_co_change_backing_file(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(address_is_null) %backing_file, ptr noundef readonly captures(address_is_null) %backing_fmt) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1316,7 +1316,7 @@ declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned captures(ret: address, provenance) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #18
   ret ptr %x

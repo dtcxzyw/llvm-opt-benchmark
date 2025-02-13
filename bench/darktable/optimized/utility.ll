@@ -226,7 +226,7 @@ declare ptr @g_stpcpy(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_util_str_cat(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define void @dt_util_str_cat(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %4
@@ -1309,7 +1309,7 @@ declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @dt_util_gps_rationale_to_number(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i8 noundef signext %6, ptr noundef writeonly %7) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @dt_util_gps_rationale_to_number(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i8 noundef signext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #17 {
   %.not = icmp eq ptr %7, null
   %9 = fcmp reassoc nsz arcp contract afn oeq double %1, 0.000000e+00
   %or.cond39 = or i1 %9, %.not
@@ -1351,7 +1351,7 @@ define range(i32 0, 2) i32 @dt_util_gps_rationale_to_number(double noundef %0, d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @dt_util_gps_elevation_to_number(double noundef %0, double noundef %1, i8 noundef signext %2, ptr noundef writeonly %3) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @dt_util_gps_elevation_to_number(double noundef %0, double noundef %1, i8 noundef signext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #17 {
   %.not = icmp eq ptr %3, null
   %5 = fcmp reassoc nsz arcp contract afn oeq double %1, 0.000000e+00
   %or.cond = or i1 %5, %.not
@@ -1628,7 +1628,7 @@ define noalias ptr @dt_util_format_exposure(float noundef %0) local_unnamed_addr
 declare float @llvm.nearbyint.f32(float) #14
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @dt_read_file(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @dt_read_file(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -1964,7 +1964,7 @@ dt_filename_change_extension.exit:                ; preds = %18, %9, %7, %5, %3,
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @dt_filename_change_extension(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noalias ptr @dt_filename_change_extension(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

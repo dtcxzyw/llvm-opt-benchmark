@@ -1346,7 +1346,7 @@ _selection_raise_signal.exit:                     ; preds = %31, %38, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %47, label %.preheader

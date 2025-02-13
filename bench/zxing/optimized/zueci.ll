@@ -118,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zueci_gb18030_2_mb_u = internal unnamed_addr constant [255 x i16] [i16 -6298, i16 -6297, i16 -6296, i16 -6295, i16 -6294, i16 -6293, i16 8364, i16 -6291, i16 -6290, i16 -6289, i16 -6288, i16 -6287, i16 -6286, i16 -6285, i16 -6284, i16 -6283, i16 -6282, i16 -6281, i16 -6280, i16 -6279, i16 -6278, i16 -6277, i16 -6276, i16 -6275, i16 -6274, i16 -6273, i16 -6272, i16 -6271, i16 -6270, i16 -6269, i16 -6268, i16 -6267, i16 -6266, i16 -6265, i16 -6264, i16 -6263, i16 -6262, i16 -6261, i16 -6260, i16 -496, i16 -494, i16 -495, i16 -493, i16 -492, i16 -491, i16 -490, i16 -489, i16 -488, i16 -487, i16 -6249, i16 -6248, i16 -6247, i16 -6246, i16 -6245, i16 -6244, i16 -6243, i16 -6242, i16 -6241, i16 -6240, i16 -6239, i16 -6238, i16 -6237, i16 -6236, i16 -6235, i16 -6234, i16 -6233, i16 -6232, i16 -6231, i16 -6230, i16 -6229, i16 -6228, i16 -6227, i16 -6226, i16 -6225, i16 -6224, i16 -6223, i16 -6222, i16 -6221, i16 -6220, i16 -6219, i16 -6218, i16 -6217, i16 -6216, i16 -6215, i16 -6214, i16 -6213, i16 -6212, i16 -6211, i16 -6210, i16 -6209, i16 -6208, i16 -6207, i16 -6206, i16 -6205, i16 -6204, i16 -6203, i16 -6202, i16 7743, i16 505, i16 -6199, i16 -6198, i16 -6197, i16 -6196, i16 -6195, i16 -6194, i16 -6193, i16 -6192, i16 -6191, i16 -6190, i16 -6189, i16 -6188, i16 -6187, i16 -6186, i16 -6185, i16 -6184, i16 -6183, i16 -6182, i16 -6181, i16 -6180, i16 -6179, i16 -6178, i16 -6177, i16 -6176, i16 -6175, i16 -6174, i16 -6173, i16 -6172, i16 -6171, i16 -6170, i16 12350, i16 12272, i16 12273, i16 12274, i16 12275, i16 12276, i16 12277, i16 12278, i16 12279, i16 12280, i16 12281, i16 12282, i16 12283, i16 -6156, i16 -6155, i16 -6154, i16 -6153, i16 -6152, i16 -6151, i16 -6150, i16 -6149, i16 -6148, i16 -6147, i16 -6146, i16 -6145, i16 -6144, i16 -6143, i16 -6142, i16 -6141, i16 -6140, i16 -6139, i16 -6138, i16 -6137, i16 -6136, i16 -6135, i16 -6134, i16 -6133, i16 -6132, i16 -6131, i16 -6130, i16 -6129, i16 -6128, i16 -6127, i16 -6126, i16 -6125, i16 -6124, i16 11905, i16 -6122, i16 -6121, i16 -6120, i16 11908, i16 13427, i16 13383, i16 11912, i16 11915, i16 -24652, i16 13726, i16 13850, i16 13838, i16 11916, i16 11927, i16 14702, i16 14616, i16 -24651, i16 14799, i16 14815, i16 14963, i16 14800, i16 -24650, i16 -24649, i16 15182, i16 15470, i16 15584, i16 11943, i16 -6095, i16 -24648, i16 11946, i16 16470, i16 16735, i16 11950, i16 17207, i16 11955, i16 11958, i16 11959, i16 -6085, i16 17329, i16 17324, i16 11963, i16 17373, i16 17622, i16 18017, i16 17996, i16 -24647, i16 18211, i16 18217, i16 18300, i16 18317, i16 11978, i16 18759, i16 18810, i16 18813, i16 18818, i16 18819, i16 18821, i16 18822, i16 18847, i16 18843, i16 18871, i16 18870, i16 -24646, i16 -6059, i16 19619, i16 19615, i16 19616, i16 19617, i16 19575, i16 19618, i16 19731, i16 19732, i16 19733, i16 19734, i16 19735, i16 19736, i16 19737, i16 19886, i16 -24645], align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 10) i32 @zueci_utf8_to_eci(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 10) i32 @zueci_utf8_to_eci(i32 noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %or.cond.i = icmp ugt i32 %0, 35
@@ -2936,7 +2936,7 @@ define internal range(i32 0, 2) i32 @zueci_u_binary(i32 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 9) i32 @zueci_dest_len_eci(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 0, 9) i32 @zueci_dest_len_eci(i32 noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %or.cond.i = icmp ugt i32 %0, 35
   br i1 %or.cond.i, label %switch.early.test, label %switch.early.test47
 
@@ -3053,7 +3053,7 @@ zueci_chr_lte_cnt.exit42:                         ; preds = %.lr.ph.i38, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 10) i32 @zueci_eci_to_utf8(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 0, 10) i32 @zueci_eci_to_utf8(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [5 x i8], align 1
   %10 = sext i32 %2 to i64
@@ -3711,7 +3711,7 @@ switch.early.test:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 10) i32 @zueci_dest_len_utf8(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 0, 10) i32 @zueci_dest_len_utf8(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds i8, ptr %1, i64 %8

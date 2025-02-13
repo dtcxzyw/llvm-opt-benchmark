@@ -93,7 +93,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull readonly align 1 captures(ret: address, provenance) dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i32, ptr %3, align 4
@@ -1328,7 +1328,7 @@ define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull readonly align 1 captures(ret: address, provenance) dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, -23
   %4 = icmp eq i8 %2, 15

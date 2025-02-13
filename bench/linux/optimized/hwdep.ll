@@ -54,7 +54,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_alsa_hwdep_init325, ptr @__UNIQUE_ID___addressable_snd_hwdep_new323, ptr @__UNIQUE_ID_author319, ptr @__UNIQUE_ID_description320, ptr @__UNIQUE_ID_file321, ptr @__UNIQUE_ID_license322, ptr @__exitcall_alsa_hwdep_exit, ptr @alsa_hwdep_exit, ptr @snd_hwdep_proc_done], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_hwdep_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hwdep_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %47, label %6
 
@@ -363,7 +363,7 @@ define internal void @alsa_hwdep_exit() #3 section ".exit.text" align 16 {
 declare dso_local i32 @snd_ctl_unregister_ioctl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef readnone %0, ptr readnone captures(none) %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.snd_hwdep_info, align 4
   switch i32 %2, label %98 [
     i32 -1073457888, label %6

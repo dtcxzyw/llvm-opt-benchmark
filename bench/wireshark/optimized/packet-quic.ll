@@ -1119,7 +1119,7 @@ define hidden void @quic_add_grease_quic_bit(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @quic_add_stateless_reset_token(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @quic_add_stateless_reset_token(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @wmem_file_scope() #15
   %6 = load i32, ptr @proto_quic, align 4
   %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 0) #15
@@ -4356,7 +4356,7 @@ quic_draft_version.exit.thread:                   ; preds = %switch.early.test, 
 declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @quic_conn_data_get_conn_client_dcid_initial(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @quic_conn_data_get_conn_client_dcid_initial(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -5463,7 +5463,7 @@ declare ptr @proto_tree_add_item_ret_varint(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_process_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef captures(none) %6, i32 noundef range(i32 0, 2) %7, ptr noundef readonly %8, i8 noundef zeroext %9, i32 noundef range(i32 0, 256) %10) unnamed_addr #0 {
+define internal fastcc void @quic_process_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef captures(none) %6, i32 noundef range(i32 0, 2) %7, ptr noundef readonly captures(address_is_null) %8, i8 noundef zeroext %9, i32 noundef range(i32 0, 256) %10) unnamed_addr #0 {
   %12 = alloca [12 x i8], align 1
   %13 = alloca [16 x i8], align 16
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5814,7 +5814,7 @@ quic_decrypt_message.exit:                        ; preds = %52, %153, %160, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_max_packet_number(ptr noundef nonnull %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @quic_max_packet_number(ptr noundef nonnull captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 %1, ptr %5, align 8
   %.not = icmp sgt i8 %3, -1

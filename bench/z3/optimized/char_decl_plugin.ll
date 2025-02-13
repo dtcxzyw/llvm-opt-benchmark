@@ -1710,14 +1710,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK16char_decl_plugin9are_equalEP3appS1_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone %a, ptr noundef readnone %b) unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK16char_decl_plugin9are_equalEP3appS1_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone captures(address) %a, ptr noundef readnone captures(address) %b) unnamed_addr #11 align 2 {
 entry:
   %cmp = icmp eq ptr %a, %b
   ret i1 %cmp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK16char_decl_plugin12are_distinctEP3appS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly %a, ptr noundef readonly %b) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK16char_decl_plugin12are_distinctEP3appS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #10 align 2 {
 entry:
   %cmp.not = icmp eq ptr %a, %b
   br i1 %cmp.not, label %land.end, label %land.lhs.true

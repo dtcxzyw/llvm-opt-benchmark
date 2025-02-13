@@ -1312,7 +1312,7 @@ define hidden noundef zeroext i1 @_ZN11PSCardTable17is_dirty_for_addrEPv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11PSCardTable11is_in_youngEPKv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11PSCardTable11is_in_youngEPKv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8

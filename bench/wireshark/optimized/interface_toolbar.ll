@@ -11224,7 +11224,7 @@ declare void @_ZN7QObject12moveToThreadEP7QThread(ptr noundef nonnull align 8 de
 declare void @_ZN7QThread5startENS_8PriorityE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16InterfaceToolbar12startCaptureEP7_GArray(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16InterfaceToolbar12startCaptureEP7_GArray(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8

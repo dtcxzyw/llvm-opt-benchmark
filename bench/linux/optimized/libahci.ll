@@ -623,7 +623,7 @@ define internal void @ahci_qc_fill_rtf(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal void @ahci_qc_ncq_fill_rtf(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define internal void @ahci_qc_ncq_fill_rtf(ptr noundef captures(address) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 15888
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8224

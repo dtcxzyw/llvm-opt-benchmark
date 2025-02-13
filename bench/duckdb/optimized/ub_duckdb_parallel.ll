@@ -2950,7 +2950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MetaPipeline19AddDependenciesFromEPNS_8PipelineES2_b(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %dependant, ptr noundef readnone %start, i1 noundef zeroext %including) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MetaPipeline19AddDependenciesFromEPNS_8PipelineES2_b(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %dependant, ptr noundef readnone captures(address) %start, i1 noundef zeroext %including) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i.i = alloca %"struct.std::_Hashtable<duckdb::Pipeline *, std::pair<duckdb::Pipeline *const, duckdb::vector<duckdb::Pipeline *>>, std::allocator<std::pair<duckdb::Pipeline *const, duckdb::vector<duckdb::Pipeline *>>>, std::__detail::_Select1st, std::equal_to<duckdb::Pipeline *>, std::hash<duckdb::Pipeline *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %pipelines = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3853,7 +3853,7 @@ _ZN6duckdb6vectorISt17reference_wrapperINS_16PhysicalOperatorEELb1EEC2ERKS4_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MetaPipeline19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorEPS1_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(128) %op, ptr noundef %last_pipeline) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MetaPipeline19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorEPS1_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(128) %op, ptr noundef captures(address) %last_pipeline) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i.i = alloca %"struct.std::_Hashtable<duckdb::Pipeline *, std::pair<duckdb::Pipeline *const, duckdb::vector<duckdb::Pipeline *>>, std::allocator<std::pair<duckdb::Pipeline *const, duckdb::vector<duckdb::Pipeline *>>>, std::__detail::_Select1st, std::equal_to<duckdb::Pipeline *>, std::hash<duckdb::Pipeline *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 16
@@ -9754,7 +9754,7 @@ _ZNK6duckdb6vectorIPNS_5EventELb1EE3getILb1EEERKS2_m.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb5Event22GetParentsVerificationEv(ptr noundef nonnull readnone align 8 dereferenceable(113) %this) local_unnamed_addr #19 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb5Event22GetParentsVerificationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(113) %this) local_unnamed_addr #19 align 2 {
 entry:
   %parents_raw = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %parents_raw

@@ -322,7 +322,7 @@ declare void @whirlpool_block(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly captures(address_is_null) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %bitoff1 = getelementptr inbounds nuw i8, ptr %c, i64 128
   %0 = load i32, ptr %bitoff1, align 8
@@ -434,7 +434,7 @@ return:                                           ; preds = %for.end41, %if.then
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @WHIRLPOOL(ptr noundef %inp, i64 noundef %bytes, ptr noundef writeonly %md) local_unnamed_addr #2 {
+define noundef nonnull ptr @WHIRLPOOL(ptr noundef %inp, i64 noundef %bytes, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %md) local_unnamed_addr #2 {
 entry:
   %ctx = alloca %struct.WHIRLPOOL_CTX, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %ctx, i8 0, i64 168, i1 false)

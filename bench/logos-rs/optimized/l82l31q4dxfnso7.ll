@@ -149,17 +149,17 @@ define i32 @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hff71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h502bdadcdac11837E"(ptr readnone returned align 8 %0) unnamed_addr #3 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h502bdadcdac11837E"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 4 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h7485953e8ff06473E"(ptr readnone returned align 4 %0) unnamed_addr #3 {
+define align 4 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h7485953e8ff06473E"(ptr readnone returned align 4 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 4 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h889752e0970d9124E"(ptr readnone returned align 4 %0) unnamed_addr #3 {
+define align 4 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h889752e0970d9124E"(ptr readnone returned align 4 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -3045,7 +3045,7 @@ default.unreachable:                              ; preds = %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$11unwrap_leaf17hcf89ac5a2818afb8E"(ptr readonly returned align 8 %0) unnamed_addr #0 {
+define hidden noundef align 8 ptr @"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$11unwrap_leaf17hcf89ac5a2818afb8E"(ptr readonly returned align 8 captures(ret: address, provenance) %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [48 x i8], align 8
   %4 = load i64, ptr %0, align 8

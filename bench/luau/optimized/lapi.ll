@@ -242,7 +242,7 @@ define dso_local void @_Z17lua_rawcheckstackP9lua_Statei(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %23, label %5
 
@@ -2596,7 +2596,7 @@ _ZL11pseudo2addrP9lua_Statei.exit47:              ; preds = %117, %108, %_ZL10ge
 declare hidden noundef i32 @_Z13luaV_lessthanP9lua_StatePK10lua_TValueS3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef double @_Z13lua_tonumberxP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local noundef double @_Z13lua_tonumberxP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.lua_TValue, align 8
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %14
@@ -2739,7 +2739,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %54, %45, %_ZL10getc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.lua_TValue, align 8
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %14
@@ -2878,7 +2878,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %54, %45, %_ZL10getc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z15lua_tounsignedxP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local noundef i32 @_Z15lua_tounsignedxP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.lua_TValue, align 8
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %14
@@ -3145,7 +3145,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %52, %43, %_ZL10getc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %13
 
@@ -3419,7 +3419,7 @@ _ZL11pseudo2addrP9lua_Statei.exit64:              ; preds = %136, %128, %_ZL10ge
 declare hidden noundef i32 @_Z13luaV_tostringP9lua_StateP10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16lua_tostringatomP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define dso_local noundef ptr @_Z16lua_tostringatomP9lua_StateiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %13
 
@@ -3577,7 +3577,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %53, %44, %_ZL10getc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16lua_namecallatomP9lua_StatePi(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @_Z16lua_namecallatomP9lua_StatePi(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4879,7 +4879,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %52, %43, %_ZL10getc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_Z12lua_tobufferP9lua_StateiPm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @_Z12lua_tobufferP9lua_StateiPm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %13
 
@@ -8209,7 +8209,7 @@ define dso_local noundef range(i32 0, 256) i32 @_Z10lua_statusP9lua_State(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 5) i32 @_Z12lua_costatusP9lua_StateS0_(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 5) i32 @_Z12lua_costatusP9lua_StateS0_(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %20, label %4
 
@@ -10285,7 +10285,7 @@ define dso_local noundef i64 @_Z14lua_totalbytesP9lua_Statei(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_Z13lua_getallocfP9lua_StatePPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define dso_local noundef ptr @_Z13lua_getallocfP9lua_StatePPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

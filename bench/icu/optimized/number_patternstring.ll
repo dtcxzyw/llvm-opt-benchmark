@@ -901,7 +901,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK6icu_756number4impl17ParsedPatternInfo12getEndpointsEi(ptr noundef nonnull readnone align 8 dereferenceable(433) %this, i32 noundef %flags) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK6icu_756number4impl17ParsedPatternInfo12getEndpointsEi(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(433) %this, i32 noundef %flags) local_unnamed_addr #8 align 2 {
 entry:
   %and = and i32 %flags, 256
   %cmp.not = icmp eq i32 %and, 0

@@ -1913,7 +1913,7 @@ _ZN15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog9ddnf_node12remove_childEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog9ddnf_node12remove_childEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone captures(address) %n) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_nodes.i.i, align 8
@@ -1987,7 +1987,7 @@ _ZN15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog9ddnf_node14contains_childEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone %n) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog9ddnf_node14contains_childEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone captures(address) %n) local_unnamed_addr #8 align 2 {
 entry:
   %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_nodes.i.i, align 8

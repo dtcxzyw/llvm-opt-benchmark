@@ -620,7 +620,7 @@ return:                                           ; preds = %land.lhs.true11, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef %target, ptr noundef %source) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef captures(address) %target, ptr noundef %source) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %target, i64 16
@@ -3130,7 +3130,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnul
 declare noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes5irgen11ESTreeIRGen31canCreateLRefWithoutSideEffectsEPNS_6ESTree4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %target) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes5irgen11ESTreeIRGen31canCreateLRefWithoutSideEffectsEPNS_6ESTree4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(address_is_null) %target) local_unnamed_addr #4 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %target, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
@@ -3616,7 +3616,7 @@ entry:
 declare noundef ptr @_ZN6hermes9IRBuilder23createIteratorBeginInstEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef readonly %targetPat, ptr noundef %source) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef readonly captures(address) %targetPat, ptr noundef %source) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i137 = alloca %"class.llvh::Twine", align 8
   %ref.tmp.i.i = alloca %"class.hermes::irgen::LReference", align 8
@@ -4187,7 +4187,7 @@ if.end226:                                        ; preds = %if.else223, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef readonly %target, ptr noundef %source) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %this, i1 noundef zeroext %declInit, ptr noundef readonly captures(address) %target, ptr noundef %source) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i64 = alloca %"class.llvh::Twine", align 8
   %ref.tmp.i = alloca %"class.llvh::Twine", align 8
@@ -5617,7 +5617,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder29createStoreNewOwnPropertyInstEPNS_5Va
 declare noundef ptr @_ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen14serializeScopeEPNS_9ScopeDescEb(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %S, i1 zeroext %includeGlobal) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen14serializeScopeEPNS_9ScopeDescEb(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(address) %S, i1 zeroext %includeGlobal) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp29 = alloca %"class.std::shared_ptr", align 8
   %parent_.i = getelementptr inbounds nuw i8, ptr %S, i64 40

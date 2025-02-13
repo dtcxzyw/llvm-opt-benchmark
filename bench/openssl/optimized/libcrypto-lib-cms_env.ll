@@ -996,7 +996,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_ktri_get0_algs(ptr noundef readonly captures(none) %ri, ptr noundef writeonly %pk, ptr noundef writeonly %recip, ptr noundef writeonly %palg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_ktri_get0_algs(ptr noundef readonly captures(none) %ri, ptr noundef writeonly captures(address_is_null) %pk, ptr noundef writeonly captures(address_is_null) %recip, ptr noundef writeonly captures(address_is_null) %palg) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -1360,7 +1360,7 @@ declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kekri_get0_id(ptr noundef readonly captures(none) %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pid, ptr noundef writeonly %pdate, ptr noundef writeonly %potherid, ptr noundef writeonly %pothertype) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kekri_get0_id(ptr noundef readonly captures(none) %ri, ptr noundef writeonly captures(address_is_null) %palg, ptr noundef writeonly captures(address_is_null) %pid, ptr noundef writeonly captures(address_is_null) %pdate, ptr noundef writeonly captures(address_is_null) %potherid, ptr noundef writeonly captures(address_is_null) %pothertype) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 2

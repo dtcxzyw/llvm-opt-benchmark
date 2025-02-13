@@ -200,7 +200,7 @@ define void @Fraig_ParamsSetDefaultFull(ptr noundef writeonly captures(none) ini
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Fraig_ManCreate(ptr noundef %0) local_unnamed_addr #4 {
+define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.sroa.0 = alloca i32, align 8
   %.sroa.4 = alloca i32, align 4
   %.sroa.6 = alloca i32, align 8

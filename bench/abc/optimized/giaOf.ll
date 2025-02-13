@@ -467,7 +467,7 @@ declare void @Mf_ManSetFlowRefs(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Of_StoDelete(ptr noundef %0) local_unnamed_addr #0 {
+define void @Of_StoDelete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr i8, ptr %0, i64 28
   %.val15.i = load i32, ptr %3, align 4, !tbaa !73

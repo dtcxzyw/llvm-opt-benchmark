@@ -302,7 +302,7 @@ define internal range(i32 -1366, 1) i32 @unpack(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal range(i32 -1366, 1) i32 @release(ptr noundef %0) #2 {
+define internal range(i32 -1366, 1) i32 @release(ptr noundef captures(address_is_null) %0) #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 

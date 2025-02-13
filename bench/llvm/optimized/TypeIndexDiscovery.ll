@@ -1383,7 +1383,7 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26resolveTypeIndexReferencesN4llvm8ArrayRefIhEENS0_INS_8codeview11TiReferenceEEERNS_15SmallVectorImplINS2_9TypeIndexEEE(ptr %0, i64 %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL26resolveTypeIndexReferencesN4llvm8ArrayRefIhEENS0_INS_8codeview11TiReferenceEEERNS_15SmallVectorImplINS2_9TypeIndexEEE(ptr %0, i64 %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::BinaryStreamReader", align 8
   %7 = alloca %"class.llvm::FixedStreamArray", align 8
   %8 = alloca %"class.llvm::Error", align 8

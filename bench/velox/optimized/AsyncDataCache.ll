@@ -1858,7 +1858,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef %wait) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef captures(address_is_null) %wait) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i.i = alloca %"struct.std::pair.246", align 8
   %ref.tmp.i.i = alloca %"class.std::tuple.249", align 8
@@ -2846,7 +2846,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook5velox5cache13CoalescedLoad12loadOrFutureEPN5folly10SemiFutureIbEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %wait) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook5velox5cache13CoalescedLoad12loadOrFutureEPN5folly10SemiFutureIbEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef captures(address_is_null) %wait) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp14 = alloca %"class.folly::SemiFuture", align 8
   %pins = alloca %"class.std::vector.119", align 8
@@ -6695,7 +6695,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook5velox5cache19AsyncDataCacheEntryESt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef %wait) local_unnamed_addr #4 align 2 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef captures(address_is_null) %wait) local_unnamed_addr #4 align 2 {
 entry:
   %xor.i.i = xor i64 %key.coerce1, %key.coerce0
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023

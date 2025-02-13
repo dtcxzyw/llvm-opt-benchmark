@@ -8379,7 +8379,7 @@ define internal void @perf_trace_rpc_clnt_new(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_rpc_clnt_new_err(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_rpc_clnt_new_err(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8443,7 +8443,7 @@ define internal void @trace_event_raw_event_rpc_clnt_new_err(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_rpc_clnt_new_err(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_rpc_clnt_new_err(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -9130,7 +9130,7 @@ define internal void @perf_trace_rpc_task_running(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_rpc_task_queued(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_rpc_task_queued(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9248,7 +9248,7 @@ define internal void @trace_event_raw_event_rpc_task_queued(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_rpc_task_queued(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_rpc_task_queued(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -12519,7 +12519,7 @@ define internal void @perf_trace_xprt_ping(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_xprt_writelock_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_xprt_writelock_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -12603,7 +12603,7 @@ define internal void @trace_event_raw_event_xprt_writelock_event(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_xprt_writelock_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_xprt_writelock_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -12704,7 +12704,7 @@ define internal void @perf_trace_xprt_writelock_event(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_xprt_cong_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_xprt_cong_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -12803,7 +12803,7 @@ define internal void @trace_event_raw_event_xprt_cong_event(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_xprt_cong_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_xprt_cong_event(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -13204,7 +13204,7 @@ define internal void @perf_trace_xs_data_ready(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_xs_stream_read_data(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_xs_stream_read_data(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -13308,7 +13308,7 @@ define internal void @trace_event_raw_event_xs_stream_read_data(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_xs_stream_read_data(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define internal void @perf_trace_xs_stream_read_data(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -14016,7 +14016,7 @@ define internal void @perf_trace_pmap_register(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_rpcb_register(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #1 align 16 {
+define internal void @trace_event_raw_event_rpcb_register(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -14082,7 +14082,7 @@ define internal void @trace_event_raw_event_rpcb_register(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_rpcb_register(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #1 align 16 {
+define internal void @perf_trace_rpcb_register(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
@@ -14166,7 +14166,7 @@ define internal void @perf_trace_rpcb_register(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_rpcb_unregister(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #1 align 16 {
+define internal void @trace_event_raw_event_rpcb_unregister(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -14217,7 +14217,7 @@ define internal void @trace_event_raw_event_rpcb_unregister(ptr noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_rpcb_unregister(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #1 align 16 {
+define internal void @perf_trace_rpcb_unregister(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -14947,7 +14947,7 @@ define internal void @perf_trace_svc_authenticate(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_svc_process(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_svc_process(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -15067,7 +15067,7 @@ define internal void @trace_event_raw_event_svc_process(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_svc_process(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_svc_process(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -16033,7 +16033,7 @@ define internal void @perf_trace_svc_stats_latency(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_svc_xprt_create_err(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef %5) #1 align 16 {
+define internal void @trace_event_raw_event_svc_xprt_create_err(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef %5) #1 align 16 {
   %7 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -16110,7 +16110,7 @@ define internal void @trace_event_raw_event_svc_xprt_create_err(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_svc_xprt_create_err(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef %5) #1 align 16 {
+define internal void @perf_trace_svc_xprt_create_err(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef %5) #1 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
@@ -16724,7 +16724,7 @@ define internal void @perf_trace_svc_xprt_event(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_svc_xprt_accept(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_svc_xprt_accept(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -16834,7 +16834,7 @@ define internal void @trace_event_raw_event_svc_xprt_accept(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_svc_xprt_accept(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_svc_xprt_accept(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -17925,7 +17925,7 @@ define internal void @perf_trace_svcsock_tcp_state(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_svcsock_accept_class(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_svcsock_accept_class(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -17980,7 +17980,7 @@ define internal void @trace_event_raw_event_svcsock_accept_class(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_svcsock_accept_class(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3) #1 align 16 {
+define internal void @perf_trace_svcsock_accept_class(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -18179,7 +18179,7 @@ define internal void @perf_trace_cache_event(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_register_class(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) #1 align 16 {
+define internal void @trace_event_raw_event_register_class(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) #1 align 16 {
   %8 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -18237,7 +18237,7 @@ define internal void @trace_event_raw_event_register_class(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_register_class(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) #1 align 16 {
+define internal void @perf_trace_register_class(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) #1 align 16 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
@@ -18313,7 +18313,7 @@ define internal void @perf_trace_register_class(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_svc_unregister(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_svc_unregister(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -18364,7 +18364,7 @@ define internal void @trace_event_raw_event_svc_unregister(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_svc_unregister(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_svc_unregister(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -19029,7 +19029,7 @@ define dso_local void @rpc_wake_up_queued_task_set_status(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @rpc_wake_up_first_on_wq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef ptr @rpc_wake_up_first_on_wq(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i8, ptr %5, align 8
@@ -19146,7 +19146,7 @@ define dso_local noundef ptr @rpc_wake_up_first_on_wq(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @rpc_wake_up_task_on_wq_queue_action_locked(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @rpc_wake_up_task_on_wq_queue_action_locked(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 2
@@ -19351,7 +19351,7 @@ define internal fastcc noundef ptr @rpc_wake_up_task_on_wq_queue_action_locked(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @rpc_wake_up_first(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef ptr @rpc_wake_up_first(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) #1 align 16 {
   %4 = load ptr, ptr @rpciod_workqueue, align 8
   %5 = tail call ptr @rpc_wake_up_first_on_wq(ptr noundef %4, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %5

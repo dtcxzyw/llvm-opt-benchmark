@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hwloc_infos_s = type { ptr, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_topology_diff_destroy(ptr noundef %0) local_unnamed_addr #0 {
+define noundef i32 @hwloc_topology_diff_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -657,7 +657,7 @@ hwloc_append_diff.exit.i:                         ; preds = %300, %297
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1104,7 +1104,7 @@ declare i32 @hwloc_bitmap_isequal(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef range(i32 1, 3) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 1, 3) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #6 {
   %9 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %43, label %10
@@ -1194,7 +1194,7 @@ declare void @hwloc_internal_distances_refresh(ptr noundef) local_unnamed_addr #
 declare void @hwloc_internal_memattrs_refresh(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2

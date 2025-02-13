@@ -3060,7 +3060,7 @@ declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare ptr @g_markup_printf_escaped(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @_action_find_definition(ptr noundef readonly %0) unnamed_addr #9 {
+define internal fastcc ptr @_action_find_definition(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %2
 
@@ -5099,7 +5099,7 @@ declare i32 @dt_ui_panel_ancestor(ptr noundef, i32 noundef, ptr noundef) local_u
 declare ptr @dt_ui_get_container(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   %.not33 = icmp eq ptr %1, null
@@ -5387,7 +5387,7 @@ declare void @gtk_tree_view_column_set_expand(ptr noundef, i32 noundef) local_un
 declare void @gtk_tree_view_column_set_cell_data_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_fill_action_fields(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4) #0 {
+define internal void @_fill_action_fields(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address_is_null) %4) #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store ptr null, ptr %6, align 8, !tbaa !147
@@ -7433,7 +7433,7 @@ dt_shortcuts_load.exit:                           ; preds = %._crit_edge, %9
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_actions(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_dump_actions(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -7483,7 +7483,7 @@ define void @dt_shortcuts_select_view(i32 noundef %0) local_unnamed_addr #0 {
 declare void @g_sequence_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_shortcut_compare_func(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) #9 {
+define internal i32 @_shortcut_compare_func(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #9 {
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
   %.not.i = icmp eq ptr %0, null
@@ -8189,7 +8189,7 @@ default.unreachable:                              ; preds = %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @_action_find_elements(ptr noundef readonly %0) unnamed_addr #9 {
+define internal fastcc ptr @_action_find_elements(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #9 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_action_find_definition.exit.thread9, label %2
 
@@ -8604,7 +8604,7 @@ _action_find_definition.exit.thread:              ; preds = %109, %111, %110, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_find_combo_effect(ptr noundef readnone %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_find_combo_effect(ptr noundef readnone captures(address) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = icmp eq ptr %0, @dt_action_effect_selection
   br i1 %5, label %6, label %.thread46
 
@@ -12203,7 +12203,7 @@ define void @dt_action_rename_preset(ptr noundef %0, ptr noundef %1, ptr noundef
 declare void @gtk_tree_model_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_remove_shortcut_from_store(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readnone %3) #0 {
+define internal range(i32 0, 2) i32 @_remove_shortcut_from_store(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #24
@@ -12322,7 +12322,7 @@ declare void @llvm.va_start.p0(ptr) #17
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_action_distinct_label(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_action_distinct_label(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %.not30 = icmp eq ptr %1, null
   br i1 %.not30, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -13000,7 +13000,7 @@ common.ret:                                       ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_action_find_effect_combo(ptr noundef %0, ptr readnone %.8.val, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_action_find_effect_combo(ptr noundef %0, ptr readnone captures(address) %.8.val, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %.8.val, @dt_action_effect_selection
   %4 = icmp sgt i32 %1, 6
   %or.cond = and i1 %3, %4
@@ -13334,7 +13334,7 @@ declare i32 @gtk_tree_model_iter_children(ptr noundef, ptr noundef, ptr noundef)
 declare i32 @gtk_tree_model_iter_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @_fallback_type_is_relevant(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @_fallback_type_is_relevant(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -15195,7 +15195,7 @@ declare ptr @g_sequence_insert_sorted(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @gtk_settings_get_default() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_key_release_delayed(ptr noundef readnone %0) #0 {
+define internal noundef i32 @_key_release_delayed(ptr noundef readnone captures(address_is_null) %0) #0 {
   store i32 0, ptr @_timeout_source, align 4, !tbaa !9
   %2 = load ptr, ptr @_pressed_keys, align 8, !tbaa !72
   %.not = icmp eq ptr %2, null
@@ -15227,7 +15227,7 @@ define internal noundef i32 @_key_release_delayed(ptr noundef readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_button_release_delayed(ptr noundef readnone %0) #0 {
+define internal noundef i32 @_button_release_delayed(ptr noundef readnone captures(address_is_null) %0) #0 {
   store i32 0, ptr @_timeout_source, align 4, !tbaa !9
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4

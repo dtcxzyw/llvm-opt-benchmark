@@ -4628,7 +4628,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal15ExpectationBase22RetireAllPreRequisitesEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN7testing8internal15ExpectationBase22RetireAllPreRequisitesEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
   %retired_.i = getelementptr inbounds nuw i8, ptr %this, i64 132
@@ -4669,7 +4669,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7testing8internal15ExpectationBase28AllPrerequisitesAreSatisfiedEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7testing8internal15ExpectationBase28AllPrerequisitesAreSatisfiedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -4758,7 +4758,7 @@ if.end:                                           ; preds = %land.end, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7testing8internal15ExpectationBase28FindUnsatisfiedPrerequisitesEPNS_14ExpectationSetE(ptr noundef nonnull readonly align 8 dereferenceable(232) %this, ptr noundef %result) local_unnamed_addr #3 align 2 {
+define void @_ZNK7testing8internal15ExpectationBase28FindUnsatisfiedPrerequisitesEPNS_14ExpectationSetE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %this, ptr noundef %result) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -6669,7 +6669,7 @@ _ZN7testing8internal14GTestMutexLockD2Ev.exit2:   ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal25UntypedFunctionMockerBase11GetHandleOfEPNS0_15ExpectationBaseE(ptr noalias sret(%"class.testing::Expectation") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readnone %exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal25UntypedFunctionMockerBase11GetHandleOfEPNS0_15ExpectationBaseE(ptr noalias sret(%"class.testing::Expectation") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readnone captures(address) %exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -7112,7 +7112,7 @@ if.end:                                           ; preds = %invoke.cont6, %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_118MockObjectRegistryD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing12_GLOBAL__N_118MockObjectRegistryD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i8, ptr @_ZN7testing30FLAGS_gmock_catch_leaked_mocksE, align 1
@@ -8441,7 +8441,7 @@ _ZN7testing8internal10linked_ptrINS0_15ExpectationBaseEEC2ERKS3_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7testing11ExpectationD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing11ExpectationD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %link_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
@@ -11470,7 +11470,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7testing8internalL24ParseGoogleMockFlagValueEPKcS2_b(ptr noundef readonly %str, ptr noundef %flag, i1 noundef zeroext %def_optional) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN7testing8internalL24ParseGoogleMockFlagValueEPKcS2_b(ptr noundef readonly captures(address_is_null, ret: address, provenance) %str, ptr noundef %flag, i1 noundef zeroext %def_optional) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %flag_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

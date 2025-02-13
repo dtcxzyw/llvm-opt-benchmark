@@ -61,7 +61,7 @@ return:                                           ; preds = %if.then2, %if.else,
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UDataMemory_normalizeDataPointer_75(ptr noundef readonly %p) local_unnamed_addr #6 {
+define ptr @UDataMemory_normalizeDataPointer_75(ptr noundef readonly captures(address_is_null, ret: address, provenance) %p) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -148,7 +148,7 @@ declare void @uprv_unmapFile_75(ptr noundef) local_unnamed_addr #7
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udata_getMemory_75(ptr noundef readonly %pData) local_unnamed_addr #4 {
+define ptr @udata_getMemory_75(ptr noundef readonly captures(address_is_null) %pData) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %pData, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -173,7 +173,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare zeroext i16 @udata_getHeaderSize_75(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -65535, -2147483648) i32 @udata_getLength_75(ptr noundef readonly %pData) local_unnamed_addr #4 {
+define range(i32 -65535, -2147483648) i32 @udata_getLength_75(ptr noundef readonly captures(address_is_null) %pData) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %pData, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -202,7 +202,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @udata_getRawMemory_75(ptr noundef readonly %pData) local_unnamed_addr #6 {
+define ptr @udata_getRawMemory_75(ptr noundef readonly captures(address_is_null) %pData) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %pData, null
   br i1 %cmp.not, label %if.else, label %land.lhs.true

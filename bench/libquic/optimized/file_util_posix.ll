@@ -448,7 +448,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZN4base14FileEnumeratorD1Ev(ptr noundef nonnull align 8 dereferenceable(184)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base11ReplaceFileERKNS_8FilePathES2_PNS_4File5ErrorE(ptr noundef nonnull align 8 dereferenceable(32) %from_path, ptr noundef nonnull align 8 dereferenceable(32) %to_path, ptr noundef writeonly %error) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4base11ReplaceFileERKNS_8FilePathES2_PNS_4File5ErrorE(ptr noundef nonnull align 8 dereferenceable(32) %from_path, ptr noundef nonnull align 8 dereferenceable(32) %to_path, ptr noundef writeonly captures(address_is_null) %error) local_unnamed_addr #0 {
 entry:
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %from_path) #21
   %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %to_path) #21
@@ -2008,7 +2008,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base26CreateDirectoryAndGetErrorERKNS_8FilePathEPNS_4File5ErrorE(ptr noundef nonnull align 8 dereferenceable(32) %full_path, ptr noundef writeonly %error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base26CreateDirectoryAndGetErrorERKNS_8FilePathEPNS_4File5ErrorE(ptr noundef nonnull align 8 dereferenceable(32) %full_path, ptr noundef writeonly captures(address_is_null) %error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %file_info.i21 = alloca %struct.stat64, align 8
   %file_info.i = alloca %struct.stat64, align 8
@@ -2817,7 +2817,7 @@ entry:
 declare i32 @chdir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base26VerifyPathControlledByUserERKNS_8FilePathES2_jRKSt3setIjSt4lessIjESaIjEE(ptr noundef nonnull align 8 dereferenceable(32) %base, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %owner_uid, ptr noundef nonnull readonly align 8 dereferenceable(48) %group_gids) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base26VerifyPathControlledByUserERKNS_8FilePathES2_jRKSt3setIjSt4lessIjESaIjEE(ptr noundef nonnull align 8 dereferenceable(32) %base, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %owner_uid, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %group_gids) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stat_info.i13 = alloca %struct.stat64, align 8
   %stat_info.i = alloca %struct.stat64, align 8

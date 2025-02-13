@@ -378,7 +378,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit.thread:   ; preds = %2, %_ZN10JNIHandles
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14JfrJavaSupport24destroy_local_jni_handleEP8_jobject(ptr noundef writeonly %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14JfrJavaSupport24destroy_local_jni_handleEP8_jobject(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 align 2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN10JNIHandles13destroy_localEP8_jobject.exit, label %2
 

@@ -263,7 +263,7 @@ $_ZTIN5folly26FormatKeyNotFoundExceptionE = comdat any
 @_ZN5folly26FormatKeyNotFoundExceptionC1ENS_5RangeIPKcEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5folly26FormatKeyNotFoundExceptionC2ENS_5RangeIPKcEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly11FormatValueIdvE12formatHelperERNS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEERiRNS_9FormatArgE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(24) %piece, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %prefixLen, ptr noundef nonnull align 8 dereferenceable(84) %arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11FormatValueIdvE12formatHelperERNS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEERiRNS_9FormatArgE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %piece, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %prefixLen, ptr noundef nonnull align 8 dereferenceable(84) %arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %effectiveCapacity.i.i = alloca i64, align 8
   %buf = alloca [164 x i8], align 16

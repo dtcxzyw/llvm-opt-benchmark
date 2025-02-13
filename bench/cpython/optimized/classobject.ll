@@ -1602,7 +1602,7 @@ _Py_NewRef.exit:                                  ; preds = %30, %25, %23, %5, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @method_descr_get(ptr noundef returned %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
+define internal noundef ptr @method_descr_get(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = load i32, ptr %0, align 8, !tbaa !32
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %Py_INCREF.exit, label %6
@@ -1617,7 +1617,7 @@ Py_INCREF.exit:                                   ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @method_new(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+define internal ptr @method_new(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyMethod_Type
   br i1 %4, label %11, label %5
 
@@ -2201,7 +2201,7 @@ _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit16.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @instancemethod_new(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+define internal ptr @instancemethod_new(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyInstanceMethod_Type
   br i1 %4, label %11, label %5
 

@@ -211,7 +211,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.159 = private unnamed_addr constant [28 x i8] c"(-1693) MECHANISM NOT FOUND\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nmas_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @dissect_nmas_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -525,7 +525,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nmas_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define hidden void @dissect_nmas_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %7
 

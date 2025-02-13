@@ -3060,7 +3060,7 @@ define noundef i32 @_ZN13colvarbias_ti6updateEv(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN13colvarbias_ti20update_system_forcesEPKSt6vectorI11colvarvalueSaIS1_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN13colvarbias_ti20update_system_forcesEPKSt6vectorI11colvarvalueSaIS1_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.colvarvalue, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 -40

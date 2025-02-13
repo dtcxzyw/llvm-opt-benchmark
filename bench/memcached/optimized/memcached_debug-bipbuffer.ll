@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @bipbuf_request(ptr noundef readonly %me, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local ptr @bipbuf_request(ptr noundef readonly captures(ret: address, provenance) %me, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %b_inuse.i = getelementptr inbounds nuw i8, ptr %me, i64 20
   %0 = load i32, ptr %b_inuse.i, align 4
@@ -305,7 +305,7 @@ return:                                           ; preds = %if.then.i21, %if.en
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @bipbuf_peek(ptr noundef readonly %me, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local ptr @bipbuf_peek(ptr noundef readonly captures(ret: address, provenance) %me, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %me, align 8
   %a_start = getelementptr inbounds nuw i8, ptr %me, i64 8
@@ -333,7 +333,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @bipbuf_peek_all(ptr noundef readonly %me, ptr noundef writeonly captures(none) %size) local_unnamed_addr #6 {
+define dso_local ptr @bipbuf_peek_all(ptr noundef readonly captures(ret: address, provenance) %me, ptr noundef writeonly captures(none) %size) local_unnamed_addr #6 {
 entry:
   %a_start.i = getelementptr inbounds nuw i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start.i, align 8
@@ -357,7 +357,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @bipbuf_poll(ptr noundef %me, i32 noundef %size) local_unnamed_addr #6 {
+define dso_local ptr @bipbuf_poll(ptr noundef captures(ret: address, provenance) %me, i32 noundef %size) local_unnamed_addr #6 {
 entry:
   %a_start.i = getelementptr inbounds nuw i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start.i, align 8

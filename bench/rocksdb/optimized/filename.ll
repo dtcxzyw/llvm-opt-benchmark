@@ -1323,7 +1323,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef writeonly captures(none) %number, ptr noundef writeonly captures(none) %type, ptr noundef %log_type) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef writeonly captures(none) %number, ptr noundef writeonly captures(none) %type, ptr noundef captures(address_is_null) %log_type) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   store ptr @.str.16, ptr %ref.tmp, align 8
@@ -1334,7 +1334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmRKNS_5SliceEPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef writeonly captures(none) %number, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %info_log_name_prefix, ptr noundef writeonly captures(none) %type, ptr noundef writeonly %log_type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmRKNS_5SliceEPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef writeonly captures(none) %number, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %info_log_name_prefix, ptr noundef writeonly captures(none) %type, ptr noundef writeonly captures(address_is_null) %log_type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %rest = alloca %"class.rocksdb::Slice", align 8
   %ts_suffix = alloca i64, align 8

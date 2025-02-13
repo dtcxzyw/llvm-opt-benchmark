@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev9Processor4Impl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(552) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev9Processor4Impl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(552) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_metadata.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %m_metadata.i

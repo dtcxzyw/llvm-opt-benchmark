@@ -602,7 +602,7 @@ if.end25:                                         ; preds = %if.end13, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_provider_new(ptr noundef %libctx, ptr noundef %name, ptr noundef %init_function, ptr noundef readonly %params, i32 noundef %noconfig) local_unnamed_addr #0 {
+define ptr @ossl_provider_new(ptr noundef %libctx, ptr noundef %name, ptr noundef %init_function, ptr noundef readonly captures(address_is_null) %params, i32 noundef %noconfig) local_unnamed_addr #0 {
 entry:
   %template = alloca %struct.OSSL_PROVIDER_INFO, align 8
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 1) #11
@@ -839,7 +839,7 @@ return:                                           ; preds = %entry, %if.end18, %
 declare i32 @ERR_get_next_error_library() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_add_to_store(ptr noundef %prov, ptr noundef writeonly %actualprov, i32 noundef %retain_fallbacks) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_add_to_store(ptr noundef %prov, ptr noundef writeonly captures(address_is_null) %actualprov, i32 noundef %retain_fallbacks) local_unnamed_addr #0 {
 entry:
   %tmpl = alloca %struct.ossl_provider_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %tmpl, i8 0, i64 224, i1 false)
@@ -1985,7 +1985,7 @@ return:                                           ; preds = %get_provider_store.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_ctx(ptr noundef readonly %prov) local_unnamed_addr #6 {
+define ptr @ossl_provider_ctx(ptr noundef readonly captures(address_is_null) %prov) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %prov, null
   br i1 %cmp.not, label %cond.end, label %cond.true
@@ -2400,7 +2400,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_prov_ctx(ptr noundef readonly %prov) local_unnamed_addr #6 {
+define ptr @ossl_provider_prov_ctx(ptr noundef readonly captures(address_is_null) %prov) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %prov, null
   br i1 %cmp.not, label %return, label %if.then
@@ -2416,7 +2416,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_get0_dispatch(ptr noundef readonly %prov) local_unnamed_addr #6 {
+define ptr @ossl_provider_get0_dispatch(ptr noundef readonly captures(address_is_null) %prov) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %prov, null
   br i1 %cmp.not, label %return, label %if.then
@@ -2432,7 +2432,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_libctx(ptr noundef readonly %prov) local_unnamed_addr #6 {
+define ptr @ossl_provider_libctx(ptr noundef readonly captures(address_is_null) %prov) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %prov, null
   br i1 %cmp.not, label %cond.end, label %cond.true
@@ -2622,7 +2622,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr noundef readonly captures(none) %provider, i64 noundef %bitnum, ptr noundef writeonly %result) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr noundef readonly captures(none) %provider, i64 noundef %bitnum, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #0 {
 entry:
   %div8 = lshr i64 %bitnum, 3
   %0 = trunc i64 %bitnum to i8
@@ -3234,7 +3234,7 @@ return:                                           ; preds = %get_provider_store.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ossl_provider_deregister_child_cb(ptr noundef readonly %handle) #0 {
+define internal void @ossl_provider_deregister_child_cb(ptr noundef readonly captures(address) %handle) #0 {
 entry:
   %libctx1 = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx1, align 8

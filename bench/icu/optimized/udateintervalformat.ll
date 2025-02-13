@@ -568,7 +568,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #8
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @udtitvfmt_resultAsValue_75(ptr noundef readonly %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
+define ptr @udtitvfmt_resultAsValue_75(ptr noundef readonly captures(address_is_null, ret: address, provenance) %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -824,7 +824,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udtitvfmt_format_75(ptr noundef %formatter, double noundef %fromDate, double noundef %toDate, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef %position, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @udtitvfmt_format_75(ptr noundef %formatter, double noundef %fromDate, double noundef %toDate, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef captures(address_is_null) %position, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::UnicodeString", align 8
   %fp = alloca %"class.icu_75::FieldPosition", align 8

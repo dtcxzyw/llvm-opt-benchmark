@@ -720,7 +720,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @write_archive(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @write_archive(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [2 x ptr], align 16
   %8 = alloca %struct.path_exists_context, align 8
   %9 = alloca %struct.timeval, align 8

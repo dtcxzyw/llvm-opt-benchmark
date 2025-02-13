@@ -630,7 +630,7 @@ define void @libdeflate_init_x86_cpu_features() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_get_attribute_by_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define i32 @nanoexr_get_attribute_by_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %exr_get_attribute_by_index.exit, label %5
 
@@ -810,7 +810,7 @@ exr_get_attribute_count.exit:                     ; preds = %24, %33, %2, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @nanoexr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -1885,7 +1885,7 @@ exr_attr_set_double.exit:                         ; preds = %4, %13, %20, %25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nanoexr_attr_set_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 {
+define void @nanoexr_attr_set_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -2082,7 +2082,7 @@ exr_attr_set_m44f.exit:                           ; preds = %4, %13, %20, %25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nanoexr_attr_set_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #1 {
+define void @nanoexr_attr_set_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -2837,7 +2837,7 @@ define void @nanoexr_set_defaults(ptr noundef readonly captures(none) %0, ptr no
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @nanoexr_free_storage(ptr noundef readonly %0) local_unnamed_addr #10 {
+define void @nanoexr_free_storage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -2851,7 +2851,7 @@ define void @nanoexr_free_storage(ptr noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_read_header(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define i32 @nanoexr_read_header(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct._exr_context_initializer_v3, align 8
   %8 = alloca %struct.exr_attr_box2i_t, align 4
@@ -3070,7 +3070,7 @@ exr_get_storage.exit:                             ; preds = %50, %53
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_start_read(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
+define internal fastcc i32 @exr_start_read(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca %struct.exr_attr_tiledesc_t, align 1
@@ -6172,7 +6172,7 @@ exr_attr_list_find_by_name.exit.thread:           ; preds = %25, %52, %._crit_ed
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_write_exr(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18) local_unnamed_addr #1 {
+define i32 @nanoexr_write_exr(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18) local_unnamed_addr #1 {
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   %22 = alloca %struct._exr_context_initializer_v3, align 8
@@ -9055,7 +9055,7 @@ define internal fastcc i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @exr_encoding_destroy(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @exr_encoding_destroy(ptr noundef %0, ptr noundef nonnull captures(address) %1) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %188, label %3
 
@@ -9471,7 +9471,7 @@ define void @nanoexr_release_image_data(ptr noundef captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_read_tiled_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 {
+define i32 @nanoexr_read_tiled_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca [6 x i32], align 16
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
@@ -10436,7 +10436,7 @@ exr_get_level_sizes.exit.thread:                  ; preds = %.loopexit149.us, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_nanoexr_rgba_decoding_initialize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull %5, ptr noundef writeonly captures(none) %6) unnamed_addr #1 {
+define internal fastcc i32 @_nanoexr_rgba_decoding_initialize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull %5, ptr noundef writeonly captures(none) %6) unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %exr_decoding_initialize.exit.thread, label %8
 
@@ -11102,7 +11102,7 @@ define internal fastcc i32 @exr_decoding_run(ptr noundef %0, i32 noundef %1, ptr
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nanoexr_cleanup(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc void @nanoexr_cleanup(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(address) %1) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %226, label %3
 
@@ -11566,7 +11566,7 @@ exr_decoding_destroy.exit:                        ; preds = %internal_decode_fre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_read_scanline_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
+define i32 @nanoexr_read_scanline_exr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i64], align 16
   %8 = alloca i64, align 8
@@ -12576,7 +12576,7 @@ define void @copy_channel_float(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nanoexr_read_exr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define i32 @nanoexr_read_exr(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca %struct.stat, align 8
   %10 = alloca [2 x i32], align 4
   %11 = alloca i64, align 8
@@ -13692,7 +13692,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_list_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %8
 
@@ -13864,7 +13864,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_string_create_with_length(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_string_create_with_length(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %5
 
@@ -13952,7 +13952,7 @@ exr_attr_string_init.exit._crit_edge:             ; preds = %exr_attr_string_ini
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exr_attr_string_set_with_length(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #1 {
+define internal fastcc void @exr_attr_string_set_with_length(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %exr_attr_string_create_with_length.exit, label %5
 
@@ -14068,7 +14068,7 @@ exr_attr_string_create_with_length.exit:          ; preds = %._crit_edge, %37, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %11
 
@@ -14204,7 +14204,7 @@ exr_attr_list_find_by_name.exit.thread:           ; preds = %39, %60, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_attr_block(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef writeonly %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 256) %6, ptr noundef readonly captures(none) %7, i32 noundef range(i32 0, 256) %8) unnamed_addr #1 {
+define internal fastcc i32 @create_attr_block(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 256) %6, ptr noundef readonly captures(none) %7, i32 noundef range(i32 0, 256) %8) unnamed_addr #1 {
   %.not = icmp eq i32 %6, 0
   %narrow = add nuw nsw i32 %6, 33
   %narrow84 = select i1 %.not, i32 32, i32 %narrow
@@ -14819,7 +14819,7 @@ exr_attr_list_find_by_name.exit.thread:           ; preds = %13, %17, %38, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exr_attr_list_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %4
 
@@ -15207,7 +15207,7 @@ exr_attr_chlist_destroy.exit:                     ; preds = %115, %93, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exr_attr_chlist_destroy(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @exr_attr_chlist_destroy(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   %.not19 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not19
@@ -15681,7 +15681,7 @@ define internal fastcc i32 @internal_exr_alloc_context(ptr noundef nonnull write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dispatch_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #1 {
+define internal i32 @dispatch_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
 
@@ -15820,7 +15820,7 @@ define internal noalias noundef ptr @internal_exr_alloc(i64 noundef %0) #21 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @internal_exr_free(ptr noundef %0) #22 {
+define internal void @internal_exr_free(ptr noundef captures(address_is_null) %0) #22 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -15937,7 +15937,7 @@ dispatch_error.exit21:                            ; preds = %26, %23, %dispatch_
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_exr_add_part(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc i32 @internal_exr_add_part(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
@@ -16087,7 +16087,7 @@ declare void @llvm.va_end.p0(ptr) #23
 declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal void @default_shutdown(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 %2) #1 {
+define internal void @default_shutdown(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 %2) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -16105,7 +16105,7 @@ define internal void @default_shutdown(ptr readnone captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5) #1 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %10
 
@@ -16528,7 +16528,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -16933,7 +16933,7 @@ define internal fastcc i32 @validate_image_dimensions(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_channels(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc i32 @validate_channels(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %8
 
@@ -17426,7 +17426,7 @@ define internal fastcc i32 @validate_deep_data(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 1, 25) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %80, label %8
 
@@ -17998,7 +17998,7 @@ scratch_attr_too_big.exit:                        ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull captures(none) %4) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull captures(none) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %.not = icmp eq ptr %0, null
@@ -18288,7 +18288,7 @@ define internal fastcc i32 @extract_attr_32bit(ptr noundef %0, ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_chlist(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @extract_attr_chlist(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i8, align 1
   %8 = alloca [256 x i8], align 16
   %9 = alloca i32, align 4
@@ -18527,7 +18527,7 @@ define internal fastcc i32 @extract_attr_64bit(ptr noundef %0, ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_float_vector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @extract_attr_float_vector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp slt i32 %5, 0
   br i1 %7, label %8, label %12
 
@@ -18703,7 +18703,7 @@ exr_attr_float_vector_destroy.exit38:             ; preds = %80, %83, %87
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_preview(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @extract_attr_preview(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca [2 x i32], align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load i64, ptr %8, align 8
@@ -18893,7 +18893,7 @@ exr_attr_preview_destroy.exit68:                  ; preds = %91, %94, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_string(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc i32 @extract_attr_string(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %5 to i64
@@ -18946,7 +18946,7 @@ exr_attr_string_init_static_with_length.exit:     ; preds = %29, %25, %20, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_string_vector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @extract_attr_string_vector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.exr_attr_string_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -19338,7 +19338,7 @@ define internal fastcc i32 @extract_attr_tiledesc(ptr noundef %0, ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_opaque(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @extract_attr_opaque(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp slt i32 %5, 0
   br i1 %7, label %check_bad_attrsz.exit, label %8
 
@@ -19523,7 +19523,7 @@ exr_attr_opaquedata_destroy.exit41:               ; preds = %84, %87, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_populate_chunk_count(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @check_populate_chunk_count(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   store i32 %4, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -19607,7 +19607,7 @@ define internal fastcc i32 @check_populate_chunk_count(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_string_init_static_with_length(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_string_init_static_with_length(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %5
 
@@ -19654,7 +19654,7 @@ define internal fastcc i32 @exr_attr_string_init_static_with_length(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.exr_attr_chlist_entry_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %0, null
@@ -20216,7 +20216,7 @@ declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef rea
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dispatch_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 {
+define internal i32 @dispatch_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %5
 
@@ -20272,7 +20272,7 @@ define internal i32 @dispatch_write(ptr noundef %0, ptr noundef %1, i64 noundef 
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5) #1 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %10
 
@@ -20597,7 +20597,7 @@ define internal fastcc i32 @exr_set_screen_window_center(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_attr_chlist_add(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @exr_attr_chlist_add(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %.split10
 
@@ -21871,7 +21871,7 @@ define internal fastcc i32 @save_v3d(ptr noundef nonnull %0, ptr readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_opaque(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc i32 @save_opaque(ptr noundef nonnull %0, ptr captures(address_is_null) %.24.val) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -22787,7 +22787,7 @@ internal_validate_next_chunk.exit:                ; preds = %37, %56, %.thread._
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @default_write_chunk(ptr noundef readonly %0) #1 {
+define internal i32 @default_write_chunk(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %exr_write_scanline_chunk.exit, label %2
 
@@ -25383,7 +25383,7 @@ define internal fastcc void @internal_encode_free_buffer(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @internal_rle_compress(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) unnamed_addr #27 {
+define internal fastcc i64 @internal_rle_compress(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) unnamed_addr #27 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   br label %6
 
@@ -25519,7 +25519,7 @@ define internal fastcc i64 @internal_rle_compress(ptr noundef writeonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @internal_zip_deconstruct_bytes(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #15 {
+define internal fastcc void @internal_zip_deconstruct_bytes(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #15 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp sgt i64 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge42
@@ -25580,7 +25580,7 @@ define internal fastcc void @internal_zip_deconstruct_bytes(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #1 {
   %8 = alloca %struct.deflate_output_bitstream, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %9
@@ -32473,7 +32473,7 @@ declare <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16>, <8 x i16>) #5
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_flush_block(ptr noundef initializes((6052, 6056)) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #29 {
+define internal fastcc void @deflate_flush_block(ptr noundef initializes((6052, 6056)) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #29 {
   %7 = zext i32 %3 to i64
   %8 = load i64, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -34985,7 +34985,7 @@ deflate_set_costs_from_codes.exit135:             ; preds = %.preheader.i128, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @deflate_find_min_cost_path(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #15 {
+define internal fastcc void @deflate_find_min_cost_path(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #15 {
   %4 = zext i32 %1 to i64
   %.idx = shl nuw nsw i64 %4, 3
   %.add63 = add nuw nsw i64 %.idx, 6532420
@@ -36552,7 +36552,7 @@ hufPackEncTable.exit.thread:                      ; preds = %.lr.ph.i65.i, %.lr.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef readnone %6) unnamed_addr #14 {
+define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef readnone captures(address) %6) unnamed_addr #14 {
   %8 = trunc i64 %0 to i32
   %9 = and i32 %8, 63
   %10 = trunc i64 %2 to i32
@@ -45683,7 +45683,7 @@ define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reconstruct_chunk_table(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) %2) unnamed_addr #1 {
+define internal fastcc i32 @reconstruct_chunk_table(ptr noundef nonnull %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #1 {
   %4 = alloca %struct.priv_chunk_leader, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct.priv_chunk_leader, align 8
@@ -46061,7 +46061,7 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef nonnull %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc zeroext i1 @strIsComponent(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #40 {
+define internal fastcc zeroext i1 @strIsComponent(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #40 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -46260,7 +46260,7 @@ define internal i32 @read_uncompressed_direct(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @default_read_chunk(ptr noundef %0) #1 {
+define internal i32 @default_read_chunk(ptr noundef captures(address_is_null) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -46835,7 +46835,7 @@ internal_decode_free_buffer.exit:                 ; preds = %17, %33, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_read_deep_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @exr_read_deep_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -47005,7 +47005,7 @@ define internal fastcc i32 @exr_read_deep_chunk(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exr_read_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @exr_read_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -47158,7 +47158,7 @@ define internal fastcc i32 @exr_read_chunk(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decompress_data(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly %5, i64 noundef %6) unnamed_addr #37 {
+define internal fastcc i32 @decompress_data(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(address) %5, i64 noundef %6) unnamed_addr #37 {
   %8 = alloca %struct._DwaCompressor, align 8
   %9 = alloca %struct._DwaCompressor, align 8
   %10 = alloca i64, align 8
@@ -48615,7 +48615,7 @@ define internal fastcc i64 @internal_rle_decompress(ptr noundef writeonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %8
@@ -48721,7 +48721,7 @@ libdeflate_alloc_decompressor.exit.thread:        ; preds = %.thread, %libdeflat
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @internal_zip_reconstruct_bytes(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #42 {
+define internal fastcc void @internal_zip_reconstruct_bytes(ptr noundef writeonly captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #42 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp sgt i64 %2, 1
   br i1 %5, label %.lr.ph.preheader.i, label %reconstruct.exit
@@ -48880,7 +48880,7 @@ arch_select_decompress_func.exit:                 ; preds = %7, %libdeflate_init
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) #29 {
+define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) #29 {
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
   %9 = tail call i64 @llvm.umin.i64(i64 %4, i64 299)
   %10 = sub nsw i64 0, %9
@@ -50075,7 +50075,7 @@ default.unreachable:                              ; preds = %.loopexit906
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) #43 {
+define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) #43 {
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
   %9 = tail call i64 @llvm.umin.i64(i64 %4, i64 299)
   %10 = sub nsw i64 0, %9
@@ -51270,7 +51270,7 @@ default.unreachable:                              ; preds = %.loopexit906
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 289) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 7, 12) %4, i32 noundef range(i32 7, 16) %5, ptr noundef captures(none) %6, ptr noundef writeonly %7) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 289) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 7, 12) %4, i32 noundef range(i32 7, 16) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #15 {
 .preheader213.preheader:
   %8 = alloca [16 x i32], align 16
   %9 = alloca [16 x i32], align 16
@@ -51642,7 +51642,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @internal_huf_decompress(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 24) i32 @internal_huf_decompress(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address) %3, i64 noundef %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #1 {
   %8 = alloca [59 x i64], align 16
   %9 = alloca [59 x i64], align 16
   %10 = alloca [59 x i64], align 16
@@ -52896,7 +52896,7 @@ FastHufDecoder_refill.exit108:                    ; preds = %.FastHufDecoder_ref
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 65537) %2, i32 noundef range(i32 0, 65537) %3, ptr noundef captures(none) %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 65537) %2, i32 noundef range(i32 0, 65537) %3, ptr noundef captures(none) %4) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %6
 
@@ -53051,7 +53051,7 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef range(i64 0, 4294967296) %3, i32 noundef range(i32 0, 65537) %4, i64 noundef %5, ptr noundef %6) unnamed_addr #29 {
+define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, i64 noundef range(i64 0, 4294967296) %3, i32 noundef range(i32 0, 65537) %4, i64 noundef %5, ptr noundef captures(address) %6) unnamed_addr #29 {
   %8 = getelementptr inbounds i16, ptr %6, i64 %5
   %9 = add nuw nsw i64 %3, 7
   %10 = lshr i64 %9, 3

@@ -176,7 +176,7 @@ declare dso_local ptr @keyring_search(ptr noundef, ptr noundef, ptr noundef, i1 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @asymmetric_key_id_same(ptr noundef readonly %0, ptr noundef readonly %1) #3 align 16 {
+define dso_local zeroext i1 @asymmetric_key_id_same(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #3 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -230,7 +230,7 @@ define dso_local ptr @asymmetric_key_generate_id(ptr noundef readonly captures(n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @asymmetric_key_id_partial(ptr noundef readonly %0, ptr noundef readonly %1) #3 align 16 {
+define dso_local zeroext i1 @asymmetric_key_id_partial(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #3 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4

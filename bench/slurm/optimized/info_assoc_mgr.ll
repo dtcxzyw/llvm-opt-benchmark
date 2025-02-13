@@ -1436,7 +1436,7 @@ declare ptr @slurmdb_admin_level_str(i32 noundef) local_unnamed_addr #4
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_print_tres_line(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i64 noundef range(i64 0, 61) %3) unnamed_addr #5 {
+define internal fastcc void @_print_tres_line(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef range(i64 0, 61) %3) unnamed_addr #5 {
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef %0)
   %.not = icmp ne ptr %1, null
   %6 = load i32, ptr @tres_cnt, align 4

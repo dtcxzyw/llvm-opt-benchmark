@@ -5542,7 +5542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZN7testing8internal12UnitTestImpl19current_test_resultEv(ptr noundef nonnull readonly align 8 dereferenceable(497) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN7testing8internal12UnitTestImpl19current_test_resultEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(497) %this) local_unnamed_addr #12 align 2 {
 entry:
   %current_test_info_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %current_test_info_, align 8
@@ -6653,7 +6653,7 @@ entry:
 declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN7testing8internal6String13CStringEqualsEPKcS3_(ptr noundef readonly %lhs, ptr noundef readonly %rhs) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZN7testing8internal6String13CStringEqualsEPKcS3_(ptr noundef readonly captures(address_is_null) %lhs, ptr noundef readonly captures(address_is_null) %rhs) local_unnamed_addr #17 align 2 {
 entry:
   %cmp = icmp eq ptr %lhs, null
   %cmp1 = icmp eq ptr %rhs, null
@@ -6873,7 +6873,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPKw(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef captures(address_is_null) %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %OS.i.i = alloca %"class.llvh::raw_os_ostream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6908,7 +6908,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal6String15ShowWideCStringB5cxx11EPKw(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal6String15ShowWideCStringB5cxx11EPKw(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(address_is_null) %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %cmp = icmp eq ptr %wide_c_str, null
@@ -6956,7 +6956,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPw(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsEPw(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef captures(address_is_null) %wide_c_str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %OS.i.i = alloca %"class.llvh::raw_os_ostream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6991,7 +6991,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %wstr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing7MessagelsERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %wstr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %OS.i.i13.i = alloca %"class.llvh::raw_os_ostream", align 8
   %OS.i.i.i = alloca %"class.llvh::raw_os_ostream", align 8
@@ -8969,7 +8969,7 @@ _ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EED2Ev.exit130: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7testing8internal13edit_distance12_GLOBAL__N_14HunkD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal13edit_distance12_GLOBAL__N_14HunkD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hunk_removes_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %hunk_removes_, align 8
@@ -12363,7 +12363,7 @@ return:                                           ; preds = %invoke.cont3, %if.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_(ptr noundef readonly %lhs, ptr noundef readonly %rhs) local_unnamed_addr #20 align 2 {
+define noundef zeroext i1 @_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_(ptr noundef readonly captures(address_is_null) %lhs, ptr noundef readonly captures(address_is_null) %rhs) local_unnamed_addr #20 align 2 {
 entry:
   %cmp = icmp eq ptr %lhs, null
   %cmp1 = icmp eq ptr %rhs, null
@@ -23117,7 +23117,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE9push_backERKS2_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN7testing8internal17TestEventRepeater7ReleaseEPNS_17TestEventListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone %listener) local_unnamed_addr #25 align 2 {
+define hidden noundef ptr @_ZN7testing8internal17TestEventRepeater7ReleaseEPNS_17TestEventListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef readnone captures(address, ret: address, provenance) %listener) local_unnamed_addr #25 align 2 {
 entry:
   %listeners_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29843,7 +29843,7 @@ _ZN7testing8internal17TestEventRepeater6AppendEPNS_17TestEventListenerE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7testing18TestEventListeners7ReleaseEPNS_17TestEventListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone %listener) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZN7testing18TestEventListeners7ReleaseEPNS_17TestEventListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readnone captures(address, ret: address, provenance) %listener) local_unnamed_addr #25 align 2 {
 entry:
   %default_result_printer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %default_result_printer_, align 8
@@ -35440,7 +35440,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7testing8internal14ParseFlagValueEPKcS2_b(ptr noundef readonly %str, ptr noundef %flag, i1 noundef zeroext %def_optional) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN7testing8internal14ParseFlagValueEPKcS2_b(ptr noundef readonly captures(address_is_null, ret: address, provenance) %str, ptr noundef %flag, i1 noundef zeroext %def_optional) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %flag_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35540,7 +35540,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7testing8internal13ParseBoolFlagEPKcS2_Pb(ptr noundef %str, ptr noundef %flag, ptr noundef writeonly captures(none) %value) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN7testing8internal13ParseBoolFlagEPKcS2_Pb(ptr noundef captures(address) %str, ptr noundef %flag, ptr noundef writeonly captures(none) %value) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef ptr @_ZN7testing8internal14ParseFlagValueEPKcS2_b(ptr noundef %str, ptr noundef %flag, i1 noundef zeroext true)
   %cmp = icmp ne ptr %call, null
@@ -40736,7 +40736,7 @@ entry:
 declare i32 @fork() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7testing8internal21StackLowerThanAddressEPKvPb(ptr noundef readnone %ptr, ptr noundef writeonly captures(none) initializes((0, 1)) %result) local_unnamed_addr #14 {
+define hidden void @_ZN7testing8internal21StackLowerThanAddressEPKvPb(ptr noundef readnone captures(address) %ptr, ptr noundef writeonly captures(none) initializes((0, 1)) %result) local_unnamed_addr #14 {
 entry:
   %dummy = alloca i32, align 4
   %cmp = icmp ult ptr %dummy, %ptr
@@ -47382,7 +47382,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7testing8internal19TypedTestCasePState25VerifyRegisteredTestNamesEPKciS3_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1)) %this, ptr noundef %file, i32 noundef %line, ptr noundef returned %registered_tests) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7testing8internal19TypedTestCasePState25VerifyRegisteredTestNamesEPKciS3_(ptr noundef nonnull align 8 captures(address) dereferenceable(56) initializes((0, 1)) %this, ptr noundef %file, i32 noundef %line, ptr noundef returned %registered_tests) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %OS.i.i133 = alloca %"class.llvh::raw_os_ostream", align 8
   %OS.i.i121 = alloca %"class.llvh::raw_os_ostream", align 8

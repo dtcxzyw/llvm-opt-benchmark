@@ -460,7 +460,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.expr_may_ref = private unnamed_addr constant [13 x i8] c"expr_may_ref\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_expr_analyse_ct_arg_index(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @sema_expr_analyse_ct_arg_index(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Int, align 8
   %6 = alloca %struct.Int, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -630,7 +630,7 @@ sema_analyse_expr.exit.thread:                    ; preds = %22, %27, %sema_anal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_analyse_expr(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = lshr i16 %4, 8
@@ -4850,7 +4850,7 @@ sema_expr_analyse_var_call.exit:                  ; preds = %120, %112, %105, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_expr_resolve_access_child(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @sema_expr_resolve_access_child(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br label %tailrecurse
 
@@ -5152,7 +5152,7 @@ define dso_local ptr @sema_expand_vasplat_exprs(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @sema_expr_analyse_assign_right_side(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local zeroext i1 @sema_expr_analyse_assign_right_side(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %199, label %6
 
@@ -5610,7 +5610,7 @@ sema_expr_analyse_slice_assign.exit:              ; preds = %26, %31, %sema_anal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %18, label %6
 
@@ -7083,7 +7083,7 @@ sema_cast_ct_ident_rvalue.exit.thread:            ; preds = %49, %54, %12, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_cast_rvalue(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_cast_rvalue(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %..critedge_crit_edge, label %4
 
@@ -10228,7 +10228,7 @@ context_pop_returns.exit:                         ; preds = %.loopexit, %77, %79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_analyse_identifier(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_analyse_identifier(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -12561,7 +12561,7 @@ declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @decl_to_a_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @decl_raw(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc ptr @decl_raw(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %.critedge2, %1
@@ -12604,7 +12604,7 @@ define internal fastcc ptr @decl_raw(ptr noundef readonly %0) unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 
@@ -12908,7 +12908,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_vasplat_append(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc ptr @sema_vasplat_append(ptr noundef nonnull %0, ptr noundef captures(address, ret: address, provenance) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.Int, align 8
   %5 = alloca %struct.Int, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -13304,7 +13304,7 @@ declare i64 @int_to_i64(ptr noundef byval(%struct.Int) align 8) local_unnamed_ad
 declare zeroext i1 @type_is_abi_aggregate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_fold_to_member(ptr noundef %0, ptr %.32.val, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_fold_to_member(ptr noundef %0, ptr %.32.val, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = load i32, ptr %.32.val, align 8
   switch i32 %3, label %37 [
     i32 0, label %.thread
@@ -16651,7 +16651,7 @@ sema_expr_analyse_or_error.exit:                  ; preds = %45, %50, %937, %918
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_analyse_unary(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_analyse_unary(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.Int, align 8
   %5 = alloca %struct.Int, align 8
   %6 = alloca %struct.Int, align 8
@@ -21358,7 +21358,7 @@ sema_analyse_expr_lvalue_fold_const.exit:         ; preds = %58, %63, %21, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_analyse_cast(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_analyse_cast(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -27167,7 +27167,7 @@ declare void @int_add(ptr dead_on_unwind writable sret(%struct.Int) align 8, ptr
 declare { double, i32 } @float_add(double, i32, double, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expr_binary_unify_failability(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr %.0.val, ptr readonly %.0.val1) unnamed_addr #0 {
+define internal fastcc void @expr_binary_unify_failability(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val1, null
   br i1 %.not, label %.critedge, label %2
 
@@ -27718,7 +27718,7 @@ declare void @expr_rewrite_to_binary(ptr noundef, ptr noundef, ptr noundef, i32 
 declare zeroext i1 @expr_rewrite_to_const_initializer_index(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_analyse_type_access(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_analyse_type_access(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -28039,7 +28039,7 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_analyse_member_access(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_analyse_member_access(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = load ptr, ptr %7, align 8

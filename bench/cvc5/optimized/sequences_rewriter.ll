@@ -1017,14 +1017,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory7strings17SequencesRewriter14getArithEntailEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory7strings17SequencesRewriter14getArithEntailEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_arithEntail = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %d_arithEntail
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory7strings17SequencesRewriter16getStringsEntailEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory7strings17SequencesRewriter16getStringsEntailEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_stringsEntail = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %d_stringsEntail

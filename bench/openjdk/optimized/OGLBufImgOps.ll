@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [460 x i8] c"uniform sampler%s baseImage;uniform sampler2D lookupTable;uniform vec4 offset;void main(void){    vec4 srcColor = texture%s(baseImage, gl_TexCoord[0].st);    %s    vec4 srcIndex = srcColor - offset;    vec4 result;    result.r = texture2D(lookupTable, vec2(srcIndex.r, 0.125)).r;    result.g = texture2D(lookupTable, vec2(srcIndex.g, 0.375)).r;    result.b = texture2D(lookupTable, vec2(srcIndex.b, 0.625)).r;    %s    %s    gl_FragColor = result * gl_Color;}\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBufImgOps_EnableConvolveOp(ptr noundef readnone %0, i64 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define hidden void @OGLBufImgOps_EnableConvolveOp(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [100 x i8], align 16
   %8 = alloca [2000 x i8], align 16
   %9 = alloca [75 x float], align 16
@@ -242,7 +242,7 @@ OGLBufImgOps_CreateConvolveProgram.exit:          ; preds = %44
 declare void @OGLRenderQueue_CheckPreviousOp(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBufImgOps_DisableConvolveOp(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @OGLBufImgOps_DisableConvolveOp(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -256,7 +256,7 @@ define hidden void @OGLBufImgOps_DisableConvolveOp(ptr noundef readnone %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBufImgOps_EnableRescaleOp(ptr noundef readnone %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define hidden void @OGLBufImgOps_EnableRescaleOp(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [2000 x i8], align 16
   %7 = icmp eq ptr %0, null
   %8 = icmp eq i64 %1, 0
@@ -341,7 +341,7 @@ OGLBufImgOps_CreateRescaleProgram.exit:           ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBufImgOps_DisableRescaleOp(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @OGLBufImgOps_DisableRescaleOp(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -355,7 +355,7 @@ define hidden void @OGLBufImgOps_DisableRescaleOp(ptr noundef readnone %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBufImgOps_EnableLookupOp(ptr noundef readnone %0, i64 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden void @OGLBufImgOps_EnableLookupOp(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [2000 x i8], align 16
   %10 = alloca [4 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 0, i64 32, i1 false)
@@ -542,7 +542,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
 declare i32 @OGLContext_CreateBlitTexture(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBufImgOps_DisableLookupOp(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @OGLBufImgOps_DisableLookupOp(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

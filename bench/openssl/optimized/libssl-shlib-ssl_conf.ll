@@ -415,7 +415,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 3) i32 @SSL_CONF_cmd_argv(ptr noundef %cctx, ptr noundef %pargc, ptr noundef captures(none) %pargv) local_unnamed_addr #0 {
+define range(i32 -3, 3) i32 @SSL_CONF_cmd_argv(ptr noundef %cctx, ptr noundef captures(address_is_null) %pargc, ptr noundef captures(none) %pargv) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pargc, null
   br i1 %cmp.not, label %if.end5, label %land.lhs.true

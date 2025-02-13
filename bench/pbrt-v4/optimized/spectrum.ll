@@ -979,7 +979,7 @@ return:                                           ; preds = %entry, %_ZSt11max_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrumC2EN4pstd4spanIKfEES4_NS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %this, ptr readonly %l.coerce0, i64 %l.coerce1, ptr readonly %v.coerce0, i64 %v.coerce1, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrumC2EN4pstd4spanIKfEES4_NS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %this, ptr readonly captures(address) %l.coerce0, i64 %l.coerce1, ptr readonly captures(address) %v.coerce0, i64 %v.coerce1, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i64, align 8

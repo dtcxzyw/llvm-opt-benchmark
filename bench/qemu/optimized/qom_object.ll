@@ -376,7 +376,7 @@ type_object_get_size.exit:                        ; preds = %if.end.i3, %type_ge
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @object_apply_global_props(ptr noundef %obj, ptr noundef readonly %props, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @object_apply_global_props(ptr noundef %obj, ptr noundef readonly captures(address_is_null) %props, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %err = alloca ptr, align 8
   %tobool.not = icmp eq ptr %props, null
@@ -467,7 +467,7 @@ return:                                           ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_dynamic_cast(ptr noundef readonly %obj, ptr noundef %typename) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_dynamic_cast(ptr noundef readonly captures(address_is_null, ret: address, provenance) %obj, ptr noundef %typename) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -1046,7 +1046,7 @@ entry:
 declare zeroext i1 @user_creatable_complete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @object_unparent(ptr noundef readonly %obj) local_unnamed_addr #0 {
+define dso_local void @object_unparent(ptr noundef readonly captures(address) %obj) local_unnamed_addr #0 {
 entry:
   %iter.i = alloca %struct._GHashTableIter, align 8
   %key.i = alloca ptr, align 8
@@ -1745,7 +1745,7 @@ object_set_propv.exit:                            ; preds = %do.end.i, %vaarg.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_class_dynamic_cast(ptr noundef readonly %class, ptr noundef %typename) local_unnamed_addr #0 {
+define dso_local ptr @object_class_dynamic_cast(ptr noundef readonly captures(address_is_null, ret: address, provenance) %class, ptr noundef %typename) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %class, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2043,7 +2043,7 @@ out:                                              ; preds = %while.end, %trace_o
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @type_is_ancestor(ptr noundef %type, ptr noundef readnone %target_type) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @type_is_ancestor(ptr noundef captures(address) %type, ptr noundef readnone captures(address) %target_type) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %target_type, null
   br i1 %tobool.not, label %if.else, label %while.cond.preheader
@@ -3218,7 +3218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_ref(ptr noundef returned %objptr) local_unnamed_addr #0 {
+define dso_local noundef ptr @object_ref(ptr noundef returned captures(address_is_null, ret: address, provenance) %objptr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %objptr, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3740,7 +3740,7 @@ declare ptr @object_property_get_qobject(ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @qstring_get_str(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @object_property_set_link(ptr noundef %obj, ptr noundef %name, ptr noundef %value, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @object_property_set_link(ptr noundef %obj, ptr noundef %name, ptr noundef captures(address) %value, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3784,7 +3784,7 @@ object_property_set_str.exit:                     ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_get_canonical_path(ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local ptr @object_get_canonical_path(ptr noundef captures(address) %obj) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @object_get_root.root, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -3858,7 +3858,7 @@ if.end5:                                          ; preds = %if.then, %if.then4,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_resolve_path(ptr noundef %path, ptr noundef %ambiguous) local_unnamed_addr #0 {
+define dso_local ptr @object_resolve_path(ptr noundef %path, ptr noundef captures(address_is_null) %ambiguous) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_resolve_path_type(ptr noundef %path, ptr noundef nonnull @.str.41, ptr noundef %ambiguous)
   ret ptr %call
@@ -4512,7 +4512,7 @@ cleanup:                                          ; preds = %if.end, %object_ref
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @object_get_child_property(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal void @object_get_child_property(ptr readnone captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef captures(address) %opaque, ptr noundef %errp) #0 {
 entry:
   %path = alloca ptr, align 8
   %call = tail call ptr @object_get_canonical_path(ptr noundef %opaque)
@@ -4544,7 +4544,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @object_resolve_child_property(ptr readnone captures(none) %parent, ptr noundef readnone returned %opaque, ptr readnone captures(none) %part) #12 {
+define internal noundef ptr @object_resolve_child_property(ptr readnone captures(none) %parent, ptr noundef readnone returned captures(ret: address, provenance) %opaque, ptr readnone captures(none) %part) #12 {
 entry:
   ret ptr %opaque
 }
@@ -4932,7 +4932,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_get_canonical_path_component(ptr noundef readonly %obj) local_unnamed_addr #0 {
+define dso_local ptr @object_get_canonical_path_component(ptr noundef readonly captures(address) %obj) local_unnamed_addr #0 {
 entry:
   %prop = alloca ptr, align 8
   %iter = alloca %struct._GHashTableIter, align 8
@@ -5017,7 +5017,7 @@ return:                                           ; preds = %if.end, %object_pro
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @object_resolve_path_type(ptr noundef %path, ptr noundef %typename, ptr noundef writeonly %ambiguousp) local_unnamed_addr #0 {
+define dso_local ptr @object_resolve_path_type(ptr noundef %path, ptr noundef %typename, ptr noundef writeonly captures(address_is_null) %ambiguousp) local_unnamed_addr #0 {
 entry:
   %ambiguous = alloca i8, align 1
   %call = tail call ptr @g_strsplit(ptr noundef %path, ptr noundef nonnull @.str.38, i32 noundef 0) #20

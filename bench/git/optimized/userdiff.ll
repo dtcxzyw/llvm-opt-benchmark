@@ -594,7 +594,7 @@ declare ptr @attr_check_initl(ptr noundef, ...) local_unnamed_addr #2
 declare void @git_check_attr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @userdiff_get_textconv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @userdiff_get_textconv(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.strbuf, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !28

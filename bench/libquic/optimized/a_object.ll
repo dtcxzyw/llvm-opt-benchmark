@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [10 x i8] c"<INVALID>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_ASN1_OBJECT(ptr noundef readonly %a, ptr noundef %pp) local_unnamed_addr #0 {
+define hidden i32 @i2d_ASN1_OBJECT(ptr noundef readonly captures(address_is_null) %a, ptr noundef captures(address_is_null) %pp) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp eq ptr %a, null
@@ -59,7 +59,7 @@ declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly %out, i32 noundef %olen, ptr noundef readonly captures(none) %buf, i32 noundef %num) local_unnamed_addr #0 {
+define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %out, i32 noundef %olen, ptr noundef readonly captures(none) %buf, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %ftmp = alloca [24 x i8], align 16
   switch i32 %num, label %if.end3 [
@@ -489,7 +489,7 @@ return:                                           ; preds = %if.end16.thread, %i
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_ASN1_OBJECT(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
+define hidden ptr @d2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -531,7 +531,7 @@ return:                                           ; preds = %if.end2, %if.then5,
 declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @c2i_ASN1_OBJECT(ptr noundef %a, ptr noundef %pp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %a, ptr noundef captures(address_is_null) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %len, -2147483648
   %or.cond = icmp ult i64 %0, -2147483647
@@ -709,7 +709,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @ASN1_OBJECT_free(ptr noundef %a) local_unnamed_addr #6 {
+define hidden void @ASN1_OBJECT_free(ptr noundef captures(address_is_null) %a) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.end27, label %if.end

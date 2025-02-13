@@ -515,7 +515,7 @@ define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_dec(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5G__link_iterate_table(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @H5G__link_iterate_table(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %.thread
 

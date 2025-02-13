@@ -89,7 +89,7 @@ declare void @job_res_add_cores(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @part_data_build_row_bitmaps(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @part_data_build_row_bitmaps(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.part_row_data_t, align 8
@@ -809,7 +809,7 @@ define void @part_data_dump_res(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @part_data_dup_row(ptr noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define ptr @part_data_dup_row(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp ne i16 %1, 0
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -1289,7 +1289,7 @@ declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #1
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @part_data_dup_res(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @part_data_dup_res(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

@@ -384,7 +384,7 @@ define hidden void @ft_lzwstate_init(ptr noundef initializes((0, 216)) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ft_lzwstate_done(ptr noundef initializes((0, 8), (24, 33), (40, 48), (60, 64), (120, 124)) %0) local_unnamed_addr #0 {
+define hidden void @ft_lzwstate_done(ptr noundef captures(address) initializes((0, 8), (24, 33), (40, 48), (60, 64), (120, 124)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -418,7 +418,7 @@ define hidden void @ft_lzwstate_done(ptr noundef initializes((0, 8), (24, 33), (
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

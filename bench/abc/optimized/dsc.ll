@@ -246,7 +246,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @cubeCofactor(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @cubeCofactor(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = load i32, ptr %1, align 4, !tbaa !9
   %.not34 = icmp slt i32 %4, 1
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -443,7 +443,7 @@ Abc_TtCofactor1.exit:                             ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dsc_xor_group(ptr noundef captures(none) initializes((160, 161)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @dsc_xor_group(ptr noundef captures(none) initializes((160, 161)) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 92
@@ -842,7 +842,7 @@ define noalias noundef ptr @Dsc_alloc_pool(i32 noundef %0) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Dsc_free_pool(ptr noundef %0) local_unnamed_addr #5 {
+define void @Dsc_free_pool(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -858,7 +858,7 @@ define void @Dsc_free_pool(ptr noundef %0) local_unnamed_addr #5 {
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Dsc_Decompose(ptr noundef readonly %0, i32 noundef %1, ptr noundef initializes((0, 2)) %2, ptr noundef %3) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @Dsc_Decompose(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef initializes((0, 2)) %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = alloca [16 x %struct.Dsc_node_t_], align 16
   %6 = alloca [16 x ptr], align 16
   %7 = alloca [16 x ptr], align 16

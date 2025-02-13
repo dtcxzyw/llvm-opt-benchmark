@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ipv6_is_ula = private unnamed_addr constant [12 x i8] c"ipv6_is_ula\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wireshark_load_module(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @wireshark_load_module(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 

@@ -255,7 +255,7 @@ declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
+define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.sockaddr_storage, align 8
   %8 = alloca i32, align 4

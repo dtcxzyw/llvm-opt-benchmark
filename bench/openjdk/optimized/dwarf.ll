@@ -231,7 +231,7 @@ declare noundef ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unna
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(61) initializes((40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(61) initializes((40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -795,7 +795,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPK25grpc_call_context_elementm(ptr noundef readonly %context, i64 noundef %service_config_parser_index) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPK25grpc_call_context_elementm(ptr noundef readonly captures(address_is_null) %context, i64 noundef %service_config_parser_index) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %context, null
   br i1 %cmp, label %return, label %if.end

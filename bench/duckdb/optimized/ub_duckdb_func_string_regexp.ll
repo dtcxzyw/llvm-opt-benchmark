@@ -304,7 +304,7 @@ declare void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11regexp_util17ParseRegexOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10duckdb_re23RE27OptionsEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %options, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %result, ptr noundef writeonly %global_replace) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11regexp_util17ParseRegexOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10duckdb_re23RE27OptionsEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %options, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %result, ptr noundef writeonly captures(address_is_null) %global_replace) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator", align 1
@@ -655,7 +655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11regexp_util17ParseRegexOptionsERNS_13ClientContextERNS_10ExpressionERN10duckdb_re23RE27OptionsEPb(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(80) %expr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %target, ptr noundef %global_replace) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11regexp_util17ParseRegexOptionsERNS_13ClientContextERNS_10ExpressionERN10duckdb_re23RE27OptionsEPb(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(80) %expr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %target, ptr noundef captures(address_is_null) %global_replace) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1

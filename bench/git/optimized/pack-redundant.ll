@@ -2206,7 +2206,7 @@ declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none))
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @llist_insert_sorted_unique(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #7 {
+define internal fastcc ptr @llist_insert_sorted_unique(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef captures(address, ret: address, provenance) %2) unnamed_addr #7 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %.lr.ph.preheader
 
@@ -2463,7 +2463,7 @@ oidread.exit.i.i:                                 ; preds = %80, %.split.loop.ex
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pack_list_difference(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @pack_list_difference(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   %.not23 = icmp eq ptr %0, null
   br i1 %.not23, label %common.ret30, label %.preheader.lr.ph
 

@@ -24,7 +24,7 @@ gv_alloc.exit:                                    ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @freeNodelist(ptr noundef %0) local_unnamed_addr #1 {
+define void @freeNodelist(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -267,7 +267,7 @@ mkNodelist.exit._crit_edge:                       ; preds = %mkNodelist.exit, %m
 }
 
 ; Function Attrs: nounwind uwtable
-define void @insertNodelist(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @insertNodelist(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1, ptr %5, align 8

@@ -158,7 +158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13QueryProgressaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13QueryProgressaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end, label %if.then
@@ -423,7 +423,7 @@ _ZNSt10unique_ptrIN6duckdb26TerminalProgressBarDisplayESt14default_deleteIS1_EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11ProgressBarC2ERNS_8ExecutorEmPFNS_10unique_ptrINS_18ProgressBarDisplayESt14default_deleteIS4_ELb1EEEvE(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, i64 noundef %show_progress_after, ptr noundef readonly %create_display_func) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11ProgressBarC2ERNS_8ExecutorEmPFNS_10unique_ptrINS_18ProgressBarDisplayESt14default_deleteIS4_ELb1EEEvE(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, i64 noundef %show_progress_after, ptr noundef readonly captures(address_is_null) %create_display_func) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr", align 8
   store ptr %executor, ptr %this, align 8, !tbaa !46

@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @DSA_get0_key(ptr noundef readonly captures(none) %d, ptr noundef writeonly %pub_key, ptr noundef writeonly %priv_key) local_unnamed_addr #2 {
+define void @DSA_get0_key(ptr noundef readonly captures(none) %d, ptr noundef writeonly captures(address_is_null) %pub_key, ptr noundef writeonly captures(address_is_null) %priv_key) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %pub_key, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -600,7 +600,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_dsa_get0_params(ptr noundef readnone %dsa) local_unnamed_addr #6 {
+define nonnull ptr @ossl_dsa_get0_params(ptr noundef readnone captures(ret: address, provenance) %dsa) local_unnamed_addr #6 {
 entry:
   %params = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   ret ptr %params

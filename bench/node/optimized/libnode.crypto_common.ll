@@ -376,7 +376,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto18GetSSLOCSPResponseEPNS_11EnvironmentEP6ssl_stN2v85LocalINS5_5ValueEEE(ptr noundef %env, ptr noundef %ssl, ptr readnone %default_value.coerce) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto18GetSSLOCSPResponseEPNS_11EnvironmentEP6ssl_stN2v85LocalINS5_5ValueEEE(ptr noundef %env, ptr noundef %ssl, ptr readnone captures(ret: address, provenance) %default_value.coerce) local_unnamed_addr #3 {
 entry:
   %resp = alloca ptr, align 8
   %call = call i64 @SSL_ctrl(ptr noundef %ssl, i32 noundef 70, i64 noundef 0, ptr noundef nonnull %resp) #17
@@ -3846,7 +3846,7 @@ declare ptr @EC_KEY_get0_group(ptr noundef) local_unnamed_addr #0
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node6crypto15ECPointToBufferEPNS_11EnvironmentEPK11ec_group_stPK11ec_point_st23point_conversion_form_tPPKc(ptr noundef %env, ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef writeonly %error) local_unnamed_addr #3 {
+define dso_local ptr @_ZN4node6crypto15ECPointToBufferEPNS_11EnvironmentEPK11ec_group_stPK11ec_point_st23point_conversion_form_tPPKc(ptr noundef %env, ptr noundef %group, ptr noundef %point, i32 noundef %form, ptr noundef writeonly captures(address_is_null) %error) local_unnamed_addr #3 {
 entry:
   %bs = alloca %"class.std::unique_ptr.310", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.310", align 8

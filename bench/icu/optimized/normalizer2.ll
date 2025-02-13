@@ -180,7 +180,7 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7511Normalizer213normalizeUTF8EjNS_11StringPieceERNS_8ByteSinkEPNS_5EditsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 %0, ptr %src.coerce0, i32 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef readnone %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7511Normalizer213normalizeUTF8EjNS_11StringPieceERNS_8ByteSinkEPNS_5EditsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 %0, ptr %src.coerce0, i32 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef readnone captures(address_is_null) %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src16 = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8

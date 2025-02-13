@@ -146,7 +146,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_cleanup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @col_cleanup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %42, label %.preheader
 
@@ -237,7 +237,7 @@ declare void @dfilter_free(ptr noundef) local_unnamed_addr #3
 declare void @g_regex_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @col_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @col_init(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %.preheader
 
@@ -291,7 +291,7 @@ define hidden void @col_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @col_get_writable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define i32 @col_get_writable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -354,7 +354,7 @@ define i32 @col_get_writable(ptr noundef readonly %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_set_writable(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @col_set_writable(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -420,7 +420,7 @@ define void @col_set_writable(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_set_fence(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @col_set_fence(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %col_get_writable.exit.thread, label %4
 
@@ -542,7 +542,7 @@ col_get_writable.exit.thread:                     ; preds = %21, %60, %.preheade
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_clear_fence(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @col_clear_fence(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %col_get_writable.exit.thread, label %4
 
@@ -657,7 +657,7 @@ col_get_writable.exit.thread:                     ; preds = %21, %56, %.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @col_get_text(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define ptr @col_get_text(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -712,7 +712,7 @@ define ptr @col_get_text(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @col_clear(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @col_clear(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %col_get_writable.exit.thread, label %4
 
@@ -860,7 +860,7 @@ col_get_writable.exit.thread:                     ; preds = %21, %75, %.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @have_custom_cols(ptr noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @have_custom_cols(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -884,7 +884,7 @@ define noundef i32 @have_field_extractors() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @col_custom_set_edt(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @col_custom_set_edt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -967,7 +967,7 @@ define hidden void @col_custom_set_edt(ptr noundef %0, ptr noundef readonly %1) 
 declare ptr @epan_custom_set(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_custom_prime_edt(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @col_custom_prime_edt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -1068,7 +1068,7 @@ define ptr @col_custom_get_filter(ptr noundef %0, ptr noundef readonly captures(
 declare ptr @proto_custom_get_filter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_lstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_append_lstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_get_writable.exit.thread, label %6
@@ -1250,7 +1250,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @ws_label_strcpy(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_str_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @col_append_str_uint(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   call void @guint32_to_str_buf(i32 noundef %3, ptr noundef nonnull %6, i64 noundef 16) #16
   %.not = icmp eq ptr %4, null
@@ -1262,7 +1262,7 @@ define void @col_append_str_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 declare void @guint32_to_str_buf(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_ports(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define void @col_append_ports(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
@@ -1329,7 +1329,7 @@ define void @col_append_frame_number(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
+define void @col_append_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_get_writable.exit.thread, label %6
@@ -1517,7 +1517,7 @@ define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_sep_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #0 {
+define void @col_append_sep_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp eq ptr %0, null
   br i1 %6, label %col_get_writable.exit.thread, label %7
@@ -1602,7 +1602,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %9, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_prepend_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
+define void @col_prepend_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -1770,7 +1770,7 @@ declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noun
 declare ptr @ws_utf8_truncate(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_prepend_fence_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
+define void @col_prepend_fence_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -1927,7 +1927,7 @@ col_get_writable.exit.thread:                     ; preds = %25, %84, %44, %10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_add_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @col_add_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %col_get_writable.exit.thread, label %5
 
@@ -2074,7 +2074,7 @@ col_get_writable.exit.thread:                     ; preds = %22, %77, %41, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_set_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @col_set_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 
@@ -2229,7 +2229,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %77, %43, %9, %
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @col_add_lstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define void @col_add_lstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_get_writable.exit.thread, label %6
@@ -2416,7 +2416,7 @@ col_get_writable.exit.thread:                     ; preds = %23, %97, %42, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_add_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
+define void @col_add_fstr(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = icmp eq ptr %0, null
@@ -2579,7 +2579,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %87, %43, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @col_append_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %col_do_append_str.exit, label %5
 
@@ -2710,7 +2710,7 @@ col_do_append_str.exit:                           ; preds = %22, %67, %7, %.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_sep_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @col_append_sep_str(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_do_append_str.exit, label %6
 
@@ -3587,7 +3587,7 @@ get_frame_timestamp_precision.exit:               ; preds = %36, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_set_time(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @col_set_time(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_get_writable.exit.thread, label %6
 
@@ -5119,7 +5119,7 @@ define internal fastcc void @col_set_port(ptr noundef readonly captures(none) %0
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_fill_in_error(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

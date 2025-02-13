@@ -150,7 +150,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_p12(ptr noundef captures(none) %pb, ptr noundef readonly %mac) unnamed_addr #1 {
+define internal fastcc void @generate_p12(ptr noundef captures(none) %pb, ptr noundef readonly captures(address_is_null) %mac) unnamed_addr #1 {
 entry:
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
@@ -286,7 +286,7 @@ return:                                           ; preds = %entry, %if.end53, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @end_pkcs12_with_mac(ptr noundef captures(none) %pb, ptr noundef %mac) local_unnamed_addr #1 {
+define dso_local void @end_pkcs12_with_mac(ptr noundef captures(none) %pb, ptr noundef captures(address_is_null) %mac) local_unnamed_addr #1 {
 entry:
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
@@ -410,7 +410,7 @@ if.end23:                                         ; preds = %if.end23.sink.split
 declare i32 @PKCS12_add_safe_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_certbag(ptr noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr noundef %attrs) local_unnamed_addr #1 {
+define dso_local void @add_certbag(ptr noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr noundef captures(address_is_null) %attrs) local_unnamed_addr #1 {
 entry:
   %bytes.addr.i = alloca ptr, align 8
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
@@ -471,7 +471,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare ptr @PKCS12_add_cert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_attributes(ptr noundef %bag, ptr noundef readonly %attr) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @add_attributes(ptr noundef %bag, ptr noundef readonly captures(address_is_null) %attr) unnamed_addr #1 {
 entry:
   %attrs = alloca ptr, align 8
   store ptr null, ptr %attrs, align 8
@@ -555,7 +555,7 @@ return:                                           ; preds = %if.end50, %if.else3
 declare void @X509_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_keybag(ptr noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr noundef %attrs, ptr noundef readonly captures(none) %enc) local_unnamed_addr #1 {
+define dso_local void @add_keybag(ptr noundef %pb, ptr noundef %bytes, i32 noundef %len, ptr noundef captures(address_is_null) %attrs, ptr noundef readonly captures(none) %enc) local_unnamed_addr #1 {
 entry:
   %bytes.addr.i = alloca ptr, align 8
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
@@ -630,7 +630,7 @@ declare ptr @PKCS12_add_key_ex(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_secretbag(ptr noundef %pb, i32 noundef %secret_nid, ptr noundef %secret, ptr noundef %attrs) local_unnamed_addr #1 {
+define dso_local void @add_secretbag(ptr noundef %pb, i32 noundef %secret_nid, ptr noundef %secret, ptr noundef captures(address_is_null) %attrs) local_unnamed_addr #1 {
 entry:
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
@@ -1118,7 +1118,7 @@ return:                                           ; preds = %entry, %if.end12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @from_bio_p12(ptr noundef %bio, ptr noundef readonly %mac) unnamed_addr #1 {
+define internal fastcc ptr @from_bio_p12(ptr noundef %bio, ptr noundef readonly captures(address_is_null) %mac) unnamed_addr #1 {
 entry:
   %p12 = alloca ptr, align 8
   store ptr null, ptr %p12, align 8
@@ -1193,7 +1193,7 @@ declare ptr @PKCS12_unpack_authsafes(ptr noundef) local_unnamed_addr #2
 declare void @PKCS12_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @start_check_pkcs12_with_mac(ptr noundef captures(none) %pb, ptr noundef %mac) local_unnamed_addr #1 {
+define dso_local void @start_check_pkcs12_with_mac(ptr noundef captures(none) %pb, ptr noundef captures(address_is_null) %mac) local_unnamed_addr #1 {
 entry:
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
@@ -1276,7 +1276,7 @@ return:                                           ; preds = %entry, %if.end12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_p12(ptr noundef %infile, ptr noundef readonly %mac) unnamed_addr #1 {
+define internal fastcc ptr @read_p12(ptr noundef %infile, ptr noundef readonly captures(address_is_null) %mac) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BIO_new_file(ptr noundef %infile, ptr noundef nonnull @.str.49) #6
   %cmp = icmp eq ptr %call, null
@@ -1329,7 +1329,7 @@ return:                                           ; preds = %if.then7, %check_p1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @start_check_pkcs12_file_with_mac(ptr noundef captures(none) %pb, ptr noundef %mac) local_unnamed_addr #1 {
+define dso_local void @start_check_pkcs12_file_with_mac(ptr noundef captures(none) %pb, ptr noundef captures(address_is_null) %mac) local_unnamed_addr #1 {
 entry:
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8
@@ -1428,7 +1428,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decode_contentinfo(ptr noundef %safes, i32 noundef %idx, ptr noundef readonly %enc) unnamed_addr #1 {
+define internal fastcc noundef ptr @decode_contentinfo(ptr noundef %safes, i32 noundef %idx, ptr noundef readonly captures(address_is_null) %enc) unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %safes, i32 noundef %idx) #6
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @.str.50, ptr noundef %call1) #6
@@ -1481,7 +1481,7 @@ return:                                           ; preds = %if.end18, %err
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @start_check_contentinfo_encrypted(ptr noundef captures(none) %pb, ptr noundef %enc) local_unnamed_addr #1 {
+define dso_local void @start_check_contentinfo_encrypted(ptr noundef captures(none) %pb, ptr noundef captures(address_is_null) %enc) local_unnamed_addr #1 {
 entry:
   %success = getelementptr inbounds nuw i8, ptr %pb, i64 8
   %0 = load i32, ptr %success, align 8

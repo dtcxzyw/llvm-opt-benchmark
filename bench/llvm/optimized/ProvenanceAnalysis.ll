@@ -181,7 +181,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis7relate
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis10relatedPHIEPKNS_7PHINodeEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm7objcarc18ProvenanceAnalysis10relatedPHIEPKNS_7PHINodeEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallPtrSet", align 8
   %5 = load i8, ptr %2, align 8, !tbaa !3
   %.not = icmp eq i8 %5, 84

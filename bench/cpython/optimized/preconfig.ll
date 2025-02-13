@@ -2322,7 +2322,7 @@ declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #14
 declare i32 @wcsncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPreConfig_Read(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @_PyPreConfig_Read(ptr dead_on_unwind noalias writable writeonly sret(%struct.PyStatus) align 8 captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.PyStatus, align 8
   %6 = alloca %struct.PyStatus, align 8

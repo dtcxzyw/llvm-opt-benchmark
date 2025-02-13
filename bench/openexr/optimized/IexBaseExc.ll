@@ -2259,7 +2259,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_27BaseExc7messageB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_27BaseExc7messageB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_message = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %_message
@@ -2337,7 +2337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_27BaseExc10stackTraceB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_27BaseExc10stackTraceB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_stackTrace = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %_stackTrace

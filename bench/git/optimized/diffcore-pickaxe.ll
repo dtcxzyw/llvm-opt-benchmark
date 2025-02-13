@@ -305,7 +305,7 @@ define internal i32 @diff_grep(ptr noundef %0, ptr noundef %1, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.regmatch_t, align 4
   %7 = alloca %struct.kwsmatch, align 8
   %8 = alloca %struct.regmatch_t, align 4

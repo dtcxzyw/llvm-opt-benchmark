@@ -1351,7 +1351,7 @@ _ZN8QuantLib6MatrixD2Ev.exit200:                  ; preds = %ehcleanup215, %_ZNK
 declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib21OrthogonalProjections12validVectorsEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib21OrthogonalProjections12validVectorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #10 align 2 {
 entry:
   %validVectors_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   ret ptr %validVectors_

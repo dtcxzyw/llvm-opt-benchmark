@@ -5847,7 +5847,7 @@ cleanup:                                          ; preds = %if.end, %_ZNKSt8fun
 declare noundef i32 @_ZN5folly15ThreadLocalPRNGclEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly4test21DeterministicSchedule6getcpuEPjS2_Pv(ptr noundef writeonly %cpu, ptr noundef writeonly %node, ptr readnone captures(none) %0) #7 align 2 {
+define noundef i32 @_ZN5folly4test21DeterministicSchedule6getcpuEPjS2_Pv(ptr noundef writeonly captures(address_is_null) %cpu, ptr noundef writeonly captures(address_is_null) %node, ptr readnone captures(none) %0) #7 align 2 {
 entry:
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEvE5cache)
   %2 = load ptr, ptr %1, align 8, !tbaa !48

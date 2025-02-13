@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [58 x i8] c"Deriving strashed network from input file %s has failed.\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Abc_NtkMapGiaIntoNameId(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkMapGiaIntoNameId(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %calloc.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %4

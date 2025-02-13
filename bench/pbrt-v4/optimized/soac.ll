@@ -2842,7 +2842,7 @@ declare i32 @isalpha(i32 noundef) local_unnamed_addr #6
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZ4mainENK3$_2clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr %this.0.val.0.val, ptr readnone %this.0.val.8.val, ptr %this.8.val, ptr noundef nonnull %type) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZ4mainENK3$_2clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr %this.0.val.0.val, ptr readnone captures(address) %this.0.val.8.val, ptr %this.8.val, ptr noundef nonnull %type) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not4 = icmp eq ptr %this.0.val.0.val, %this.0.val.8.val
   br i1 %cmp.i.not4, label %for.end, label %for.body

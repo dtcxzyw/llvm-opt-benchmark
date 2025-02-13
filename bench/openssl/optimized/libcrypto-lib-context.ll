@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [28 x i8] c"Non-default library context\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_lib_ctx_write_lock(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @ossl_lib_ctx_write_lock(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %ossl_lib_ctx_get_concrete.exit
@@ -51,7 +51,7 @@ ossl_lib_ctx_get_concrete.exit:                   ; preds = %entry, %get_default
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @ossl_lib_ctx_get_concrete(ptr noundef readnone %ctx) local_unnamed_addr #0 {
+define nonnull ptr @ossl_lib_ctx_get_concrete(ptr noundef readnone captures(address_is_null, ret: address, provenance) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %return
@@ -80,7 +80,7 @@ return:                                           ; preds = %entry, %get_default
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_lib_ctx_read_lock(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @ossl_lib_ctx_read_lock(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %ossl_lib_ctx_get_concrete.exit
@@ -113,7 +113,7 @@ ossl_lib_ctx_get_concrete.exit:                   ; preds = %entry, %get_default
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_lib_ctx_unlock(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @ossl_lib_ctx_unlock(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %ossl_lib_ctx_get_concrete.exit
@@ -146,7 +146,7 @@ ossl_lib_ctx_get_concrete.exit:                   ; preds = %entry, %get_default
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_lib_ctx_is_child(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_lib_ctx_is_child(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %return
@@ -539,7 +539,7 @@ entry:
 declare i32 @CONF_modules_load_file_ex(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_lib_ctx_is_default(ptr noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_lib_ctx_is_default(ptr noundef readnone captures(address) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -661,7 +661,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @ossl_rand_ctx_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_lib_ctx_is_global_default(ptr noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_lib_ctx_is_global_default(ptr noundef readnone captures(address) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %ossl_lib_ctx_get_concrete.exit
@@ -868,7 +868,7 @@ return:                                           ; preds = %if.end, %if.then23,
 declare ptr @ossl_rand_crng_ctx_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef readnone %ctx) local_unnamed_addr #0 {
+define nonnull ptr @ossl_lib_ctx_get_ex_data_global(ptr noundef readnone captures(address_is_null, ret: address, provenance) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %ossl_lib_ctx_get_concrete.exit
@@ -898,7 +898,7 @@ ossl_lib_ctx_get_concrete.exit:                   ; preds = %entry, %get_default
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @ossl_lib_ctx_get_descriptor(ptr noundef readnone %libctx) local_unnamed_addr #0 {
+define nonnull ptr @ossl_lib_ctx_get_descriptor(ptr noundef readnone captures(address) %libctx) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq ptr %libctx, null
   br i1 %cmp.i.i, label %if.then.i.i, label %ossl_lib_ctx_is_global_default.exit.thread

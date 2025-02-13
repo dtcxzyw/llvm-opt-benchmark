@@ -5236,7 +5236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14StreamListenerE, i64 16), ptr %this, align 8
   %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5292,7 +5292,7 @@ if.end:                                           ; preds = %_ZN4node14StreamRes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %listener) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(address) %listener) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq ptr %listener, null
   br i1 %cmp.not, label %do.body4, label %do.end5

@@ -152168,7 +152168,7 @@ _ZN5clang21OMPDeclareVariantAttr6CreateERNS_10ASTContextEPNS_4ExprEPNS_12OMPTrai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPS7_jSA_jPNS_14OMPInteropInfoEj(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((0, 34), (40, 60), (64, 76), (80, 92)) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8, ptr noundef readonly %9, i32 noundef %10) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPS7_jSA_jPNS_14OMPInteropInfoEj(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((0, 34), (40, 60), (64, 76), (80, 92)) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8, ptr noundef readonly captures(address) %9, i32 noundef %10) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !141
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 288, ptr %12, align 8
@@ -152438,7 +152438,7 @@ _ZSt4copyIPN5clang14OMPInteropInfoES2_ET0_T_S4_S3_.exit: ; preds = %_ZN5clang14O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPNS_14OMPInteropInfoEj(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((0, 34), (40, 60), (64, 76), (80, 92)) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPNS_14OMPInteropInfoEj(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((0, 34), (40, 60), (64, 76), (80, 92)) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address) %5, i32 noundef %6) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !141
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 288, ptr %8, align 8

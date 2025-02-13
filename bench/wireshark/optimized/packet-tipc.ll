@@ -1924,7 +1924,7 @@ define internal fastcc void @dissect_tipc_name_dist_data(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #0 {
+define internal fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @dissect_tipc_data, align 4
   %.not = icmp eq i32 %6, 0

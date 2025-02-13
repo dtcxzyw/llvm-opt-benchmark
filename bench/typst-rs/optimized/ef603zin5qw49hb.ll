@@ -1243,7 +1243,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$ecow..string..EcoString$u20$as$u20$
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h7f6a7a340b0e7784E.llvm.5914695560033043764"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #9 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h7f6a7a340b0e7784E.llvm.5914695560033043764"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -1657,7 +1657,7 @@ define noundef range(i64 1, 0) i64 @_ZN12typst_syntax4node10SyntaxNode4span17hb7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12typst_syntax4node10SyntaxNode4text17h0d9372afac3f611fE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #14 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12typst_syntax4node10SyntaxNode4text17h0d9372afac3f611fE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !16, !noundef !7
   %4 = and i8 %3, -2

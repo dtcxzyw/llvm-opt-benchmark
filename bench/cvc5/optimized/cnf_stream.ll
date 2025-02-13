@@ -3421,14 +3421,14 @@ _ZNK4cvc57context15CDInsertHashMapINS_8internal4prop10SatLiteralENS2_12NodeTempl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9CnfStream19getTranslationCacheEv(ptr noundef nonnull readnone align 8 dereferenceable(352) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9CnfStream19getTranslationCacheEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(352) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_nodeToLiteralMap = getelementptr inbounds nuw i8, ptr %this, i64 160
   ret ptr %d_nodeToLiteralMap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9CnfStream12getNodeCacheEv(ptr noundef nonnull readnone align 8 dereferenceable(352) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9CnfStream12getNodeCacheEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(352) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_literalToNodeMap = getelementptr inbounds nuw i8, ptr %this, i64 216
   ret ptr %d_literalToNodeMap

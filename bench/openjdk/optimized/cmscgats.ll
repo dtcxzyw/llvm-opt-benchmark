@@ -602,7 +602,7 @@ GetTable.exit:                                    ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @cmsIT8GetSheetType(ptr noundef %0) local_unnamed_addr #0 {
+define hidden nonnull ptr @cmsIT8GetSheetType(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -629,7 +629,7 @@ GetTable.exit:                                    ; preds = %5, %7
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetComment(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetComment(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %3
 
@@ -670,7 +670,7 @@ GetTable.exit:                                    ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @AddToList(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @AddToList(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load ptr, ptr %1, align 8
   %cond2941.i = icmp eq ptr %7, null
   br i1 %cond2941.i, label %.loopexit, label %.lr.ph.split.i.preheader
@@ -889,7 +889,7 @@ AllocChunk.exit.thread:                           ; preds = %59
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyStr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyStr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %4
 
@@ -994,7 +994,7 @@ GetTable.exit:                                    ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyUncooked(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyUncooked(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -1022,7 +1022,7 @@ GetTable.exit:                                    ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyMulti(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyMulti(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
@@ -1181,7 +1181,7 @@ cmsIT8GetProperty.exit.thread:                    ; preds = %22, %.lr.ph.split.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @ParseFloatNumber(ptr noundef readonly %0) unnamed_addr #4 {
+define internal fastcc double @ParseFloatNumber(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %78, label %3
 
@@ -4738,7 +4738,7 @@ cmsIT8Free.exit42:                                ; preds = %.loopexit.i40, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8EnumDataFormat(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i32 @cmsIT8EnumDataFormat(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -6498,7 +6498,7 @@ LocateSample.exit.thread:                         ; preds = %GetDataFormat.exit.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsIT8DefineDblFormat(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define hidden void @cmsIT8DefineDblFormat(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 271608
   br i1 %3, label %5, label %6

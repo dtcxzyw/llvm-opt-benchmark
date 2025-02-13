@@ -614,7 +614,7 @@ qtest_query_target_endianness.exit:               ; preds = %if.end32, %lor.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qtest_init_with_env(ptr noundef readonly %var, ptr noundef %extra_args) local_unnamed_addr #1 {
+define dso_local noundef ptr @qtest_init_with_env(ptr noundef readonly captures(address_is_null) %var, ptr noundef %extra_args) local_unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %var, null
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i

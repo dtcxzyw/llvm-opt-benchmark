@@ -382,7 +382,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20FileChecksumListImpl19GetAllFileChecksumsEPSt6vectorImSaImEEPS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESD_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %file_numbers, ptr noundef %checksums, ptr noundef %checksum_func_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20FileChecksumListImpl19GetAllFileChecksumsEPSt6vectorImSaImEEPS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESD_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef captures(address_is_null) %file_numbers, ptr noundef %checksums, ptr noundef %checksum_func_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp5 = alloca %"class.rocksdb::Slice", align 8
@@ -757,7 +757,7 @@ if.end:                                           ; preds = %if.else, %invoke.co
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb20FileChecksumListImpl21RemoveOneFileChecksumEm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %file_number) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20FileChecksumListImpl21RemoveOneFileChecksumEm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %this, i64 noundef %file_number) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %checksum_map_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -4437,7 +4437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7rocksdb28GetFileChecksumsFromManifestEPNS_3EnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_16FileChecksumListEEN11LogReporter10CorruptionEmRKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %st) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb28GetFileChecksumsFromManifestEPNS_3EnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_16FileChecksumListEEN11LogReporter10CorruptionEmRKNS_6StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %st) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %status_ptr = getelementptr inbounds nuw i8, ptr %this, i64 8

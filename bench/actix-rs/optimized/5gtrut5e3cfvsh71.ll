@@ -169,7 +169,7 @@ define hidden void @"_ZN111_$LT$$LP$http..header..name..HeaderName$C$V$RP$$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h4cb6a29ba509947bE.llvm.14508081899341677224"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h4cb6a29ba509947bE.llvm.14508081899341677224"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

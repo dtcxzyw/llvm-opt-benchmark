@@ -60,7 +60,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @single_transfer_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @output_expected(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @output_expected(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 

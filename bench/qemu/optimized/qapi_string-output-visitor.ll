@@ -580,7 +580,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @end_list(ptr noundef captures(none) %v, ptr noundef readnone %obj) #0 {
+define internal void @end_list(ptr noundef captures(none) %v, ptr noundef readnone captures(address) %obj) #0 {
 entry:
   %list = getelementptr inbounds nuw i8, ptr %v, i64 272
   %0 = load ptr, ptr %list, align 8
@@ -611,7 +611,7 @@ if.end12:                                         ; preds = %if.end, %if.end, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @string_output_complete(ptr noundef captures(none) %v, ptr noundef readnone %opaque) #0 {
+define internal void @string_output_complete(ptr noundef captures(none) %v, ptr noundef readnone captures(address) %opaque) #0 {
 entry:
   %result = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %result, align 8

@@ -504,7 +504,7 @@ unreachable:                                      ; preds = %invoke.cont33
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN8QuantLib5Money8Settings14conversionTypeEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN8QuantLib5Money8Settings14conversionTypeEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   ret ptr %this
 }
@@ -4402,27 +4402,27 @@ lpad:                                             ; preds = %invoke.cont7, %cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK8QuantLib5Money8Settings14conversionTypeEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK8QuantLib5Money8Settings14conversionTypeEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib5Money8Settings12baseCurrencyEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib5Money8Settings12baseCurrencyEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %baseCurrency_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %baseCurrency_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib5Money8Settings12baseCurrencyEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib5Money8Settings12baseCurrencyEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %baseCurrency_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %baseCurrency_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8QuantLib5Money17BaseCurrencyProxyaSERKNS_8CurrencyE(ptr noundef nonnull readnone returned align 1 dereferenceable(1) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8QuantLib5Money17BaseCurrencyProxyaSERKNS_8CurrencyE(ptr noundef nonnull readnone returned align 1 captures(ret: address, provenance) dereferenceable(1) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8QuantLib9SingletonINS_5Money8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -4530,7 +4530,7 @@ _ZN8QuantLib8CurrencyC2ERKS0_.exit:               ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8QuantLib5Money19ConversionTypeProxyaSENS0_14ConversionTypeE(ptr noundef nonnull readnone returned align 1 dereferenceable(1) %this, i32 noundef %t) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8QuantLib5Money19ConversionTypeProxyaSENS0_14ConversionTypeE(ptr noundef nonnull readnone returned align 1 captures(ret: address, provenance) dereferenceable(1) %this, i32 noundef %t) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8QuantLib9SingletonINS_5Money8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

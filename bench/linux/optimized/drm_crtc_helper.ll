@@ -67,7 +67,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_helper_f
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_drm_crtc_helper_atomic_check390, ptr @__UNIQUE_ID___addressable_drm_crtc_helper_set_config400, ptr @__UNIQUE_ID___addressable_drm_crtc_helper_set_mode389, ptr @__UNIQUE_ID___addressable_drm_helper_connector_dpms403, ptr @__UNIQUE_ID___addressable_drm_helper_crtc_in_use383, ptr @__UNIQUE_ID___addressable_drm_helper_disable_unused_functions386, ptr @__UNIQUE_ID___addressable_drm_helper_encoder_in_use378, ptr @__UNIQUE_ID___addressable_drm_helper_force_disable_all407, ptr @__UNIQUE_ID___addressable_drm_helper_resume_force_mode406, ptr @drm_debug_classes], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef readonly %0) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = alloca %struct.drm_connector_list_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
   %3 = load ptr, ptr %0, align 8
@@ -171,7 +171,7 @@ declare dso_local ptr @drm_connector_list_iter_next(ptr noundef) local_unnamed_a
 declare dso_local void @drm_connector_list_iter_end(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_helper_crtc_in_use(ptr noundef readonly %0) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_helper_crtc_in_use(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -795,7 +795,7 @@ define dso_local ptr @drm_connector_get_single_encoder(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
+define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca %struct.drm_connector_list_iter, align 8
   %4 = alloca %struct.drm_connector_list_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6

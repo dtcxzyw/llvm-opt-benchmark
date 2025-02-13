@@ -104,7 +104,7 @@ declare i32 @X509_REQ_sign(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_REQ_get_pubkey(ptr noundef readonly %req) local_unnamed_addr #0 {
+define ptr @X509_REQ_get_pubkey(ptr noundef readonly captures(address_is_null) %req) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %return, label %if.end
@@ -123,7 +123,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_REQ_get0_pubkey(ptr noundef readonly %req) local_unnamed_addr #0 {
+define ptr @X509_REQ_get0_pubkey(ptr noundef readonly captures(address_is_null) %req) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %return, label %if.end
@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_check_private_key(ptr noundef readonly %req, ptr noundef %pkey) local_unnamed_addr #0 {
+define i32 @X509_REQ_check_private_key(ptr noundef readonly captures(address_is_null) %req, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %req, null
   br i1 %cmp.i, label %X509_REQ_get0_pubkey.exit, label %if.end.i
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_REQ_get_extensions(ptr noundef readonly %req) local_unnamed_addr #0 {
+define ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address_is_null) %req) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp ne ptr %req, null
@@ -416,7 +416,7 @@ declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_REQ_delete_attr(ptr noundef %req, i32 noundef %loc) local_unnamed_addr #0 {
+define ptr @X509_REQ_delete_attr(ptr noundef captures(address_is_null) %req, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %if.then, label %if.end
@@ -558,7 +558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @X509_REQ_get0_signature(ptr noundef %req, ptr noundef writeonly %psig, ptr noundef writeonly %palg) local_unnamed_addr #6 {
+define void @X509_REQ_get0_signature(ptr noundef %req, ptr noundef writeonly captures(address_is_null) %psig, ptr noundef writeonly captures(address_is_null) %palg) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %psig, null
   br i1 %cmp.not, label %if.end, label %if.then

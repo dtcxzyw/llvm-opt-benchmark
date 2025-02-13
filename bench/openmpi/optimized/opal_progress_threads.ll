@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @opal_progress_thread_init(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @opal_progress_thread_init(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b45 = load i1, ptr @inited, align 1
   br i1 %.b45, label %12, label %2
 
@@ -374,7 +374,7 @@ define internal void @dummy_timeout_cb(i32 %0, i16 signext %1, ptr noundef %2) #
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @opal_progress_thread_finalize(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_progress_thread_finalize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b18 = load i1, ptr @inited, align 1
   br i1 %.b18, label %2, label %.loopexit
 
@@ -486,7 +486,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @opal_progress_thread_pause(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_progress_thread_pause(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b10 = load i1, ptr @inited, align 1
   br i1 %.b10, label %2, label %.loopexit
 
@@ -532,7 +532,7 @@ define range(i32 -13, 1) i32 @opal_progress_thread_pause(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_progress_thread_resume(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @opal_progress_thread_resume(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.b10 = load i1, ptr @inited, align 1
   br i1 %.b10, label %2, label %start_progress_engine.exit
 

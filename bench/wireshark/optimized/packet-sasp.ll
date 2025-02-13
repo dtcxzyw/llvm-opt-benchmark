@@ -916,7 +916,7 @@ define internal fastcc noundef i32 @dissect_grpdatacomp(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_memdatacomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_memdatacomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.e_in6_addr, align 1
   %6 = add i32 %2, 7
   call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %6, ptr noundef nonnull %5) #3

@@ -210,7 +210,7 @@ define internal void @CollectHistogram_SSE2(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Intra16Preds_SSE2(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #2 {
+define internal void @Intra16Preds_SSE2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #2 {
   %.not.i = icmp eq ptr %2, null
   %.not12.i = icmp eq ptr %1, null
   br i1 %.not.i, label %39, label %4
@@ -435,7 +435,7 @@ TrueMotion_SSE2.exit:                             ; preds = %80, %.preheader18.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @IntraChromaPreds_SSE2(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #3 {
+define internal void @IntraChromaPreds_SSE2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %.not.i = icmp eq ptr %2, null
   %.not12.i = icmp eq ptr %1, null

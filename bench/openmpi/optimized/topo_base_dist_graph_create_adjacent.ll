@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_dist_graph_create_adjacent(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly %7, ptr noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define i32 @mca_topo_base_dist_graph_create_adjacent(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(address) %7, ptr noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = tail call i32 @ompi_comm_dup_with_info(ptr noundef %1, ptr noundef %8, ptr noundef %10) #6
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %_mca_topo_base_dist_graph_create_adjacent.exit

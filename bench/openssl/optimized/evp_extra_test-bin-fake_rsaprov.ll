@@ -247,7 +247,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef captures(none) %siglen, i64 noundef %sigsize, ptr readnone captures(none) %tbs, i64 %tbslen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %ctx, ptr noundef writeonly captures(address_is_null) %sig, ptr noundef captures(none) %siglen, i64 noundef %sigsize, ptr readnone captures(none) %tbs, i64 %tbslen) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 339, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -339,7 +339,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %ctx, ptr noundef writeonly captures(address_is_null) %sig, ptr noundef captures(address_is_null) %siglen, i64 noundef %sigsize) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 441, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -404,7 +404,7 @@ return:                                           ; preds = %if.end36, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize, ptr readnone captures(none) %tbs, i64 %tbslen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %ctx, ptr noundef writeonly captures(address_is_null) %sig, ptr noundef captures(address_is_null) %siglen, i64 noundef %sigsize, ptr readnone captures(none) %tbs, i64 %tbslen) #1 {
 entry:
   %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -816,7 +816,7 @@ fake_rsa_st_open_ex.exit:                         ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %provctx, ptr noundef readonly captures(none) %uri, ptr readnone captures(none) %params, ptr noundef readonly %pw_cb, ptr noundef %pw_cbarg) #1 {
+define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %provctx, ptr noundef readonly captures(none) %uri, ptr readnone captures(none) %params, ptr noundef readonly captures(address_is_null) %pw_cb, ptr noundef %pw_cbarg) #1 {
 entry:
   %fakepw = alloca [20 x i8], align 16
   %fakepw_len = alloca i64, align 8

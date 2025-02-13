@@ -868,7 +868,7 @@ declare void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr sret(%"class.std::__cxx11
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter8ParseKeyEPNS_17ParsedInternalKeyE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef %ikey) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter8ParseKeyEPNS_17ParsedInternalKeyE(ptr noundef nonnull align 8 captures(address) dereferenceable(808) %this, ptr noundef %ikey) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %s = alloca %"class.rocksdb::Status", align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
@@ -2126,7 +2126,7 @@ return:                                           ; preds = %_ZNK7rocksdb21UserC
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter17FindNextUserEntryEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) %this, i1 noundef zeroext %skipping_saved_key, ptr noundef %prefix) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter17FindNextUserEntryEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) %this, i1 noundef zeroext %skipping_saved_key, ptr noundef captures(address_is_null) %prefix) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %perf_step_timer_find_next_user_entry_time = alloca %"class.rocksdb::PerfStepTimer", align 8
   %.not.i = icmp eq ptr @_ZTHN7rocksdb12perf_contextE, null
@@ -2781,7 +2781,7 @@ declare void @_ZN7rocksdb23WideColumnSerialization11DeserializeERNS_5SliceERSt6v
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter33SetValueAndColumnsFromMergeResultERKNS_6StatusENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %merge_status, i8 noundef zeroext %result_type) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter33SetValueAndColumnsFromMergeResultERKNS_6StatusENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %merge_status, i8 noundef zeroext %result_type) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %0 = load i8, ptr %merge_status, align 8
@@ -3064,7 +3064,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNS0_5SliceES7_EEERS
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindNextUserEntryInternalEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((578, 579)) %this, i1 noundef zeroext %skipping_saved_key, ptr noundef readonly %prefix) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindNextUserEntryInternalEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((578, 579)) %this, i1 noundef zeroext %skipping_saved_key, ptr noundef readonly captures(address_is_null) %prefix) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %user_key_without_ts = alloca %"class.rocksdb::Slice", align 8
   %ts = alloca %"class.rocksdb::Slice", align 8
@@ -4112,7 +4112,7 @@ eh.resume:                                        ; preds = %lpad238, %lpad247.b
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter26TooManyInternalKeysSkippedEb(ptr noundef nonnull align 8 dereferenceable(808) %this, i1 noundef zeroext %increment) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter26TooManyInternalKeysSkippedEb(ptr noundef nonnull align 8 captures(address) dereferenceable(808) %this, i1 noundef zeroext %increment) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp4 = alloca %"class.rocksdb::Slice", align 8
@@ -4207,7 +4207,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %this, i64 noundef %sequence, ptr noundef nonnull align 8 dereferenceable(16) %ts, ptr noundef writeonly %more_recent) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %this, i64 noundef %sequence, ptr noundef nonnull align 8 dereferenceable(16) %ts, ptr noundef writeonly captures(address_is_null) %more_recent) local_unnamed_addr #4 align 2 {
 entry:
   %read_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %read_callback_, align 8
@@ -6735,7 +6735,7 @@ if.end37:                                         ; preds = %_ZN7rocksdb7IterKey
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb6DBIter12PrevInternalEPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef readonly %prefix) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb6DBIter12PrevInternalEPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef readonly captures(address_is_null) %prefix) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp11 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp25 = alloca %"class.rocksdb::Slice", align 8

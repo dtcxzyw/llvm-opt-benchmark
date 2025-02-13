@@ -138,7 +138,7 @@ return:                                           ; preds = %err, %do.end, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr noundef %s, ptr noundef %profiles) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr noundef captures(address_is_null) %s, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -159,7 +159,7 @@ return:                                           ; preds = %entry, %cond.false,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get_srtp_profiles(ptr noundef readonly %s) local_unnamed_addr #2 {
+define ptr @SSL_get_srtp_profiles(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %if.end18, label %cond.false
@@ -196,7 +196,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_get_selected_srtp_profile(ptr noundef readonly %s) local_unnamed_addr #3 {
+define ptr @SSL_get_selected_srtp_profile(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false

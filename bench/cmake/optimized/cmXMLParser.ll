@@ -464,7 +464,7 @@ declare ptr @XML_ParserCreate(ptr noundef) local_unnamed_addr #0
 declare void @XML_SetElementHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @cmXMLParserStartElement(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #8 personality ptr @__gxx_personality_v0 {
+define dso_local void @cmXMLParserStartElement(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
@@ -567,7 +567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @cmXMLParserEndElement(ptr noundef %0, ptr noundef readonly %1) #8 personality ptr @__gxx_personality_v0 {
+define dso_local void @cmXMLParserEndElement(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
@@ -966,7 +966,7 @@ define dso_local void @_ZN11cmXMLParser20CharacterDataHandlerEPKci(ptr nonnull r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN11cmXMLParser13FindAttributeEPPKcS1_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #12 align 2 {
+define dso_local noundef ptr @_ZN11cmXMLParser13FindAttributeEPPKcS1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 align 2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

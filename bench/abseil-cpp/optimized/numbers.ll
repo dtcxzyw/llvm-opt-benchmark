@@ -175,7 +175,7 @@ return:                                           ; preds = %return.sink.split, 
 declare { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RdNS_12chars_formatE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtobESt17basic_string_viewIcSt11char_traitsIcEEPb(i64 %str.coerce0, ptr %str.coerce1, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtobESt17basic_string_viewIcSt11char_traitsIcEEPb(i64 %str.coerce0, ptr %str.coerce1, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %out, null
   br i1 %cmp.not, label %do.body1, label %do.end4
@@ -257,7 +257,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEjPc(i32 noundef %n, ptr noundef writeonly initializes((0, 1)) %out_str) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEjPc(i32 noundef %n, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %out_str) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp ult i32 %n, 10
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -358,7 +358,7 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %if.end8.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %i, ptr noundef writeonly %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %i, ptr noundef writeonly captures(ret: address, provenance) %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp slt i32 %i, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -471,7 +471,7 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %if.end8.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %i, ptr noundef writeonly initializes((0, 1)) %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %i, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not = icmp ugt i64 %i, 4294967295
   br i1 %cmp.i.not, label %if.end.i, label %if.then.i
@@ -701,7 +701,7 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit:   ; preds = %if.then.i53.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferElPc(i64 noundef %i, ptr noundef writeonly %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferElPc(i64 noundef %i, ptr noundef writeonly captures(ret: address, provenance) %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp slt i64 %i, 0
   br i1 %cmp, label %if.then, label %if.end

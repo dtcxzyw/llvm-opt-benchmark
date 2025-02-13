@@ -225,7 +225,7 @@ list_length.exit72.thread:                        ; preds = %28, %26, %list_leng
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly %.600.val, ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly captures(address_is_null) %.600.val, ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.600.val, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %.600.val, i64 16
   %.not = icmp eq ptr %.600.val, null

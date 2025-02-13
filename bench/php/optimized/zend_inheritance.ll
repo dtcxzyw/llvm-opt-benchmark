@@ -491,7 +491,7 @@ get_class_from_type.exit.thread89:                ; preds = %103, %126, %127, %g
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_build_properties_info_table(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @zend_build_properties_info_table(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -6635,7 +6635,7 @@ declare void @zend_begin_record_errors() local_unnamed_addr #7
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @zend_lazy_class_load(ptr noundef readonly %0) unnamed_addr #2 {
+define internal fastcc noundef ptr @zend_lazy_class_load(ptr noundef readonly captures(address) %0) unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8839,7 +8839,7 @@ resolve_class_name.exit:                          ; preds = %50, %53, %56, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @register_unresolved_classes(ptr noundef %0, ptr %1, i32 %2) unnamed_addr #2 {
+define internal fastcc void @register_unresolved_classes(ptr noundef captures(address_is_null) %0, ptr %1, i32 %2) unnamed_addr #2 {
   %4 = alloca %struct.zend_type, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9042,7 +9042,7 @@ define internal fastcc zeroext i1 @unlinked_instanceof(ptr noundef %0, ptr nound
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_class_ex(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc ptr @lookup_class_ex(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %5 = and i32 %4, 32768
   %.not48 = icmp ne i32 %5, 0
@@ -9385,7 +9385,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_inheritance_check_on_method(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, i1 noundef zeroext %6) unnamed_addr #2 {
+define internal fastcc void @do_inheritance_check_on_method(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, i1 noundef zeroext %6) unnamed_addr #2 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 64
@@ -12298,7 +12298,7 @@ declare void @function_add_ref(ptr noundef) local_unnamed_addr #7
 declare void @zend_add_magic_method(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_first_constant_definition(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
+define internal fastcc ptr @find_first_constant_definition(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone captures(address, ret: address, provenance) %4) unnamed_addr #2 {
   %6 = icmp eq ptr %4, %0
   %7 = icmp ne i64 %2, 0
   %or.cond = and i1 %6, %7
@@ -12343,7 +12343,7 @@ declare zeroext i1 @zend_is_identical(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_first_property_definition(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone %4) unnamed_addr #2 {
+define internal fastcc ptr @find_first_property_definition(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef %3, ptr noundef readnone captures(address, ret: address, provenance) %4) unnamed_addr #2 {
   %6 = icmp eq ptr %4, %0
   %7 = icmp ne i64 %2, 0
   %or.cond = and i1 %6, %7

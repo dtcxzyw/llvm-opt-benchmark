@@ -1268,7 +1268,7 @@ return:                                           ; preds = %_ZN7rocksdb6StatusD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20PlainTableKeyDecoder20NextPlainEncodingKeyEjPNS_17ParsedInternalKeyEPNS_5SliceEPjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef writeonly %internal_key, ptr noundef captures(none) %bytes_read, ptr readnone captures(none) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20PlainTableKeyDecoder20NextPlainEncodingKeyEjPNS_17ParsedInternalKeyEPNS_5SliceEPjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef writeonly captures(address_is_null) %internal_key, ptr noundef captures(none) %bytes_read, ptr readnone captures(none) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.i.i = alloca %"class.rocksdb::Slice", align 8
   %tmp_size = alloca i32, align 4
@@ -1570,7 +1570,7 @@ _ZN7rocksdb6StatusD2Ev.exit54:                    ; preds = %if.then3, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20PlainTableKeyDecoder21NextPrefixEncodingKeyEjPNS_17ParsedInternalKeyEPNS_5SliceEPjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef writeonly %internal_key, ptr noundef captures(none) %bytes_read, ptr noundef writeonly %seekable) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20PlainTableKeyDecoder21NextPrefixEncodingKeyEjPNS_17ParsedInternalKeyEPNS_5SliceEPjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef writeonly captures(address_is_null) %internal_key, ptr noundef captures(none) %bytes_read, ptr noundef writeonly captures(address_is_null) %seekable) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %entry_type = alloca i8, align 1
   %size = alloca i32, align 4
@@ -2355,7 +2355,7 @@ declare void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr sret(%"class.std::__cxx11
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20PlainTableKeyDecoder7NextKeyEjPNS_17ParsedInternalKeyEPNS_5SliceES4_PjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef %internal_key, ptr noundef writeonly captures(none) %value, ptr noundef captures(none) initializes((0, 4)) %bytes_read, ptr noundef %seekable) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20PlainTableKeyDecoder7NextKeyEjPNS_17ParsedInternalKeyEPNS_5SliceES4_PjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef captures(address_is_null) %internal_key, ptr noundef writeonly captures(none) %value, ptr noundef captures(none) initializes((0, 4)) %bytes_read, ptr noundef captures(address_is_null) %seekable) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.i.i = alloca %"class.rocksdb::Slice", align 8
   %s = alloca %"class.rocksdb::Status", align 8
@@ -2620,7 +2620,7 @@ _ZN7rocksdb6StatusD2Ev.exit30:                    ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20PlainTableKeyDecoder14NextKeyNoValueEjPNS_17ParsedInternalKeyEPNS_5SliceEPjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef %internal_key, ptr noundef captures(none) initializes((0, 4)) %bytes_read, ptr noundef %seekable) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb20PlainTableKeyDecoder14NextKeyNoValueEjPNS_17ParsedInternalKeyEPNS_5SliceEPjPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, i32 noundef %start_offset, ptr noundef %parsed_key, ptr noundef captures(address_is_null) %internal_key, ptr noundef captures(none) initializes((0, 4)) %bytes_read, ptr noundef captures(address_is_null) %seekable) local_unnamed_addr #2 align 2 {
 entry:
   store i32 0, ptr %bytes_read, align 4
   %cmp.not = icmp eq ptr %seekable, null

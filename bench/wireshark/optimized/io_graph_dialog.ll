@@ -11107,7 +11107,7 @@ _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog10mouseMovedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IOGraphDialog10mouseMovedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -16022,7 +16022,7 @@ declare void @_ZN13IOGraphDialog15recalcGraphDataEP13_capture_fileb(ptr noundef 
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL16io_graph_copy_cbPvPKvm(ptr noundef returned writeonly initializes((0, 4), (8, 36), (40, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @_ZL16io_graph_copy_cbPvPKvm(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 36), (40, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19718,7 +19718,7 @@ define void @_ZN7IOGraph8tapResetEPv(ptr noundef %0) #0 align 2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN7IOGraph9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr readnone captures(none) %3, i32 %4) #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN7IOGraph9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr readnone captures(none) %3, i32 %4) #0 align 2 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %0, null

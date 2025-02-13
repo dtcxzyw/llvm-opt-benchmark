@@ -14617,7 +14617,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage28_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN5tokio7runtime4task4core6Header13get_scheduler17h59dd5cc6d5050dd6E(ptr noundef nonnull readonly %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN5tokio7runtime4task4core6Header13get_scheduler17h59dd5cc6d5050dd6E(ptr noundef nonnull readonly captures(ret: address, provenance) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !7, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -14627,7 +14627,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task4core6Header13get_sched
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN5tokio7runtime4task4core6Header13get_scheduler17h5bb65fec34139b20E(ptr noundef nonnull readonly %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN5tokio7runtime4task4core6Header13get_scheduler17h5bb65fec34139b20E(ptr noundef nonnull readonly captures(ret: address, provenance) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !7, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64

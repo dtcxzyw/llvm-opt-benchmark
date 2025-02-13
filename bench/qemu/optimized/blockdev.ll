@@ -967,7 +967,7 @@ declare ptr @bdrv_get_aio_context(ptr noundef) local_unnamed_addr #1
 declare void @bdrv_unref(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_next_monitor_owned(ptr noundef readonly %bs) local_unnamed_addr #0 {
+define dso_local ptr @bdrv_next_monitor_owned(ptr noundef readonly captures(address_is_null) %bs) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #15
   br i1 %call, label %do.end, label %if.else
@@ -2648,7 +2648,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_transaction(ptr noundef readonly %actions, ptr noundef readonly %properties, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_null) %actions, ptr noundef readonly captures(address_is_null) %properties, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %local_err.i71.i = alloca ptr, align 8
   %local_err.i52.i = alloca ptr, align 8
@@ -5504,7 +5504,7 @@ declare ptr @qdict_get_try_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @visit_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_blockdev_reopen(ptr noundef readonly %reopen_list, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_blockdev_reopen(ptr noundef readonly captures(address_is_null) %reopen_list, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %options = alloca ptr, align 8
   %obj = alloca ptr, align 8
@@ -5970,7 +5970,7 @@ declare void @block_acct_setup(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @blk_get_stats(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parse_stats_intervals(ptr noundef %stats, ptr readonly %intervals.16.val, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_stats_intervals(ptr noundef %stats, ptr readonly captures(address_is_null) %intervals.16.val, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %length = alloca i64, align 8
   %tobool.not6 = icmp eq ptr %intervals.16.val, null

@@ -24437,7 +24437,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm17VPScalarP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15VPlanTransforms26handleUncountableEarlyExitERNS_5VPlanERNS_15ScalarEvolutionEPNS_4LoopEPNS_10BasicBlockERNS_15VPRecipeBuilderE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1344) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(208) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15VPlanTransforms26handleUncountableEarlyExitERNS_5VPlanERNS_15ScalarEvolutionEPNS_4LoopEPNS_10BasicBlockERNS_15VPRecipeBuilderE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1344) %1, ptr noundef %2, ptr noundef readonly captures(address) %3, ptr noundef nonnull align 8 dereferenceable(208) %4) local_unnamed_addr #0 align 2 {
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
@@ -43075,7 +43075,7 @@ _ZN4llvm3isaINS_18VPExpandSCEVRecipeEPKNS_7VPValueEEEbRKT0_.exit: ; preds = %145
 declare noundef zeroext i1 @_ZN4llvm29VPWidenPointerInductionRecipe20onlyScalarsGeneratedEb(ptr noundef nonnull align 8 dereferenceable(161), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZL19createScalarIVStepsRN4llvm5VPlanENS_19InductionDescriptor13InductionKindENS_11Instruction9BinaryOpsEPNS_14FPMathOperatorEPS4_PNS_7VPValueESA_NS_8DebugLocERNS_9VPBuilderE(ptr noundef nonnull align 8 dereferenceable(592) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @_ZL19createScalarIVStepsRN4llvm5VPlanENS_19InductionDescriptor13InductionKindENS_11Instruction9BinaryOpsEPNS_14FPMathOperatorEPS4_PNS_7VPValueESA_NS_8DebugLocERNS_9VPBuilderE(ptr noundef nonnull align 8 dereferenceable(592) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) unnamed_addr #0 {
   %10 = alloca [2 x ptr], align 8
   %11 = alloca %"class.llvm::DebugLoc", align 8
   %12 = alloca %"class.llvm::DebugLoc", align 8

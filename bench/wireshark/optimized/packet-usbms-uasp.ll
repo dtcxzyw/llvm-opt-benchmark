@@ -127,7 +127,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 256) i32 @dissect_uasp_descriptor(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 256) i32 @dissect_uasp_descriptor(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %6
@@ -812,7 +812,7 @@ declare void @dissect_scsi_rsp(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @dissect_scsi_snsinfo(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_uasp_tag_links(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 -2, 256) %3) unnamed_addr #0 {
+define internal fastcc void @add_uasp_tag_links(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 -2, 256) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %proto_item_set_generated.exit73, label %5
 

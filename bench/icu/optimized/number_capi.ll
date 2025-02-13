@@ -751,7 +751,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @unumf_resultAsValue_75(ptr noundef readonly %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #8 {
+define ptr @unumf_resultAsValue_75(ptr noundef readonly captures(address_is_null, ret: address, provenance) %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -802,7 +802,7 @@ delete.end:                                       ; preds = %if.end2.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_756number4impl41validateUFormattedNumberToDecimalQuantityEPK16UFormattedNumberR10UErrorCode(ptr noundef readonly %uresult, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 {
+define noundef ptr @_ZN6icu_756number4impl41validateUFormattedNumberToDecimalQuantityEPK16UFormattedNumberR10UErrorCode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %uresult, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1348,7 +1348,7 @@ declare void @_ZNK6icu_7531FormattedValueStringBuilderImpl12toTempStringER10UErr
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @unumf_resultNextFieldPosition_75(ptr noundef %uresult, ptr noundef %ufpos, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @unumf_resultNextFieldPosition_75(ptr noundef %uresult, ptr noundef captures(address_is_null) %ufpos, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %fp = alloca %"class.icu_75::FieldPosition", align 8
   %0 = load i32, ptr %ec, align 4
@@ -2095,7 +2095,7 @@ return:                                           ; preds = %_ZN6icu_756number21
 declare void @_ZN6icu_756number21SimpleNumberFormatter28forLocaleAndGroupingStrategyERKNS_6LocaleE23UNumberGroupingStrategyR10UErrorCode(ptr sret(%"class.icu_75::number::SimpleNumberFormatter") align 8, ptr noundef nonnull align 8 dereferenceable(217), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @usnumf_format_75(ptr noundef %uformatter, ptr noundef %unumber, ptr noundef %uresult, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @usnumf_format_75(ptr noundef %uformatter, ptr noundef captures(address_is_null) %unumber, ptr noundef %uresult, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %localResult = alloca %"class.icu_75::number::FormattedNumber", align 8
   %agg.tmp = alloca %"class.icu_75::number::SimpleNumber", align 8

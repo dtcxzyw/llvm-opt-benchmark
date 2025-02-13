@@ -71,7 +71,7 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryE
 @_ZN4llvm36MachineOptimizationRemarkEmitterPassC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm36MachineOptimizationRemarkEmitterPassC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29DiagnosticInfoMIROptimization15MachineArgumentC2ENS_9StringRefERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(70) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm29DiagnosticInfoMIROptimization15MachineArgumentC2ENS_9StringRefERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(70) %3) unnamed_addr #0 align 2 {
 ._crit_edge.i.i.i.i.i:
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

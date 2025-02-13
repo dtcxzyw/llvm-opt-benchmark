@@ -1012,7 +1012,7 @@ define noalias noundef ptr @ARKodeSPRKTable_Create(i32 noundef %0, i32 noundef %
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @ARKodeSPRKTable_Free(ptr noundef %0) local_unnamed_addr #5 {
+define void @ARKodeSPRKTable_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 

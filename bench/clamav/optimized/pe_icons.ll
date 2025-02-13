@@ -1517,7 +1517,7 @@ parseicon.exit:                                   ; preds = %629, %.loopexit649.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_icongroupset_add(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @cli_icongroupset_add(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = icmp ult i32 %2, 2
   %6 = icmp ne ptr %3, null
   %or.cond = and i1 %5, %6

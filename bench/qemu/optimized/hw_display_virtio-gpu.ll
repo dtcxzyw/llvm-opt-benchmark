@@ -554,7 +554,7 @@ return:                                           ; preds = %if.then6, %do.body3
 declare void @virtio_gpu_base_generate_edid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %nr_entries, i32 noundef %offset, ptr noundef readonly captures(none) %cmd, ptr noundef %addr, ptr noundef captures(none) %iov, ptr noundef writeonly captures(none) %niov) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %nr_entries, i32 noundef %offset, ptr noundef readonly captures(none) %cmd, ptr noundef captures(address_is_null) %addr, ptr noundef captures(none) %iov, ptr noundef writeonly captures(none) %niov) local_unnamed_addr #0 {
 entry:
   %xlen.i = alloca i64, align 8
   %cmp = icmp ugt i32 %nr_entries, 16384

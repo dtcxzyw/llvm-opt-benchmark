@@ -1636,7 +1636,7 @@ nrvo.skipdtor:                                    ; preds = %for.body, %invoke.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib46MarketModelPathwiseCoterminalSwaptionsDeflated9evolutionEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib46MarketModelPathwiseCoterminalSwaptionsDeflated9evolutionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) unnamed_addr #0 align 2 {
 entry:
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %evolution_
@@ -3282,7 +3282,7 @@ nrvo.skipdtor:                                    ; preds = %for.body, %invoke.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib55MarketModelPathwiseCoterminalSwaptionsNumericalDeflated9evolutionEv(ptr noundef nonnull readnone align 8 dereferenceable(680) %this) unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib55MarketModelPathwiseCoterminalSwaptionsNumericalDeflated9evolutionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(680) %this) unnamed_addr #0 align 2 {
 entry:
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %evolution_

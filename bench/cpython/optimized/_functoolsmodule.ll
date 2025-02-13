@@ -1853,7 +1853,7 @@ define internal ptr @placeholder_repr(ptr readnone captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @placeholder_new(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 {
+define internal ptr @placeholder_new(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8, !tbaa !23
   %.not = icmp eq i64 %.val, 0
@@ -3753,7 +3753,7 @@ define internal ptr @lru_cache_call(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lru_cache_tp_traverse(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+define internal i32 @lru_cache_tp_traverse(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val138 = load ptr, ptr %4, align 8, !tbaa !113
   %.not = icmp eq ptr %.val138, null
@@ -4362,7 +4362,7 @@ define internal ptr @lru_cache_reduce(ptr noundef %0, ptr readnone captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @lru_cache_copy(ptr noundef returned %0, ptr readnone captures(none) %1) #6 {
+define internal noundef ptr @lru_cache_copy(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #6 {
   %3 = load i32, ptr %0, align 8, !tbaa !21
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -4377,7 +4377,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @lru_cache_deepcopy(ptr noundef returned %0, ptr readnone captures(none) %1) #6 {
+define internal noundef ptr @lru_cache_deepcopy(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #6 {
   %3 = load i32, ptr %0, align 8, !tbaa !21
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -5073,7 +5073,7 @@ Py_DECREF.exit144:                                ; preds = %135, %127, %126, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lru_cache_make_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @lru_cache_make_key(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8

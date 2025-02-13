@@ -70,13 +70,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @mspack_valid_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @chmd_open(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @chmd_open(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = tail call fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @chmd_close(ptr noundef %0, ptr noundef %1) #0 {
+define internal void @chmd_close(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %3
 
@@ -215,7 +215,7 @@ define internal void @chmd_close(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %4 = alloca [512 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %196, label %5
@@ -606,7 +606,7 @@ thread-pre-split:                                 ; preds = %144
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @chmd_error(ptr noundef readonly %0) #3 {
+define internal i32 @chmd_error(ptr noundef readonly captures(address_is_null) %0) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -621,13 +621,13 @@ define internal i32 @chmd_error(ptr noundef readonly %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @chmd_fast_open(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @chmd_fast_open(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = tail call fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chmd_fast_find(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef %4) #0 {
+define internal i32 @chmd_fast_find(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
@@ -978,7 +978,7 @@ define void @mspack_destroy_chm_decompressor(ptr noundef %0) local_unnamed_addr 
 declare void @lzxd_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @chmd_real_open(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [84 x i8], align 16
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -1892,7 +1892,7 @@ define internal fastcc ptr @read_chunk(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.136.val, ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.136.val, ptr noundef nonnull %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -2266,7 +2266,7 @@ read_encint.exit.thread:                          ; preds = %read_encint.exit, %
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @compare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc i32 @compare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #7 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = sext i32 %3 to i64
@@ -2927,7 +2927,7 @@ read_sys_file.exit:                               ; preds = %97
 declare i32 @lzxd_decompress(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef nonnull %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef nonnull captures(address_is_null) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.mschmd_file, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !19
@@ -3139,7 +3139,7 @@ read_sys_file.exit.thread:                        ; preds = %48, %76, %65, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_spaninfo(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc i32 @read_spaninfo(ptr noundef nonnull captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.mschmd_file, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !19

@@ -6913,7 +6913,7 @@ if.end135:                                        ; preds = %if.else129, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_loop_interp(ptr noundef %J, ptr noundef readonly %pc, i32 noundef range(i32 0, 3) %ev) unnamed_addr #0 {
+define internal fastcc void @rec_loop_interp(ptr noundef %J, ptr noundef readonly captures(address) %pc, i32 noundef range(i32 0, 3) %ev) unnamed_addr #0 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %J, i64 3016
   %0 = load i32, ptr %parent, align 8
@@ -9007,7 +9007,7 @@ declare hidden void @lj_trace_flush(ptr noundef, i32 noundef) local_unnamed_addr
 declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_kinit(ptr noundef %J, ptr noundef readonly %endpc, i32 noundef range(i32 0, 258) %slot, i32 noundef %t) unnamed_addr #0 {
+define internal fastcc i32 @find_kinit(ptr noundef %J, ptr noundef readonly captures(address) %endpc, i32 noundef range(i32 0, 258) %slot, i32 noundef %t) unnamed_addr #0 {
 entry:
   %pt = getelementptr inbounds nuw i8, ptr %J, i64 152
   %0 = load ptr, ptr %pt, align 8

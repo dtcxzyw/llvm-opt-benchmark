@@ -206,7 +206,7 @@ define hidden void @_Z14luaF_freeupvalP9lua_StateP5UpValP8lua_Page(ptr noundef %
 declare hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %4, null

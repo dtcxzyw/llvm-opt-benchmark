@@ -6333,7 +6333,7 @@ define internal void @dissect_pfcp_timer(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pdr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_pdr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(address_is_null) %6) #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = load i32, ptr @hf_pfcp_pdr_id, align 4
@@ -7481,7 +7481,7 @@ define internal void @dissect_pfcp_usage_report_srr(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_urr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_urr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(address_is_null) %6) #0 {
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
   %9 = load i32, ptr @hf_pfcp_urr_id_flg, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
@@ -7676,7 +7676,7 @@ define internal void @dissect_pfcp_remove_bar(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_bar_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_bar_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(address_is_null) %6) #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = load i32, ptr @hf_pfcp_bar_id, align 4
@@ -8231,7 +8231,7 @@ define internal void @dissect_pfcp_deact_predef_rules(ptr noundef %0, ptr readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_far_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_far_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(address_is_null) %6) #0 {
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
   %9 = load i32, ptr @hf_pfcp_far_id_flg, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
@@ -8262,7 +8262,7 @@ decode_pfcp_far_id.exit:                          ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_qer_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_qer_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(address_is_null) %6) #0 {
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
   %9 = load i32, ptr @hf_pfcp_qer_id_flg, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
@@ -9723,7 +9723,7 @@ define internal void @dissect_pfcp_update_mar(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mar_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_mar_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(address_is_null) %6) #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = load i32, ptr @hf_pfcp_mar_id, align 4
@@ -10475,7 +10475,7 @@ define internal void @dissect_pfcp_update_srr(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_srr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_srr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(address_is_null) %6) #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = load i32, ptr @hf_pfcp_srr_id, align 4

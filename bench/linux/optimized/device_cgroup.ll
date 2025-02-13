@@ -438,7 +438,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @dev_exceptions_copy(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @dev_exceptions_copy(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %.loopexit, label %5
@@ -1028,7 +1028,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @css_has_online_children(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dev_exception_clean(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @dev_exception_clean(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -1309,7 +1309,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @dev_exception_rm(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3

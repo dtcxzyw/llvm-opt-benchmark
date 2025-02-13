@@ -298,7 +298,7 @@ define range(i32 0, -1) i32 @If_CluHashKey2(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @If_CluHashLookup2(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @If_CluHashLookup2(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %238, label %5
 
@@ -839,7 +839,7 @@ declare ptr @Mem_FixedEntryFetch(ptr noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @If_CluCheckXX(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 -128, 128) i32 @If_CluCheckXX(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.If_Grp_t_, align 1
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %6, i8 0, i64 13, i1 false)
@@ -1134,7 +1134,7 @@ If_CluAdjust2.exit66:                             ; preds = %If_CluAdjust2.exit,
 declare i32 @acdXX_decompose(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @If_CutPerformCheckXX(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 -128, 128) i32 @If_CutPerformCheckXX(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.If_Grp_t_, align 1
   %7 = alloca [1024 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #17

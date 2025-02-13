@@ -116,7 +116,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm28ThreadSafeTrieRawHashMapBase4findENS_8ArrayRefIhEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readonly %1, i64 %2) local_unnamed_addr #2 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm28ThreadSafeTrieRawHashMapBase4findENS_8ArrayRefIhEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load atomic i64, ptr %4 seq_cst, align 8
   %.not = icmp eq i64 %5, 0
@@ -1034,7 +1034,7 @@ define dso_local void @_ZN4llvm28ThreadSafeTrieRawHashMapBaseD2Ev(ptr nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28ThreadSafeTrieRawHashMapBase11destroyImplENS_12function_refIFvPvEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28ThreadSafeTrieRawHashMapBase11destroyImplENS_12function_refIFvPvEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = atomicrmw xchg ptr %4, i64 0 seq_cst, align 8
   %.0.i.i = inttoptr i64 %5 to ptr
@@ -1135,7 +1135,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm28ThreadSafeTrieRawHashMapBase7getRootEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getStartBitENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly %1, i64 %2) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getStartBitENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -1155,7 +1155,7 @@ define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getStartB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase10getNumBitsENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly %1, i64 %2) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase10getNumBitsENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %4
 
@@ -1175,7 +1175,7 @@ define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase10getNumBit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase14getNumSlotUsedENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly %1, i64 %2) local_unnamed_addr #9 align 2 {
+define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase14getNumSlotUsedENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #9 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -1214,7 +1214,7 @@ define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase14getNumSlo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm28ThreadSafeTrieRawHashMapBase21getTriePrefixAsStringB5cxx11ENS0_11PointerBaseE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm28ThreadSafeTrieRawHashMapBase21getTriePrefixAsStringB5cxx11ENS0_11PointerBaseE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -1566,7 +1566,7 @@ define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getNumTri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getNextTrieENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getNextTrieENS0_11PointerBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %4
 

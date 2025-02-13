@@ -574,7 +574,7 @@ return:                                           ; preds = %if.then, %if.else, 
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_expect(ptr noundef %ctx, i32 noundef %expected_type) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_expect(ptr noundef captures(address_is_null) %ctx, i32 noundef %expected_type) local_unnamed_addr #0 {
 entry:
   %expected_type.addr = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16

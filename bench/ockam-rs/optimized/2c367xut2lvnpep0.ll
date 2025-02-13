@@ -798,7 +798,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hc85c0c8b6e334b0eE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hc85c0c8b6e334b0eE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -4139,7 +4139,7 @@ define void @_ZN11ockam_vault8software17vault_for_signing5types24EdDSACurve25519
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(32) ptr @_ZN11ockam_vault8software17vault_for_signing5types24EdDSACurve25519SecretKey3key17h5e74b64508d5d057E(ptr noalias noundef readonly returned align 1 dereferenceable(32) %0) unnamed_addr #14 {
+define hidden noundef nonnull align 1 dereferenceable(32) ptr @_ZN11ockam_vault8software17vault_for_signing5types24EdDSACurve25519SecretKey3key17h5e74b64508d5d057E(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #14 {
   ret ptr %0
 }
 
@@ -4151,7 +4151,7 @@ define void @_ZN11ockam_vault8software17vault_for_signing5types29ECDSASHA256Curv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(32) ptr @_ZN11ockam_vault8software17vault_for_signing5types29ECDSASHA256CurveP256SecretKey3key17habd61584f2cff87fE(ptr noalias noundef readonly returned align 1 dereferenceable(32) %0) unnamed_addr #14 {
+define hidden noundef nonnull align 1 dereferenceable(32) ptr @_ZN11ockam_vault8software17vault_for_signing5types29ECDSASHA256CurveP256SecretKey3key17habd61584f2cff87fE(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #14 {
   ret ptr %0
 }
 

@@ -41,7 +41,7 @@ define nonnull ptr @lv_iter_create(ptr noundef %0, i32 noundef %1, i32 noundef %
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_iter_get_context(ptr noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_iter_get_context(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -97,7 +97,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 declare void @lv_circle_buf_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_iter_make_peekable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_iter_make_peekable(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -132,7 +132,7 @@ define void @lv_iter_make_peekable(ptr noundef %0, i32 noundef %1) local_unnamed
 declare ptr @lv_circle_buf_create(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_iter_next(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @lv_iter_next(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -250,7 +250,7 @@ define internal zeroext i1 @peek_fill_cb(ptr noundef %0, i32 %1, i32 %2, ptr nou
 declare i32 @lv_circle_buf_peek_at(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_iter_peek_advance(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_iter_peek_advance(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -285,7 +285,7 @@ define range(i32 0, 2) i32 @lv_iter_peek_advance(ptr noundef %0) local_unnamed_a
 declare i32 @lv_circle_buf_capacity(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @lv_iter_peek_reset(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @lv_iter_peek_reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -309,7 +309,7 @@ define range(i32 0, 2) i32 @lv_iter_peek_reset(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_iter_inspect(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define void @lv_iter_inspect(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

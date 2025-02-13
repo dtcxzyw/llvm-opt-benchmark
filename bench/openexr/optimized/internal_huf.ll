@@ -1019,7 +1019,7 @@ return:                                           ; preds = %while.body.i72.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 24) i32 @internal_huf_decompress(ptr noundef readonly %decode, ptr noundef %compressed, i64 noundef %nCompressed, ptr noundef %raw, i64 noundef %nRaw, ptr noundef captures(none) %spare, i64 noundef %sparebytes) local_unnamed_addr #2 {
+define hidden range(i32 0, 24) i32 @internal_huf_decompress(ptr noundef readonly captures(address_is_null) %decode, ptr noundef %compressed, i64 noundef %nCompressed, ptr noundef captures(address) %raw, i64 noundef %nRaw, ptr noundef captures(none) %spare, i64 noundef %sparebytes) local_unnamed_addr #2 {
 entry:
   %n.i.i = alloca [59 x i64], align 16
   %base.i = alloca [59 x i64], align 16
@@ -2275,7 +2275,7 @@ return:                                           ; preds = %while.end95, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly %pctxt, ptr noundef readonly captures(none) %hcode, i32 noundef range(i32 0, 65537) %im, i32 noundef range(i32 0, 65537) %iM, ptr noundef captures(none) %hdecod) unnamed_addr #2 {
+define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly captures(address_is_null) %pctxt, ptr noundef readonly captures(none) %hcode, i32 noundef range(i32 0, 65537) %im, i32 noundef range(i32 0, 65537) %iM, ptr noundef captures(none) %hdecod) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %pctxt, null
   br i1 %tobool.not, label %cond.end6, label %cond.true3
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly captures(none) %hcode, ptr noundef readonly captures(none) %hdecod, ptr noundef readonly %in, i64 noundef range(i64 0, 4294967296) %ni, i32 noundef range(i32 0, 65537) %rlc, i64 noundef %no, ptr noundef %out) unnamed_addr #1 {
+define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly captures(none) %hcode, ptr noundef readonly captures(none) %hdecod, ptr noundef readonly captures(address) %in, i64 noundef range(i64 0, 4294967296) %ni, i32 noundef range(i32 0, 65537) %rlc, i64 noundef %no, ptr noundef captures(address) %out) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i16, ptr %out, i64 %no
   %add = add nuw nsw i64 %ni, 7
@@ -2824,7 +2824,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %sCode, i32 noundef %runCount, i64 noundef %runCode, ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %lc, ptr noundef nonnull captures(none) %out, ptr noundef readnone %outend) unnamed_addr #5 {
+define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %sCode, i32 noundef %runCount, i64 noundef %runCode, ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %lc, ptr noundef nonnull captures(none) %out, ptr noundef readnone captures(address) %outend) unnamed_addr #5 {
 entry:
   %0 = trunc i64 %sCode to i32
   %conv.i = and i32 %0, 63

@@ -2220,7 +2220,7 @@ define dso_local i32 @register_pernet_device(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unregister_pernet_device(ptr noundef %0) #0 align 16 {
+define dso_local void @unregister_pernet_device(ptr noundef captures(address) %0) #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   tail call void @down_write(ptr noundef nonnull @pernet_ops_rwsem) #17
   %3 = load ptr, ptr @first_device, align 8
@@ -2433,7 +2433,7 @@ declare dso_local void @_raw_spin_lock_bh(ptr noundef) local_unnamed_addr #2 sec
 declare dso_local i32 @idr_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @net_eq_idr(i32 noundef %0, ptr noundef readnone %1, ptr noundef readnone %2) #9 align 16 {
+define internal noundef i32 @net_eq_idr(i32 noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) #9 align 16 {
   %4 = icmp eq ptr %1, %2
   %5 = icmp eq i32 %0, 0
   %6 = select i1 %5, i32 -1, i32 %0

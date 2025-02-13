@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Request_get_status = weak alias i32 (ptr, ptr, ptr), ptr @PMPI_Request_get_status
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #0 {
+define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %19

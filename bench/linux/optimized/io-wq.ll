@@ -384,7 +384,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @io_wq_activate_free_worker(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @io_wq_activate_free_worker(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load volatile ptr, ptr %3, align 8
@@ -497,7 +497,7 @@ define internal fastcc noundef zeroext i1 @io_wq_activate_free_worker(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef zeroext i1 @io_wq_work_match_item(ptr noundef readnone %0, ptr noundef readnone %1) #4 align 16 {
+define internal noundef zeroext i1 @io_wq_work_match_item(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #4 align 16 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }
@@ -1097,7 +1097,7 @@ define dso_local void @io_wq_put_and_exit(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @io_wq_cpu_affinity(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_wq_cpu_affinity(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
 
@@ -1492,7 +1492,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local ptr @task_work_cancel_match(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @io_task_work_match(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #8 align 16 {
+define internal zeroext i1 @io_task_work_match(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @create_worker_cb
@@ -2671,7 +2671,7 @@ declare dso_local void @blkcg_maybe_throttle_current() local_unnamed_addr #3
 declare dso_local void @__rseq_handle_notify_resume(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @io_task_worker_match(ptr noundef readonly %0, ptr noundef readnone %1) #8 align 16 {
+define internal zeroext i1 @io_task_worker_match(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @create_worker_cb

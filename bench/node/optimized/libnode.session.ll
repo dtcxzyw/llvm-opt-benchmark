@@ -5349,21 +5349,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(352) ptr @_ZN4node4quic7Session11tls_contextEv(ptr noundef nonnull readnone align 8 dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(352) ptr @_ZN4node4quic7Session11tls_contextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
 entry:
   %tls_context_ = getelementptr inbounds nuw i8, ptr %this, i64 1784
   ret ptr %tls_context_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK4node4quic7Session14remote_addressEv(ptr noundef nonnull readnone align 8 dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK4node4quic7Session14remote_addressEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
 entry:
   %remote_address_ = getelementptr inbounds nuw i8, ptr %this, i64 2280
   ret ptr %remote_address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK4node4quic7Session13local_addressEv(ptr noundef nonnull readnone align 8 dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK4node4quic7Session13local_addressEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
 entry:
   %local_address_ = getelementptr inbounds nuw i8, ptr %this, i64 2144
   ret ptr %local_address_
@@ -5743,14 +5743,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(1584) ptr @_ZNK4node4quic7Session6configEv(ptr noundef nonnull readnone align 8 dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(1584) ptr @_ZNK4node4quic7Session6configEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
 entry:
   %config_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   ret ptr %config_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(768) ptr @_ZNK4node4quic7Session7optionsEv(ptr noundef nonnull readnone align 8 dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(768) ptr @_ZNK4node4quic7Session7optionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(2616) %this) local_unnamed_addr #11 align 2 {
 entry:
   %options = getelementptr inbounds nuw i8, ptr %this, i64 200
   ret ptr %options

@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @SSL_get_srtp_profiles(ptr noundef readonly %ssl) local_unnamed_addr #1 {
+define hidden ptr @SSL_get_srtp_profiles(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end

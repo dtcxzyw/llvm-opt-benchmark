@@ -74,7 +74,7 @@ declare dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef, ptr noundef, i8 n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 256) i32 @acpi_ns_get_type(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 256) i32 @acpi_ns_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -352,7 +352,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %107, label %5
@@ -583,7 +583,7 @@ acpi_ns_build_internal_name.exit:                 ; preds = %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = icmp ne i32 %0, 0
   %7 = icmp ne ptr %1, null
@@ -835,7 +835,7 @@ define dso_local range(i32 0, 2) i32 @acpi_ns_opens_scope(i32 noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ns_get_node_unlocked(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ns_get_node_unlocked(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %union.acpi_generic_state, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
@@ -897,7 +897,7 @@ define dso_local i32 @acpi_ns_get_node_unlocked(ptr noundef %0, ptr noundef %1, 
 declare dso_local i32 @acpi_ns_lookup(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ns_get_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ns_get_node(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %union.acpi_generic_state, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 1) #9

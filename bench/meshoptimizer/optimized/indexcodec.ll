@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef writeonly captures(none) %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef writeonly captures(none) %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly captures(address) %buffer, i64 noundef %buffer_size) local_unnamed_addr #4 {
 entry:
   %edgefifo = alloca [16 x [2 x i32]], align 16
   %vertexfifo = alloca [16 x i32], align 16
@@ -1251,7 +1251,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr noundef writeonly captures(none) %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly %buffer, i64 noundef %buffer_size) local_unnamed_addr #5 {
+define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr noundef writeonly captures(none) %destination, i64 noundef %index_count, i64 noundef %index_size, ptr noundef readonly captures(address) %buffer, i64 noundef %buffer_size) local_unnamed_addr #5 {
 entry:
   %last = alloca [2 x i32], align 8
   %add1 = add i64 %index_count, 5

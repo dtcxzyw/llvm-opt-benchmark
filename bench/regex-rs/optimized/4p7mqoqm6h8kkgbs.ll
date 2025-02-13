@@ -107,7 +107,7 @@ define hidden void @"_ZN14regex_automata4util10primitives26WithPatternIDIter$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h638ebb64988d77fbE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h638ebb64988d77fbE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -129,7 +129,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hb2f13a246b67dd1fE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hb2f13a246b67dd1fE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -355,7 +355,7 @@ define void @_ZN5regex8builders5bytes12RegexBuilder5build17h73ac55e779bd9bb9E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder7unicode17h926e5da9bae68a04E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder7unicode17h926e5da9bae68a04E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !31
@@ -370,7 +370,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder16case_insensitive17haa35eea21673c23cE(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder16case_insensitive17haa35eea21673c23cE(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !34
@@ -385,7 +385,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder10multi_line17h9d40d34d8e21bd67E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder10multi_line17h9d40d34d8e21bd67E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !37
@@ -400,7 +400,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder20dot_matches_new_line17h5c169827965533eeE(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder20dot_matches_new_line17h5c169827965533eeE(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !40
@@ -415,7 +415,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder4crlf17h33f01cfea52ccab2E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder4crlf17h33f01cfea52ccab2E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !43
@@ -472,7 +472,7 @@ _ZN5regex8builders7Builder15line_terminator17hbb6a80754365dfc4E.exit: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder10swap_greed17h89ecf5e8fbb1eff6E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder10swap_greed17h89ecf5e8fbb1eff6E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !55
@@ -487,7 +487,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder17ignore_whitespace17hefe68e06fe133fb9E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder17ignore_whitespace17hefe68e06fe133fb9E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !58
@@ -502,7 +502,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder5octal17h343e1ed53b8bbed3E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder5octal17h343e1ed53b8bbed3E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !61
@@ -581,7 +581,7 @@ _ZN5regex8builders7Builder14dfa_size_limit17h163d5f3c4bdc4ae0E.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder10nest_limit17hf7aa51f132c8ed51E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes12RegexBuilder10nest_limit17hf7aa51f132c8ed51E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !80
@@ -602,7 +602,7 @@ define void @_ZN5regex8builders5bytes15RegexSetBuilder5build17h4afce293b3127cf7E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder7unicode17h757e01e68c789155E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder7unicode17h757e01e68c789155E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !83
@@ -617,7 +617,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder16case_insensitive17h9b0dc2abb954fe30E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder16case_insensitive17h9b0dc2abb954fe30E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !86
@@ -632,7 +632,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder10multi_line17h3ff0cdaa46debac4E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder10multi_line17h3ff0cdaa46debac4E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !89
@@ -647,7 +647,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder20dot_matches_new_line17h3063f9740f59b27aE(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder20dot_matches_new_line17h3063f9740f59b27aE(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !92
@@ -662,7 +662,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder4crlf17hb885303792b9cb6dE(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder4crlf17hb885303792b9cb6dE(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !95
@@ -719,7 +719,7 @@ _ZN5regex8builders7Builder15line_terminator17hbb6a80754365dfc4E.exit: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder10swap_greed17hf6c29627f6d95006E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder10swap_greed17hf6c29627f6d95006E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !106
@@ -734,7 +734,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder17ignore_whitespace17hbe02224c5b3d9956E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder17ignore_whitespace17hbe02224c5b3d9956E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !109
@@ -749,7 +749,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5byte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder5octal17h22fc2a83bb638249E(ptr noalias noundef returned align 8 dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder5octal17h22fc2a83bb638249E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !112
@@ -828,7 +828,7 @@ _ZN5regex8builders7Builder14dfa_size_limit17h163d5f3c4bdc4ae0E.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder10nest_limit17hb3026f25ff7a4c6bE(ptr noalias noundef returned align 8 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders5bytes15RegexSetBuilder10nest_limit17hb3026f25ff7a4c6bE(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   %4 = alloca { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !131

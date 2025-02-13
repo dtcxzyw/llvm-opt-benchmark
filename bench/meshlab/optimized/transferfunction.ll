@@ -492,7 +492,7 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
+define void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

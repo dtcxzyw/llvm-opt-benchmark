@@ -239,7 +239,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef nonnull %isolate, ptr nonnull %value.coerce, ptr noundef nonnull %target) unnamed_addr #3 {
+define internal fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef nonnull %isolate, ptr nonnull %value.coerce, ptr noundef nonnull captures(address) %target) unnamed_addr #3 {
 entry:
   %call3 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #20
   %call10 = tail call ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce, ptr %call3) #20
@@ -696,7 +696,7 @@ entry:
 declare i32 @uv_os_getpid() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11SplitStringESt17basic_string_viewIcSt11char_traitsIcEES3_(ptr noalias sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, i64 %in.coerce0, ptr %in.coerce1, i64 %delim.coerce0, ptr readonly %delim.coerce1) local_unnamed_addr #3 {
+define dso_local void @_ZN4node11SplitStringESt17basic_string_viewIcSt11char_traitsIcEES3_(ptr noalias sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, i64 %in.coerce0, ptr %in.coerce1, i64 %delim.coerce0, ptr readonly captures(address) %delim.coerce1) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %in.coerce1, i64 %in.coerce0

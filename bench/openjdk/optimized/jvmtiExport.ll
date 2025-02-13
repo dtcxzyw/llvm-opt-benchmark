@@ -2376,7 +2376,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %12, %_ZN11MutexLock
 declare noundef ptr @_ZN12JvmtiEnvBase30get_all_native_method_prefixesEPi(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 16) i32 @_ZN11JvmtiExport32cv_external_thread_to_JavaThreadEP11ThreadsListP8_jobjectPP10JavaThreadPP7oopDesc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 16) i32 @_ZN11JvmtiExport32cv_external_thread_to_JavaThreadEP11ThreadsListP8_jobjectPP10JavaThreadPP7oopDesc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -10740,7 +10740,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %68, %66, %5
 declare noundef zeroext i1 @_ZN12JvmtiEnvBase20get_field_descriptorEP5KlassP9_jfieldIDP15fieldDescriptor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JvmtiExport17post_field_accessEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldID(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr readonly %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11JvmtiExport17post_field_accessEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldID(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.HandleMark, align 8
   %8 = alloca %class.methodHandle, align 8
   %9 = alloca %class.JvmtiJavaThreadEventTransition, align 8
@@ -11323,7 +11323,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %70, %68, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JvmtiExport23post_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr readonly %4, ptr noundef %5, i8 noundef signext %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11JvmtiExport23post_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr readonly captures(address_is_null) %4, ptr noundef %5, i8 noundef signext %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %class.HandleMark, align 8
   %10 = alloca %class.methodHandle, align 8
   %11 = alloca %class.JvmtiJavaThreadEventTransition, align 8
@@ -11735,7 +11735,7 @@ _ZN22JvmtiLocationEventMarkD2Ev.exit:             ; preds = %210, %208, %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JvmtiExport27post_raw_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr %4, ptr noundef %5, i8 noundef signext %6, ptr noundef captures(none) %7) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11JvmtiExport27post_raw_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr captures(address_is_null) %4, ptr noundef %5, i8 noundef signext %6, ptr noundef captures(none) %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %class.fieldDescriptor, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1139
   %11 = load i8, ptr %10, align 1

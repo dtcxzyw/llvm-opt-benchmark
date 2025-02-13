@@ -3198,7 +3198,7 @@ define void @Gia_FormStrTransform(ptr noundef writeonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @Gia_ManFormulaEndToken(ptr noundef readonly %0) local_unnamed_addr #10 {
+define ptr @Gia_ManFormulaEndToken(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #10 {
   br label %2
 
 2:                                                ; preds = %8, %1
@@ -3231,7 +3231,7 @@ define ptr @Gia_ManFormulaEndToken(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Gia_ManPrintFormula_rec(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #7 {
+define void @Gia_ManPrintFormula_rec(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %tailrecurse._crit_edge, label %.lr.ph
@@ -3470,7 +3470,7 @@ define void @Gia_ManPrintFormula(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManRealizeFormula_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Gia_ManRealizeFormula_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = icmp eq ptr %7, %4
   br i1 %8, label %tailrecurse._crit_edge, label %.lr.ph
@@ -5177,7 +5177,7 @@ declare i32 @sat_solver_nclauses(ptr noundef) local_unnamed_addr #3
 declare i32 @sat_solver_nconflicts(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_ManFaultAddOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_ManFaultAddOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca [2 x i32], align 4
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23

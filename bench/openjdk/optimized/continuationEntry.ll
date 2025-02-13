@@ -100,7 +100,7 @@ define hidden noundef ptr @_ZN17ContinuationEntry17interpreted_entryEv() local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17ContinuationEntry19is_interpreted_callEPh(ptr noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN17ContinuationEntry19is_interpreted_callEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN17ContinuationEntry14_enter_specialE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %4 = load i32, ptr %3, align 4

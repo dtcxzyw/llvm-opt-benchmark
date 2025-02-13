@@ -5612,7 +5612,7 @@ ehcleanup640:                                     ; preds = %lpad.i186, %lpad.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers15BinaryAnnotator17FixMissingRegionsEv(ptr noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers15BinaryAnnotator17FixMissingRegionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %regions_to_insert = alloca %"class.std::vector", align 8
   %comment = alloca %"struct.flatbuffers::BinaryRegionComment", align 8
@@ -11055,7 +11055,7 @@ ehcleanup118:                                     ; preds = %ehcleanup.i, %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers15BinaryAnnotator11BuildVectorEmPKN10reflection6ObjectEPKNS1_5FieldEmSt3mapItNS0_6VTable5EntryESt4lessItESaISt4pairIKtSA_EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %vector_offset, ptr noundef %table, ptr noundef %field, i64 noundef %parent_table_offset, ptr noundef readonly %vtable_fields) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers15BinaryAnnotator11BuildVectorEmPKN10reflection6ObjectEPKNS1_5FieldEmSt3mapItNS0_6VTable5EntryESt4lessItESaISt4pairIKtSA_EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %vector_offset, ptr noundef %table, ptr noundef %field, i64 noundef %parent_table_offset, ptr noundef readonly captures(address) %vtable_fields) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %vector_length_comment = alloca %"struct.flatbuffers::BinaryRegionComment", align 8

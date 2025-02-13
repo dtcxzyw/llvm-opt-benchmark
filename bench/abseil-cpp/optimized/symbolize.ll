@@ -69,7 +69,7 @@ $__clang_call_terminate = comdat any
 @.str.33 = private unnamed_addr constant [14 x i8] c"Corrupt cache\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl20InitializeSymbolizerEPKc(ptr noundef readonly %argv0) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl20InitializeSymbolizerEPKc(ptr noundef readonly captures(address_is_null) %argv0) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN4absl18debugging_internal11VDSOSupport4InitEv()
   %0 = load ptr, ptr @_ZN4abslL11argv0_valueE, align 8
@@ -914,7 +914,7 @@ return:                                           ; preds = %entry, %if.then7.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal23RegisterFileMappingHintEPKvS2_mPKc(ptr noundef %start, ptr noundef %end, i64 noundef %offset, ptr noundef readonly %filename) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal23RegisterFileMappingHintEPKvS2_mPKc(ptr noundef %start, ptr noundef %end, i64 noundef %offset, ptr noundef readonly captures(address_is_null) %filename) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp ugt ptr %start, %end
   br i1 %cmp.not, label %cond.false, label %cond.end

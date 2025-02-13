@@ -350,7 +350,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %7
 
@@ -483,7 +483,7 @@ declare noalias ptr @H5MM_strndup(ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %8
@@ -616,7 +616,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @H5_get_option.sp, align 4
   %6 = icmp eq i32 %5, 1
   %.pre = load i32, ptr @H5_optind, align 4
@@ -940,7 +940,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define noundef ptr @H5_strcasestr(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
+define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = load i8, ptr %1, align 1
   %.fr = freeze i8 %3
   %4 = sext i8 %.fr to i32

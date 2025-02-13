@@ -80,7 +80,7 @@ declare ptr @__errno_location() local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #3 {
+define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #3 {
   %7 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #12
   %8 = icmp eq ptr %1, null
@@ -349,7 +349,7 @@ define dso_local void @uv_freeaddrinfo(ptr noundef %0) local_unnamed_addr #3 {
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoname(i32 noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoname(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #12
   %5 = icmp eq ptr %1, null
@@ -404,7 +404,7 @@ declare ptr @if_indextoname(i32 noundef, ptr noundef) local_unnamed_addr #8
 declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #12
   %5 = icmp eq ptr %1, null

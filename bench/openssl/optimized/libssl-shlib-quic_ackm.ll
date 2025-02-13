@@ -2027,7 +2027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_ackm_get0_probe_request(ptr noundef readnone %ackm) local_unnamed_addr #3 {
+define nonnull ptr @ossl_ackm_get0_probe_request(ptr noundef readnone captures(ret: address, provenance) %ackm) local_unnamed_addr #3 {
 entry:
   %pending_probe = getelementptr inbounds nuw i8, ptr %ackm, i64 468
   ret ptr %pending_probe

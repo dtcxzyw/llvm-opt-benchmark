@@ -250,7 +250,7 @@ declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_hwp5header(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_hwp5header(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -585,7 +585,7 @@ declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unname
 declare ptr @fmap(i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.z_stream_s, align 8
   %8 = alloca ptr, align 8
@@ -1068,7 +1068,7 @@ parsehwp3_docinfo.exit.thread:                    ; preds = %convert_hstr_to_utf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
+define internal i32 @hwp3_cb(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

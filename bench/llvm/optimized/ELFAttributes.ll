@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"Tag_\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRefINS_11TagNameItemEEEb(i32 noundef %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRefINS_11TagNameItemEEEb(i32 noundef %0, ptr readonly captures(address) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %.idx1.i = mul nuw nsw i64 %2, 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1.i
   %6 = ashr i64 %2, 2
@@ -137,7 +137,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm8ELFAttrs18attrTypeFromStringENS_9StringRefENS_8ArrayRefINS_11TagNameItemEEE(ptr readonly captures(none) %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm8ELFAttrs18attrTypeFromStringENS_9StringRefENS_8ArrayRefINS_11TagNameItemEEE(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #1 {
   %.not.i = icmp ult i64 %1, 4
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit, label %5
 

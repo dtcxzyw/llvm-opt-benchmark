@@ -883,7 +883,7 @@ declare ptr @lpFirst(ptr noundef) local_unnamed_addr #2
 declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @lpGetIntegerIfValid(ptr noundef %ele, ptr noundef writeonly %valid) unnamed_addr #0 {
+define internal fastcc i64 @lpGetIntegerIfValid(ptr noundef %ele, ptr noundef writeonly captures(address_is_null) %valid) unnamed_addr #0 {
 entry:
   %v = alloca i64, align 8
   %ll = alloca i64, align 8
@@ -1065,7 +1065,7 @@ if.end:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamIteratorStart(ptr noundef initializes((64, 96)) %si, ptr noundef %s, ptr noundef readonly %start, ptr noundef readonly %end, i32 noundef %rev) local_unnamed_addr #0 {
+define dso_local void @streamIteratorStart(ptr noundef initializes((64, 96)) %si, ptr noundef %s, ptr noundef readonly captures(address_is_null) %start, ptr noundef readonly captures(address_is_null) %end, i32 noundef %rev) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %start, null
   %start_key1 = getelementptr inbounds nuw i8, ptr %si, i64 64
@@ -1707,7 +1707,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamAppendItem(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %argv, i64 noundef %numfields, ptr noundef writeonly %added_id, ptr noundef readonly %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamAppendItem(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %argv, i64 noundef %numfields, ptr noundef writeonly captures(address_is_null) %added_id, ptr noundef readonly captures(address_is_null) %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
 entry:
   %v.i146 = alloca i64, align 8
   %ll.i147 = alloca i64, align 8
@@ -3196,7 +3196,7 @@ if.end27:                                         ; preds = %if.else25, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @streamEntryExists(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @streamEntryExists(ptr noundef %s, ptr noundef captures(address_is_null) %id) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %myid = alloca %struct.streamID, align 8
@@ -3233,7 +3233,7 @@ return:                                           ; preds = %if.else6.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @streamDeleteItem(ptr noundef %s, ptr noundef %id) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @streamDeleteItem(ptr noundef %s, ptr noundef captures(address_is_null) %id) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %myid = alloca %struct.streamID, align 8
@@ -3519,7 +3519,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @streamRangeHasTombstones(ptr noundef readonly captures(none) %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @streamRangeHasTombstones(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(address_is_null) %start, ptr noundef readonly captures(address_is_null) %end) local_unnamed_addr #7 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %length, align 8
@@ -4116,7 +4116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @streamReplyWithRange(ptr noundef %c, ptr noundef %s, ptr noundef %start, ptr noundef %end, i64 noundef %count, i32 noundef %rev, ptr noundef %group, ptr noundef %consumer, i32 noundef %flags, ptr noundef readonly %spi) local_unnamed_addr #0 {
+define dso_local i64 @streamReplyWithRange(ptr noundef %c, ptr noundef %s, ptr noundef captures(address_is_null) %start, ptr noundef %end, i64 noundef %count, i32 noundef %rev, ptr noundef captures(address_is_null) %group, ptr noundef %consumer, i32 noundef %flags, ptr noundef readonly captures(address_is_null) %spi) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %numfields = alloca i64, align 8
@@ -4517,7 +4517,7 @@ return:                                           ; preds = %if.end90, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @streamReplyWithRangeFromConsumerPEL(ptr noundef %c, ptr noundef %s, ptr noundef readonly captures(none) %start, ptr noundef readonly %end, i64 noundef %count, ptr noundef readonly captures(none) %consumer) local_unnamed_addr #0 {
+define dso_local i64 @streamReplyWithRangeFromConsumerPEL(ptr noundef %c, ptr noundef %s, ptr noundef readonly captures(none) %start, ptr noundef readonly captures(address_is_null) %end, i64 noundef %count, ptr noundef readonly captures(none) %consumer) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %startkey = alloca [16 x i8], align 16
@@ -4713,7 +4713,7 @@ declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly %seq_given) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly captures(address_is_null) %seq_given) local_unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %ms45 = alloca i64, align 8
@@ -4934,14 +4934,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, i64 noundef %missing_seq, ptr noundef %seq_given) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, i64 noundef %missing_seq, ptr noundef captures(address_is_null) %seq_given) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef %seq_given)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, ptr noundef writeonly %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, ptr noundef writeonly captures(address_is_null) %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -6967,7 +6967,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamLookupConsumer(ptr noundef readonly %cg, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local ptr @streamLookupConsumer(ptr noundef readonly captures(address_is_null) %cg, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %consumer = alloca ptr, align 8
   %cmp = icmp eq ptr %cg, null
@@ -7029,7 +7029,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @streamCreateConsumer(ptr noundef readonly %cg, ptr noundef %name, ptr noundef %key, i32 noundef %dbid, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamCreateConsumer(ptr noundef readonly captures(address_is_null) %cg, ptr noundef %name, ptr noundef %key, i32 noundef %dbid, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cg, null
   br i1 %cmp, label %return, label %if.end

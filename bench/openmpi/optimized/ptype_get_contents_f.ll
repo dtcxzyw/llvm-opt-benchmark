@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Type_get_contents_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @ompi_type_get_contents_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_type_get_contents_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly %7) #0 {
+define void @ompi_type_get_contents_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(address_is_null) %7) #0 {
   %9 = load i32, ptr %0, align 4
   %10 = tail call ptr @PMPI_Type_f2c(i32 noundef %9) #4
   %11 = load i32, ptr %3, align 4

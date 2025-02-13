@@ -97,7 +97,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @upvec_setValue_75(ptr noundef %pv, i32 noundef %start, i32 noundef %end, i32 noundef %column, i32 noundef %value, i32 noundef %mask, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
+define void @upvec_setValue_75(ptr noundef captures(address_is_null) %pv, i32 noundef %start, i32 noundef %end, i32 noundef %column, i32 noundef %value, i32 noundef %mask, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -613,7 +613,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @upvec_getRow_75(ptr noundef readonly captures(none) %pv, i32 noundef %rowIndex, ptr noundef writeonly %pRangeStart, ptr noundef writeonly %pRangeEnd) local_unnamed_addr #6 {
+define ptr @upvec_getRow_75(ptr noundef readonly captures(none) %pv, i32 noundef %rowIndex, ptr noundef writeonly captures(address_is_null) %pRangeStart, ptr noundef writeonly captures(address_is_null) %pRangeEnd) local_unnamed_addr #6 {
 entry:
   %isCompacted = getelementptr inbounds nuw i8, ptr %pv, i64 24
   %0 = load i8, ptr %isCompacted, align 8
@@ -664,7 +664,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @upvec_compact_75(ptr noundef %pv, ptr noundef readonly %handler, ptr noundef %context, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define void @upvec_compact_75(ptr noundef %pv, ptr noundef readonly captures(address_is_null) %handler, ptr noundef %context, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -868,7 +868,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @upvec_getArray_75(ptr noundef readonly captures(none) %pv, ptr noundef writeonly %pRows, ptr noundef writeonly %pColumns) local_unnamed_addr #8 {
+define ptr @upvec_getArray_75(ptr noundef readonly captures(none) %pv, ptr noundef writeonly captures(address_is_null) %pRows, ptr noundef writeonly captures(address_is_null) %pColumns) local_unnamed_addr #8 {
 entry:
   %isCompacted = getelementptr inbounds nuw i8, ptr %pv, i64 24
   %0 = load i8, ptr %isCompacted, align 8
@@ -906,7 +906,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @upvec_cloneArray_75(ptr noundef readonly captures(none) %pv, ptr noundef writeonly %pRows, ptr noundef writeonly %pColumns, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
+define noalias ptr @upvec_cloneArray_75(ptr noundef readonly captures(none) %pv, ptr noundef writeonly captures(address_is_null) %pRows, ptr noundef writeonly captures(address_is_null) %pColumns, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

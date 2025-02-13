@@ -108,7 +108,7 @@ _ZN12XcompileModeD2Ev.exit.2:                     ; preds = %_ZNKSt7__cxx1112bas
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z16xcompileReadModePKc(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef readonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z16xcompileReadModePKc(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i45 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8

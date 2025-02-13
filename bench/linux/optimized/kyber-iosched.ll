@@ -1273,7 +1273,7 @@ define internal void @kyber_finish_request(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_insert_requests(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @kyber_insert_requests(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #1 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.loopexit, label %6

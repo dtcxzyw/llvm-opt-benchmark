@@ -294,7 +294,7 @@ define noundef ptr @wmem_itree_find_intervals(ptr noundef readonly captures(none
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef readonly captures(address_is_null) %0, i64 %.0.val, i64 %.8.val, ptr noundef %1) unnamed_addr #1 {
   %.not3 = icmp eq ptr %0, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -346,7 +346,7 @@ define hidden void @wmem_print_itree(ptr noundef %0) local_unnamed_addr #1 {
 declare void @wmem_print_tree(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @print_range(ptr noundef readonly %0) #4 {
+define internal void @print_range(ptr noundef readonly captures(address_is_null) %0) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

@@ -1056,7 +1056,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %this, ptr noundef %collisionObject) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %this, ptr noundef captures(address) %collisionObject) unnamed_addr #5 align 2 {
 entry:
   %m_broadphaseHandle.i = getelementptr inbounds nuw i8, ptr %collisionObject, i64 192
   %0 = load ptr, ptr %m_broadphaseHandle.i, align 8

@@ -583,7 +583,7 @@ declare void @_Z23log_Z3_mk_string_symbolP11_Z3_contextPKc(ptr noundef, ptr noun
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @Z3_is_eq_sort(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
+define noundef zeroext i1 @Z3_is_eq_sort(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone captures(address) %s1, ptr noundef readnone captures(address) %s2) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -792,7 +792,7 @@ declare void @_Z23log_Z3_mk_type_variableP11_Z3_contextP10_Z3_symbol(ptr noundef
 declare noundef ptr @_ZN11ast_manager11mk_type_varERK6symbol(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @Z3_is_eq_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
+define noundef zeroext i1 @Z3_is_eq_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone captures(address) %s1, ptr noundef readnone captures(address) %s2) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @Z3_is_eq_func_decl(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
+define noundef zeroext i1 @Z3_is_eq_func_decl(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone captures(address) %s1, ptr noundef readnone captures(address) %s2) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4224,7 +4224,7 @@ declare void @_Z19log_Z3_mk_bool_sortP11_Z3_context(ptr noundef) local_unnamed_a
 declare noundef ptr @_ZN11ast_manager7mk_sortEiijPK9parameter(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_app_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %a) local_unnamed_addr #7 {
+define noundef ptr @Z3_app_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned captures(ret: address, provenance) %a) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4232,7 +4232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_sort_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %s) local_unnamed_addr #7 {
+define noundef ptr @Z3_sort_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned captures(ret: address, provenance) %s) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4240,7 +4240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_func_decl_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %f) local_unnamed_addr #7 {
+define noundef ptr @Z3_func_decl_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned captures(ret: address, provenance) %f) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8

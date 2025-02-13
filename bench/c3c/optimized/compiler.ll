@@ -2550,7 +2550,7 @@ setup_bool_define.exit132:                        ; preds = %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @target_expand_source_names(ptr noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @target_expand_source_names(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %0, null

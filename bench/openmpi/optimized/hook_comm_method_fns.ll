@@ -1981,7 +1981,7 @@ define internal fastcc void @abbreviate_list_into_string(ptr noundef captures(no
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @comm_method_string(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @comm_method_string(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 184), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
@@ -2201,7 +2201,7 @@ mca_bml_base_get_endpoint.exit.thread.i:          ; preds = %mca_bml_base_get_en
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @add_string_to_conversion_struct(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #9 {
+define internal fastcc void @add_string_to_conversion_struct(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #9 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %26, label %4
 
@@ -2442,7 +2442,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare void @llvm.stackrestore.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @string_to_comm_method(ptr noundef readonly %0) unnamed_addr #17 {
+define internal fastcc i32 @string_to_comm_method(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %lookup_string_in_conversion_struct.exit, label %2
 

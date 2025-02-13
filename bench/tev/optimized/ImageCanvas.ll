@@ -2333,7 +2333,7 @@ declare noundef ptr @_ZN3tev5Image7textureERKNSt3__16vectorINS1_12basic_stringIc
 declare void @_ZNK3tev5Image15channelsInGroupERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::vector.58") align 8, ptr noundef nonnull align 16 dereferenceable(404), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageCanvas9transformEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef readonly %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev11ImageCanvas9transformEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v9::format_arg_store", align 16
   %5 = alloca %"struct.nanogui::Array.40", align 4
   %6 = alloca %"class.std::__1::basic_string", align 8
@@ -4051,7 +4051,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef readonly %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev11ImageCanvas16textureToNanoguiEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v9::format_arg_store", align 16
   %5 = alloca %"struct.nanogui::Array.40", align 4
   %6 = alloca %"class.std::__1::basic_string", align 8
@@ -4865,7 +4865,7 @@ _ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE.exit: ; preds = %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3tev11ImageCanvas22displayWindowToNanoguiEPKNS_5ImageE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nanogui::Matrix") align 4 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"struct.nanogui::Array.40", align 4
   %5 = alloca %"struct.nanogui::Matrix", align 4
   %6 = alloca %"struct.nanogui::Matrix", align 4
@@ -7362,7 +7362,7 @@ define dso_local noundef float @_ZNK3tev11ImageCanvas22applyExposureAndOffsetEf(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef %1, i64 %2) local_unnamed_addr #7 align 2 {
+define dso_local i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef captures(address_is_null) %1, i64 %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %"struct.nanogui::Array.40", align 4
   %5 = alloca %"struct.nanogui::Matrix", align 4
   %6 = alloca %"struct.nanogui::Matrix", align 8
@@ -7520,7 +7520,7 @@ _ZN7nanoguimlIfLm3EEENS_5ArrayIT_XmiT0_Li1EEEERKNS_6MatrixIS2_XT0_EEERKS3_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN3tev11ImageCanvas22getDisplayWindowCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local i64 @_ZN3tev11ImageCanvas22getDisplayWindowCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0, ptr noundef captures(address_is_null) %1, i64 %2) local_unnamed_addr #3 align 2 {
 _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %3 = tail call i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1, i64 %2)
   %.sroa.017.0.extract.trunc = trunc i64 %3 to i32
@@ -61919,7 +61919,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageCanvas16canvasS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_0NS_9allocatorIS4_EEFviEE6targetERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #28 align 2 {
+define internal noundef ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_0NS_9allocatorIS4_EEFviEE6targetERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #28 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @"_ZTSZN3tev11ImageCanvas16canvasStatisticsEvE3$_0"
@@ -61987,7 +61987,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageCanvas16canvasS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_1NS_9allocatorIS4_EEFviEE6targetERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #28 align 2 {
+define internal noundef ptr @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_1NS_9allocatorIS4_EEFviEE6targetERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #28 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @"_ZTSZN3tev11ImageCanvas16canvasStatisticsEvE3$_1"

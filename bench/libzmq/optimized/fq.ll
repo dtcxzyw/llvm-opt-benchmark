@@ -222,7 +222,7 @@ _ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit:    ; preds = %if.end.i10, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, ptr noundef readonly %pipe_) local_unnamed_addr #7 align 2 {
+define void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, ptr noundef readonly captures(address_is_null) %pipe_) local_unnamed_addr #7 align 2 {
 entry:
   %0 = icmp ne ptr %pipe_, null
   tail call void @llvm.assume(i1 %0)
@@ -313,7 +313,7 @@ _ZN3zmq7array_tINS_6pipe_tELi1EE5eraseEPS1_.exit: ; preds = %if.end9, %if.end.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3zmq4fq_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, ptr noundef readonly %pipe_) local_unnamed_addr #7 align 2 {
+define void @_ZN3zmq4fq_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, ptr noundef readonly captures(address_is_null) %pipe_) local_unnamed_addr #7 align 2 {
 entry:
   %0 = icmp ne ptr %pipe_, null
   tail call void @llvm.assume(i1 %0)
@@ -372,7 +372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, ptr noundef nonnull %msg_, ptr noundef writeonly %pipe_) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, ptr noundef nonnull %msg_, ptr noundef writeonly captures(address_is_null) %pipe_) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp.not = icmp eq i32 %call, 0

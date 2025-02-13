@@ -5162,7 +5162,7 @@ return:                                           ; preds = %if.end.i.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3euf9solve_eqs10check_occsEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %t) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK3euf9solve_eqs10check_occsEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(address) %t) local_unnamed_addr #6 align 2 {
 entry:
   %m_max_occs = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_max_occs, align 4

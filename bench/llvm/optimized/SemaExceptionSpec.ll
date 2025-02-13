@@ -2893,7 +2893,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %470, %473
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clangL32CheckEquivalentExceptionSpecImplERNS_4SemaERKNS_17PartialDiagnosticES4_PKNS_17FunctionProtoTypeENS_14SourceLocationES7_S8_PbS9_bb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef %3, i32 %4, ptr noundef %5, i32 %6, ptr noundef writeonly %7, ptr noundef writeonly %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clangL32CheckEquivalentExceptionSpecImplERNS_4SemaERKNS_17PartialDiagnosticES4_PKNS_17FunctionProtoTypeENS_14SourceLocationES7_S8_PbS9_bb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef %3, i32 %4, ptr noundef %5, i32 %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #0 {
   %12 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %13 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %14 = alloca %"class.llvm::SmallPtrSet.1342", align 8

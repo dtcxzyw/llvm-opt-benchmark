@@ -171,7 +171,7 @@ Vec_FltStart.exit:                                ; preds = %6, %2
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Abc_SclFindWireLoad(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define float @Abc_SclFindWireLoad(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 

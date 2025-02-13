@@ -421,7 +421,7 @@ define dso_local ptr @interval_tree_iter_first(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   br label %6

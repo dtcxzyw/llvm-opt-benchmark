@@ -3653,7 +3653,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16bv2fpa_converter25convert_array_func_interpEP10model_coreP9func_declS3_(ptr noalias sret(%"class.bv2fpa_converter::array_model") align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %mc, ptr noundef readonly captures(none) %f, ptr noundef readonly %bv_f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16bv2fpa_converter25convert_array_func_interpEP10model_coreP9func_declS3_(ptr noalias sret(%"class.bv2fpa_converter::array_model") align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %mc, ptr noundef readonly captures(none) %f, ptr noundef readonly captures(address) %bv_f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %param.i = alloca %class.parameter, align 8
   %arr_util = alloca %class.array_util, align 8
@@ -4025,7 +4025,7 @@ declare void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZNK17array_recognizers22get_as_array_func_declEP4expr(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN16bv2fpa_converter19convert_func_interpEP10model_coreP9func_declS3_(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %mc, ptr noundef %f, ptr noundef readonly %bv_f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN16bv2fpa_converter19convert_func_interpEP10model_coreP9func_declS3_(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %mc, ptr noundef %f, ptr noundef readonly captures(address) %bv_f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.scoped_ptr, align 8
   %rw = alloca %class.fpa_rewriter, align 8

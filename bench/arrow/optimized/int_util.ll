@@ -5055,7 +5055,7 @@ while.end22:                                      ; preds = %while.body18, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmlh(ptr noundef readonly %values, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #1 {
+define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmlh(ptr noundef readonly captures(address) %values, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i8 %min_width, 8
   br i1 %cmp, label %if.then, label %if.end68
@@ -5248,7 +5248,7 @@ if.end68:                                         ; preds = %_ZN5arrow8internalL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmPKhlh(ptr noundef readonly %values, ptr noundef readonly %valid_bytes, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #1 {
+define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmPKhlh(ptr noundef readonly captures(address) %values, ptr noundef readonly captures(address_is_null) %valid_bytes, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %valid_bytes, null
   br i1 %cmp, label %if.then, label %if.end
@@ -5408,7 +5408,7 @@ return:                                           ; preds = %while.end, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKllh(ptr noundef readonly %values, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #2 {
+define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKllh(ptr noundef readonly captures(address) %values, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i8 %min_width, 8
   br i1 %cmp, label %return, label %if.end
@@ -5552,7 +5552,7 @@ return:                                           ; preds = %while.cond8, %while
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKlPKhlh(ptr noundef readonly %values, ptr noundef readonly %valid_bytes, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #2 {
+define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKlPKhlh(ptr noundef readonly captures(address) %values, ptr noundef readonly captures(address_is_null) %valid_bytes, i64 noundef %length, i8 noundef zeroext %min_width) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %valid_bytes, null
   br i1 %cmp, label %if.then, label %if.end

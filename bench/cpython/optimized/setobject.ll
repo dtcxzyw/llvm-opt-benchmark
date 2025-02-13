@@ -3731,7 +3731,7 @@ declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_Substring(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_sub(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @set_sub(ptr noundef captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val26 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val26, @PySet_Type
@@ -3779,7 +3779,7 @@ define internal ptr @set_sub(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_and(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @set_and(ptr noundef captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val26 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val26, @PySet_Type
@@ -3875,7 +3875,7 @@ define internal ptr @set_xor(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_or(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @set_or(ptr noundef captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val34 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val34, @PySet_Type
@@ -4402,7 +4402,7 @@ _Py_NewRef.exit:                                  ; preds = %31, %49, %set_updat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_difference(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @set_difference(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val96 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %.val96, @PySet_Type
@@ -4764,7 +4764,7 @@ Py_DECREF.exit78:                                 ; preds = %Py_DECREF.exit, %.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_copy_and_difference(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @set_copy_and_difference(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !29
   %4 = icmp ne ptr %.val.i, @PySet_Type
@@ -5567,7 +5567,7 @@ Py_DECREF.exit67:                                 ; preds = %136, %133, %Py_DECR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_merge_lock_held(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_merge_lock_held(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %.loopexit, label %4
 
@@ -6021,7 +6021,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_intersection(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @set_intersection(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   %4 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !29
@@ -6861,7 +6861,7 @@ Py_DECREF.exit16:                                 ; preds = %23, %20, %Py_DECREF
 declare i32 @_PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_copy(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @set_copy(ptr noundef captures(address) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !29
   %4 = icmp ne ptr %.val.i, @PySet_Type
@@ -7201,7 +7201,7 @@ define internal range(i32 -1, 2) i32 @set_contains(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_issubset(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @set_issubset(ptr noundef captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val34.i = load ptr, ptr %3, align 8, !tbaa !29
   %.not.i = icmp eq ptr %.val34.i, @PySet_Type
@@ -7692,7 +7692,7 @@ set_discard_impl.exit:                            ; preds = %11, %14, %20, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_difference_multi(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @set_difference_multi(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %30
 
@@ -7923,7 +7923,7 @@ set_intersection_update_multi_impl.exit:          ; preds = %3, %set_swap_bodies
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_isdisjoint(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal ptr @set_isdisjoint(ptr noundef readonly captures(address) %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %4, label %7
 
@@ -8384,7 +8384,7 @@ set_remove_impl.exit:                             ; preds = %14, %20, %23, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set___sizeof__(ptr noundef readonly %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @set___sizeof__(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !29
   %4 = getelementptr i8, ptr %.val.i, i64 32
@@ -8410,7 +8410,7 @@ set___sizeof___impl.exit:                         ; preds = %2, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @set_union(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @set_union(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8836,7 +8836,7 @@ declare i32 @_PyArg_NoKwnames(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @frozenset_copy(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @frozenset_copy(ptr noundef captures(address, ret: address, provenance) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !29
   %.not.i = icmp eq ptr %.val.i, @PyFrozenSet_Type

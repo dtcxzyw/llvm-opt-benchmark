@@ -2970,7 +2970,7 @@ declare void @_ZN4toku12range_buffer7destroyEv(ptr noundef nonnull align 8 deref
 declare void @_ZN4toku12lock_request23retry_all_lock_requestsEPNS_8locktreeEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_PFvvE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20RangeTreeLockManager6UnLockEPNS_22PessimisticTransactionERKNS_11LockTrackerEPNS_3EnvE(ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %txn, ptr noundef nonnull readonly align 8 dereferenceable(8) %tracker, ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb20RangeTreeLockManager6UnLockEPNS_22PessimisticTransactionERKNS_11LockTrackerEPNS_3EnvE(ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %txn, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %tracker, ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
 entry:
   %range_list_.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %1 = load ptr, ptr %range_list_.i, align 8
@@ -6501,7 +6501,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad
 declare void @_ZN4toku8locktree10dump_locksEPvPFvS1_PK10__toku_dbtS4_mbP11TxnidVectorE(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdbL26push_into_lock_status_dataEPvPK10__toku_dbtS3_mbP11TxnidVector(ptr noundef readonly captures(none) %param, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right, i64 noundef %txnid_arg, i1 noundef zeroext %is_shared, ptr noundef readonly %owners) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdbL26push_into_lock_status_dataEPvPK10__toku_dbtS3_mbP11TxnidVector(ptr noundef readonly captures(none) %param, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right, i64 noundef %txnid_arg, i1 noundef zeroext %is_shared, ptr noundef readonly captures(address) %owners) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i5 = alloca %"class.std::allocator.13", align 1

@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [52 x i8] c"See https://www.wireshark.org for more information.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ws_init_version_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @ws_init_version_info(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.25) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -222,7 +222,7 @@ define noundef nonnull ptr @get_ws_vcs_version_info() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @get_compiled_version_info(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @get_compiled_version_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.6) #12
@@ -315,7 +315,7 @@ end_string.exit:                                  ; preds = %.critedge.thread.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @get_runtime_version_info(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @get_runtime_version_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sysinfo, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -580,7 +580,7 @@ define noundef nonnull ptr @get_ws_vcs_version_info_short() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @get_ws_version_number(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
+define void @get_ws_version_number(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -623,7 +623,7 @@ define void @show_version() local_unnamed_addr #8 {
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @show_help_header(ptr noundef readonly %0) local_unnamed_addr #8 {
+define void @show_help_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @appname_with_version, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %2)
   %.not = icmp eq ptr %0, null

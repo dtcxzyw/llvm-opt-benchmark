@@ -2257,7 +2257,7 @@ define dso_local noundef nonnull ptr @_Z12get_int_typev() local_unnamed_addr #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4Type9find_typeEPKS_(ptr noundef readnone %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef ptr @_ZN4Type9find_typeEPKS_(ptr noundef readnone captures(address) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL8AllTypes, i64 8), align 8
   %3 = load ptr, ptr @_ZL8AllTypes, align 8
   %.not = icmp eq ptr %2, %3
@@ -2890,7 +2890,7 @@ define dso_local noundef zeroext i1 @_ZN4Type16has_pointer_typeEv() local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Type30choose_random_struct_from_typeEPKS_b(ptr noundef readnone %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Type30choose_random_struct_from_typeEPKS_b(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZNSt6vectorIP4TypeSaIS1_EED2Ev.exit13, label %4
@@ -2981,7 +2981,7 @@ _ZNSt6vectorIP4TypeSaIS1_EED2Ev.exit13:           ; preds = %_ZN4Type31choose_ra
 declare noundef i32 @_ZN9DepthSpec20depth_guard_by_depthEi(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Type21random_type_from_typeEPKS_bb(ptr noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Type21random_type_from_typeEPKS_bb(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.NonVoidTypeFilter, align 8
   %5 = alloca %class.NonVoidNonVolatileTypeFilter, align 8
   %6 = tail call noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef 24, i32 noundef 0)
@@ -8584,7 +8584,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type24is_full_bitfields_structEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK4Type11to_unsignedEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK4Type11to_unsignedEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %21
@@ -8644,7 +8644,7 @@ define dso_local noundef ptr @_ZNK4Type11to_unsignedEv(ptr noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZNK4Type13get_base_typeEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4Type13get_base_typeEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(136) %0) local_unnamed_addr #10 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -8734,7 +8734,7 @@ switch.edge:                                      ; preds = %19, %switch.lookup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type14is_convertableEPKS_(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type14is_convertableEPKS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.thread22, label %4
 
@@ -8845,7 +8845,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type14is_convertableEPKS_(ptr noundef 
 declare noundef zeroext i1 @_ZN9CGOptions12strict_floatEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type13is_equivalentEPKS_(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type13is_equivalentEPKS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %18, label %4
 
@@ -8896,7 +8896,7 @@ _ZNK4Type9is_signedEv.exit9:                      ; preds = %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type10needs_castEPKS_(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type10needs_castEPKS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %.preheader, label %_ZNK4Type13is_equivalentEPKS_.exit
@@ -8966,7 +8966,7 @@ _ZNK4Type13is_equivalentEPKS_.exit:               ; preds = %20, %_ZNK4Type9is_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type5matchEPKS_10eMatchType(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   switch i32 %2, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit [
     i32 0, label %4
     i32 1, label %6
@@ -9051,7 +9051,7 @@ _ZNK4Type20is_dereferenced_fromEPKS_.exit:        ; preds = %25, %.preheader.i11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type20is_dereferenced_fromEPKS_(ptr noundef nonnull readnone align 8 dereferenceable(136) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type20is_dereferenced_fromEPKS_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %.preheader, label %.loopexit
@@ -9071,7 +9071,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type20is_dereferenced_fromEPKS_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4Type12is_derivableEPKS_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Type12is_derivableEPKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK4Type20is_dereferenced_fromEPKS_.exit, label %4
 

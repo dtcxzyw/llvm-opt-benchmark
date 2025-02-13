@@ -1012,7 +1012,7 @@ declare ptr @g_byte_array_sized_new(i32 noundef) local_unnamed_addr #2
 declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @inject_udata_cb(ptr noundef readonly %cbs, ptr noundef nonnull %begin_op) unnamed_addr #1 {
+define internal fastcc void @inject_udata_cb(ptr noundef readonly captures(address_is_null) %cbs, ptr noundef nonnull %begin_op) unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %cbs, null
   br i1 %tobool.not.i, label %while.body.i.i.i.preheader, label %lor.lhs.false.i
@@ -1240,7 +1240,7 @@ declare ptr @tcg_op_insert_after(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @inject_inline_cb(ptr noundef readonly %cbs, ptr noundef nonnull %begin_op, ptr noundef readonly captures(none) %ok) unnamed_addr #1 {
+define internal fastcc void @inject_inline_cb(ptr noundef readonly captures(address_is_null) %cbs, ptr noundef nonnull %begin_op, ptr noundef readonly captures(none) %ok) unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %cbs, null
   br i1 %tobool.not.i, label %while.body.i.i.i.preheader, label %lor.lhs.false.i

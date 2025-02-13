@@ -351,7 +351,7 @@ return:                                           ; preds = %cond.true116, %for.
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_attr(ptr noundef readonly %a, i32 noundef %verbose) unnamed_addr #2 {
+define internal fastcc void @print_attr(ptr noundef readonly captures(address_is_null) %a, i32 noundef %verbose) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %a, null
   br i1 %tobool.not, label %sw.epilog, label %if.end

@@ -361,7 +361,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_java_lang_ProcessHandleImpl_
 declare i32 @getppid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 832
   %10 = load ptr, ptr %9, align 8

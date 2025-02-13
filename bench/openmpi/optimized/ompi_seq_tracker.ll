@@ -145,7 +145,7 @@ opal_obj_run_destructors.exit11:                  ; preds = %.lr.ph.i8, %._crit_
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef zeroext i1 @ompi_seq_tracker_check_duplicate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define noundef zeroext i1 @ompi_seq_tracker_check_duplicate(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8

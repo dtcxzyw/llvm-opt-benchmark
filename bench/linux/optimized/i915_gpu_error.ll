@@ -3067,7 +3067,7 @@ define dso_local void @intel_engine_coredump_add_vma(ptr noundef captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -5532,7 +5532,7 @@ define dso_local void @i915_gpu_error_debugfs_register(ptr noundef %0) local_unn
 declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gpu_error_sysfs_setup(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gpu_error_sysfs_setup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

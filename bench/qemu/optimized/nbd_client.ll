@@ -244,7 +244,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [5 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_write_all, ptr @.str.164, ptr @.str.165, i32 482, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_read_eof, ptr @.str.166, ptr @.str.167, i32 1470, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_read_all, ptr @.str.164, ptr @.str.165, i32 463, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_receive_reply, ptr @.str.166, ptr @.str.167, i32 1514, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_yield, ptr @.str.166, ptr @.str.165, i32 740, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @nbd_receive_negotiate(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef %outioc, ptr noundef %info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @nbd_receive_negotiate(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef captures(address_is_null) %outioc, ptr noundef %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i77 = alloca %struct.timeval, align 8
   %_now.i.i9.i = alloca %struct.timeval, align 8
@@ -663,7 +663,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 5) i32 @nbd_start_negotiate(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef writeonly %outioc, i32 noundef %max_mode, ptr noundef writeonly %zeroes, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 5) i32 @nbd_start_negotiate(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef writeonly captures(address_is_null) %outioc, i32 noundef %max_mode, ptr noundef writeonly captures(address_is_null) %zeroes, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i106 = alloca %struct.timeval, align 8
   %_now.i.i76 = alloca %struct.timeval, align 8
@@ -1988,7 +1988,7 @@ nbd_free_export_list.exit:                        ; preds = %out, %for.end17.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @nbd_receive_list(ptr noundef %ioc, ptr noundef nonnull writeonly captures(none) %name, ptr noundef writeonly %description, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @nbd_receive_list(ptr noundef %ioc, ptr noundef nonnull writeonly captures(none) %name, ptr noundef writeonly captures(address_is_null) %description, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %_auto_errp_prop.i.i = alloca %struct.ErrorPropagator, align 8
@@ -3986,7 +3986,7 @@ if.end39:                                         ; preds = %if.then35, %trace_n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @nbd_receive_one_meta_context(ptr noundef %ioc, i32 noundef range(i32 9, 11) %opt, ptr noundef writeonly %name, ptr noundef writeonly %id, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @nbd_receive_one_meta_context(ptr noundef %ioc, i32 noundef range(i32 9, 11) %opt, ptr noundef writeonly captures(address_is_null) %name, ptr noundef writeonly captures(address_is_null) %id, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.WebPRescaler = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WebPPictureCopy(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPPictureCopy(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -117,7 +117,7 @@ declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #1
 declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @WebPPictureIsView(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @WebPPictureIsView(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %.sink.split
 
@@ -137,7 +137,7 @@ define range(i32 0, 2) i32 @WebPPictureIsView(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WebPPictureView(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPPictureView(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %5, null
   %or.cond = or i1 %7, %8

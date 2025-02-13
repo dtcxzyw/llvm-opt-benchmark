@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_get_fs_type:
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_get_fs_type390, ptr @__UNIQUE_ID___addressable_proc_filesystems_init389, ptr @__UNIQUE_ID___addressable_register_filesystem386, ptr @__UNIQUE_ID___addressable_unregister_filesystem387], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @get_filesystem(ptr noundef readonly returned %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @get_filesystem(ptr noundef readonly returned captures(ret: address, provenance) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @__module_get(ptr noundef %3) #6
@@ -140,7 +140,7 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @unregister_filesystem(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @unregister_filesystem(ptr noundef captures(address) %0) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef nonnull @file_systems_lock) #6
   %2 = load ptr, ptr @file_systems, align 8
   %3 = icmp eq ptr %2, null

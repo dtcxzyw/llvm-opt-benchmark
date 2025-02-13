@@ -32,7 +32,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_pcibios_align_resource352, ptr @__UNIQUE_ID___addressable_pcibios_assign_resources354], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @pcibios_retrieve_fw_addr(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i64 @pcibios_retrieve_fw_addr(ptr noundef readnone captures(address) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i1, ptr @pcibios_fw_addr_done, align 1
   br i1 %3, label %22, label %4
 
@@ -180,7 +180,7 @@ define dso_local void @pcibios_resource_survey_bus(ptr noundef %0) local_unnamed
 declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -243,7 +243,7 @@ define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly captures(address) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -441,7 +441,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcibios_allocate_rom_resources(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @pcibios_allocate_rom_resources(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2

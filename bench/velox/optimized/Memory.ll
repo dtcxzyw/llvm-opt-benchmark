@@ -3572,7 +3572,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook5velox6memory17isSpillMemoryPoolEPNS1_10MemoryPoolE(ptr noundef readnone %pool) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN8facebook5velox6memory17isSpillMemoryPoolEPNS1_10MemoryPoolE(ptr noundef readnone captures(address) %pool) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN8facebook5velox6memory15spillMemoryPoolEv()
   %cmp = icmp eq ptr %pool, %call

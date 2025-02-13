@@ -44,7 +44,7 @@ $_ZNSt8_Rb_treeIhSt4pairIKhPKcESt10_Select1stIS4_ESt4lessIhESaIS4_EE29_M_get_ins
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm8MetadataC2EONS1_7BuilderE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 17), (24, 96)) %this, ptr noundef nonnull readonly align 8 dereferenceable(224) %mb) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm8MetadataC2EONS1_7BuilderE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 17), (24, 96)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(224) %mb) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %this, i8 0, i64 17, i1 false)
   %names = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -507,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm8Metadata7Builder5buildEv(ptr noalias nonnull writeonly sret(%"struct.hermes::vm::Metadata") align 8 captures(none) initializes((0, 17), (24, 96)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm8Metadata7Builder5buildEv(ptr noalias nonnull writeonly sret(%"struct.hermes::vm::Metadata") align 8 captures(none) initializes((0, 17), (24, 96)) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6hermes2vm8MetadataC2EONS1_7BuilderE(ptr noundef nonnull align 8 dereferenceable(96) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this)
   ret void

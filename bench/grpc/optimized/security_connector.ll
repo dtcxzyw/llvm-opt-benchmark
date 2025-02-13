@@ -293,7 +293,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z36grpc_security_connector_find_in_argsPK17grpc_channel_args(ptr noundef readonly %args) local_unnamed_addr #4 {
+define noundef ptr @_Z36grpc_security_connector_find_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %args) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -468,7 +468,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL18connector_arg_copyPv(ptr noundef returned %p) #11 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL18connector_arg_copyPv(ptr noundef returned captures(address_is_null, ret: address, provenance) %p) #11 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return, label %_ZN9grpc_core13RefCountedPtrI23grpc_security_connectorED2Ev.exit

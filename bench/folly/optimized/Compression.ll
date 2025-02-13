@@ -896,7 +896,7 @@ ehcleanup142:                                     ; preds = %ehcleanup, %lpad19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io11StreamCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull %data, ptr noundef %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io11StreamCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull %data, ptr noundef captures(address) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::Optional", align 8
   %agg.tmp = alloca %"class.folly::Optional", align 8

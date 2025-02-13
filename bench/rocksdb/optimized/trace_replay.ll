@@ -232,7 +232,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12TracerHelper16ParseTraceHeaderERKNS_5TraceEPiS4_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %header, ptr noundef writeonly captures(none) %trace_version, ptr noundef writeonly captures(none) %db_version) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12TracerHelper16ParseTraceHeaderERKNS_5TraceEPiS4_(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %header, ptr noundef writeonly captures(none) %trace_version, ptr noundef writeonly captures(none) %db_version) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s_vec = alloca %"class.std::vector.5", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -812,7 +812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12TracerHelper17DecodeTraceRecordEPNS_5TraceEiPSt10unique_ptrINS_11TraceRecordESt14default_deleteIS4_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %trace, i32 noundef %trace_file_version, ptr noundef %record) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12TracerHelper17DecodeTraceRecordEPNS_5TraceEiPSt10unique_ptrINS_11TraceRecordESt14default_deleteIS4_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %trace, i32 noundef %trace_file_version, ptr noundef captures(address_is_null) %record) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i421 = alloca i32, align 4
   %len.i374 = alloca i32, align 4

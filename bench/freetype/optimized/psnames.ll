@@ -30,7 +30,7 @@ define internal ptr @psnames_get_service(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
+define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0) #1 {
   %2 = load i8, ptr %0, align 1, !tbaa !3
   %3 = icmp eq i8 %2, 117
   br i1 %3, label %4, label %.thread91.preheader
@@ -288,7 +288,7 @@ ft_get_adobe_glyph_index.exit:                    ; preds = %72, %98, %101, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none) initializes((24, 28), (32, 40)) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none) initializes((24, 28), (32, 40)) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca [10 x i32], align 16
   %9 = alloca [10 x i32], align 16

@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef readonly %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr noundef readonly captures(none) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef readonly captures(address_is_null) %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr noundef readonly captures(none) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = icmp ne ptr %pixels, null
   %tobool1 = icmp ne i32 %width, 0

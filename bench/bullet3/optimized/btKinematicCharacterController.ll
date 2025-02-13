@@ -2457,7 +2457,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK30btKinematicCharacterController18getAngularVelocityEv(ptr noundef nonnull readnone align 8 dereferenceable(319) %this) unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK30btKinematicCharacterController18getAngularVelocityEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(319) %this) unnamed_addr #11 align 2 {
 entry:
   %m_AngVel = getelementptr inbounds nuw i8, ptr %this, i64 116
   ret ptr %m_AngVel

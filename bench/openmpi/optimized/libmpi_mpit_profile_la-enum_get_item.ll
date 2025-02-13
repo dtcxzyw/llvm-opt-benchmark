@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_enum_get_item = weak alias i32 (ptr, i32, ptr, ptr, ptr), ptr @PMPI_T_enum_get_item
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 73) i32 @PMPI_T_enum_get_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define range(i32 0, 73) i32 @PMPI_T_enum_get_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = load volatile i32, ptr @ompi_mpit_init_count, align 4

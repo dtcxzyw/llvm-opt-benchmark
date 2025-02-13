@@ -78,7 +78,7 @@ for.end:                                          ; preds = %for.cond.for.end_cr
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @trace_event_name(ptr noundef readonly %name) local_unnamed_addr #0 {
+define dso_local ptr @trace_event_name(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %name, null
   br i1 %cmp.not, label %if.else, label %while.cond.preheader

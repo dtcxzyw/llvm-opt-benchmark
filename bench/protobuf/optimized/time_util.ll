@@ -1546,7 +1546,7 @@ _ZN6google8protobuf8DurationaSEOS1_.exit:         ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmLERNS0_8DurationEl(ptr noundef nonnull returned align 8 dereferenceable(32) %d, i64 noundef %r) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmLERNS0_8DurationEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %d, i64 noundef %r) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %d, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1711,7 +1711,7 @@ _ZN6google8protobuf8DurationaSEOS1_.exit:         ; preds = %_ZN6google8protobuf
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufdVERNS0_8DurationEl(ptr noundef nonnull returned align 8 dereferenceable(32) %d, i64 noundef %r) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufdVERNS0_8DurationEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %d, i64 noundef %r) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %d, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1758,7 +1758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufrMERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d2) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufrMERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %d1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d2) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %d1, i64 16
   %1 = load i64, ptr %0, align 8

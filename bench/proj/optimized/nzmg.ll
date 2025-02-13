@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZZL14nzmg_e_forward5PJ_LPP8PJconstsE4tpsi = internal unnamed_addr constant [10 x double] [double 0x3FE47A3447BFB911, double 0xBFC164820D7C6380, double 0x3FB0340FF8ACB5BC, double 0xBF99DFFE57DF3A0D, double 1.178790e-02, double -5.516100e-03, double 2.690600e-03, double -1.333000e-03, double 6.700000e-04, double -3.400000e-04], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_nzmg(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pj_nzmg(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -60,7 +60,7 @@ define hidden noundef ptr @pj_nzmg(ptr noundef writeonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z33pj_projection_specific_setup_nzmgP8PJconsts(ptr noundef returned writeonly initializes((104, 120), (168, 176), (184, 192), (440, 472)) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z33pj_projection_specific_setup_nzmgP8PJconsts(ptr noundef returned writeonly captures(ret: address, provenance) initializes((104, 120), (168, 176), (184, 192), (440, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 0x415854E500000000, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184

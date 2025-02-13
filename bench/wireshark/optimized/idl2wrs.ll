@@ -2180,7 +2180,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @FPRINTF(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #1 {
+define internal void @FPRINTF(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
@@ -6412,7 +6412,7 @@ declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none))
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @mergefile(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @mergefile(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #1 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %1, ptr noundef nonnull @.str.398, ptr noundef %0)
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.10)
   %4 = tail call i32 @feof(ptr noundef %3) #15
@@ -6448,7 +6448,7 @@ declare void @g_print(ptr noundef, ...) local_unnamed_addr #5
 declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @str_read_string(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc ptr @str_read_string(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = load i8, ptr %0, align 1
   %.not495563 = icmp eq i8 %4, 0

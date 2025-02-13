@@ -4078,7 +4078,7 @@ _camera_process_job.exit:                         ; preds = %242, %303, %330, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_camctl_camera_get_model(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @dt_camctl_camera_get_model(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %15
 

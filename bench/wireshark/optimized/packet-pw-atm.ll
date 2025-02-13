@@ -657,7 +657,7 @@ proto_item_set_hidden.exit132:                    ; preds = %79, %76, %75, %73, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 -2147483648, 49) i32 @dissect_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal noundef range(i32 -2147483648, 49) i32 @dissect_cell(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %6 = icmp slt i32 %5, 48
   %. = tail call i32 @llvm.smin.i32(i32 %5, i32 48)
@@ -707,7 +707,7 @@ proto_item_set_hidden.exit:                       ; preds = %14, %21, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 5) i32 @dissect_cell_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_cell_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %277, label %6
 

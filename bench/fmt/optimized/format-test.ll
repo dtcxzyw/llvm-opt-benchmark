@@ -138521,7 +138521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4test9format_asB5cxx11ERKNS_25struct_as_const_referenceE(ptr noundef nonnull readnone returned align 8 dereferenceable(32) %s) local_unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4test9format_asB5cxx11ERKNS_25struct_as_const_referenceE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(32) %s) local_unnamed_addr #8 {
 entry:
   ret ptr %s
 }

@@ -452,14 +452,14 @@ _ZNSt6vectorIPN3p2t5PointESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN3p2t12SweepContext12GetTrianglesEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN3p2t12SweepContext12GetTrianglesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
 entry:
   %triangles_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %triangles_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN3p2t12SweepContext6GetMapB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN3p2t12SweepContext6GetMapB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
 entry:
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %map_
@@ -1161,7 +1161,7 @@ declare noundef ptr @_ZN3p2t14AdvancingFront11LocatePointEPKNS_5PointE(ptr nound
 declare noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3p2t12SweepContext13RemoveFromMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone %triangle) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3p2t12SweepContext13RemoveFromMapEPNS_8TriangleE(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, ptr noundef readnone captures(address) %triangle) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i = alloca %"class.std::__cxx11::list", align 8
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -1430,7 +1430,7 @@ _ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit50: ; preds = %if.end13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3p2t12SweepContextD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3p2t12SweepContextD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %head_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %head_, align 8

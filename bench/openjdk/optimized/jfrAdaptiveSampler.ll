@@ -871,7 +871,7 @@ _ZN18JfrAdaptiveSampler10initializeEv.exit:       ; preds = %1, %4, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN24JfrGTestFixedRateSampler18next_window_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN24JfrGTestFixedRateSampler18next_window_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(120) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZL3logPK16JfrSamplerWindowPd.exit, label %4

@@ -975,7 +975,7 @@ define void @_ZNK2cv17DescriptorMatcher20DescriptorCollection13getDescriptorEi(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK2cv17DescriptorMatcher20DescriptorCollection14getDescriptorsEv(ptr noundef nonnull readnone align 8 dereferenceable(128) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK2cv17DescriptorMatcher20DescriptorCollection14getDescriptorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -1712,7 +1712,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %.body, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv17DescriptorMatcher19getTrainDescriptorsEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv17DescriptorMatcher19getTrainDescriptorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

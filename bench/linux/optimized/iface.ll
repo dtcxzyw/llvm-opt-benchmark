@@ -2783,7 +2783,7 @@ define internal fastcc void @ieee80211_setup_sdata(ptr noundef initializes((24, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
   %7 = tail call i32 @rtnl_is_locked() #15
   %8 = icmp ne i32 %7, 0
   %9 = load i1, ptr @ieee80211_if_add.__already_done, align 1

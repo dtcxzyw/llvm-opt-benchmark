@@ -232,7 +232,7 @@ return:                                           ; preds = %entry, %if.end9
 declare void @sp_forcezero(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPad_ex(ptr noundef readonly %input, i32 noundef %inputLen, ptr noundef %pkcsBlock, i32 noundef %pkcsBlockLen, i8 noundef zeroext %padValue, ptr noundef %rng, i32 noundef %padType, i32 noundef %hType, i32 noundef %mgf, ptr noundef %optLabel, i32 noundef %labelLen, i32 noundef %saltLen, i32 noundef %bits, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
+define i32 @wc_RsaPad_ex(ptr noundef readonly captures(address_is_null) %input, i32 noundef %inputLen, ptr noundef %pkcsBlock, i32 noundef %pkcsBlockLen, i8 noundef zeroext %padValue, ptr noundef %rng, i32 noundef %padType, i32 noundef %hType, i32 noundef %mgf, ptr noundef %optLabel, i32 noundef %labelLen, i32 noundef %saltLen, i32 noundef %bits, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %dbMask.i = alloca [520 x i8], align 16
   %lHash.i = alloca [64 x i8], align 16
@@ -565,7 +565,7 @@ sw.epilog:                                        ; preds = %if.then90.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaUnPad_ex(ptr noundef %pkcsBlock, i32 noundef %pkcsBlockLen, ptr noundef writeonly %out, i8 noundef zeroext %padValue, i32 noundef %padType, i32 noundef %hType, i32 noundef %mgf, ptr noundef %optLabel, i32 noundef %labelLen, i32 noundef %saltLen, i32 noundef %bits, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
+define i32 @wc_RsaUnPad_ex(ptr noundef %pkcsBlock, i32 noundef %pkcsBlockLen, ptr noundef writeonly captures(address_is_null) %out, i8 noundef zeroext %padValue, i32 noundef %padType, i32 noundef %hType, i32 noundef %mgf, ptr noundef %optLabel, i32 noundef %labelLen, i32 noundef %saltLen, i32 noundef %bits, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %h.i = alloca [64 x i8], align 16
   %tmp.i = alloca [520 x i8], align 16
@@ -1228,14 +1228,14 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaFunction(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
+define i32 @wc_RsaFunction(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef captures(address_is_null) %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @wc_RsaFunction_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng, i32 noundef range(i32 0, 2) %checkSmallCt) unnamed_addr #0 {
+define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef captures(address_is_null) %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng, i32 noundef range(i32 0, 2) %checkSmallCt) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   %cmp1 = icmp eq ptr %in, null
@@ -1404,14 +1404,14 @@ return:                                           ; preds = %if.end13.i26, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPublicEncrypt(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
+define i32 @wc_RsaPublicEncrypt(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef 0, i8 noundef zeroext 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %rng)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef range(i32 0, 3) %rsa_type, i8 noundef zeroext range(i8 1, 3) %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc i32 @RsaPublicEncryptEx(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef range(i32 0, 3) %rsa_type, i8 noundef zeroext range(i8 1, 3) %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
   %cmp1 = icmp eq i32 %inLen, 0
@@ -1578,14 +1578,14 @@ return:                                           ; preds = %if.end13.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPublicEncrypt_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, ptr noundef %rng, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
+define i32 @wc_RsaPublicEncrypt_ex(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, ptr noundef %rng, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef 0, i8 noundef zeroext 2, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef 0, ptr noundef %rng)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPrivateDecryptInline(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPrivateDecryptInline(ptr noundef %in, i32 noundef %inLen, ptr noundef captures(address_is_null) %out, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %rng1 = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
@@ -1594,7 +1594,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef writeonly %outPtr, ptr noundef %key, i32 noundef range(i32 1, 4) %rsa_type, i8 noundef zeroext range(i8 1, 3) %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef writeonly captures(address_is_null) %outPtr, ptr noundef %key, i32 noundef range(i32 1, 4) %rsa_type, i8 noundef zeroext range(i8 1, 3) %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
 entry:
   %pad = alloca ptr, align 8
   store ptr null, ptr %pad, align 8
@@ -1866,7 +1866,7 @@ return:                                           ; preds = %if.end13.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPrivateDecryptInline_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
+define i32 @wc_RsaPrivateDecryptInline_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef captures(address_is_null) %out, ptr noundef %key, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
 entry:
   %rng1 = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
@@ -1875,7 +1875,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPrivateDecrypt(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPrivateDecrypt(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %rng1 = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
@@ -1884,7 +1884,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPrivateDecrypt_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
+define i32 @wc_RsaPrivateDecrypt_ex(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz) local_unnamed_addr #0 {
 entry:
   %rng1 = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
@@ -1893,7 +1893,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaSSL_VerifyInline(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaSSL_VerifyInline(ptr noundef %in, i32 noundef %inLen, ptr noundef captures(address_is_null) %out, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %rng1 = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
@@ -1902,7 +1902,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaSSL_Verify(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaSSL_Verify(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq ptr %key, null
   br i1 %cmp.i.i, label %wc_RsaSSL_Verify_ex.exit, label %if.end.i.i
@@ -1919,7 +1919,7 @@ wc_RsaSSL_Verify_ex.exit:                         ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaSSL_Verify_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %pad_type) local_unnamed_addr #0 {
+define i32 @wc_RsaSSL_Verify_ex(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %pad_type) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %key, null
   br i1 %cmp.i, label %wc_RsaSSL_Verify_ex2.exit, label %if.end.i
@@ -1936,7 +1936,7 @@ wc_RsaSSL_Verify_ex2.exit:                        ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaSSL_Verify_ex2(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %pad_type, i32 noundef %hash) local_unnamed_addr #0 {
+define i32 @wc_RsaSSL_Verify_ex2(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %pad_type, i32 noundef %hash) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -1965,7 +1965,7 @@ return:                                           ; preds = %entry, %wc_hash2mgf
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_VerifyInline(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_VerifyInline(ptr noundef %in, i32 noundef %inLen, ptr noundef captures(address_is_null) %out, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %rng1.i = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i, align 8
@@ -1974,7 +1974,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef captures(address_is_null) %out, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %rng1 = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
@@ -1983,7 +1983,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_Verify(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_Verify(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %rng1.i = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1.i, align 8
@@ -1992,7 +1992,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_Verify_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_Verify_ex(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %rng1 = getelementptr inbounds nuw i8, ptr %key, i64 8352
   %0 = load ptr, ptr %rng1, align 8
@@ -2001,21 +2001,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_CheckPadding(ptr noundef %in, i32 noundef %inSz, ptr noundef %sig, i32 noundef %sigSz, i32 noundef %hashType) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_CheckPadding(ptr noundef captures(address_is_null) %in, i32 noundef %inSz, ptr noundef captures(address_is_null) %sig, i32 noundef %sigSz, i32 noundef %hashType) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef %in, i32 noundef %inSz, ptr noundef %sig, i32 noundef %sigSz, i32 noundef %hashType, i32 noundef -1, i32 noundef 0, ptr poison)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef %in, i32 noundef %inSz, ptr noundef %sig, i32 noundef %sigSz, i32 noundef %hashType, i32 noundef %saltLen, i32 noundef %bits) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef captures(address_is_null) %in, i32 noundef %inSz, ptr noundef captures(address_is_null) %sig, i32 noundef %sigSz, i32 noundef %hashType, i32 noundef %saltLen, i32 noundef %bits) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef %in, i32 noundef %inSz, ptr noundef %sig, i32 noundef %sigSz, i32 noundef %hashType, i32 noundef %saltLen, i32 noundef %bits, ptr poison)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef readonly %in, i32 noundef %inSz, ptr noundef readonly %sig, i32 noundef %sigSz, i32 noundef %hashType, i32 noundef %saltLen, i32 noundef %bits, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef readonly captures(address_is_null) %in, i32 noundef %inSz, ptr noundef readonly captures(address_is_null) %sig, i32 noundef %sigSz, i32 noundef %hashType, i32 noundef %saltLen, i32 noundef %bits, ptr readnone captures(none) %heap) local_unnamed_addr #0 {
 entry:
   %sigCheckBuf = alloca [136 x i8], align 16
   %cmp = icmp eq ptr %in, null
@@ -2107,7 +2107,7 @@ declare i32 @wc_Hash(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_VerifyCheckInline(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %digest, i32 noundef %digestLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_VerifyCheckInline(ptr noundef %in, i32 noundef %inLen, ptr noundef captures(address_is_null) %out, ptr noundef captures(address_is_null) %digest, i32 noundef %digestLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_HashGetDigestSize(i32 noundef %hash) #11
   %cmp = icmp sgt i32 %call, -1
@@ -2145,7 +2145,7 @@ return:                                           ; preds = %if.end13.thread, %i
 declare i32 @sp_count_bits(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_VerifyCheck(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %digest, i32 noundef %digestLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_VerifyCheck(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef captures(address_is_null) %digest, i32 noundef %digestLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_HashGetDigestSize(i32 noundef %hash) #11
   %cmp = icmp slt i32 %call, 0
@@ -2182,21 +2182,21 @@ return:                                           ; preds = %if.end13.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaSSL_Sign(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
+define i32 @wc_RsaSSL_Sign(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef 2, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %rng)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_Sign(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_Sign(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef 2, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef -1, ptr noundef %rng)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaPSS_Sign_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
+define i32 @wc_RsaPSS_Sign_ex(ptr noundef captures(address_is_null) %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, i32 noundef %hash, i32 noundef %mgf, i32 noundef %saltLen, ptr noundef %key, ptr noundef %rng) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef 2, i8 noundef zeroext 1, i32 noundef 2, i32 noundef %hash, i32 noundef %mgf, ptr noundef null, i32 noundef 0, i32 noundef %saltLen, ptr noundef %rng)
   ret i32 %call
@@ -2220,7 +2220,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef %e, ptr noundef %eSz, ptr noundef %n, ptr noundef %nSz) local_unnamed_addr #0 {
+define i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef %e, ptr noundef captures(address_is_null) %eSz, ptr noundef %n, ptr noundef captures(address_is_null) %nSz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   %cmp1 = icmp eq ptr %e, null
@@ -2269,7 +2269,7 @@ return:                                           ; preds = %if.end20, %wc_RsaEn
 declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef %e, ptr noundef %eSz, ptr noundef %n, ptr noundef %nSz, ptr noundef %d, ptr noundef %dSz, ptr noundef %p, ptr noundef %pSz, ptr noundef %q, ptr noundef %qSz) local_unnamed_addr #0 {
+define i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef %e, ptr noundef captures(address_is_null) %eSz, ptr noundef %n, ptr noundef captures(address_is_null) %nSz, ptr noundef %d, ptr noundef captures(address_is_null) %dSz, ptr noundef %p, ptr noundef captures(address_is_null) %pSz, ptr noundef %q, ptr noundef captures(address_is_null) %qSz) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne ptr %e, null
@@ -2367,7 +2367,7 @@ if.end42:                                         ; preds = %entry, %if.then20, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_RsaSetRNG(ptr noundef writeonly %key, ptr noundef %rng) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_RsaSetRNG(ptr noundef writeonly captures(address_is_null) %key, ptr noundef %rng) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %key, null
   %cmp1 = icmp eq ptr %rng, null

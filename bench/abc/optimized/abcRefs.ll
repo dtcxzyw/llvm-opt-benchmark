@@ -574,7 +574,7 @@ define i32 @Abc_NodeRef_rec(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeMffcConeSupp_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Abc_NodeMffcConeSupp_rec(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %137
@@ -992,7 +992,7 @@ Abc_NodeTravId.exit:                              ; preds = %1, %._crit_edge.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeMffcConeSupp(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Abc_NodeMffcConeSupp(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -1169,7 +1169,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeMffcInside(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Abc_NodeMffcInside(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val18 = load i32, ptr %4, align 4, !tbaa !42
   %5 = icmp sgt i32 %.val18, 0
@@ -1340,7 +1340,7 @@ Abc_NodeMffcConeSupp.exit:                        ; preds = %1, %Abc_NtkIncremen
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeMffcLabel_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Abc_NodeMffcLabel_rec(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %11
 
@@ -1573,7 +1573,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeMffcLabel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @Abc_NodeMffcLabel(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Abc_NodeDeref_rec(ptr noundef %0)
   %4 = load ptr, ptr %0, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232

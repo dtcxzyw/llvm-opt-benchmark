@@ -107,7 +107,7 @@ declare i32 @SCT_get_signature_nid(ptr noundef) local_unnamed_addr #1
 declare i32 @SCT_set1_signature(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @o2i_SCT(ptr noundef %psct, ptr noundef captures(none) %in, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @o2i_SCT(ptr noundef captures(address_is_null) %psct, ptr noundef captures(none) %in, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %0 = add i64 %len, -65536
@@ -281,7 +281,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare void @SCT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2o_SCT_signature(ptr noundef %sct, ptr noundef %out) local_unnamed_addr #0 {
+define i32 @i2o_SCT_signature(ptr noundef %sct, ptr noundef captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @SCT_signature_is_complete(ptr noundef %sct) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -371,7 +371,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2o_SCT(ptr noundef %sct, ptr noundef %out) local_unnamed_addr #0 {
+define i32 @i2o_SCT(ptr noundef %sct, ptr noundef captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %p, align 8
@@ -536,7 +536,7 @@ return:                                           ; preds = %err, %if.end85, %if
 declare i32 @SCT_is_complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @o2i_SCT_LIST(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @o2i_SCT_LIST(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %len, -65536
   %or.cond = icmp ult i64 %0, -65534
@@ -687,7 +687,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @SCT_LIST_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 65536) i32 @i2o_SCT_LIST(ptr noundef %a, ptr noundef %pp) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @i2o_SCT_LIST(ptr noundef %a, ptr noundef captures(address_is_null) %pp) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %p, align 8
@@ -915,7 +915,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_SCT_LIST(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @d2i_SCT_LIST(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %oct = alloca ptr, align 8
   %p = alloca ptr, align 8

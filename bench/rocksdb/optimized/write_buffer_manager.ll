@@ -371,7 +371,7 @@ _ZNSt12__shared_ptrIN7rocksdb23CacheReservationManagerELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18WriteBufferManagerD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WriteBufferManagerD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %queue_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %queue_, align 8

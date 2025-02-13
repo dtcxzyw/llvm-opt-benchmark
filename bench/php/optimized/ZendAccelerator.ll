@@ -511,7 +511,7 @@ declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @zend_get_file_handle_timestamp(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i64 @zend_get_file_handle_timestamp(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct._php_stream_statbuf, align 8
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -7153,7 +7153,7 @@ declare void @zend_accel_blacklist_init(ptr noundef) local_unnamed_addr #1
 declare void @zend_accel_blacklist_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_accel_inheritance_cache_get(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) #0 {
+define internal ptr @zend_accel_inheritance_cache_get(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %.not112 = icmp eq ptr %5, null
@@ -7360,7 +7360,7 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %.thread8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_accel_inheritance_cache_add(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 {
+define internal ptr @zend_accel_inheritance_cache_add(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #0 {
   %6 = alloca %struct.flock, align 8
   %7 = alloca %struct._zend_persistent_script, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -12289,7 +12289,7 @@ declare void @zend_vm_set_opcode_handler(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_sort_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @preload_sort_classes(ptr noundef %0, i64 noundef %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #20 {
+define internal void @preload_sort_classes(ptr noundef captures(address) %0, i64 noundef %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #20 {
   %6 = alloca %struct._Bucket, align 8
   %7 = getelementptr inbounds %struct._Bucket, ptr %0, i64 %1
   %8 = icmp sgt i64 %1, 0

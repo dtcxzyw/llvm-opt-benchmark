@@ -346,7 +346,7 @@ $_ZN4llvm8CallBase7arg_endEv = comdat any
 @switch.table._ZN4llvm4nvvm26GetFPToIntegerRoundingModeEj = private unnamed_addr constant [95 x i8] [i8 3, i8 1, i8 2, i8 0, i8 3, i8 1, i8 2, i8 0, i8 3, i8 1, i8 2, i8 0, i8 3, i8 1, i8 2, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 3, i8 3, i8 1, i8 1, i8 2, i8 2, i8 0, i8 0, i8 3, i8 3, i8 1, i8 1, i8 2, i8 2, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 3, i8 3, i8 1, i8 1, i8 2, i8 2, i8 0, i8 0, i8 3, i8 3, i8 1, i8 1, i8 2, i8 2, i8 0, i8 0], align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm26IsConstantOffsetFromGlobalEPNS_8ConstantERPNS_11GlobalValueERNS_5APIntERKNS_10DataLayoutEPPNS_18DSOLocalEquivalentE(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm26IsConstantOffsetFromGlobalEPNS_8ConstantERPNS_11GlobalValueERNS_5APIntERKNS_10DataLayoutEPPNS_18DSOLocalEquivalentE(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -13061,7 +13061,7 @@ _ZN12_GLOBAL__N_123ConstantFoldScalarCall3EN4llvm9StringRefEjPNS0_4TypeENS0_8Arr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm17isMathLibCallNoopEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm17isMathLibCallNoopEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.llvm::APFloat", align 8
   %5 = alloca %"class.llvm::APFloat", align 8

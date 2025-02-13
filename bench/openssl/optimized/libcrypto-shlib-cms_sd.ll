@@ -139,7 +139,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr noundef readonly captures(none) %sid, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr noundef readonly captures(none) %sid, ptr noundef writeonly captures(address_is_null) %keyid, ptr noundef writeonly captures(address_is_null) %issuer, ptr noundef writeonly captures(address_is_null) %sno) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %sid, align 8
   switch i32 %0, label %return [
@@ -1532,7 +1532,7 @@ declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr noundef readonly captures(none) %si, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr noundef readonly captures(none) %si, ptr noundef writeonly captures(address_is_null) %keyid, ptr noundef writeonly captures(address_is_null) %issuer, ptr noundef writeonly captures(address_is_null) %sno) local_unnamed_addr #2 {
 entry:
   %sid = getelementptr inbounds nuw i8, ptr %si, i64 8
   %0 = load ptr, ptr %sid, align 8
@@ -1803,7 +1803,7 @@ return:                                           ; preds = %for.inc42, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %si, ptr noundef writeonly %pk, ptr noundef writeonly %signer, ptr noundef writeonly %pdig, ptr noundef writeonly %psig) local_unnamed_addr #4 {
+define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %si, ptr noundef writeonly captures(address_is_null) %pk, ptr noundef writeonly captures(address_is_null) %signer, ptr noundef writeonly captures(address_is_null) %pdig, ptr noundef writeonly captures(address_is_null) %psig) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %pk, null
   br i1 %cmp.not, label %if.end, label %if.then

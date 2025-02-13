@@ -210,7 +210,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @svc_addsock(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef %5) #0 align 16 {
+define dso_local i32 @svc_addsock(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.__kernel_sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16

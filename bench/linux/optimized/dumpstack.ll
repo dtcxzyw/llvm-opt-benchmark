@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @_kbl_addr___die, ptr @_kbl_addr___die_body, ptr @_kbl_addr___die_header, ptr @_kbl_addr_oops_begin, ptr @_kbl_addr_oops_end], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree noprofile norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef zeroext i1 @in_task_stack(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 section ".noinstr.text" align 16 {
+define dso_local noundef zeroext i1 @in_task_stack(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 section ".noinstr.text" align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 32
   %6 = getelementptr i8, ptr %5, i64 16384
@@ -81,7 +81,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @in_entry_stack(ptr noundef readnone %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 section ".noinstr.text" align 16 {
+define dso_local noundef zeroext i1 @in_entry_stack(ptr noundef readnone captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 section ".noinstr.text" align 16 {
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !5
   %4 = tail call ptr @get_cpu_entry_area(i32 noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4096
@@ -106,7 +106,7 @@ define dso_local noundef zeroext i1 @in_entry_stack(ptr noundef readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_opcodes(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @show_opcodes(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !6
@@ -173,7 +173,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_ip(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local void @show_ip(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -186,7 +186,7 @@ define dso_local void @show_ip(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @show_iret_regs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local void @show_iret_regs(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32

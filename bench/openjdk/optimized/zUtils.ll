@@ -23,7 +23,7 @@ define hidden noundef ptr @_ZN6ZUtils11thread_nameEv() local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN6ZUtils4fillEPmmm(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6ZUtils4fillEPmmm(ptr noundef writeonly captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit, label %5
 

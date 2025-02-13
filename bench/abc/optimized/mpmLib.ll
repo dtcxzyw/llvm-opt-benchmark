@@ -45,7 +45,7 @@ define noalias noundef ptr @Mpm_LibLutSetSimple(i32 noundef %0) local_unnamed_ad
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Mpm_LibLutFree(ptr noundef %0) local_unnamed_addr #2 {
+define void @Mpm_LibLutFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

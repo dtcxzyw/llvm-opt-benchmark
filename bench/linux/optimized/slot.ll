@@ -111,7 +111,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone %3) #0 align 16 {
+define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @pci_slot_mutex) #7
   %5 = icmp eq i32 %1, -1
   br i1 %5, label %.thread, label %6

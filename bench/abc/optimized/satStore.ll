@@ -137,7 +137,7 @@ define noalias noundef ptr @Sto_ManAlloc() local_unnamed_addr #6 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @Sto_ManFree(ptr noundef %0) local_unnamed_addr #3 {
+define void @Sto_ManFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null

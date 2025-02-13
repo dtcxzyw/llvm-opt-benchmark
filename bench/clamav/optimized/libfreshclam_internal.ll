@@ -767,7 +767,7 @@ define noundef i64 @HeaderCallback(ptr noundef readonly captures(none) %0, i64 n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
+define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #0 {
   %11 = alloca [60 x i8], align 16
   %12 = alloca [60 x i8], align 16
   %13 = alloca [4096 x i8], align 16
@@ -2296,7 +2296,7 @@ declare void @cl_cvdfree(ptr noundef) local_unnamed_addr #4
 declare i32 @cli_rmdirs(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #24
   %8 = icmp eq ptr %0, null
@@ -3901,7 +3901,7 @@ printBytes.exit41:                                ; preds = %140, %147, %152
 declare ptr @curl_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @WriteMemoryCallback(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal noundef i64 @WriteMemoryCallback(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = mul i64 %2, %1
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %3, null
@@ -4014,7 +4014,7 @@ declare i32 @gzclose(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @WriteFileCallback(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #21 {
+define internal noundef i64 @WriteFileCallback(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #21 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %3, null
   %or.cond = or i1 %5, %6

@@ -3298,7 +3298,7 @@ declare noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberE
 declare noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_758numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef readonly %affix, ptr noundef nonnull align 8 dereferenceable(64) %patternString) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_758numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef readonly captures(address_is_null) %affix, ptr noundef nonnull align 8 dereferenceable(64) %patternString) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8

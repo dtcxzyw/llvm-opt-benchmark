@@ -4830,7 +4830,7 @@ define internal fastcc range(i64 1, 0) i64 @str_associated(i64 noundef %0) unnam
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, -7) i64 @associated_pointer(i64 noundef range(i64 1, 0) %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc range(i64 1, -7) i64 @associated_pointer(i64 noundef range(i64 1, 0) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8192

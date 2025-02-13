@@ -990,7 +990,7 @@ define dso_local noundef zeroext i1 @nf_ct_delete(ptr noundef %0, i32 %1, i32 %2
 declare dso_local void @nf_ct_helper_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nf_conntrack_find_get(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @nf_conntrack_find_get(ptr noundef captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.siphash_key_t, align 8
   %5 = alloca i64, align 8
   tail call void @__rcu_read_lock() #17
@@ -1032,7 +1032,7 @@ define dso_local ptr @nf_conntrack_find_get(ptr noundef %0, ptr readnone capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__nf_conntrack_find_get(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__nf_conntrack_find_get(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = zext i32 %2 to i64
   %5 = getelementptr i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2635,7 +2635,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_ct_resolve_clash(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @nf_conntrack_tuple_taken(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nf_conntrack_tuple_taken(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   %3 = alloca %struct.siphash_key_t, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -4336,7 +4336,7 @@ define dso_local void @nf_conntrack_cleanup_net(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_conntrack_cleanup_net_list(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @nf_conntrack_cleanup_net_list(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.nf_ct_iter_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -5399,7 +5399,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nf_ct_resolve_clash(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @early_drop(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @early_drop(ptr noundef readonly captures(address) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = zext i32 %1 to i64
   br label %7
 

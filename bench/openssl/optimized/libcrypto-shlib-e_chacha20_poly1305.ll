@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @chacha_init_key(ptr noundef readonly captures(none) %ctx, ptr noundef readonly %user_key, ptr noundef readonly %iv, i32 %enc) #1 {
+define internal noundef i32 @chacha_init_key(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(address_is_null) %user_key, ptr noundef readonly captures(address_is_null) %iv, i32 %enc) #1 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
@@ -230,7 +230,7 @@ declare void @ChaCha20_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef,
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly captures(none) %ctx, ptr noundef readonly %inkey, ptr noundef readonly %iv, i32 %enc) #5 {
+define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(address_is_null) %inkey, ptr noundef readonly captures(address_is_null) %iv, i32 %enc) #5 {
 entry:
   %temp = alloca [16 x i8], align 16
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
@@ -699,7 +699,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #2 {
+define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef captures(address_is_null) %ptr) #2 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8

@@ -2973,7 +2973,7 @@ define internal fastcc noundef i32 @_suspend_job(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_clear_shadow(ptr noundef readnone %0) unnamed_addr #0 {
+define internal fastcc void @_clear_shadow(ptr noundef readnone captures(address) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @gs_part_list, align 8
   %3 = tail call ptr @list_iterator_create(ptr noundef %2) #9
   %4 = tail call ptr @list_next(ptr noundef %3) #9

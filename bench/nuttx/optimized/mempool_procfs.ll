@@ -154,7 +154,7 @@ define void @mempool_procfs_register(ptr noundef initializes((0, 16)) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @mempool_procfs_unregister(ptr noundef readonly %0) local_unnamed_addr #5 {
+define void @mempool_procfs_unregister(ptr noundef readonly captures(address) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @g_mempool_procfs, align 8
   %.not9 = icmp eq ptr %2, null
   br i1 %.not9, label %.loopexit, label %.lr.ph.preheader

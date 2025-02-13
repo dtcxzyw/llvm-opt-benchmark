@@ -170,7 +170,7 @@ entry:
 declare i64 @ckh_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @prof_thread_name_alloc(ptr noundef %tsd, ptr noundef readonly %thread_name) local_unnamed_addr #0 {
+define hidden ptr @prof_thread_name_alloc(ptr noundef %tsd, ptr noundef readonly captures(address_is_null) %thread_name) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i277 = alloca %struct.rtree_ctx_s, align 8
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8

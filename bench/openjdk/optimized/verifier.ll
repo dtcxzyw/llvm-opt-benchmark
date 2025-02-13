@@ -417,7 +417,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN13ClassVerifierD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13ClassVerifierD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN8Verifier17should_verify_forEP7oopDescb(ptr noundef readnone %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8Verifier17should_verify_forEP7oopDescb(ptr noundef readnone captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ne ptr %0, null
   %brmerge.not = and i1 %3, %1
   %BytecodeVerificationRemote.val = load i8, ptr @BytecodeVerificationRemote, align 1
@@ -571,7 +571,7 @@ _ZN16ResourceMarkImplD2Ev.exit:                   ; preds = %10, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8Verifier20log_end_verificationEP12outputStreamPKcP6SymbolP7oopDesc(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8Verifier20log_end_verificationEP12outputStreamPKcP6SymbolP7oopDesc(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %42, label %5
 
@@ -2163,7 +2163,7 @@ define hidden void @_ZNK12ErrorContext13frame_detailsEP12outputStream(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK12ErrorContext16bytecode_detailsEP12outputStreamPK6Method(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK12ErrorContext16bytecode_detailsEP12outputStreamPK6Method(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %4
 
@@ -2194,7 +2194,7 @@ define hidden void @_ZNK12ErrorContext16bytecode_detailsEP12outputStreamPK6Metho
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK12ErrorContext15handler_detailsEP12outputStreamPK6Method(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK12ErrorContext15handler_detailsEP12outputStreamPK6Method(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %36, label %4
 
@@ -2264,7 +2264,7 @@ _ZN14ExceptionTableC2EPK6Method.exit.thread:      ; preds = %_ZN14ExceptionTable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK12ErrorContext16stackmap_detailsEP12outputStreamPK6Method(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK12ErrorContext16stackmap_detailsEP12outputStreamPK6Method(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %174, label %4
 
@@ -13002,7 +13002,7 @@ define linkonce_odr hidden noundef ptr @_ZN12ConstantPool25uncached_signature_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8192) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #12 align 2 {
+define hidden noundef zeroext i1 @_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8192) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #12 align 2 {
   br label %4
 
 4:                                                ; preds = %5, %3
@@ -14503,7 +14503,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE170ELS1_0ELS1_0ELS1_
 declare void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(ptr noundef nonnull align 8 dereferenceable(48), ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13ClassVerifier27is_same_or_direct_interfaceEP13InstanceKlass16VerificationTypeS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8192) %0, ptr noundef readonly captures(none) %1, ptr readnone %2, ptr readnone %3) local_unnamed_addr #12 align 2 {
+define hidden noundef zeroext i1 @_ZN13ClassVerifier27is_same_or_direct_interfaceEP13InstanceKlass16VerificationTypeS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8192) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #12 align 2 {
   %5 = icmp eq ptr %3, %2
   br i1 %5, label %.loopexit, label %6
 

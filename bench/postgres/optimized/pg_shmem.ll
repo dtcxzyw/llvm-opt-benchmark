@@ -174,7 +174,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GetHugePageSize(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @GetHugePageSize(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1

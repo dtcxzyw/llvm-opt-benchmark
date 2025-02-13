@@ -75,7 +75,7 @@ define void @h5trav_set_verbose(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @trav_info_add(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @trav_info_add(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %4
 
@@ -191,7 +191,7 @@ declare i32 @H5Oget_info_by_name3(i64 noundef, ptr noundef, ptr noundef, i32 nou
 declare i32 @H5Oget_info3(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @trav_info_visit_obj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #1 {
+define noundef i32 @trav_info_visit_obj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef captures(address_is_null) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq ptr %3, null
@@ -259,7 +259,7 @@ trav_info_add.exit:                               ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @trav_info_visit_lnk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
+define noundef i32 @trav_info_visit_lnk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) #1 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 1
   %6 = select i1 %5, i32 3, i32 4
@@ -607,7 +607,7 @@ define void @trav_info_init(ptr noundef %0, i64 noundef %1, ptr noundef writeonl
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @trav_info_free(ptr noundef %0) local_unnamed_addr #1 {
+define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %.preheader
 
@@ -726,7 +726,7 @@ define range(i32 -1, 1) i32 @h5trav_gettable(i64 noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3) #1 {
+define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) #1 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %8
@@ -831,13 +831,13 @@ trav_table_addlink.exit:                          ; preds = %13, %58, %8, %.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @trav_table_visit_lnk(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
+define internal noundef i32 @trav_table_visit_lnk(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address_is_null) %2) #1 {
   tail call fastcc void @trav_table_add(ptr noundef %2, ptr noundef %0, ptr noundef null)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit34, label %.preheader35
 
@@ -912,7 +912,7 @@ define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @trav_table_addflags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @trav_table_addflags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %44, label %5
 
@@ -1002,7 +1002,7 @@ define void @trav_table_init(i64 noundef %0, ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define void @trav_table_free(ptr noundef %0) local_unnamed_addr #1 {
+define void @trav_table_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %2
 
@@ -1722,7 +1722,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare i32 @H5Otoken_cmp(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @trav_table_add(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc void @trav_table_add(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %50, label %4
 

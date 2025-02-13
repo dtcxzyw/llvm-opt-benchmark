@@ -86,7 +86,7 @@ define hidden zeroext i1 @Curl_tls_keylog_enabled() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef zeroext i1 @Curl_tls_keylog_write_line(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @Curl_tls_keylog_write_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #8
   %3 = load ptr, ptr @keylog_file_fp, align 8, !tbaa !3

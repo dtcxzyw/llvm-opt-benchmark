@@ -398,7 +398,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr noundef writeonly captures(none) initializes((24, 32)) %ec, ptr noundef %cipher, ptr noundef readonly %key, i64 noundef %keylen, ptr noundef readnone captures(none) %cms_ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr noundef writeonly captures(none) initializes((24, 32)) %ec, ptr noundef %cipher, ptr noundef readonly captures(address_is_null) %key, i64 noundef %keylen, ptr noundef readnone captures(none) %cms_ctx) local_unnamed_addr #0 {
 entry:
   %cipher1 = getelementptr inbounds nuw i8, ptr %ec, i64 24
   store ptr %cipher, ptr %cipher1, align 8
@@ -433,7 +433,7 @@ return:                                           ; preds = %if.end5, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_EncryptedData_set1_key(ptr noundef %cms, ptr noundef %ciph, ptr noundef readonly %key, i64 noundef %keylen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_EncryptedData_set1_key(ptr noundef %cms, ptr noundef %ciph, ptr noundef readonly captures(address_is_null) %key, i64 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne i64 %keylen, 0

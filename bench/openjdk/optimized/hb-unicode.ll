@@ -104,7 +104,7 @@ define hidden void @hb_unicode_funcs_make_immutable(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @hb_unicode_funcs_reference(ptr noundef returned %0) local_unnamed_addr #4 {
+define hidden noundef ptr @hb_unicode_funcs_reference(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZL19hb_object_referenceI18hb_unicode_funcs_tEPT_S2_.exit, label %2
 
@@ -166,7 +166,7 @@ define internal noundef i32 @_ZL38hb_unicode_decompose_compatibility_nilP18hb_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_unicode_funcs_destroy(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @hb_unicode_funcs_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %common.ret42, label %2
 
@@ -308,7 +308,7 @@ common.ret42:                                     ; preds = %1, %5, %2, %61
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_unicode_funcs_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_unicode_funcs_set_user_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_set_user_dataI18hb_unicode_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %6
 
@@ -362,7 +362,7 @@ _ZL23hb_object_set_user_dataI18hb_unicode_funcs_tEbPT_P18hb_user_data_key_tPvPFv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 {
+define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_get_user_dataIK18hb_unicode_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %3
 

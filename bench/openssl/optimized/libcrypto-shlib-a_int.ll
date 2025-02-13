@@ -56,7 +56,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %a, ptr noundef %pp) local_unnamed_addr #2 {
+define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %a, ptr noundef captures(address_is_null) %pp) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -171,7 +171,7 @@ i2c_ibuf.exit:                                    ; preds = %if.end28.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %neg = alloca i32, align 4
   %0 = load ptr, ptr %pp, align 8
@@ -248,7 +248,7 @@ return:                                           ; preds = %lor.lhs.false28, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly %b, ptr noundef writeonly %pneg, ptr noundef readonly captures(none) %p, i64 noundef %plen) unnamed_addr #0 {
+define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly captures(address_is_null) %b, ptr noundef writeonly captures(address_is_null) %pneg, ptr noundef readonly captures(none) %p, i64 noundef %plen) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %plen, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -381,7 +381,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ASN1_UINTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
+define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -514,14 +514,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef captures(address_is_null) %a) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef readonly %a, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef readonly captures(address_is_null) %a, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %if.end
@@ -679,7 +679,7 @@ asn1_string_set_int64.exit:                       ; preds = %do.body.i7.i, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr noundef writeonly captures(none) %pr, ptr noundef readonly %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr noundef writeonly captures(none) %pr, ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %a, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -834,7 +834,7 @@ ASN1_INTEGER_set_int64.exit:                      ; preds = %do.body.i7.i.i, %do
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ASN1_INTEGER_get(ptr noundef %a) local_unnamed_addr #0 {
+define i64 @ASN1_INTEGER_get(ptr noundef captures(address_is_null) %a) local_unnamed_addr #0 {
 entry:
   %r = alloca i64, align 8
   %cmp = icmp eq ptr %a, null
@@ -995,7 +995,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr noundef writeonly captures(none) %pr, ptr noundef captures(address_is_null) %a) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %pr, ptr noundef %a, i32 noundef 10)
   ret i32 %call
@@ -1096,7 +1096,7 @@ ASN1_ENUMERATED_set_int64.exit:                   ; preds = %do.body.i7.i.i, %do
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ASN1_ENUMERATED_get(ptr noundef %a) local_unnamed_addr #0 {
+define i64 @ASN1_ENUMERATED_get(ptr noundef captures(address_is_null) %a) local_unnamed_addr #0 {
 entry:
   %r = alloca i64, align 8
   %cmp = icmp eq ptr %a, null
@@ -1141,7 +1141,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %ret, ptr noundef %neg, ptr noundef readonly captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %ret, ptr noundef captures(address_is_null) %neg, ptr noundef readonly captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %buf = alloca [8 x i8], align 1
   %0 = load ptr, ptr %pp, align 8
@@ -1186,7 +1186,7 @@ return:                                           ; preds = %entry, %asn1_get_ui
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @ossl_i2c_uint64_int(ptr noundef writeonly %p, i64 noundef %r, i32 noundef %neg) local_unnamed_addr #4 {
+define i32 @ossl_i2c_uint64_int(ptr noundef writeonly captures(address_is_null) %p, i64 noundef %r, i32 noundef %neg) local_unnamed_addr #4 {
 entry:
   %buf = alloca [8 x i8], align 1
   br label %do.body.i

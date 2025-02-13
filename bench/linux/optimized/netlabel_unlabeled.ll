@@ -2201,7 +2201,7 @@ define internal i32 @netlbl_unlabel_list(ptr readnone captures(none) %0, ptr nou
 declare dso_local i32 @security_secctx_to_secid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef range(i32 5, 9) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef range(i32 5, 9) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8

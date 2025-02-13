@@ -1602,7 +1602,7 @@ return:                                           ; preds = %if.then13.i.i.i525,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_115normalizeGCDLCMERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEEb(ptr noundef nonnull readonly align 8 dereferenceable(48) %sum, i1 noundef zeroext %followLCoeffSign) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_115normalizeGCDLCMERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %sum, i1 noundef zeroext %followLCoeffSign) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %denLCM = alloca %"class.cvc5::internal::Integer", align 8
   %numGCD = alloca %"class.cvc5::internal::Integer", align 8

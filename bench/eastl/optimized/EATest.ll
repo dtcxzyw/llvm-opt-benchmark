@@ -1504,7 +1504,7 @@ if.end:                                           ; preds = %_ZN5eastl9allocator
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14TestCollection10RemoveTestEPNS0_4TestEb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone %pTest, i1 noundef zeroext %bDeleteIfOwned) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN2EA8UnitTest14TestCollection10RemoveTestEPNS0_4TestEb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone captures(address) %pTest, i1 noundef zeroext %bDeleteIfOwned) unnamed_addr #0 align 2 {
 entry:
   %mTests = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTests, align 8
@@ -1958,7 +1958,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit27: ; preds = %cleanup, %if.the
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK2EA8UnitTest14TestCollection14EnumerateTestsEPPNS0_4TestEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef writeonly %pTestArray, i64 noundef %nTestArrayCapacity) unnamed_addr #19 align 2 {
+define dso_local noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK2EA8UnitTest14TestCollection14EnumerateTestsEPPNS0_4TestEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef writeonly captures(address_is_null) %pTestArray, i64 noundef %nTestArrayCapacity) unnamed_addr #19 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pTestArray, null
   br i1 %tobool.not, label %if.end8, label %if.then

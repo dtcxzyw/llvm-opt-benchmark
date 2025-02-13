@@ -212,7 +212,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_encapsulate(ptr noundef readonly captures(none) %vctx, ptr noundef writeonly %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) #0 {
+define internal range(i32 -2, 2) i32 @eckem_encapsulate(ptr noundef readonly captures(none) %vctx, ptr noundef writeonly captures(address_is_null) %out, ptr noundef captures(address_is_null) %outlen, ptr noundef %secret, ptr noundef captures(address_is_null) %secretlen) #0 {
 entry:
   %tmpbuf.i.i = alloca [66 x i8], align 16
   %sender_pub.i = alloca [133 x i8], align 16

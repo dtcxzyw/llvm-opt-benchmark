@@ -291,7 +291,7 @@ return:                                           ; preds = %sw.bb4, %sw.bb1, %s
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qnum_is_equal(ptr noundef readonly %x, ptr noundef readonly %y) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qnum_is_equal(ptr noundef readonly captures(address_is_null) %x, ptr noundef readonly captures(address_is_null) %y) local_unnamed_addr #0 {
 entry:
   br label %tailrecurse
 

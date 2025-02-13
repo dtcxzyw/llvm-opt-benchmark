@@ -84,7 +84,7 @@ define ptr @H5F__sfile_search(ptr noundef %0) local_unnamed_addr #1 {
 declare i32 @H5FD_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone captures(address) %0) local_unnamed_addr #1 {
   %.01318 = load ptr, ptr @H5F_sfile_head_s, align 8
   %cond19 = icmp eq ptr %.01318, null
   br i1 %cond19, label %._crit_edge, label %.lr.ph.preheader

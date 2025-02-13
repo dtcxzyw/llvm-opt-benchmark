@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_qrl_enc_level_set_have_el = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_qrl_enc_level_set_get(ptr noundef readonly %els, i32 noundef %enc_level, i32 noundef %require_prov) local_unnamed_addr #0 {
+define ptr @ossl_qrl_enc_level_set_get(ptr noundef readonly captures(ret: address, provenance) %els, i32 noundef %enc_level, i32 noundef %require_prov) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %enc_level, 4
   br i1 %cmp, label %if.end, label %return
@@ -68,7 +68,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef readonly %els, i32 noundef %enc_level, i8 noundef zeroext %tgt_state, i64 noundef %keyslot) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef readonly captures(address_is_null) %els, i32 noundef %enc_level, i8 noundef zeroext %tgt_state, i64 noundef %keyslot) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i32 %enc_level, 4
   br i1 %cmp.i, label %ossl_qrl_enc_level_set_get.exit, label %return

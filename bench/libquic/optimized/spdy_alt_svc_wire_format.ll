@@ -1369,7 +1369,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops16_Iter_equals_valIS0_EEET_S6_S6_T0_.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat13PercentDecodeEPKcS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %c, ptr noundef readnone %end, ptr noundef nonnull %output) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat13PercentDecodeEPKcS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(address) %c, ptr noundef readnone captures(address) %end, ptr noundef nonnull %output) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #16
   %cmp.not25 = icmp eq ptr %c, %end
@@ -1435,7 +1435,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat17ParseAltAuthorityEPKcS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPt(ptr noundef readonly %c, ptr noundef readnone %end, ptr noundef nonnull %host, ptr noundef writeonly captures(none) %port) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat17ParseAltAuthorityEPKcS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPt(ptr noundef readonly captures(address) %c, ptr noundef readnone captures(address) %end, ptr noundef nonnull %host, ptr noundef writeonly captures(none) %port) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #16
   %cmp.not18 = icmp eq ptr %c, %end
@@ -1513,7 +1513,7 @@ return:                                           ; preds = %land.rhs, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net20SpdyAltSvcWireFormat14SkipWhiteSpaceEPPKcS2_(ptr noundef captures(none) %c, ptr noundef readnone %end) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net20SpdyAltSvcWireFormat14SkipWhiteSpaceEPPKcS2_(ptr noundef captures(none) %c, ptr noundef readnone captures(address) %end) local_unnamed_addr #4 align 2 {
 entry:
   %c.promoted = load ptr, ptr %c, align 8
   %cmp.not4 = icmp eq ptr %c.promoted, %end
@@ -1546,7 +1546,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #5
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat22ParsePositiveInteger32EPKcS2_Pj(ptr noundef readonly %c, ptr noundef readnone %end, ptr noundef writeonly captures(none) initializes((0, 4)) %value) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat22ParsePositiveInteger32EPKcS2_Pj(ptr noundef readonly captures(address) %c, ptr noundef readnone captures(address) %end, ptr noundef writeonly captures(none) initializes((0, 4)) %value) local_unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %value, align 4
   %cmp.not12.i = icmp eq ptr %c, %end
@@ -1590,7 +1590,7 @@ _ZN3net12_GLOBAL__N_124ParsePositiveIntegerImplIjEEbPKcS3_PT_.exit: ; preds = %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat22ParsePositiveInteger16EPKcS2_Pt(ptr noundef readonly %c, ptr noundef readnone %end, ptr noundef writeonly captures(none) initializes((0, 2)) %value) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net20SpdyAltSvcWireFormat22ParsePositiveInteger16EPKcS2_Pt(ptr noundef readonly captures(address) %c, ptr noundef readnone captures(address) %end, ptr noundef writeonly captures(none) initializes((0, 2)) %value) local_unnamed_addr #6 align 2 {
 entry:
   store i16 0, ptr %value, align 2
   %cmp.not12.i = icmp eq ptr %c, %end

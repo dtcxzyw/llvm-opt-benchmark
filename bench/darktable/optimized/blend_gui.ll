@@ -284,7 +284,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._blendop_blendif_invert = private unnamed_addr constant [3 x i32] [i32 863436800, i32 2013200384, i32 2013200384], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @blend_color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @blend_color_picker_apply(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca [8 x float], align 16
@@ -743,7 +743,7 @@ declare ptr @dt_ioppr_get_pipe_current_profile_info(ptr noundef, ptr noundef) lo
 declare ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_blendif_scale(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %3, ptr noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 {
+define internal fastcc void @_blendif_scale(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 {
   %7 = alloca [4 x float], align 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store float -1.000000e+00, ptr %8, align 4, !tbaa !74
@@ -2623,7 +2623,7 @@ define internal void @_blendop_blendif_sliders_callback(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_blendop_blendif_sliders_reset_callback(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 {
+define internal void @_blendop_blendif_sliders_reset_callback(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !66
@@ -3010,7 +3010,7 @@ declare void @dt_bauhaus_slider_set_soft_range(ptr noundef, float noundef, float
 declare void @gtk_widget_set_sensitive(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !66
@@ -3197,7 +3197,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_blendop_blendif_tab_switch(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal void @_blendop_blendif_tab_switch(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !66
@@ -5069,7 +5069,7 @@ define void @dt_iop_gui_blending_lose_focus(ptr noundef %0) local_unnamed_addr #
 declare void @dt_iop_refresh_center(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @dt_iop_gui_blending_reload_defaults(ptr noundef readonly %0) local_unnamed_addr #11 {
+define void @dt_iop_gui_blending_reload_defaults(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -6153,7 +6153,7 @@ define internal void @_blendop_masks_combine_callback(ptr readnone captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_blendop_blendif_details_callback(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal void @_blendop_blendif_details_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !66
@@ -6201,7 +6201,7 @@ define internal void @_blendop_blendif_details_callback(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_blendop_blendif_feathering_callback(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
+define internal void @_blendop_blendif_feathering_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !66
@@ -6534,7 +6534,7 @@ declare void @gtk_widget_grab_focus(ptr noundef) local_unnamed_addr #2
 declare i32 @gtk_accelerator_get_default_mod_mask() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_blendop_blendif_channel_mask_view_toggle(ptr noundef readnone %0, ptr noundef %1, i32 noundef range(i32 1, 65539) %2) unnamed_addr #0 {
+define internal fastcc void @_blendop_blendif_channel_mask_view_toggle(ptr noundef readnone captures(address) %0, ptr noundef %1, i32 noundef range(i32 1, 65539) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 776
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 496

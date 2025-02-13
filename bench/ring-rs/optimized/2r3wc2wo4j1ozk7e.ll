@@ -1402,7 +1402,7 @@ _ZN4ring2ec10curve255197ed2551912eddsa_digest17h75959cbbc556302fE.exit.i: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(32) ptr @"_ZN99_$LT$ring..ec..curve25519..ed25519..signing..Ed25519KeyPair$u20$as$u20$ring..signature..KeyPair$GT$10public_key17hdb63296dc30ff0faE"(ptr noalias noundef readonly align 1 dereferenceable(96) %0) unnamed_addr #12 {
+define noundef nonnull align 1 dereferenceable(32) ptr @"_ZN99_$LT$ring..ec..curve25519..ed25519..signing..Ed25519KeyPair$u20$as$u20$ring..signature..KeyPair$GT$10public_key17hdb63296dc30ff0faE"(ptr noalias noundef readonly align 1 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
@@ -2465,7 +2465,7 @@ _ZN4ring6digest7Context6finish17ha820283835585a81E.exit: ; preds = %"_ZN106_$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @"_ZN92_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaKeyPair$u20$as$u20$ring..signature..KeyPair$GT$10public_key17h72c4a138afa2390dE"(ptr noalias noundef readonly align 8 dereferenceable(240) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(112) ptr @"_ZN92_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaKeyPair$u20$as$u20$ring..signature..KeyPair$GT$10public_key17h72c4a138afa2390dE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(240) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }
@@ -2587,7 +2587,7 @@ define noundef range(i64 6, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i64 2, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull writeonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i64 2, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7signing14format_rs_asn118format_integer_tlv17hae771c684efff8e8E(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull writeonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = alloca [49 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(49) %4, i8 0, i64 49, i1 false)
@@ -2861,7 +2861,7 @@ _ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %0, ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1) unnamed_addr #6 {
+define internal fastcc void @_ZN4ring2ec7suite_b11private_key20affine_from_jacobian17hca16ad6d3975c24aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %0, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1) unnamed_addr #6 {
   %.sroa.0.i6 = alloca [6 x i64], align 8
   %.sroa.0.i5 = alloca [6 x i64], align 8
   %.sroa.0.i = alloca [6 x i64], align 8

@@ -5700,7 +5700,7 @@ define internal fastcc void @_get_bounded_inside(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_get_near(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #15 {
+define internal fastcc void @_get_near(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #15 {
   %8 = fmul reassoc nsz arcp contract afn float %5, %5
   %9 = icmp slt i32 %2, 1
   %10 = icmp eq ptr %1, null
@@ -5904,7 +5904,7 @@ define internal fastcc void @_get_near(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_update_lines_count(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #15 {
+define internal fastcc void @_update_lines_count(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #15 {
   %5 = icmp ne ptr %0, null
   %6 = icmp sgt i32 %1, 0
   %7 = and i1 %5, %6
@@ -7474,7 +7474,7 @@ _update_lines_count.exit:                         ; preds = %154, %138
 declare void @dt_conf_set_float(ptr noundef, float noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 {
+define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !344
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -9834,7 +9834,7 @@ define internal void @_event_process_after_preview_callback(ptr readnone capture
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @gui_cleanup(ptr noundef readonly %0) local_unnamed_addr #2 {
+define void @gui_cleanup(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !453
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2224
   %4 = load ptr, ptr %3, align 16, !tbaa !509
@@ -9950,7 +9950,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #23 {
+define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #23 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.23) #36
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %87, label %4
@@ -10303,7 +10303,7 @@ declare float @llvm.fabs.f32(float) #12
 declare i32 @gtk_accelerator_get_default_mod_mask() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @simplex(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef range(i32 100, 401) %5, ptr noundef readonly %6, ptr noundef nonnull %7) unnamed_addr #5 {
+define internal fastcc i32 @simplex(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef range(i32 100, 401) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef nonnull %7) unnamed_addr #5 {
   %9 = add i32 %2, 1
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
@@ -14782,7 +14782,7 @@ declare double @llvm.sin.f64(double) #12
 declare double @llvm.log10.f64(double) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @region_grow(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef readonly %6, double noundef %7) unnamed_addr #5 {
+define internal fastcc void @region_grow(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef readonly captures(address_is_null) %6, double noundef %7) unnamed_addr #5 {
   %9 = or i32 %1, %0
   %or.cond.not = icmp sgt i32 %9, -1
   br i1 %or.cond.not, label %10, label %16
@@ -15112,7 +15112,7 @@ isaligned.exit.thread:                            ; preds = %113, %.lr.ph, %92, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @region2rect(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, double noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #5 {
+define internal fastcc void @region2rect(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, double noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -15476,7 +15476,7 @@ declare double @llvm.atan2.f64(double, double) #12
 declare double @llvm.cos.f64(double) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @rect_nfa(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, double noundef %2) unnamed_addr #5 {
+define internal fastcc double @rect_nfa(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2) unnamed_addr #5 {
   %4 = alloca [4 x double], align 16
   %5 = alloca [4 x double], align 16
   %6 = icmp eq ptr %1, null
@@ -16039,7 +16039,7 @@ nfa.exit:                                         ; preds = %139, %143, %292, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_inc(ptr noundef %0) unnamed_addr #5 {
+define internal fastcc void @ri_inc(ptr noundef captures(address_is_null) %0) unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.split39, label %ri_end.exit
 

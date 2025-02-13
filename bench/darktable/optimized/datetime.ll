@@ -89,7 +89,7 @@ declare i32 @g_date_time_get_second(ptr noundef) local_unnamed_addr #1
 declare i32 @g_date_time_get_microsecond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_datetime_exif_to_numbers(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_datetime_exif_to_numbers(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [24 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %54, label %4
@@ -211,7 +211,7 @@ declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_datetime_exif_to_numbers_raw(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_datetime_exif_to_numbers_raw(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %45, label %4
@@ -573,7 +573,7 @@ _gdatetime_to_gtimespan.exit:                     ; preds = %0, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_datetime_exif_to_img(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @dt_datetime_exif_to_img(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dt_datetime_t, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %4
@@ -641,7 +641,7 @@ dt_datetime_exif_to_gdatetime.exit:               ; preds = %7, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_datetime_exif_to_gdatetime(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @dt_datetime_exif_to_gdatetime(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dt_datetime_t, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #7
   %4 = call i32 @dt_datetime_exif_to_numbers(ptr noundef nonnull %3, ptr noundef %0)
@@ -1084,7 +1084,7 @@ define void @dt_datetime_add_subsec_to_exif(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @dt_datetime_exif_to_gtimespan(ptr noundef %0) local_unnamed_addr #0 {
+define i64 @dt_datetime_exif_to_gtimespan(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.dt_datetime_t, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %3
@@ -1192,7 +1192,7 @@ define ptr @dt_datetime_gtimespan_to_gdatetime(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @dt_datetime_numbers_to_gtimespan(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i64 @dt_datetime_numbers_to_gtimespan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_gdatetime_to_gtimespan.exit, label %2
 
@@ -1297,7 +1297,7 @@ dt_datetime_gdatetime_to_gtimespan.exit:          ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_datetime_exif_add_numbers(ptr noundef %0, ptr noundef readonly byval(%struct.dt_datetime_t) align 8 captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_datetime_exif_add_numbers(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.dt_datetime_t) align 8 captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.dt_datetime_t, align 4
   %6 = alloca [20 x i8], align 16
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3328), align 8, !tbaa !6

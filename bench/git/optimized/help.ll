@@ -1044,7 +1044,7 @@ declare ptr @git_exec_path() local_unnamed_addr #2
 declare void @load_builtin_commands(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @list_commands_in_dir(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @list_commands_in_dir(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   %5 = tail call ptr @opendir(ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
@@ -1366,7 +1366,7 @@ _.exit:                                           ; preds = %0, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_cmd_by_category(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @print_cmd_by_category(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !39
   %.not45 = icmp eq ptr %4, null

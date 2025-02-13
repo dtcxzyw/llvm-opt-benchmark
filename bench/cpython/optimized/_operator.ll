@@ -559,7 +559,7 @@ _operator_is_not_impl.exit:                       ; preds = %13, %6, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @_operator_is_none(ptr readnone captures(none) %0, ptr noundef readnone %1) #2 {
+define internal noundef nonnull ptr @_operator_is_none(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1) #2 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   %4 = select i1 %3, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   %5 = load i32, ptr %4, align 8, !tbaa !18
@@ -576,7 +576,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @_operator_is_not_none(ptr readnone captures(none) %0, ptr noundef readnone %1) #2 {
+define internal noundef nonnull ptr @_operator_is_not_none(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1) #2 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   %4 = select i1 %3, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %5 = load i32, ptr %4, align 8, !tbaa !18

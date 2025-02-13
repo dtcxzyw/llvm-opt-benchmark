@@ -72,7 +72,7 @@ entry:
 declare void @audio_driver_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @oss_audio_init(ptr noundef readonly %dev, ptr noundef %errp) #0 {
+define internal noundef ptr @oss_audio_init(ptr noundef readonly captures(ret: address, provenance) %dev, ptr noundef %errp) #0 {
 entry:
   %driver = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8

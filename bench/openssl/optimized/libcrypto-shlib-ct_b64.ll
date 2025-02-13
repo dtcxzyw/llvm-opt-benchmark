@@ -178,7 +178,7 @@ declare i32 @SCT_set_log_entry_type(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @SCT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CTLOG_new_from_base64_ex(ptr noundef writeonly %ct_log, ptr noundef %pkey_base64, ptr noundef %name, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CTLOG_new_from_base64_ex(ptr noundef writeonly captures(address_is_null) %ct_log, ptr noundef %pkey_base64, ptr noundef %name, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %pkey_der = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -240,7 +240,7 @@ declare ptr @CTLOG_new_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CTLOG_new_from_base64(ptr noundef %ct_log, ptr noundef %pkey_base64, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CTLOG_new_from_base64(ptr noundef captures(address_is_null) %ct_log, ptr noundef %pkey_base64, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CTLOG_new_from_base64_ex(ptr noundef %ct_log, ptr noundef %pkey_base64, ptr noundef %name, ptr noundef null, ptr noundef null)
   ret i32 %call

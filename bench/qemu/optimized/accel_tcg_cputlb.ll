@@ -721,7 +721,7 @@ tlb_flush_page_by_mmuidx.exit:                    ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tlb_flush_page_by_mmuidx_all_cpus(ptr noundef %src_cpu, i64 noundef %addr, i16 noundef zeroext %idxmap) local_unnamed_addr #0 {
+define dso_local void @tlb_flush_page_by_mmuidx_all_cpus(ptr noundef captures(address) %src_cpu, i64 noundef %addr, i16 noundef zeroext %idxmap) local_unnamed_addr #0 {
 entry:
   %and = and i64 %addr, -4096
   %cmp = icmp ult i16 %idxmap, 4096
@@ -789,7 +789,7 @@ if.end18:                                         ; preds = %while.end16, %while
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tlb_flush_page_all_cpus(ptr noundef %src, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @tlb_flush_page_all_cpus(ptr noundef captures(address) %src, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %and.i = and i64 %addr, -4096
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
@@ -2794,7 +2794,7 @@ if.end3:                                          ; preds = %tlb_set_dirty.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2049) i32 @probe_access_full_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, ptr noundef writeonly %phost, ptr noundef %pfull) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2049) i32 @probe_access_full_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, ptr noundef writeonly captures(address_is_null) %phost, ptr noundef captures(address_is_null) %pfull) local_unnamed_addr #0 {
 entry:
   %discard_phost = alloca ptr, align 8
   %discard_tlb = alloca ptr, align 8
@@ -2931,7 +2931,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @get_page_addr_code_hostp(ptr noundef %env, i64 noundef %addr, ptr noundef writeonly %hostp) local_unnamed_addr #0 {
+define dso_local i64 @get_page_addr_code_hostp(ptr noundef %env, i64 noundef %addr, ptr noundef writeonly captures(address_is_null) %hostp) local_unnamed_addr #0 {
 entry:
   %full = alloca ptr, align 8
   %p = alloca ptr, align 8

@@ -10478,7 +10478,7 @@ ehcleanup70:                                      ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator8SaveTypeERKNS_10DefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapISA_NS_12_GLOBAL__N_116ImportDefinitionESt4lessISA_ESaISt4pairISB_SF_EEESM_(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(200) %definition, ptr noundef nonnull align 8 dereferenceable(32) %class_code, ptr noundef nonnull readonly align 8 dereferenceable(48) %imports, ptr noundef nonnull readonly align 8 dereferenceable(48) %bare_imports) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator8SaveTypeERKNS_10DefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapISA_NS_12_GLOBAL__N_116ImportDefinitionESt4lessISA_ESaISt4pairISB_SF_EEESM_(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(200) %definition, ptr noundef nonnull align 8 dereferenceable(32) %class_code, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %imports, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %bare_imports) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %code = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13077,7 +13077,7 @@ ehcleanup19:                                      ; preds = %ehcleanup18, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN11flatbuffers2ts11TsGenerator18CheckIfNameClashesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERSE_(ptr noundef nonnull readonly align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN11flatbuffers2ts11TsGenerator18CheckIfNameClashesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERSE_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %imports, i64 24
   %imports.val = load ptr, ptr %0, align 8

@@ -1870,7 +1870,7 @@ declare dso_local void @input_unregister_device(ptr noundef) local_unnamed_addr 
 declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @atkbd_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #12 align 16 {
+define internal zeroext i16 @atkbd_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #12 align 16 {
   %4 = icmp eq ptr %1, @atkbd_attr_function_row_physmap
   br i1 %4, label %5, label %11
 

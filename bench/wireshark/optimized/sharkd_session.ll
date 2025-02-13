@@ -6336,7 +6336,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @g_string_chunk_new(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sharkd_session_packet_tap_expert_cb(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #3 {
+define internal range(i32 0, 2) i32 @sharkd_session_packet_tap_expert_cb(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #3 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %20, label %7
 
@@ -8083,7 +8083,7 @@ declare ptr @new_phs_t(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @protohierstat_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sharkd_session_process_tap_phs_cb(ptr noundef %0) #3 {
+define internal void @sharkd_session_process_tap_phs_cb(ptr noundef captures(address_is_null) %0) #3 {
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper) #18
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.20) #18
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.136) #18
@@ -8857,7 +8857,7 @@ declare void @rtppacket_analyse(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @mcaststream_reset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sharkd_session_process_tap_phs_cb_aux(ptr noundef readonly %0) unnamed_addr #3 {
+define internal fastcc void @sharkd_session_process_tap_phs_cb_aux(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #3 {
   %.not12 = icmp eq ptr %0, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -9026,7 +9026,7 @@ declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @check_field_unit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sharkd_iograph_packet(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr readnone captures(none) %3, i32 %4) #3 {
+define internal range(i32 0, 2) i32 @sharkd_iograph_packet(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3, i32 %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @get_io_graph_index(ptr noundef %1, i32 noundef %7) #18
@@ -9777,7 +9777,7 @@ declare void @nstime_sum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) #3 {
+define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) #3 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
@@ -10081,7 +10081,7 @@ declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #2
 declare ptr @get_data_source_tvb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sharkd_session_process_frame_cb_tree(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @sharkd_session_process_frame_cb_tree(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [240 x i8], align 16
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %sharkd_json_array_open.exit, label %7

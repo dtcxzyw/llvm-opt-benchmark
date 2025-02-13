@@ -2929,7 +2929,7 @@ declare dso_local ptr @fget(i32 noundef) local_unnamed_addr #5
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, ptr noundef initializes((0, 64)) %0, ptr noundef readonly %1, i32 noundef range(i32 -1073741762, 1073741828) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, ptr noundef initializes((0, 64)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 -1073741762, 1073741828) %2) unnamed_addr #0 align 16 {
   %.152.val.64.val.fr = freeze ptr %.152.val.64.val
   %4 = icmp eq ptr %1, null
   br i1 %4, label %6, label %5

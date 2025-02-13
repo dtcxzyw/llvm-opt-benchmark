@@ -10041,7 +10041,7 @@ define dso_local noundef ptr @_ZN4llvm12DWARFContext17getDebugAbbrevDWOEv(ptr no
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_1clEPKcNS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISD_EEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr readonly %2, ptr readnone %3) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_1clEPKcNS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISD_EEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::DWARFDie", align 8
   %7 = alloca %"struct.llvm::DIDumpOptions", align 8
@@ -10583,7 +10583,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit61:               ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_2clEPKcNS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISD_EEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr readonly %2, ptr readnone %3) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_2clEPKcNS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISD_EEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::DWARFDie", align 8
   %7 = alloca %"struct.llvm::DIDumpOptions", align 8
@@ -12290,7 +12290,7 @@ _ZN4llvm5ErrorD2Ev.exit14:                        ; preds = %_ZN4llvm13DIDumpOpt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %.0.val, i64 %.8.val, ptr readonly %.0.val1, ptr readnone %.8.val3, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %.0.val, i64 %.8.val, ptr readonly captures(address) %.0.val1, ptr readnone captures(address) %.8.val3, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -29842,7 +29842,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_129ThreadUns
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_129ThreadUnsafeDWARFContextState7DWOFileESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_129ThreadUnsafeDWARFContextState7DWOFileESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %7, label %5
@@ -31376,7 +31376,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNSt7__cxx1112basi
 declare noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116DWARFObjInMemory18mapSectionToMemberEN4llvm9StringRefE(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #19 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116DWARFObjInMemory18mapSectionToMemberEN4llvm9StringRefE(ptr noundef nonnull readnone align 8 captures(address, ret: address, provenance) dereferenceable(1816) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #19 align 2 {
   %4 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_116DWARFObjInMemory21mapNameToDWARFSectionEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1816) %0, ptr %1, i64 %2)
   %.not.not = icmp eq ptr %4, null
   br i1 %.not.not, label %5, label %_ZN4llvm12StringSwitchIPNS_9StringRefES2_E4CaseENS_13StringLiteralES2_.exit96
@@ -31475,7 +31475,7 @@ _ZN4llvm12StringSwitchIPNS_9StringRefES2_E4CaseENS_13StringLiteralES2_.exit96: ;
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116DWARFObjInMemory21mapNameToDWARFSectionEN4llvm9StringRefE(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #19 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116DWARFObjInMemory21mapNameToDWARFSectionEN4llvm9StringRefE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #19 align 2 {
   switch i64 %2, label %.thread500.thread [
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i64 14, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i9
@@ -32470,13 +32470,13 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116DWARFObjInMemory16getAbbrevSec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory13getLocSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory13getLocSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getLoclistsSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getLoclistsSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   ret ptr %2
 }
@@ -32493,19 +32493,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116DWARFObjInMemory17getArangesSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory15getFrameSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory15getFrameSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory17getEHFrameSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory17getEHFrameSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 776
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory14getLineSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory14getLineSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   ret ptr %2
 }
@@ -32533,19 +32533,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116DWARFObjInMemory13getStrSectio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory16getRangesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory16getRangesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getRnglistsSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getRnglistsSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory15getMacroSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory15getMacroSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   ret ptr %2
 }
@@ -32584,31 +32584,31 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116DWARFObjInMemory20getMacinfoDW
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getPubnamesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getPubnamesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getPubtypesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory18getPubtypesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getGnuPubnamesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getGnuPubnamesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getGnuPubtypesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getGnuPubtypesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory20getStrOffsetsSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory20getStrOffsetsSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   ret ptr %2
 }
@@ -32671,19 +32671,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116DWARFObjInMemory19getAbbrevDWO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory17getLineDWOSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory17getLineDWOSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory16getLocDWOSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory16getLocDWOSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 824
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getLoclistsDWOSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getLoclistsDWOSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   ret ptr %2
 }
@@ -32700,55 +32700,55 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116DWARFObjInMemory16getStrDWOSec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory23getStrOffsetsDWOSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory23getStrOffsetsDWOSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory19getRangesDWOSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory19getRangesDWOSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getRnglistsDWOSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory21getRnglistsDWOSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 968
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory14getAddrSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory14getAddrSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory20getAppleNamesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory20getAppleNamesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory20getAppleTypesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory20getAppleTypesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory25getAppleNamespacesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory25getAppleNamespacesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory15getNamesSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory15getNamesSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory19getAppleObjCSectionEv(ptr noundef nonnull readnone align 8 dereferenceable(1816) %0) unnamed_addr #17 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__N_116DWARFObjInMemory19getAppleObjCSectionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1816) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   ret ptr %2
 }

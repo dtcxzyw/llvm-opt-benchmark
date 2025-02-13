@@ -1375,7 +1375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit265: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ISoundManager18reportRemovedSoundEi(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %id) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN13ISoundManager18reportRemovedSoundEi(ptr noundef nonnull align 8 captures(address) dereferenceable(96) %this, i32 noundef %id) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i32 %id, 1
   br i1 %cmp, label %return, label %if.end
@@ -1449,7 +1449,7 @@ return:                                           ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13ISoundManager6freeIdEij(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %id, i32 noundef %num_owners) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ISoundManager6freeIdEij(ptr noundef nonnull align 8 captures(address) dereferenceable(96) %this, i32 noundef %id, i32 noundef %num_owners) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_occupied_ids = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32

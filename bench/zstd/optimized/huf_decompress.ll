@@ -1859,7 +1859,7 @@ return:                                           ; preds = %if.end3.i31, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef captures(none) %dctx, ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %workSpace, i64 noundef %wkspSize, i32 noundef %flags) local_unnamed_addr #0 {
+define i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef captures(none) %dctx, ptr noundef captures(address) %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %workSpace, i64 noundef %wkspSize, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @HUF_readDTableX1_wksp(ptr noundef %dctx, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %workSpace, i64 noundef %wkspSize, i32 noundef %flags)
   %cmp.i = icmp ult i64 %call, -119
@@ -1902,7 +1902,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef readonly captures(none) %DTable, i32 noundef %flags) unnamed_addr #6 {
+define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef captures(address) %dst, i64 noundef %dstSize, ptr noundef captures(address) %cSrc, i64 noundef %cSrcSize, ptr noundef readonly captures(none) %DTable, i32 noundef %flags) unnamed_addr #6 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -7397,7 +7397,7 @@ return:                                           ; preds = %if.end70, %cond.end
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noundef writeonly %dst, i64 noundef %dstSize, ptr noundef readonly %cSrc, i64 noundef %cSrcSize, ptr noundef readonly captures(none) %DTable) unnamed_addr #10 {
+define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noundef writeonly captures(address) %dst, i64 noundef %dstSize, ptr noundef readonly captures(address) %cSrc, i64 noundef %cSrcSize, ptr noundef readonly captures(none) %DTable) unnamed_addr #10 {
 entry:
   %cond.idx.i = tail call i64 @llvm.smax.i64(i64 %dstSize, i64 0)
   %cond.i = getelementptr inbounds nuw i8, ptr %dst, i64 %cond.idx.i

@@ -67,7 +67,7 @@ define internal noundef i32 @linux_module_init() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -27, 1) i32 @query(i32 noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal range(i32 -27, 1) i32 @query(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

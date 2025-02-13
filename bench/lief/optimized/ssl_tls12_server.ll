@@ -4265,7 +4265,7 @@ declare void @mbedtls_ssl_send_flight_completed(ptr noundef) local_unnamed_addr 
 declare i32 @mbedtls_ssl_read_record(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_client_dh_public(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone %2) unnamed_addr #5 {
+define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_client_dh_public(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone captures(address) %2) unnamed_addr #5 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %6 = icmp ugt ptr %5, %2
@@ -4443,7 +4443,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %18, %3
 declare i32 @mbedtls_ssl_psk_derive_premaster(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_parse_encrypted_pms(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i64 noundef range(i64 0, 3) %3) unnamed_addr #5 {
+define internal fastcc i32 @ssl_parse_encrypted_pms(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i64 noundef range(i64 0, 3) %3) unnamed_addr #5 {
   %5 = alloca [2 x i8], align 1
   %6 = alloca [48 x i8], align 16
   %7 = alloca [48 x i8], align 16

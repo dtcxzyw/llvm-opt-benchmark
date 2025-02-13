@@ -205,7 +205,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, ptr noundef readonly %initial_odcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, ptr noundef readonly captures(address_is_null) %initial_odcid) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   %cmp = icmp eq ptr %initial_odcid, null
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, i32 noundef range(i32 1, 3) %type, ptr noundef %lcid_out, ptr noundef writeonly %seq_num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, i32 noundef range(i32 1, 3) %type, ptr noundef %lcid_out, ptr noundef writeonly captures(address_is_null) %seq_num) unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   %call = tail call fastcc ptr @lcidm_upsert_conn(ptr noundef %lcidm, ptr noundef %opaque)
@@ -517,7 +517,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_retire(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, i64 noundef %retire_prior_to, ptr noundef readonly %containing_pkt_dcid, ptr noundef writeonly %retired_lcid, ptr noundef writeonly %retired_seq_num, ptr noundef writeonly %did_retire) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_retire(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, i64 noundef %retire_prior_to, ptr noundef readonly captures(address_is_null) %containing_pkt_dcid, ptr noundef writeonly captures(address_is_null) %retired_lcid, ptr noundef writeonly captures(address_is_null) %retired_seq_num, ptr noundef writeonly captures(address_is_null) %did_retire) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcidm_conn_st, align 8
   %args = alloca %struct.retire_args, align 8
@@ -673,7 +673,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_lookup(ptr noundef readonly captures(none) %lcidm, ptr noundef readonly %lcid, ptr noundef writeonly %seq_num, ptr noundef writeonly %opaque) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_lookup(ptr noundef readonly captures(none) %lcidm, ptr noundef readonly captures(address_is_null) %lcid, ptr noundef writeonly captures(address_is_null) %seq_num, ptr noundef writeonly captures(address_is_null) %opaque) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.quic_lcid_st, align 8
   %cmp = icmp eq ptr %lcid, null
@@ -757,7 +757,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_add(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, ptr noundef readonly %lcid, i64 noundef %seq_num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_add(ptr noundef readonly captures(none) %lcidm, ptr noundef %opaque, ptr noundef readonly captures(address_is_null) %lcid, i64 noundef %seq_num) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   %cmp = icmp eq ptr %lcid, null

@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [9 x i8] c"_span_%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @layout_block(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
+define ptr @layout_block(ptr noundef %0, ptr noundef captures(address) %1, double noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.agxbuf, align 8

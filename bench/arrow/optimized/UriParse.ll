@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseSingleUriA(ptr noundef %uri, ptr noundef %text, ptr noundef writeonly %errorPos) local_unnamed_addr #0 {
+define i32 @uriParseSingleUriA(ptr noundef %uri, ptr noundef %text, ptr noundef writeonly captures(address_is_null) %errorPos) local_unnamed_addr #0 {
 entry:
   %state.i.i = alloca %struct.UriParserStateStructA, align 8
   %cmp1.i.not = icmp eq ptr %text, null
@@ -500,7 +500,7 @@ uriParseSingleUriExA.exit:                        ; preds = %if.end.i.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseSingleUriExA(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly %errorPos) local_unnamed_addr #0 {
+define i32 @uriParseSingleUriExA(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly captures(address_is_null) %errorPos) local_unnamed_addr #0 {
 entry:
   %state.i = alloca %struct.UriParserStateStructA, align 8
   %cmp = icmp eq ptr %afterLast, null
@@ -550,7 +550,7 @@ uriParseSingleUriExMmA.exit:                      ; preds = %if.end, %do.body.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseSingleUriExMmA(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly %errorPos, ptr noundef %memory) local_unnamed_addr #0 {
+define i32 @uriParseSingleUriExMmA(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly captures(address_is_null) %errorPos, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct.UriParserStateStructA, align 8
   %cmp = icmp eq ptr %uri, null
@@ -598,7 +598,7 @@ return:                                           ; preds = %do.end, %if.end17, 
 declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriFreeUriMembersMmA(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriFreeUriMembersMmA(ptr noundef captures(address_is_null) %uri, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %do.body
@@ -873,7 +873,7 @@ return:                                           ; preds = %if.end156, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFreeUriMembersA(ptr noundef %uri) local_unnamed_addr #0 {
+define void @uriFreeUriMembersA(ptr noundef captures(address_is_null) %uri) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriFreeUriMembersMmA(ptr noundef %uri, ptr noundef null)
   ret void
@@ -2095,7 +2095,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseSingleUriW(ptr noundef %uri, ptr noundef %text, ptr noundef writeonly %errorPos) local_unnamed_addr #0 {
+define i32 @uriParseSingleUriW(ptr noundef %uri, ptr noundef %text, ptr noundef writeonly captures(address_is_null) %errorPos) local_unnamed_addr #0 {
 entry:
   %state.i.i = alloca %struct.UriParserStateStructW, align 8
   %cmp1.i.not = icmp eq ptr %text, null
@@ -2139,7 +2139,7 @@ uriParseSingleUriExW.exit:                        ; preds = %if.end.i.thread, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseSingleUriExW(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly %errorPos) local_unnamed_addr #0 {
+define i32 @uriParseSingleUriExW(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly captures(address_is_null) %errorPos) local_unnamed_addr #0 {
 entry:
   %state.i = alloca %struct.UriParserStateStructW, align 8
   %cmp = icmp eq ptr %afterLast, null
@@ -2189,7 +2189,7 @@ uriParseSingleUriExMmW.exit:                      ; preds = %if.end, %do.body.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseSingleUriExMmW(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly %errorPos, ptr noundef %memory) local_unnamed_addr #0 {
+define i32 @uriParseSingleUriExMmW(ptr noundef %uri, ptr noundef %first, ptr noundef %afterLast, ptr noundef writeonly captures(address_is_null) %errorPos, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct.UriParserStateStructW, align 8
   %cmp = icmp eq ptr %uri, null
@@ -2235,7 +2235,7 @@ return:                                           ; preds = %do.end, %if.end17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_is_null) %uri, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %do.body
@@ -2510,7 +2510,7 @@ return:                                           ; preds = %if.end156, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFreeUriMembersW(ptr noundef %uri) local_unnamed_addr #0 {
+define void @uriFreeUriMembersW(ptr noundef captures(address_is_null) %uri) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriFreeUriMembersMmW(ptr noundef %uri, ptr noundef null)
   ret void

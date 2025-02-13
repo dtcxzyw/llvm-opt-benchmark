@@ -3104,7 +3104,7 @@ FreePageBtreeAdjustAncestorKeys.exit:             ; preds = %52, %23, %8, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @FreePageBtreeAdjustAncestorKeys(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc void @FreePageBtreeAdjustAncestorKeys(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %4 = sub i64 1, %3
   %5 = getelementptr i8, ptr %0, i64 %4

@@ -470,7 +470,7 @@ ehcleanup9:                                       ; preds = %ehcleanup, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7rocksdb20StringAppendOperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef nonnull %new_value, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb20StringAppendOperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef nonnull %new_value, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %new_value) #17
   %tobool.not = icmp eq ptr %existing_value, null

@@ -122,7 +122,7 @@ define void @_ZN3gmx12MembedHolderC2EOS0_(ptr noundef nonnull writeonly align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(9) ptr @_ZN3gmx12MembedHolderaSEOS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(9) ptr @_ZN3gmx12MembedHolderaSEOS0_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(9) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(9) %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %9, label %3
 

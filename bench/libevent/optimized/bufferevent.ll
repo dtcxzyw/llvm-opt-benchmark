@@ -1476,7 +1476,7 @@ do.end18:                                         ; preds = %do.end3.thread, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bufferevent_getcb(ptr noundef readonly captures(none) %bufev, ptr noundef writeonly %readcb_ptr, ptr noundef writeonly %writecb_ptr, ptr noundef writeonly %eventcb_ptr, ptr noundef writeonly %cbarg_ptr) local_unnamed_addr #0 {
+define dso_local void @bufferevent_getcb(ptr noundef readonly captures(none) %bufev, ptr noundef writeonly captures(address_is_null) %readcb_ptr, ptr noundef writeonly captures(address_is_null) %writecb_ptr, ptr noundef writeonly captures(address_is_null) %eventcb_ptr, ptr noundef writeonly captures(address_is_null) %cbarg_ptr) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1703,7 +1703,7 @@ if.end22:                                         ; preds = %bufferevent_incref_
 declare void @event_debugx_(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_set_timeouts(ptr noundef initializes((336, 368)) %bufev, ptr noundef readonly %tv_read, ptr noundef readonly %tv_write) local_unnamed_addr #0 {
+define dso_local i32 @bufferevent_set_timeouts(ptr noundef initializes((336, 368)) %bufev, ptr noundef readonly captures(address_is_null) %tv_read, ptr noundef readonly captures(address_is_null) %tv_write) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2258,7 +2258,7 @@ declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #1
 declare i32 @evbuffer_cb_clear_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @bufferevent_getwatermark(ptr noundef readonly captures(none) %bufev, i16 noundef signext %events, ptr noundef writeonly %lowmark, ptr noundef writeonly %highmark) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_getwatermark(ptr noundef readonly captures(none) %bufev, i16 noundef signext %events, ptr noundef writeonly captures(address_is_null) %lowmark, ptr noundef writeonly captures(address_is_null) %highmark) local_unnamed_addr #0 {
 entry:
   switch i16 %events, label %return [
     i16 4, label %do.body

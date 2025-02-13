@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [49 x i8] c"assertion failed: (length % AES_BLOCK_SIZE) == 0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @AES_ige_encrypt(ptr noundef readonly %in, ptr noundef %out, i64 noundef %length, ptr noundef %key, ptr noundef %ivec, i32 noundef %enc) local_unnamed_addr #0 {
+define void @AES_ige_encrypt(ptr noundef readonly captures(address) %in, ptr noundef %out, i64 noundef %length, ptr noundef %key, ptr noundef captures(address_is_null) %ivec, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tmp2 = alloca %struct.aes_block_t, align 8
   %tmp99 = alloca %struct.aes_block_t, align 8
@@ -262,7 +262,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @AES_decrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @AES_bi_ige_encrypt(ptr noundef readonly %in, ptr noundef %out, i64 noundef %length, ptr noundef %key, ptr noundef readnone captures(none) %key2, ptr noundef readonly %ivec, i32 noundef %enc) local_unnamed_addr #0 {
+define void @AES_bi_ige_encrypt(ptr noundef readonly captures(address_is_null) %in, ptr noundef %out, i64 noundef %length, ptr noundef %key, ptr noundef readnone captures(none) %key2, ptr noundef readonly captures(address_is_null) %ivec, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca [16 x i8], align 16
   %tmp2 = alloca [16 x i8], align 16

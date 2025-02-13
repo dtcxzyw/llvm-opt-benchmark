@@ -32,7 +32,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @ws_mempbrk_sse42_compile(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %0, i64 %1
   %6 = icmp ult ptr %0, %5
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -114,7 +114,7 @@ ws_mempbrk_portable_exec.exit:                    ; preds = %21, %20, %19, %12, 
 declare ptr @ws_mempbrk_sse42_exec(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %0, i64 %1
   br label %6
 

@@ -709,7 +709,7 @@ if.end13:                                         ; preds = %if.then.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @app_passwd(ptr noundef %arg1, ptr noundef %arg2, ptr noundef writeonly %pass1, ptr noundef writeonly %pass2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @app_passwd(ptr noundef %arg1, ptr noundef %arg2, ptr noundef writeonly captures(address_is_null) %pass1, ptr noundef writeonly captures(address_is_null) %pass2) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %arg1, null
   %cmp1 = icmp ne ptr %arg2, null
@@ -1546,7 +1546,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare ptr @X509_load_http(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %uri, i32 noundef %format, i32 noundef %maybe_stdin, ptr noundef %pass, ptr noundef %desc, i32 noundef %quiet, ptr noundef writeonly %ppkey, ptr noundef writeonly %ppubkey, ptr noundef writeonly %pparams, ptr noundef writeonly %pcert, ptr noundef %pcerts, ptr noundef writeonly %pcrl, ptr noundef %pcrls) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %uri, i32 noundef %format, i32 noundef %maybe_stdin, ptr noundef %pass, ptr noundef %desc, i32 noundef %quiet, ptr noundef writeonly captures(address) %ppkey, ptr noundef writeonly captures(address) %ppubkey, ptr noundef writeonly captures(address) %pparams, ptr noundef writeonly captures(address) %pcert, ptr noundef captures(address) %pcerts, ptr noundef writeonly captures(address) %pcrl, ptr noundef captures(address) %pcrls) local_unnamed_addr #0 {
 entry:
   %uidata = alloca %struct.pw_cb_data, align 8
   %itp = alloca [2 x %struct.ossl_param_st], align 16
@@ -2512,7 +2512,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @next_item(ptr noundef %opt) local_unnamed_addr #8 {
+define dso_local ptr @next_item(ptr noundef captures(ret: address, provenance) %opt) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %opt, align 1
   %cmp.not14 = icmp eq i8 %0, 44
@@ -2572,7 +2572,7 @@ if.end:                                           ; preds = %if.end.loopexit, %w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_cert_certs(ptr noundef %uri, ptr noundef %pcert, ptr noundef %pcerts, i32 noundef %exclude_http, ptr noundef %pass, ptr noundef %desc, ptr noundef %vpm) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_cert_certs(ptr noundef %uri, ptr noundef captures(address) %pcert, ptr noundef captures(address) %pcerts, i32 noundef %exclude_http, ptr noundef %pass, ptr noundef %desc, ptr noundef %vpm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %desc, null
   %cmp1 = icmp eq ptr %pcerts, null
@@ -2953,7 +2953,7 @@ return:                                           ; preds = %while.cond, %sk_X50
 declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_certs(ptr noundef %uri, i32 noundef %maybe_stdin, ptr noundef %certs, ptr noundef %pass, ptr noundef %desc) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_certs(ptr noundef %uri, i32 noundef %maybe_stdin, ptr noundef captures(address) %certs, ptr noundef %pass, ptr noundef %desc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %certs, align 8
   %cmp = icmp eq ptr %0, null
@@ -2975,7 +2975,7 @@ if.end5:                                          ; preds = %if.then4, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_crls(ptr noundef %uri, ptr noundef %crls, ptr noundef %pass, ptr noundef %desc) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_crls(ptr noundef %uri, ptr noundef captures(address) %crls, ptr noundef %pass, ptr noundef %desc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %crls, align 8
   %cmp = icmp eq ptr %0, null
@@ -3514,7 +3514,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @load_serial(ptr noundef %serialfile, ptr noundef writeonly %exists, i32 noundef %create, ptr noundef writeonly %retai) local_unnamed_addr #0 {
+define dso_local ptr @load_serial(ptr noundef %serialfile, ptr noundef writeonly captures(address_is_null) %exists, i32 noundef %create, ptr noundef writeonly captures(address_is_null) %retai) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %call = tail call ptr @ASN1_INTEGER_new() #28
@@ -3676,7 +3676,7 @@ declare ptr @ASN1_INTEGER_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @save_serial(ptr noundef %serialfile, ptr noundef %suffix, ptr noundef %serial, ptr noundef writeonly %retai) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @save_serial(ptr noundef %serialfile, ptr noundef %suffix, ptr noundef %serial, ptr noundef writeonly captures(address_is_null) %retai) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1 x [256 x i8]], align 16
   %cmp = icmp eq ptr %suffix, null
@@ -3832,7 +3832,7 @@ declare ptr @__errno_location() local_unnamed_addr #1
 declare i32 @BN_rand(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @load_index(ptr noundef %dbfile, ptr noundef readonly %db_attr) local_unnamed_addr #0 {
+define dso_local noalias ptr @load_index(ptr noundef %dbfile, ptr noundef readonly captures(address_is_null) %db_attr) local_unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %dbfp = alloca ptr, align 8
@@ -3986,7 +3986,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @TXT_DB_read(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @parse_yesno(ptr noundef readonly %str, i32 noundef %def) local_unnamed_addr #14 {
+define dso_local noundef i32 @parse_yesno(ptr noundef readonly captures(address_is_null) %str, i32 noundef %def) local_unnamed_addr #14 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end, label %if.then

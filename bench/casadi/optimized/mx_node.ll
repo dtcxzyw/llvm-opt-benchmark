@@ -5414,7 +5414,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS3_SaIS3_EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi6MXNode8sparsityEx(ptr noundef nonnull readnone align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi6MXNode8sparsityEx(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22412,7 +22412,7 @@ _ZN6casadi2MXaSERKS0_.exit68:                     ; preds = %._crit_edge, %126, 
 declare void @_ZN6casadi9VertsplitC1ERKNS_2MXERKSt6vectorIxSaIxEE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6casadi6MXNode8copy_fwdEPKyPyx(ptr noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #18 align 2 {
+define void @_ZN6casadi6MXNode8copy_fwdEPKyPyx(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2) local_unnamed_addr #18 align 2 {
   %.not = icmp eq ptr %0, %1
   %.not.i.i.i.i.i = icmp eq i64 %2, 0
   %or.cond = or i1 %.not, %.not.i.i.i.i.i
@@ -22428,7 +22428,7 @@ _ZSt4copyIPKyPyET0_T_S4_S3_.exit:                 ; preds = %4, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6casadi6MXNode8copy_revEPyS1_x(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #19 align 2 {
+define void @_ZN6casadi6MXNode8copy_revEPyS1_x(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #19 align 2 {
   %.not = icmp ne ptr %0, %1
   %4 = icmp sgt i64 %2, 0
   %or.cond = and i1 %.not, %4

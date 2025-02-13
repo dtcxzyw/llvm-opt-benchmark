@@ -29,7 +29,7 @@ define dso_local noundef i32 @zlib_inflate_workspacesize() local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateReset(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateReset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -83,7 +83,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateReset(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateInit2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateInit2(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %43, label %4
 
@@ -2166,7 +2166,7 @@ thread-pre-split122:                              ; preds = %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %137, label %5
 
@@ -2339,7 +2339,7 @@ declare dso_local i32 @zlib_inflate_table(i32 noundef, ptr noundef, i32 noundef,
 declare dso_local void @inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 -2, 1) i32 @zlib_inflateEnd(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 -2, 1) i32 @zlib_inflateEnd(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

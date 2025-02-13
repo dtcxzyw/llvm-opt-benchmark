@@ -719,7 +719,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_(ptr noundef nonnull returned writeonly align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %rhs) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_(ptr noundef nonnull returned writeonly align 4 captures(address, ret: address, provenance) dereferenceable(12) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %rhs) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %rhs
   br i1 %cmp.not, label %if.end, label %if.then
@@ -742,7 +742,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersioneqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersioneqERKS0_(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %rhs
   br i1 %cmp, label %return, label %if.end
@@ -775,7 +775,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersionleERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersionleERKS0_(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.i = icmp eq ptr %this, %rhs
   br i1 %cmp.i, label %return, label %if.end.i
@@ -838,7 +838,7 @@ return:                                           ; preds = %entry, %if.else18.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %rhs
   br i1 %cmp, label %return, label %if.end
@@ -879,7 +879,7 @@ return:                                           ; preds = %if.else18, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersiongeERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersiongeERKS0_(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.i.i = icmp eq ptr %rhs, %this
   br i1 %cmp.i.i, label %_ZNK19OpenColorIO_v2_4dev10CTFVersionleERKS0_.exit, label %if.end.i.i
@@ -940,7 +940,7 @@ _ZNK19OpenColorIO_v2_4dev10CTFVersionleERKS0_.exit: ; preds = %entry, %_ZNK19Ope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersiongtERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev10CTFVersiongtERKS0_(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.i = icmp eq ptr %rhs, %this
   br i1 %cmp.i, label %_ZNK19OpenColorIO_v2_4dev10CTFVersionltERKS0_.exit, label %if.end.i
@@ -1998,7 +1998,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderTransform13setCTFVersionERKNS_10CTFVersionE(ptr noundef nonnull writeonly align 8 dereferenceable(356) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %ver) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderTransform13setCTFVersionERKNS_10CTFVersionE(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(356) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %ver) local_unnamed_addr #7 align 2 {
 entry:
   %m_version = getelementptr inbounds nuw i8, ptr %this, i64 328
   %cmp.not.i = icmp eq ptr %m_version, %ver
@@ -2022,7 +2022,7 @@ _ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit: ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderTransform13setCLFVersionERKNS_10CTFVersionE(ptr noundef nonnull writeonly align 8 dereferenceable(356) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %ver) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderTransform13setCLFVersionERKNS_10CTFVersionE(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(356) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(12) %ver) local_unnamed_addr #7 align 2 {
 entry:
   %m_versionCLF = getelementptr inbounds nuw i8, ptr %this, i64 340
   %cmp.not.i = icmp eq ptr %m_versionCLF, %ver
@@ -2046,14 +2046,14 @@ _ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit: ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK19OpenColorIO_v2_4dev18CTFReaderTransform13getCTFVersionEv(ptr noundef nonnull readnone align 8 dereferenceable(356) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK19OpenColorIO_v2_4dev18CTFReaderTransform13getCTFVersionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(356) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_version = getelementptr inbounds nuw i8, ptr %this, i64 328
   ret ptr %m_version
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK19OpenColorIO_v2_4dev18CTFReaderTransform13getCLFVersionEv(ptr noundef nonnull readnone align 8 dereferenceable(356) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK19OpenColorIO_v2_4dev18CTFReaderTransform13getCLFVersionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(356) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_versionCLF = getelementptr inbounds nuw i8, ptr %this, i64 340
   ret ptr %m_versionCLF
@@ -4247,7 +4247,7 @@ declare void @_ZN19OpenColorIO_v2_4dev12XmlFormatter13writeStartTagERKNSt7__cxx1
 declare void @_ZN19OpenColorIO_v2_4dev14XmlScopeIndentC1ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %fmt, ptr noundef %tag, ptr %descriptions.0.val, ptr readnone %descriptions.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %fmt, ptr noundef %tag, ptr %descriptions.0.val, ptr readnone captures(address) %descriptions.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1
@@ -15769,7 +15769,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_11GammaOpDataEvEERKS_I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriter10getTagNameEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #16 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriter10getTagNameEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) unnamed_addr #16 align 2 {
 entry:
   %m_version = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i = icmp eq ptr %m_version, @_ZN19OpenColorIO_v2_4devL28CTF_PROCESS_LIST_VERSION_2_0E
@@ -15906,7 +15906,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriter12writeContentEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paramsTag = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -24721,7 +24721,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare noundef double @_ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfEEvRNS_12XmlFormatterET_SC_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr %valuesBegin.coerce, ptr readnone %valuesEnd.coerce, i32 noundef %valuesPerLine, i32 noundef %bitDepth, i32 noundef range(i32 1, 4) %iterStep, float noundef %scale) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfEEvRNS_12XmlFormatterET_SC_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr %valuesBegin.coerce, ptr readnone captures(address) %valuesEnd.coerce, i32 noundef %valuesPerLine, i32 noundef %bitDepth, i32 noundef range(i32 1, 4) %iterStep, float noundef %scale) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25521,7 +25521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriter12writeContentEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %matrix = alloca %"class.std::shared_ptr.86", align 8
@@ -26394,7 +26394,7 @@ ehcleanup296:                                     ; preds = %ehcleanup295, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData12getAsForwardEv(ptr sret(%"class.std::shared_ptr.90") align 8, ptr noundef nonnull align 8 dereferenceable(260)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull %valuesBegin, ptr noundef nonnull readnone %valuesEnd, i32 noundef range(i32 3, 6) %valuesPerLine) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull %valuesBegin, ptr noundef nonnull readnone captures(address) %valuesEnd, i32 noundef range(i32 3, 6) %valuesPerLine) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

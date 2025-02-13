@@ -64,7 +64,7 @@ define ptr @PGTYPESdecimal_new() local_unnamed_addr #0 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @pgtypes_alloc(i64 noundef 40) #14
   %.not10 = icmp eq ptr %4, null
@@ -683,7 +683,7 @@ PGTYPESnumeric_new.exit.thread:                   ; preds = %PGTYPESnumeric_new.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPESnumeric_copy(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESnumeric_copy(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %alloc_var.exit.thread, label %4
 
@@ -2657,7 +2657,7 @@ alloc_var.exit.thread:                            ; preds = %35, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPESnumeric_from_double(double noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESnumeric_from_double(double noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [115 x i8], align 16
   %4 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 15, double noundef %0) #14
   %5 = icmp slt i32 %4, 1

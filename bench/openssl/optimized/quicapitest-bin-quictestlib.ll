@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [36 x i8] c"BIO_ADDR_copy(dst->peer, src->peer)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr noundef captures(none) initializes((0, 8)) %qtserv, ptr noundef captures(none) %cssl, ptr noundef %fault, ptr noundef writeonly %tracebio) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr noundef captures(none) initializes((0, 8)) %qtserv, ptr noundef captures(none) %cssl, ptr noundef %fault, ptr noundef writeonly captures(address_is_null) %tracebio) local_unnamed_addr #0 {
 entry:
   %alpn = alloca [9 x i8], align 1
   %tserver_args = alloca %struct.quic_tserver_args_st, align 8

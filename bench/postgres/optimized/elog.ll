@@ -2838,7 +2838,7 @@ declare void @abort() local_unnamed_addr #8
 declare void @ProcessInterrupts() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @errsave_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @errsave_start(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -5331,7 +5331,7 @@ define dso_local ptr @get_backend_type_for_log() local_unnamed_addr #2 {
 declare ptr @GetBackendTypeDesc(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [13 x i8], align 4

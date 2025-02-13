@@ -500,7 +500,7 @@ _ZN4ncnnL7rmsnormEPfPKffii.exit.us:               ; preds = %.lr.ph497.i.us, %.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(none) %0, ptr noundef readonly %1, float noundef nofpclass(nan inf) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, float noundef nofpclass(nan inf) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = mul nsw i32 %4, %3
   %7 = icmp sgt i32 %6, 7
   br i1 %7, label %.lr.ph.preheader, label %.preheader440

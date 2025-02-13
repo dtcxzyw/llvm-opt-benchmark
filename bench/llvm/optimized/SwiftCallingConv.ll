@@ -1814,7 +1814,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10VectorTypeENS_4TypeEEEDaPT0_.exit: ; preds = %85
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL13getCommonTypePN4llvm4TypeES1_(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZL13getCommonTypePN4llvm4TypeES1_(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %trunc = trunc i32 %4 to i8

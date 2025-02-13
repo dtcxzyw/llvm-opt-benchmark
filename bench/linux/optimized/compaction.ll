@@ -2188,7 +2188,7 @@ define dso_local void @compaction_defer_reset(ptr noundef %0, i32 noundef %1, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @reset_isolation_suitable(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @reset_isolation_suitable(ptr noundef captures(address) %0) local_unnamed_addr #1 align 16 {
   br label %2
 
 2:                                                ; preds = %9, %1
@@ -2213,7 +2213,7 @@ define dso_local void @reset_isolation_suitable(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__reset_isolation_suitable(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @__reset_isolation_suitable(ptr noundef captures(address) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1084
   %3 = load i8, ptr %2, align 4, !range !44, !noundef !45
   %4 = icmp eq i8 %3, 0
@@ -5925,7 +5925,7 @@ declare void @llvm.write_register.i64(metadata, i64) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef readonly captures(address) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = icmp ult i64 %1, 4503599627370496
   br i1 %5, label %6, label %.thread
 
@@ -6765,7 +6765,7 @@ declare dso_local zeroext i1 @__zone_watermark_ok(ptr noundef, i32 noundef, i64 
 declare dso_local ptr @__next_zones_zonelist(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes((32, 40), (72, 88)) %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes((32, 40), (72, 88)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.list_head, align 8
   %5 = alloca i8, align 1

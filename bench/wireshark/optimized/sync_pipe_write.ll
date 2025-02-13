@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @sync_pipe_write_string_msg(i32 noundef %0, i8 noundef signext %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @sync_pipe_write_string_msg(i32 noundef %0, i8 noundef signext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %5

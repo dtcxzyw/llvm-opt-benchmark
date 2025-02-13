@@ -4201,7 +4201,7 @@ dissect_ndr_lm_nt_hash_cb.exit:                   ; preds = %8, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_ndr_lm_nt_byte_array(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) #0 {
+define internal void @dissect_ndr_lm_nt_byte_array(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 {
   %9 = icmp eq ptr %7, null
   br i1 %9, label %dissect_LOGON_INFO_STATE_finish.exit, label %10
 

@@ -2716,7 +2716,7 @@ define noalias noundef ptr @Gia_ManFraStart(ptr noundef %0, ptr noundef %1) loca
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManFraStop(ptr noundef %0) local_unnamed_addr #0 {
+define void @Gia_ManFraStop(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %4 = getelementptr i8, ptr %3, i64 4

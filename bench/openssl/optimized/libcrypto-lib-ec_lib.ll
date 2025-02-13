@@ -683,7 +683,7 @@ declare ptr @BN_MONT_CTX_new() local_unnamed_addr #1
 declare ptr @BN_MONT_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EC_POINT_new(ptr noundef readonly %group) local_unnamed_addr #0 {
+define ptr @EC_POINT_new(ptr noundef readonly captures(address_is_null) %group) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %if.then, label %if.end
@@ -838,7 +838,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef %group, ptr noundef %generator, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef captures(address_is_null) %group, ptr noundef %generator, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %generator, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1293,7 +1293,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @EC_GROUP_set_seed(ptr noundef captures(none) initializes((56, 64)) %group, ptr noundef readonly %p, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i64 @EC_GROUP_set_seed(ptr noundef captures(none) initializes((56, 64)) %group, ptr noundef readonly captures(address_is_null) %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %seed = getelementptr inbounds nuw i8, ptr %group, i64 48
   %0 = load ptr, ptr %seed, align 8
@@ -1749,7 +1749,7 @@ return:                                           ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EC_POINT_dup(ptr noundef %a, ptr noundef %group) local_unnamed_addr #0 {
+define ptr @EC_POINT_dup(ptr noundef %a, ptr noundef captures(address_is_null) %group) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -3023,7 +3023,7 @@ return:                                           ; preds = %for.inc, %for.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EC_GROUP_get_trinomial_basis(ptr noundef readonly %group, ptr noundef writeonly %k) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_get_trinomial_basis(ptr noundef readonly captures(address_is_null) %group, ptr noundef writeonly captures(address_is_null) %k) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %return, label %if.end
@@ -3073,7 +3073,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly %group, ptr noundef writeonly %k1, ptr noundef writeonly %k2, ptr noundef writeonly %k3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly captures(address_is_null) %group, ptr noundef writeonly captures(address_is_null) %k1, ptr noundef writeonly captures(address_is_null) %k2, ptr noundef writeonly captures(address_is_null) %k3) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %return, label %if.end

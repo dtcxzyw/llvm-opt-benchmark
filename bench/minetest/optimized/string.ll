@@ -1160,7 +1160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9urlencodeB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.0") align 8 %agg.result, i64 %str.coerce0, ptr readonly %str.coerce1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z9urlencodeB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.0") align 8 %agg.result, i64 %str.coerce0, ptr readonly captures(address) %str.coerce1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %__c.addr.i52 = alloca i8, align 1
   %__c.addr.i = alloca i8, align 1
@@ -1612,7 +1612,7 @@ ehcleanup:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_Z14readFlagStringNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK8FlagDescPj(ptr noundef readonly captures(none) %str, ptr noundef readonly captures(none) %flagdesc, ptr noundef writeonly %flagmask) local_unnamed_addr #11 {
+define dso_local noundef i32 @_Z14readFlagStringNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK8FlagDescPj(ptr noundef readonly captures(none) %str, ptr noundef readonly captures(none) %flagdesc, ptr noundef writeonly captures(address_is_null) %flagmask) local_unnamed_addr #11 {
 entry:
   %strpos = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8, !tbaa !46
@@ -6853,7 +6853,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE17fin
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE16find_last_not_ofEwm(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef signext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17safe_print_stringRSoSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 %str.coerce0, ptr readonly %str.coerce1) local_unnamed_addr #8 {
+define dso_local void @_Z17safe_print_stringRSoSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %os, i64 %str.coerce0, ptr readonly captures(address) %str.coerce1) local_unnamed_addr #8 {
 entry:
   %__c.addr.i83 = alloca i8, align 1
   %__c.addr.i65 = alloca i8, align 1

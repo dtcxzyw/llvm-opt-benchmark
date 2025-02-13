@@ -1280,7 +1280,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory6a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory6arrays9ArrayInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6arrays9ArrayInfoD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(144) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %info_map = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24

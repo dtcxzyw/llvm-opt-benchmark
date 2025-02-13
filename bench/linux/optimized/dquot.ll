@@ -264,7 +264,7 @@ define dso_local noundef i32 @register_quota_format(ptr noundef initializes((24,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unregister_quota_format(ptr noundef readnone %0) #0 align 16 {
+define dso_local void @unregister_quota_format(ptr noundef readnone captures(address) %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_list_lock) #12
   br label %2
 
@@ -5931,7 +5931,7 @@ define dso_local i32 @dquot_resume(ptr noundef %0, i32 noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dquot_quota_on(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
+define dso_local i32 @dquot_quota_on(ptr noundef readnone captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @security_quota_on(ptr noundef %6) #12

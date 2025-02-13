@@ -2055,7 +2055,7 @@ if.end17:                                         ; preds = %if.end
 declare noundef ptr @_ZN8facebook5velox6memory14AllocationPool13allocateFixedEmi(ptr noundef nonnull align 8 dereferenceable(96), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_b(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef %lastRange, ptr noundef writeonly captures(none) %range, i1 noundef zeroext %contiguous) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_b(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef captures(address_is_null) %lastRange, ptr noundef writeonly captures(none) %range, i1 noundef zeroext %contiguous) local_unnamed_addr #0 align 2 {
 entry:
   %currentHeader_ = getelementptr inbounds nuw i8, ptr %this, i64 37272
   %0 = load ptr, ptr %currentHeader_, align 8
@@ -2113,7 +2113,7 @@ if.end14:                                         ; preds = %if.then9, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef %lastRange, ptr noundef writeonly captures(none) %range) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef captures(address_is_null) %lastRange, ptr noundef writeonly captures(none) %range) unnamed_addr #0 align 2 {
 entry:
   %currentHeader_.i = getelementptr inbounds nuw i8, ptr %this, i64 37272
   %0 = load ptr, ptr %currentHeader_.i, align 8
@@ -2337,7 +2337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN8facebook5velox19HashStringAllocator18removeFromFreeListEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %this, ptr noundef %header) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox19HashStringAllocator18removeFromFreeListEPNS1_6HeaderE(ptr noundef nonnull align 8 captures(address) dereferenceable(37416) %this, ptr noundef captures(address) %header) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %header, align 4
   %cmp.i = icmp slt i32 %0, 0
@@ -2785,7 +2785,7 @@ return:                                           ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN8facebook5velox19HashStringAllocator6offsetEPNS1_6HeaderENS1_8PositionE(ptr noundef %header, ptr readnone %position.coerce0, ptr %position.coerce1) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZN8facebook5velox19HashStringAllocator6offsetEPNS1_6HeaderENS1_8PositionE(ptr noundef %header, ptr readnone captures(address_is_null) %position.coerce0, ptr %position.coerce1) local_unnamed_addr #12 align 2 {
 entry:
   %cmp.not.i = icmp ne ptr %position.coerce0, null
   %cmp2.i = icmp ne ptr %position.coerce1, null

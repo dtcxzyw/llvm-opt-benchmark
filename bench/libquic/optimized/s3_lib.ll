@@ -577,7 +577,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 49) i32 @SSL_CTX_get_tlsext_ticket_keys(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly %out, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 0, 49) i32 @SSL_CTX_get_tlsext_ticket_keys(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(address_is_null) %out, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %out, null
   br i1 %cmp, label %return, label %if.end
@@ -607,7 +607,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 49) i32 @SSL_CTX_set_tlsext_ticket_keys(ptr noundef writeonly captures(none) %ctx, ptr noundef readonly %in, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 0, 49) i32 @SSL_CTX_set_tlsext_ticket_keys(ptr noundef writeonly captures(none) %ctx, ptr noundef readonly captures(address_is_null) %in, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %in, null
   br i1 %cmp, label %return, label %if.end

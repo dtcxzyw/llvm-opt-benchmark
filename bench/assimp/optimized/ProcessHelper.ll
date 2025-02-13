@@ -419,7 +419,7 @@ _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit: ; preds = %entry._Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp15FindSceneCenterEP7aiSceneR10aiVector3tIfES4_S4_(ptr noundef readonly %scene, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %out, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %min, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %max) local_unnamed_addr #5 {
+define hidden void @_ZN6Assimp15FindSceneCenterEP7aiSceneR10aiVector3tIfES4_S4_(ptr noundef readonly captures(address_is_null) %scene, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %out, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %min, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %max) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %scene, null
   br i1 %cmp, label %return, label %if.end
@@ -1079,7 +1079,7 @@ while.end17:                                      ; preds = %_ZNK6aiMesh15HasVer
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_ZN6Assimp28ComputeVertexBoneWeightTableEPK6aiMesh(ptr noundef readonly %pMesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN6Assimp28ComputeVertexBoneWeightTableEPK6aiMesh(ptr noundef readonly captures(address_is_null) %pMesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %pMesh, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1260,7 +1260,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef readonly %pMesh, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %subMeshFaces, i32 noundef %subFlags) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef readonly captures(address) %pMesh, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %subMeshFaces, i32 noundef %subFlags) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #19
   store i32 0, ptr %call, align 8

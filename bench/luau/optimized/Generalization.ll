@@ -1598,7 +1598,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i8 } @_ZN4Luau10generalizeENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_5ScopeEEENS0_INS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toISA_EEEEESA_b(ptr readnone %0, ptr %1, ptr %2, ptr %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i8 } @_ZN4Luau10generalizeENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_5ScopeEEENS0_INS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toISA_EEEEESA_b(ptr readnone captures(address) %0, ptr %1, ptr %2, ptr %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::FreeTypeSearcher", align 8
   %8 = alloca %"struct.Luau::MutatingGeneralizer", align 8
   %9 = alloca %"struct.Luau::TypeCacher", align 8

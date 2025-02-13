@@ -2334,7 +2334,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.8 = private unnamed_addr constant [60 x i8] c"Overriding cert date error as example for bad clock testing\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_tmp_dir(ptr noundef %tmpDir, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @create_tmp_dir(ptr noundef captures(ret: address, provenance) %tmpDir, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %rng.i = alloca %struct.WC_RNG, align 8
   %out.i = alloca i8, align 1
@@ -2494,7 +2494,7 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @test_memio_do_handshake(ptr noundef %ssl_c, ptr noundef %ssl_s, i32 noundef %max_rounds, ptr noundef %rounds) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @test_memio_do_handshake(ptr noundef %ssl_c, ptr noundef %ssl_s, i32 noundef %max_rounds, ptr noundef captures(address_is_null) %rounds) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %rounds, null
   br i1 %cmp.not, label %if.end, label %if.end.thread
@@ -2624,7 +2624,7 @@ declare i32 @wolfSSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @wolfSSL_accept(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @test_memio_setup_ex(ptr noundef %ctx, ptr noundef %ctx_c, ptr noundef %ctx_s, ptr noundef %ssl_c, ptr noundef %ssl_s, ptr noundef readonly captures(none) %method_c, ptr noundef readonly captures(none) %method_s, ptr noundef %caCert, i32 noundef %caCertSz, ptr noundef %serverCert, i32 noundef %serverCertSz, ptr noundef %serverKey, i32 noundef %serverKeySz) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @test_memio_setup_ex(ptr noundef %ctx, ptr noundef captures(address_is_null) %ctx_c, ptr noundef captures(address_is_null) %ctx_s, ptr noundef captures(address_is_null) %ssl_c, ptr noundef captures(address_is_null) %ssl_s, ptr noundef readonly captures(none) %method_c, ptr noundef readonly captures(none) %method_s, ptr noundef %caCert, i32 noundef %caCertSz, ptr noundef %serverCert, i32 noundef %serverCertSz, ptr noundef %serverKey, i32 noundef %serverKeySz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %ctx_c, null
   br i1 %cmp, label %land.lhs.true, label %if.end24
@@ -2875,7 +2875,7 @@ declare void @wolfSSL_SetIOWriteCtx(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @wolfSSL_SetIOReadCtx(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @test_memio_setup(ptr noundef %ctx, ptr noundef %ctx_c, ptr noundef %ctx_s, ptr noundef %ssl_c, ptr noundef %ssl_s, ptr noundef readonly captures(none) %method_c, ptr noundef readonly captures(none) %method_s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @test_memio_setup(ptr noundef %ctx, ptr noundef captures(address_is_null) %ctx_c, ptr noundef captures(address_is_null) %ctx_s, ptr noundef captures(address_is_null) %ssl_c, ptr noundef captures(address_is_null) %ssl_s, ptr noundef readonly captures(none) %method_c, ptr noundef readonly captures(none) %method_s) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_memio_setup_ex(ptr noundef %ctx, ptr noundef %ctx_c, ptr noundef %ctx_s, ptr noundef %ssl_c, ptr noundef %ssl_s, ptr noundef %method_c, ptr noundef %method_s, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0)
   ret i32 %call
@@ -3048,7 +3048,7 @@ do.end:                                           ; preds = %entry
 declare i32 @wolfSSL_JoinThread(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef captures(none) %client_cb, ptr noundef captures(none) %server_cb, ptr noundef readonly %client_on_handshake) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef captures(none) %client_cb, ptr noundef captures(none) %server_cb, ptr noundef readonly captures(address_is_null) %client_on_handshake) local_unnamed_addr #0 {
 entry:
   %input.i = alloca [1024 x i8], align 16
   %test_ctx = alloca %struct.test_ssl_memio_ctx, align 8
@@ -3980,7 +3980,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @test_wolfSSL_client_server_nofail_ex(ptr noundef %client_cb, ptr noundef %server_cb, ptr noundef %client_on_handshake) local_unnamed_addr #0 {
+define dso_local void @test_wolfSSL_client_server_nofail_ex(ptr noundef %client_cb, ptr noundef %server_cb, ptr noundef captures(address_is_null) %client_on_handshake) local_unnamed_addr #0 {
 entry:
   %client_args = alloca %struct.func_args, align 8
   %server_args = alloca %struct.func_args, align 8
@@ -4078,7 +4078,7 @@ do.end12:                                         ; preds = %do.body4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_server_nofail(ptr noundef initializes((16, 20)) %args) #0 {
+define internal noundef ptr @test_server_nofail(ptr noundef captures(address_is_null) initializes((16, 20)) %args) #0 {
 entry:
   %sockfd = alloca i32, align 4
   %clientfd = alloca i32, align 4
@@ -4375,7 +4375,7 @@ if.end181:                                        ; preds = %if.then180, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_client_nofail(ptr noundef nonnull captures(none) initializes((16, 20)) %args, ptr noundef readonly %cb) unnamed_addr #0 {
+define internal fastcc void @test_client_nofail(ptr noundef nonnull captures(none) initializes((16, 20)) %args, ptr noundef readonly captures(address_is_null) %cb) unnamed_addr #0 {
 entry:
   %addr.i = alloca %struct.sockaddr_in, align 4
   %sockfd = alloca i32, align 4
@@ -36223,7 +36223,7 @@ declare i32 @wc_InitMutex(ptr noundef) local_unnamed_addr #4
 declare i32 @wolfSSL_CondInit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcp_accept(ptr noundef nonnull captures(none) %sockfd, ptr noundef nonnull writeonly captures(none) %clientfd, ptr noundef readonly %args, i32 noundef range(i32 0, 2) %udp) unnamed_addr #0 {
+define internal fastcc void @tcp_accept(ptr noundef nonnull captures(none) %sockfd, ptr noundef nonnull writeonly captures(none) %clientfd, ptr noundef readonly captures(address_is_null) %args, i32 noundef range(i32 0, 2) %udp) unnamed_addr #0 {
 entry:
   %on.i.i = alloca i32, align 4
   %addr.i26 = alloca %struct.sockaddr_in, align 4
@@ -38617,7 +38617,7 @@ declare zeroext i8 @wolfSSL_SNI_Status(ptr noundef, i8 noundef zeroext) local_un
 declare zeroext i16 @wolfSSL_SNI_GetRequest(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @run_wolfssl_server(ptr noundef initializes((16, 20)) %args) #0 {
+define internal noundef ptr @run_wolfssl_server(ptr noundef captures(address_is_null) initializes((16, 20)) %args) #0 {
 entry:
   %sfd = alloca i32, align 4
   %cfd = alloca i32, align 4

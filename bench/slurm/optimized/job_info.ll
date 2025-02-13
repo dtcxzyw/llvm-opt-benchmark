@@ -188,7 +188,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._load_job_prio_thread = private unnamed_addr constant [22 x i8] c"_load_job_prio_thread\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_get_job_stderr(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @slurm_get_job_stderr(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %8
 
@@ -446,7 +446,7 @@ define internal fastcc void @_fname_format(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_get_job_stdin(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @slurm_get_job_stdin(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %8
 
@@ -485,7 +485,7 @@ define void @slurm_get_job_stdin(ptr noundef writeonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_get_job_stdout(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @slurm_get_job_stdout(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %8
 
@@ -3631,7 +3631,7 @@ define range(i64 -1, -9223372036854775808) i64 @slurm_get_rem_time(i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_get_end_time(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_end_time(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.job_alloc_info_msg, align 8
@@ -3761,7 +3761,7 @@ define range(i32 -1, 1) i32 @slurm_get_end_time(i32 noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @islurm_get_rem_time__(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @islurm_get_rem_time__(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = tail call i64 @time(ptr noundef null) #19
   store i64 0, ptr %2, align 8
@@ -3879,7 +3879,7 @@ define i32 @slurm_job_node_ready(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 65536) i32 @slurm_job_cpus_allocated_on_node_id(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @slurm_job_cpus_allocated_on_node_id(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -3930,7 +3930,7 @@ define range(i32 -1, 65536) i32 @slurm_job_cpus_allocated_on_node_id(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 65536) i32 @slurm_job_cpus_allocated_on_node(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @slurm_job_cpus_allocated_on_node(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4004,7 +4004,7 @@ slurm_job_cpus_allocated_on_node_id.exit:         ; preds = %24, %25, %19, %.pre
 declare i32 @hostlist_find(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_job_cpus_allocated_str_on_node_id(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_job_cpus_allocated_str_on_node_id(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %2, null
   %7 = icmp slt i32 %3, 0
@@ -4153,7 +4153,7 @@ define range(i32 -1, 1) i32 @slurm_job_cpus_allocated_str_on_node_id(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_job_cpus_allocated_str_on_node(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_job_cpus_allocated_str_on_node(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %2, null
   %6 = icmp ne ptr %3, null
   %or.cond = and i1 %5, %6

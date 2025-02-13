@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Pack_size = weak alias i32 (i32, ptr, ptr, ptr), ptr @PMPI_Pack_size
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Pack_size(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
+define i32 @PMPI_Pack_size(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.opal_convertor_t, align 8
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
   %7 = trunc i8 %6 to i1

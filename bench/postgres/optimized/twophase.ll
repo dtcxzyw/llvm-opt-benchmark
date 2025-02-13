@@ -2486,7 +2486,7 @@ RemoveGXact.exit:                                 ; preds = %257
 declare i32 @GetUserId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.XLogReaderRoutine, align 8
   %6 = load i32, ptr @wal_segment_size, align 4
@@ -3249,7 +3249,7 @@ define dso_local void @PrepareRedoAdd(ptr noundef readonly captures(none) %0, i6
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @TransamVariables, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload = load i64, ptr %4, align 8

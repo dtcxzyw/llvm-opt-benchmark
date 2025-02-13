@@ -267,7 +267,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat16conflict_cleanupEPNS_7watchedES1_R6vectorIS0_Lb1EjE(ptr noundef readonly %it, ptr noundef %it2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %wlist) local_unnamed_addr #3 {
+define hidden void @_ZN3sat16conflict_cleanupEPNS_7watchedES1_R6vectorIS0_Lb1EjE(ptr noundef readonly captures(address) %it, ptr noundef %it2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %wlist) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %wlist, align 8
   %cmp.i.i = icmp eq ptr %0, null

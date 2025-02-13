@@ -77,7 +77,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_datagram_pol
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable___sk_queue_drop_skb923, ptr @__UNIQUE_ID___addressable___skb_free_datagram_locked922, ptr @__UNIQUE_ID___addressable___skb_recv_datagram919, ptr @__UNIQUE_ID___addressable___skb_try_recv_datagram918, ptr @__UNIQUE_ID___addressable___skb_wait_for_more_packets916, ptr @__UNIQUE_ID___addressable___zerocopy_sg_from_iter938, ptr @__UNIQUE_ID___addressable_datagram_poll948, ptr @__UNIQUE_ID___addressable_skb_copy_and_csum_datagram_msg944, ptr @__UNIQUE_ID___addressable_skb_copy_and_hash_datagram_iter929, ptr @__UNIQUE_ID___addressable_skb_copy_datagram_from_iter935, ptr @__UNIQUE_ID___addressable_skb_copy_datagram_iter930, ptr @__UNIQUE_ID___addressable_skb_free_datagram921, ptr @__UNIQUE_ID___addressable_skb_kill_datagram924, ptr @__UNIQUE_ID___addressable_skb_recv_datagram920, ptr @__UNIQUE_ID___addressable_zerocopy_sg_from_iter941, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @trace_skb_copy_datagram_iovec.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace755, ptr @trace_skb_copy_datagram_iovec.__UNIQUE_ID___addressable___SCK__tp_func_skb_copy_datagram_iovec754], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__skb_wait_for_more_packets(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone %4) #0 align 16 {
+define dso_local i32 @__skb_wait_for_more_packets(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4) #0 align 16 {
   %6 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -681,7 +681,7 @@ define dso_local void @__skb_free_datagram_locked(ptr noundef %0, ptr noundef %1
 declare dso_local void @__kfree_skb(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @__sk_queue_drop_skb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @__sk_queue_drop_skb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 align 16 {
   %6 = and i32 %3, 2
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %29, label %8
@@ -788,7 +788,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_and_hash_datagram_iter(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef captures(address) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1391,7 +1391,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_datagram_from_iter(ptr 
 declare dso_local i64 @copy_page_from_iter(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca [17 x ptr], align 16
   %7 = alloca i64, align 8
   %8 = icmp eq ptr %0, null

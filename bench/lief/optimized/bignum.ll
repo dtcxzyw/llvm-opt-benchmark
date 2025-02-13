@@ -37,7 +37,7 @@ define hidden void @mbedtls_mpi_init(ptr noundef writeonly captures(none) initia
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_mpi_free(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @mbedtls_mpi_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -202,7 +202,7 @@ mbedtls_mpi_grow.exit:                            ; preds = %19, %10, %8, %25, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %mbedtls_mpi_grow.exit.thread, label %4
 
@@ -650,7 +650,7 @@ mbedtls_mpi_bitlen.exit:                          ; preds = %1, %mbedtls_clz.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_string(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca [1 x i64], align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
@@ -959,7 +959,7 @@ mbedtls_mpi_free.exit:                            ; preds = %134, %mbedtls_mpi_g
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %.not36 = icmp eq i64 %5, 0
@@ -1145,7 +1145,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %.lr.ph54.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca [1 x i64], align 8
   %6 = icmp slt i64 %2, 0
@@ -1162,7 +1162,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_int(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca %struct.mbedtls_mpi, align 8
   %7 = alloca [1 x i64], align 8
   %8 = alloca %struct.mbedtls_mpi, align 8
@@ -1543,7 +1543,7 @@ mbedtls_mpi_free.exit:                            ; preds = %151, %mpi_write_hlp
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [2484 x i8], align 16
   %5 = add i32 %1, -17
   %or.cond = icmp ult i32 %5, -15
@@ -1638,7 +1638,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 n
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca [2484 x i8], align 16
   %7 = add i32 %2, -17
@@ -1694,7 +1694,7 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_binary_le(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_binary_le(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i64 %2, 3
   %5 = and i64 %2, 7
   %6 = icmp ne i64 %5, 0
@@ -1733,7 +1733,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_binary_le(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -16, 1) i32 @mbedtls_mpi_resize_clear(ptr noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -16, 1) i32 @mbedtls_mpi_resize_clear(ptr noundef captures(address_is_null) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %4, label %16
 
@@ -1809,7 +1809,7 @@ mbedtls_mpi_free.exit:                            ; preds = %32, %29, %mbedtls_m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_binary(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_binary(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i64 %2, 3
   %5 = and i64 %2, 7
   %6 = icmp ne i64 %5, 0
@@ -2634,7 +2634,7 @@ mbedtls_mpi_cmp_mpi.exit:                         ; preds = %27, %28, %18, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, %2
   %spec.select = select i1 %4, ptr %1, ptr %2
   %.not81 = icmp eq ptr %1, %0
@@ -3000,7 +3000,7 @@ mbedtls_mpi_grow.exit:                            ; preds = %25, %17, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = mul nsw i32 %5, %4
@@ -3123,7 +3123,7 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %41, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = mul nsw i32 %5, %4
@@ -3246,7 +3246,7 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %41, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca [1 x i64], align 8
   %6 = icmp slt i64 %2, 0
@@ -3332,7 +3332,7 @@ define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   store i32 1, ptr %4, align 8
@@ -3641,7 +3641,7 @@ mbedtls_mpi_free.exit85:                          ; preds = %mbedtls_mpi_free.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
   %7 = alloca %struct.mbedtls_mpi, align 8
@@ -4233,7 +4233,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %17, %4, %74, %75, %
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca [1 x i64], align 8
   %7 = icmp slt i64 %3, 0
@@ -4250,7 +4250,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_div_int(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mod_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mod_mpi(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %.not44.i.i = icmp eq i64 %5, 0
@@ -4521,7 +4521,7 @@ define hidden range(i32 -12, 1) i32 @mbedtls_mpi_mod_int(ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_exp_mod(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_mpi_exp_mod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.mbedtls_mpi, align 8
   %8 = alloca i64, align 8
@@ -5477,7 +5477,7 @@ define internal fastcc i32 @mpi_select(ptr noundef nonnull %0, ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_gcd(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   store i32 1, ptr %4, align 8
@@ -5967,7 +5967,7 @@ mbedtls_mpi_free.exit87:                          ; preds = %mbedtls_mpi_free.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_fill_random(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_mpi_fill_random(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = lshr i64 %1, 3
   %6 = and i64 %1, 7
   %7 = icmp ne i64 %6, 0
@@ -6334,7 +6334,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %46, %127, %mbedtls_
 declare i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -16, 1) i32 @mbedtls_mpi_inv_mod(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -16, 1) i32 @mbedtls_mpi_inv_mod(ptr noundef captures(address) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
@@ -7131,7 +7131,7 @@ mbedtls_mpi_mod_int.exit:                         ; preds = %mbedtls_mpi_cmp_int
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mpi_miller_rabin(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @mpi_miller_rabin(ptr noundef captures(address) %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca [1 x i64], align 8
   %7 = alloca %struct.mbedtls_mpi, align 8
@@ -7899,7 +7899,7 @@ mbedtls_mpi_free.exit107:                         ; preds = %mbedtls_mpi_free.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.mbedtls_mpi, align 8
   %7 = alloca [1 x i64], align 8
   %8 = alloca %struct.mbedtls_mpi, align 8

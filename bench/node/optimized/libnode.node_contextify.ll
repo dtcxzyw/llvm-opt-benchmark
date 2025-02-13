@@ -452,7 +452,7 @@ declare ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 der
 declare noundef ptr @_ZN2v87Context17GetMicrotaskQueueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node10contextify17ContextifyContext15CreateV8ContextEPN2v87IsolateENS2_5LocalINS2_14ObjectTemplateEEEPKNS_12SnapshotDataEPNS2_14MicrotaskQueueE(ptr noundef %isolate, ptr %object_template.coerce, ptr noundef readnone %snapshot_data, ptr noundef %queue) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN4node10contextify17ContextifyContext15CreateV8ContextEPN2v87IsolateENS2_5LocalINS2_14ObjectTemplateEEEPKNS_12SnapshotDataEPNS2_14MicrotaskQueueE(ptr noundef %isolate, ptr %object_template.coerce, ptr noundef readnone captures(address_is_null) %snapshot_data, ptr noundef %queue) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %isolate) #22
@@ -6177,7 +6177,7 @@ return:                                           ; preds = %if.end.i, %_ZN4node
 declare ptr @_ZN2v86Object18GetCreationContextEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_(ptr noundef readonly %ctx) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %lor.end, label %lor.rhs

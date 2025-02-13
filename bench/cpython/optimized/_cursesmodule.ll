@@ -7377,7 +7377,7 @@ declare ptr @tparm(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @typeahead(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PyCurses_ConvertToChtype(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %1, i64 8
   %.val44 = load ptr, ptr %5, align 8, !tbaa !23
@@ -10422,7 +10422,7 @@ _curses_window_attrset_impl.exit:                 ; preds = %_curses_window_attr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_bkgd(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_bkgd(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -10604,7 +10604,7 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %50, %47, %14, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_bkgdset(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_bkgdset(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -10659,7 +10659,7 @@ _curses_window_bkgdset_impl.exit:                 ; preds = %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_border(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_border(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [8 x i32], align 16
   %or.cond = icmp ult i64 %2, 9
   br i1 %or.cond, label %7, label %5
@@ -10844,7 +10844,7 @@ _curses_window_border_impl.exit:                  ; preds = %40, %43, %47, %51, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_box(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_box(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -11136,7 +11136,7 @@ _curses_window_derwin_impl.exit:                  ; preds = %27, %25, %10, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_echochar(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @_curses_window_echochar(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -11781,7 +11781,7 @@ define internal ptr @PyCursesWindow_getyx(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_hline(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_hline(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -12019,7 +12019,7 @@ _curses_window_inch_impl.exit:                    ; preds = %11, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_insch(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_insch(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -14087,7 +14087,7 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_window_vline(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef ptr @_curses_window_vline(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

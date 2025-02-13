@@ -439,7 +439,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_tallocr_free(ptr noundef %alloc) local_unnamed_addr #0 {
+define void @ggml_tallocr_free(ptr noundef captures(address_is_null) %alloc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %alloc, null
   br i1 %cmp, label %return, label %if.end
@@ -493,7 +493,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @ggml_gallocr_free(ptr noundef %galloc) local_unnamed_addr #10 {
+define void @ggml_gallocr_free(ptr noundef captures(address_is_null) %galloc) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %galloc, null
   br i1 %cmp, label %return, label %if.end

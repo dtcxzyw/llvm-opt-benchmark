@@ -149,7 +149,7 @@ declare dso_local i32 @driver_attach(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @pci_match_id(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #3 align 16 {
+define dso_local noundef ptr @pci_match_id(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -407,7 +407,7 @@ define internal range(i32 0, 2) i32 @pci_bus_match(ptr noundef readonly captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %55, label %4
 

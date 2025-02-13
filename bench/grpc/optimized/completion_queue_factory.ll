@@ -102,7 +102,7 @@ do.end:                                           ; preds = %entry
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create_for_next(ptr noundef readnone %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create_for_next(ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %attr = alloca %struct.grpc_completion_queue_attributes, align 8
@@ -330,7 +330,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %2, %ent
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create_for_pluck(ptr noundef readnone %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create_for_pluck(ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %attr = alloca %struct.grpc_completion_queue_attributes, align 8
@@ -490,7 +490,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %if.end.i, %23
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create_for_callback(ptr noundef %shutdown_callback, ptr noundef readnone %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create_for_callback(ptr noundef %shutdown_callback, ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %attr = alloca %struct.grpc_completion_queue_attributes, align 8
@@ -656,7 +656,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %if.end.i, %23
 }
 
 ; Function Attrs: uwtable
-define noundef ptr @grpc_completion_queue_create(ptr noundef %factory, ptr noundef %attr, ptr noundef readnone %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @grpc_completion_queue_create(ptr noundef %factory, ptr noundef %attr, ptr noundef readnone captures(address_is_null) %reserved) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8

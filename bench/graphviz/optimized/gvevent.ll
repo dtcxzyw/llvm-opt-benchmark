@@ -753,7 +753,7 @@ define internal void @gvevent_motion(ptr noundef captures(none) %0, double %1, d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gvevent_read(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #2 {
+define internal void @gvevent_read(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #2 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %8
@@ -1209,7 +1209,7 @@ declare zeroext i1 @overlap_node(ptr noundef, ptr noundef byval(%struct.boxf) al
 declare ptr @agprvnode(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly %0, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %1) unnamed_addr #5 {
+define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 236

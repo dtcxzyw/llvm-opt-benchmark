@@ -1749,7 +1749,7 @@ define internal fastcc void @add_timer_randomness(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @add_disk_randomness(ptr noundef readonly %0) #0 align 16 {
+define dso_local void @add_disk_randomness(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -2670,7 +2670,7 @@ declare dso_local i64 @ktime_get() local_unnamed_addr #4
 declare dso_local i64 @ktime_get_seconds() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mix_interrupt_randomness(ptr noundef %0) #0 align 16 {
+define internal void @mix_interrupt_randomness(ptr noundef captures(address) %0) #0 align 16 {
   %2 = alloca [2 x i64], align 16
   %3 = getelementptr i8, ptr %0, i64 -48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17

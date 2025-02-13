@@ -2733,7 +2733,7 @@ _ZNSt5arrayISt4pairIRbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELm6EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmFindCommon11RerootPathsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12cmFindCommon11RerootPathsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef captures(address) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca [3 x %"struct.std::pair.335"], align 8
   %6 = alloca %class.cmAlphaNum, align 8
@@ -4649,7 +4649,7 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN12cmFindCommon11RerootPathsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_ENK3$_0clERKS6_7cmValue"(i8 %.0.val.84.val, ptr %.8.val, ptr %.0.val1, i64 %.8.val3, ptr readonly %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12cmFindCommon11RerootPathsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_ENK3$_0clERKS6_7cmValue"(i8 %.0.val.84.val, ptr captures(address) %.8.val, ptr %.0.val1, i64 %.8.val3, ptr readonly captures(address_is_null) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4 x %"struct.std::pair.335"], align 8
   %3 = alloca %class.cmAlphaNum, align 8
   %4 = alloca [2 x %"struct.std::pair.335"], align 8
@@ -6406,7 +6406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmFindCommon17ComputeFinalPathsENS_11IgnorePathsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12cmFindCommon17ComputeFinalPathsENS_11IgnorePathsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.369", align 8
   %5 = alloca %"class.std::tuple.349", align 1
   %6 = alloca %"class.std::tuple.346", align 8

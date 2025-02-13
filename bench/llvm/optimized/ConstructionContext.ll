@@ -123,7 +123,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang24ConstructionContextLayer26isStrictlyMoreSpecificThanEPKS0_(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang24ConstructionContextLayer26isStrictlyMoreSpecificThanEPKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %_ZNK5clang23ConstructionContextItemeqERKS0_.exit.thread, label %.lr.ph
 
@@ -171,7 +171,7 @@ _ZNK5clang23ConstructionContextItemeqERKS0_.exit.thread: ; preds = %4, %.lr.ph, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19ConstructionContext37createMaterializedTemporaryFromLayersERNS_17BumpVectorContextEPKNS_24MaterializeTemporaryExprEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang19ConstructionContext37createMaterializedTemporaryFromLayersERNS_17BumpVectorContextEPKNS_24MaterializeTemporaryExprEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %.critedge
 
@@ -658,7 +658,7 @@ _ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4Ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19ConstructionContext30createBoundTemporaryFromLayersERNS_17BumpVectorContextEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang19ConstructionContext30createBoundTemporaryFromLayersERNS_17BumpVectorContextEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %28
 

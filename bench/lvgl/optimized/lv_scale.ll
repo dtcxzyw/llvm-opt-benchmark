@@ -530,7 +530,7 @@ define nonnull ptr @lv_scale_add_section(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_scale_section_set_range(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @lv_scale_section_set_range(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -546,7 +546,7 @@ define void @lv_scale_section_set_range(ptr noundef writeonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_scale_section_set_style(ptr noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @lv_scale_section_set_style(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %11, label %5
 

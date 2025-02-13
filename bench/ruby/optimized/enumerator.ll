@@ -7448,7 +7448,7 @@ MEMO_V2_SET.exit:                                 ; preds = %12, %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @lazy_grep_proc(i64 noundef %0, ptr noundef readonly %1, i64 %2, i64 %3) #0 {
+define internal ptr @lazy_grep_proc(i64 noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -7501,7 +7501,7 @@ MEMO_V2_SET.exit:                                 ; preds = %12, %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @lazy_grep_v_proc(i64 noundef %0, ptr noundef readonly %1, i64 %2, i64 %3) #0 {
+define internal ptr @lazy_grep_v_proc(i64 noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, i64 %2, i64 %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -7803,7 +7803,7 @@ define internal noundef i64 @next_stopped(i64 %0, i64 %1) #3 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @lazy_take_proc(i64 noundef %0, ptr noundef returned %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal noundef ptr @lazy_take_proc(i64 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
   %6 = tail call i64 @rb_ary_entry(i64 noundef %2, i64 noundef %3) #24
   %7 = icmp eq i64 %6, 4
@@ -8000,7 +8000,7 @@ lazyenum_yield_values.exit:                       ; preds = %4, %rb_array_len.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @lazy_drop_proc(i64 noundef %0, ptr noundef readnone %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal noundef ptr @lazy_drop_proc(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @proc_entry_data_type) #17
   %6 = tail call i64 @rb_ary_entry(i64 noundef %2, i64 noundef %3) #24
   %7 = icmp eq i64 %6, 4
@@ -8239,7 +8239,7 @@ declare i64 @rb_hash_new() local_unnamed_addr #1
 declare i32 @rb_hash_add_new_element(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @lazy_uniq_proc(i64 %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal ptr @lazy_uniq_proc(i64 %0, ptr noundef readonly captures(ret: address, provenance) %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @rb_ary_entry(i64 noundef %2, i64 noundef %3) #24
@@ -8261,7 +8261,7 @@ lazy_uniq_check.exit:                             ; preds = %4, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal ptr @lazy_compact_proc(i64 %0, ptr noundef readonly %1, i64 %2, i64 %3) #10 {
+define internal ptr @lazy_compact_proc(i64 %0, ptr noundef readonly captures(ret: address, provenance) %1, i64 %2, i64 %3) #10 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 4

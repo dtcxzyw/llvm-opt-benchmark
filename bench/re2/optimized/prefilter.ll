@@ -1023,7 +1023,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re29Prefilter4Info8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re29Prefilter4Info8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp17 = alloca %"class.std::allocator", align 1
   %is_exact_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1561,7 +1561,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull readonly align 8 dereferenceable(48) %a, ptr noundef nonnull readonly align 8 dereferenceable(48) %b, ptr noundef %dst) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %b, ptr noundef %dst) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %a, i64 24
@@ -3563,7 +3563,7 @@ declare void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3re29Prefilter7FromRE2EPKNS_3RE2E(ptr noundef readonly %re2) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3re29Prefilter7FromRE2EPKNS_3RE2E(ptr noundef readonly captures(address_is_null) %re2) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %re2, null
   br i1 %cmp, label %return, label %if.end

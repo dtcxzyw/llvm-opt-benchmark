@@ -1834,7 +1834,7 @@ define noundef ptr @MRIStepCoupling_LoadTable(i32 noundef %0) local_unnamed_addr
 declare ptr @ARKodeButcherTable_LoadERK(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -4227,7 +4227,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
+define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %79, label %2
 
@@ -4426,7 +4426,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = icmp sgt i32 %0, 0
   %9 = icmp sgt i32 %1, 0
   %or.cond.not90 = and i1 %8, %9
@@ -4586,7 +4586,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -4766,7 +4766,7 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @MRIStepCoupling_Space(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
+define void @MRIStepCoupling_Space(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
   store i64 0, ptr %1, align 8
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
@@ -4832,7 +4832,7 @@ define void @MRIStepCoupling_Space(ptr noundef readonly %0, ptr noundef writeonl
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
+define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -5185,7 +5185,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #11 {
+define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge.thread, label %4
 

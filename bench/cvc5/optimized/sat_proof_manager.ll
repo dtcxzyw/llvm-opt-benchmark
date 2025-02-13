@@ -2831,7 +2831,7 @@ ehcleanup:                                        ; preds = %lpad31, %lpad29
 declare noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager11endResChainENS0_12NodeTemplateILb1EEERKSt3setINS1_10SatLiteralESt4lessIS6_ESaIS6_EEj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %conclusion, ptr noundef nonnull align 8 dereferenceable(48) %conclusionLits, i32 noundef %clauseLevel) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager11endResChainENS0_12NodeTemplateILb1EEERKSt3setINS1_10SatLiteralESt4lessIS6_ESaIS6_EEj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %conclusion, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %conclusionLits, i32 noundef %clauseLevel) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %visited = alloca %"class.std::set", align 8
@@ -4219,7 +4219,7 @@ eh.resume:                                        ; preds = %lpad38.loopexit, %l
 declare noundef zeroext i1 @_ZNK4cvc58internal16LazyCDProofChain12hasGeneratorENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(424), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager19processRedundantLitENS1_10SatLiteralERKSt3setIS3_St4lessIS3_ESaIS3_EERS8_j(ptr noundef nonnull align 8 dereferenceable(1128) %this, i64 %lit.coerce, ptr noundef nonnull align 8 dereferenceable(48) %conclusionLits, ptr noundef nonnull align 8 dereferenceable(48) %visited, i32 noundef %pos) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager19processRedundantLitENS1_10SatLiteralERKSt3setIS3_St4lessIS3_ESaIS3_EERS8_j(ptr noundef nonnull align 8 dereferenceable(1128) %this, i64 %lit.coerce, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %conclusionLits, ptr noundef nonnull align 8 dereferenceable(48) %visited, i32 noundef %pos) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %lit = alloca %"class.cvc5::internal::prop::SatLiteral", align 8
   %litNode = alloca %"class.cvc5::internal::NodeTemplate", align 8

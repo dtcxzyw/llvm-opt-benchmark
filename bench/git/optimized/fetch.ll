@@ -6663,7 +6663,7 @@ declare i32 @branch_merge_matches(ptr noundef, i32 noundef, ptr noundef) local_u
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @refname_hash_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #13 {
+define internal i32 @refname_hash_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #13 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.not = icmp eq ptr %3, null
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -7143,7 +7143,7 @@ declare i32 @ref_transaction_update(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @ref_transaction_for_each_queued_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_already_queued_tags(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly %2, ptr noundef %3) #0 {
+define internal void @add_already_queued_tags(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) #0 {
   %5 = tail call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.174) #20
   %6 = icmp ne i32 %5, 0
   %7 = icmp ne ptr %2, null

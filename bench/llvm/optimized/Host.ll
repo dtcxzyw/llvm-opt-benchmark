@@ -2853,7 +2853,7 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #6
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind memory(write, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm3sys6detail3x8618getVendorSignatureEPj(ptr noundef writeonly %0) local_unnamed_addr #7 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm3sys6detail3x8618getVendorSignatureEPj(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %3 = icmp eq ptr %0, null

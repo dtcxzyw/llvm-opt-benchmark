@@ -1435,7 +1435,7 @@ declare ptr @slurm_read_hostfile(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @get_resource_arg_range(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
+define noundef zeroext i1 @get_resource_arg_range(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = load i8, ptr %0, align 1
   switch i8 %7, label %9 [
@@ -1601,7 +1601,7 @@ thread-pre-split49:                               ; preds = %36, %36, %41
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @verify_socket_core_thread_count(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #2 {
+define noundef zeroext i1 @verify_socket_core_thread_count(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1738,7 +1738,7 @@ switch.lookup:                                    ; preds = %23
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @verify_hint(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) local_unnamed_addr #2 {
+define noundef zeroext i1 @verify_hint(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -3194,7 +3194,7 @@ define void @print_db_notok(ptr noundef %0, i1 noundef zeroext %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @xstrdup(ptr noundef %0) #20
   store ptr %5, ptr %4, align 8

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lexbor_str_res_ansi_replacement_character = internal unnamed_addr constant [4 x i8] c"\EF\BF\BD\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tokenizer_state_comment_before_start(ptr noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tokenizer_state_comment_before_start(ptr noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 1
@@ -102,7 +102,7 @@ lxb_html_tokenizer_state_comment_start.exit:      ; preds = %29, %50, %54, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_comment_start_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_comment_start_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #0 {
   %4 = load i8, ptr %1, align 1
   switch i8 %4, label %88 [
     i8 45, label %5
@@ -292,7 +292,7 @@ declare ptr @lxb_html_tokenizer_state_data_before(ptr noundef, ptr noundef, ptr 
 declare ptr @lxb_html_tokenizer_error_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_comment(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_comment(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8
   %.not144 = icmp eq ptr %1, %2
@@ -740,7 +740,7 @@ lxb_html_tokenizer_temp_append_data.exit112:      ; preds = %231
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_comment_end(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_comment_end(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readnone captures(ret: address, provenance) %2) #0 {
   %4 = load i8, ptr %1, align 1
   switch i8 %4, label %89 [
     i8 62, label %5
@@ -932,7 +932,7 @@ lxb_html_tokenizer_temp_append.exit55:            ; preds = %96
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_comment_end_bang(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_comment_end_bang(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #0 {
   %4 = load i8, ptr %1, align 1
   switch i8 %4, label %66 [
     i8 45, label %5
@@ -1043,7 +1043,7 @@ define internal ptr @lxb_html_tokenizer_state_comment_end_bang(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_comment_end_dash(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_comment_end_dash(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readnone captures(ret: address, provenance) %2) #0 {
   %4 = load i8, ptr %1, align 1
   switch i8 %4, label %39 [
     i8 45, label %5
@@ -1158,7 +1158,7 @@ declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_comment_less_than_sign(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_comment_less_than_sign(ptr noundef captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readnone captures(ret: address, provenance) %2) #0 {
   %4 = load i8, ptr %1, align 1
   switch i8 %4, label %57 [
     i8 33, label %5
@@ -1268,7 +1268,7 @@ lxb_html_tokenizer_temp_append.exit18:            ; preds = %38
 declare ptr @lxb_html_tokenizer_state_cr(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @lxb_html_tokenizer_state_comment_less_than_sign_bang(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #4 {
+define internal ptr @lxb_html_tokenizer_state_comment_less_than_sign_bang(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2) #4 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 45
   %spec.select = select i1 %5, ptr @lxb_html_tokenizer_state_comment_less_than_sign_bang_dash, ptr @lxb_html_tokenizer_state_comment
@@ -1279,7 +1279,7 @@ define internal ptr @lxb_html_tokenizer_state_comment_less_than_sign_bang(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @lxb_html_tokenizer_state_comment_less_than_sign_bang_dash(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #4 {
+define internal ptr @lxb_html_tokenizer_state_comment_less_than_sign_bang_dash(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2) #4 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 45
   %spec.select = select i1 %5, ptr @lxb_html_tokenizer_state_comment_less_than_sign_bang_dash_dash, ptr @lxb_html_tokenizer_state_comment_end_dash

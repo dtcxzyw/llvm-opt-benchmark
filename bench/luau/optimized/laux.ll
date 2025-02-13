@@ -271,7 +271,7 @@ _Z15luaL_optlstringP9lua_StateiPKcPm.exit:        ; preds = %11, %8, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z15luaL_optlstringP9lua_StateiPKcPm(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local noundef ptr @_Z15luaL_optlstringP9lua_StateiPKcPm(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null, ret: address, provenance) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef %1)
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %13
@@ -652,7 +652,7 @@ define dso_local noundef nonnull ptr @_Z16luaL_checkvectorP9lua_Statei(ptr nound
 declare noundef ptr @_Z12lua_tovectorP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z14luaL_optvectorP9lua_StateiPKf(ptr noundef %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #2 {
+define dso_local noundef ptr @_Z14luaL_optvectorP9lua_StateiPKf(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) local_unnamed_addr #2 {
   %4 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef %1)
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %_Z16luaL_checkvectorP9lua_Statei.exit, label %6

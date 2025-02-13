@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @link_mode_params = external dso_local local_unnamed_addr constant [0 x %struct.link_mode_info], align 4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @linkmodes_prepare_data(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define internal i32 @linkmodes_prepare_data(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112

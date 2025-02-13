@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [20 x i8] c"Invalid frame size.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49tsi_fake_zero_copy_grpc_protector_next_frame_sizePK17grpc_slice_buffer(ptr noundef readonly %protected_slices) local_unnamed_addr #0 {
+define noundef i32 @_Z49tsi_fake_zero_copy_grpc_protector_next_frame_sizePK17grpc_slice_buffer(ptr noundef readonly captures(address_is_null) %protected_slices) local_unnamed_addr #0 {
 entry:
   %frame_size_buffer.i = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %frame_size_buffer.i)
@@ -155,7 +155,7 @@ entry:
 declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z31tsi_create_fake_frame_protectorPm(ptr noundef readonly %max_protected_frame_size) local_unnamed_addr #0 {
+define noundef ptr @_Z31tsi_create_fake_frame_protectorPm(ptr noundef readonly captures(address_is_null) %max_protected_frame_size) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noundef ptr @gpr_zalloc(i64 noundef 96)
   %cmp = icmp eq ptr %max_protected_frame_size, null
@@ -174,7 +174,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z40tsi_create_fake_zero_copy_grpc_protectorPm(ptr noundef readonly %max_protected_frame_size) local_unnamed_addr #0 {
+define noundef ptr @_Z40tsi_create_fake_zero_copy_grpc_protectorPm(ptr noundef readonly captures(address_is_null) %max_protected_frame_size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @gpr_zalloc(i64 noundef 552)
   %header_sb = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -239,7 +239,7 @@ _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6: ; preds = %_ZL23tsi_fake_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(none) %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly %bytes_to_send, ptr noundef writeonly %bytes_to_send_size, ptr noundef writeonly %handshaker_result, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %error) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(none) %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly captures(address_is_null) %bytes_to_send, ptr noundef writeonly captures(address_is_null) %bytes_to_send_size, ptr noundef writeonly captures(address_is_null) %handshaker_result, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %error) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %consumed_bytes_size = alloca i64, align 8
   %cmp = icmp ne i64 %received_bytes_size, 0
@@ -858,7 +858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr readnone captures(none) %0, ptr noundef readonly %max_output_protected_frame_size, ptr noundef writeonly captures(none) initializes((0, 8)) %protector) #0 {
+define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %max_output_protected_frame_size, ptr noundef writeonly captures(none) initializes((0, 8)) %protector) #0 {
 entry:
   %call.i = tail call ptr @gpr_zalloc(i64 noundef 552)
   %header_sb.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -884,7 +884,7 @@ _Z40tsi_create_fake_zero_copy_grpc_protectorPm.exit: ; preds = %entry, %cond.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr readnone captures(none) %0, ptr noundef readonly %max_output_protected_frame_size, ptr noundef writeonly captures(none) initializes((0, 8)) %protector) #0 {
+define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %max_output_protected_frame_size, ptr noundef writeonly captures(none) initializes((0, 8)) %protector) #0 {
 entry:
   %call.i.i = tail call noundef ptr @gpr_zalloc(i64 noundef 96)
   %cmp.i = icmp eq ptr %max_output_protected_frame_size, null
@@ -1301,7 +1301,7 @@ _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit5: ; preds = %_ZL23tsi_fake_fr
 declare noundef ptr @_Z20tsi_result_to_string10tsi_result(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL37fake_zero_copy_grpc_protector_protectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_(ptr noundef readonly %self, ptr noundef %unprotected_slices, ptr noundef %protected_slices) #0 {
+define internal noundef range(i32 0, 3) i32 @_ZL37fake_zero_copy_grpc_protector_protectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_(ptr noundef readonly captures(address_is_null) %self, ptr noundef %unprotected_slices, ptr noundef %protected_slices) #0 {
 entry:
   %slice = alloca %struct.grpc_slice, align 8
   %cmp = icmp eq ptr %self, null
@@ -1366,7 +1366,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 9) i32 @_ZL39fake_zero_copy_grpc_protector_unprotectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_Pi(ptr noundef %self, ptr noundef %protected_slices, ptr noundef %unprotected_slices, ptr noundef writeonly %min_progress_size) #0 {
+define internal noundef range(i32 0, 9) i32 @_ZL39fake_zero_copy_grpc_protector_unprotectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_Pi(ptr noundef %self, ptr noundef %protected_slices, ptr noundef %unprotected_slices, ptr noundef writeonly captures(address_is_null) %min_progress_size) #0 {
 entry:
   %frame_size_buffer.i = alloca [4 x i8], align 4
   %cmp = icmp eq ptr %self, null
@@ -1527,7 +1527,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL44fake_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly %self, ptr noundef writeonly %max_frame_size) #6 {
+define internal noundef range(i32 0, 3) i32 @_ZL44fake_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly captures(address_is_null) %self, ptr noundef writeonly captures(address_is_null) %max_frame_size) #6 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %max_frame_size, null

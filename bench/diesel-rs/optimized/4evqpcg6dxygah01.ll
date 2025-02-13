@@ -2631,7 +2631,7 @@ define void @"_ZN17all_about_updates1_84_$LT$impl$u20$diesel..associations..HasT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN17all_about_updates1_92_$LT$impl$u20$diesel..associations..Identifiable$u20$for$u20$$RF$all_about_updates..Post$GT$2id17hcfc86665217f740cE"(ptr noalias noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN17all_about_updates1_92_$LT$impl$u20$diesel..associations..Identifiable$u20$for$u20$$RF$all_about_updates..Post$GT$2id17hcfc86665217f740cE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }

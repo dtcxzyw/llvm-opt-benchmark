@@ -290,7 +290,7 @@ define dso_local zeroext i1 @parameq(ptr noundef readonly captures(none) %0, ptr
 declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @parse_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef signext %5, ptr noundef %6, ptr noundef readonly %7) local_unnamed_addr #4 align 16 {
+define dso_local ptr @parse_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef signext %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #4 align 16 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8

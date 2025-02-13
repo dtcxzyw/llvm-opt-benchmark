@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Info_delete_f08 = weak alias void (ptr, ptr, ptr, i32), ptr @ompi_info_delete_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_info_delete_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
+define void @ompi_info_delete_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = call i32 @ompi_fortran_string_f2c(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0

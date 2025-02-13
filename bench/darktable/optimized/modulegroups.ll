@@ -2478,7 +2478,7 @@ define internal range(i32 0, 2) i32 @_manage_direct_basic_popup(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_modulegroups_toggle(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @_lib_modulegroups_toggle(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !100
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !173
@@ -6502,7 +6502,7 @@ declare void @gtk_box_reorder_child(ptr noundef, ptr noundef, i32 noundef) local
 declare void @gtk_grid_attach(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_sync_visibility(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
+define internal void @_sync_visibility(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !265
   %6 = icmp eq ptr %0, %5
@@ -7242,7 +7242,7 @@ define internal void @_manage_preset_delete(ptr readnone captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @_manage_editor_preset_action(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [3 x ptr], align 16

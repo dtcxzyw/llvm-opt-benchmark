@@ -529,7 +529,7 @@ define hidden void @_ZN18UnsafeMemoryAccess12create_tableEi(i32 noundef %0) loca
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN18UnsafeMemoryAccess11contains_pcEPh(ptr noundef readnone %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN18UnsafeMemoryAccess11contains_pcEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr @_ZN18UnsafeMemoryAccess13_table_lengthE, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -563,7 +563,7 @@ define hidden noundef zeroext i1 @_ZN18UnsafeMemoryAccess11contains_pcEPh(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN18UnsafeMemoryAccess22page_error_continue_pcEPh(ptr noundef readnone %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN18UnsafeMemoryAccess22page_error_continue_pcEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr @_ZN18UnsafeMemoryAccess13_table_lengthE, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %.loopexit

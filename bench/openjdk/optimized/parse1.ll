@@ -4236,7 +4236,7 @@ _ZN4Node8init_reqEjPS_.exit40:                    ; preds = %.lr.ph46, %286, %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5Parse15make_node_notesEP10Node_Notes(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN5Parse15make_node_notesEP10Node_Notes(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %43, label %4
 

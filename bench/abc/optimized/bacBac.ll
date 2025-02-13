@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [38 x i8] c"Network with name %s already exists.\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @BacManReadBacLine(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, ptr noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BacManReadBacLine(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %6 = load i32, ptr %1, align 4, !tbaa !3
   %7 = add nsw i32 %6, 1

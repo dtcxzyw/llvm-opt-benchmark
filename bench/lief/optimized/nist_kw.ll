@@ -251,7 +251,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(none) initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address) %4, ptr noundef captures(none) initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca [8 x i8], align 8
   %10 = alloca i8, align 1
@@ -410,7 +410,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @unwrap(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 18014398509481985) %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
+define internal fastcc i32 @unwrap(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 18014398509481985) %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(address) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16

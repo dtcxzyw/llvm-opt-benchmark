@@ -121,7 +121,7 @@ gv_calloc.exit111:                                ; preds = %gv_calloc.exit110
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @freeGraph(ptr noundef %0) local_unnamed_addr #2 {
+define void @freeGraph(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -143,7 +143,7 @@ define void @freeGraph(ptr noundef %0) local_unnamed_addr #2 {
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @freeGraphData(ptr noundef %0) local_unnamed_addr #2 {
+define void @freeGraphData(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

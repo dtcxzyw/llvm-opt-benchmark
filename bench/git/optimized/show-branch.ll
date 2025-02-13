@@ -3258,7 +3258,7 @@ commit_name_slab_at.exit17:                       ; preds = %47, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @name_first_parent_chain(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc i32 @name_first_parent_chain(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not31 = icmp eq ptr %0, null
   br i1 %.not31, label %.thread, label %.lr.ph.preheader
 

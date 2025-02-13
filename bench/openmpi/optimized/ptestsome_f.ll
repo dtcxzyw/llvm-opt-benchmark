@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Testsome_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @ompi_testsome_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_testsome_f(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) #0 {
+define void @ompi_testsome_f(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) #0 {
   %7 = load i32, ptr %0, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10

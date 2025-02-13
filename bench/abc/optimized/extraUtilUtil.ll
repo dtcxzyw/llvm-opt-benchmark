@@ -172,7 +172,7 @@ define noundef nonnull ptr @Extra_UtilPrintTime(i64 noundef %0) local_unnamed_ad
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @Extra_UtilStrsav(ptr noundef readonly %0) local_unnamed_addr #6 {
+define noundef ptr @Extra_UtilStrsav(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -198,7 +198,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @Extra_UtilTildeExpand(ptr noundef readonly %0) local_unnamed_addr #6 {
+define noundef ptr @Extra_UtilTildeExpand(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %Extra_UtilStrsav.exit, label %3
 
@@ -250,7 +250,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
+define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %7, label %5
 

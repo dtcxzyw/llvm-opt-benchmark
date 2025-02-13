@@ -8709,13 +8709,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(233) ptr @_ZN7xgboost4data13SimpleDMatrix4InfoEv(ptr noundef nonnull readnone align 8 dereferenceable(456) %0) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(233) ptr @_ZN7xgboost4data13SimpleDMatrix4InfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(456) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(233) ptr @_ZNK7xgboost4data13SimpleDMatrix4InfoEv(ptr noundef nonnull readnone align 8 dereferenceable(456) %0) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(233) ptr @_ZNK7xgboost4data13SimpleDMatrix4InfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(456) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

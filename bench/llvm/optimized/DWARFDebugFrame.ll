@@ -1480,7 +1480,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm5dwarf14UnwindLocationeqERKS1_(ptr
 declare noundef zeroext i1 @_ZNK4llvm15DWARFExpressioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(27), ptr noundef nonnull align 8 dereferenceable(27)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5dwarf17RegisterLocations4dumpERNS_11raw_ostreamENS_13DIDumpOptionsE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm5dwarf17RegisterLocations4dumpERNS_11raw_ostreamENS_13DIDumpOptionsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
@@ -1906,7 +1906,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit25:               ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5dwarflsERNS_11raw_ostreamERKNS0_17RegisterLocationsE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #3 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5dwarflsERNS_11raw_ostreamERKNS0_17RegisterLocationsE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #3 {
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:
   %2 = alloca %"struct.llvm::DIDumpOptions", align 8
   %3 = alloca %"struct.llvm::DIDumpOptions", align 8
@@ -3342,7 +3342,7 @@ _ZN4llvm5dwarf11UnwindTableD2Ev.exit28:           ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5dwarf11UnwindTable9parseRowsERKNS0_10CFIProgramERNS0_9UnwindRowEPKNS0_17RegisterLocationsE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef readonly %4) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm5dwarf11UnwindTable9parseRowsERKNS0_10CFIProgramERNS0_9UnwindRowEPKNS0_17RegisterLocationsE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef readonly captures(address) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.llvm::raw_string_ostream", align 8

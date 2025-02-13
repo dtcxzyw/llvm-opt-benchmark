@@ -290,7 +290,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h3450b76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$10as_mut_ptr17h3abd7efcb8771557E.llvm.17232701346507961806"(ptr noalias noundef readnone returned align 4 dereferenceable(1764) %0) unnamed_addr #1 {
+define hidden noundef nonnull ptr @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$10as_mut_ptr17h3abd7efcb8771557E.llvm.17232701346507961806"(ptr noalias noundef readnone returned align 4 captures(ret: address, provenance) dereferenceable(1764) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

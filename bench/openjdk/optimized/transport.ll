@@ -125,7 +125,7 @@ define hidden void @transport_reset() local_unnamed_addr #0 {
 declare ptr @getEnv() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @transport_startTransport(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden zeroext i16 @transport_startTransport(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [8292 x i8], align 16
   %7 = alloca [4098 x i8], align 16
   %8 = alloca [8292 x i8], align 16

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.block_ = type { [128 x i64] }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_sodium_argon2_fill_segment_ref(ptr noundef readonly %instance, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #0 {
+define hidden void @_sodium_argon2_fill_segment_ref(ptr noundef readonly captures(address_is_null) %instance, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #0 {
 entry:
   %blockR.i = alloca %struct.block_, align 8
   %block_tmp.sroa.0.i = alloca [128 x i64], align 8

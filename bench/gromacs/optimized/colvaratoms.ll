@@ -965,7 +965,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(120) ptr @_ZN12colvarmodule4atomaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(120) initializes((0, 120)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(120) ptr @_ZN12colvarmodule4atomaSERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(120) initializes((0, 120)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()

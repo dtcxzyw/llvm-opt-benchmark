@@ -109,7 +109,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @is_ld(ptr noundef nonnull readonly %path) unnamed_addr #3 {
+define internal fastcc zeroext i1 @is_ld(ptr noundef nonnull readonly captures(address) %path) unnamed_addr #3 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #14
   %add.ptr = getelementptr inbounds i8, ptr %path, i64 %call

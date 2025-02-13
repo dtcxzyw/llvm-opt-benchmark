@@ -2071,7 +2071,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev11L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData15haveEqualBasicsERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(364) %this, ptr noundef nonnull readonly align 8 dereferenceable(364) %other) local_unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData15haveEqualBasicsERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(364) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(364) %other) local_unnamed_addr #14 align 2 {
 entry:
   %m_halfFlags = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load i32, ptr %m_halfFlags, align 8
@@ -2289,7 +2289,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_4dev11Lut1DOpDataEJRKS1_EESt10shared_ptrINSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull readonly align 8 dereferenceable(364) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) local_unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(364) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) local_unnamed_addr #14 align 2 {
 entry:
   %m_direction = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %m_direction, align 8

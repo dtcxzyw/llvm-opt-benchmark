@@ -26208,7 +26208,7 @@ _ZN6duckdb10unique_ptrINS_15InsertStatementESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer25TransformOnConflictClauseEPN17duckdb_libpgquery18PGOnConflictClauseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.630") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %node, ptr nonnull readnone align 8 captures(none) %relname) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer25TransformOnConflictClauseEPN17duckdb_libpgquery18PGOnConflictClauseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.630") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef captures(address_is_null) %node, ptr nonnull readnone align 8 captures(none) %relname) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::vector.325", align 16
   %ref.tmp18 = alloca %"class.duckdb::unique_ptr.34", align 8
@@ -47893,7 +47893,7 @@ _ZN6duckdb10unique_ptrINS_15UpdateStatementESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb25TransformOnConflictActionEPN17duckdb_libpgquery18PGOnConflictClauseE(ptr noundef readonly %on_conflict) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb25TransformOnConflictActionEPN17duckdb_libpgquery18PGOnConflictClauseE(ptr noundef readonly captures(address_is_null) %on_conflict) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1

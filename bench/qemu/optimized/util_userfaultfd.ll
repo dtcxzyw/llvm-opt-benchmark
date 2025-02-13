@@ -432,7 +432,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @uffd_register_memory(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, ptr noundef writeonly %ioctls) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_register_memory(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, ptr noundef writeonly captures(address_is_null) %ioctls) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %uffd_register = alloca %struct.uffdio_register, align 8

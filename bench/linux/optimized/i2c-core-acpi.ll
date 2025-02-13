@@ -126,7 +126,7 @@ define internal noundef i32 @i2c_acpi_resource_count(ptr noundef readonly captur
 declare dso_local void @acpi_dev_free_resource_list(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_acpi_get_irq(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @i2c_acpi_get_irq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.i2c_acpi_irq_context, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -1057,7 +1057,7 @@ declare dso_local i32 @i2c_dev_irq_from_resources(ptr noundef, i32 noundef) loca
 declare dso_local ptr @acpi_fetch_acpi_dev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @i2c_acpi_get_info(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @i2c_acpi_get_info(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.list_head, align 8
   %6 = alloca %struct.list_head, align 8
   %7 = alloca %struct.i2c_acpi_lookup, align 8

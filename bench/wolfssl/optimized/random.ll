@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"/dev/random\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @wc_RNG_DRBG_Reseed(ptr noundef readonly %rng, ptr noundef %seed, i32 noundef %seedSz) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @wc_RNG_DRBG_Reseed(ptr noundef readonly captures(address_is_null) %rng, ptr noundef %seed, i32 noundef %seedSz) local_unnamed_addr #0 {
 entry:
   %newV.i = alloca [55 x i8], align 16
   %cmp = icmp eq ptr %rng, null
@@ -212,7 +212,7 @@ if.end7:                                          ; preds = %if.then, %if.then5,
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -209, 3) i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) unnamed_addr #0 {
+define internal fastcc range(i32 -209, 3) i32 @_InitRng(ptr noundef captures(address_is_null) %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) unnamed_addr #0 {
 entry:
   %seed = alloca [52 x i8], align 16
   %cmp = icmp eq ptr %rng, null
@@ -563,7 +563,7 @@ if.end4:                                          ; preds = %ForceZero.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -199, 1) i32 @wc_FreeRng(ptr noundef %rng) local_unnamed_addr #0 {
+define range(i32 -199, 1) i32 @wc_FreeRng(ptr noundef captures(address_is_null) %rng) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rng, null
   br i1 %cmp, label %return, label %if.end
@@ -709,35 +709,35 @@ while.end14:                                      ; preds = %while.body12, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRng(ptr noundef %rng) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRng(ptr noundef captures(address_is_null) %rng) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef -2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRng_ex(ptr noundef %rng, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRng_ex(ptr noundef captures(address_is_null) %rng, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef null, i32 noundef 0, ptr noundef %heap, i32 noundef %devId)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRngNonce(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRngNonce(ptr noundef captures(address_is_null) %rng, ptr noundef %nonce, i32 noundef %nonceSz) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef null, i32 noundef -2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRngNonce_ex(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRngNonce_ex(ptr noundef captures(address_is_null) %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 1) i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef writeonly %output, i32 noundef %sz) local_unnamed_addr #0 {
+define range(i32 -209, 1) i32 @wc_RNG_GenerateBlock(ptr noundef captures(address_is_null) %rng, ptr noundef writeonly captures(address_is_null) %output, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %check.i = alloca [128 x i8], align 16
   %newSeed = alloca [36 x i8], align 16
@@ -1205,7 +1205,7 @@ if.end30:                                         ; preds = %ConstantCompare.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef %os, ptr noundef captures(none) %output, i32 noundef %sz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef captures(address_is_null) %os, ptr noundef captures(none) %output, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %os, null
   br i1 %cmp, label %return, label %if.end
@@ -1258,21 +1258,21 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 1) i32 @wc_RNG_GenerateByte(ptr noundef %rng, ptr noundef %b) local_unnamed_addr #0 {
+define range(i32 -209, 1) i32 @wc_RNG_GenerateByte(ptr noundef captures(address_is_null) %rng, ptr noundef captures(address_is_null) %b) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef %b, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_RNG_HealthTest(i32 noundef %reseed, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_RNG_HealthTest(i32 noundef %reseed, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef captures(address_is_null) %output, i32 noundef %outputSz) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef null, i32 noundef 0, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz, ptr noundef null, i32 poison)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef writeonly %output, i32 noundef %outputSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef writeonly captures(address_is_null) %output, i32 noundef %outputSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #0 {
 entry:
   %newV.i = alloca [55 x i8], align 16
   %drbg_var = alloca %struct.DRBG_internal, align 8
@@ -1410,7 +1410,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone %drbg, ptr noundef writeonly captures(none) %out, i8 noundef zeroext range(i8 0, 5) %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone captures(address_is_null) %drbg, ptr noundef writeonly captures(none) %out, i8 noundef zeroext range(i8 0, 5) %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
 entry:
   %type.addr = alloca i8, align 1
   %ctr = alloca i8, align 1

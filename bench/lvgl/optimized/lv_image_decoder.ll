@@ -262,7 +262,7 @@ img_width_to_stride.exit:                         ; preds = %55, %57
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_image_decoder_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @lv_image_decoder_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._lv_image_cache_data_t, align 8
   tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 128) #6
   %5 = icmp eq ptr %1, null

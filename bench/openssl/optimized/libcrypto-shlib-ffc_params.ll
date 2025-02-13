@@ -127,7 +127,7 @@ if.end20:                                         ; preds = %if.then17, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_ffc_params_get0_pqg(ptr noundef readonly captures(none) %d, ptr noundef writeonly %p, ptr noundef writeonly %q, ptr noundef writeonly %g) local_unnamed_addr #4 {
+define void @ossl_ffc_params_get0_pqg(ptr noundef readonly captures(none) %d, ptr noundef writeonly captures(address_is_null) %p, ptr noundef writeonly captures(address_is_null) %q, ptr noundef writeonly captures(address_is_null) %g) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -330,7 +330,7 @@ return:                                           ; preds = %if.then9.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_ffc_params_get_validate_params(ptr noundef readonly captures(none) %params, ptr noundef writeonly %seed, ptr noundef writeonly %seedlen, ptr noundef writeonly %pcounter) local_unnamed_addr #4 {
+define void @ossl_ffc_params_get_validate_params(ptr noundef readonly captures(none) %params, ptr noundef writeonly captures(address_is_null) %seed, ptr noundef writeonly captures(address_is_null) %seedlen, ptr noundef writeonly captures(address_is_null) %pcounter) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %seed, null
   br i1 %cmp.not, label %if.end, label %if.then

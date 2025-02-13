@@ -388,7 +388,7 @@ __archive_rb_tree_insert_rebalance.exit:          ; preds = %.lr.ph, %79, %73, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
   %.val.pre = load ptr, ptr %1, align 8, !tbaa !11
   %3 = icmp eq ptr %.val.pre, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -595,7 +595,7 @@ __archive_rb_tree_prune_node.exit:                ; preds = %114, %.thread71.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = xor i32 %2, 1
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %13

@@ -1501,7 +1501,7 @@ opal_free_list_return.exit18:                     ; preds = %opal_lifo_push_atom
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @inorder_destroy(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @inorder_destroy(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -1692,7 +1692,7 @@ opal_free_list_return.exit31:                     ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @opal_rb_tree_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @opal_rb_tree_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -1712,7 +1712,7 @@ define range(i32 -1, 1) i32 @opal_rb_tree_traverse(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @inorder_traversal(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @inorder_traversal(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %3, %6

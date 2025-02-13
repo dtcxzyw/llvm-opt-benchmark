@@ -3235,7 +3235,7 @@ _ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EEC2EOS4_.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes14CompiledRegExp10tryCompileEN4llvh9StringRefES2_PS2_(ptr noalias sret(%"class.llvh::Optional") align 8 %agg.result, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr %flags.coerce0, i64 %flags.coerce1, ptr noundef writeonly %outError) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes14CompiledRegExp10tryCompileEN4llvh9StringRefES2_PS2_(ptr noalias sret(%"class.llvh::Optional") align 8 %agg.result, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr %flags.coerce0, i64 %flags.coerce1, ptr noundef writeonly captures(address_is_null) %outError) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator", align 8

@@ -5611,7 +5611,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_engine_failure_process
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_find_hung_context(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_find_hung_context(ptr noundef captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -5792,7 +5792,7 @@ define dso_local void @intel_guc_find_hung_context(ptr noundef %0) local_unnamed
 declare dso_local i32 @i915_test_request_state(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_dump_active_requests(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_dump_active_requests(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8

@@ -524,7 +524,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7openvdb5v11_06points14AttributeArrayaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 9), (11, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rhs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7openvdb5v11_06points14AttributeArrayaSERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) initializes((8, 9), (11, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rhs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags, align 2
@@ -761,7 +761,7 @@ if.end19:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points14AttributeArray6createERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EjjbPKNS0_8MetadataEPKNS2_18ScopedRegistryLockE(ptr noalias sret(%"class.std::shared_ptr.4") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %type, i32 noundef %length, i32 noundef %stride, i1 noundef zeroext %constantStride, ptr noundef %metadata, ptr noundef readnone %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points14AttributeArray6createERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EjjbPKNS0_8MetadataEPKNS2_18ScopedRegistryLockE(ptr noalias sret(%"class.std::shared_ptr.4") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %type, i32 noundef %length, i32 noundef %stride, i1 noundef zeroext %constantStride, ptr noundef %metadata, ptr noundef readnone captures(address_is_null) %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -973,7 +973,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7openvdb5v11_06points14AttributeArray12isRegisteredERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EPKNS2_18ScopedRegistryLockE(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef readnone %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7openvdb5v11_06points14AttributeArray12isRegisteredERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EPKNS2_18ScopedRegistryLockE(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef readnone captures(address_is_null) %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -1064,7 +1064,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_06points14AttributeArray13clearRegistryEPKNS2_18ScopedRegistryLockE(ptr noundef readnone %lock) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points14AttributeArray13clearRegistryEPKNS2_18ScopedRegistryLockE(ptr noundef readnone captures(address_is_null) %lock) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -1154,7 +1154,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points14AttributeArray12registerTypeERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EPFSt10shared_ptrIS2_EjjbPKNS0_8MetadataEEPKNS2_18ScopedRegistryLockE(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef %factory, ptr noundef readnone %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points14AttributeArray12registerTypeERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EPFSt10shared_ptrIS2_EjjbPKNS0_8MetadataEEPKNS2_18ScopedRegistryLockE(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef %factory, ptr noundef readnone captures(address_is_null) %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %array = alloca %"class.std::shared_ptr.4", align 8
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1593,7 +1593,7 @@ if.end:                                           ; preds = %_ZStltIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points14AttributeArray14unregisterTypeERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EPKNS2_18ScopedRegistryLockE(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef readnone %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points14AttributeArray14unregisterTypeERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EPKNS2_18ScopedRegistryLockE(ptr noundef nonnull align 8 dereferenceable(64) %type, ptr noundef readnone captures(address_is_null) %lock) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

@@ -3016,7 +3016,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
   br label %agxbuse.exit
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %215
-  %.val.i4.pr.i218 = phi i1 [ true, %215 ], [ false, %agxbclear.exit.thread.i ]
+  %.val.i4.pr.i219 = phi i1 [ true, %215 ], [ false, %agxbclear.exit.thread.i ]
   %217 = phi ptr [ %216, %215 ], [ %13, %agxbclear.exit.thread.i ]
   %218 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %217, ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %219 = icmp sgt i32 %218, 2
@@ -3354,7 +3354,7 @@ hsv2rgb.exit136:                                  ; preds = %361, %363, %378, %3
   unreachable
 
 392:                                              ; preds = %220, %220, %hsv2rgb.exit136, %hsv2rgb.exit132, %hsv2rgb.exit128, %hsv2rgb.exit, %233
-  br i1 %.val.i4.pr.i218, label %393, label %agxbfree.exit
+  br i1 %.val.i4.pr.i219, label %393, label %agxbfree.exit
 
 393:                                              ; preds = %392
   %.val = load ptr, ptr %13, align 8
@@ -3362,7 +3362,7 @@ hsv2rgb.exit136:                                  ; preds = %361, %363, %378, %3
   br label %agxbfree.exit
 
 394:                                              ; preds = %agxbuse.exit
-  br i1 %.val.i4.pr.i218, label %395, label %agxbfree.exit137
+  br i1 %.val.i4.pr.i219, label %395, label %agxbfree.exit137
 
 395:                                              ; preds = %394
   %.val122 = load ptr, ptr %13, align 8
@@ -3389,370 +3389,375 @@ agxbfree.exit137:                                 ; preds = %.thread193, %395, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %402 = load i8, ptr %.0112, align 1
   %403 = icmp eq i8 %402, 47
-  br i1 %403, label %404, label %423
+  br i1 %403, label %404, label %420
 
 404:                                              ; preds = %401
   %405 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 47) #20
   %.not30.i = icmp eq ptr %405, null
-  br i1 %.not30.i, label %fullColor.exit.i, label %406
+  br i1 %.not30.i, label %fullColor.exit.thread.i, label %406
 
 406:                                              ; preds = %404
   %407 = load i8, ptr %18, align 1
   %408 = icmp eq i8 %407, 47
-  br i1 %408, label %409, label %420
+  br i1 %408, label %409, label %417
 
 409:                                              ; preds = %406
   %410 = load ptr, ptr @colorscheme, align 8
   %.not32.i = icmp eq ptr %410, null
-  br i1 %.not32.i, label %418, label %411
+  br i1 %.not32.i, label %415, label %411
 
 411:                                              ; preds = %409
   %412 = load i8, ptr %410, align 1
   %.not33.i = icmp eq i8 %412, 0
-  br i1 %.not33.i, label %418, label %413
+  br i1 %.not33.i, label %415, label %413
 
 413:                                              ; preds = %411
   %414 = call i32 @strncasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %410, i64 noundef 3) #20
   %.not34.i = icmp eq i32 %414, 0
-  br i1 %.not34.i, label %418, label %415
+  br i1 %.not34.i, label %415, label %fullColor.exit.i
 
-415:                                              ; preds = %413
+415:                                              ; preds = %413, %411, %409
   %416 = getelementptr inbounds nuw i8, ptr %.0112, i64 2
-  %417 = call fastcc ptr @fullColor(ptr noundef %4, ptr noundef %410, ptr noundef nonnull %416)
-  br label %fullColor.exit.i
+  br label %fullColor.exit.thread.i
 
-418:                                              ; preds = %413, %411, %409
-  %419 = getelementptr inbounds nuw i8, ptr %.0112, i64 2
-  br label %fullColor.exit.i
+417:                                              ; preds = %406
+  %418 = call i32 @strncasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %18, i64 noundef 4) #20
+  %.not31.i = icmp eq i32 %418, 0
+  %419 = getelementptr inbounds nuw i8, ptr %405, i64 1
+  %spec.select.i = select i1 %.not31.i, ptr %419, ptr %.0112
+  br label %fullColor.exit.thread.i
 
-420:                                              ; preds = %406
-  %421 = call i32 @strncasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %18, i64 noundef 4) #20
-  %.not31.i = icmp eq i32 %421, 0
-  %422 = getelementptr inbounds nuw i8, ptr %405, i64 1
-  %spec.select.i = select i1 %.not31.i, ptr %422, ptr %.0112
-  br label %fullColor.exit.i
+420:                                              ; preds = %401
+  %421 = load ptr, ptr @colorscheme, align 8
+  %.not27.i = icmp eq ptr %421, null
+  br i1 %.not27.i, label %fullColor.exit.thread.i, label %422
 
-423:                                              ; preds = %401
-  %424 = load ptr, ptr @colorscheme, align 8
-  %.not27.i = icmp eq ptr %424, null
-  br i1 %.not27.i, label %fullColor.exit.i, label %425
+422:                                              ; preds = %420
+  %423 = load i8, ptr %421, align 1
+  %.not28.i = icmp eq i8 %423, 0
+  br i1 %.not28.i, label %fullColor.exit.thread.i, label %424
 
-425:                                              ; preds = %423
-  %426 = load i8, ptr %424, align 1
-  %.not28.i = icmp eq i8 %426, 0
-  br i1 %.not28.i, label %fullColor.exit.i, label %427
+424:                                              ; preds = %422
+  %425 = call i32 @strncasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %421, i64 noundef 3) #20
+  %.not29.i = icmp eq i32 %425, 0
+  br i1 %.not29.i, label %fullColor.exit.thread.i, label %agxbsizeof.exit.i.i.i.i
 
-427:                                              ; preds = %425
-  %428 = call i32 @strncasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %424, i64 noundef 3) #20
-  %.not29.i = icmp eq i32 %428, 0
-  br i1 %.not29.i, label %fullColor.exit.i, label %agxbsizeof.exit.i.i.i.i
-
-agxbsizeof.exit.i.i.i.i:                          ; preds = %427
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, ptr noundef nonnull %424, ptr noundef nonnull %.0112)
-  %429 = getelementptr inbounds nuw i8, ptr %4, i64 31
-  %.val.i.i.i.i.i = load i8, ptr %429, align 1
+agxbsizeof.exit.i.i.i.i:                          ; preds = %424
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, ptr noundef nonnull %421, ptr noundef nonnull %.0112)
+  %426 = getelementptr inbounds nuw i8, ptr %4, i64 31
+  %.val.i.i.i.i.i = load i8, ptr %426, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
-  %430 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %431 = load i64, ptr %430, align 8
-  %432 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %433 = load i64, ptr %432, align 8
-  %434 = zext i8 %.val.i.i.i.i.i to i64
-  %.0.i20.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %431, i64 %434
-  %.0.i14.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %433, i64 31
+  %427 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %428 = load i64, ptr %427, align 8
+  %429 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %430 = load i64, ptr %429, align 8
+  %431 = zext i8 %.val.i.i.i.i.i to i64
+  %.0.i20.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %428, i64 %431
+  %.0.i14.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %430, i64 31
   %.not.i.i.i.i = icmp ult i64 %.0.i20.i.i.i.i, %.0.i14.i.i.i.i
-  br i1 %.not.i.i.i.i, label %436, label %435
+  br i1 %.not.i.i.i.i, label %433, label %432
 
-435:                                              ; preds = %agxbsizeof.exit.i.i.i.i
+432:                                              ; preds = %agxbsizeof.exit.i.i.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
-  %.val.i15.pre.i.i.i.i = load i8, ptr %429, align 1
-  br label %436
+  %.val.i15.pre.i.i.i.i = load i8, ptr %426, align 1
+  br label %433
 
-436:                                              ; preds = %435, %agxbsizeof.exit.i.i.i.i
-  %.val.i.pr.i.i.i = phi i8 [ %.val.i15.pre.i.i.i.i, %435 ], [ %.val.i.i.i.i.i, %agxbsizeof.exit.i.i.i.i ]
+433:                                              ; preds = %432, %agxbsizeof.exit.i.i.i.i
+  %.val.i.pr.i.i.i = phi i8 [ %.val.i15.pre.i.i.i.i, %432 ], [ %.val.i.i.i.i.i, %agxbsizeof.exit.i.i.i.i ]
   %.not.i16.i.i.i.i = icmp eq i8 %.val.i.pr.i.i.i, -1
   br i1 %.not.i16.i.i.i.i, label %agxbputc.exit.i.i.thread.i, label %agxbputc.exit.i.i.i
 
-agxbputc.exit.i.i.thread.i:                       ; preds = %436
-  %437 = load i64, ptr %430, align 8
-  %438 = load ptr, ptr %4, align 8
-  %439 = getelementptr inbounds i8, ptr %438, i64 %437
-  store i8 0, ptr %439, align 1
-  br label %445
+agxbputc.exit.i.i.thread.i:                       ; preds = %433
+  %434 = load i64, ptr %427, align 8
+  %435 = load ptr, ptr %4, align 8
+  %436 = getelementptr inbounds i8, ptr %435, i64 %434
+  store i8 0, ptr %436, align 1
+  br label %fullColor.exit.thread40.i
 
-agxbputc.exit.i.i.i:                              ; preds = %436
-  %440 = zext i8 %.val.i.pr.i.i.i to i64
-  %441 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %440
-  store i8 0, ptr %441, align 1
-  %442 = load i8, ptr %429, align 1
-  %443 = add i8 %442, 1
-  store i8 %443, ptr %429, align 1
-  %444 = icmp eq i8 %443, -1
-  br i1 %444, label %agxbputc.exit.i.i.i._crit_edge, label %agxbclear.exit.thread.i.i.i
+agxbputc.exit.i.i.i:                              ; preds = %433
+  %437 = zext i8 %.val.i.pr.i.i.i to i64
+  %438 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %437
+  store i8 0, ptr %438, align 1
+  %439 = load i8, ptr %426, align 1
+  %440 = icmp eq i8 %439, -2
+  br i1 %440, label %agxbputc.exit.i.i.i.fullColor.exit.thread40.i_crit_edge, label %agxbclear.exit.thread.i.i.i
 
-agxbputc.exit.i.i.i._crit_edge:                   ; preds = %agxbputc.exit.i.i.i
+agxbputc.exit.i.i.i.fullColor.exit.thread40.i_crit_edge: ; preds = %agxbputc.exit.i.i.i
   %.pre216 = load ptr, ptr %4, align 8
-  br label %445
+  br label %fullColor.exit.thread40.i
 
 agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i
-  store i8 0, ptr %429, align 1
-  br label %fullColor.exit.i
+  store i8 0, ptr %426, align 1
+  br label %fullColor.exit.thread.i
 
-445:                                              ; preds = %agxbputc.exit.i.i.i._crit_edge, %agxbputc.exit.i.i.thread.i
-  %446 = phi ptr [ %.pre216, %agxbputc.exit.i.i.i._crit_edge ], [ %438, %agxbputc.exit.i.i.thread.i ]
-  store i64 0, ptr %430, align 8
-  br label %fullColor.exit.i
+fullColor.exit.thread40.i:                        ; preds = %agxbputc.exit.i.i.i.fullColor.exit.thread40.i_crit_edge, %agxbputc.exit.i.i.thread.i
+  %441 = phi ptr [ %.pre216, %agxbputc.exit.i.i.i.fullColor.exit.thread40.i_crit_edge ], [ %435, %agxbputc.exit.i.i.thread.i ]
+  %442 = call ptr @canontoken(ptr noundef %441)
+  br label %448
 
-fullColor.exit.i:                                 ; preds = %445, %agxbclear.exit.thread.i.i.i, %427, %425, %423, %420, %418, %415, %404
-  %.021.i = phi ptr [ %417, %415 ], [ %419, %418 ], [ %18, %404 ], [ %.0112, %427 ], [ %.0112, %425 ], [ %.0112, %423 ], [ %spec.select.i, %420 ], [ %446, %445 ], [ %4, %agxbclear.exit.thread.i.i.i ]
-  %447 = call ptr @canontoken(ptr noundef %.021.i)
-  %448 = getelementptr inbounds nuw i8, ptr %4, i64 31
-  %.val35.i = load i8, ptr %448, align 1
-  %449 = icmp eq i8 %.val35.i, -1
-  br i1 %449, label %450, label %resolveColor.exit
+fullColor.exit.thread.i:                          ; preds = %agxbclear.exit.thread.i.i.i, %424, %422, %420, %417, %415, %404
+  %.021.ph.i = phi ptr [ %4, %agxbclear.exit.thread.i.i.i ], [ %spec.select.i, %417 ], [ %.0112, %420 ], [ %.0112, %422 ], [ %.0112, %424 ], [ %18, %404 ], [ %416, %415 ]
+  %443 = call ptr @canontoken(ptr noundef nonnull %.021.ph.i)
+  br label %resolveColor.exit
 
-450:                                              ; preds = %fullColor.exit.i
-  %.val.i = load ptr, ptr %4, align 8
+fullColor.exit.i:                                 ; preds = %413
+  %444 = getelementptr inbounds nuw i8, ptr %.0112, i64 2
+  %445 = call fastcc ptr @fullColor(ptr noundef %4, ptr noundef %410, ptr noundef nonnull %444)
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 31
+  %.val35.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
+  %446 = icmp eq i8 %.val35.pre.i, -1
+  %447 = call ptr @canontoken(ptr noundef %445)
+  br i1 %446, label %fullColor.exit.i._crit_edge, label %resolveColor.exit
+
+fullColor.exit.i._crit_edge:                      ; preds = %fullColor.exit.i
+  %.val.i.pre = load ptr, ptr %4, align 8
+  br label %448
+
+448:                                              ; preds = %fullColor.exit.i._crit_edge, %fullColor.exit.thread40.i
+  %.val.i = phi ptr [ %441, %fullColor.exit.thread40.i ], [ %.val.i.pre, %fullColor.exit.i._crit_edge ]
+  %449 = phi ptr [ %442, %fullColor.exit.thread40.i ], [ %447, %fullColor.exit.i._crit_edge ]
   call void @free(ptr noundef %.val.i) #21
   br label %resolveColor.exit
 
 resolveColor.exit.thread:                         ; preds = %agxbfree.exit137, %397, %399
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %451
+  br label %450
 
-resolveColor.exit:                                ; preds = %fullColor.exit.i, %450
+resolveColor.exit:                                ; preds = %fullColor.exit.thread.i, %fullColor.exit.i, %448
+  %.0.i139 = phi ptr [ %447, %fullColor.exit.i ], [ %449, %448 ], [ %443, %fullColor.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %.not118 = icmp eq ptr %447, null
-  br i1 %.not118, label %agxbfree.exit, label %451
+  %.not118 = icmp eq ptr %.0.i139, null
+  br i1 %.not118, label %agxbfree.exit, label %450
 
-451:                                              ; preds = %resolveColor.exit.thread, %resolveColor.exit
-  %.0.i139199 = phi ptr [ %.0112, %resolveColor.exit.thread ], [ %447, %resolveColor.exit ]
-  %452 = load ptr, ptr @colorxlate.last, align 8
-  %453 = icmp eq ptr %452, null
-  br i1 %453, label %thread-pre-split, label %454
+450:                                              ; preds = %resolveColor.exit.thread, %resolveColor.exit
+  %.0.i139199 = phi ptr [ %.0112, %resolveColor.exit.thread ], [ %.0.i139, %resolveColor.exit ]
+  %451 = load ptr, ptr @colorxlate.last, align 8
+  %452 = icmp eq ptr %451, null
+  br i1 %452, label %thread-pre-split, label %453
 
-454:                                              ; preds = %451
-  %455 = load ptr, ptr %452, align 8
-  %456 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %455, ptr noundef nonnull dereferenceable(1) %.0.i139199) #20
-  %.not119 = icmp eq i32 %456, 0
+453:                                              ; preds = %450
+  %454 = load ptr, ptr %451, align 8
+  %455 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %454, ptr noundef nonnull dereferenceable(1) %.0.i139199) #20
+  %.not119 = icmp eq i32 %455, 0
   br i1 %.not119, label %thread-pre-split.thread, label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %451, %454
-  %457 = call ptr @bsearch(ptr noundef nonnull %.0.i139199, ptr noundef nonnull @color_lib, i64 noundef 2515, i64 noundef 16, ptr noundef nonnull @colorcmpf) #21
-  store ptr %457, ptr @colorxlate.last, align 8
-  %.not120 = icmp eq ptr %457, null
-  br i1 %.not120, label %570, label %thread-pre-split.thread
+thread-pre-split:                                 ; preds = %450, %453
+  %456 = call ptr @bsearch(ptr noundef nonnull %.0.i139199, ptr noundef nonnull @color_lib, i64 noundef 2515, i64 noundef 16, ptr noundef nonnull @colorcmpf) #21
+  store ptr %456, ptr @colorxlate.last, align 8
+  %.not120 = icmp eq ptr %456, null
+  br i1 %.not120, label %569, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %454, %thread-pre-split
-  %458 = phi ptr [ %457, %thread-pre-split ], [ %452, %454 ]
-  switch i32 %2, label %567 [
-    i32 0, label %459
-    i32 1, label %479
-    i32 3, label %491
-    i32 2, label %527
-    i32 4, label %547
+thread-pre-split.thread:                          ; preds = %453, %thread-pre-split
+  %457 = phi ptr [ %456, %thread-pre-split ], [ %451, %453 ]
+  switch i32 %2, label %566 [
+    i32 0, label %458
+    i32 1, label %478
+    i32 3, label %490
+    i32 2, label %526
+    i32 4, label %546
     i32 5, label %agxbfree.exit
     i32 6, label %agxbfree.exit
   ]
 
-459:                                              ; preds = %thread-pre-split.thread
-  %460 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %461 = load i8, ptr %460, align 8
-  %462 = uitofp i8 %461 to double
-  %463 = fdiv double %462, 2.550000e+02
-  store double %463, ptr %1, align 8
-  %464 = getelementptr inbounds nuw i8, ptr %458, i64 9
-  %465 = load i8, ptr %464, align 1
-  %466 = uitofp i8 %465 to double
-  %467 = fdiv double %466, 2.550000e+02
-  %468 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %467, ptr %468, align 8
-  %469 = getelementptr inbounds nuw i8, ptr %458, i64 10
-  %470 = load i8, ptr %469, align 2
-  %471 = uitofp i8 %470 to double
-  %472 = fdiv double %471, 2.550000e+02
-  %473 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %472, ptr %473, align 8
-  %474 = getelementptr inbounds nuw i8, ptr %458, i64 14
-  %475 = load i8, ptr %474, align 2
-  %476 = uitofp i8 %475 to double
-  %477 = fdiv double %476, 2.550000e+02
-  %478 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %477, ptr %478, align 8
+458:                                              ; preds = %thread-pre-split.thread
+  %459 = getelementptr inbounds nuw i8, ptr %457, i64 8
+  %460 = load i8, ptr %459, align 8
+  %461 = uitofp i8 %460 to double
+  %462 = fdiv double %461, 2.550000e+02
+  store double %462, ptr %1, align 8
+  %463 = getelementptr inbounds nuw i8, ptr %457, i64 9
+  %464 = load i8, ptr %463, align 1
+  %465 = uitofp i8 %464 to double
+  %466 = fdiv double %465, 2.550000e+02
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %466, ptr %467, align 8
+  %468 = getelementptr inbounds nuw i8, ptr %457, i64 10
+  %469 = load i8, ptr %468, align 2
+  %470 = uitofp i8 %469 to double
+  %471 = fdiv double %470, 2.550000e+02
+  %472 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %471, ptr %472, align 8
+  %473 = getelementptr inbounds nuw i8, ptr %457, i64 14
+  %474 = load i8, ptr %473, align 2
+  %475 = uitofp i8 %474 to double
+  %476 = fdiv double %475, 2.550000e+02
+  %477 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store double %476, ptr %477, align 8
   br label %agxbfree.exit
 
-479:                                              ; preds = %thread-pre-split.thread
-  %480 = getelementptr inbounds nuw i8, ptr %458, i64 11
-  %481 = load i8, ptr %480, align 1
-  store i8 %481, ptr %1, align 8
-  %482 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %483 = load i8, ptr %482, align 4
-  %484 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %483, ptr %484, align 1
-  %485 = getelementptr inbounds nuw i8, ptr %458, i64 13
-  %486 = load i8, ptr %485, align 1
-  %487 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %486, ptr %487, align 2
-  %488 = getelementptr inbounds nuw i8, ptr %458, i64 14
-  %489 = load i8, ptr %488, align 2
-  %490 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %489, ptr %490, align 1
+478:                                              ; preds = %thread-pre-split.thread
+  %479 = getelementptr inbounds nuw i8, ptr %457, i64 11
+  %480 = load i8, ptr %479, align 1
+  store i8 %480, ptr %1, align 8
+  %481 = getelementptr inbounds nuw i8, ptr %457, i64 12
+  %482 = load i8, ptr %481, align 4
+  %483 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %482, ptr %483, align 1
+  %484 = getelementptr inbounds nuw i8, ptr %457, i64 13
+  %485 = load i8, ptr %484, align 1
+  %486 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %485, ptr %486, align 2
+  %487 = getelementptr inbounds nuw i8, ptr %457, i64 14
+  %488 = load i8, ptr %487, align 2
+  %489 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %488, ptr %489, align 1
   br label %agxbfree.exit
 
-491:                                              ; preds = %thread-pre-split.thread
-  %492 = getelementptr inbounds nuw i8, ptr %458, i64 11
-  %493 = load i8, ptr %492, align 1
-  %494 = uitofp i8 %493 to double
-  %495 = fdiv double %494, 2.550000e+02
-  %496 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %497 = load i8, ptr %496, align 4
-  %498 = uitofp i8 %497 to double
-  %499 = fdiv double %498, 2.550000e+02
-  %500 = getelementptr inbounds nuw i8, ptr %458, i64 13
-  %501 = load i8, ptr %500, align 1
-  %502 = uitofp i8 %501 to double
-  %503 = fdiv double %502, 2.550000e+02
-  %504 = fsub double 1.000000e+00, %495
-  %505 = fsub double 1.000000e+00, %499
-  %506 = fsub double 1.000000e+00, %503
-  %507 = call double @llvm.minnum.f64(double %504, double %505)
-  %508 = call double @llvm.minnum.f64(double %506, double %507)
-  %509 = fsub double %504, %508
-  %510 = fsub double %505, %508
-  %511 = fsub double %506, %508
-  %512 = fptosi double %509 to i32
-  %513 = trunc i32 %512 to i8
-  %514 = sub i8 0, %513
-  store i8 %514, ptr %1, align 8
-  %515 = fptosi double %510 to i32
-  %516 = trunc i32 %515 to i8
-  %517 = sub i8 0, %516
-  %518 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %517, ptr %518, align 1
-  %519 = fptosi double %511 to i32
-  %520 = trunc i32 %519 to i8
-  %521 = sub i8 0, %520
-  %522 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %521, ptr %522, align 2
-  %523 = fptosi double %508 to i32
-  %524 = trunc i32 %523 to i8
-  %525 = sub i8 0, %524
-  %526 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %525, ptr %526, align 1
+490:                                              ; preds = %thread-pre-split.thread
+  %491 = getelementptr inbounds nuw i8, ptr %457, i64 11
+  %492 = load i8, ptr %491, align 1
+  %493 = uitofp i8 %492 to double
+  %494 = fdiv double %493, 2.550000e+02
+  %495 = getelementptr inbounds nuw i8, ptr %457, i64 12
+  %496 = load i8, ptr %495, align 4
+  %497 = uitofp i8 %496 to double
+  %498 = fdiv double %497, 2.550000e+02
+  %499 = getelementptr inbounds nuw i8, ptr %457, i64 13
+  %500 = load i8, ptr %499, align 1
+  %501 = uitofp i8 %500 to double
+  %502 = fdiv double %501, 2.550000e+02
+  %503 = fsub double 1.000000e+00, %494
+  %504 = fsub double 1.000000e+00, %498
+  %505 = fsub double 1.000000e+00, %502
+  %506 = call double @llvm.minnum.f64(double %503, double %504)
+  %507 = call double @llvm.minnum.f64(double %505, double %506)
+  %508 = fsub double %503, %507
+  %509 = fsub double %504, %507
+  %510 = fsub double %505, %507
+  %511 = fptosi double %508 to i32
+  %512 = trunc i32 %511 to i8
+  %513 = sub i8 0, %512
+  store i8 %513, ptr %1, align 8
+  %514 = fptosi double %509 to i32
+  %515 = trunc i32 %514 to i8
+  %516 = sub i8 0, %515
+  %517 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %516, ptr %517, align 1
+  %518 = fptosi double %510 to i32
+  %519 = trunc i32 %518 to i8
+  %520 = sub i8 0, %519
+  %521 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %520, ptr %521, align 2
+  %522 = fptosi double %507 to i32
+  %523 = trunc i32 %522 to i8
+  %524 = sub i8 0, %523
+  %525 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %524, ptr %525, align 1
   br label %agxbfree.exit
 
-527:                                              ; preds = %thread-pre-split.thread
-  %528 = getelementptr inbounds nuw i8, ptr %458, i64 11
-  %529 = load i8, ptr %528, align 1
-  %530 = zext i8 %529 to i32
-  %531 = mul nuw nsw i32 %530, 257
-  store i32 %531, ptr %1, align 8
-  %532 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %533 = load i8, ptr %532, align 4
-  %534 = zext i8 %533 to i32
-  %535 = mul nuw nsw i32 %534, 257
-  %536 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %535, ptr %536, align 4
-  %537 = getelementptr inbounds nuw i8, ptr %458, i64 13
-  %538 = load i8, ptr %537, align 1
-  %539 = zext i8 %538 to i32
-  %540 = mul nuw nsw i32 %539, 257
-  %541 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %540, ptr %541, align 8
-  %542 = getelementptr inbounds nuw i8, ptr %458, i64 14
-  %543 = load i8, ptr %542, align 2
-  %544 = zext i8 %543 to i32
-  %545 = mul nuw nsw i32 %544, 257
-  %546 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %545, ptr %546, align 4
+526:                                              ; preds = %thread-pre-split.thread
+  %527 = getelementptr inbounds nuw i8, ptr %457, i64 11
+  %528 = load i8, ptr %527, align 1
+  %529 = zext i8 %528 to i32
+  %530 = mul nuw nsw i32 %529, 257
+  store i32 %530, ptr %1, align 8
+  %531 = getelementptr inbounds nuw i8, ptr %457, i64 12
+  %532 = load i8, ptr %531, align 4
+  %533 = zext i8 %532 to i32
+  %534 = mul nuw nsw i32 %533, 257
+  %535 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %534, ptr %535, align 4
+  %536 = getelementptr inbounds nuw i8, ptr %457, i64 13
+  %537 = load i8, ptr %536, align 1
+  %538 = zext i8 %537 to i32
+  %539 = mul nuw nsw i32 %538, 257
+  %540 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %539, ptr %540, align 8
+  %541 = getelementptr inbounds nuw i8, ptr %457, i64 14
+  %542 = load i8, ptr %541, align 2
+  %543 = zext i8 %542 to i32
+  %544 = mul nuw nsw i32 %543, 257
+  %545 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %544, ptr %545, align 4
   br label %agxbfree.exit
 
-547:                                              ; preds = %thread-pre-split.thread
-  %548 = getelementptr inbounds nuw i8, ptr %458, i64 11
-  %549 = load i8, ptr %548, align 1
-  %550 = uitofp i8 %549 to double
-  %551 = fdiv double %550, 2.550000e+02
-  store double %551, ptr %1, align 8
-  %552 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %553 = load i8, ptr %552, align 4
-  %554 = uitofp i8 %553 to double
-  %555 = fdiv double %554, 2.550000e+02
-  %556 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %555, ptr %556, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %458, i64 13
-  %558 = load i8, ptr %557, align 1
-  %559 = uitofp i8 %558 to double
-  %560 = fdiv double %559, 2.550000e+02
-  %561 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %560, ptr %561, align 8
-  %562 = getelementptr inbounds nuw i8, ptr %458, i64 14
-  %563 = load i8, ptr %562, align 2
-  %564 = uitofp i8 %563 to double
-  %565 = fdiv double %564, 2.550000e+02
-  %566 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %565, ptr %566, align 8
+546:                                              ; preds = %thread-pre-split.thread
+  %547 = getelementptr inbounds nuw i8, ptr %457, i64 11
+  %548 = load i8, ptr %547, align 1
+  %549 = uitofp i8 %548 to double
+  %550 = fdiv double %549, 2.550000e+02
+  store double %550, ptr %1, align 8
+  %551 = getelementptr inbounds nuw i8, ptr %457, i64 12
+  %552 = load i8, ptr %551, align 4
+  %553 = uitofp i8 %552 to double
+  %554 = fdiv double %553, 2.550000e+02
+  %555 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %554, ptr %555, align 8
+  %556 = getelementptr inbounds nuw i8, ptr %457, i64 13
+  %557 = load i8, ptr %556, align 1
+  %558 = uitofp i8 %557 to double
+  %559 = fdiv double %558, 2.550000e+02
+  %560 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %559, ptr %560, align 8
+  %561 = getelementptr inbounds nuw i8, ptr %457, i64 14
+  %562 = load i8, ptr %561, align 2
+  %563 = uitofp i8 %562 to double
+  %564 = fdiv double %563, 2.550000e+02
+  %565 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store double %564, ptr %565, align 8
   br label %agxbfree.exit
 
-567:                                              ; preds = %thread-pre-split.thread
-  %568 = load ptr, ptr @stderr, align 8
-  %569 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %568, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 430) #23
+566:                                              ; preds = %thread-pre-split.thread
+  %567 = load ptr, ptr @stderr, align 8
+  %568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %567, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 430) #23
   call void @abort() #25
   unreachable
 
-570:                                              ; preds = %thread-pre-split
-  switch i32 %2, label %584 [
-    i32 0, label %571
-    i32 1, label %573
-    i32 3, label %577
-    i32 2, label %578
-    i32 4, label %582
+569:                                              ; preds = %thread-pre-split
+  switch i32 %2, label %583 [
+    i32 0, label %570
+    i32 1, label %572
+    i32 3, label %576
+    i32 2, label %577
+    i32 4, label %581
     i32 5, label %agxbfree.exit
     i32 6, label %agxbfree.exit
   ]
 
-571:                                              ; preds = %570
-  %572 = getelementptr inbounds nuw i8, ptr %1, i64 24
+570:                                              ; preds = %569
+  %571 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  store double 1.000000e+00, ptr %572, align 8
+  store double 1.000000e+00, ptr %571, align 8
   br label %agxbfree.exit
 
-573:                                              ; preds = %570
-  %574 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %574, align 2
-  %575 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 0, ptr %575, align 1
+572:                                              ; preds = %569
+  %573 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 0, ptr %573, align 2
+  %574 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 0, ptr %574, align 1
   store i8 0, ptr %1, align 8
-  %576 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 -1, ptr %576, align 1
+  %575 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 -1, ptr %575, align 1
   br label %agxbfree.exit
 
-577:                                              ; preds = %570
+576:                                              ; preds = %569
   store i32 0, ptr %1, align 8
   br label %agxbfree.exit
 
-578:                                              ; preds = %570
-  %579 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %579, align 8
-  %580 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %580, align 4
+577:                                              ; preds = %569
+  %578 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 0, ptr %578, align 8
+  %579 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 0, ptr %579, align 4
   store i32 0, ptr %1, align 8
-  %581 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 65535, ptr %581, align 4
+  %580 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 65535, ptr %580, align 4
   br label %agxbfree.exit
 
-582:                                              ; preds = %570
-  %583 = getelementptr inbounds nuw i8, ptr %1, i64 24
+581:                                              ; preds = %569
+  %582 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  store double 1.000000e+00, ptr %583, align 8
+  store double 1.000000e+00, ptr %582, align 8
   br label %agxbfree.exit
 
-584:                                              ; preds = %570
-  %585 = load ptr, ptr @stderr, align 8
-  %586 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %585, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 463) #23
+583:                                              ; preds = %569
+  %584 = load ptr, ptr @stderr, align 8
+  %585 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %584, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 463) #23
   call void @abort() #25
   unreachable
 
-agxbfree.exit:                                    ; preds = %393, %392, %571, %573, %577, %578, %582, %570, %570, %459, %479, %491, %527, %547, %thread-pre-split.thread, %thread-pre-split.thread, %resolveColor.exit, %rgb2hsv.exit, %92, %104, %137, %153, %41, %41
-  %.0 = phi i32 [ 0, %41 ], [ 0, %41 ], [ 0, %153 ], [ 0, %137 ], [ 0, %104 ], [ 0, %92 ], [ 0, %rgb2hsv.exit ], [ -1, %resolveColor.exit ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split.thread ], [ 0, %547 ], [ 0, %527 ], [ 0, %491 ], [ 0, %479 ], [ 0, %459 ], [ 1, %570 ], [ 1, %570 ], [ 1, %582 ], [ 1, %578 ], [ 1, %577 ], [ 1, %573 ], [ 1, %571 ], [ 0, %392 ], [ 0, %393 ]
+agxbfree.exit:                                    ; preds = %393, %392, %570, %572, %576, %577, %581, %569, %569, %458, %478, %490, %526, %546, %thread-pre-split.thread, %thread-pre-split.thread, %resolveColor.exit, %rgb2hsv.exit, %92, %104, %137, %153, %41, %41
+  %.0 = phi i32 [ 0, %41 ], [ 0, %41 ], [ 0, %153 ], [ 0, %137 ], [ 0, %104 ], [ 0, %92 ], [ 0, %rgb2hsv.exit ], [ -1, %resolveColor.exit ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split.thread ], [ 0, %546 ], [ 0, %526 ], [ 0, %490 ], [ 0, %478 ], [ 0, %458 ], [ 1, %569 ], [ 1, %569 ], [ 1, %581 ], [ 1, %577 ], [ 1, %576 ], [ 1, %572 ], [ 1, %570 ], [ 0, %392 ], [ 0, %393 ]
   ret i32 %.0
 }
 
@@ -3787,7 +3792,7 @@ define internal i32 @colorcmpf(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @setColorScheme(ptr noundef readonly %0) local_unnamed_addr #9 {
+define ptr @setColorScheme(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr @colorscheme, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %gv_strdup.exit, label %4
@@ -3917,7 +3922,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fullColor(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @fullColor(ptr noundef nonnull captures(ret: address, provenance) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr nonnull poison, ptr noundef nonnull %1, ptr noundef %2)
   %4 = getelementptr i8, ptr %0, i64 31
   %.val.i.i.i = load i8, ptr %4, align 1

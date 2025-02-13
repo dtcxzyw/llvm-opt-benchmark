@@ -3526,7 +3526,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2qe16i_solver_context6is_varEP4exprRj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readnone %x, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %idx) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK2qe16i_solver_context6is_varEP4exprRj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readnone captures(address) %x, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %idx) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40

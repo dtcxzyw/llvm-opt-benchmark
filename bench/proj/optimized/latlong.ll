@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [7 x i8] c"lonlat\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_latlong(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pj_latlong(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -72,7 +72,7 @@ define hidden noundef ptr @pj_latlong(ptr noundef writeonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z36pj_projection_specific_setup_latlongP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z36pj_projection_specific_setup_latlongP8PJconsts(ptr noundef returned writeonly captures(ret: address, provenance) initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -99,7 +99,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_latlongP8PJconsts(pt
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_longlat(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pj_longlat(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -151,7 +151,7 @@ define hidden noundef ptr @pj_longlat(ptr noundef writeonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z36pj_projection_specific_setup_longlatP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z36pj_projection_specific_setup_longlatP8PJconsts(ptr noundef returned writeonly captures(ret: address, provenance) initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -176,7 +176,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_longlatP8PJconsts(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_latlon(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pj_latlon(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -228,7 +228,7 @@ define hidden noundef ptr @pj_latlon(ptr noundef writeonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z35pj_projection_specific_setup_latlonP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z35pj_projection_specific_setup_latlonP8PJconsts(ptr noundef returned writeonly captures(ret: address, provenance) initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -253,7 +253,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_latlonP8PJconsts(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @pj_lonlat(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pj_lonlat(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -305,7 +305,7 @@ define hidden noundef ptr @pj_lonlat(ptr noundef writeonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z35pj_projection_specific_setup_lonlatP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z35pj_projection_specific_setup_lonlatP8PJconsts(ptr noundef returned writeonly captures(ret: address, provenance) initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456

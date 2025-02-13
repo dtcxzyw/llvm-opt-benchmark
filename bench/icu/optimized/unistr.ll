@@ -1302,7 +1302,7 @@ if.end14:                                         ; preds = %if.else.i, %if.then
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i32 noundef %newCapacity, i32 noundef %growCapacity, i8 noundef signext %doCopyArray, ptr noundef writeonly %pBufferToDelete, i8 noundef signext %forceClone) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i32 noundef %newCapacity, i32 noundef %growCapacity, i8 noundef signext %doCopyArray, ptr noundef writeonly captures(address_is_null) %pBufferToDelete, i8 noundef signext %forceClone) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oldStackBuffer = alloca [27 x i16], align 16
   %cmp = icmp eq i32 %newCapacity, -1
@@ -2061,7 +2061,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513UnicodeStringC2EOS0_(ptr noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef nonnull align 8 dereferenceable(64) %src) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513UnicodeStringC2EOS0_(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(64) initializes((0, 10)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %src) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion.i = getelementptr inbounds nuw i8, ptr %src, i64 8
@@ -2128,7 +2128,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a(ptr noundef nonnull writeonly align 8 dereferenceable(64) initializes((8, 10)) %this, ptr noundef nonnull align 8 dereferenceable(64) %src, i8 noundef signext %setSrcToBogus) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513UnicodeString14copyFieldsFromERS0_a(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(64) initializes((8, 10)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %src, i8 noundef signext %setSrcToBogus) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fUnion = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i16, ptr %fUnion, align 8
@@ -2588,7 +2588,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN6icu_7513Unicode
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %minCapacity) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(64) %this, i32 noundef %minCapacity) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp sgt i32 %minCapacity, -2
   br i1 %cmp, label %land.lhs.true, label %return
@@ -2718,7 +2718,7 @@ entry:
 declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(64) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -2799,7 +2799,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513UnicodeString4swapERS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513UnicodeString4swapERS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
@@ -3275,7 +3275,7 @@ return:                                           ; preds = %if.end16, %if.end13
 declare i32 @u_memcmp_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %start, i32 noundef %length, ptr noundef %srcChars, i32 noundef %srcStart, i32 noundef %srcLength) local_unnamed_addr #5 align 2 {
+define noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, i32 noundef %start, i32 noundef %length, ptr noundef %srcChars, i32 noundef %srcStart, i32 noundef %srcLength) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -3920,7 +3920,7 @@ if.end62:                                         ; preds = %do.end58, %do.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_7513UnicodeString9doExtractEiiPDsi(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %start, i32 noundef %length, ptr noundef writeonly %dst, i32 noundef %dstStart) local_unnamed_addr #20 align 2 {
+define void @_ZNK6icu_7513UnicodeString9doExtractEiiPDsi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, i32 noundef %start, i32 noundef %length, ptr noundef writeonly captures(address) %dst, i32 noundef %dstStart) local_unnamed_addr #20 align 2 {
 entry:
   %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i.i, align 8
@@ -5008,7 +5008,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(64) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -5089,7 +5089,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull returned align 8 dereferenceable(64) %this, i8 noundef signext %isTerminated, ptr noundef readonly captures(none) %textPtr, i32 noundef %textLength) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %this, i8 noundef signext %isTerminated, ptr noundef readonly captures(none) %textPtr, i32 noundef %textLength) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion, align 8
@@ -5232,7 +5232,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr noundef %buffer, i32 noundef %buffLength, i32 noundef %buffCapacity) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %this, ptr noundef %buffer, i32 noundef %buffLength, i32 noundef %buffCapacity) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion, align 8
@@ -5382,7 +5382,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 declare ptr @u_strFromUTF8WithSub_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull returned align 8 dereferenceable(64) %this, i32 noundef %offset, i16 noundef zeroext %c) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9setCharAtEiDs(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(64) %this, i32 noundef %offset, i16 noundef zeroext %c) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -6032,7 +6032,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReverseEii(ptr noundef nonnull returned align 8 dereferenceable(64) %this, i32 noundef %start, i32 noundef %length) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReverseEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(64) %this, i32 noundef %start, i32 noundef %length) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp slt i32 %length, 2
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6430,7 +6430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7523UnicodeStringAppendable15getAppendBufferEiiPDsiPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %minCapacity, i32 noundef %desiredCapacityHint, ptr noundef readnone %scratch, i32 noundef %scratchCapacity, ptr noundef writeonly captures(none) initializes((0, 4)) %resultCapacity) unnamed_addr #5 align 2 {
+define noundef ptr @_ZN6icu_7523UnicodeStringAppendable15getAppendBufferEiiPDsiPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %minCapacity, i32 noundef %desiredCapacityHint, ptr noundef readnone captures(ret: address, provenance) %scratch, i32 noundef %scratchCapacity, ptr noundef writeonly captures(none) initializes((0, 4)) %resultCapacity) unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp slt i32 %minCapacity, 1
   %cmp2 = icmp slt i32 %scratchCapacity, %minCapacity
@@ -6529,7 +6529,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @uhash_compareUnicodeString_75(ptr readonly %key1.coerce, ptr readonly %key2.coerce) local_unnamed_addr #18 {
+define signext range(i8 0, 2) i8 @uhash_compareUnicodeString_75(ptr readonly captures(address) %key1.coerce, ptr readonly captures(address) %key2.coerce) local_unnamed_addr #18 {
 entry:
   %cmp = icmp eq ptr %key1.coerce, %key2.coerce
   br i1 %cmp, label %return, label %if.end

@@ -820,7 +820,7 @@ define void @Gia_ObjCheckDupMappingFanins(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   store ptr null, ptr %3, align 8, !tbaa !48

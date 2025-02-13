@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ZSTD_nextInputType = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 5], align 4
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_sizeof_DCtx(ptr noundef readonly %dctx) local_unnamed_addr #0 {
+define i64 @ZSTD_sizeof_DCtx(ptr noundef readonly captures(address_is_null) %dctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %dctx, null
   br i1 %cmp, label %return, label %if.end
@@ -546,7 +546,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %entry, %do.end8.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_getFrameHeader_advanced(ptr noundef writeonly captures(none) %zfhPtr, ptr noundef readonly %src, i64 noundef %srcSize, i32 noundef %format) local_unnamed_addr #6 {
+define i64 @ZSTD_getFrameHeader_advanced(ptr noundef writeonly captures(none) %zfhPtr, ptr noundef readonly captures(address_is_null) %src, i64 noundef %srcSize, i32 noundef %format) local_unnamed_addr #6 {
 entry:
   %hbuf.sroa.0 = alloca i32, align 4
   %cmp.i = icmp eq i32 %format, 0
@@ -780,7 +780,7 @@ return:                                           ; preds = %if.then102, %if.end
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_getFrameHeader(ptr noundef writeonly captures(none) %zfhPtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #6 {
+define i64 @ZSTD_getFrameHeader(ptr noundef writeonly captures(none) %zfhPtr, ptr noundef captures(address_is_null) %src, i64 noundef %srcSize) local_unnamed_addr #6 {
 entry:
   %call = tail call i64 @ZSTD_getFrameHeader_advanced(ptr noundef %zfhPtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   ret i64 %call
@@ -857,7 +857,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -80, 4294967288) i64 @ZSTD_readSkippableFrame(ptr noundef writeonly %dst, i64 noundef %dstCapacity, ptr noundef writeonly %magicVariant, ptr noundef readonly captures(none) %src, i64 noundef %srcSize) local_unnamed_addr #6 {
+define range(i64 -80, 4294967288) i64 @ZSTD_readSkippableFrame(ptr noundef writeonly captures(address_is_null) %dst, i64 noundef %dstCapacity, ptr noundef writeonly captures(address_is_null) %magicVariant, ptr noundef readonly captures(none) %src, i64 noundef %srcSize) local_unnamed_addr #6 {
 entry:
   %cmp = icmp ult i64 %srcSize, 8
   br i1 %cmp, label %return, label %do.end8.i
@@ -3050,7 +3050,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ZSTD_getDictID_fromFrame(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #6 {
+define i32 @ZSTD_getDictID_fromFrame(ptr noundef captures(address_is_null) %src, i64 noundef %srcSize) local_unnamed_addr #6 {
 entry:
   %zfp = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %zfp, i8 0, i64 48, i1 false)
@@ -4230,7 +4230,7 @@ do.end14:                                         ; preds = %do.end14.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_sizeof_DStream(ptr noundef readonly %dctx) local_unnamed_addr #0 {
+define i64 @ZSTD_sizeof_DStream(ptr noundef readonly captures(address_is_null) %dctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %dctx, null
   br i1 %cmp.i, label %ZSTD_sizeof_DCtx.exit, label %if.end.i
@@ -4276,7 +4276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -119, 2147972921) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #6 {
+define range(i64 -119, 2147972921) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef captures(address_is_null) %src, i64 noundef %srcSize) local_unnamed_addr #6 {
 entry:
   %zfh = alloca %struct.ZSTD_frameHeader, align 8
   %call.i = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %zfh, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)

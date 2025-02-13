@@ -229,7 +229,7 @@ define void @procfs_register_meminfo(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @procfs_unregister_meminfo(ptr noundef readonly %0) local_unnamed_addr #5 {
+define void @procfs_unregister_meminfo(ptr noundef readonly captures(address) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @g_procfs_meminfo, align 8
   %.not9 = icmp eq ptr %2, null
   br i1 %.not9, label %.loopexit, label %.lr.ph.preheader

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @bbox_interface = internal constant { ptr, ptr, ptr, ptr, i32, [4 x i8], i64 } { ptr @BBox_Move_To, ptr @BBox_Line_To, ptr @BBox_Conic_To, ptr @BBox_Cubic_To, i32 0, [4 x i8] zeroinitializer, i64 0 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TBBox_Rec_, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %39, label %4

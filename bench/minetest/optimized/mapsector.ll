@@ -127,7 +127,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9MapSectorD2Ev(ptr noundef nonnull align 8 dereferenceable(98) initializes((0, 8), (88, 96)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9MapSectorD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(98) initializes((0, 8), (88, 96)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9MapSector, i64 16), ptr %this, align 8, !tbaa !4
   %m_block_cache.i = getelementptr inbounds nuw i8, ptr %this, i64 88

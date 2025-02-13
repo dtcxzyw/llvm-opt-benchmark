@@ -29,7 +29,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_sk_dup(ptr noundef readonly %sk) local_unnamed_addr #1 {
+define ptr @OPENSSL_sk_dup(ptr noundef readonly captures(address_is_null) %sk) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 51) #16
   %cmp = icmp eq ptr %call, null
@@ -113,7 +113,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_sk_deep_copy(ptr noundef readonly %sk, ptr noundef readonly captures(none) %copy_func, ptr noundef readonly captures(none) %free_func) local_unnamed_addr #1 {
+define ptr @OPENSSL_sk_deep_copy(ptr noundef readonly captures(address_is_null) %sk, ptr noundef readonly captures(none) %copy_func, ptr noundef readonly captures(none) %free_func) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 89) #16
   %cmp = icmp eq ptr %call, null
@@ -394,7 +394,7 @@ return:                                           ; preds = %if.end31, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OPENSSL_sk_reserve(ptr noundef %st, i32 noundef %n) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OPENSSL_sk_reserve(ptr noundef captures(address_is_null) %st, i32 noundef %n) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %if.then, label %if.end
@@ -425,7 +425,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_insert(ptr noundef %st, ptr noundef %data, i32 noundef %loc) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_insert(ptr noundef captures(address_is_null) %st, ptr noundef %data, i32 noundef %loc) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %if.then, label %if.end
@@ -497,7 +497,7 @@ return:                                           ; preds = %if.end3, %if.end22,
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @OPENSSL_sk_delete_ptr(ptr noundef %st, ptr noundef readnone %p) local_unnamed_addr #4 {
+define ptr @OPENSSL_sk_delete_ptr(ptr noundef captures(address_is_null) %st, ptr noundef readnone captures(address) %p) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -556,7 +556,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @OPENSSL_sk_delete(ptr noundef %st, i32 noundef %loc) local_unnamed_addr #5 {
+define ptr @OPENSSL_sk_delete(ptr noundef captures(address_is_null) %st, i32 noundef %loc) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %st, null
   %cmp1 = icmp slt i32 %loc, 0
@@ -600,7 +600,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_sk_find(ptr noundef readonly %st, ptr noundef %data) local_unnamed_addr #1 {
+define i32 @OPENSSL_sk_find(ptr noundef readonly captures(address_is_null) %st, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %data.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i)
@@ -706,7 +706,7 @@ internal_find.exit:                               ; preds = %for.inc34.us.i, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_sk_find_ex(ptr noundef readonly %st, ptr noundef %data) local_unnamed_addr #1 {
+define i32 @OPENSSL_sk_find_ex(ptr noundef readonly captures(address_is_null) %st, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %data.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i)
@@ -812,7 +812,7 @@ internal_find.exit:                               ; preds = %for.inc34.us.i, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_sk_find_all(ptr noundef readonly %st, ptr noundef %data, ptr noundef %pnum) local_unnamed_addr #1 {
+define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %st, ptr noundef %data, ptr noundef captures(address_is_null) %pnum) local_unnamed_addr #1 {
 entry:
   %data.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i)
@@ -1006,7 +1006,7 @@ internal_find.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_push(ptr noundef %st, ptr noundef %data) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_push(ptr noundef captures(address_is_null) %st, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %return, label %if.end.i
@@ -1069,14 +1069,14 @@ return:                                           ; preds = %if.end22.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_unshift(ptr noundef %st, ptr noundef %data) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_unshift(ptr noundef captures(address_is_null) %st, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @OPENSSL_sk_insert(ptr noundef %st, ptr noundef %data, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @OPENSSL_sk_shift(ptr noundef %st) local_unnamed_addr #5 {
+define ptr @OPENSSL_sk_shift(ptr noundef captures(address_is_null) %st) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1114,7 +1114,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @OPENSSL_sk_pop(ptr noundef %st) local_unnamed_addr #6 {
+define ptr @OPENSSL_sk_pop(ptr noundef captures(address_is_null) %st) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1140,7 +1140,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @OPENSSL_sk_zero(ptr noundef %st) local_unnamed_addr #7 {
+define void @OPENSSL_sk_zero(ptr noundef captures(address_is_null) %st) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1216,7 +1216,7 @@ return:                                           ; preds = %entry, %OPENSSL_sk_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @OPENSSL_sk_num(ptr noundef readonly %st) local_unnamed_addr #9 {
+define i32 @OPENSSL_sk_num(ptr noundef readonly captures(address_is_null) %st) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -1231,7 +1231,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @OPENSSL_sk_value(ptr noundef readonly %st, i32 noundef %i) local_unnamed_addr #10 {
+define ptr @OPENSSL_sk_value(ptr noundef readonly captures(address_is_null) %st, i32 noundef %i) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %st, null
   %cmp1 = icmp slt i32 %i, 0
@@ -1257,7 +1257,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_sk_set(ptr noundef %st, i32 noundef %i, ptr noundef %data) local_unnamed_addr #1 {
+define ptr @OPENSSL_sk_set(ptr noundef captures(address_is_null) %st, i32 noundef %i, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1302,7 +1302,7 @@ return:                                           ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @OPENSSL_sk_sort(ptr noundef %st) local_unnamed_addr #11 {
+define void @OPENSSL_sk_sort(ptr noundef captures(address_is_null) %st) local_unnamed_addr #11 {
 entry:
   %cmp.not = icmp eq ptr %st, null
   br i1 %cmp.not, label %if.end8, label %land.lhs.true
@@ -1343,7 +1343,7 @@ if.end8:                                          ; preds = %if.end, %land.lhs.t
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @OPENSSL_sk_is_sorted(ptr noundef readonly %st) local_unnamed_addr #9 {
+define i32 @OPENSSL_sk_is_sorted(ptr noundef readonly captures(address_is_null) %st) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %cond.end, label %cond.false

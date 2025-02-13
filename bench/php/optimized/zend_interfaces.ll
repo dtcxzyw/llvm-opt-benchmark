@@ -122,7 +122,7 @@ target triple = "x86_64-pc-linux-gnu"
 @arginfo_class_InternalIterator_valid = internal constant [1 x %struct._zend_internal_arg_info] [%struct._zend_internal_arg_info { ptr null, %struct.zend_type { ptr null, i32 12 }, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef returned %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 {
+define noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef returned %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca [2 x %struct._zval_struct], align 16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.thread, label %11
@@ -261,7 +261,7 @@ define void @zend_user_it_invalidate_current(ptr noundef %0) #0 {
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
+define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %55, label %3

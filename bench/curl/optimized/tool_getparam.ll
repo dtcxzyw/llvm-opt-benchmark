@@ -494,7 +494,7 @@ bsearch.exit:                                     ; preds = %12, %bsearch.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getparameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 1)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define dso_local i32 @getparameter(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef captures(none) initializes((0, 1)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -3312,7 +3312,7 @@ declare ptr @curlx_dyn_ptr(ptr noundef) local_unnamed_addr #5
 declare void @warnf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 0, 24) i32 @getstr(ptr noundef captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 24) i32 @getstr(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #6 {
   %4 = load ptr, ptr %0, align 8, !tbaa !116
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -3590,7 +3590,7 @@ declare i32 @str2num(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @tool_set_stderr_file(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @parse_url(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 24) i32 @parse_url(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %5 = load ptr, ptr %4, align 8, !tbaa !179
   %.not = icmp eq ptr %5, null
@@ -4467,7 +4467,7 @@ sub_0:                                            ; preds = %4
 declare i32 @parseconfig(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @parse_output(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 24) i32 @parse_output(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %4 = load ptr, ptr %3, align 8, !tbaa !198
   %.not = icmp eq ptr %4, null

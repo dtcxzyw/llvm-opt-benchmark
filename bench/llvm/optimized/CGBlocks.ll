@@ -14449,7 +14449,7 @@ _ZSt24__merge_sort_with_bufferIPN12_GLOBAL__N_116BlockLayoutChunkES2_N9__gnu_cxx
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_116BlockLayoutChunkEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #17 {
+define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_116BlockLayoutChunkEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #17 {
   %.sroa.5.i = alloca { %"class.clang::CharUnits", ptr, ptr, %"class.clang::QualType" }, align 8
   %3 = alloca %"struct.(anonymous namespace)::BlockLayoutChunk", align 8
   %4 = icmp eq ptr %0, %1

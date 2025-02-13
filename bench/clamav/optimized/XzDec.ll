@@ -1329,7 +1329,7 @@ MixCoder_Construct.exit:                          ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @XzUnpacker_Free(ptr noundef %0) local_unnamed_addr #2 {
+define void @XzUnpacker_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %2
 

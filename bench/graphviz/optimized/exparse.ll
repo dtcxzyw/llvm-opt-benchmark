@@ -629,7 +629,7 @@ define ptr @extypename(ptr noundef readonly captures(none) %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @exnoncast(ptr noundef readonly %0) local_unnamed_addr #4 {
+define ptr @exnoncast(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %.critedge, label %.lr.ph
 
@@ -5794,7 +5794,7 @@ yydestruct.exit951:                               ; preds = %.lr.ph1003.split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @exclose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @exclose(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %51, label %3
 
@@ -5945,7 +5945,7 @@ define range(i32 0, 2) i32 @exisAssign(ptr noundef readonly captures(none) %0) l
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @yy_stack_print(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #11 {
+define internal fastcc void @yy_stack_print(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #11 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 9, i64 1, ptr %3) #24
   %.not4 = icmp ugt ptr %0, %1
@@ -6184,7 +6184,7 @@ extypename.exit16:                                ; preds = %45, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8

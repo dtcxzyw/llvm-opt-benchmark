@@ -6420,7 +6420,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -9629,7 +9629,7 @@ entry:
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8
@@ -9998,7 +9998,7 @@ declare void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKN
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE15writeToElementsEPibbiPNS0_13DecodedVectorES7_S7_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE15writeToElementsEPibbiPNS0_13DecodedVectorES7_S7_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8
@@ -13724,7 +13724,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -15718,7 +15718,7 @@ ehcleanup52:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8
@@ -16123,7 +16123,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -18312,7 +18312,7 @@ if.end24:                                         ; preds = %.noexc.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8
@@ -18704,7 +18704,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -20728,7 +20728,7 @@ if.end24:                                         ; preds = %.noexc.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8
@@ -21207,7 +21207,7 @@ _ZN8facebook5velox9functions13diffTimestampENS1_12_GLOBAL__N_112DateTimeUnitERKN
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE15writeToElementsEPS4_bbiPNS0_13DecodedVectorES8_S8_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE15writeToElementsEPS4_bbiPNS0_13DecodedVectorES8_S8_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8
@@ -21690,7 +21690,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -23495,7 +23495,7 @@ ehcleanup52:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8
@@ -23724,7 +23724,7 @@ if.end31:                                         ; preds = %if.end26
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE15writeToElementsEPS4_bbiPNS0_13DecodedVectorES8_S8_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly %stepVector, i32 noundef %row) unnamed_addr #24 align 2 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE15writeToElementsEPS4_bbiPNS0_13DecodedVectorES8_S8_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row) unnamed_addr #24 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
   %0 = load ptr, ptr %data_.i, align 8

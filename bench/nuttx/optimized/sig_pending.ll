@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @sigpending(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sigpending(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.sigset_s, align 8
   %.not = icmp eq ptr %0, null
@@ -62,7 +62,7 @@ nxsig_pendingset.exit:                            ; preds = %._crit_edge.i, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @nxsig_pendingset(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i64 @nxsig_pendingset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.sigset_s, align 8
   %4 = icmp eq ptr %0, null

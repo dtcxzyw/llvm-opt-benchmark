@@ -477,7 +477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmc17processInitializeEb(ptr noundef nonnull readonly align 8 dereferenceable(752) %this, i1 noundef zeroext %ispre) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmc17processInitializeEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(752) %this, i1 noundef zeroext %ispre) unnamed_addr #3 align 2 {
 entry:
   br i1 %ispre, label %if.end, label %for.end
 

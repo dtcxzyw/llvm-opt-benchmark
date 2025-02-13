@@ -693,7 +693,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %.not30 = icmp eq ptr %1, null

@@ -10631,7 +10631,7 @@ codegen_defaults.exit.thread:                     ; preds = %15, %.critedge.i, %
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @codegen_type_params(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #3 {
+define internal fastcc i32 @codegen_type_params(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread172, label %3
 
@@ -10893,7 +10893,7 @@ define internal fastcc i32 @codegen_type_params(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @codegen_apply_decorators(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @codegen_apply_decorators(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %22, label %3
 
@@ -11631,7 +11631,7 @@ Py_DECREF.exit:                                   ; preds = %163, %166, %169
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @codegen_call_helper_impl(ptr noundef %0, i64 %1, i64 %2, i32 noundef range(i32 0, 3) %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @codegen_call_helper_impl(ptr noundef %0, i64 %1, i64 %2, i32 noundef range(i32 0, 3) %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #3 {
   %8 = icmp eq ptr %6, null
   br i1 %8, label %codegen_validate_keywords.exit.thread, label %9
 
@@ -12148,7 +12148,7 @@ Py_DECREF.exit:                                   ; preds = %26, %23, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @starunpack_helper_impl(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef range(i32 0, 3) %5, i32 noundef range(i32 46, 49) %6, i32 noundef range(i32 77, 105) %7, i32 noundef range(i32 78, 107) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -1, 1) i32 @starunpack_helper_impl(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef range(i32 0, 3) %5, i32 noundef range(i32 46, 49) %6, i32 noundef range(i32 77, 105) %7, i32 noundef range(i32 78, 107) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
   %11 = icmp eq ptr %3, null
   br i1 %11, label %.thread, label %12
 
@@ -12447,7 +12447,7 @@ declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @_PyST_IsFunctionLike(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @codegen_unwind_fblock_stack(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc i32 @codegen_unwind_fblock_stack(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #3 {
   %5 = alloca %struct._PyCompile_FBlockInfo, align 8
   %6 = tail call ptr @_PyCompile_TopFBlock(ptr noundef %0) #10
   %7 = icmp eq ptr %6, null
@@ -16683,7 +16683,7 @@ ensure_fail_pop.exit:                             ; preds = %.lr.ph.i, %20, %.lo
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @pattern_helper_sequence_subscr(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @pattern_helper_sequence_subscr(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !207
   %9 = add i64 %8, 1
@@ -16836,7 +16836,7 @@ codegen_pattern_subpattern.exit:                  ; preds = %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @pattern_helper_sequence_unpack(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly %3, ptr noundef nonnull captures(none) %4) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -1, 1) i32 @pattern_helper_sequence_unpack(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #3 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %._crit_edge.thread.i, label %7
 
@@ -17032,7 +17032,7 @@ declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_kwd_attrs(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
+define internal fastcc i32 @validate_kwd_attrs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit43, label %5
 
@@ -19837,7 +19837,7 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_comprehension_iter(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @codegen_comprehension_generator(ptr noundef %0, i64 %1, i64 %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 4) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
+define internal fastcc i32 @codegen_comprehension_generator(ptr noundef %0, i64 %1, i64 %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 4) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = sext i32 %4 to i64
   %13 = getelementptr [1 x ptr], ptr %11, i64 0, i64 %12
@@ -19869,7 +19869,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #4
 declare i64 @_PyST_GetSymbol(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @codegen_async_comprehension_generator(ptr noundef %0, i64 %1, i64 %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 4) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @codegen_async_comprehension_generator(ptr noundef %0, i64 %1, i64 %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 4) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
   %11 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %12 = tail call i32 @_PyInstructionSequence_NewLabel(ptr noundef %11) #10
   %13 = icmp eq i32 %12, -1
@@ -20178,7 +20178,7 @@ default.unreachable162:                           ; preds = %128
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generator(ptr noundef %0, i64 %1, i64 %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 4) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generator(ptr noundef %0, i64 %1, i64 %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 4) %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #3 {
   %11 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %12 = tail call i32 @_PyInstructionSequence_NewLabel(ptr noundef %11) #10
   %13 = icmp eq i32 %12, -1
@@ -20910,7 +20910,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @PySlice_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @assignment_helper(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly %3) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -1, 1) i32 @assignment_helper(ptr noundef %0, i64 %1, i64 %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #3 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.split19, label %9
 

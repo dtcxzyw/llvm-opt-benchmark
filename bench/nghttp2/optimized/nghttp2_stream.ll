@@ -672,7 +672,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly %stream, ptr noundef readnone %target) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly captures(address) %stream, ptr noundef readnone captures(address) %target) local_unnamed_addr #5 {
 entry:
   %tobool.not3 = icmp eq ptr %stream, null
   br i1 %tobool.not3, label %return, label %for.body

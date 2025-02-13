@@ -121,7 +121,7 @@ arch_select_decompress_func.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #2 {
+define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly captures(address_is_null) %actual_in_nbytes_ret, ptr noundef writeonly captures(address_is_null) %actual_out_nbytes_ret) #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -1317,7 +1317,7 @@ return:                                           ; preds = %do.end53, %if.end61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly %actual_in_nbytes_ret, ptr noundef writeonly %actual_out_nbytes_ret) #3 {
+define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef %d, ptr noalias noundef %in, i64 noundef %in_nbytes, ptr noalias noundef %out, i64 noundef %out_nbytes_avail, ptr noundef writeonly captures(address_is_null) %actual_in_nbytes_ret, ptr noundef writeonly captures(address_is_null) %actual_out_nbytes_ret) #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
   %cond = tail call i64 @llvm.umin.i64(i64 %out_nbytes_avail, i64 299)
@@ -2518,7 +2518,7 @@ declare void @libdeflate_init_x86_cpu_features() local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captures(none) %decode_table, ptr noundef readonly captures(none) %lens, i32 noundef range(i32 1, 289) %num_syms, ptr noundef readonly captures(none) %decode_results, i32 noundef range(i32 7, 12) %table_bits, i32 noundef range(i32 7, 16) %max_codeword_len, ptr noundef captures(none) %sorted_syms, ptr noundef writeonly %table_bits_ret) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captures(none) %decode_table, ptr noundef readonly captures(none) %lens, i32 noundef range(i32 1, 289) %num_syms, ptr noundef readonly captures(none) %decode_results, i32 noundef range(i32 7, 12) %table_bits, i32 noundef range(i32 7, 16) %max_codeword_len, ptr noundef captures(none) %sorted_syms, ptr noundef writeonly captures(address_is_null) %table_bits_ret) unnamed_addr #6 {
 entry:
   %len_counts = alloca [16 x i32], align 16
   %offsets = alloca [16 x i32], align 16

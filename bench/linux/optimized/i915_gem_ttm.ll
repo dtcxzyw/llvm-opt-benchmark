@@ -398,7 +398,7 @@ define dso_local ptr @i915_ttm_resource_get_st(ptr noundef captures(none) %0, pt
 declare dso_local ptr @intel_region_ttm_resource_to_rsgt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @i915_ttm_resource_mappable(ptr noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local zeroext i1 @i915_ttm_resource_mappable(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -1299,7 +1299,7 @@ define internal void @i915_ttm_swap_notify(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @i915_ttm_io_mem_reserve(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @i915_ttm_io_mem_reserve(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 368

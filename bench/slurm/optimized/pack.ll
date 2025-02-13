@@ -2424,7 +2424,7 @@ define dso_local ptr @try_init_buf(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 23) i32 @swap_buf_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local range(i32 0, 23) i32 @swap_buf_data(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

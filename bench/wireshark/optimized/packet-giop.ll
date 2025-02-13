@@ -6641,7 +6641,7 @@ declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
 declare ptr @g_slist_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %.promoted.i = load i32, ptr %2, align 4
   %8 = and i32 %.promoted.i, 1
   %.not10.i = icmp eq i32 %8, 0

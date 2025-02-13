@@ -4691,7 +4691,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf2io17CodedOutputStream16WriteCordToArrayERKN4absl12lts_202308024CordEPh(ptr noundef nonnull align 8 dereferenceable(16) %cord, ptr noundef writeonly %target) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZN6google8protobuf2io17CodedOutputStream16WriteCordToArrayERKN4absl12lts_202308024CordEPh(ptr noundef nonnull align 8 dereferenceable(16) %cord, ptr noundef writeonly captures(ret: address, provenance) %target) local_unnamed_addr #4 align 2 {
 entry:
   %__begin3.i = alloca %"class.absl::lts_20230802::Cord::ChunkIterator", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i)
@@ -4723,7 +4723,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024Cor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef writeonly %target) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef writeonly captures(ret: address, provenance) %target) local_unnamed_addr #3 align 2 {
 entry:
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #19
   %conv = trunc i64 %call1 to i32

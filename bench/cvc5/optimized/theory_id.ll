@@ -61,7 +61,7 @@ $__clang_call_terminate = comdat any
 @.str.33 = private unnamed_addr constant [2 x i8] c"]\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull returned align 4 dereferenceable(4) %id) local_unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %id) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %id, align 4
   %add = add nsw i32 %0, 1

@@ -513,21 +513,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK7msdfgen13LinearSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZNK7msdfgen13LinearSegment13controlPointsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment13controlPointsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %this) unnamed_addr #6 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK7msdfgen12CubicSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZNK7msdfgen12CubicSegment13controlPointsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %this) unnamed_addr #6 align 2 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %p

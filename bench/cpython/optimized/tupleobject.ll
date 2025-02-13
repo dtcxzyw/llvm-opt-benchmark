@@ -1822,7 +1822,7 @@ Py_DECREF.exit:                                   ; preds = %.lr.ph27, %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyTuple_GetSlice(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @PyTuple_GetSlice(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -2939,7 +2939,7 @@ define internal i64 @tuple_length(ptr noundef readonly captures(none) %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple_concat(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @tuple_concat(ptr noundef captures(ret: address, provenance) %0, ptr noundef captures(ret: address, provenance) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val49 = load i64, ptr %3, align 8, !tbaa !107
   %4 = icmp eq i64 %.val49, 0
@@ -3149,7 +3149,7 @@ _Py_NewRef.exit:                                  ; preds = %tuple_alloc.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple_repeat(ptr noundef %0, i64 noundef %1) #0 {
+define internal ptr @tuple_repeat(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %3, align 8, !tbaa !107
   %4 = icmp eq i64 %.val, 0
@@ -3419,7 +3419,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple_subscript(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @tuple_subscript(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

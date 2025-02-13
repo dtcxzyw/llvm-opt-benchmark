@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.52 = private unnamed_addr constant [13 x i8] c"%ld.%ld %-3s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_counter_increase(ptr noundef %stat, i64 noundef %amount) local_unnamed_addr #0 {
+define hidden void @_mi_stat_counter_increase(ptr noundef captures(address) %stat, i64 noundef %amount) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp uge ptr %stat, @_mi_stats_main
   %cmp1.i = icmp ult ptr %stat, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
@@ -95,7 +95,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_increase(ptr noundef %stat, i64 noundef %amount) local_unnamed_addr #1 {
+define hidden void @_mi_stat_increase(ptr noundef captures(address) %stat, i64 noundef %amount) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq i64 %amount, 0
   br i1 %cmp.i, label %mi_stat_update.exit, label %if.end.i
@@ -174,7 +174,7 @@ mi_stat_update.exit:                              ; preds = %entry, %if.then5.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_decrease(ptr noundef %stat, i64 noundef %amount) local_unnamed_addr #1 {
+define hidden void @_mi_stat_decrease(ptr noundef captures(address) %stat, i64 noundef %amount) local_unnamed_addr #1 {
 entry:
   %sub = sub nsw i64 0, %amount
   %cmp.i = icmp eq i64 %amount, 0
@@ -988,7 +988,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mi_process_info(ptr noundef writeonly %elapsed_msecs, ptr noundef writeonly %user_msecs, ptr noundef writeonly %system_msecs, ptr noundef writeonly %current_rss, ptr noundef writeonly %peak_rss, ptr noundef writeonly %current_commit, ptr noundef writeonly %peak_commit, ptr noundef writeonly %page_faults) local_unnamed_addr #2 {
+define void @mi_process_info(ptr noundef writeonly captures(address_is_null) %elapsed_msecs, ptr noundef writeonly captures(address_is_null) %user_msecs, ptr noundef writeonly captures(address_is_null) %system_msecs, ptr noundef writeonly captures(address_is_null) %current_rss, ptr noundef writeonly captures(address_is_null) %peak_rss, ptr noundef writeonly captures(address_is_null) %current_commit, ptr noundef writeonly captures(address_is_null) %peak_commit, ptr noundef writeonly captures(address_is_null) %page_faults) local_unnamed_addr #2 {
 entry:
   %pinfo = alloca %struct.mi_process_info_s, align 8
   %0 = getelementptr inbounds nuw i8, ptr %pinfo, i64 8
@@ -1098,7 +1098,7 @@ declare void @_mi_prim_process_info(ptr noundef) local_unnamed_addr #5
 declare ptr @mi_heap_get_default() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_buffered_out(ptr noundef readonly %msg, ptr noundef %arg) #2 {
+define internal void @mi_buffered_out(ptr noundef readonly captures(address_is_null) %msg, ptr noundef captures(address_is_null) %arg) #2 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %arg, null

@@ -70,7 +70,7 @@ if.end:                                           ; preds = %if.then, %ossl_cms_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ossl_cms_get0_cmsctx(ptr noundef readnone %cms) local_unnamed_addr #2 {
+define ptr @ossl_cms_get0_cmsctx(ptr noundef readnone captures(address_is_null, ret: address, provenance) %cms) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %cms, null
   %ctx = getelementptr inbounds nuw i8, ptr %cms, i64 16
@@ -81,7 +81,7 @@ entry:
 declare ptr @ASN1_item_d2i_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_cms_ctx_get0_libctx(ptr noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @ossl_cms_ctx_get0_libctx(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %cond.end, label %cond.true
@@ -96,7 +96,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_cms_ctx_get0_propq(ptr noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @ossl_cms_ctx_get0_propq(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %cond.end, label %cond.true
@@ -343,7 +343,7 @@ if.end:                                           ; preds = %if.end9.i, %if.then
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_set_detached(ptr noundef %cms, i32 noundef %detached) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_set_detached(ptr noundef captures(address) %cms, i32 noundef %detached) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_content(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -389,7 +389,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cms_content_bio(ptr noundef %cms) local_unnamed_addr #0 {
+define ptr @ossl_cms_content_bio(ptr noundef captures(address) %cms) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_content(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -429,7 +429,7 @@ return:                                           ; preds = %entry, %if.end11, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get0_content(ptr noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_get0_content(ptr noundef readonly captures(ret: address, provenance) %cms) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
@@ -887,7 +887,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @CMS_is_detached(ptr noundef %cms) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CMS_is_detached(ptr noundef captures(address) %cms) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_content(ptr noundef %cms)
   %cmp = icmp eq ptr %call, null
@@ -909,7 +909,7 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef %digestAlgorithm, ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef %digestAlgorithm, ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %digestoid = alloca ptr, align 8
   %alg = alloca [50 x i8], align 16

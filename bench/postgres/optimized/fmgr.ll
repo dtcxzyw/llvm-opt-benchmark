@@ -3145,7 +3145,7 @@ define dso_local ptr @pg_detoast_datum_packed(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_fn_expr_rettype(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @get_fn_expr_rettype(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -3167,7 +3167,7 @@ define dso_local i32 @get_fn_expr_rettype(ptr noundef readonly %0) local_unnamed
 declare i32 @exprType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_fn_expr_argtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @get_fn_expr_argtype(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %get_call_expr_argtype.exit, label %3
 
@@ -3229,7 +3229,7 @@ get_call_expr_argtype.exit:                       ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_call_expr_argtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @get_call_expr_argtype(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %list_length.exit.thread, label %4
 
@@ -3287,7 +3287,7 @@ list_length.exit.thread:                          ; preds = %switch.hole_check, 
 declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @get_fn_expr_arg_stable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @get_fn_expr_arg_stable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %get_call_expr_arg_stable.exit, label %3
 
@@ -3353,7 +3353,7 @@ get_call_expr_arg_stable.exit:                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %list_length.exit.thread, label %4
 
@@ -3413,7 +3413,7 @@ list_length.exit.thread:                          ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @get_fn_expr_variadic(ptr noundef readonly %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @get_fn_expr_variadic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -3452,7 +3452,7 @@ define dso_local void @set_fn_opclass_options(ptr noundef writeonly captures(non
 declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @has_fn_opclass_options(ptr noundef readonly %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @has_fn_opclass_options(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %2
 
@@ -3486,7 +3486,7 @@ define dso_local zeroext i1 @has_fn_opclass_options(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_fn_opclass_options(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @get_fn_opclass_options(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %2
 

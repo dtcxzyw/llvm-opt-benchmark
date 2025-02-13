@@ -491,7 +491,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr readonly %Str.coerce0, i64 %Str.coerce1, i1 noundef zeroext %UseHexEscapes) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr readonly captures(address) %Str.coerce0, i64 %Str.coerce1, i1 noundef zeroext %UseHexEscapes) local_unnamed_addr #0 align 2 {
 entry:
   %C.addr.i.i496 = alloca i8, align 1
   %C.addr.i.i464 = alloca i8, align 1

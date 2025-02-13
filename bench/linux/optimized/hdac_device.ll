@@ -842,7 +842,7 @@ define dso_local range(i32 0, 32768) i32 @snd_hdac_get_sub_nodes(ptr noundef %0,
 declare dso_local i32 @hda_widget_sysfs_reinit(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1454,7 +1454,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

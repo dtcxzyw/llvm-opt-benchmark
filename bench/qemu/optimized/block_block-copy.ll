@@ -730,7 +730,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @block_copy_call_status(ptr noundef readonly captures(none) %call_state, ptr noundef writeonly %error_is_read) local_unnamed_addr #0 {
+define dso_local i32 @block_copy_call_status(ptr noundef readonly captures(none) %call_state, ptr noundef writeonly captures(address_is_null) %error_is_read) local_unnamed_addr #0 {
 entry:
   %finished = getelementptr inbounds nuw i8, ptr %call_state, i64 72
   %0 = load atomic i8, ptr %finished acquire, align 8
@@ -831,7 +831,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_co_is_allocated(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned captures(ret: address, provenance) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #14
   ret ptr %x

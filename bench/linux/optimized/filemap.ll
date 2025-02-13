@@ -3223,7 +3223,7 @@ define dso_local void @replace_page_cache_folio(ptr noundef %0, ptr noundef %1) 
 declare dso_local ptr @xas_store(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__filemap_add_folio(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 16 {
+define dso_local i32 @__filemap_add_folio(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 align 16 {
   %6 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9624,7 +9624,7 @@ define dso_local i32 @filemap_map_pages(ptr noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.wait_page_key, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -10215,7 +10215,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_file_readonly_mmap(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local ptr @read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = tail call fastcc ptr @do_read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6)
@@ -10223,7 +10223,7 @@ define dso_local ptr @read_cache_folio(ptr noundef %0, i64 noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @do_read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc ptr @do_read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.wait_page_key, align 8
   %8 = alloca %struct.wait_page_key, align 8
@@ -10514,7 +10514,7 @@ define dso_local ptr @mapping_read_folio_gfp(ptr noundef %0, i64 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @read_cache_page(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local ptr @read_cache_page(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = tail call fastcc ptr @do_read_cache_folio(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6)

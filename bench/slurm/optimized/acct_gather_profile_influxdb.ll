@@ -752,7 +752,7 @@ define noundef i64 @acct_gather_profile_p_create_group(ptr noundef readnone capt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_p_create_dataset(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @acct_gather_profile_p_create_dataset(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7

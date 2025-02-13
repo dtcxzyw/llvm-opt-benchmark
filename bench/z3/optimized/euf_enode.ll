@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf5enode9invariantERNS_6egraphE(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(536) %g) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf5enode9invariantERNS_6egraphE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(536) %g) local_unnamed_addr #3 align 2 {
 entry:
   %m_root5 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_root5, align 8
@@ -572,7 +572,7 @@ return:                                           ; preds = %if.end, %_ZNK3euf5e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3euf5enode19get_closest_th_nodeEi(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %id) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN3euf5enode19get_closest_th_nodeEi(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(176) %this, i32 noundef %id) local_unnamed_addr #5 align 2 {
 entry:
   br label %while.body
 
@@ -619,7 +619,7 @@ return:                                           ; preds = %do.body.i.i.prehead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3euf5enode7acyclicEv(ptr noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK3euf5enode7acyclicEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   br label %while.cond
 
@@ -653,7 +653,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3euf5enode7reachesEPS0_(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef readnone %n) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK3euf5enode7reachesEPS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %this, ptr noundef readnone captures(address) %n) local_unnamed_addr #5 align 2 {
 entry:
   %cmp3.not = icmp eq ptr %this, %n
   br i1 %cmp3.not, label %return, label %if.end
@@ -711,7 +711,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3euf5enode18children_are_rootsEv(ptr noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK3euf5enode18children_are_rootsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_num_args.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i32, ptr %m_num_args.i.i, align 8
@@ -743,7 +743,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN3euf5enode16class_generationEv(ptr noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN3euf5enode16class_generationEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_generation = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %m_generation, align 8

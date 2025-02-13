@@ -47,7 +47,7 @@ $_ZN2OT22hb_ot_name_convert_utfI13hb_utf16_xe_tINS_7IntTypeItLj2EEEE13hb_utf32_x
 @.str.13 = private unnamed_addr constant [3 x i8] c"en\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @hb_ot_name_list_names(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden ptr @hb_ot_name_list_names(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.not = icmp eq ptr %1, null
@@ -3010,7 +3010,7 @@ _ZN9hb_utf8_t10encode_lenEj.exit:                 ; preds = %132, %135, %_ZN13hb
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_(i32 %.0.val, ptr %.8.val, ptr noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL10hb_bsearchIK18hb_ot_name_entry_tS0_JbEEPT_RKT0_S3_mmPFiPKvS8_DpT1_ESA_(i32 %.0.val, ptr %.8.val, ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef range(i64 0, 4294967296) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.8.val.fr = freeze ptr %.8.val
   %4 = trunc nuw i64 %1 to i32
   %.not10.i = icmp sgt i32 %4, 0

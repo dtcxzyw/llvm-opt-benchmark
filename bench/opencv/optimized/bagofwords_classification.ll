@@ -11873,7 +11873,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %.loopexit72, %.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN7VocData16getObjectClassesB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(365) %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN7VocData16getObjectClassesB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(365) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   ret ptr %2
 }

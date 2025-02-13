@@ -4249,7 +4249,7 @@ terminate.lpad:                                   ; preds = %lpad38
 declare void @_Z18log_Z3_get_patternP11_Z3_contextP11_Z3_patternj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_pattern_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %p) local_unnamed_addr #7 {
+define noundef ptr @Z3_pattern_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned captures(ret: address, provenance) %p) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8

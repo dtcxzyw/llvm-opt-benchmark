@@ -994,7 +994,7 @@ define hidden noundef i32 @_Z6cmpstrPKvS0_(ptr noundef readonly captures(none) %
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_Z6cmpkeyPKvS0_(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #3 {
+define hidden noundef range(i32 -1, 2) i32 @_Z6cmpkeyPKvS0_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, %1
   %4 = icmp sgt ptr %0, %1
   %. = select i1 %4, i32 1, i32 -1

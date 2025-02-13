@@ -855,7 +855,7 @@ define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr noundef nonnull align 8 captures(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp eq ptr %1, null
   %or.cond = icmp ugt i32 %2, 1
   %or.cond9 = or i1 %4, %or.cond

@@ -20,7 +20,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @intsetAdd(ptr noundef %is, i64 noundef %value, ptr noundef writeonly %success) local_unnamed_addr #0 {
+define dso_local ptr @intsetAdd(ptr noundef %is, i64 noundef %value, ptr noundef writeonly captures(address_is_null) %success) local_unnamed_addr #0 {
 entry:
   %pos = alloca i32, align 4
   %0 = add i64 %value, -2147483648
@@ -301,7 +301,7 @@ return:                                           ; preds = %if.then6, %if.then8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @intsetSearch(ptr noundef readonly captures(none) %is, i64 noundef %value, ptr noundef writeonly %pos) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 2) i8 @intsetSearch(ptr noundef readonly captures(none) %is, i64 noundef %value, ptr noundef writeonly captures(address_is_null) %pos) unnamed_addr #2 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %is, i64 4
   %0 = load i32, ptr %length, align 4
@@ -499,7 +499,7 @@ return:                                           ; preds = %while.end, %return.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @intsetRemove(ptr noundef %is, i64 noundef %value, ptr noundef writeonly %success) local_unnamed_addr #0 {
+define dso_local ptr @intsetRemove(ptr noundef %is, i64 noundef %value, ptr noundef writeonly captures(address_is_null) %success) local_unnamed_addr #0 {
 entry:
   %pos = alloca i32, align 4
   %0 = add i64 %value, -2147483648

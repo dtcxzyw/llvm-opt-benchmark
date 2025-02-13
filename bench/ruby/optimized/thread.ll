@@ -2316,7 +2316,7 @@ native_thread_destroy.exit:                       ; preds = %62, %18, %rb_native
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_thread_sched_mark_zombies(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_thread_sched_mark_zombies(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, %2
@@ -2452,7 +2452,7 @@ declare i32 @sigismember(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @ruby_stack_overflowed_p(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ruby_stack_overflowed_p(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca %union.pthread_attr_t, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -3205,7 +3205,7 @@ define dso_local noundef i64 @rb_mutex_unlock(i64 noundef returned %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_mutex_unlock_th(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readnone %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_mutex_unlock_th(ptr noundef captures(address) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %rb_threadptr_interrupt.exit, label %6
@@ -8444,7 +8444,7 @@ define dso_local i64 @rb_thread_current() local_unnamed_addr #21 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_notify_fd_close_wait(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_notify_fd_close_wait(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -5
@@ -9086,7 +9086,7 @@ define dso_local void @rb_fd_dup(ptr noundef captures(none) initializes((0, 4)) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_fd_select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @rb_fd_select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %28, label %6
 
@@ -9839,7 +9839,7 @@ define internal noundef i64 @select_set_free(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 -1, 8) i32 @rb_thread_wait_for_single_fd(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 8) i32 @rb_thread_wait_for_single_fd(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca i32, align 4
   %6 = alloca [1 x %struct.pollfd], align 4
@@ -10316,7 +10316,7 @@ vm_check_ints_blocking.exit56:                    ; preds = %186, %197
 declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @wait_retryable(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wait_retryable(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = load i32, ptr %0, align 4
@@ -11107,7 +11107,7 @@ rb_clear_coverages.exit:                          ; preds = %rb_native_mutex_ini
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @terminate_atfork_i(ptr noundef %0, ptr noundef readnone %1) #0 {
+define internal void @terminate_atfork_i(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %25, label %3
 
@@ -11181,7 +11181,7 @@ define dso_local void @rb_thread_atfork_before_exec() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @terminate_atfork_before_exec_i(ptr noundef %0, ptr noundef readnone %1) #0 {
+define internal void @terminate_atfork_before_exec_i(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %12, label %3
 
@@ -13991,7 +13991,7 @@ define dso_local range(i32 0, 2) i32 @ruby_native_thread_p() local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_vm_memsize_waiting_fds(ptr noundef readonly %0) local_unnamed_addr #28 {
+define hidden i64 @rb_vm_memsize_waiting_fds(ptr noundef readonly captures(address) %0) local_unnamed_addr #28 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -14007,7 +14007,7 @@ define hidden i64 @rb_vm_memsize_waiting_fds(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_resolve_me_location(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14870,7 +14870,7 @@ declare void @rb_timespec_now(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @thread_sched_wakeup_running_thread(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @thread_sched_wakeup_running_thread(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %rb_native_cond_signal.exit, label %3
 
@@ -15970,7 +15970,7 @@ define internal noundef i64 @szqueue_memsize(ptr readnone captures(none) %0) #8 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sync_wakeup(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @sync_wakeup(ptr noundef readonly captures(address) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not28 = icmp eq ptr %3, %0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -16273,7 +16273,7 @@ rb_ractor_thread_switch.exit:                     ; preds = %rb_native_mutex_unl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @thread_sched_wait_events(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @thread_sched_wait_events(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.rb_internal_thread_event_data, align 8
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -17000,7 +17000,7 @@ thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_deq.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @timer_thread_register_waiting(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @timer_thread_register_waiting(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.pollfd, align 4
   %6 = alloca %struct.pollfd, align 4
   %7 = alloca %struct.timespec, align 8

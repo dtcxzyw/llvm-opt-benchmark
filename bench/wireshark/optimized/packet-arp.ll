@@ -2586,7 +2586,7 @@ define internal noundef i32 @address_hash_func(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @address_equal_func(ptr noundef readnone %0, ptr noundef readnone %1) #2 {
+define internal range(i32 0, 2) i32 @address_equal_func(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #2 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4

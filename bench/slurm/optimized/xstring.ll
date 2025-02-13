@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_xstrcasestr = alias ptr (ptr, ptr), ptr @xstrcasestr
 
 ; Function Attrs: nounwind uwtable
-define void @_xstrcat(ptr noundef %0, ptr noundef readonly %1) #0 {
+define void @_xstrcat(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = icmp eq ptr %1, null
   %spec.store.select = select i1 %3, ptr @.str, ptr %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #21
@@ -71,7 +71,7 @@ define void @_xstrcat(ptr noundef %0, ptr noundef readonly %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_xstrcatat(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2) #0 {
+define void @_xstrcatat(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %26, label %4
 
@@ -128,7 +128,7 @@ xstrdup.exit:                                     ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_xstrncat(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) #0 {
+define void @_xstrncat(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %1, null
   %spec.store.select = select i1 %4, ptr @.str, ptr %1
   %5 = trunc i64 %2 to i32
@@ -450,7 +450,7 @@ define void @_xmemcat(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @xstrdup(ptr noundef readonly %0) #0 {
+define ptr @xstrdup(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -525,7 +525,7 @@ define range(i64 0, 2147483647) i64 @_xstrdup_vprintf(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @xstrndup(ptr noundef readonly %0, i64 noundef %1) #0 {
+define ptr @xstrndup(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -553,7 +553,7 @@ define ptr @xbasename(ptr noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @xdirname(ptr noundef readonly %0) #0 {
+define ptr @xdirname(ptr noundef readonly captures(address_is_null) %0) #0 {
   %2 = alloca ptr, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %xstrdup.exit.thread, label %xstrdup.exit
@@ -593,7 +593,7 @@ xstrdup.exit.thread:                              ; preds = %1, %xstrdup.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_xstrsubstitute(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) #0 {
+define void @_xstrsubstitute(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
@@ -765,7 +765,7 @@ define noundef zeroext i1 @xstring_is_whitespace(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define zeroext i1 @xstrtolower(ptr noundef %0) #3 {
+define zeroext i1 @xstrtolower(ptr noundef captures(address_is_null) %0) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -825,7 +825,7 @@ define ptr @xstrrchr(ptr noundef readonly %0, i32 noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @xstrcmp(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
+define i32 @xstrcmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.not13 = and i1 %3, %4
@@ -845,7 +845,7 @@ define i32 @xstrcmp(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @xstrncmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) #1 {
+define i32 @xstrncmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not14 = and i1 %4, %5
@@ -865,7 +865,7 @@ define i32 @xstrncmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @xstrcasecmp(ptr noundef readonly %0, ptr noundef readonly %1) #4 {
+define i32 @xstrcasecmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.not13 = and i1 %3, %4
@@ -885,7 +885,7 @@ define i32 @xstrcasecmp(ptr noundef readonly %0, ptr noundef readonly %1) #4 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @xstrncasecmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) #4 {
+define i32 @xstrncasecmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not14 = and i1 %4, %5
@@ -905,7 +905,7 @@ define i32 @xstrncasecmp(ptr noundef readonly %0, ptr noundef readonly %1, i64 n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @xstrstr(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
+define ptr @xstrstr(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -921,7 +921,7 @@ define ptr @xstrstr(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
+define ptr @xstrcasestr(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1) #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1131,7 +1131,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define i64 @xstrntol(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define i64 @xstrntol(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = alloca ptr, align 8
   %6 = add i64 %2, 1
   %7 = alloca i8, i64 %6, align 16

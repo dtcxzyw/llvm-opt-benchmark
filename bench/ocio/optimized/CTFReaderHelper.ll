@@ -3080,7 +3080,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev21CTFReaderTransformElt12getTransformEv(ptr noundef nonnull readnone align 8 dereferenceable(97) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev21CTFReaderTransformElt12getTransformEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(97) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_transform = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %m_transform
@@ -7186,7 +7186,7 @@ if.end:                                           ; preds = %entry, %if.else.i, 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN19OpenColorIO_v2_4dev18FormatMetadataImpl19getChildrenElementsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK19OpenColorIO_v2_4dev20CTFReaderMetadataElt13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK19OpenColorIO_v2_4dev20CTFReaderMetadataElt13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %this) unnamed_addr #8 align 2 {
 entry:
   %m_name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %m_name.i
@@ -16587,7 +16587,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEEC2INS0_9CDLOpDataEvEERKS_IT_E.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt6getCDLEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt6getCDLEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_cdl = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %m_cdl

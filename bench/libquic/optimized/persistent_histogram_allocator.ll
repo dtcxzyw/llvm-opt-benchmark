@@ -373,7 +373,7 @@ return:                                           ; preds = %_ZNSt3mapImSt10uniq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4base26PersistentSampleMapRecords7AcquireEPKv(ptr noundef nonnull returned writeonly align 8 dereferenceable(80) initializes((16, 32)) %this, ptr noundef %user) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZN4base26PersistentSampleMapRecords7AcquireEPKv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(80) initializes((16, 32)) %this, ptr noundef %user) local_unnamed_addr #3 align 2 {
 entry:
   %user_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %user, ptr %user_, align 8
@@ -1571,7 +1571,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator17AllocateHistogramENS_13HistogramTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEiPj(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %histogram_type, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %minimum, i32 noundef %maximum, ptr noundef readonly captures(none) %bucket_ranges, i32 noundef %flags, ptr noundef writeonly %ref_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator17AllocateHistogramENS_13HistogramTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEiPj(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %histogram_type, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %minimum, i32 noundef %maximum, ptr noundef readonly captures(none) %bucket_ranges, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %ref_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %memory_allocator_, align 8
@@ -2611,7 +2611,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8FilePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4base24GlobalHistogramAllocator21GetPersistentLocationEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4base24GlobalHistogramAllocator21GetPersistentLocationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #10 align 2 {
 entry:
   %persistent_location_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   ret ptr %persistent_location_

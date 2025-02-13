@@ -6153,7 +6153,7 @@ while.end33:                                      ; preds = %while.body30, %BIT_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @HUF_decodeStreamX4(ptr noundef %p, ptr noundef nonnull captures(none) %bitDPtr, ptr noundef readnone %pEnd, ptr noundef nonnull readonly captures(none) %dt, i32 noundef %dtLog) unnamed_addr #9 {
+define internal fastcc void @HUF_decodeStreamX4(ptr noundef %p, ptr noundef nonnull captures(none) %bitDPtr, ptr noundef readnone captures(address) %pEnd, ptr noundef nonnull readonly captures(none) %dt, i32 noundef %dtLog) unnamed_addr #9 {
 entry:
   %bitsConsumed.i = getelementptr inbounds nuw i8, ptr %bitDPtr, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %pEnd, i64 -7

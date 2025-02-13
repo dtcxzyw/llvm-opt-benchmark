@@ -608,7 +608,7 @@ Aig_ManObj.exit:                                  ; preds = %9, %5, %3, %29, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Saig_ManReadBlif(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noundef ptr @Saig_ManReadBlif(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.24)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %.preheader267

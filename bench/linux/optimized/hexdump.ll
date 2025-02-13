@@ -129,7 +129,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @bin2hex(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 align 16 {
+define dso_local noundef ptr @bin2hex(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 

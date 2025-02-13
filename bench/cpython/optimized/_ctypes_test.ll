@@ -756,7 +756,7 @@ define void @my_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nounde
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_testfunc_ai8(ptr noundef readnone returned %0) local_unnamed_addr #10 {
+define noundef ptr @_testfunc_ai8(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #10 {
   ret ptr %0
 }
 
@@ -830,7 +830,7 @@ define x86_fp80 @_testfunc_D_bhilfD(i8 noundef signext %0, i16 noundef signext %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_testfunc_p_p(ptr noundef readnone returned %0) local_unnamed_addr #10 {
+define noundef ptr @_testfunc_p_p(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #10 {
   ret ptr %0
 }
 
@@ -1016,7 +1016,7 @@ define noundef i32 @getSPAMANDEGGS(ptr noundef writeonly captures(none) initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @_testfunc_byval(i64 %0, ptr noundef writeonly %1) local_unnamed_addr #23 {
+define i32 @_testfunc_byval(i64 %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #23 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.3.0.extract.shift = lshr i64 %0, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32

@@ -904,7 +904,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %pkt, i64 noundef %id, ptr noundef readonly %value, i64 noundef %value_len) local_unnamed_addr #1 {
+define ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %pkt, i64 noundef %id, ptr noundef readonly captures(address_is_null) %value, i64 noundef %value_len) local_unnamed_addr #1 {
 entry:
   %b = alloca ptr, align 8
   store ptr null, ptr %b, align 8
@@ -1052,7 +1052,7 @@ return:                                           ; preds = %ossl_quic_wire_enco
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_header(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly captures(none) %type, ptr noundef writeonly %was_minimal) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_header(ptr noundef readonly captures(none) %pkt, ptr noundef writeonly captures(none) %type, ptr noundef writeonly captures(address_is_null) %was_minimal) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i = load i64, ptr %0, align 8
@@ -1298,7 +1298,7 @@ return:                                           ; preds = %if.end.i41, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures(none) %pkt, i32 noundef %ack_delay_exponent, ptr noundef %ack, ptr noundef writeonly %total_ranges) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures(none) %pkt, i32 noundef %ack_delay_exponent, ptr noundef captures(address_is_null) %ack, ptr noundef writeonly captures(address_is_null) %total_ranges) local_unnamed_addr #1 {
 entry:
   %ect0 = alloca i64, align 8
   %ect1 = alloca i64, align 8
@@ -3258,7 +3258,7 @@ PACKET_peek_quic_vlint.exit:                      ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef captures(none) %pkt, ptr noundef writeonly %id, ptr noundef writeonly captures(none) %len) local_unnamed_addr #1 {
+define ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef captures(none) %pkt, ptr noundef writeonly captures(address_is_null) %id, ptr noundef writeonly captures(none) %len) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i = load i64, ptr %0, align 8
@@ -3325,7 +3325,7 @@ return:                                           ; preds = %lor.lhs.false3, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_int(ptr noundef captures(none) %pkt, ptr noundef writeonly %id, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_int(ptr noundef captures(none) %pkt, ptr noundef writeonly captures(address_is_null) %id, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i.i = load i64, ptr %0, align 8
@@ -3411,7 +3411,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_cid(ptr noundef captures(none) %pkt, ptr noundef writeonly %id, ptr noundef writeonly captures(none) %cid) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_cid(ptr noundef captures(none) %pkt, ptr noundef writeonly captures(address_is_null) %id, ptr noundef writeonly captures(none) %cid) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i.i = load i64, ptr %0, align 8

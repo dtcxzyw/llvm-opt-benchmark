@@ -218,7 +218,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_vlr_name(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_vlr_name(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %19, label %8
 
@@ -245,7 +245,7 @@ define internal noundef zeroext i16 @de_sgsap_vlr_name(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_sgs_cause(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_sgs_cause(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_sgsap_sgs_cause, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %.not = icmp eq ptr %5, null
@@ -264,7 +264,7 @@ define internal noundef zeroext i16 @de_sgsap_sgs_cause(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_mme_name(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_mme_name(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %19, label %8
 
@@ -291,7 +291,7 @@ define internal noundef zeroext i16 @de_sgsap_mme_name(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_eps_loc_upd_type(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_eps_loc_upd_type(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_sgsap_eps_location_update_type, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %.not = icmp eq ptr %5, null
@@ -333,7 +333,7 @@ define internal noundef zeroext i16 @de_sgsap_imsi_det_non_eps(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_imeisv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_imeisv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_sgsap_imeisv, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 408
@@ -379,7 +379,7 @@ define internal noundef zeroext i16 @de_sgsap_mm_info(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_err_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_err_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
@@ -555,7 +555,7 @@ define internal noundef zeroext i16 @de_sgsap_lcs_indic(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_serv_indic(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_serv_indic(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_sgsap_service_indicator_value, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %.not = icmp eq ptr %5, null

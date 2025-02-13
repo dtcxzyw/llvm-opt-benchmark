@@ -4822,7 +4822,7 @@ closestSide.exit:                                 ; preds = %closestSide.exit.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %7
 
@@ -5316,7 +5316,7 @@ define void @gv_initShapes() local_unnamed_addr #9 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @poly_inside(ptr noundef %0, double %1, double %2) #0 {
+define internal zeroext i1 @poly_inside(ptr noundef captures(address_is_null) %0, double %1, double %2) #0 {
   %4 = alloca %struct.boxf, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %240, label %5
@@ -5688,7 +5688,7 @@ define internal zeroext i1 @poly_inside(ptr noundef %0, double %1, double %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @point_inside(ptr noundef %0, double %1, double %2) #0 {
+define internal zeroext i1 @point_inside(ptr noundef captures(address_is_null) %0, double %1, double %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %4
 
@@ -5775,7 +5775,7 @@ define internal zeroext i1 @point_inside(ptr noundef %0, double %1, double %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @star_inside(ptr noundef readonly %0, double %1, double %2) #0 {
+define internal zeroext i1 @star_inside(ptr noundef readonly captures(address_is_null) %0, double %1, double %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -8840,7 +8840,7 @@ findFill.exit:                                    ; preds = %67, %71
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @map_rec_port(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
+define internal fastcc ptr @map_rec_port(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

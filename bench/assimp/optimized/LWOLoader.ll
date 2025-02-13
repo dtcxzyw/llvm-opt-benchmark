@@ -6619,7 +6619,7 @@ if.end:                                           ; preds = %sw.epilog, %_ZN6Ass
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %verts, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %faces, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef readnone %end, i32 noundef %max) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN6Assimp11LWOImporter22CountVertsAndFacesLWO2ERjS1_RPtPKtj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %verts, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %faces, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef readnone captures(address) %end, i32 noundef %max) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %cursor, align 8
   %cmp21 = icmp ult ptr %0, %end
@@ -6675,7 +6675,7 @@ while.end:                                        ; preds = %land.rhs, %while.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWO2ERN9__gnu_cxx17__normal_iteratorIPNS_3LWO4FaceESt6vectorIS4_SaIS4_EEEERPtPKt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %it, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef readnone %end) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWO2ERN9__gnu_cxx17__normal_iteratorIPNS_3LWO4FaceESt6vectorIS4_SaIS4_EEEERPtPKt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %it, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef readnone captures(address) %end) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %cursor, align 8
   %cmp23 = icmp ult ptr %0, %end

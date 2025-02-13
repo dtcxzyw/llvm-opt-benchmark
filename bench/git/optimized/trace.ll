@@ -953,7 +953,7 @@ declare ptr @xgetcwd() local_unnamed_addr #1
 declare ptr @repo_get_work_tree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quote_crnl(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @quote_crnl(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %2
 

@@ -208,7 +208,7 @@ _ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_.exit: ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8

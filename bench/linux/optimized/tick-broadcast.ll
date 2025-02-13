@@ -257,7 +257,7 @@ define dso_local void @tick_broadcast_switch_to_oneshot() local_unnamed_addr #2 
 declare dso_local void @tick_clock_notify() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @tick_is_broadcast_device(ptr noundef readnone %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @tick_is_broadcast_device(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 align 16 {
   %2 = icmp ne ptr %0, null
   %3 = load ptr, ptr @tick_broadcast_device, align 8
   %4 = icmp eq ptr %3, %0

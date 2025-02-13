@@ -541,7 +541,7 @@ define dso_local void @_ZN4llvm14FoldingSetBaseC2EOS0_(ptr noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !37
   tail call void @free(ptr noundef %3) #23
   %4 = load ptr, ptr %1, align 8, !tbaa !37
@@ -906,7 +906,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %.thread, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm14FoldingSetBase10RemoveNodeEPNS0_4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm14FoldingSetBase10RemoveNodeEPNS0_4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address) %1) local_unnamed_addr #10 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !39
   %.not = icmp ne ptr %3, null
   br i1 %.not, label %4, label %.critedge.thread

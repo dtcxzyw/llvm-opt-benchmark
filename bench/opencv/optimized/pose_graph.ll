@@ -1249,14 +1249,14 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK2cv5kinfu6detail13PoseGraphImpl10calcEnergyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 {
+define hidden noundef double @_ZNK2cv5kinfu6detail13PoseGraphImpl10calcEnergyEv(ptr noundef nonnull align 8 captures(address) dereferenceable(80) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef double @_ZNK2cv5kinfu6detail13PoseGraphImpl15calcEnergyNodesERKSt3mapImNS2_4NodeESt4lessImESaISt4pairIKmS4_EEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   ret double %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK2cv5kinfu6detail13PoseGraphImpl15calcEnergyNodesERKSt3mapImNS2_4NodeESt4lessImESaISt4pairIKmS4_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef double @_ZNK2cv5kinfu6detail13PoseGraphImpl15calcEnergyNodesERKSt3mapImNS2_4NodeESt4lessImESaISt4pairIKmS4_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"class.cv::Matx.31", align 8
   %4 = alloca %"class.cv::Matx.0", align 8
   %5 = alloca %"class.cv::Vec", align 8

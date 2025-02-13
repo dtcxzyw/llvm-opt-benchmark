@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Dims_create = weak alias i32 (i32, i32, ptr), ptr @PMPI_Dims_create
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Dims_create(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define i32 @PMPI_Dims_create(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %30

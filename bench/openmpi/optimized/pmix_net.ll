@@ -178,7 +178,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #6
 declare i32 @pmix_tsd_key_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @hostname_cleanup(ptr noundef %0) #7 {
+define internal void @hostname_cleanup(ptr noundef captures(address_is_null) %0) #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

@@ -5409,7 +5409,7 @@ define void @Io_End(ptr noundef readnone captures(none) %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 256) i32 @Abc_NtkReadCexFile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 256) i32 @Abc_NtkReadCexFile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.51)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12

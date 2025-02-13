@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kLosslessPresets = internal unnamed_addr constant [10 x %struct.anon] [%struct.anon zeroinitializer, %struct.anon { i8 1, i8 20 }, %struct.anon { i8 2, i8 25 }, %struct.anon { i8 3, i8 30 }, %struct.anon { i8 3, i8 50 }, %struct.anon { i8 4, i8 50 }, %struct.anon { i8 4, i8 75 }, %struct.anon { i8 4, i8 90 }, %struct.anon { i8 5, i8 90 }, %struct.anon { i8 6, i8 100 }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @WebPConfigInitInternal(ptr noundef %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPConfigInitInternal(ptr noundef captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.mask = and i32 %3, -256
   %.not = icmp ne i32 %.mask, 512
   %5 = icmp eq ptr %0, null
@@ -119,7 +119,7 @@ define range(i32 0, 2) i32 @WebPConfigInitInternal(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @WebPValidateConfig(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @WebPValidateConfig(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %98, label %3
 
@@ -303,7 +303,7 @@ define range(i32 0, 2) i32 @WebPValidateConfig(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @WebPConfigLosslessPreset(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @WebPConfigLosslessPreset(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 9
   %or.cond3 = or i1 %3, %4

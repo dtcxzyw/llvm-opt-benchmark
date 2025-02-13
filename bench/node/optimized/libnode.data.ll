@@ -924,7 +924,7 @@ entry:
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4node4quic9QuicErrorneERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %other) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4node4quic9QuicErrorneERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %other) local_unnamed_addr #9 align 2 {
 entry:
   %cmp.i = icmp eq ptr %this, %other
   br i1 %cmp.i, label %_ZNK4node4quic9QuicErroreqERKS1_.exit, label %if.end.i
@@ -961,7 +961,7 @@ _ZNK4node4quic9QuicErroreqERKS1_.exit:            ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4node4quic9QuicErroreqERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %other) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4node4quic9QuicErroreqERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %other) local_unnamed_addr #9 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end

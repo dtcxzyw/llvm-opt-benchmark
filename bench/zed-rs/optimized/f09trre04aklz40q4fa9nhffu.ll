@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ff47ae9b83d2abd701ac47193cbb976c.8 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"LayoutError" }>, align 1
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.18335129124631866386"(ptr noundef readnone %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.18335129124631866386"(ptr noundef readnone captures(address_is_null) %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 

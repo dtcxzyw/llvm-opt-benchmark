@@ -37,7 +37,7 @@ declare i32 @regex_list_match(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @init_allow_list(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @init_allow_list(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
 
@@ -79,7 +79,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @init_regex_list(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @is_allow_list_ok(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @is_allow_list_ok(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -101,7 +101,7 @@ define i32 @is_allow_list_ok(ptr noundef readonly %0) local_unnamed_addr #0 {
 declare i32 @is_regex_ok(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @allow_list_done(ptr noundef %0) local_unnamed_addr #0 {
+define void @allow_list_done(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

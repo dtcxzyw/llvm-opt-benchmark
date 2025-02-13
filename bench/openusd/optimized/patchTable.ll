@@ -3369,7 +3369,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable38setFVarPatchChannelLinearIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14pushPatchArrayENS1_15PatchDescriptorEiPiS4_S4_(ptr noundef nonnull align 8 dereferenceable(273) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14pushPatchArrayENS1_15PatchDescriptorEiPiS4_S4_(ptr noundef nonnull align 8 dereferenceable(273) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 align 2 {
   %7 = alloca %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", align 4
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %9, label %45

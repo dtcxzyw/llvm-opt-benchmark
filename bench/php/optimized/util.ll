@@ -88,7 +88,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hexChars = internal unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @phar_get_link_source(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @phar_get_link_source(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
@@ -177,7 +177,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @phar_get_efp(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @phar_get_efp(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br label %tailrecurse
 
@@ -452,7 +452,7 @@ phar_get_pharfp.exit11:                           ; preds = %31, %33
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @phar_seek_efp(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden i32 @phar_seek_efp(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @phar_get_efp(ptr noundef %0, i32 noundef %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %60, label %7
@@ -846,7 +846,7 @@ declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 declare i32 @_php_stream_stat_path(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1580,7 +1580,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare ptr @php_resolve_path(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = load i8, ptr %5, align 1
   %.not = icmp ne i8 %11, 114

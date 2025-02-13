@@ -532,7 +532,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ObjFileImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %file, ptr noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ObjFileImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(32) %file, ptr noundef captures(address_is_null) %pScene, ptr noundef %pIOHandler) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pIOHandler.addr = alloca ptr, align 8
   %fileStream = alloca %"class.std::unique_ptr", align 8
@@ -963,7 +963,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN6Assimp13ObjFileParserC1ERNS_14IOStreamBufferIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEPNS_15ProgressHandlerESB_(ptr noundef nonnull align 8 dereferenceable(4176), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ObjFileImporter20CreateDataFromImportEPKNS_7ObjFile5ModelEP7aiScene(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef %pModel, ptr noundef %pScene) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ObjFileImporter20CreateDataFromImportEPKNS_7ObjFile5ModelEP7aiScene(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef %pModel, ptr noundef captures(address_is_null) %pScene) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %MeshArray = alloca %"class.std::vector.45", align 8
   %mesh = alloca %"class.std::unique_ptr.50", align 8
@@ -1689,7 +1689,7 @@ return:                                           ; preds = %for.body33, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ObjFileImporter15createMaterialsEPKNS_7ObjFile5ModelEP7aiScene(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %pModel, ptr noundef %pScene) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ObjFileImporter15createMaterialsEPKNS_7ObjFile5ModelEP7aiScene(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %pModel, ptr noundef captures(address_is_null) %pScene) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %clampMode.addr.i229 = alloca i32, align 4
   %clampMode.addr.i224 = alloca i32, align 4
@@ -2315,7 +2315,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6Assimp15ObjFileImporter14createTopologyEPKNS_7ObjFile5ModelEPKNS1_6ObjectEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef readonly captures(none) %pModel, ptr noundef readonly %pData, i32 noundef %meshIndex) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN6Assimp15ObjFileImporter14createTopologyEPKNS_7ObjFile5ModelEPKNS1_6ObjectEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %this, ptr noundef readonly captures(none) %pModel, ptr noundef readonly captures(address_is_null) %pData, i32 noundef %meshIndex) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pMesh = alloca %"class.std::unique_ptr.50", align 8
   %cmp = icmp eq ptr %pData, null

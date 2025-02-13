@@ -81,7 +81,7 @@ define internal void @native_finalize() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) #0 {
+define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) #0 {
   tail call void @PMIx_Byte_object_construct(ptr noundef %5) #6
   %7 = icmp ne ptr %1, null
   %8 = icmp ne i64 %2, 0
@@ -183,7 +183,7 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly %5) #0 {
+define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
   %7 = alloca %struct.ucred, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

@@ -2756,7 +2756,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaParser20ReadEmbeddedTexturesERNS_18ZipArchiveIOSystemE(ptr noundef nonnull readonly align 8 dereferenceable(772) %this, ptr noundef nonnull align 8 dereferenceable(40) %zip_archive) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaParser20ReadEmbeddedTexturesERNS_18ZipArchiveIOSystemE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(772) %this, ptr noundef nonnull align 8 dereferenceable(40) %zip_archive) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288

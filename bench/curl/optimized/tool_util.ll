@@ -74,7 +74,7 @@ define dso_local i64 @tvdiff(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @struplocompare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define dso_local i32 @struplocompare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %5
 

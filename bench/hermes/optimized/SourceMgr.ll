@@ -384,7 +384,7 @@ _ZN4llvh9SourceMgr9SrcBufferD2Ev.exit:            ; preds = %if.end36.i, %_ZNKSt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr readnone %Loc.coerce) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK4llvh9SourceMgr23FindBufferContainingLocENS_5SMLocE(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %this, ptr readnone captures(address) %Loc.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %LastFoundBufId = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %LastFoundBufId, align 8
@@ -517,7 +517,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh9SourceMgr8FindLineENS_5SMLocEj(ptr noalias writeonly sret(%"struct.std::pair.36") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh9SourceMgr8FindLineENS_5SMLocEj(ptr noalias writeonly sret(%"struct.std::pair.36") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq i32 %BufferID, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1232,7 +1232,7 @@ return:                                           ; preds = %if.else37.i, %cond.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZNK4llvh9SourceMgr16getLineAndColumnENS_5SMLocEj(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZNK4llvh9SourceMgr16getLineAndColumnENS_5SMLocEj(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %BufferID) local_unnamed_addr #0 align 2 {
 entry:
   %LineRefAndNo = alloca %"struct.std::pair.36", align 8
   call void @_ZNK4llvh9SourceMgr8FindLineENS_5SMLocEj(ptr nonnull sret(%"struct.std::pair.36") align 8 %LineRefAndNo, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %Loc.coerce, i32 noundef %BufferID)
@@ -1250,7 +1250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %IncludeLoc.coerce, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %this, ptr %IncludeLoc.coerce, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
   %LineRefAndNo.i.i = alloca %"struct.std::pair.36", align 8
   %cmp.i = icmp eq ptr %IncludeLoc.coerce, null
@@ -1733,7 +1733,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(18)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh9SourceMgr12PrintMessageERNS_11raw_ostreamERKNS_12SMDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(360) %Diagnostic, i1 noundef zeroext %ShowColors) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK4llvh9SourceMgr12PrintMessageERNS_11raw_ostreamERKNS_12SMDiagnosticEb(ptr noundef nonnull align 8 captures(address) dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(360) %Diagnostic, i1 noundef zeroext %ShowColors) local_unnamed_addr #0 align 2 {
 entry:
   %DiagHandler = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %DiagHandler, align 8

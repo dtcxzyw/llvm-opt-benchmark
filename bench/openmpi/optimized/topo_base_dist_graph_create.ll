@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_dist_graph_distribute(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
+define i32 @mca_topo_base_dist_graph_distribute(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ompi_status_public_t, align 8
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int, i64 24), align 8
   %11 = getelementptr i8, ptr %1, i64 248
@@ -718,7 +718,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_dist_graph_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define i32 @mca_topo_base_dist_graph_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(address) %6, ptr noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = tail call i32 @ompi_comm_dup_with_info(ptr noundef %1, ptr noundef %7, ptr noundef %9) #9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %32, label %12

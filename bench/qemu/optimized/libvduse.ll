@@ -1804,7 +1804,7 @@ return:                                           ; preds = %entry, %if.end30, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @vduse_dev_create(ptr noundef %name, i32 noundef %device_id, i32 noundef %vendor_id, i64 noundef %features, i16 noundef zeroext %num_queues, i32 noundef %config_size, ptr noundef readonly %config, ptr noundef %ops, ptr noundef %priv) local_unnamed_addr #2 {
+define dso_local noundef ptr @vduse_dev_create(ptr noundef %name, i32 noundef %device_id, i32 noundef %vendor_id, i64 noundef %features, i16 noundef zeroext %num_queues, i32 noundef %config_size, ptr noundef readonly captures(address_is_null) %config, ptr noundef %ops, ptr noundef %priv) local_unnamed_addr #2 {
 entry:
   %version = alloca i64, align 8
   %tobool.not = icmp eq ptr %name, null

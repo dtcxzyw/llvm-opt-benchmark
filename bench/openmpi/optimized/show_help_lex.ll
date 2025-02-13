@@ -1442,7 +1442,7 @@ opal_show_help_yyensure_buffer_stack.exit:        ; preds = %10, %11, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opal_show_help_yy_init_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @opal_show_help_yy_init_buffer(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @__errno_location() #24
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
@@ -1636,7 +1636,7 @@ define void @opal_show_help_yy_switch_to_buffer(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @opal_show_help_yy_delete_buffer(ptr noundef %0) local_unnamed_addr #4 {
+define void @opal_show_help_yy_delete_buffer(ptr noundef captures(address) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1683,7 +1683,7 @@ define void @opal_show_help_yyfree(ptr noundef captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @opal_show_help_yy_flush_buffer(ptr noundef %0) local_unnamed_addr #6 {
+define void @opal_show_help_yy_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

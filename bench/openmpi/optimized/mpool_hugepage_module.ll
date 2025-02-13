@@ -377,7 +377,7 @@ define void @mca_mpool_hugepage_seg_free(ptr noundef %0, ptr noundef %1) #2 {
 declare i32 @opal_rb_tree_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @mca_mpool_rb_hugepage_compare(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
+define internal noundef range(i32 -1, 2) i32 @mca_mpool_rb_hugepage_compare(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #4 {
   %3 = icmp eq ptr %0, %1
   %4 = icmp ult ptr %0, %1
   %5 = select i1 %4, i32 -1, i32 1

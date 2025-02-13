@@ -2517,7 +2517,7 @@ _ZN4core5slice4sort6shared5pivot7median317h884b1f45c1b277b3E.llvm.79687114102040
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h884b1f45c1b277b3E.llvm.7968711410204056067(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %3) unnamed_addr #18 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h884b1f45c1b277b3E.llvm.7968711410204056067(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %2, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %3) unnamed_addr #18 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1073)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1076)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8854,7 +8854,7 @@ define void @"_ZN105_$LT$language_selector..active_buffer_language..ActiveBuffer
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN121_$LT$language_selector..active_buffer_language..ActiveBufferLanguage$u20$as$u20$workspace..status_bar..StatusItemView$GT$20set_active_pane_item17h5059e4d2d6769faeE"(ptr noalias noundef align 8 dereferenceable(80) %0, ptr noundef align 1 %1, ptr readonly %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN121_$LT$language_selector..active_buffer_language..ActiveBufferLanguage$u20$as$u20$workspace..status_bar..StatusItemView$GT$20set_active_pane_item17h5059e4d2d6769faeE"(ptr noalias noundef align 8 dereferenceable(80) %0, ptr noundef align 1 %1, ptr readonly captures(address_is_null) %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [608 x i8], align 8
   %6 = alloca [608 x i8], align 8
   %7 = alloca [608 x i8], align 8

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/f_int.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_INTEGER(ptr noundef %bp, ptr noundef readonly %a) local_unnamed_addr #0 {
+define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_INTEGER(ptr noundef %bp, ptr noundef readonly captures(address_is_null) %a) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2 x i8], align 1
   %cmp = icmp eq ptr %a, null

@@ -172,7 +172,7 @@ declare i32 @opal_cond_init(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @model_callback(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
+define internal void @model_callback(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
   %10 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #6
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %3, null

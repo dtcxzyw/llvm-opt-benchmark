@@ -1552,7 +1552,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @aio_ctx_dispatch(ptr noundef %source, ptr noundef readnone %callback, ptr readnone captures(none) %user_data) #0 {
+define internal noundef i32 @aio_ctx_dispatch(ptr noundef %source, ptr noundef readnone captures(address_is_null) %callback, ptr readnone captures(none) %user_data) #0 {
 entry:
   %cmp = icmp eq ptr %callback, null
   br i1 %cmp, label %if.end, label %if.else

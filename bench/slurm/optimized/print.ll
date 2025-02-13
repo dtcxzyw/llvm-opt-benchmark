@@ -649,7 +649,7 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @_print_cluster_name(ptr noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #4 {
+define dso_local noundef i32 @_print_cluster_name(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %9, label %6
 

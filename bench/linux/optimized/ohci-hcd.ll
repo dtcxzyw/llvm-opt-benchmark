@@ -1223,7 +1223,7 @@ define dso_local noundef range(i32 -75, 1) i32 @ohci_restart(ptr noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ed_deschedule(ptr noundef captures(none) %0, ptr noundef initializes((80, 81)) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ed_deschedule(ptr noundef captures(none) %0, ptr noundef captures(address) initializes((80, 81)) %1) unnamed_addr #0 align 16 {
   %3 = load i32, ptr %1, align 16
   %4 = or i32 %3, 16384
   store i32 %4, ptr %1, align 16
@@ -3449,7 +3449,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 declare dso_local void @usb_hcd_resume_root_hub(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ohci_init_driver(ptr noundef writeonly captures(none) initializes((0, 376)) %0, ptr noundef readonly %1) #5 align 16 {
+define dso_local void @ohci_init_driver(ptr noundef writeonly captures(none) initializes((0, 376)) %0, ptr noundef readonly captures(address_is_null) %1) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(376) @ohci_hc_driver, i64 376, i1 false)
   %3 = icmp eq ptr %1, null
   br i1 %3, label %16, label %4

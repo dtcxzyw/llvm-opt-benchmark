@@ -184,7 +184,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN15JavaCallWrapperD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15JavaCallWrapperD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JavaCallWrapperC2ERK12methodHandle6HandleP9JavaValueP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN15JavaCallWrapperC2ERK12methodHandle6HandleP9JavaValueP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
