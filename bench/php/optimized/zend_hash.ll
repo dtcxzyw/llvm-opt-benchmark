@@ -2819,7 +2819,7 @@ define noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #5 {
   store ptr %273, ptr %274, align 8
   %275 = sext i32 %269 to i64
   %276 = getelementptr inbounds i32, ptr %273, i64 %275
-  %277 = icmp ugt i32 %270, 15
+  %277 = icmp ne i32 %269, 0
   tail call void @llvm.assume(i1 %277)
   %278 = and i64 %271, 15
   %279 = icmp eq i64 %278, 0
