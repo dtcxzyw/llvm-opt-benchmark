@@ -846,8 +846,8 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
 
 26:                                               ; preds = %17
   %27 = lshr exact i32 %switch.select2, 1
-  %28 = mul nuw nsw i32 %27, 3
-  %29 = select i1 %2, i32 %switch.select2, i32 %28
+  %28 = select i1 %2, i32 0, i32 %27
+  %29 = add nuw nsw i32 %28, %switch.select2
   %30 = call zeroext i1 @rng_is_initialized() #12
   %31 = select i1 %30, i32 2, i32 1
   %32 = zext nneg i32 %29 to i64

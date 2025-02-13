@@ -6454,7 +6454,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %62, %60
 
 85:                                               ; preds = %67
   %86 = ashr exact i32 %72, 1
-  %87 = mul nsw i32 %86, 3
+  %87 = add nsw i32 %86, %72
   %.sroa.2.0.insert.ext.i = zext i32 %87 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %71 to i64
