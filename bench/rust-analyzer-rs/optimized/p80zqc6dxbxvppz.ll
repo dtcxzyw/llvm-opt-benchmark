@@ -60349,7 +60349,7 @@ define hidden void @"_ZN15chalk_recursive11fixed_point29RecursiveContext$LT$K$C$
 .body:                                            ; preds = %.thread.thread.i.thread, %682, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread", %644, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i", %.thread453, %145, %215, %95, %780, %431, %318
   %.2186 = phi i8 [ %.0182, %318 ], [ %.0182, %431 ], [ %.0182, %780 ], [ %.1185, %95 ], [ %.0182, %215 ], [ %.0182, %145 ], [ %.0182, %.thread453 ], [ %.0182, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i" ], [ %.0182, %644 ], [ %.0182, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread" ], [ %.0182, %682 ], [ %.0182, %.thread.thread.i.thread ]
   %.2 = phi i8 [ %.0182, %318 ], [ %.0182, %431 ], [ %.0182, %780 ], [ %.1183, %95 ], [ %.0182, %215 ], [ %.0182, %145 ], [ %.0182, %.thread453 ], [ %.0182, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i" ], [ %.0182, %644 ], [ %.0182, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread" ], [ %.0182, %682 ], [ %.0182, %.thread.thread.i.thread ]
-  %.pn210 = phi { ptr, i32 } [ %319, %318 ], [ %432, %431 ], [ %lpad.thr_comm.split-lp, %780 ], [ %96, %95 ], [ %lpad.phi.i, %215 ], [ %146, %145 ], [ %lpad.thr_comm, %.thread453 ], [ %.pn86.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i" ], [ %645, %644 ], [ %.pn86.pn219.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread" ], [ %683, %682 ], [ %lpad.thr_comm568, %.thread.thread.i.thread ]
+  %.pn210 = phi { ptr, i32 } [ %319, %318 ], [ %432, %431 ], [ %lpad.thr_comm.split-lp, %780 ], [ %96, %95 ], [ %lpad.phi.i, %215 ], [ %146, %145 ], [ %lpad.thr_comm, %.thread453 ], [ %.pn86.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i" ], [ %645, %644 ], [ %.pn86.pn217.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread" ], [ %683, %682 ], [ %lpad.thr_comm568, %.thread.thread.i.thread ]
   %92 = trunc nuw i8 %.2186 to i1
   %93 = load i64, ptr %86, align 8, !range !997
   %94 = icmp ne i64 %93, 2
@@ -61539,12 +61539,12 @@ _ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit.i: ; preds = %517, %514,
   %490 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %526
 
-.thread.i:                                        ; preds = %656, %594, %584, %568, %.loopexit.split-lp240.i, %.loopexit239.i, %.loopexit.i289
-  %.pn86.i = phi { ptr, i32 } [ %lpad.phi233.i, %656 ], [ %lpad.phi238.i, %594 ], [ %585, %584 ], [ %569, %568 ], [ %lpad.loopexit.i290, %.loopexit.i289 ], [ %lpad.loopexit.split-lp242.i, %.loopexit.split-lp240.i ], [ %lpad.loopexit241.i, %.loopexit239.i ]
+.thread.i:                                        ; preds = %656, %594, %584, %568, %.loopexit.split-lp242.i, %.loopexit241.i, %.loopexit.i289
+  %.pn86.i = phi { ptr, i32 } [ %lpad.phi235.i, %656 ], [ %lpad.phi240.i, %594 ], [ %585, %584 ], [ %569, %568 ], [ %lpad.loopexit.i290, %.loopexit.i289 ], [ %lpad.loopexit.split-lp244.i, %.loopexit.split-lp242.i ], [ %lpad.loopexit243.i, %.loopexit241.i ]
   %491 = load i64, ptr %29, align 8, !range !997, !noalias !11677
   %492 = icmp ne i64 %491, 2
-  %or.cond.not.i = select i1 %475, i1 %492, i1 false
-  br i1 %or.cond.not.i, label %657, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i"
+  %or.cond222.not.i = select i1 %475, i1 %492, i1 false
+  br i1 %or.cond222.not.i, label %657, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i"
 
 .loopexit.i289:                                   ; preds = %526
   %lpad.loopexit.i290 = landingpad { ptr, i32 }
@@ -61728,13 +61728,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   invoke void @_ZN15chalk_recursive5solve14SolveIteration15solve_iteration17hf9dc682208d1f3f4E(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %17, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %527, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %528 unwind label %.loopexit.i289
 
-.loopexit239.i:                                   ; preds = %.sink.split.i.i.i134.i, %635
-  %lpad.loopexit241.i = landingpad { ptr, i32 }
+.loopexit241.i:                                   ; preds = %.sink.split.i.i.i134.i, %635
+  %lpad.loopexit243.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
 
-.loopexit.split-lp240.i:                          ; preds = %.sink.split.i.i.i129.i, %630
-  %lpad.loopexit.split-lp242.i = landingpad { ptr, i32 }
+.loopexit.split-lp242.i:                          ; preds = %.sink.split.i.i.i129.i, %630
+  %lpad.loopexit.split-lp244.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
 
@@ -61754,7 +61754,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 533:                                              ; preds = %531
   %534 = invoke noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h8dcfce8925f7caa6E(ptr noundef nonnull align 8 @"_ZN15chalk_recursive11fixed_point29RecursiveContext$LT$K$C$V$GT$17solve_new_subgoal10__CALLSITE17hd0d944d4e48e4868E")
-          to label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.i unwind label %.loopexit229.i
+          to label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.i unwind label %.loopexit231.i
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.i: ; preds = %533
   %535 = icmp eq i8 %534, 0
@@ -61764,7 +61764,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   %.0.i110198.i = phi i8 [ %534, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.i ], [ %532, %531 ], [ %532, %531 ]
   %536 = load ptr, ptr @"_ZN15chalk_recursive11fixed_point29RecursiveContext$LT$K$C$V$GT$17solve_new_subgoal10__CALLSITE17hd0d944d4e48e4868E", align 8, !noalias !11677, !nonnull !26, !align !49, !noundef !26
   %537 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hc13899c385d0edd3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %536, i8 noundef %.0.i110198.i)
-          to label %538 unwind label %.loopexit229.i
+          to label %538 unwind label %.loopexit231.i
 
 538:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.thread.i
   br i1 %537, label %541, label %.critedge.i293
@@ -61772,7 +61772,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
 .critedge.i293:                                   ; preds = %553, %538, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.i, %531, %528
   %539 = load i64, ptr %31, align 8, !noalias !11677, !noundef !26
   %540 = invoke noundef align 1 dereferenceable(2) ptr @"_ZN144_$LT$chalk_recursive..fixed_point..stack..Stack$u20$as$u20$core..ops..index..IndexMut$LT$chalk_recursive..fixed_point..stack..StackDepth$GT$$GT$9index_mut17heb90d482f7cc4b98E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %539, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28135de274d03f7326f8b1cc2219b0f5.174)
-          to label %554 unwind label %.loopexit229.i
+          to label %554 unwind label %.loopexit231.i
 
 541:                                              ; preds = %538
   %542 = load ptr, ptr @"_ZN15chalk_recursive11fixed_point29RecursiveContext$LT$K$C$V$GT$17solve_new_subgoal10__CALLSITE17hd0d944d4e48e4868E", align 8, !noalias !11677, !nonnull !26, !align !49, !noundef !26
@@ -61791,7 +61791,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
 
 551:                                              ; preds = %541
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.28135de274d03f7326f8b1cc2219b0f5.66, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28135de274d03f7326f8b1cc2219b0f5.170) #48
-          to label %518 unwind label %.loopexit.split-lp230.i
+          to label %518 unwind label %.loopexit.split-lp232.i
 
 552:                                              ; preds = %541
   store ptr %544, ptr %15, align 8, !noalias !11677
@@ -61818,7 +61818,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   store i64 1, ptr %.sroa.2.0..sroa_idx.i287, align 8, !noalias !11677
   store ptr %543, ptr %.sroa.3.0..sroa_idx.i288, align 8, !noalias !11677
   invoke void @_ZN12tracing_core5event5Event8dispatch17h28d28993ace4f1e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %542, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
-          to label %553 unwind label %.loopexit229.i
+          to label %553 unwind label %.loopexit231.i
 
 553:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !11677
@@ -61859,7 +61859,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
 
 567:                                              ; preds = %563
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %564, i64 noundef %565, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28135de274d03f7326f8b1cc2219b0f5.176) #48
-          to label %.noexc120.i unwind label %.loopexit.split-lp230.i
+          to label %.noexc120.i unwind label %.loopexit.split-lp232.i
 
 .noexc120.i:                                      ; preds = %567
   unreachable
@@ -61908,8 +61908,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19), !noalias !11677
   %582 = load i64, ptr %29, align 8, !range !997, !noalias !11677
   %583 = icmp ne i64 %582, 2
-  %or.cond.not275.i = select i1 %475, i1 %583, i1 false
-  br i1 %or.cond.not275.i, label %638, label %659
+  %or.cond230.not.i = select i1 %475, i1 %583, i1 false
+  br i1 %or.cond230.not.i, label %638, label %659
 
 584:                                              ; preds = %562
   %585 = landingpad { ptr, i32 }
@@ -61934,23 +61934,23 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
 
 593:                                              ; preds = %588
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %564, i64 noundef %591, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28135de274d03f7326f8b1cc2219b0f5.177) #48
-          to label %.noexc124.i unwind label %.loopexit.split-lp235.i
+          to label %.noexc124.i unwind label %.loopexit.split-lp237.i
 
 .noexc124.i:                                      ; preds = %593
   unreachable
 
-.loopexit234.i:                                   ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread212.i", %"_ZN76_$LT$chalk_ir..ConstrainedSubst$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2af09f2ec2798878E.llvm.3864848197730831337.exit.i.i.i.i.i"
-  %lpad.loopexit236.i = landingpad { ptr, i32 }
+.loopexit236.i:                                   ; preds = %624, %"_ZN76_$LT$chalk_ir..ConstrainedSubst$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2af09f2ec2798878E.llvm.3864848197730831337.exit.i.i.i.i.i"
+  %lpad.loopexit238.i = landingpad { ptr, i32 }
           cleanup
   br label %594
 
-.loopexit.split-lp235.i:                          ; preds = %617, %593
-  %lpad.loopexit.split-lp237.i = landingpad { ptr, i32 }
+.loopexit.split-lp237.i:                          ; preds = %617, %593
+  %lpad.loopexit.split-lp239.i = landingpad { ptr, i32 }
           cleanup
   br label %594
 
-594:                                              ; preds = %.loopexit.split-lp235.i, %.loopexit234.i
-  %lpad.phi238.i = phi { ptr, i32 } [ %lpad.loopexit236.i, %.loopexit234.i ], [ %lpad.loopexit.split-lp237.i, %.loopexit.split-lp235.i ]
+594:                                              ; preds = %.loopexit.split-lp237.i, %.loopexit236.i
+  %lpad.phi240.i = phi { ptr, i32 } [ %lpad.loopexit238.i, %.loopexit236.i ], [ %lpad.loopexit.split-lp239.i, %.loopexit.split-lp237.i ]
   invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE"(ptr noalias noundef align 8 dereferenceable(40) %11) #49
           to label %.thread.i unwind label %586
 
@@ -62001,7 +62001,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
 
 "_ZN76_$LT$chalk_ir..ConstrainedSubst$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2af09f2ec2798878E.llvm.3864848197730831337.exit.i.i.i.i.i": ; preds = %610
   %616 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hbd81203689285a6bE.llvm.3864848197730831337"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %597)
-          to label %.noexc126.i unwind label %.loopexit234.i
+          to label %.noexc126.i unwind label %.loopexit236.i
 
 .noexc126.i:                                      ; preds = %"_ZN76_$LT$chalk_ir..ConstrainedSubst$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2af09f2ec2798878E.llvm.3864848197730831337.exit.i.i.i.i.i"
   br i1 %616, label %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.i.i", label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread212.i"
@@ -62010,11 +62010,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   call void @llvm.assume(i1 %607)
   %618 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %619 = invoke noundef zeroext i1 @"_ZN78_$LT$chalk_solve..solve..Guidance$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45d4a03c17af4db1E.llvm.3864848197730831337"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %489, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %618)
-          to label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i" unwind label %.loopexit.split-lp235.i
+          to label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i" unwind label %.loopexit.split-lp237.i
 
 "_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.thread6.i.i": ; preds = %603
   call void @llvm.assume(i1 %601)
-  br label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i"
+  br label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i"
 
 "_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.i.i": ; preds = %.noexc126.i
   %620 = getelementptr inbounds nuw i8, ptr %597, i64 32
@@ -62023,19 +62023,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   %621 = load ptr, ptr %488, align 8, !alias.scope !11763, !noalias !11764, !nonnull !26, !noundef !26
   %622 = load ptr, ptr %620, align 8, !alias.scope !11765, !noalias !11763, !nonnull !26, !noundef !26
   %623 = icmp eq ptr %621, %622
-  br i1 %623, label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i", label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread212.i"
+  br i1 %623, label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i", label %624
 
 "_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.i": ; preds = %604, %595
-  %624 = icmp eq i64 %600, -9223372036854775808
-  br i1 %624, label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i", label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread212.i"
+  %.old.i = icmp eq i64 %600, -9223372036854775808
+  br i1 %.old.i, label %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i", label %624
 
-"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread212.i": ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.i", %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.i.i", %.noexc126.i, %610
+624:                                              ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.i", %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.i.i", %.noexc126.i, %610
   %625 = load i64, ptr %30, align 8, !noalias !11677, !noundef !26
   %626 = add i64 %625, 1
   invoke void @"_ZN15chalk_recursive11fixed_point12search_graph24SearchGraph$LT$K$C$V$GT$11rollback_to17hf0bafa94feaa53feE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %289, i64 noundef %626)
-          to label %633 unwind label %.loopexit234.i
+          to label %633 unwind label %.loopexit236.i
 
-"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i": ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.i", %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.i.i", %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.thread6.i.i", %617
+"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i": ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.i", %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.i.i", %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e03d9fac4976a02E.llvm.3864848197730831337.exit.thread6.i.i", %617
   %627 = load ptr, ptr %19, align 8, !noalias !11677, !nonnull !26, !align !49, !noundef !26
   %628 = load i64, ptr %627, align 8, !noundef !26
   %629 = load i64, ptr %11, align 8, !range !11708, !alias.scope !11766, !noalias !11677, !noundef !26
@@ -62044,20 +62044,20 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
     i64 -9223372036854775808, label %631
   ]
 
-630:                                              ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i"
+630:                                              ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i"
   invoke void @"_ZN4core3ptr108drop_in_place$LT$chalk_ir..Canonical$LT$chalk_ir..ConstrainedSubst$LT$hir_ty..interner..Interner$GT$$GT$$GT$17hf3acbb430c9287baE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
-          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit132.i" unwind label %.loopexit.split-lp240.i
+          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit132.i" unwind label %.loopexit.split-lp242.i
 
-631:                                              ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i"
+631:                                              ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i"
   %632 = load i64, ptr %489, align 8, !range !997, !alias.scope !11769, !noalias !11677, !noundef !26
   %switch.i.i.i128.i = icmp samesign ult i64 %632, 2
   br i1 %switch.i.i.i128.i, label %.sink.split.i.i.i129.i, label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit132.i"
 
 .sink.split.i.i.i129.i:                           ; preds = %631
   invoke void @"_ZN4core3ptr104drop_in_place$LT$chalk_ir..Canonical$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h8f7557d2a5b3036eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %490)
-          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit132.i" unwind label %.loopexit.split-lp240.i
+          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit132.i" unwind label %.loopexit.split-lp242.i
 
-633:                                              ; preds = %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread212.i"
+633:                                              ; preds = %624
   %634 = load i64, ptr %11, align 8, !range !11708, !alias.scope !11774, !noalias !11677, !noundef !26
   switch i64 %634, label %635 [
     i64 -9223372036854775807, label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit137.i"
@@ -62066,7 +62066,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
 
 635:                                              ; preds = %633
   invoke void @"_ZN4core3ptr108drop_in_place$LT$chalk_ir..Canonical$LT$chalk_ir..ConstrainedSubst$LT$hir_ty..interner..Interner$GT$$GT$$GT$17hf3acbb430c9287baE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
-          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit137.i" unwind label %.loopexit239.i
+          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit137.i" unwind label %.loopexit241.i
 
 636:                                              ; preds = %633
   %637 = load i64, ptr %489, align 8, !range !997, !alias.scope !11777, !noalias !11677, !noundef !26
@@ -62075,7 +62075,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
 
 .sink.split.i.i.i134.i:                           ; preds = %636
   invoke void @"_ZN4core3ptr104drop_in_place$LT$chalk_ir..Canonical$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h8f7557d2a5b3036eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %490)
-          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit137.i" unwind label %.loopexit239.i
+          to label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit137.i" unwind label %.loopexit241.i
 
 "_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit137.i": ; preds = %.sink.split.i.i.i134.i, %636, %635, %633
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !11677
@@ -62084,29 +62084,29 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19), !noalias !11677
   br label %526
 
-"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit132.i": ; preds = %.sink.split.i.i.i129.i, %631, %630, %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread213.i"
+"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE.exit132.i": ; preds = %.sink.split.i.i.i129.i, %631, %630, %"_ZN15chalk_recursive9recursive301_$LT$impl$u20$chalk_recursive..fixed_point..SolverStuff$LT$chalk_ir..UCanonical$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$I$GT$$GT$$GT$$C$core..result..Result$LT$chalk_solve..solve..Solution$LT$I$GT$$C$chalk_ir..NoSolution$GT$$GT$$u20$for$u20$$RF$dyn$u20$chalk_solve..RustIrDatabase$LT$I$GT$$GT$19reached_fixed_point17h9e933ec8530ee8eeE.exit.thread211.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !11677
   br label %581
 
 638:                                              ; preds = %581
   %639 = getelementptr inbounds nuw i8, ptr %29, i64 24
   invoke void @_ZN12tracing_core10dispatcher8Dispatch4exit17he976d4e472c35aa3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %639)
-          to label %.thread214.i unwind label %.thread215.i
+          to label %.thread212.i unwind label %.thread213.i
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i": ; preds = %.thread.i
   br i1 %475, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread", label %.body
 
-.thread215.i:                                     ; preds = %638
+.thread213.i:                                     ; preds = %638
   %640 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread"
 
-.thread214.i:                                     ; preds = %638
+.thread212.i:                                     ; preds = %638
   %.pr.i = load i64, ptr %29, align 8, !alias.scope !11782, !noalias !11677
   %.not.i.i.i = icmp eq i64 %.pr.i, 2
   br i1 %.not.i.i.i, label %659, label %641
 
-641:                                              ; preds = %.thread214.i
+641:                                              ; preds = %.thread212.i
   %642 = load i64, ptr %639, align 8, !alias.scope !11785, !noalias !11677, !noundef !26
   %643 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h6028cbc136eeafe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %29, i64 noundef %642)
           to label %646 unwind label %644
@@ -62148,18 +62148,18 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #50
   unreachable
 
-.loopexit229.i:                                   ; preds = %552, %.critedge.i293, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.thread.i, %533
-  %lpad.loopexit231.i = landingpad { ptr, i32 }
+.loopexit231.i:                                   ; preds = %552, %.critedge.i293, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112.thread.i, %533
+  %lpad.loopexit233.i = landingpad { ptr, i32 }
           cleanup
   br label %656
 
-.loopexit.split-lp230.i:                          ; preds = %567, %551
-  %lpad.loopexit.split-lp232.i = landingpad { ptr, i32 }
+.loopexit.split-lp232.i:                          ; preds = %567, %551
+  %lpad.loopexit.split-lp234.i = landingpad { ptr, i32 }
           cleanup
   br label %656
 
-656:                                              ; preds = %.loopexit.split-lp230.i, %.loopexit229.i
-  %lpad.phi233.i = phi { ptr, i32 } [ %lpad.loopexit231.i, %.loopexit229.i ], [ %lpad.loopexit.split-lp232.i, %.loopexit.split-lp230.i ]
+656:                                              ; preds = %.loopexit.split-lp232.i, %.loopexit231.i
+  %lpad.phi235.i = phi { ptr, i32 } [ %lpad.loopexit233.i, %.loopexit231.i ], [ %lpad.loopexit.split-lp234.i, %.loopexit.split-lp232.i ]
   invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$17h5b1bb19c0c67376dE"(ptr noalias noundef align 8 dereferenceable(40) %17) #49
           to label %.thread.i unwind label %586
 
@@ -62168,12 +62168,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit112
   invoke void @_ZN12tracing_core10dispatcher8Dispatch4exit17he976d4e472c35aa3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %658)
           to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread" unwind label %586
 
-"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread": ; preds = %.thread.thread.i, %657, %.thread215.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i"
-  %.pn86.pn219.i = phi { ptr, i32 } [ %640, %.thread215.i ], [ %.pn86.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i" ], [ %.pn86.i, %657 ], [ %lpad.thr_comm.split-lp569, %.thread.thread.i ]
+"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i.thread": ; preds = %.thread.thread.i, %657, %.thread213.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i"
+  %.pn86.pn217.i = phi { ptr, i32 } [ %640, %.thread213.i ], [ %.pn86.i, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit140.i" ], [ %.pn86.i, %657 ], [ %lpad.thr_comm.split-lp569, %.thread.thread.i ]
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc182427d61c9a88eE"(ptr noalias noundef align 8 dereferenceable(40) %29) #49
           to label %.body unwind label %586
 
-659:                                              ; preds = %648, %646, %.thread214.i, %581, %.noexc310
+659:                                              ; preds = %648, %646, %.thread212.i, %581, %.noexc310
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29), !noalias !11677
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
